@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 #[inline]
-pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BindIFilterFromStorage<P0, P1>(pstg: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::System::Com::StructuredStorage::IStorage>,
     P1: windows_core::Param<windows_core::IUnknown>,
@@ -10,7 +10,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn BindIFilterFromStream<P0, P1>(pstm: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
     P1: windows_core::Param<windows_core::IUnknown>,
@@ -19,7 +19,7 @@ where
     unsafe { BindIFilterFromStream(pstm.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn LoadIFilter<P0, P1>(pwcspath: P0, punkouter: P1, ppiunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
@@ -28,7 +28,7 @@ where
     unsafe { LoadIFilter(pwcspath.param().abi(), punkouter.param().abi(), ppiunk as _).ok() }
 }
 #[inline]
-pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn LoadIFilterEx<P0>(pwcspath: P0, dwflags: u32, riid: *const windows_core::GUID, ppiunk: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -382,14 +382,14 @@ impl windows_core::RuntimeName for IFilter {}
 windows_core::imp::define_interface!(IPhraseSink, IPhraseSink_Vtbl, 0xcc906ff0_c058_101a_b554_08002b33b0e6);
 windows_core::imp::interface_hierarchy!(IPhraseSink, windows_core::IUnknown);
 impl IPhraseSink {
-    pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>
+    pub unsafe fn PutSmallPhrase<P0, P2>(&self, pwcnoun: P0, cwcnoun: u32, pwcmodifier: P2, cwcmodifier: u32, ulattachmenttype: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).PutSmallPhrase)(windows_core::Interface::as_raw(self), pwcnoun.param().abi(), cwcnoun, pwcmodifier.param().abi(), cwcmodifier, ulattachmenttype).ok() }
     }
-    pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> windows_core::Result<()>
+    pub unsafe fn PutPhrase<P0>(&self, pwcphrase: P0, cwcphrase: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -404,8 +404,8 @@ pub struct IPhraseSink_Vtbl {
     pub PutPhrase: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32) -> windows_core::HRESULT,
 }
 pub trait IPhraseSink_Impl: windows_core::IUnknownImpl {
-    fn PutSmallPhrase(&self, pwcnoun: &windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: &windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> windows_core::Result<()>;
-    fn PutPhrase(&self, pwcphrase: &windows_core::PCWSTR, cwcphrase: u32) -> windows_core::Result<()>;
+    fn PutSmallPhrase(&self, pwcnoun: &windows_core::PCWSTR, cwcnoun: u32, pwcmodifier: &windows_core::PCWSTR, cwcmodifier: u32, ulattachmenttype: u32) -> Result<(), windows_result::HRESULT>;
+    fn PutPhrase(&self, pwcphrase: &windows_core::PCWSTR, cwcphrase: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IPhraseSink_Vtbl {
     pub const fn new<Identity: IPhraseSink_Impl, const OFFSET: isize>() -> Self {

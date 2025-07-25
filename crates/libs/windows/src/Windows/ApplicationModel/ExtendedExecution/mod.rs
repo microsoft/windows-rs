@@ -32,7 +32,7 @@ impl windows_core::RuntimeType for ExtendedExecutionResult {
 pub struct ExtendedExecutionRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ExtendedExecutionRevokedEventArgs {
-    pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionRevokedReason> {
+    pub fn Reason(&self) -> Result<ExtendedExecutionRevokedReason, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -71,51 +71,51 @@ pub struct ExtendedExecutionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionSession, super::super::Foundation::IClosable);
 impl ExtendedExecutionSession {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ExtendedExecutionSession, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionReason> {
+    pub fn Reason(&self) -> Result<ExtendedExecutionReason, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReason(&self, value: ExtendedExecutionReason) -> windows_core::Result<()> {
+    pub fn SetReason(&self, value: ExtendedExecutionReason) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReason)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn PercentProgress(&self) -> windows_core::Result<u32> {
+    pub fn PercentProgress(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PercentProgress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPercentProgress(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetPercentProgress(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPercentProgress)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Revoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Revoked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, ExtendedExecutionRevokedEventArgs>>,
     {
@@ -125,11 +125,11 @@ impl ExtendedExecutionSession {
             (windows_core::Interface::vtable(this).Revoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRevoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRevoked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRevoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ExtendedExecutionResult>> {
+    pub fn RequestExtensionAsync(&self) -> Result<windows_future::IAsyncOperation<ExtendedExecutionResult>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

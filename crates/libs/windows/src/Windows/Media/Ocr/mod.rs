@@ -78,7 +78,7 @@ pub struct OcrEngine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrEngine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrEngine {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncOperation<OcrResult>>
+    pub fn RecognizeAsync<P0>(&self, bitmap: P0) -> Result<windows_future::IAsyncOperation<OcrResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -89,28 +89,28 @@ impl OcrEngine {
         }
     }
     #[cfg(feature = "Globalization")]
-    pub fn RecognizerLanguage(&self) -> windows_core::Result<super::super::Globalization::Language> {
+    pub fn RecognizerLanguage(&self) -> Result<super::super::Globalization::Language, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecognizerLanguage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaxImageDimension() -> windows_core::Result<u32> {
+    pub fn MaxImageDimension() -> Result<u32, windows_result::HRESULT> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxImageDimension)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "Globalization")]
-    pub fn AvailableRecognizerLanguages() -> windows_core::Result<windows_collections::IVectorView<super::super::Globalization::Language>> {
+    pub fn AvailableRecognizerLanguages() -> Result<windows_collections::IVectorView<super::super::Globalization::Language>, windows_result::HRESULT> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableRecognizerLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Globalization")]
-    pub fn IsLanguageSupported<P0>(language: P0) -> windows_core::Result<bool>
+    pub fn IsLanguageSupported<P0>(language: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Globalization::Language>,
     {
@@ -120,7 +120,7 @@ impl OcrEngine {
         })
     }
     #[cfg(feature = "Globalization")]
-    pub fn TryCreateFromLanguage<P0>(language: P0) -> windows_core::Result<OcrEngine>
+    pub fn TryCreateFromLanguage<P0>(language: P0) -> Result<OcrEngine, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Globalization::Language>,
     {
@@ -129,13 +129,13 @@ impl OcrEngine {
             (windows_core::Interface::vtable(this).TryCreateFromLanguage)(windows_core::Interface::as_raw(this), language.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateFromUserProfileLanguages() -> windows_core::Result<OcrEngine> {
+    pub fn TryCreateFromUserProfileLanguages() -> Result<OcrEngine, windows_result::HRESULT> {
         Self::IOcrEngineStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateFromUserProfileLanguages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IOcrEngineStatics<R, F: FnOnce(&IOcrEngineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IOcrEngineStatics<R, F: FnOnce(&IOcrEngineStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<OcrEngine, IOcrEngineStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -157,14 +157,14 @@ unsafe impl Sync for OcrEngine {}
 pub struct OcrLine(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrLine, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrLine {
-    pub fn Words(&self) -> windows_core::Result<windows_collections::IVectorView<OcrWord>> {
+    pub fn Words(&self) -> Result<windows_collections::IVectorView<OcrWord>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Words)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -189,21 +189,21 @@ unsafe impl Sync for OcrLine {}
 pub struct OcrResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrResult, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrResult {
-    pub fn Lines(&self) -> windows_core::Result<windows_collections::IVectorView<OcrLine>> {
+    pub fn Lines(&self) -> Result<windows_collections::IVectorView<OcrLine>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lines)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TextAngle(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn TextAngle(&self) -> Result<super::super::Foundation::IReference<f64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextAngle)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -228,14 +228,14 @@ unsafe impl Sync for OcrResult {}
 pub struct OcrWord(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OcrWord, windows_core::IUnknown, windows_core::IInspectable);
 impl OcrWord {
-    pub fn BoundingRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn BoundingRect(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

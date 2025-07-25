@@ -154,28 +154,28 @@ impl windows_core::RuntimeType for ILearningModelFeatureDescriptor {
 }
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureDescriptor {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -187,60 +187,60 @@ impl windows_core::RuntimeName for ILearningModelFeatureDescriptor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureDescriptor";
 }
 pub trait ILearningModelFeatureDescriptor_Impl: windows_core::IUnknownImpl {
-    fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Description(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
-    fn IsRequired(&self) -> windows_core::Result<bool>;
+    fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT>;
+    fn IsRequired(&self) -> Result<bool, windows_result::HRESULT>;
 }
 impl ILearningModelFeatureDescriptor_Vtbl {
     pub const fn new<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILearningModelFeatureDescriptor_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn Description<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Description<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILearningModelFeatureDescriptor_Impl::Description(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn Kind<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn Kind<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILearningModelFeatureDescriptor_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn IsRequired<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsRequired<Identity: ILearningModelFeatureDescriptor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILearningModelFeatureDescriptor_Impl::IsRequired(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -271,7 +271,7 @@ impl windows_core::RuntimeType for ILearningModelFeatureValue {
 }
 windows_core::imp::interface_hierarchy!(ILearningModelFeatureValue, windows_core::IUnknown, windows_core::IInspectable);
 impl ILearningModelFeatureValue {
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -283,19 +283,19 @@ impl windows_core::RuntimeName for ILearningModelFeatureValue {
     const NAME: &'static str = "Windows.AI.MachineLearning.ILearningModelFeatureValue";
 }
 pub trait ILearningModelFeatureValue_Impl: windows_core::IUnknownImpl {
-    fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind>;
+    fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT>;
 }
 impl ILearningModelFeatureValue_Vtbl {
     pub const fn new<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Kind<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn Kind<Identity: ILearningModelFeatureValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut LearningModelFeatureKind) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ILearningModelFeatureValue_Impl::Kind(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -468,21 +468,21 @@ impl windows_core::RuntimeType for ITensor {
 windows_core::imp::interface_hierarchy!(ITensor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ITensor, ILearningModelFeatureValue);
 impl ITensor {
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -494,33 +494,33 @@ impl windows_core::RuntimeName for ITensor {
     const NAME: &'static str = "Windows.AI.MachineLearning.ITensor";
 }
 pub trait ITensor_Impl: ILearningModelFeatureValue_Impl {
-    fn TensorKind(&self) -> windows_core::Result<TensorKind>;
-    fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>>;
+    fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT>;
+    fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT>;
 }
 impl ITensor_Vtbl {
     pub const fn new<Identity: ITensor_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn TensorKind<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut TensorKind) -> windows_core::HRESULT {
+        unsafe extern "system" fn TensorKind<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut TensorKind) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITensor_Impl::TensorKind(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn Shape<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Shape<Identity: ITensor_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITensor_Impl::Shape(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1036,7 +1036,7 @@ windows_core::imp::interface_hierarchy!(ImageFeatureDescriptor, windows_core::IU
 windows_core::imp::required_hierarchy!(ImageFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl ImageFeatureDescriptor {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn BitmapPixelFormat(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapPixelFormat> {
+    pub fn BitmapPixelFormat(&self) -> Result<super::super::Graphics::Imaging::BitmapPixelFormat, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1044,56 +1044,56 @@ impl ImageFeatureDescriptor {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn BitmapAlphaMode(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapAlphaMode> {
+    pub fn BitmapAlphaMode(&self) -> Result<super::super::Graphics::Imaging::BitmapAlphaMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitmapAlphaMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Width(&self) -> windows_core::Result<u32> {
+    pub fn Width(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Width)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Height(&self) -> windows_core::Result<u32> {
+    pub fn Height(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Height)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PixelRange(&self) -> windows_core::Result<LearningModelPixelRange> {
+    pub fn PixelRange(&self) -> Result<LearningModelPixelRange, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IImageFeatureDescriptor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PixelRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1120,7 +1120,7 @@ windows_core::imp::interface_hierarchy!(ImageFeatureValue, windows_core::IUnknow
 windows_core::imp::required_hierarchy!(ImageFeatureValue, ILearningModelFeatureValue);
 impl ImageFeatureValue {
     #[cfg(feature = "Media")]
-    pub fn VideoFrame(&self) -> windows_core::Result<super::super::Media::VideoFrame> {
+    pub fn VideoFrame(&self) -> Result<super::super::Media::VideoFrame, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1128,7 +1128,7 @@ impl ImageFeatureValue {
         }
     }
     #[cfg(feature = "Media")]
-    pub fn CreateFromVideoFrame<P0>(image: P0) -> windows_core::Result<ImageFeatureValue>
+    pub fn CreateFromVideoFrame<P0>(image: P0) -> Result<ImageFeatureValue, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Media::VideoFrame>,
     {
@@ -1137,14 +1137,14 @@ impl ImageFeatureValue {
             (windows_core::Interface::vtable(this).CreateFromVideoFrame)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IImageFeatureValueStatics<R, F: FnOnce(&IImageFeatureValueStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ImageFeatureValue, IImageFeatureValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1167,60 +1167,60 @@ pub struct LearningModel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModel, super::super::Foundation::IClosable);
 impl LearningModel {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Author(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Author(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Author)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Domain(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Domain(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Domain)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Version(&self) -> windows_core::Result<i64> {
+    pub fn Version(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Metadata(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Metadata(&self) -> Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Metadata)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InputFeatures(&self) -> windows_core::Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>> {
+    pub fn InputFeatures(&self) -> Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputFeatures)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OutputFeatures(&self) -> windows_core::Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>> {
+    pub fn OutputFeatures(&self) -> Result<windows_collections::IVectorView<ILearningModelFeatureDescriptor>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1228,7 +1228,7 @@ impl LearningModel {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileAsync<P0>(modelfile: P0) -> Result<windows_future::IAsyncOperation<LearningModel>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -1238,7 +1238,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamAsync<P0>(modelstream: P0) -> Result<windows_future::IAsyncOperation<LearningModel>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1247,14 +1247,14 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStreamAsync)(windows_core::Interface::as_raw(this), modelstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LoadFromFilePath(filepath: &windows_core::HSTRING) -> windows_core::Result<LearningModel> {
+    pub fn LoadFromFilePath(filepath: &windows_core::HSTRING) -> Result<LearningModel, windows_result::HRESULT> {
         Self::ILearningModelStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LoadFromFilePath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filepath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStream<P0>(modelstream: P0) -> windows_core::Result<LearningModel>
+    pub fn LoadFromStream<P0>(modelstream: P0) -> Result<LearningModel, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1264,7 +1264,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStorageFileWithOperatorProviderAsync<P0, P1>(modelfile: P0, operatorprovider: P1) -> Result<windows_future::IAsyncOperation<LearningModel>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1275,7 +1275,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<windows_future::IAsyncOperation<LearningModel>>
+    pub fn LoadFromStreamWithOperatorProviderAsync<P0, P1>(modelstream: P0, operatorprovider: P1) -> Result<windows_future::IAsyncOperation<LearningModel>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1285,7 +1285,7 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProviderAsync)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LoadFromFilePathWithOperatorProvider<P1>(filepath: &windows_core::HSTRING, operatorprovider: P1) -> windows_core::Result<LearningModel>
+    pub fn LoadFromFilePathWithOperatorProvider<P1>(filepath: &windows_core::HSTRING, operatorprovider: P1) -> Result<LearningModel, windows_result::HRESULT>
     where
         P1: windows_core::Param<ILearningModelOperatorProvider>,
     {
@@ -1295,7 +1295,7 @@ impl LearningModel {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadFromStreamWithOperatorProvider<P0, P1>(modelstream: P0, operatorprovider: P1) -> windows_core::Result<LearningModel>
+    pub fn LoadFromStreamWithOperatorProvider<P0, P1>(modelstream: P0, operatorprovider: P1) -> Result<LearningModel, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
         P1: windows_core::Param<ILearningModelOperatorProvider>,
@@ -1305,7 +1305,7 @@ impl LearningModel {
             (windows_core::Interface::vtable(this).LoadFromStreamWithOperatorProvider)(windows_core::Interface::as_raw(this), modelstream.param().abi(), operatorprovider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelStatics<R, F: FnOnce(&ILearningModelStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModel, ILearningModelStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1328,14 +1328,14 @@ pub struct LearningModelBinding(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelBinding, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( LearningModelBinding , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
 impl LearningModelBinding {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Bind<P1>(&self, name: &windows_core::HSTRING, value: P1) -> windows_core::Result<()>
+    pub fn Bind<P1>(&self, name: &windows_core::HSTRING, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1343,7 +1343,7 @@ impl LearningModelBinding {
         unsafe { (windows_core::Interface::vtable(this).Bind)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn BindWithProperties<P1, P2>(&self, name: &windows_core::HSTRING, value: P1, props: P2) -> windows_core::Result<()>
+    pub fn BindWithProperties<P1, P2>(&self, name: &windows_core::HSTRING, value: P1, props: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
@@ -1351,11 +1351,11 @@ impl LearningModelBinding {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).BindWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi(), props.param().abi()).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateFromSession<P0>(session: P0) -> windows_core::Result<LearningModelBinding>
+    pub fn CreateFromSession<P0>(session: P0) -> Result<LearningModelBinding, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModelSession>,
     {
@@ -1364,32 +1364,32 @@ impl LearningModelBinding {
             (windows_core::Interface::vtable(this).CreateFromSession)(windows_core::Interface::as_raw(this), session.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelBindingFactory<R, F: FnOnce(&ILearningModelBindingFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelBinding, ILearningModelBindingFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1426,7 +1426,7 @@ pub struct LearningModelDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelDevice {
     #[cfg(feature = "Graphics")]
-    pub fn AdapterId(&self) -> windows_core::Result<super::super::Graphics::DisplayAdapterId> {
+    pub fn AdapterId(&self) -> Result<super::super::Graphics::DisplayAdapterId, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1434,21 +1434,21 @@ impl LearningModelDevice {
         }
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn Direct3D11Device(&self) -> windows_core::Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice> {
+    pub fn Direct3D11Device(&self) -> Result<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Direct3D11Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(devicekind: LearningModelDeviceKind) -> windows_core::Result<LearningModelDevice> {
+    pub fn Create(devicekind: LearningModelDeviceKind) -> Result<LearningModelDevice, windows_result::HRESULT> {
         Self::ILearningModelDeviceFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), devicekind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromDirect3D11Device<P0>(device: P0) -> windows_core::Result<LearningModelDevice>
+    pub fn CreateFromDirect3D11Device<P0>(device: P0) -> Result<LearningModelDevice, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
     {
@@ -1457,11 +1457,11 @@ impl LearningModelDevice {
             (windows_core::Interface::vtable(this).CreateFromDirect3D11Device)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILearningModelDeviceFactory<R, F: FnOnce(&ILearningModelDeviceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelDeviceFactory<R, F: FnOnce(&ILearningModelDeviceFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ILearningModelDeviceStatics<R, F: FnOnce(&ILearningModelDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelDeviceStatics<R, F: FnOnce(&ILearningModelDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelDevice, ILearningModelDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1499,28 +1499,28 @@ impl windows_core::RuntimeType for LearningModelDeviceKind {
 pub struct LearningModelEvaluationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelEvaluationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelEvaluationResult {
-    pub fn CorrelationId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CorrelationId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CorrelationId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ErrorStatus(&self) -> windows_core::Result<i32> {
+    pub fn ErrorStatus(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+    pub fn Succeeded(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Outputs(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Outputs(&self) -> Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1575,18 +1575,18 @@ pub struct LearningModelSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(LearningModelSession, super::super::Foundation::IClosable);
 impl LearningModelSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Model(&self) -> windows_core::Result<LearningModel> {
+    pub fn Model(&self) -> Result<LearningModel, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Model)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Device(&self) -> windows_core::Result<LearningModelDevice> {
+    pub fn Device(&self) -> Result<LearningModelDevice, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1594,14 +1594,14 @@ impl LearningModelSession {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn EvaluationProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn EvaluationProperties(&self) -> Result<super::super::Foundation::Collections::IPropertySet, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EvaluationProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateAsync<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModelBinding>,
     {
@@ -1611,7 +1611,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateAsync)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>>
+    pub fn EvaluateFeaturesAsync<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<LearningModelEvaluationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
@@ -1621,7 +1621,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateFeaturesAsync)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Evaluate<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
+    pub fn Evaluate<P0>(&self, bindings: P0, correlationid: &windows_core::HSTRING) -> Result<LearningModelEvaluationResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModelBinding>,
     {
@@ -1631,7 +1631,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).Evaluate)(windows_core::Interface::as_raw(this), bindings.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EvaluateFeatures<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> windows_core::Result<LearningModelEvaluationResult>
+    pub fn EvaluateFeatures<P0>(&self, features: P0, correlationid: &windows_core::HSTRING) -> Result<LearningModelEvaluationResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>,
     {
@@ -1641,7 +1641,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).EvaluateFeatures)(windows_core::Interface::as_raw(this), features.param().abi(), core::mem::transmute_copy(correlationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromModel<P0>(model: P0) -> windows_core::Result<LearningModelSession>
+    pub fn CreateFromModel<P0>(model: P0) -> Result<LearningModelSession, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModel>,
     {
@@ -1650,7 +1650,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).CreateFromModel)(windows_core::Interface::as_raw(this), model.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromModelOnDevice<P0, P1>(model: P0, devicetorunon: P1) -> windows_core::Result<LearningModelSession>
+    pub fn CreateFromModelOnDevice<P0, P1>(model: P0, devicetorunon: P1) -> Result<LearningModelSession, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModel>,
         P1: windows_core::Param<LearningModelDevice>,
@@ -1660,7 +1660,7 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).CreateFromModelOnDevice)(windows_core::Interface::as_raw(this), model.param().abi(), devicetorunon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromModelOnDeviceWithSessionOptions<P0, P1, P2>(model: P0, devicetorunon: P1, learningmodelsessionoptions: P2) -> windows_core::Result<LearningModelSession>
+    pub fn CreateFromModelOnDeviceWithSessionOptions<P0, P1, P2>(model: P0, devicetorunon: P1, learningmodelsessionoptions: P2) -> Result<LearningModelSession, windows_result::HRESULT>
     where
         P0: windows_core::Param<LearningModel>,
         P1: windows_core::Param<LearningModelDevice>,
@@ -1671,11 +1671,11 @@ impl LearningModelSession {
             (windows_core::Interface::vtable(this).CreateFromModelOnDeviceWithSessionOptions)(windows_core::Interface::as_raw(this), model.param().abi(), devicetorunon.param().abi(), learningmodelsessionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILearningModelSessionFactory<R, F: FnOnce(&ILearningModelSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelSessionFactory<R, F: FnOnce(&ILearningModelSessionFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ILearningModelSessionFactory2<R, F: FnOnce(&ILearningModelSessionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILearningModelSessionFactory2<R, F: FnOnce(&ILearningModelSessionFactory2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelSession, ILearningModelSessionFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1697,36 +1697,36 @@ unsafe impl Sync for LearningModelSession {}
 pub struct LearningModelSessionOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LearningModelSessionOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl LearningModelSessionOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LearningModelSessionOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn BatchSizeOverride(&self) -> windows_core::Result<u32> {
+    pub fn BatchSizeOverride(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatchSizeOverride)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBatchSizeOverride(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetBatchSizeOverride(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBatchSizeOverride)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CloseModelOnSessionCreation(&self) -> windows_core::Result<bool> {
+    pub fn CloseModelOnSessionCreation(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CloseModelOnSessionCreation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCloseModelOnSessionCreation(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCloseModelOnSessionCreation(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelSessionOptions2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCloseModelOnSessionCreation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OverrideNamedDimension(&self, name: &windows_core::HSTRING, dimension: u32) -> windows_core::Result<()> {
+    pub fn OverrideNamedDimension(&self, name: &windows_core::HSTRING, dimension: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelSessionOptions3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).OverrideNamedDimension)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), dimension).ok() }
     }
@@ -1749,42 +1749,42 @@ pub struct MapFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MapFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl MapFeatureDescriptor {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn KeyKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn KeyKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ValueDescriptor(&self) -> windows_core::Result<ILearningModelFeatureDescriptor> {
+    pub fn ValueDescriptor(&self) -> Result<ILearningModelFeatureDescriptor, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1810,35 +1810,35 @@ pub struct SequenceFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SequenceFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SequenceFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl SequenceFeatureDescriptor {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ElementDescriptor(&self) -> windows_core::Result<ILearningModelFeatureDescriptor> {
+    pub fn ElementDescriptor(&self) -> Result<ILearningModelFeatureDescriptor, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1864,52 +1864,52 @@ pub struct TensorBoolean(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorBoolean, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorBoolean, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorBoolean {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<bool>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorBoolean> {
+    pub fn Create() -> Result<TensorBoolean, windows_result::HRESULT> {
         Self::ITensorBooleanStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorBoolean>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorBoolean, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -1918,7 +1918,7 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[bool]) -> windows_core::Result<TensorBoolean>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[bool]) -> Result<TensorBoolean, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -1927,7 +1927,7 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorBoolean>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorBoolean, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<bool>>,
@@ -1937,14 +1937,14 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[bool]) -> windows_core::Result<TensorBoolean> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[bool]) -> Result<TensorBoolean, windows_result::HRESULT> {
         Self::ITensorBooleanStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorBoolean>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorBoolean, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1953,11 +1953,11 @@ impl TensorBoolean {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorBooleanStatics<R, F: FnOnce(&ITensorBooleanStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorBooleanStatics<R, F: FnOnce(&ITensorBooleanStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorBooleanStatics2<R, F: FnOnce(&ITensorBooleanStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorBooleanStatics2<R, F: FnOnce(&ITensorBooleanStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorBoolean, ITensorBooleanStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1980,52 +1980,52 @@ pub struct TensorDouble(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorDouble, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorDouble, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorDouble {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f64>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<f64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorDouble> {
+    pub fn Create() -> Result<TensorDouble, windows_result::HRESULT> {
         Self::ITensorDoubleStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorDouble>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorDouble, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2034,7 +2034,7 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[f64]) -> windows_core::Result<TensorDouble>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[f64]) -> Result<TensorDouble, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2043,7 +2043,7 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorDouble>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorDouble, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<f64>>,
@@ -2053,14 +2053,14 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f64]) -> windows_core::Result<TensorDouble> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f64]) -> Result<TensorDouble, windows_result::HRESULT> {
         Self::ITensorDoubleStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorDouble>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorDouble, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2069,11 +2069,11 @@ impl TensorDouble {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorDoubleStatics<R, F: FnOnce(&ITensorDoubleStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorDoubleStatics<R, F: FnOnce(&ITensorDoubleStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorDouble, ITensorDoubleStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorDoubleStatics2<R, F: FnOnce(&ITensorDoubleStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorDoubleStatics2<R, F: FnOnce(&ITensorDoubleStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorDouble, ITensorDoubleStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2096,42 +2096,42 @@ pub struct TensorFeatureDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFeatureDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFeatureDescriptor, ILearningModelFeatureDescriptor);
 impl TensorFeatureDescriptor {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRequired(&self) -> windows_core::Result<bool> {
+    pub fn IsRequired(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureDescriptor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRequired)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2157,52 +2157,52 @@ pub struct TensorFloat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorFloat {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f32>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<f32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorFloat> {
+    pub fn Create() -> Result<TensorFloat, windows_result::HRESULT> {
         Self::ITensorFloatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorFloat, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2211,7 +2211,7 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> Result<TensorFloat, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2220,7 +2220,7 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorFloat, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<f32>>,
@@ -2230,14 +2230,14 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> windows_core::Result<TensorFloat> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> Result<TensorFloat, windows_result::HRESULT> {
         Self::ITensorFloatStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorFloat>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorFloat, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2246,11 +2246,11 @@ impl TensorFloat {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorFloatStatics<R, F: FnOnce(&ITensorFloatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloatStatics<R, F: FnOnce(&ITensorFloatStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat, ITensorFloatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorFloatStatics2<R, F: FnOnce(&ITensorFloatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloatStatics2<R, F: FnOnce(&ITensorFloatStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat, ITensorFloatStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2273,52 +2273,52 @@ pub struct TensorFloat16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorFloat16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorFloat16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorFloat16Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<f32>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<f32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorFloat16Bit> {
+    pub fn Create() -> Result<TensorFloat16Bit, windows_result::HRESULT> {
         Self::ITensorFloat16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorFloat16Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorFloat16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2327,7 +2327,7 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> windows_core::Result<TensorFloat16Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[f32]) -> Result<TensorFloat16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2336,7 +2336,7 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorFloat16Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorFloat16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<f32>>,
@@ -2346,14 +2346,14 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> windows_core::Result<TensorFloat16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[f32]) -> Result<TensorFloat16Bit, windows_result::HRESULT> {
         Self::ITensorFloat16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorFloat16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorFloat16Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2362,11 +2362,11 @@ impl TensorFloat16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorFloat16BitStatics<R, F: FnOnce(&ITensorFloat16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloat16BitStatics<R, F: FnOnce(&ITensorFloat16BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorFloat16BitStatics2<R, F: FnOnce(&ITensorFloat16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorFloat16BitStatics2<R, F: FnOnce(&ITensorFloat16BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorFloat16Bit, ITensorFloat16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2389,52 +2389,52 @@ pub struct TensorInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorInt16Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i16>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<i16>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorInt16Bit> {
+    pub fn Create() -> Result<TensorInt16Bit, windows_result::HRESULT> {
         Self::ITensorInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt16Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2443,7 +2443,7 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[i16]) -> windows_core::Result<TensorInt16Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[i16]) -> Result<TensorInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2452,7 +2452,7 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt16Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<i16>>,
@@ -2462,14 +2462,14 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i16]) -> windows_core::Result<TensorInt16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i16]) -> Result<TensorInt16Bit, windows_result::HRESULT> {
         Self::ITensorInt16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorInt16Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2478,11 +2478,11 @@ impl TensorInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorInt16BitStatics<R, F: FnOnce(&ITensorInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt16BitStatics<R, F: FnOnce(&ITensorInt16BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorInt16BitStatics2<R, F: FnOnce(&ITensorInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt16BitStatics2<R, F: FnOnce(&ITensorInt16BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt16Bit, ITensorInt16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2505,52 +2505,52 @@ pub struct TensorInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt32Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorInt32Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i32>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<i32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorInt32Bit> {
+    pub fn Create() -> Result<TensorInt32Bit, windows_result::HRESULT> {
         Self::ITensorInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt32Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2559,7 +2559,7 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[i32]) -> windows_core::Result<TensorInt32Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[i32]) -> Result<TensorInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2568,7 +2568,7 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt32Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<i32>>,
@@ -2578,14 +2578,14 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i32]) -> windows_core::Result<TensorInt32Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i32]) -> Result<TensorInt32Bit, windows_result::HRESULT> {
         Self::ITensorInt32BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt32Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorInt32Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2594,11 +2594,11 @@ impl TensorInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorInt32BitStatics<R, F: FnOnce(&ITensorInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt32BitStatics<R, F: FnOnce(&ITensorInt32BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorInt32BitStatics2<R, F: FnOnce(&ITensorInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt32BitStatics2<R, F: FnOnce(&ITensorInt32BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt32Bit, ITensorInt32BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2621,52 +2621,52 @@ pub struct TensorInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt64Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorInt64Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorInt64Bit> {
+    pub fn Create() -> Result<TensorInt64Bit, windows_result::HRESULT> {
         Self::ITensorInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt64Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2675,7 +2675,7 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[i64]) -> windows_core::Result<TensorInt64Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[i64]) -> Result<TensorInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2684,7 +2684,7 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt64Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<i64>>,
@@ -2694,14 +2694,14 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i64]) -> windows_core::Result<TensorInt64Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[i64]) -> Result<TensorInt64Bit, windows_result::HRESULT> {
         Self::ITensorInt64BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt64Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorInt64Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2710,11 +2710,11 @@ impl TensorInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorInt64BitStatics<R, F: FnOnce(&ITensorInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt64BitStatics<R, F: FnOnce(&ITensorInt64BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorInt64BitStatics2<R, F: FnOnce(&ITensorInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt64BitStatics2<R, F: FnOnce(&ITensorInt64BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt64Bit, ITensorInt64BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2737,52 +2737,52 @@ pub struct TensorInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorInt8Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorInt8Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u8>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<u8>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorInt8Bit> {
+    pub fn Create() -> Result<TensorInt8Bit, windows_result::HRESULT> {
         Self::ITensorInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorInt8Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2791,7 +2791,7 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorInt8Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> Result<TensorInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2800,7 +2800,7 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorInt8Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<u8>>,
@@ -2810,14 +2810,14 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> windows_core::Result<TensorInt8Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> Result<TensorInt8Bit, windows_result::HRESULT> {
         Self::ITensorInt8BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorInt8Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorInt8Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -2826,11 +2826,11 @@ impl TensorInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorInt8BitStatics<R, F: FnOnce(&ITensorInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt8BitStatics<R, F: FnOnce(&ITensorInt8BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorInt8BitStatics2<R, F: FnOnce(&ITensorInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorInt8BitStatics2<R, F: FnOnce(&ITensorInt8BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorInt8Bit, ITensorInt8BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2880,52 +2880,52 @@ pub struct TensorString(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorString, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorString, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorString {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorString> {
+    pub fn Create() -> Result<TensorString, windows_result::HRESULT> {
         Self::ITensorStringStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorString>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorString, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2934,7 +2934,7 @@ impl TensorString {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[windows_core::HSTRING]) -> windows_core::Result<TensorString>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[windows_core::HSTRING]) -> Result<TensorString, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -2943,7 +2943,7 @@ impl TensorString {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorString>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorString, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
@@ -2953,17 +2953,17 @@ impl TensorString {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[windows_core::HSTRING]) -> windows_core::Result<TensorString> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[windows_core::HSTRING]) -> Result<TensorString, windows_result::HRESULT> {
         Self::ITensorStringStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), core::mem::transmute(data.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorStringStatics<R, F: FnOnce(&ITensorStringStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorString, ITensorStringStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorStringStatics2<R, F: FnOnce(&ITensorStringStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorStringStatics2<R, F: FnOnce(&ITensorStringStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorString, ITensorStringStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2986,52 +2986,52 @@ pub struct TensorUInt16Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt16Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt16Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorUInt16Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u16>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<u16>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorUInt16Bit> {
+    pub fn Create() -> Result<TensorUInt16Bit, windows_result::HRESULT> {
         Self::ITensorUInt16BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt16Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorUInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3040,7 +3040,7 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[u16]) -> windows_core::Result<TensorUInt16Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[u16]) -> Result<TensorUInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3049,7 +3049,7 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt16Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorUInt16Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<u16>>,
@@ -3059,14 +3059,14 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u16]) -> windows_core::Result<TensorUInt16Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u16]) -> Result<TensorUInt16Bit, windows_result::HRESULT> {
         Self::ITensorUInt16BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt16Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorUInt16Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3075,11 +3075,11 @@ impl TensorUInt16Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorUInt16BitStatics<R, F: FnOnce(&ITensorUInt16BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt16BitStatics<R, F: FnOnce(&ITensorUInt16BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorUInt16BitStatics2<R, F: FnOnce(&ITensorUInt16BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt16BitStatics2<R, F: FnOnce(&ITensorUInt16BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt16Bit, ITensorUInt16BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3102,52 +3102,52 @@ pub struct TensorUInt32Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt32Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt32Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorUInt32Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u32>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<u32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorUInt32Bit> {
+    pub fn Create() -> Result<TensorUInt32Bit, windows_result::HRESULT> {
         Self::ITensorUInt32BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt32Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorUInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3156,7 +3156,7 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[u32]) -> windows_core::Result<TensorUInt32Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[u32]) -> Result<TensorUInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3165,7 +3165,7 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt32Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorUInt32Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<u32>>,
@@ -3175,14 +3175,14 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u32]) -> windows_core::Result<TensorUInt32Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u32]) -> Result<TensorUInt32Bit, windows_result::HRESULT> {
         Self::ITensorUInt32BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt32Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorUInt32Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3191,11 +3191,11 @@ impl TensorUInt32Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorUInt32BitStatics<R, F: FnOnce(&ITensorUInt32BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt32BitStatics<R, F: FnOnce(&ITensorUInt32BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorUInt32BitStatics2<R, F: FnOnce(&ITensorUInt32BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt32BitStatics2<R, F: FnOnce(&ITensorUInt32BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt32Bit, ITensorUInt32BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3218,52 +3218,52 @@ pub struct TensorUInt64Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt64Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt64Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorUInt64Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u64>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<u64>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorUInt64Bit> {
+    pub fn Create() -> Result<TensorUInt64Bit, windows_result::HRESULT> {
         Self::ITensorUInt64BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt64Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorUInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3272,7 +3272,7 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[u64]) -> windows_core::Result<TensorUInt64Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[u64]) -> Result<TensorUInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3281,7 +3281,7 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt64Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorUInt64Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<u64>>,
@@ -3291,14 +3291,14 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u64]) -> windows_core::Result<TensorUInt64Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u64]) -> Result<TensorUInt64Bit, windows_result::HRESULT> {
         Self::ITensorUInt64BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt64Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorUInt64Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3307,11 +3307,11 @@ impl TensorUInt64Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorUInt64BitStatics<R, F: FnOnce(&ITensorUInt64BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt64BitStatics<R, F: FnOnce(&ITensorUInt64BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorUInt64BitStatics2<R, F: FnOnce(&ITensorUInt64BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt64BitStatics2<R, F: FnOnce(&ITensorUInt64BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt64Bit, ITensorUInt64BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3334,52 +3334,52 @@ pub struct TensorUInt8Bit(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TensorUInt8Bit, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TensorUInt8Bit, super::super::Foundation::IClosable, ILearningModelFeatureValue, super::super::Foundation::IMemoryBuffer, ITensor);
 impl TensorUInt8Bit {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<LearningModelFeatureKind> {
+    pub fn Kind(&self) -> Result<LearningModelFeatureKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ILearningModelFeatureValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateReference(&self) -> windows_core::Result<super::super::Foundation::IMemoryBufferReference> {
+    pub fn CreateReference(&self) -> Result<super::super::Foundation::IMemoryBufferReference, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IMemoryBuffer>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateReference)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TensorKind(&self) -> windows_core::Result<TensorKind> {
+    pub fn TensorKind(&self) -> Result<TensorKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TensorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Shape(&self) -> windows_core::Result<windows_collections::IVectorView<i64>> {
+    pub fn Shape(&self) -> Result<windows_collections::IVectorView<i64>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITensor>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Shape)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAsVectorView(&self) -> windows_core::Result<windows_collections::IVectorView<u8>> {
+    pub fn GetAsVectorView(&self) -> Result<windows_collections::IVectorView<u8>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAsVectorView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create() -> windows_core::Result<TensorUInt8Bit> {
+    pub fn Create() -> Result<TensorUInt8Bit, windows_result::HRESULT> {
         Self::ITensorUInt8BitStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create2<P0>(shape: P0) -> windows_core::Result<TensorUInt8Bit>
+    pub fn Create2<P0>(shape: P0) -> Result<TensorUInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3388,7 +3388,7 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).Create2)(windows_core::Interface::as_raw(this), shape.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> windows_core::Result<TensorUInt8Bit>
+    pub fn CreateFromArray<P0>(shape: P0, data: &[u8]) -> Result<TensorUInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
     {
@@ -3397,7 +3397,7 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromArray)(windows_core::Interface::as_raw(this), shape.param().abi(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> windows_core::Result<TensorUInt8Bit>
+    pub fn CreateFromIterable<P0, P1>(shape: P0, data: P1) -> Result<TensorUInt8Bit, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<i64>>,
         P1: windows_core::Param<windows_collections::IIterable<u8>>,
@@ -3407,14 +3407,14 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromIterable)(windows_core::Interface::as_raw(this), shape.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> windows_core::Result<TensorUInt8Bit> {
+    pub fn CreateFromShapeArrayAndDataArray(shape: &[i64], data: &[u8]) -> Result<TensorUInt8Bit, windows_result::HRESULT> {
         Self::ITensorUInt8BitStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromShapeArrayAndDataArray)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), data.len().try_into().unwrap(), data.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> windows_core::Result<TensorUInt8Bit>
+    pub fn CreateFromBuffer<P1>(shape: &[i64], buffer: P1) -> Result<TensorUInt8Bit, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -3423,11 +3423,11 @@ impl TensorUInt8Bit {
             (windows_core::Interface::vtable(this).CreateFromBuffer)(windows_core::Interface::as_raw(this), shape.len().try_into().unwrap(), shape.as_ptr(), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITensorUInt8BitStatics<R, F: FnOnce(&ITensorUInt8BitStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt8BitStatics<R, F: FnOnce(&ITensorUInt8BitStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITensorUInt8BitStatics2<R, F: FnOnce(&ITensorUInt8BitStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITensorUInt8BitStatics2<R, F: FnOnce(&ITensorUInt8BitStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TensorUInt8Bit, ITensorUInt8BitStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

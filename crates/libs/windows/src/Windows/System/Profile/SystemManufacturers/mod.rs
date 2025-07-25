@@ -62,21 +62,21 @@ pub struct ISystemSupportInfoStatics2_Vtbl {
 pub struct OemSupportInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OemSupportInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl OemSupportInfo {
-    pub fn SupportLink(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn SupportLink(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SupportAppLink(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn SupportAppLink(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportAppLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SupportProvider(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SupportProvider(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -98,13 +98,13 @@ unsafe impl Send for OemSupportInfo {}
 unsafe impl Sync for OemSupportInfo {}
 pub struct SmbiosInformation;
 impl SmbiosInformation {
-    pub fn SerialNumber() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SerialNumber() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::ISmbiosInformationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -117,49 +117,49 @@ impl windows_core::RuntimeName for SmbiosInformation {
 pub struct SystemSupportDeviceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemSupportDeviceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemSupportDeviceInfo {
-    pub fn OperatingSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn OperatingSystem(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OperatingSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemManufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemManufacturer(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemManufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemProductName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemProductName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemProductName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemSku(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemSku(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemSku)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemHardwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemHardwareVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemHardwareVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SystemFirmwareVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SystemFirmwareVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -181,29 +181,29 @@ unsafe impl Send for SystemSupportDeviceInfo {}
 unsafe impl Sync for SystemSupportDeviceInfo {}
 pub struct SystemSupportInfo;
 impl SystemSupportInfo {
-    pub fn LocalSystemEdition() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalSystemEdition() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalSystemEdition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn OemSupportInfo() -> windows_core::Result<OemSupportInfo> {
+    pub fn OemSupportInfo() -> Result<OemSupportInfo, windows_result::HRESULT> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OemSupportInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn LocalDeviceInfo() -> windows_core::Result<SystemSupportDeviceInfo> {
+    pub fn LocalDeviceInfo() -> Result<SystemSupportDeviceInfo, windows_result::HRESULT> {
         Self::ISystemSupportInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalDeviceInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

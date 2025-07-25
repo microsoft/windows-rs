@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for IUriToStreamResolver {
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
 impl IUriToStreamResolver {
     #[cfg(feature = "Storage_Streams")]
-    pub fn UriToStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>
+    pub fn UriToStreamAsync<P0>(&self, uri: P0) -> Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -30,21 +30,21 @@ impl windows_core::RuntimeName for IUriToStreamResolver {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IUriToStreamResolver_Impl: windows_core::IUnknownImpl {
-    fn UriToStreamAsync(&self, uri: windows_core::Ref<'_, super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&self, uri: windows_core::Ref<'_, super::Foundation::Uri>) -> Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>, windows_result::HRESULT>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {
     pub const fn new<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn UriToStreamAsync<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn UriToStreamAsync<Identity: IUriToStreamResolver_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, uri: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IUriToStreamResolver_Impl::UriToStreamAsync(this, core::mem::transmute_copy(&uri)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -75,13 +75,13 @@ pub struct IWebErrorStatics_Vtbl {
 }
 pub struct WebError;
 impl WebError {
-    pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
+    pub fn GetStatus(hresult: i32) -> Result<WebErrorStatus, windows_result::HRESULT> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebError, IWebErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

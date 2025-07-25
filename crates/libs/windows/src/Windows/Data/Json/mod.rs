@@ -81,49 +81,49 @@ impl windows_core::RuntimeType for IJsonValue {
 }
 windows_core::imp::interface_hierarchy!(IJsonValue, windows_core::IUnknown, windows_core::IInspectable);
 impl IJsonValue {
-    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
+    pub fn ValueType(&self) -> Result<JsonValueType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Stringify(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNumber(&self) -> windows_core::Result<f64> {
+    pub fn GetNumber(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
+    pub fn GetArray(&self) -> Result<JsonArray, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
+    pub fn GetObject(&self) -> Result<JsonObject, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -135,101 +135,101 @@ impl windows_core::RuntimeName for IJsonValue {
     const NAME: &'static str = "Windows.Data.Json.IJsonValue";
 }
 pub trait IJsonValue_Impl: windows_core::IUnknownImpl {
-    fn ValueType(&self) -> windows_core::Result<JsonValueType>;
-    fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetNumber(&self) -> windows_core::Result<f64>;
-    fn GetBoolean(&self) -> windows_core::Result<bool>;
-    fn GetArray(&self) -> windows_core::Result<JsonArray>;
-    fn GetObject(&self) -> windows_core::Result<JsonObject>;
+    fn ValueType(&self) -> Result<JsonValueType, windows_result::HRESULT>;
+    fn Stringify(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn GetNumber(&self) -> Result<f64, windows_result::HRESULT>;
+    fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT>;
+    fn GetArray(&self) -> Result<JsonArray, windows_result::HRESULT>;
+    fn GetObject(&self) -> Result<JsonObject, windows_result::HRESULT>;
 }
 impl IJsonValue_Vtbl {
     pub const fn new<Identity: IJsonValue_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ValueType<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut JsonValueType) -> windows_core::HRESULT {
+        unsafe extern "system" fn ValueType<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut JsonValueType) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::ValueType(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn Stringify<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Stringify<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::Stringify(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetString<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetString<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::GetString(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetNumber<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetNumber<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut f64) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::GetNumber(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetBoolean<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetBoolean<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut bool) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::GetBoolean(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetArray<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetArray<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::GetArray(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetObject<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetObject<Identity: IJsonValue_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IJsonValue_Impl::GetObject(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -290,145 +290,145 @@ pub struct JsonArray(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JsonArray, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(JsonArray, windows_collections::IIterable<IJsonValue>, IJsonValue, super::super::Foundation::IStringable, windows_collections::IVector<IJsonValue>);
 impl JsonArray {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonArray, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IJsonValue>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<IJsonValue>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetObjectAt(&self, index: u32) -> windows_core::Result<JsonObject> {
+    pub fn GetObjectAt(&self, index: u32) -> Result<JsonObject, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetObjectAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetArrayAt(&self, index: u32) -> windows_core::Result<JsonArray> {
+    pub fn GetArrayAt(&self, index: u32) -> Result<JsonArray, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetArrayAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetStringAt(&self, index: u32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetStringAt(&self, index: u32) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStringAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNumberAt(&self, index: u32) -> windows_core::Result<f64> {
+    pub fn GetNumberAt(&self, index: u32) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumberAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
         }
     }
-    pub fn GetBooleanAt(&self, index: u32) -> windows_core::Result<bool> {
+    pub fn GetBooleanAt(&self, index: u32) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBooleanAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| result__)
         }
     }
-    pub fn Parse(input: &windows_core::HSTRING) -> windows_core::Result<JsonArray> {
+    pub fn Parse(input: &windows_core::HSTRING) -> Result<JsonArray, windows_result::HRESULT> {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonArray>) -> windows_core::Result<bool> {
+    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonArray>) -> Result<bool, windows_result::HRESULT> {
         Self::IJsonArrayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
+    pub fn ValueType(&self) -> Result<JsonValueType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Stringify(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNumber(&self) -> windows_core::Result<f64> {
+    pub fn GetNumber(&self) -> Result<f64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
+    pub fn GetArray(&self) -> Result<JsonArray, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
+    pub fn GetObject(&self) -> Result<JsonObject, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetObject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<IJsonValue> {
+    pub fn GetAt(&self, index: u32) -> Result<IJsonValue, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<IJsonValue>> {
+    pub fn GetView(&self) -> Result<windows_collections::IVectorView<IJsonValue>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<IJsonValue>,
     {
@@ -438,51 +438,51 @@ impl JsonArray {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    pub fn SetAt<P1>(&self, index: u32, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
-    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
-    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+    pub fn RemoveAt(&self, index: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
-    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn Append<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IJsonValue>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+    pub fn RemoveAtEnd(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<IJsonValue>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<IJsonValue>]) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
-    pub fn ReplaceAll(&self, items: &[Option<IJsonValue>]) -> windows_core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[Option<IJsonValue>]) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
-    fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonArrayStatics<R, F: FnOnce(&IJsonArrayStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonArray, IJsonArrayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -515,13 +515,13 @@ impl IntoIterator for &JsonArray {
 }
 pub struct JsonError;
 impl JsonError {
-    pub fn GetJsonStatus(hresult: i32) -> windows_core::Result<JsonErrorStatus> {
+    pub fn GetJsonStatus(hresult: i32) -> Result<JsonErrorStatus, windows_result::HRESULT> {
         Self::IJsonErrorStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetJsonStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    fn IJsonErrorStatics2<R, F: FnOnce(&IJsonErrorStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonErrorStatics2<R, F: FnOnce(&IJsonErrorStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonError, IJsonErrorStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -551,82 +551,82 @@ pub struct JsonObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JsonObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( JsonObject , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , IJsonValue > > , IJsonValue , windows_collections:: IMap < windows_core::HSTRING , IJsonValue > , super::super::Foundation:: IStringable );
 impl JsonObject {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonObject, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, IJsonValue>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedValue(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonValue> {
+    pub fn GetNamedValue(&self, name: &windows_core::HSTRING) -> Result<JsonValue, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetNamedValue<P1>(&self, name: &windows_core::HSTRING, value: P1) -> windows_core::Result<()>
+    pub fn SetNamedValue<P1>(&self, name: &windows_core::HSTRING, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IJsonValue>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNamedValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), value.param().abi()).ok() }
     }
-    pub fn GetNamedObject(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonObject> {
+    pub fn GetNamedObject(&self, name: &windows_core::HSTRING) -> Result<JsonObject, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedObject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedArray(&self, name: &windows_core::HSTRING) -> windows_core::Result<JsonArray> {
+    pub fn GetNamedArray(&self, name: &windows_core::HSTRING) -> Result<JsonArray, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedArray)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedString(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetNamedString(&self, name: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNamedNumber(&self, name: &windows_core::HSTRING) -> windows_core::Result<f64> {
+    pub fn GetNamedNumber(&self, name: &windows_core::HSTRING) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedNumber)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
-    pub fn GetNamedBoolean(&self, name: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn GetNamedBoolean(&self, name: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedBoolean)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
-    pub fn Parse(input: &windows_core::HSTRING) -> windows_core::Result<JsonObject> {
+    pub fn Parse(input: &windows_core::HSTRING) -> Result<JsonObject, windows_result::HRESULT> {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonObject>) -> windows_core::Result<bool> {
+    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonObject>) -> Result<bool, windows_result::HRESULT> {
         Self::IJsonObjectStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn GetNamedValueOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> windows_core::Result<JsonValue>
+    pub fn GetNamedValueOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> Result<JsonValue, windows_result::HRESULT>
     where
         P1: windows_core::Param<JsonValue>,
     {
@@ -636,7 +636,7 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetNamedValueOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedObjectOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> windows_core::Result<JsonObject>
+    pub fn GetNamedObjectOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> Result<JsonObject, windows_result::HRESULT>
     where
         P1: windows_core::Param<JsonObject>,
     {
@@ -646,14 +646,14 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetNamedObjectOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedStringOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetNamedStringOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedStringOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(defaultvalue), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNamedArrayOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> windows_core::Result<JsonArray>
+    pub fn GetNamedArrayOrDefault<P1>(&self, name: &windows_core::HSTRING, defaultvalue: P1) -> Result<JsonArray, windows_result::HRESULT>
     where
         P1: windows_core::Param<JsonArray>,
     {
@@ -663,98 +663,98 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).GetNamedArrayOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetNamedNumberOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: f64) -> windows_core::Result<f64> {
+    pub fn GetNamedNumberOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: f64) -> Result<f64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedNumberOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue, &mut result__).map(|| result__)
         }
     }
-    pub fn GetNamedBooleanOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: bool) -> windows_core::Result<bool> {
+    pub fn GetNamedBooleanOrDefault(&self, name: &windows_core::HSTRING, defaultvalue: bool) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonObjectWithDefaultValues>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNamedBooleanOrDefault)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), defaultvalue, &mut result__).map(|| result__)
         }
     }
-    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
+    pub fn ValueType(&self) -> Result<JsonValueType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Stringify(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNumber(&self) -> windows_core::Result<f64> {
+    pub fn GetNumber(&self) -> Result<f64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
+    pub fn GetArray(&self) -> Result<JsonArray, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
+    pub fn GetObject(&self) -> Result<JsonObject, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IJsonValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetObject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<IJsonValue> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<IJsonValue, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, IJsonValue>> {
+    pub fn GetView(&self) -> Result<windows_collections::IMapView<windows_core::HSTRING, IJsonValue>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> windows_core::Result<bool>
+    pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> Result<bool, windows_result::HRESULT>
     where
         P1: windows_core::Param<IJsonValue>,
     {
@@ -764,22 +764,22 @@ impl JsonObject {
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Remove(&self, key: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, IJsonValue>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    fn IJsonObjectStatics<R, F: FnOnce(&IJsonObjectStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonObjectStatics<R, F: FnOnce(&IJsonObjectStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonObject, IJsonObjectStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -816,103 +816,103 @@ pub struct JsonValue(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(JsonValue, windows_core::IUnknown, windows_core::IInspectable, IJsonValue);
 windows_core::imp::required_hierarchy!(JsonValue, super::super::Foundation::IStringable);
 impl JsonValue {
-    pub fn ValueType(&self) -> windows_core::Result<JsonValueType> {
+    pub fn ValueType(&self) -> Result<JsonValueType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ValueType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stringify(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Stringify(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stringify)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetNumber(&self) -> windows_core::Result<f64> {
+    pub fn GetNumber(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetBoolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetArray(&self) -> windows_core::Result<JsonArray> {
+    pub fn GetArray(&self) -> Result<JsonArray, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetArray)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetObject(&self) -> windows_core::Result<JsonObject> {
+    pub fn GetObject(&self) -> Result<JsonObject, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetObject)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Parse(input: &windows_core::HSTRING) -> windows_core::Result<JsonValue> {
+    pub fn Parse(input: &windows_core::HSTRING) -> Result<JsonValue, windows_result::HRESULT> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonValue>) -> windows_core::Result<bool> {
+    pub fn TryParse(input: &windows_core::HSTRING, result: &mut Option<JsonValue>) -> Result<bool, windows_result::HRESULT> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryParse)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), result as *mut _ as _, &mut result__).map(|| result__)
         })
     }
-    pub fn CreateBooleanValue(input: bool) -> windows_core::Result<JsonValue> {
+    pub fn CreateBooleanValue(input: bool) -> Result<JsonValue, windows_result::HRESULT> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBooleanValue)(windows_core::Interface::as_raw(this), input, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNumberValue(input: f64) -> windows_core::Result<JsonValue> {
+    pub fn CreateNumberValue(input: f64) -> Result<JsonValue, windows_result::HRESULT> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNumberValue)(windows_core::Interface::as_raw(this), input, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateStringValue(input: &windows_core::HSTRING) -> windows_core::Result<JsonValue> {
+    pub fn CreateStringValue(input: &windows_core::HSTRING) -> Result<JsonValue, windows_result::HRESULT> {
         Self::IJsonValueStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStringValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(input), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNullValue() -> windows_core::Result<JsonValue> {
+    pub fn CreateNullValue() -> Result<JsonValue, windows_result::HRESULT> {
         Self::IJsonValueStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateNullValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    fn IJsonValueStatics<R, F: FnOnce(&IJsonValueStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonValueStatics<R, F: FnOnce(&IJsonValueStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonValue, IJsonValueStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IJsonValueStatics2<R, F: FnOnce(&IJsonValueStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IJsonValueStatics2<R, F: FnOnce(&IJsonValueStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonValue, IJsonValueStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

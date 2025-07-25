@@ -70,7 +70,7 @@ impl windows_core::RuntimeType for IMidiMessage {
 }
 windows_core::imp::interface_hierarchy!(IMidiMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl IMidiMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -78,14 +78,14 @@ impl IMidiMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -99,47 +99,47 @@ impl windows_core::RuntimeName for IMidiMessage {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiMessage_Impl: windows_core::IUnknownImpl {
-    fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan>;
-    fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer>;
-    fn Type(&self) -> windows_core::Result<MidiMessageType>;
+    fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT>;
+    fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT>;
+    fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IMidiMessage_Vtbl {
     pub const fn new<Identity: IMidiMessage_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_core::HRESULT {
+        unsafe extern "system" fn Timestamp<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMidiMessage_Impl::Timestamp(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn RawData<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn RawData<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMidiMessage_Impl::RawData(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn Type<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MidiMessageType) -> windows_core::HRESULT {
+        unsafe extern "system" fn Type<Identity: IMidiMessage_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut MidiMessageType) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMidiMessage_Impl::Type(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -226,7 +226,7 @@ impl windows_core::RuntimeType for IMidiOutPort {
 windows_core::imp::interface_hierarchy!(IMidiOutPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IMidiOutPort, super::super::Foundation::IClosable);
 impl IMidiOutPort {
-    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
@@ -234,21 +234,21 @@ impl IMidiOutPort {
         unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -259,35 +259,35 @@ impl windows_core::RuntimeName for IMidiOutPort {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiOutPort_Impl: super::super::Foundation::IClosable_Impl {
-    fn SendMessage(&self, midiMessage: windows_core::Ref<'_, IMidiMessage>) -> windows_core::Result<()>;
-    fn SendBuffer(&self, midiData: windows_core::Ref<'_, super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
-    fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn SendMessage(&self, midiMessage: windows_core::Ref<'_, IMidiMessage>) -> Result<(), windows_result::HRESULT>;
+    fn SendBuffer(&self, midiData: windows_core::Ref<'_, super::super::Storage::Streams::IBuffer>) -> Result<(), windows_result::HRESULT>;
+    fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IMidiOutPort_Vtbl {
     pub const fn new<Identity: IMidiOutPort_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendMessage<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, midimessage: *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMidiOutPort_Impl::SendMessage(this, core::mem::transmute_copy(&midimessage)).into()
             }
         }
-        unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendBuffer<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, mididata: *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IMidiOutPort_Impl::SendBuffer(this, core::mem::transmute_copy(&mididata)).into()
             }
         }
-        unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DeviceId<Identity: IMidiOutPort_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IMidiOutPort_Impl::DeviceId(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -500,14 +500,14 @@ pub struct IMidiTimeCodeMessageFactory_Vtbl {
 pub struct MidiActiveSensingMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiActiveSensingMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiActiveSensingMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiActiveSensingMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -515,14 +515,14 @@ impl MidiActiveSensingMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -548,27 +548,27 @@ pub struct MidiChannelPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiChannelPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiChannelPressureMessage, IMidiMessage);
 impl MidiChannelPressureMessage {
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Pressure(&self) -> windows_core::Result<u8> {
+    pub fn Pressure(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiChannelPressureMessage(channel: u8, pressure: u8) -> windows_core::Result<MidiChannelPressureMessage> {
+    pub fn CreateMidiChannelPressureMessage(channel: u8, pressure: u8) -> Result<MidiChannelPressureMessage, windows_result::HRESULT> {
         Self::IMidiChannelPressureMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiChannelPressureMessage)(windows_core::Interface::as_raw(this), channel, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -576,21 +576,21 @@ impl MidiChannelPressureMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    fn IMidiChannelPressureMessageFactory<R, F: FnOnce(&IMidiChannelPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiChannelPressureMessageFactory<R, F: FnOnce(&IMidiChannelPressureMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiChannelPressureMessage, IMidiChannelPressureMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -612,14 +612,14 @@ unsafe impl Sync for MidiChannelPressureMessage {}
 pub struct MidiContinueMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiContinueMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiContinueMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiContinueMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -627,14 +627,14 @@ impl MidiContinueMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -660,34 +660,34 @@ pub struct MidiControlChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiControlChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiControlChangeMessage, IMidiMessage);
 impl MidiControlChangeMessage {
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Controller(&self) -> windows_core::Result<u8> {
+    pub fn Controller(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Controller)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ControlValue(&self) -> windows_core::Result<u8> {
+    pub fn ControlValue(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ControlValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> windows_core::Result<MidiControlChangeMessage> {
+    pub fn CreateMidiControlChangeMessage(channel: u8, controller: u8, controlvalue: u8) -> Result<MidiControlChangeMessage, windows_result::HRESULT> {
         Self::IMidiControlChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiControlChangeMessage)(windows_core::Interface::as_raw(this), channel, controller, controlvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -695,21 +695,21 @@ impl MidiControlChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    fn IMidiControlChangeMessageFactory<R, F: FnOnce(&IMidiControlChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiControlChangeMessageFactory<R, F: FnOnce(&IMidiControlChangeMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiControlChangeMessage, IMidiControlChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -732,11 +732,11 @@ pub struct MidiInPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiInPort, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiInPort, super::super::Foundation::IClosable);
 impl MidiInPort {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MessageReceived<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MidiInPort, MidiMessageReceivedEventArgs>>,
     {
@@ -746,30 +746,30 @@ impl MidiInPort {
             (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMessageReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMessageReceived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<MidiInPort>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<MidiInPort>, windows_result::HRESULT> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMidiInPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiInPortStatics<R, F: FnOnce(&IMidiInPortStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiInPort, IMidiInPortStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -791,7 +791,7 @@ unsafe impl Sync for MidiInPort {}
 pub struct MidiMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MidiMessageReceivedEventArgs {
-    pub fn Message(&self) -> windows_core::Result<IMidiMessage> {
+    pub fn Message(&self) -> Result<IMidiMessage, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -848,7 +848,7 @@ pub struct MidiNoteOffMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOffMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOffMessage, IMidiMessage);
 impl MidiNoteOffMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -856,48 +856,48 @@ impl MidiNoteOffMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Note(&self) -> windows_core::Result<u8> {
+    pub fn Note(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Note)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Velocity(&self) -> windows_core::Result<u8> {
+    pub fn Velocity(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Velocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiNoteOffMessage(channel: u8, note: u8, velocity: u8) -> windows_core::Result<MidiNoteOffMessage> {
+    pub fn CreateMidiNoteOffMessage(channel: u8, note: u8, velocity: u8) -> Result<MidiNoteOffMessage, windows_result::HRESULT> {
         Self::IMidiNoteOffMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiNoteOffMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiNoteOffMessageFactory<R, F: FnOnce(&IMidiNoteOffMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiNoteOffMessage, IMidiNoteOffMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -920,7 +920,7 @@ pub struct MidiNoteOnMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiNoteOnMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiNoteOnMessage, IMidiMessage);
 impl MidiNoteOnMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -928,48 +928,48 @@ impl MidiNoteOnMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Note(&self) -> windows_core::Result<u8> {
+    pub fn Note(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Note)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Velocity(&self) -> windows_core::Result<u8> {
+    pub fn Velocity(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Velocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiNoteOnMessage(channel: u8, note: u8, velocity: u8) -> windows_core::Result<MidiNoteOnMessage> {
+    pub fn CreateMidiNoteOnMessage(channel: u8, note: u8, velocity: u8) -> Result<MidiNoteOnMessage, windows_result::HRESULT> {
         Self::IMidiNoteOnMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiNoteOnMessage)(windows_core::Interface::as_raw(this), channel, note, velocity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiNoteOnMessageFactory<R, F: FnOnce(&IMidiNoteOnMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiNoteOnMessage, IMidiNoteOnMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -992,11 +992,11 @@ pub struct MidiOutPort(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiOutPort, windows_core::IUnknown, windows_core::IInspectable, IMidiOutPort);
 windows_core::imp::required_hierarchy!(MidiOutPort, super::super::Foundation::IClosable);
 impl MidiOutPort {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
@@ -1004,33 +1004,33 @@ impl MidiOutPort {
         unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<IMidiOutPort>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<IMidiOutPort>, windows_result::HRESULT> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IMidiOutPortStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiOutPortStatics<R, F: FnOnce(&IMidiOutPortStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiOutPort, IMidiOutPortStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1053,7 +1053,7 @@ pub struct MidiPitchBendChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPitchBendChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPitchBendChangeMessage, IMidiMessage);
 impl MidiPitchBendChangeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1061,41 +1061,41 @@ impl MidiPitchBendChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Bend(&self) -> windows_core::Result<u16> {
+    pub fn Bend(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bend)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiPitchBendChangeMessage(channel: u8, bend: u16) -> windows_core::Result<MidiPitchBendChangeMessage> {
+    pub fn CreateMidiPitchBendChangeMessage(channel: u8, bend: u16) -> Result<MidiPitchBendChangeMessage, windows_result::HRESULT> {
         Self::IMidiPitchBendChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiPitchBendChangeMessage)(windows_core::Interface::as_raw(this), channel, bend, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiPitchBendChangeMessageFactory<R, F: FnOnce(&IMidiPitchBendChangeMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiPitchBendChangeMessage, IMidiPitchBendChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1118,7 +1118,7 @@ pub struct MidiPolyphonicKeyPressureMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiPolyphonicKeyPressureMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiPolyphonicKeyPressureMessage, IMidiMessage);
 impl MidiPolyphonicKeyPressureMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1126,48 +1126,48 @@ impl MidiPolyphonicKeyPressureMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Note(&self) -> windows_core::Result<u8> {
+    pub fn Note(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Note)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Pressure(&self) -> windows_core::Result<u8> {
+    pub fn Pressure(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiPolyphonicKeyPressureMessage(channel: u8, note: u8, pressure: u8) -> windows_core::Result<MidiPolyphonicKeyPressureMessage> {
+    pub fn CreateMidiPolyphonicKeyPressureMessage(channel: u8, note: u8, pressure: u8) -> Result<MidiPolyphonicKeyPressureMessage, windows_result::HRESULT> {
         Self::IMidiPolyphonicKeyPressureMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiPolyphonicKeyPressureMessage)(windows_core::Interface::as_raw(this), channel, note, pressure, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiPolyphonicKeyPressureMessageFactory<R, F: FnOnce(&IMidiPolyphonicKeyPressureMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiPolyphonicKeyPressureMessage, IMidiPolyphonicKeyPressureMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1190,7 +1190,7 @@ pub struct MidiProgramChangeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiProgramChangeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiProgramChangeMessage, IMidiMessage);
 impl MidiProgramChangeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1198,41 +1198,41 @@ impl MidiProgramChangeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Channel(&self) -> windows_core::Result<u8> {
+    pub fn Channel(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Channel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Program(&self) -> windows_core::Result<u8> {
+    pub fn Program(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Program)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiProgramChangeMessage(channel: u8, program: u8) -> windows_core::Result<MidiProgramChangeMessage> {
+    pub fn CreateMidiProgramChangeMessage(channel: u8, program: u8) -> Result<MidiProgramChangeMessage, windows_result::HRESULT> {
         Self::IMidiProgramChangeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiProgramChangeMessage)(windows_core::Interface::as_raw(this), channel, program, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiProgramChangeMessageFactory<R, F: FnOnce(&IMidiProgramChangeMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiProgramChangeMessage, IMidiProgramChangeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1255,7 +1255,7 @@ pub struct MidiSongPositionPointerMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongPositionPointerMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongPositionPointerMessage, IMidiMessage);
 impl MidiSongPositionPointerMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1263,34 +1263,34 @@ impl MidiSongPositionPointerMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Beats(&self) -> windows_core::Result<u16> {
+    pub fn Beats(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Beats)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiSongPositionPointerMessage(beats: u16) -> windows_core::Result<MidiSongPositionPointerMessage> {
+    pub fn CreateMidiSongPositionPointerMessage(beats: u16) -> Result<MidiSongPositionPointerMessage, windows_result::HRESULT> {
         Self::IMidiSongPositionPointerMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiSongPositionPointerMessage)(windows_core::Interface::as_raw(this), beats, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSongPositionPointerMessageFactory<R, F: FnOnce(&IMidiSongPositionPointerMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiSongPositionPointerMessage, IMidiSongPositionPointerMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1313,7 +1313,7 @@ pub struct MidiSongSelectMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSongSelectMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSongSelectMessage, IMidiMessage);
 impl MidiSongSelectMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1321,34 +1321,34 @@ impl MidiSongSelectMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Song(&self) -> windows_core::Result<u8> {
+    pub fn Song(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Song)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiSongSelectMessage(song: u8) -> windows_core::Result<MidiSongSelectMessage> {
+    pub fn CreateMidiSongSelectMessage(song: u8) -> Result<MidiSongSelectMessage, windows_result::HRESULT> {
         Self::IMidiSongSelectMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiSongSelectMessage)(windows_core::Interface::as_raw(this), song, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSongSelectMessageFactory<R, F: FnOnce(&IMidiSongSelectMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiSongSelectMessage, IMidiSongSelectMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1370,14 +1370,14 @@ unsafe impl Sync for MidiSongSelectMessage {}
 pub struct MidiStartMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiStartMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStartMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiStartMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1385,14 +1385,14 @@ impl MidiStartMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1417,14 +1417,14 @@ unsafe impl Sync for MidiStartMessage {}
 pub struct MidiStopMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiStopMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiStopMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiStopMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1432,14 +1432,14 @@ impl MidiStopMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1465,11 +1465,11 @@ pub struct MidiSynthesizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSynthesizer, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiSynthesizer, super::super::Foundation::IClosable, IMidiOutPort);
 impl MidiSynthesizer {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SendMessage<P0>(&self, midimessage: P0) -> windows_core::Result<()>
+    pub fn SendMessage<P0>(&self, midimessage: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMidiMessage>,
     {
@@ -1477,14 +1477,14 @@ impl MidiSynthesizer {
         unsafe { (windows_core::Interface::vtable(this).SendMessage)(windows_core::Interface::as_raw(this), midimessage.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SendBuffer<P0>(&self, mididata: P0) -> windows_core::Result<()>
+    pub fn SendBuffer<P0>(&self, mididata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SendBuffer)(windows_core::Interface::as_raw(this), mididata.param().abi()).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiOutPort>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1492,32 +1492,32 @@ impl MidiSynthesizer {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn AudioDevice(&self) -> windows_core::Result<super::Enumeration::DeviceInformation> {
+    pub fn AudioDevice(&self) -> Result<super::Enumeration::DeviceInformation, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Volume(&self) -> windows_core::Result<f64> {
+    pub fn Volume(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Volume)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetVolume(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetVolume(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVolume)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<MidiSynthesizer>> {
+    pub fn CreateAsync() -> Result<windows_future::IAsyncOperation<MidiSynthesizer>, windows_result::HRESULT> {
         Self::IMidiSynthesizerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> windows_core::Result<windows_future::IAsyncOperation<MidiSynthesizer>>
+    pub fn CreateFromAudioDeviceAsync<P0>(audiodevice: P0) -> Result<windows_future::IAsyncOperation<MidiSynthesizer>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
@@ -1527,7 +1527,7 @@ impl MidiSynthesizer {
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn IsSynthesizer<P0>(mididevice: P0) -> windows_core::Result<bool>
+    pub fn IsSynthesizer<P0>(mididevice: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Enumeration::DeviceInformation>,
     {
@@ -1536,7 +1536,7 @@ impl MidiSynthesizer {
             (windows_core::Interface::vtable(this).IsSynthesizer)(windows_core::Interface::as_raw(this), mididevice.param().abi(), &mut result__).map(|| result__)
         })
     }
-    fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSynthesizerStatics<R, F: FnOnce(&IMidiSynthesizerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiSynthesizer, IMidiSynthesizerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1558,7 +1558,7 @@ unsafe impl Sync for MidiSynthesizer {}
 pub struct MidiSystemExclusiveMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSystemExclusiveMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemExclusiveMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1566,14 +1566,14 @@ impl MidiSystemExclusiveMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1581,7 +1581,7 @@ impl MidiSystemExclusiveMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateMidiSystemExclusiveMessage<P0>(rawdata: P0) -> windows_core::Result<MidiSystemExclusiveMessage>
+    pub fn CreateMidiSystemExclusiveMessage<P0>(rawdata: P0) -> Result<MidiSystemExclusiveMessage, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -1590,7 +1590,7 @@ impl MidiSystemExclusiveMessage {
             (windows_core::Interface::vtable(this).CreateMidiSystemExclusiveMessage)(windows_core::Interface::as_raw(this), rawdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiSystemExclusiveMessageFactory<R, F: FnOnce(&IMidiSystemExclusiveMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiSystemExclusiveMessage, IMidiSystemExclusiveMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1612,14 +1612,14 @@ unsafe impl Sync for MidiSystemExclusiveMessage {}
 pub struct MidiSystemResetMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiSystemResetMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiSystemResetMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiSystemResetMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1627,14 +1627,14 @@ impl MidiSystemResetMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1660,7 +1660,7 @@ pub struct MidiTimeCodeMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimeCodeMessage, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(MidiTimeCodeMessage, IMidiMessage);
 impl MidiTimeCodeMessage {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1668,41 +1668,41 @@ impl MidiTimeCodeMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IMidiMessage>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FrameType(&self) -> windows_core::Result<u8> {
+    pub fn FrameType(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FrameType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Values(&self) -> windows_core::Result<u8> {
+    pub fn Values(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Values)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> windows_core::Result<MidiTimeCodeMessage> {
+    pub fn CreateMidiTimeCodeMessage(frametype: u8, values: u8) -> Result<MidiTimeCodeMessage, windows_result::HRESULT> {
         Self::IMidiTimeCodeMessageFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateMidiTimeCodeMessage)(windows_core::Interface::as_raw(this), frametype, values, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMidiTimeCodeMessageFactory<R, F: FnOnce(&IMidiTimeCodeMessageFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiTimeCodeMessage, IMidiTimeCodeMessageFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1724,14 +1724,14 @@ unsafe impl Sync for MidiTimeCodeMessage {}
 pub struct MidiTimingClockMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTimingClockMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTimingClockMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiTimingClockMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1739,14 +1739,14 @@ impl MidiTimingClockMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1771,14 +1771,14 @@ unsafe impl Sync for MidiTimingClockMessage {}
 pub struct MidiTuneRequestMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MidiTuneRequestMessage, windows_core::IUnknown, windows_core::IInspectable, IMidiMessage);
 impl MidiTuneRequestMessage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<MidiTuneRequestMessage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Timestamp(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1786,14 +1786,14 @@ impl MidiTuneRequestMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RawData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn RawData(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Type(&self) -> windows_core::Result<MidiMessageType> {
+    pub fn Type(&self) -> Result<MidiMessageType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

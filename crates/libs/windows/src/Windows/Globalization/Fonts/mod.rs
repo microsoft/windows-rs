@@ -56,7 +56,7 @@ pub struct ILanguageFontGroupFactory_Vtbl {
 pub struct LanguageFont(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFont, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFont {
-    pub fn FontFamily(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FontFamily(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -64,7 +64,7 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
-    pub fn FontWeight(&self) -> windows_core::Result<super::super::UI::Text::FontWeight> {
+    pub fn FontWeight(&self) -> Result<super::super::UI::Text::FontWeight, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -72,7 +72,7 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
-    pub fn FontStretch(&self) -> windows_core::Result<super::super::UI::Text::FontStretch> {
+    pub fn FontStretch(&self) -> Result<super::super::UI::Text::FontStretch, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -80,14 +80,14 @@ impl LanguageFont {
         }
     }
     #[cfg(feature = "UI_Text")]
-    pub fn FontStyle(&self) -> windows_core::Result<super::super::UI::Text::FontStyle> {
+    pub fn FontStyle(&self) -> Result<super::super::UI::Text::FontStyle, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontStyle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ScaleFactor(&self) -> windows_core::Result<f64> {
+    pub fn ScaleFactor(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -112,90 +112,90 @@ unsafe impl Sync for LanguageFont {}
 pub struct LanguageFontGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LanguageFontGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl LanguageFontGroup {
-    pub fn UITextFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn UITextFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UITextFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UIHeadingFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn UIHeadingFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UIHeadingFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UITitleFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn UITitleFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UITitleFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UICaptionFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn UICaptionFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UICaptionFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UINotificationHeadingFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn UINotificationHeadingFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UINotificationHeadingFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TraditionalDocumentFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn TraditionalDocumentFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TraditionalDocumentFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ModernDocumentFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn ModernDocumentFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModernDocumentFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DocumentHeadingFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn DocumentHeadingFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentHeadingFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FixedWidthTextFont(&self) -> windows_core::Result<LanguageFont> {
+    pub fn FixedWidthTextFont(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FixedWidthTextFont)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DocumentAlternate1Font(&self) -> windows_core::Result<LanguageFont> {
+    pub fn DocumentAlternate1Font(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentAlternate1Font)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DocumentAlternate2Font(&self) -> windows_core::Result<LanguageFont> {
+    pub fn DocumentAlternate2Font(&self) -> Result<LanguageFont, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentAlternate2Font)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateLanguageFontGroup(languagetag: &windows_core::HSTRING) -> windows_core::Result<LanguageFontGroup> {
+    pub fn CreateLanguageFontGroup(languagetag: &windows_core::HSTRING) -> Result<LanguageFontGroup, windows_result::HRESULT> {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLanguageFontGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(languagetag), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILanguageFontGroupFactory<R, F: FnOnce(&ILanguageFontGroupFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILanguageFontGroupFactory<R, F: FnOnce(&ILanguageFontGroupFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<LanguageFontGroup, ILanguageFontGroupFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

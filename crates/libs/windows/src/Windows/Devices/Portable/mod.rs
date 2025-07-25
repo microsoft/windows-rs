@@ -25,19 +25,19 @@ pub struct IStorageDeviceStatics_Vtbl {
 }
 pub struct ServiceDevice;
 impl ServiceDevice {
-    pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(servicetype: ServiceDeviceType) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), servicetype, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromServiceId(serviceid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromServiceId(serviceid: windows_core::GUID) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IServiceDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromServiceId)(windows_core::Interface::as_raw(this), serviceid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IServiceDeviceStatics<R, F: FnOnce(&IServiceDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IServiceDeviceStatics<R, F: FnOnce(&IServiceDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ServiceDevice, IServiceDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -66,19 +66,19 @@ impl windows_core::RuntimeType for ServiceDeviceType {
 pub struct StorageDevice;
 impl StorageDevice {
     #[cfg(feature = "Storage_Search")]
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::StorageFolder> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> Result<super::super::Storage::StorageFolder, windows_result::HRESULT> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IStorageDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<StorageDevice, IStorageDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

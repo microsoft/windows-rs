@@ -72,42 +72,42 @@ pub struct IPwmPin_Vtbl {
 pub struct PwmController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmController, windows_core::IUnknown, windows_core::IInspectable);
 impl PwmController {
-    pub fn PinCount(&self) -> windows_core::Result<i32> {
+    pub fn PinCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PinCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ActualFrequency(&self) -> windows_core::Result<f64> {
+    pub fn ActualFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActualFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> windows_core::Result<f64> {
+    pub fn SetDesiredFrequency(&self, desiredfrequency: f64) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SetDesiredFrequency)(windows_core::Interface::as_raw(this), desiredfrequency, &mut result__).map(|| result__)
         }
     }
-    pub fn MinFrequency(&self) -> windows_core::Result<f64> {
+    pub fn MinFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxFrequency(&self) -> windows_core::Result<f64> {
+    pub fn MaxFrequency(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxFrequency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OpenPin(&self, pinnumber: i32) -> windows_core::Result<PwmPin> {
+    pub fn OpenPin(&self, pinnumber: i32) -> Result<PwmPin, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,7 +115,7 @@ impl PwmController {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PwmController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PwmController>>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Provider::IPwmProvider>,
     {
@@ -124,39 +124,39 @@ impl PwmController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<PwmController>> {
+    pub fn GetDefaultAsync() -> Result<windows_future::IAsyncOperation<PwmController>, windows_result::HRESULT> {
         Self::IPwmControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PwmController>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<PwmController>, windows_result::HRESULT> {
         Self::IPwmControllerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics<R, F: FnOnce(&IPwmControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPwmControllerStatics2<R, F: FnOnce(&IPwmControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics2<R, F: FnOnce(&IPwmControllerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPwmControllerStatics3<R, F: FnOnce(&IPwmControllerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPwmControllerStatics3<R, F: FnOnce(&IPwmControllerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PwmController, IPwmControllerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -179,48 +179,48 @@ pub struct PwmPin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PwmPin, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PwmPin, super::super::Foundation::IClosable);
 impl PwmPin {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Controller(&self) -> windows_core::Result<PwmController> {
+    pub fn Controller(&self) -> Result<PwmController, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Controller)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetActiveDutyCyclePercentage(&self) -> windows_core::Result<f64> {
+    pub fn GetActiveDutyCyclePercentage(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActiveDutyCyclePercentage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> windows_core::Result<()> {
+    pub fn SetActiveDutyCyclePercentage(&self, dutycyclepercentage: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetActiveDutyCyclePercentage)(windows_core::Interface::as_raw(this), dutycyclepercentage).ok() }
     }
-    pub fn Polarity(&self) -> windows_core::Result<PwmPulsePolarity> {
+    pub fn Polarity(&self) -> Result<PwmPulsePolarity, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Polarity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPolarity(&self, value: PwmPulsePolarity) -> windows_core::Result<()> {
+    pub fn SetPolarity(&self, value: PwmPulsePolarity) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPolarity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsStarted(&self) -> windows_core::Result<bool> {
+    pub fn IsStarted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

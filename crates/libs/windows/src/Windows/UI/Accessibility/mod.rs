@@ -26,14 +26,14 @@ pub struct IScreenReaderService_Vtbl {
 pub struct ScreenReaderPositionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScreenReaderPositionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ScreenReaderPositionChangedEventArgs {
-    pub fn ScreenPositionInRawPixels(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn ScreenPositionInRawPixels(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScreenPositionInRawPixels)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsReadingText(&self) -> windows_core::Result<bool> {
+    pub fn IsReadingText(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -58,21 +58,21 @@ unsafe impl Sync for ScreenReaderPositionChangedEventArgs {}
 pub struct ScreenReaderService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScreenReaderService, windows_core::IUnknown, windows_core::IInspectable);
 impl ScreenReaderService {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ScreenReaderService, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CurrentScreenReaderPosition(&self) -> windows_core::Result<ScreenReaderPositionChangedEventArgs> {
+    pub fn CurrentScreenReaderPosition(&self) -> Result<ScreenReaderPositionChangedEventArgs, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentScreenReaderPosition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ScreenReaderPositionChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenReaderPositionChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ScreenReaderService, ScreenReaderPositionChangedEventArgs>>,
     {
@@ -82,7 +82,7 @@ impl ScreenReaderService {
             (windows_core::Interface::vtable(this).ScreenReaderPositionChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScreenReaderPositionChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveScreenReaderPositionChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenReaderPositionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }

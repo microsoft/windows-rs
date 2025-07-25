@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> windows_core::Result<windows_core::IInspectable>
+pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<P0>(dxgidevice: P0) -> Result<windows_core::IInspectable, windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
@@ -12,7 +12,7 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> windows_core::Result<windows_core::IInspectable>
+pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<P0>(dgxisurface: P0) -> Result<windows_core::IInspectable, windows_result::HRESULT>
 where
     P0: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGISurface>,
 {
@@ -25,7 +25,7 @@ where
 windows_core::imp::define_interface!(IDirect3DDxgiInterfaceAccess, IDirect3DDxgiInterfaceAccess_Vtbl, 0xa9b3d012_3df2_4ee3_b8d1_8695f457d3c1);
 windows_core::imp::interface_hierarchy!(IDirect3DDxgiInterfaceAccess, windows_core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
-    pub unsafe fn GetInterface<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetInterface<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -40,7 +40,7 @@ pub struct IDirect3DDxgiInterfaceAccess_Vtbl {
     pub GetInterface: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirect3DDxgiInterfaceAccess_Impl: windows_core::IUnknownImpl {
-    fn GetInterface(&self, iid: *const windows_core::GUID, p: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetInterface(&self, iid: *const windows_core::GUID, p: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 impl IDirect3DDxgiInterfaceAccess_Vtbl {
     pub const fn new<Identity: IDirect3DDxgiInterfaceAccess_Impl, const OFFSET: isize>() -> Self {

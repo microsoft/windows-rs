@@ -5,14 +5,14 @@ impl windows_core::RuntimeType for IGraphicsEffect {
 windows_core::imp::interface_hierarchy!(IGraphicsEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IGraphicsEffect, IGraphicsEffectSource);
 impl IGraphicsEffect {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, name: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
     }
@@ -21,25 +21,25 @@ impl windows_core::RuntimeName for IGraphicsEffect {
     const NAME: &'static str = "Windows.Graphics.Effects.IGraphicsEffect";
 }
 pub trait IGraphicsEffect_Impl: IGraphicsEffectSource_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
 }
 impl IGraphicsEffect_Vtbl {
     pub const fn new<Identity: IGraphicsEffect_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Name<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Name<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IGraphicsEffect_Impl::Name(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetName<Identity: IGraphicsEffect_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, name: *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IGraphicsEffect_Impl::SetName(this, core::mem::transmute(&name)).into()

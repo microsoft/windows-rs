@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+pub unsafe fn DwmAttachMilContent(hwnd: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmAttachMilContent(hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { DwmAttachMilContent(hwnd).ok() }
 }
@@ -9,49 +9,49 @@ pub unsafe fn DwmDefWindowProc(hwnd: super::super::Foundation::HWND, msg: u32, w
     unsafe { DwmDefWindowProc(hwnd, msg, wparam, lparam, plresult as _) }
 }
 #[inline]
-pub unsafe fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+pub unsafe fn DwmDetachMilContent(hwnd: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmDetachMilContent(hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { DwmDetachMilContent(hwnd).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> windows_core::Result<()> {
+pub unsafe fn DwmEnableBlurBehindWindow(hwnd: super::super::Foundation::HWND, pblurbehind: *const DWM_BLURBEHIND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmEnableBlurBehindWindow(hwnd : super::super::Foundation:: HWND, pblurbehind : *const DWM_BLURBEHIND) -> windows_core::HRESULT);
     unsafe { DwmEnableBlurBehindWindow(hwnd, pblurbehind).ok() }
 }
 #[inline]
-pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmEnableComposition(ucompositionaction: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmEnableComposition(ucompositionaction : u32) -> windows_core::HRESULT);
     unsafe { DwmEnableComposition(ucompositionaction).ok() }
 }
 #[inline]
-pub unsafe fn DwmEnableMMCSS(fenablemmcss: bool) -> windows_core::Result<()> {
+pub unsafe fn DwmEnableMMCSS(fenablemmcss: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmEnableMMCSS(fenablemmcss : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmEnableMMCSS(fenablemmcss.into()).ok() }
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> windows_core::Result<()> {
+pub unsafe fn DwmExtendFrameIntoClientArea(hwnd: super::super::Foundation::HWND, pmarinset: *const super::super::UI::Controls::MARGINS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmExtendFrameIntoClientArea(hwnd : super::super::Foundation:: HWND, pmarinset : *const super::super::UI::Controls:: MARGINS) -> windows_core::HRESULT);
     unsafe { DwmExtendFrameIntoClientArea(hwnd, pmarinset).ok() }
 }
 #[inline]
-pub unsafe fn DwmFlush() -> windows_core::Result<()> {
+pub unsafe fn DwmFlush() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmFlush() -> windows_core::HRESULT);
     unsafe { DwmFlush().ok() }
 }
 #[inline]
-pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn DwmGetColorizationColor(pcrcolorization: *mut u32, pfopaqueblend: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetColorizationColor(pcrcolorization : *mut u32, pfopaqueblend : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmGetColorizationColor(pcrcolorization as _, pfopaqueblend as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> windows_core::Result<()> {
+pub unsafe fn DwmGetCompositionTimingInfo(hwnd: super::super::Foundation::HWND, ptiminginfo: *mut DWM_TIMING_INFO) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetCompositionTimingInfo(hwnd : super::super::Foundation:: HWND, ptiminginfo : *mut DWM_TIMING_INFO) -> windows_core::HRESULT);
     unsafe { DwmGetCompositionTimingInfo(hwnd, ptiminginfo as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> Result<windows_core::GUID, windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamClient(uindex : u32, pclientuuid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -59,17 +59,17 @@ pub unsafe fn DwmGetGraphicsStreamClient(uindex: u32) -> windows_core::Result<wi
     }
 }
 #[inline]
-pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> windows_core::Result<()> {
+pub unsafe fn DwmGetGraphicsStreamTransformHint(uindex: u32, ptransform: *mut MilMatrix3x2D) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetGraphicsStreamTransformHint(uindex : u32, ptransform : *mut MilMatrix3x2D) -> windows_core::HRESULT);
     unsafe { DwmGetGraphicsStreamTransformHint(uindex, ptransform as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut windows_core::BOOL, pfisconnected: *mut windows_core::BOOL, pdwgeneration: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn DwmGetTransportAttributes(pfisremoting: *mut windows_core::BOOL, pfisconnected: *mut windows_core::BOOL, pdwgeneration: *mut u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetTransportAttributes(pfisremoting : *mut windows_core::BOOL, pfisconnected : *mut windows_core::BOOL, pdwgeneration : *mut u32) -> windows_core::HRESULT);
     unsafe { DwmGetTransportAttributes(pfisremoting as _, pfisconnected as _, pdwgeneration as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::super::Foundation::HWND>) -> windows_core::Result<DWM_TAB_WINDOW_REQUIREMENTS> {
+pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::super::Foundation::HWND>) -> Result<DWM_TAB_WINDOW_REQUIREMENTS, windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetUnmetTabRequirements(appwindow : super::super::Foundation:: HWND, value : *mut DWM_TAB_WINDOW_REQUIREMENTS) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -77,17 +77,17 @@ pub unsafe fn DwmGetUnmetTabRequirements(appwindow: Option<super::super::Foundat
     }
 }
 #[inline]
-pub unsafe fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmGetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *mut core::ffi::c_void, cbattribute: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmGetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *mut core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
     unsafe { DwmGetWindowAttribute(hwnd, dwattribute.0 as _, pvattribute as _, cbattribute).ok() }
 }
 #[inline]
-pub unsafe fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
+pub unsafe fn DwmInvalidateIconicBitmaps(hwnd: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmInvalidateIconicBitmaps(hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { DwmInvalidateIconicBitmaps(hwnd).ok() }
 }
 #[inline]
-pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn DwmIsCompositionEnabled() -> Result<windows_core::BOOL, windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmIsCompositionEnabled(pfenabled : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -95,12 +95,12 @@ pub unsafe fn DwmIsCompositionEnabled() -> windows_core::Result<windows_core::BO
     }
 }
 #[inline]
-pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: bool) -> windows_core::Result<()> {
+pub unsafe fn DwmModifyPreviousDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32, frelative: bool) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmModifyPreviousDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32, frelative : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { DwmModifyPreviousDxFrameDuration(hwnd, crefreshes, frelative.into()).ok() }
 }
 #[inline]
-pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> windows_core::Result<super::super::Foundation::SIZE> {
+pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> Result<super::super::Foundation::SIZE, windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmQueryThumbnailSourceSize(hthumbnail : isize, psize : *mut super::super::Foundation:: SIZE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -108,7 +108,7 @@ pub unsafe fn DwmQueryThumbnailSourceSize(hthumbnail: isize) -> windows_core::Re
     }
 }
 #[inline]
-pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND) -> windows_core::Result<isize> {
+pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HWND, hwndsource: super::super::Foundation::HWND) -> Result<isize, windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmRegisterThumbnail(hwnddestination : super::super::Foundation:: HWND, hwndsource : super::super::Foundation:: HWND, phthumbnailid : *mut isize) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -116,59 +116,59 @@ pub unsafe fn DwmRegisterThumbnail(hwnddestination: super::super::Foundation::HW
     }
 }
 #[inline]
-pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> windows_core::Result<()> {
+pub unsafe fn DwmRenderGesture(gt: GESTURE_TYPE, ccontacts: u32, pdwpointerid: *const u32, ppoints: *const super::super::Foundation::POINT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmRenderGesture(gt : GESTURE_TYPE, ccontacts : u32, pdwpointerid : *const u32, ppoints : *const super::super::Foundation:: POINT) -> windows_core::HRESULT);
     unsafe { DwmRenderGesture(gt, ccontacts, pdwpointerid, ppoints).ok() }
 }
 #[inline]
-pub unsafe fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> windows_core::Result<()> {
+pub unsafe fn DwmSetDxFrameDuration(hwnd: super::super::Foundation::HWND, crefreshes: i32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmSetDxFrameDuration(hwnd : super::super::Foundation:: HWND, crefreshes : i32) -> windows_core::HRESULT);
     unsafe { DwmSetDxFrameDuration(hwnd, crefreshes).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: Option<*const super::super::Foundation::POINT>, dwsitflags: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmSetIconicLivePreviewBitmap(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, pptclient: Option<*const super::super::Foundation::POINT>, dwsitflags: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicLivePreviewBitmap(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, pptclient : *const super::super::Foundation:: POINT, dwsitflags : u32) -> windows_core::HRESULT);
     unsafe { DwmSetIconicLivePreviewBitmap(hwnd, hbmp, pptclient.unwrap_or(core::mem::zeroed()) as _, dwsitflags).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmSetIconicThumbnail(hwnd: super::super::Foundation::HWND, hbmp: super::Gdi::HBITMAP, dwsitflags: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmSetIconicThumbnail(hwnd : super::super::Foundation:: HWND, hbmp : super::Gdi:: HBITMAP, dwsitflags : u32) -> windows_core::HRESULT);
     unsafe { DwmSetIconicThumbnail(hwnd, hbmp, dwsitflags).ok() }
 }
 #[inline]
-pub unsafe fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> windows_core::Result<()> {
+pub unsafe fn DwmSetPresentParameters(hwnd: super::super::Foundation::HWND, ppresentparams: *mut DWM_PRESENT_PARAMETERS) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmSetPresentParameters(hwnd : super::super::Foundation:: HWND, ppresentparams : *mut DWM_PRESENT_PARAMETERS) -> windows_core::HRESULT);
     unsafe { DwmSetPresentParameters(hwnd, ppresentparams as _).ok() }
 }
 #[inline]
-pub unsafe fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> windows_core::Result<()> {
+pub unsafe fn DwmSetWindowAttribute(hwnd: super::super::Foundation::HWND, dwattribute: DWMWINDOWATTRIBUTE, pvattribute: *const core::ffi::c_void, cbattribute: u32) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmSetWindowAttribute(hwnd : super::super::Foundation:: HWND, dwattribute : u32, pvattribute : *const core::ffi::c_void, cbattribute : u32) -> windows_core::HRESULT);
     unsafe { DwmSetWindowAttribute(hwnd, dwattribute.0 as _, pvattribute, cbattribute).ok() }
 }
 #[inline]
-pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> windows_core::Result<()> {
+pub unsafe fn DwmShowContact(dwpointerid: u32, eshowcontact: DWM_SHOWCONTACT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmShowContact(dwpointerid : u32, eshowcontact : DWM_SHOWCONTACT) -> windows_core::HRESULT);
     unsafe { DwmShowContact(dwpointerid, eshowcontact).ok() }
 }
 #[inline]
-pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::super::Foundation::POINT) -> windows_core::Result<()> {
+pub unsafe fn DwmTetherContact(dwpointerid: u32, fenable: bool, pttether: super::super::Foundation::POINT) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmTetherContact(dwpointerid : u32, fenable : windows_core::BOOL, pttether : super::super::Foundation:: POINT) -> windows_core::HRESULT);
     unsafe { DwmTetherContact(dwpointerid, fenable.into(), core::mem::transmute(pttether)).ok() }
 }
 #[inline]
-pub unsafe fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_core::Result<()> {
+pub unsafe fn DwmTransitionOwnedWindow(hwnd: super::super::Foundation::HWND, target: DWMTRANSITION_OWNEDWINDOW_TARGET) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmTransitionOwnedWindow(hwnd : super::super::Foundation:: HWND, target : DWMTRANSITION_OWNEDWINDOW_TARGET) -> windows_core::HRESULT);
     unsafe { DwmTransitionOwnedWindow(hwnd, target).ok() }
 }
 #[inline]
-pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> windows_core::Result<()> {
+pub unsafe fn DwmUnregisterThumbnail(hthumbnailid: isize) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmUnregisterThumbnail(hthumbnailid : isize) -> windows_core::HRESULT);
     unsafe { DwmUnregisterThumbnail(hthumbnailid).ok() }
 }
 #[inline]
-pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> windows_core::Result<()> {
+pub unsafe fn DwmUpdateThumbnailProperties(hthumbnailid: isize, ptnproperties: *const DWM_THUMBNAIL_PROPERTIES) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("dwmapi.dll" "system" fn DwmUpdateThumbnailProperties(hthumbnailid : isize, ptnproperties : *const DWM_THUMBNAIL_PROPERTIES) -> windows_core::HRESULT);
     unsafe { DwmUpdateThumbnailProperties(hthumbnailid, ptnproperties).ok() }
 }

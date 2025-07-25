@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IWICImageEncoder, IWICImageEncoder_Vtbl, 0x
 windows_core::imp::interface_hierarchy!(IWICImageEncoder, windows_core::IUnknown);
 impl IWICImageEncoder {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn WriteFrame<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>
+    pub unsafe fn WriteFrame<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Direct2D::ID2D1Image>,
         P1: windows_core::Param<super::IWICBitmapFrameEncode>,
@@ -10,7 +10,7 @@ impl IWICImageEncoder {
         unsafe { (windows_core::Interface::vtable(self).WriteFrame)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn WriteFrameThumbnail<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>
+    pub unsafe fn WriteFrameThumbnail<P0, P1>(&self, pimage: P0, pframeencode: P1, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Direct2D::ID2D1Image>,
         P1: windows_core::Param<super::IWICBitmapFrameEncode>,
@@ -18,7 +18,7 @@ impl IWICImageEncoder {
         unsafe { (windows_core::Interface::vtable(self).WriteFrameThumbnail)(windows_core::Interface::as_raw(self), pimage.param().abi(), pframeencode.param().abi(), pimageparameters).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
-    pub unsafe fn WriteThumbnail<P0, P1>(&self, pimage: P0, pencoder: P1, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>
+    pub unsafe fn WriteThumbnail<P0, P1>(&self, pimage: P0, pencoder: P1, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Direct2D::ID2D1Image>,
         P1: windows_core::Param<super::IWICBitmapEncoder>,
@@ -45,9 +45,9 @@ pub struct IWICImageEncoder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICImageEncoder_Impl: windows_core::IUnknownImpl {
-    fn WriteFrame(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
-    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
-    fn WriteThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pencoder: windows_core::Ref<'_, super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
+    fn WriteFrame(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>;
+    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>;
+    fn WriteThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pencoder: windows_core::Ref<'_, super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IWICImageEncoder_Vtbl {
@@ -93,7 +93,7 @@ impl core::ops::Deref for IWICImagingFactory2 {
 windows_core::imp::interface_hierarchy!(IWICImagingFactory2, windows_core::IUnknown, super::IWICImagingFactory);
 impl IWICImagingFactory2 {
     #[cfg(feature = "Win32_Graphics_Direct2D")]
-    pub unsafe fn CreateImageEncoder<P0>(&self, pd2ddevice: P0) -> windows_core::Result<IWICImageEncoder>
+    pub unsafe fn CreateImageEncoder<P0>(&self, pd2ddevice: P0) -> Result<IWICImageEncoder, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Direct2D::ID2D1Device>,
     {
@@ -114,7 +114,7 @@ pub struct IWICImagingFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory2_Impl: super::IWICImagingFactory_Impl {
-    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<'_, super::super::Direct2D::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
+    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<'_, super::super::Direct2D::ID2D1Device>) -> Result<IWICImageEncoder, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory2_Vtbl {
@@ -127,7 +127,7 @@ impl IWICImagingFactory2_Vtbl {
                         ppwicimageencoder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

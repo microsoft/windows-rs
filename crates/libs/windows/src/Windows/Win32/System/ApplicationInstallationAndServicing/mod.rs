@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn ActivateActCtx(hactctx: Option<super::super::Foundation::HANDLE>, lpcookie: *mut usize) -> windows_core::Result<()> {
+pub unsafe fn ActivateActCtx(hactctx: Option<super::super::Foundation::HANDLE>, lpcookie: *mut usize) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn ActivateActCtx(hactctx : super::super::Foundation:: HANDLE, lpcookie : *mut usize) -> windows_core::BOOL);
     unsafe { ActivateActCtx(hactctx.unwrap_or(core::mem::zeroed()) as _, lpcookie as _).ok() }
 }
@@ -113,16 +113,16 @@ where
     unsafe { ApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), newfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CreateActCtxA(pactctx: *const ACTCTXA) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn CreateActCtxA(pactctx : *const ACTCTXA) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { CreateActCtxA(pactctx) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_result::HRESULT::from_thread)
 }
 #[inline]
-pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> windows_core::Result<super::super::Foundation::HANDLE> {
+pub unsafe fn CreateActCtxW(pactctx: *const ACTCTXW) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn CreateActCtxW(pactctx : *const ACTCTXW) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { CreateActCtxW(pactctx) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_result::HRESULT::from_thread)
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
@@ -205,7 +205,7 @@ where
     unsafe { CreatePatchFileW(oldfilename.param().abi(), newfilename.param().abi(), patchfilename.param().abi(), optionflags, optiondata.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> windows_core::Result<()> {
+pub unsafe fn DeactivateActCtx(dwflags: u32, ulcookie: usize) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn DeactivateActCtx(dwflags : u32, ulcookie : usize) -> windows_core::BOOL);
     unsafe { DeactivateActCtx(dwflags, ulcookie).ok() }
 }
@@ -244,13 +244,13 @@ where
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpguidtofind: Option<*const windows_core::GUID>, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::Result<()> {
+pub unsafe fn FindActCtxSectionGuid(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpguidtofind: Option<*const windows_core::GUID>, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn FindActCtxSectionGuid(dwflags : u32, lpextensionguid : *const windows_core::GUID, ulsectionid : u32, lpguidtofind : *const windows_core::GUID, returneddata : *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::BOOL);
     unsafe { FindActCtxSectionGuid(dwflags, lpextensionguid.unwrap_or(core::mem::zeroed()) as _, ulsectionid, lpguidtofind.unwrap_or(core::mem::zeroed()) as _, returneddata as _).ok() }
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionStringA<P3>(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::Result<()>
+pub unsafe fn FindActCtxSectionStringA<P3>(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
@@ -259,7 +259,7 @@ where
 }
 #[cfg(feature = "Win32_System_WindowsProgramming")]
 #[inline]
-pub unsafe fn FindActCtxSectionStringW<P3>(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> windows_core::Result<()>
+pub unsafe fn FindActCtxSectionStringW<P3>(dwflags: u32, lpextensionguid: Option<*const windows_core::GUID>, ulsectionid: u32, lpstringtofind: P3, returneddata: *mut ACTCTX_SECTION_KEYED_DATA) -> Result<(), windows_result::HRESULT>
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -267,7 +267,7 @@ where
     unsafe { FindActCtxSectionStringW(dwflags, lpextensionguid.unwrap_or(core::mem::zeroed()) as _, ulsectionid, lpstringtofind.param().abi(), returneddata as _).ok() }
 }
 #[inline]
-pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn GetCurrentActCtx(lphactctx: *mut super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn GetCurrentActCtx(lphactctx : *mut super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { GetCurrentActCtx(lphactctx as _).ok() }
 }
@@ -1214,7 +1214,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationA<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn MsiGetFileSignatureInformationA<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -1223,7 +1223,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Cryptography")]
 #[inline]
-pub unsafe fn MsiGetFileSignatureInformationW<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> windows_core::Result<()>
+pub unsafe fn MsiGetFileSignatureInformationW<P0>(szsignedobjectpath: P0, dwflags: u32, ppccertcontext: *mut *mut super::super::Security::Cryptography::CERT_CONTEXT, pbhashdata: Option<*mut u8>, pcbhashdata: Option<*mut u32>) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -2543,7 +2543,7 @@ pub unsafe fn NormalizeFileForPatchSignature(filebuffer: *mut core::ffi::c_void,
     }
 }
 #[inline]
-pub unsafe fn QueryActCtxSettingsW<P2, P3>(dwflags: Option<u32>, hactctx: Option<super::super::Foundation::HANDLE>, settingsnamespace: P2, settingname: P3, pvbuffer: Option<windows_core::PWSTR>, dwbuffer: usize, pdwwrittenorrequired: Option<*mut usize>) -> windows_core::Result<()>
+pub unsafe fn QueryActCtxSettingsW<P2, P3>(dwflags: Option<u32>, hactctx: Option<super::super::Foundation::HANDLE>, settingsnamespace: P2, settingname: P3, pvbuffer: Option<windows_core::PWSTR>, dwbuffer: usize, pdwwrittenorrequired: Option<*mut usize>) -> Result<(), windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -2552,7 +2552,7 @@ where
     unsafe { QueryActCtxSettingsW(dwflags.unwrap_or(core::mem::zeroed()) as _, hactctx.unwrap_or(core::mem::zeroed()) as _, settingsnamespace.param().abi(), settingname.param().abi(), pvbuffer.unwrap_or(core::mem::zeroed()) as _, dwbuffer, pdwwrittenorrequired.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: Option<*const core::ffi::c_void>, ulinfoclass: u32, pvbuffer: Option<*mut core::ffi::c_void>, cbbuffer: usize, pcbwrittenorrequired: Option<*mut usize>) -> windows_core::Result<()> {
+pub unsafe fn QueryActCtxW(dwflags: u32, hactctx: super::super::Foundation::HANDLE, pvsubinstance: Option<*const core::ffi::c_void>, ulinfoclass: u32, pvbuffer: Option<*mut core::ffi::c_void>, cbbuffer: usize, pcbwrittenorrequired: Option<*mut usize>) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn QueryActCtxW(dwflags : u32, hactctx : super::super::Foundation:: HANDLE, pvsubinstance : *const core::ffi::c_void, ulinfoclass : u32, pvbuffer : *mut core::ffi::c_void, cbbuffer : usize, pcbwrittenorrequired : *mut usize) -> windows_core::BOOL);
     unsafe { QueryActCtxW(dwflags, hactctx, pvsubinstance.unwrap_or(core::mem::zeroed()) as _, ulinfoclass, pvbuffer.unwrap_or(core::mem::zeroed()) as _, cbbuffer, pcbwrittenorrequired.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
@@ -2562,7 +2562,7 @@ pub unsafe fn ReleaseActCtx(hactctx: super::super::Foundation::HANDLE) {
     unsafe { ReleaseActCtx(hactctx as _) }
 }
 #[inline]
-pub unsafe fn SfcGetNextProtectedFile(rpchandle: super::super::Foundation::HANDLE, protfiledata: *mut PROTECTED_FILE_DATA) -> windows_core::Result<()> {
+pub unsafe fn SfcGetNextProtectedFile(rpchandle: super::super::Foundation::HANDLE, protfiledata: *mut PROTECTED_FILE_DATA) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("sfc.dll" "system" fn SfcGetNextProtectedFile(rpchandle : super::super::Foundation:: HANDLE, protfiledata : *mut PROTECTED_FILE_DATA) -> windows_core::BOOL);
     unsafe { SfcGetNextProtectedFile(rpchandle, protfiledata as _).ok() }
 }
@@ -2620,7 +2620,7 @@ where
     unsafe { TestApplyPatchToFileW(patchfilename.param().abi(), oldfilename.param().abi(), applyoptionflags) }
 }
 #[inline]
-pub unsafe fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn ZombifyActCtx(hactctx: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn ZombifyActCtx(hactctx : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { ZombifyActCtx(hactctx as _).ok() }
 }
@@ -3157,31 +3157,31 @@ pub const IASSEMBLYCACHE_UNINSTALL_DISPOSITION_UNINSTALLED: IASSEMBLYCACHE_UNINS
 windows_core::imp::define_interface!(IAssemblyCache, IAssemblyCache_Vtbl, 0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
 windows_core::imp::interface_hierarchy!(IAssemblyCache, windows_core::IUnknown);
 impl IAssemblyCache {
-    pub unsafe fn UninstallAssembly<P1>(&self, dwflags: u32, pszassemblyname: P1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> windows_core::Result<()>
+    pub unsafe fn UninstallAssembly<P1>(&self, dwflags: u32, pszassemblyname: P1, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).UninstallAssembly)(windows_core::Interface::as_raw(self), dwflags, pszassemblyname.param().abi(), prefdata as _, puldisposition as _).ok() }
     }
-    pub unsafe fn QueryAssemblyInfo<P1>(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: P1, pasminfo: *mut ASSEMBLY_INFO) -> windows_core::Result<()>
+    pub unsafe fn QueryAssemblyInfo<P1>(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: P1, pasminfo: *mut ASSEMBLY_INFO) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).QueryAssemblyInfo)(windows_core::Interface::as_raw(self), dwflags, pszassemblyname.param().abi(), pasminfo as _).ok() }
     }
-    pub unsafe fn CreateAssemblyCacheItem<P3>(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: *mut Option<IAssemblyCacheItem>, pszassemblyname: P3) -> windows_core::Result<()>
+    pub unsafe fn CreateAssemblyCacheItem<P3>(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: *mut Option<IAssemblyCacheItem>, pszassemblyname: P3) -> Result<(), windows_result::HRESULT>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateAssemblyCacheItem)(windows_core::Interface::as_raw(self), dwflags, pvreserved as _, core::mem::transmute(ppasmitem), pszassemblyname.param().abi()).ok() }
     }
-    pub unsafe fn Reserved(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn Reserved(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn InstallAssembly<P1>(&self, dwflags: u32, pszmanifestfilepath: P1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> windows_core::Result<()>
+    pub unsafe fn InstallAssembly<P1>(&self, dwflags: u32, pszmanifestfilepath: P1, prefdata: *mut FUSION_INSTALL_REFERENCE) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3199,11 +3199,11 @@ pub struct IAssemblyCache_Vtbl {
     pub InstallAssembly: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut FUSION_INSTALL_REFERENCE) -> windows_core::HRESULT,
 }
 pub trait IAssemblyCache_Impl: windows_core::IUnknownImpl {
-    fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> windows_core::Result<()>;
-    fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: &windows_core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> windows_core::Result<()>;
-    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: windows_core::OutRef<'_, IAssemblyCacheItem>, pszassemblyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Reserved(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> windows_core::Result<()>;
+    fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> Result<(), windows_result::HRESULT>;
+    fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: &windows_core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> Result<(), windows_result::HRESULT>;
+    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: windows_core::OutRef<'_, IAssemblyCacheItem>, pszassemblyname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn Reserved(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> Result<(), windows_result::HRESULT>;
 }
 impl IAssemblyCache_Vtbl {
     pub const fn new<Identity: IAssemblyCache_Impl, const OFFSET: isize>() -> Self {
@@ -3233,7 +3233,7 @@ impl IAssemblyCache_Vtbl {
                         ppunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3261,16 +3261,16 @@ windows_core::imp::define_interface!(IAssemblyCacheItem, IAssemblyCacheItem_Vtbl
 windows_core::imp::interface_hierarchy!(IAssemblyCacheItem, windows_core::IUnknown);
 impl IAssemblyCacheItem {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStream<P1>(&self, dwflags: u32, pszstreamname: P1, dwformat: u32, dwformatflags: u32, ppistream: *mut Option<super::Com::IStream>, pulimaxsize: *mut u64) -> windows_core::Result<()>
+    pub unsafe fn CreateStream<P1>(&self, dwflags: u32, pszstreamname: P1, dwformat: u32, dwformatflags: u32, ppistream: *mut Option<super::Com::IStream>, pulimaxsize: *mut u64) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateStream)(windows_core::Interface::as_raw(self), dwflags, pszstreamname.param().abi(), dwformat, dwformatflags, core::mem::transmute(ppistream), pulimaxsize as _).ok() }
     }
-    pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), dwflags, puldisposition as _).ok() }
     }
-    pub unsafe fn AbortItem(&self) -> windows_core::Result<()> {
+    pub unsafe fn AbortItem(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AbortItem)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3287,9 +3287,9 @@ pub struct IAssemblyCacheItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAssemblyCacheItem_Impl: windows_core::IUnknownImpl {
-    fn CreateStream(&self, dwflags: u32, pszstreamname: &windows_core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: windows_core::OutRef<'_, super::Com::IStream>, pulimaxsize: *mut u64) -> windows_core::Result<()>;
-    fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> windows_core::Result<()>;
-    fn AbortItem(&self) -> windows_core::Result<()>;
+    fn CreateStream(&self, dwflags: u32, pszstreamname: &windows_core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: windows_core::OutRef<'_, super::Com::IStream>, pulimaxsize: *mut u64) -> Result<(), windows_result::HRESULT>;
+    fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn AbortItem(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAssemblyCacheItem_Vtbl {
@@ -3328,19 +3328,19 @@ impl windows_core::RuntimeName for IAssemblyCacheItem {}
 windows_core::imp::define_interface!(IAssemblyName, IAssemblyName_Vtbl, 0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
 windows_core::imp::interface_hierarchy!(IAssemblyName, windows_core::IUnknown);
 impl IAssemblyName {
-    pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, cbproperty: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, cbproperty: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), propertyid, pvproperty as _, cbproperty).ok() }
     }
-    pub unsafe fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), propertyid, pvproperty as _, pcbproperty as _).ok() }
     }
-    pub unsafe fn Finalize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Finalize(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Finalize)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetDisplayName(&self, szdisplayname: Option<windows_core::PWSTR>, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDisplayName(&self, szdisplayname: Option<windows_core::PWSTR>, pccdisplayname: *mut u32, dwdisplayflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDisplayName)(windows_core::Interface::as_raw(self), szdisplayname.unwrap_or(core::mem::zeroed()) as _, pccdisplayname as _, dwdisplayflags).ok() }
     }
-    pub unsafe fn Reserved<P1, P2, P3>(&self, refiid: *const windows_core::GUID, punkreserved1: P1, punkreserved2: P2, szreserved: P3, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+    pub unsafe fn Reserved<P1, P2, P3>(&self, refiid: *const windows_core::GUID, punkreserved1: P1, punkreserved2: P2, szreserved: P3, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -3348,19 +3348,19 @@ impl IAssemblyName {
     {
         unsafe { (windows_core::Interface::vtable(self).Reserved)(windows_core::Interface::as_raw(self), refiid, punkreserved1.param().abi(), punkreserved2.param().abi(), szreserved.param().abi(), llreserved, pvreserved as _, cbreserved, ppreserved as _).ok() }
     }
-    pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
+    pub unsafe fn GetName(&self, lpcwbuffer: *mut u32, pwzname: Option<windows_core::PWSTR>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), lpcwbuffer as _, pwzname.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), pdwversionhi as _, pdwversionlow as _).ok() }
     }
-    pub unsafe fn IsEqual<P0>(&self, pname: P0, dwcmpflags: u32) -> windows_core::Result<()>
+    pub unsafe fn IsEqual<P0>(&self, pname: P0, dwcmpflags: u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IAssemblyName>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsEqual)(windows_core::Interface::as_raw(self), pname.param().abi(), dwcmpflags).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IAssemblyName> {
+    pub unsafe fn Clone(&self) -> Result<IAssemblyName, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3382,15 +3382,15 @@ pub struct IAssemblyName_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAssemblyName_Impl: windows_core::IUnknownImpl {
-    fn SetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, cbproperty: u32) -> windows_core::Result<()>;
-    fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> windows_core::Result<()>;
-    fn Finalize(&self) -> windows_core::Result<()>;
-    fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()>;
-    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<'_, windows_core::IUnknown>, punkreserved2: windows_core::Ref<'_, windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> windows_core::Result<()>;
-    fn IsEqual(&self, pname: windows_core::Ref<'_, IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IAssemblyName>;
+    fn SetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, cbproperty: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Finalize(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<'_, windows_core::IUnknown>, punkreserved2: windows_core::Ref<'_, windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn IsEqual(&self, pname: windows_core::Ref<'_, IAssemblyName>, dwcmpflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IAssemblyName, windows_result::HRESULT>;
 }
 impl IAssemblyName_Vtbl {
     pub const fn new<Identity: IAssemblyName_Impl, const OFFSET: isize>() -> Self {
@@ -3450,7 +3450,7 @@ impl IAssemblyName_Vtbl {
                         pname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3476,16 +3476,16 @@ windows_core::imp::define_interface!(IEnumMsmDependency, IEnumMsmDependency_Vtbl
 windows_core::imp::interface_hierarchy!(IEnumMsmDependency, windows_core::IUnknown);
 impl IEnumMsmDependency {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut Option<IMsmDependency>, pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, cfetch: u32, rgmsmdependencies: *mut Option<IMsmDependency>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cfetch, core::mem::transmute(rgmsmdependencies), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, cskip: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskip).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmDependency> {
+    pub unsafe fn Clone(&self) -> Result<IEnumMsmDependency, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3506,10 +3506,10 @@ pub struct IEnumMsmDependency_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmDependency_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfetch: u32, rgmsmdependencies: windows_core::OutRef<'_, IMsmDependency>, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, cskip: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumMsmDependency>;
+    fn Next(&self, cfetch: u32, rgmsmdependencies: windows_core::OutRef<'_, IMsmDependency>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumMsmDependency, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmDependency_Vtbl {
@@ -3540,7 +3540,7 @@ impl IEnumMsmDependency_Vtbl {
                         pemsmdependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3562,16 +3562,16 @@ windows_core::imp::define_interface!(IEnumMsmError, IEnumMsmError_Vtbl, 0x0adda8
 windows_core::imp::interface_hierarchy!(IEnumMsmError, windows_core::IUnknown);
 impl IEnumMsmError {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut Option<IMsmError>, pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, cfetch: u32, rgmsmerrors: *mut Option<IMsmError>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cfetch, core::mem::transmute(rgmsmerrors), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, cskip: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskip).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmError> {
+    pub unsafe fn Clone(&self) -> Result<IEnumMsmError, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3592,10 +3592,10 @@ pub struct IEnumMsmError_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmError_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfetch: u32, rgmsmerrors: windows_core::OutRef<'_, IMsmError>, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, cskip: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumMsmError>;
+    fn Next(&self, cfetch: u32, rgmsmerrors: windows_core::OutRef<'_, IMsmError>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumMsmError, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumMsmError_Vtbl {
@@ -3626,7 +3626,7 @@ impl IEnumMsmError_Vtbl {
                         pemsmerrors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3647,16 +3647,16 @@ impl windows_core::RuntimeName for IEnumMsmError {}
 windows_core::imp::define_interface!(IEnumMsmString, IEnumMsmString_Vtbl, 0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
 windows_core::imp::interface_hierarchy!(IEnumMsmString, windows_core::IUnknown);
 impl IEnumMsmString {
-    pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut windows_core::BSTR, pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, cfetch: u32, rgbstrstrings: *mut windows_core::BSTR, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), cfetch, core::mem::transmute(rgbstrstrings), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, cskip: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), cskip).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumMsmString> {
+    pub unsafe fn Clone(&self) -> Result<IEnumMsmString, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3673,10 +3673,10 @@ pub struct IEnumMsmString_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumMsmString_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfetch: u32, rgbstrstrings: *mut windows_core::BSTR, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, cskip: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumMsmString>;
+    fn Next(&self, cfetch: u32, rgbstrstrings: *mut windows_core::BSTR, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, cskip: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumMsmString, windows_result::HRESULT>;
 }
 impl IEnumMsmString_Vtbl {
     pub const fn new<Identity: IEnumMsmString_Impl, const OFFSET: isize>() -> Self {
@@ -3706,7 +3706,7 @@ impl IEnumMsmString_Vtbl {
                         pemsmstrings.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3736,16 +3736,16 @@ impl core::ops::Deref for IMsmDependencies {
 windows_core::imp::interface_hierarchy!(IMsmDependencies, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmDependencies {
-    pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IMsmDependency> {
+    pub unsafe fn get_Item(&self, item: i32) -> Result<IMsmDependency, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self, count: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), count as _).ok() }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3763,9 +3763,9 @@ pub struct IMsmDependencies_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependencies_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, item: i32) -> windows_core::Result<IMsmDependency>;
-    fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: i32) -> Result<IMsmDependency, windows_result::HRESULT>;
+    fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmDependencies_Vtbl {
@@ -3778,7 +3778,7 @@ impl IMsmDependencies_Vtbl {
                         r#return.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3796,7 +3796,7 @@ impl IMsmDependencies_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3826,13 +3826,13 @@ impl core::ops::Deref for IMsmDependency {
 windows_core::imp::interface_hierarchy!(IMsmDependency, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmDependency {
-    pub unsafe fn Module(&self, module: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Module(&self, module: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Module)(windows_core::Interface::as_raw(self), core::mem::transmute(module)).ok() }
     }
-    pub unsafe fn Language(&self, language: *mut i16) -> windows_core::Result<()> {
+    pub unsafe fn Language(&self, language: *mut i16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Language)(windows_core::Interface::as_raw(self), language as _).ok() }
     }
-    pub unsafe fn Version(&self, version: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Version(&self, version: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), core::mem::transmute(version)).ok() }
     }
 }
@@ -3847,9 +3847,9 @@ pub struct IMsmDependency_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmDependency_Impl: super::Com::IDispatch_Impl {
-    fn Module(&self, module: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Language(&self, language: *mut i16) -> windows_core::Result<()>;
-    fn Version(&self, version: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Module(&self, module: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Language(&self, language: *mut i16) -> Result<(), windows_result::HRESULT>;
+    fn Version(&self, version: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmDependency_Vtbl {
@@ -3898,28 +3898,28 @@ impl core::ops::Deref for IMsmError {
 windows_core::imp::interface_hierarchy!(IMsmError, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmError {
-    pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> windows_core::Result<()> {
+    pub unsafe fn Type(&self, errortype: *mut msmErrorType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), errortype as _).ok() }
     }
-    pub unsafe fn Path(&self, errorpath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Path(&self, errorpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), core::mem::transmute(errorpath)).ok() }
     }
-    pub unsafe fn Language(&self, errorlanguage: *mut i16) -> windows_core::Result<()> {
+    pub unsafe fn Language(&self, errorlanguage: *mut i16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Language)(windows_core::Interface::as_raw(self), errorlanguage as _).ok() }
     }
-    pub unsafe fn DatabaseTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DatabaseTable(&self, errortable: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DatabaseTable)(windows_core::Interface::as_raw(self), core::mem::transmute(errortable)).ok() }
     }
-    pub unsafe fn DatabaseKeys(&self) -> windows_core::Result<IMsmStrings> {
+    pub unsafe fn DatabaseKeys(&self) -> Result<IMsmStrings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DatabaseKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ModuleTable)(windows_core::Interface::as_raw(self), core::mem::transmute(errortable)).ok() }
     }
-    pub unsafe fn ModuleKeys(&self) -> windows_core::Result<IMsmStrings> {
+    pub unsafe fn ModuleKeys(&self) -> Result<IMsmStrings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleKeys)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3941,13 +3941,13 @@ pub struct IMsmError_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmError_Impl: super::Com::IDispatch_Impl {
-    fn Type(&self, errortype: *mut msmErrorType) -> windows_core::Result<()>;
-    fn Path(&self, errorpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Language(&self, errorlanguage: *mut i16) -> windows_core::Result<()>;
-    fn DatabaseTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn DatabaseKeys(&self) -> windows_core::Result<IMsmStrings>;
-    fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ModuleKeys(&self) -> windows_core::Result<IMsmStrings>;
+    fn Type(&self, errortype: *mut msmErrorType) -> Result<(), windows_result::HRESULT>;
+    fn Path(&self, errorpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Language(&self, errorlanguage: *mut i16) -> Result<(), windows_result::HRESULT>;
+    fn DatabaseTable(&self, errortable: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DatabaseKeys(&self) -> Result<IMsmStrings, windows_result::HRESULT>;
+    fn ModuleTable(&self, errortable: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ModuleKeys(&self) -> Result<IMsmStrings, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmError_Vtbl {
@@ -3984,7 +3984,7 @@ impl IMsmError_Vtbl {
                         errorkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4002,7 +4002,7 @@ impl IMsmError_Vtbl {
                         errorkeys.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4036,16 +4036,16 @@ impl core::ops::Deref for IMsmErrors {
 windows_core::imp::interface_hierarchy!(IMsmErrors, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmErrors {
-    pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IMsmError> {
+    pub unsafe fn get_Item(&self, item: i32) -> Result<IMsmError, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self, count: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), count as _).ok() }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4063,9 +4063,9 @@ pub struct IMsmErrors_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmErrors_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, item: i32) -> windows_core::Result<IMsmError>;
-    fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: i32) -> Result<IMsmError, windows_result::HRESULT>;
+    fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmErrors_Vtbl {
@@ -4078,7 +4078,7 @@ impl IMsmErrors_Vtbl {
                         r#return.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4096,7 +4096,7 @@ impl IMsmErrors_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4126,7 +4126,7 @@ impl core::ops::Deref for IMsmGetFiles {
 windows_core::imp::interface_hierarchy!(IMsmGetFiles, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmGetFiles {
-    pub unsafe fn ModuleFiles(&self) -> windows_core::Result<IMsmStrings> {
+    pub unsafe fn ModuleFiles(&self) -> Result<IMsmStrings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4142,7 +4142,7 @@ pub struct IMsmGetFiles_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmGetFiles_Impl: super::Com::IDispatch_Impl {
-    fn ModuleFiles(&self) -> windows_core::Result<IMsmStrings>;
+    fn ModuleFiles(&self) -> Result<IMsmStrings, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmGetFiles_Vtbl {
@@ -4155,7 +4155,7 @@ impl IMsmGetFiles_Vtbl {
                         files.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4180,49 +4180,49 @@ impl core::ops::Deref for IMsmMerge {
 windows_core::imp::interface_hierarchy!(IMsmMerge, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmMerge {
-    pub unsafe fn OpenDatabase(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn OpenDatabase(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenDatabase)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn OpenModule(&self, path: &windows_core::BSTR, language: i16) -> windows_core::Result<()> {
+    pub unsafe fn OpenModule(&self, path: &windows_core::BSTR, language: i16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenModule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), language).ok() }
     }
-    pub unsafe fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseDatabase)(windows_core::Interface::as_raw(self), commit).ok() }
     }
-    pub unsafe fn CloseModule(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseModule(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseModule)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn OpenLog(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn OpenLog(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OpenLog)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn CloseLog(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseLog(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseLog)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Log(&self, message: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Log(&self, message: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Log)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message)).ok() }
     }
-    pub unsafe fn Errors(&self) -> windows_core::Result<IMsmErrors> {
+    pub unsafe fn Errors(&self) -> Result<IMsmErrors, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Errors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Dependencies(&self) -> windows_core::Result<IMsmDependencies> {
+    pub unsafe fn Dependencies(&self) -> Result<IMsmDependencies, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Dependencies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Merge(&self, feature: &windows_core::BSTR, redirectdir: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Merge(&self, feature: &windows_core::BSTR, redirectdir: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feature), core::mem::transmute_copy(redirectdir)).ok() }
     }
-    pub unsafe fn Connect(&self, feature: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Connect(&self, feature: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(feature)).ok() }
     }
-    pub unsafe fn ExtractCAB(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExtractCAB(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExtractCAB)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok() }
     }
-    pub unsafe fn ExtractFiles(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExtractFiles(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExtractFiles)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
 }
@@ -4247,19 +4247,19 @@ pub struct IMsmMerge_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmMerge_Impl: super::Com::IDispatch_Impl {
-    fn OpenDatabase(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OpenModule(&self, path: &windows_core::BSTR, language: i16) -> windows_core::Result<()>;
-    fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CloseModule(&self) -> windows_core::Result<()>;
-    fn OpenLog(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CloseLog(&self) -> windows_core::Result<()>;
-    fn Log(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Errors(&self) -> windows_core::Result<IMsmErrors>;
-    fn Dependencies(&self) -> windows_core::Result<IMsmDependencies>;
-    fn Merge(&self, feature: &windows_core::BSTR, redirectdir: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Connect(&self, feature: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ExtractCAB(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ExtractFiles(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn OpenDatabase(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn OpenModule(&self, path: &windows_core::BSTR, language: i16) -> Result<(), windows_result::HRESULT>;
+    fn CloseDatabase(&self, commit: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn CloseModule(&self) -> Result<(), windows_result::HRESULT>;
+    fn OpenLog(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CloseLog(&self) -> Result<(), windows_result::HRESULT>;
+    fn Log(&self, message: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Errors(&self) -> Result<IMsmErrors, windows_result::HRESULT>;
+    fn Dependencies(&self) -> Result<IMsmDependencies, windows_result::HRESULT>;
+    fn Merge(&self, feature: &windows_core::BSTR, redirectdir: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Connect(&self, feature: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ExtractCAB(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ExtractFiles(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmMerge_Vtbl {
@@ -4314,7 +4314,7 @@ impl IMsmMerge_Vtbl {
                         errors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4326,7 +4326,7 @@ impl IMsmMerge_Vtbl {
                         dependencies.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4390,13 +4390,13 @@ impl core::ops::Deref for IMsmStrings {
 windows_core::imp::interface_hierarchy!(IMsmStrings, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMsmStrings {
-    pub unsafe fn get_Item(&self, item: i32, r#return: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_Item(&self, item: i32, r#return: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, core::mem::transmute(r#return)).ok() }
     }
-    pub unsafe fn Count(&self, count: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), count as _).ok() }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4414,9 +4414,9 @@ pub struct IMsmStrings_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMsmStrings_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, item: i32, r#return: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Count(&self, count: *mut i32) -> windows_core::Result<()>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: i32, r#return: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Count(&self, count: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMsmStrings_Vtbl {
@@ -4441,7 +4441,7 @@ impl IMsmStrings_Vtbl {
                         newenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4634,274 +4634,274 @@ pub type INSTALLUI_HANDLERW = Option<unsafe extern "system" fn(pvcontext: *mut c
 windows_core::imp::define_interface!(IPMApplicationInfo, IPMApplicationInfo_Vtbl, 0x50afb58a_438c_4088_9789_f8c4899829c7);
 windows_core::imp::interface_hierarchy!(IPMApplicationInfo, windows_core::IUnknown);
 impl IPMApplicationInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InstanceID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn InstanceID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstanceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OfferID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn OfferID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OfferID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultTask(&self, pdefaulttask: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DefaultTask(&self, pdefaulttask: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DefaultTask)(windows_core::Interface::as_raw(self), core::mem::transmute(pdefaulttask)).ok() }
     }
-    pub unsafe fn AppTitle(&self, papptitle: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AppTitle(&self, papptitle: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AppTitle)(windows_core::Interface::as_raw(self), core::mem::transmute(papptitle)).ok() }
     }
-    pub unsafe fn IconPath(&self, pappiconpath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn IconPath(&self, pappiconpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IconPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pappiconpath)).ok() }
     }
-    pub unsafe fn NotificationState(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn NotificationState(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NotificationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AppInstallType(&self) -> windows_core::Result<PM_APPLICATION_INSTALL_TYPE> {
+    pub unsafe fn AppInstallType(&self) -> Result<PM_APPLICATION_INSTALL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppInstallType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<PM_APPLICATION_STATE> {
+    pub unsafe fn State(&self) -> Result<PM_APPLICATION_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsRevoked(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsRevoked(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRevoked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpdateAvailable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn UpdateAvailable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InstallDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn InstallDate(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstallDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsUninstallable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsThemable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsThemable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsThemable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsTrial(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsTrial(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTrial)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InstallPath(&self, pinstallpath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn InstallPath(&self, pinstallpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InstallPath)(windows_core::Interface::as_raw(self), core::mem::transmute(pinstallpath)).ok() }
     }
-    pub unsafe fn DataRoot(&self, pdataroot: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DataRoot(&self, pdataroot: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DataRoot)(windows_core::Interface::as_raw(self), core::mem::transmute(pdataroot)).ok() }
     }
-    pub unsafe fn Genre(&self) -> windows_core::Result<PM_APP_GENRE> {
+    pub unsafe fn Genre(&self) -> Result<PM_APP_GENRE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Genre)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Publisher(&self, ppublisher: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Publisher(&self, ppublisher: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Publisher)(windows_core::Interface::as_raw(self), core::mem::transmute(ppublisher)).ok() }
     }
-    pub unsafe fn Author(&self, pauthor: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Author(&self, pauthor: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Author)(windows_core::Interface::as_raw(self), core::mem::transmute(pauthor)).ok() }
     }
-    pub unsafe fn Description(&self, pdescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Description(&self, pdescription: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), core::mem::transmute(pdescription)).ok() }
     }
-    pub unsafe fn Version(&self, pversion: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Version(&self, pversion: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), core::mem::transmute(pversion)).ok() }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
-    pub unsafe fn AppPlatMajorVersion(&self) -> windows_core::Result<u8> {
+    pub unsafe fn AppPlatMajorVersion(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppPlatMajorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AppPlatMinorVersion(&self) -> windows_core::Result<u8> {
+    pub unsafe fn AppPlatMinorVersion(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppPlatMinorVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PublisherID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn PublisherID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PublisherID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsMultiCore(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsMultiCore(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMultiCore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SID(&self, psid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SID(&self, psid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SID)(windows_core::Interface::as_raw(self), core::mem::transmute(psid)).ok() }
     }
-    pub unsafe fn AppPlatMajorVersionLightUp(&self) -> windows_core::Result<u8> {
+    pub unsafe fn AppPlatMajorVersionLightUp(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppPlatMajorVersionLightUp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AppPlatMinorVersionLightUp(&self) -> windows_core::Result<u8> {
+    pub unsafe fn AppPlatMinorVersionLightUp(&self) -> Result<u8, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppPlatMinorVersionLightUp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_UpdateAvailable(&self, isupdateavailable: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_UpdateAvailable(&self, isupdateavailable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_UpdateAvailable)(windows_core::Interface::as_raw(self), isupdateavailable.into()).ok() }
     }
-    pub unsafe fn set_NotificationState(&self, isnotified: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_NotificationState(&self, isnotified: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_NotificationState)(windows_core::Interface::as_raw(self), isnotified.into()).ok() }
     }
-    pub unsafe fn set_IconPath(&self, appiconpath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn set_IconPath(&self, appiconpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IconPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(appiconpath)).ok() }
     }
-    pub unsafe fn set_UninstallableState(&self, isuninstallable: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_UninstallableState(&self, isuninstallable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_UninstallableState)(windows_core::Interface::as_raw(self), isuninstallable.into()).ok() }
     }
-    pub unsafe fn IsPinableOnKidZone(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsPinableOnKidZone(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPinableOnKidZone)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsOriginallyPreInstalled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsOriginallyPreInstalled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOriginallyPreInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsInstallOnSD(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsInstallOnSD(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInstallOnSD)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsOptoutOnSD(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsOptoutOnSD(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOptoutOnSD)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsOptoutBackupRestore(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsOptoutBackupRestore(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOptoutBackupRestore)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_EnterpriseDisabled(&self, isdisabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_EnterpriseDisabled(&self, isdisabled: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_EnterpriseDisabled)(windows_core::Interface::as_raw(self), isdisabled.into()).ok() }
     }
-    pub unsafe fn set_EnterpriseUninstallable(&self, isuninstallable: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_EnterpriseUninstallable(&self, isuninstallable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_EnterpriseUninstallable)(windows_core::Interface::as_raw(self), isuninstallable.into()).ok() }
     }
-    pub unsafe fn EnterpriseDisabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn EnterpriseDisabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnterpriseDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnterpriseUninstallable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn EnterpriseUninstallable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnterpriseUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsVisibleOnAppList(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsVisibleOnAppList(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsVisibleOnAppList)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsInboxApp(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsInboxApp(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInboxApp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StorageID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn StorageID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StorageID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> windows_core::Result<()> {
+    pub unsafe fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartAppBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblob)).ok() }
     }
-    pub unsafe fn IsMovable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsMovable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMovable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeploymentAppEnumerationHubFilter(&self) -> windows_core::Result<PM_TILE_HUBTYPE> {
+    pub unsafe fn DeploymentAppEnumerationHubFilter(&self) -> Result<PM_TILE_HUBTYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeploymentAppEnumerationHubFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ModifiedDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn ModifiedDate(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModifiedDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsOriginallyRestored(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsOriginallyRestored(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOriginallyRestored)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ShouldDeferMdilBind(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn ShouldDeferMdilBind(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShouldDeferMdilBind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsFullyPreInstall(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsFullyPreInstall(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsFullyPreInstall)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IsMdilMaintenanceNeeded)(windows_core::Interface::as_raw(self), fismdilmaintenanceneeded.into()).ok() }
     }
-    pub unsafe fn set_Title(&self, apptitle: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn set_Title(&self, apptitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_Title)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(apptitle)).ok() }
     }
 }
@@ -4966,61 +4966,61 @@ pub struct IPMApplicationInfo_Vtbl {
     pub set_Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMApplicationInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn InstanceID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn OfferID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn DefaultTask(&self, pdefaulttask: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AppTitle(&self, papptitle: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IconPath(&self, pappiconpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn NotificationState(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn AppInstallType(&self) -> windows_core::Result<PM_APPLICATION_INSTALL_TYPE>;
-    fn State(&self) -> windows_core::Result<PM_APPLICATION_STATE>;
-    fn IsRevoked(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn UpdateAvailable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn InstallDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
-    fn IsUninstallable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsThemable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsTrial(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn InstallPath(&self, pinstallpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn DataRoot(&self, pdataroot: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Genre(&self) -> windows_core::Result<PM_APP_GENRE>;
-    fn Publisher(&self, ppublisher: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Author(&self, pauthor: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Description(&self, pdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Version(&self, pversion: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AppPlatMajorVersion(&self) -> windows_core::Result<u8>;
-    fn AppPlatMinorVersion(&self) -> windows_core::Result<u8>;
-    fn PublisherID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn IsMultiCore(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SID(&self, psid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AppPlatMajorVersionLightUp(&self) -> windows_core::Result<u8>;
-    fn AppPlatMinorVersionLightUp(&self) -> windows_core::Result<u8>;
-    fn set_UpdateAvailable(&self, isupdateavailable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_NotificationState(&self, isnotified: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_IconPath(&self, appiconpath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn set_UninstallableState(&self, isuninstallable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsPinableOnKidZone(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsOriginallyPreInstalled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsInstallOnSD(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsOptoutOnSD(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsOptoutBackupRestore(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn set_EnterpriseDisabled(&self, isdisabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_EnterpriseUninstallable(&self, isuninstallable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn EnterpriseDisabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn EnterpriseUninstallable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsVisibleOnAppList(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsInboxApp(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn StorageID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> windows_core::Result<()>;
-    fn IsMovable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn DeploymentAppEnumerationHubFilter(&self) -> windows_core::Result<PM_TILE_HUBTYPE>;
-    fn ModifiedDate(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
-    fn IsOriginallyRestored(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn ShouldDeferMdilBind(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsFullyPreInstall(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_Title(&self, apptitle: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn InstanceID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn OfferID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn DefaultTask(&self, pdefaulttask: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AppTitle(&self, papptitle: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IconPath(&self, pappiconpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NotificationState(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn AppInstallType(&self) -> Result<PM_APPLICATION_INSTALL_TYPE, windows_result::HRESULT>;
+    fn State(&self) -> Result<PM_APPLICATION_STATE, windows_result::HRESULT>;
+    fn IsRevoked(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn UpdateAvailable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn InstallDate(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT>;
+    fn IsUninstallable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsThemable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsTrial(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn InstallPath(&self, pinstallpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DataRoot(&self, pdataroot: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Genre(&self) -> Result<PM_APP_GENRE, windows_result::HRESULT>;
+    fn Publisher(&self, ppublisher: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Author(&self, pauthor: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Description(&self, pdescription: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Version(&self, pversion: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AppPlatMajorVersion(&self) -> Result<u8, windows_result::HRESULT>;
+    fn AppPlatMinorVersion(&self) -> Result<u8, windows_result::HRESULT>;
+    fn PublisherID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn IsMultiCore(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn SID(&self, psid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AppPlatMajorVersionLightUp(&self) -> Result<u8, windows_result::HRESULT>;
+    fn AppPlatMinorVersionLightUp(&self) -> Result<u8, windows_result::HRESULT>;
+    fn set_UpdateAvailable(&self, isupdateavailable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_NotificationState(&self, isnotified: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_IconPath(&self, appiconpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn set_UninstallableState(&self, isuninstallable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn IsPinableOnKidZone(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsOriginallyPreInstalled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsInstallOnSD(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsOptoutOnSD(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsOptoutBackupRestore(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn set_EnterpriseDisabled(&self, isdisabled: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_EnterpriseUninstallable(&self, isuninstallable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnterpriseDisabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn EnterpriseUninstallable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsVisibleOnAppList(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsInboxApp(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn StorageID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn StartAppBlob(&self, pblob: *mut PM_STARTAPPBLOB) -> Result<(), windows_result::HRESULT>;
+    fn IsMovable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn DeploymentAppEnumerationHubFilter(&self) -> Result<PM_TILE_HUBTYPE, windows_result::HRESULT>;
+    fn ModifiedDate(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT>;
+    fn IsOriginallyRestored(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn ShouldDeferMdilBind(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsFullyPreInstall(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn set_IsMdilMaintenanceNeeded(&self, fismdilmaintenanceneeded: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_Title(&self, apptitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMApplicationInfo_Vtbl {
     pub const fn new<Identity: IPMApplicationInfo_Impl, const OFFSET: isize>() -> Self {
@@ -5032,7 +5032,7 @@ impl IPMApplicationInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5044,7 +5044,7 @@ impl IPMApplicationInfo_Vtbl {
                         pinstanceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5056,7 +5056,7 @@ impl IPMApplicationInfo_Vtbl {
                         pofferid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5086,7 +5086,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisnotified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5098,7 +5098,7 @@ impl IPMApplicationInfo_Vtbl {
                         pappinstalltype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5110,7 +5110,7 @@ impl IPMApplicationInfo_Vtbl {
                         pstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5122,7 +5122,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisrevoked.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5134,7 +5134,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisupdateavailable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5146,7 +5146,7 @@ impl IPMApplicationInfo_Vtbl {
                         pinstalldate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5158,7 +5158,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisuninstallable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5170,7 +5170,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisthemable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5182,7 +5182,7 @@ impl IPMApplicationInfo_Vtbl {
                         pistrial.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5206,7 +5206,7 @@ impl IPMApplicationInfo_Vtbl {
                         pgenre.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5248,7 +5248,7 @@ impl IPMApplicationInfo_Vtbl {
                         pmajorver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5260,7 +5260,7 @@ impl IPMApplicationInfo_Vtbl {
                         pminorver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5272,7 +5272,7 @@ impl IPMApplicationInfo_Vtbl {
                         ppublisherid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5284,7 +5284,7 @@ impl IPMApplicationInfo_Vtbl {
                         pismulticore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5302,7 +5302,7 @@ impl IPMApplicationInfo_Vtbl {
                         pmajorver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5314,7 +5314,7 @@ impl IPMApplicationInfo_Vtbl {
                         pminorver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5350,7 +5350,7 @@ impl IPMApplicationInfo_Vtbl {
                         pispinable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5362,7 +5362,7 @@ impl IPMApplicationInfo_Vtbl {
                         pispreinstalled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5374,7 +5374,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisinstallonsd.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5386,7 +5386,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisoptoutonsd.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5398,7 +5398,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisoptoutbackuprestore.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5422,7 +5422,7 @@ impl IPMApplicationInfo_Vtbl {
                         isdisabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5434,7 +5434,7 @@ impl IPMApplicationInfo_Vtbl {
                         isuninstallable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5446,7 +5446,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisvisible.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5458,7 +5458,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisinboxapp.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5470,7 +5470,7 @@ impl IPMApplicationInfo_Vtbl {
                         pstorageid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5488,7 +5488,7 @@ impl IPMApplicationInfo_Vtbl {
                         pismovable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5500,7 +5500,7 @@ impl IPMApplicationInfo_Vtbl {
                         hubtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5512,7 +5512,7 @@ impl IPMApplicationInfo_Vtbl {
                         pmodifieddate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5524,7 +5524,7 @@ impl IPMApplicationInfo_Vtbl {
                         pisrestored.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5536,7 +5536,7 @@ impl IPMApplicationInfo_Vtbl {
                         pfdefermdilbind.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5548,7 +5548,7 @@ impl IPMApplicationInfo_Vtbl {
                         pfisfullypreinstall.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5631,7 +5631,7 @@ impl windows_core::RuntimeName for IPMApplicationInfo {}
 windows_core::imp::define_interface!(IPMApplicationInfoEnumerator, IPMApplicationInfoEnumerator_Vtbl, 0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
 windows_core::imp::interface_hierarchy!(IPMApplicationInfoEnumerator, windows_core::IUnknown);
 impl IPMApplicationInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMApplicationInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMApplicationInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5645,7 +5645,7 @@ pub struct IPMApplicationInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMApplicationInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMApplicationInfo>;
+    fn Next(&self) -> Result<IPMApplicationInfo, windows_result::HRESULT>;
 }
 impl IPMApplicationInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMApplicationInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5657,7 +5657,7 @@ impl IPMApplicationInfoEnumerator_Vtbl {
                         ppappinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5671,64 +5671,64 @@ impl windows_core::RuntimeName for IPMApplicationInfoEnumerator {}
 windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfo, IPMBackgroundServiceAgentInfo_Vtbl, 0x3a8b46da_928c_4879_998c_09dc96f3d490);
 windows_core::imp::interface_hierarchy!(IPMBackgroundServiceAgentInfo, windows_core::IUnknown);
 impl IPMBackgroundServiceAgentInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TaskID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptaskid)).ok() }
     }
-    pub unsafe fn BSAID(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BSAID(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BSAID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BGSpecifier(&self, pbgspecifier: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BGSpecifier(&self, pbgspecifier: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BGSpecifier)(windows_core::Interface::as_raw(self), core::mem::transmute(pbgspecifier)).ok() }
     }
-    pub unsafe fn BGName(&self, pbgname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BGName(&self, pbgname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BGName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbgname)).ok() }
     }
-    pub unsafe fn BGSource(&self, pbgsource: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BGSource(&self, pbgsource: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BGSource)(windows_core::Interface::as_raw(self), core::mem::transmute(pbgsource)).ok() }
     }
-    pub unsafe fn BGType(&self, pbgtype: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BGType(&self, pbgtype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BGType)(windows_core::Interface::as_raw(self), core::mem::transmute(pbgtype)).ok() }
     }
-    pub unsafe fn IsPeriodic(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsPeriodic(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPeriodic)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsScheduled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsScheduled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsScheduled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsScheduleAllowed(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsScheduleAllowed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsScheduleAllowed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Description(&self, pdescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Description(&self, pdescription: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), core::mem::transmute(pdescription)).ok() }
     }
-    pub unsafe fn IsLaunchOnBoot(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsLaunchOnBoot(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsLaunchOnBoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_IsScheduled(&self, isscheduled: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_IsScheduled(&self, isscheduled: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IsScheduled)(windows_core::Interface::as_raw(self), isscheduled.into()).ok() }
     }
-    pub unsafe fn set_IsScheduleAllowed(&self, isscheduleallowed: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_IsScheduleAllowed(&self, isscheduleallowed: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IsScheduleAllowed)(windows_core::Interface::as_raw(self), isscheduleallowed.into()).ok() }
     }
 }
@@ -5752,20 +5752,20 @@ pub struct IPMBackgroundServiceAgentInfo_Vtbl {
     pub set_IsScheduleAllowed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMBackgroundServiceAgentInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BSAID(&self) -> windows_core::Result<u32>;
-    fn BGSpecifier(&self, pbgspecifier: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BGName(&self, pbgname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BGSource(&self, pbgsource: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BGType(&self, pbgtype: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsPeriodic(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsScheduled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsScheduleAllowed(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Description(&self, pdescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsLaunchOnBoot(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn set_IsScheduled(&self, isscheduled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_IsScheduleAllowed(&self, isscheduleallowed: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BSAID(&self) -> Result<u32, windows_result::HRESULT>;
+    fn BGSpecifier(&self, pbgspecifier: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BGName(&self, pbgname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BGSource(&self, pbgsource: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BGType(&self, pbgtype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsPeriodic(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsScheduled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsScheduleAllowed(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn Description(&self, pdescription: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsLaunchOnBoot(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn set_IsScheduled(&self, isscheduled: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_IsScheduleAllowed(&self, isscheduleallowed: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMBackgroundServiceAgentInfo_Vtbl {
     pub const fn new<Identity: IPMBackgroundServiceAgentInfo_Impl, const OFFSET: isize>() -> Self {
@@ -5777,7 +5777,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5795,7 +5795,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         pbsaid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5831,7 +5831,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         pisperiodic.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5843,7 +5843,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         pisscheduled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5855,7 +5855,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         pisscheduleallowed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5873,7 +5873,7 @@ impl IPMBackgroundServiceAgentInfo_Vtbl {
                         plaunchonboot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5915,7 +5915,7 @@ impl windows_core::RuntimeName for IPMBackgroundServiceAgentInfo {}
 windows_core::imp::define_interface!(IPMBackgroundServiceAgentInfoEnumerator, IPMBackgroundServiceAgentInfoEnumerator_Vtbl, 0x18eb2072_ab56_43b3_872c_beafb7a6b391);
 windows_core::imp::interface_hierarchy!(IPMBackgroundServiceAgentInfoEnumerator, windows_core::IUnknown);
 impl IPMBackgroundServiceAgentInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundServiceAgentInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMBackgroundServiceAgentInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5929,7 +5929,7 @@ pub struct IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMBackgroundServiceAgentInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMBackgroundServiceAgentInfo>;
+    fn Next(&self) -> Result<IPMBackgroundServiceAgentInfo, windows_result::HRESULT>;
 }
 impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMBackgroundServiceAgentInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -5941,7 +5941,7 @@ impl IPMBackgroundServiceAgentInfoEnumerator_Vtbl {
                         ppbsainfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5955,31 +5955,31 @@ impl windows_core::RuntimeName for IPMBackgroundServiceAgentInfoEnumerator {}
 windows_core::imp::define_interface!(IPMBackgroundWorkerInfo, IPMBackgroundWorkerInfo_Vtbl, 0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
 windows_core::imp::interface_hierarchy!(IPMBackgroundWorkerInfo, windows_core::IUnknown);
 impl IPMBackgroundWorkerInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TaskID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptaskid)).ok() }
     }
-    pub unsafe fn BGName(&self, pbgname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BGName(&self, pbgname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BGName)(windows_core::Interface::as_raw(self), core::mem::transmute(pbgname)).ok() }
     }
-    pub unsafe fn MaxStartupLatency(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaxStartupLatency(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxStartupLatency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ExpectedRuntime(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ExpectedRuntime(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpectedRuntime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsBootWorker(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsBootWorker(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsBootWorker)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5998,12 +5998,12 @@ pub struct IPMBackgroundWorkerInfo_Vtbl {
     pub IsBootWorker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMBackgroundWorkerInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn BGName(&self, pbgname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn MaxStartupLatency(&self) -> windows_core::Result<u32>;
-    fn ExpectedRuntime(&self) -> windows_core::Result<u32>;
-    fn IsBootWorker(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BGName(&self, pbgname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MaxStartupLatency(&self) -> Result<u32, windows_result::HRESULT>;
+    fn ExpectedRuntime(&self) -> Result<u32, windows_result::HRESULT>;
+    fn IsBootWorker(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMBackgroundWorkerInfo_Vtbl {
     pub const fn new<Identity: IPMBackgroundWorkerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -6015,7 +6015,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6039,7 +6039,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                         pmaxstartuplatency.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6051,7 +6051,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                         pexpectedruntime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6063,7 +6063,7 @@ impl IPMBackgroundWorkerInfo_Vtbl {
                         pisbootworker.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6085,7 +6085,7 @@ impl windows_core::RuntimeName for IPMBackgroundWorkerInfo {}
 windows_core::imp::define_interface!(IPMBackgroundWorkerInfoEnumerator, IPMBackgroundWorkerInfoEnumerator_Vtbl, 0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
 windows_core::imp::interface_hierarchy!(IPMBackgroundWorkerInfoEnumerator, windows_core::IUnknown);
 impl IPMBackgroundWorkerInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMBackgroundWorkerInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMBackgroundWorkerInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6099,7 +6099,7 @@ pub struct IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMBackgroundWorkerInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMBackgroundWorkerInfo>;
+    fn Next(&self) -> Result<IPMBackgroundWorkerInfo, windows_result::HRESULT>;
 }
 impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMBackgroundWorkerInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -6111,7 +6111,7 @@ impl IPMBackgroundWorkerInfoEnumerator_Vtbl {
                         ppbwinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6125,40 +6125,40 @@ impl windows_core::RuntimeName for IPMBackgroundWorkerInfoEnumerator {}
 windows_core::imp::define_interface!(IPMDeploymentManager, IPMDeploymentManager_Vtbl, 0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
 windows_core::imp::interface_hierarchy!(IPMDeploymentManager, windows_core::IUnknown);
 impl IPMDeploymentManager {
-    pub unsafe fn ReportDownloadBegin(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ReportDownloadBegin(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReportDownloadBegin)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn ReportDownloadProgress(&self, productid: windows_core::GUID, usprogress: u16) -> windows_core::Result<()> {
+    pub unsafe fn ReportDownloadProgress(&self, productid: windows_core::GUID, usprogress: u16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReportDownloadProgress)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), usprogress).ok() }
     }
-    pub unsafe fn ReportDownloadComplete(&self, productid: windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn ReportDownloadComplete(&self, productid: windows_core::GUID, hrresult: windows_core::HRESULT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReportDownloadComplete)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), hrresult).ok() }
     }
-    pub unsafe fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginInstall)(windows_core::Interface::as_raw(self), core::mem::transmute(pinstallinfo)).ok() }
     }
-    pub unsafe fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(pupdateinfo)).ok() }
     }
-    pub unsafe fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginDeployPackage)(windows_core::Interface::as_raw(self), core::mem::transmute(pinstallinfo)).ok() }
     }
-    pub unsafe fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> windows_core::Result<()> {
+    pub unsafe fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUpdateDeployedPackageLegacy)(windows_core::Interface::as_raw(self), core::mem::transmute(pupdateinfo)).ok() }
     }
-    pub unsafe fn BeginUninstall(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn BeginUninstall(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUninstall)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginEnterpriseAppInstall)(windows_core::Interface::as_raw(self), core::mem::transmute(pinstallinfo)).ok() }
     }
-    pub unsafe fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginEnterpriseAppUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(pupdateinfo)).ok() }
     }
-    pub unsafe fn BeginUpdateLicense(&self, productid: windows_core::GUID, offerid: windows_core::GUID, pblicense: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn BeginUpdateLicense(&self, productid: windows_core::GUID, offerid: windows_core::GUID, pblicense: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUpdateLicense)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute(offerid), core::mem::transmute(pblicense.as_ptr()), pblicense.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetLicenseChallenge(&self, packagepath: &windows_core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: Option<*mut *mut u8>, pcbkid: Option<*mut u32>, ppbdeviceid: Option<*mut *mut u8>, pcbdeviceid: Option<*mut u32>, ppbsaltvalue: Option<*mut *mut u8>, pcbsaltvalue: Option<*mut u32>, ppbkgvvalue: Option<*mut *mut u8>, pcbkgvvalue: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn GetLicenseChallenge(&self, packagepath: &windows_core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: Option<*mut *mut u8>, pcbkid: Option<*mut u32>, ppbdeviceid: Option<*mut *mut u8>, pcbdeviceid: Option<*mut u32>, ppbsaltvalue: Option<*mut *mut u8>, pcbsaltvalue: Option<*mut u32>, ppbkgvvalue: Option<*mut *mut u8>, pcbkgvvalue: Option<*mut u32>) -> Result<(), windows_result::HRESULT> {
         unsafe {
             (windows_core::Interface::vtable(self).GetLicenseChallenge)(
                 windows_core::Interface::as_raw(self),
@@ -6177,10 +6177,10 @@ impl IPMDeploymentManager {
             .ok()
         }
     }
-    pub unsafe fn GetLicenseChallengeByProductID(&self, productid: windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetLicenseChallengeByProductID(&self, productid: windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetLicenseChallengeByProductID)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), ppbchallenge as _, pcblicense as _).ok() }
     }
-    pub unsafe fn GetLicenseChallengeByProductID2(&self, productid: windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: Option<*mut *mut u8>, pcbkid: Option<*mut u32>, ppbdeviceid: Option<*mut *mut u8>, pcbdeviceid: Option<*mut u32>, ppbsaltvalue: Option<*mut *mut u8>, pcbsaltvalue: Option<*mut u32>, ppbkgvvalue: Option<*mut *mut u8>, pcbkgvvalue: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn GetLicenseChallengeByProductID2(&self, productid: windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: Option<*mut *mut u8>, pcbkid: Option<*mut u32>, ppbdeviceid: Option<*mut *mut u8>, pcbdeviceid: Option<*mut u32>, ppbsaltvalue: Option<*mut *mut u8>, pcbsaltvalue: Option<*mut u32>, ppbkgvvalue: Option<*mut *mut u8>, pcbkgvvalue: Option<*mut u32>) -> Result<(), windows_result::HRESULT> {
         unsafe {
             (windows_core::Interface::vtable(self).GetLicenseChallengeByProductID2)(
                 windows_core::Interface::as_raw(self),
@@ -6199,42 +6199,42 @@ impl IPMDeploymentManager {
             .ok()
         }
     }
-    pub unsafe fn RevokeLicense(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn RevokeLicense(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RevokeLicense)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RebindMdilBinaries(&self, productid: windows_core::GUID, filenames: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn RebindMdilBinaries(&self, productid: windows_core::GUID, filenames: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RebindMdilBinaries)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), filenames).ok() }
     }
-    pub unsafe fn RebindAllMdilBinaries(&self, productid: windows_core::GUID, instanceid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn RebindAllMdilBinaries(&self, productid: windows_core::GUID, instanceid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RebindAllMdilBinaries)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute(instanceid)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn RegenerateXbf(&self, productid: windows_core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn RegenerateXbf(&self, productid: windows_core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RegenerateXbf)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), assemblypaths).ok() }
     }
-    pub unsafe fn GenerateXbfForCurrentLocale(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GenerateXbfForCurrentLocale(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GenerateXbfForCurrentLocale)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn BeginProvision(&self, productid: windows_core::GUID, xmlpath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BeginProvision(&self, productid: windows_core::GUID, xmlpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginProvision)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(xmlpath)).ok() }
     }
-    pub unsafe fn BeginDeprovision(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn BeginDeprovision(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginDeprovision)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn ReindexSQLCEDatabases(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ReindexSQLCEDatabases(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReindexSQLCEDatabases)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> windows_core::Result<u32> {
+    pub unsafe fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetApplicationsNeedMaintenance)(windows_core::Interface::as_raw(self), requiredmaintenanceoperations, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpdateChamberProfile(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn UpdateChamberProfile(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UpdateChamberProfile)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn EnterprisePolicyIsApplicationAllowed<P1>(&self, productid: windows_core::GUID, publishername: P1) -> windows_core::Result<windows_core::BOOL>
+    pub unsafe fn EnterprisePolicyIsApplicationAllowed<P1>(&self, productid: windows_core::GUID, publishername: P1) -> Result<windows_core::BOOL, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6243,37 +6243,37 @@ impl IPMDeploymentManager {
             (windows_core::Interface::vtable(self).EnterprisePolicyIsApplicationAllowed)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), publishername.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()> {
+    pub unsafe fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUpdateDeployedPackage)(windows_core::Interface::as_raw(self), core::mem::transmute(pupdateinfo)).ok() }
     }
-    pub unsafe fn ReportRestoreCancelled(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ReportRestoreCancelled(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReportRestoreCancelled)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn ResolveResourceString<P0>(&self, resourcestring: P0, presolvedresourcestring: *mut windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn ResolveResourceString<P0>(&self, resourcestring: P0, presolvedresourcestring: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).ResolveResourceString)(windows_core::Interface::as_raw(self), resourcestring.param().abi(), core::mem::transmute(presolvedresourcestring)).ok() }
     }
-    pub unsafe fn UpdateCapabilitiesForModernApps(&self) -> windows_core::Result<()> {
+    pub unsafe fn UpdateCapabilitiesForModernApps(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UpdateCapabilitiesForModernApps)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ReportDownloadStatusUpdate(&self, productid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ReportDownloadStatusUpdate(&self, productid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReportDownloadStatusUpdate)(windows_core::Interface::as_raw(self), core::mem::transmute(productid)).ok() }
     }
-    pub unsafe fn BeginUninstallWithOptions(&self, productid: windows_core::GUID, removaloptions: u32) -> windows_core::Result<()> {
+    pub unsafe fn BeginUninstallWithOptions(&self, productid: windows_core::GUID, removaloptions: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginUninstallWithOptions)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), removaloptions).ok() }
     }
-    pub unsafe fn BindDeferredMdilBinaries(&self) -> windows_core::Result<()> {
+    pub unsafe fn BindDeferredMdilBinaries(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BindDeferredMdilBinaries)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GenerateXamlLightupXbfForCurrentLocale)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packagefamilyname)).ok() }
     }
-    pub unsafe fn AddLicenseForAppx(&self, productid: windows_core::GUID, pblicense: &[u8], pbplayreadyheader: Option<&[u8]>) -> windows_core::Result<()> {
+    pub unsafe fn AddLicenseForAppx(&self, productid: windows_core::GUID, pblicense: &[u8], pbplayreadyheader: Option<&[u8]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddLicenseForAppx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute(pblicense.as_ptr()), pblicense.len().try_into().unwrap(), core::mem::transmute(pbplayreadyheader.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbplayreadyheader.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> windows_core::Result<()> {
+    pub unsafe fn FixJunctionsForAppsOnSDCard(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).FixJunctionsForAppsOnSDCard)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6325,41 +6325,41 @@ pub struct IPMDeploymentManager_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IPMDeploymentManager_Impl: windows_core::IUnknownImpl {
-    fn ReportDownloadBegin(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn ReportDownloadProgress(&self, productid: &windows_core::GUID, usprogress: u16) -> windows_core::Result<()>;
-    fn ReportDownloadComplete(&self, productid: &windows_core::GUID, hrresult: windows_core::HRESULT) -> windows_core::Result<()>;
-    fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()>;
-    fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()>;
-    fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()>;
-    fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> windows_core::Result<()>;
-    fn BeginUninstall(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> windows_core::Result<()>;
-    fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()>;
-    fn BeginUpdateLicense(&self, productid: &windows_core::GUID, offerid: &windows_core::GUID, pblicense: *const u8, cblicense: u32) -> windows_core::Result<()>;
-    fn GetLicenseChallenge(&self, packagepath: &windows_core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> windows_core::Result<()>;
-    fn GetLicenseChallengeByProductID(&self, productid: &windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> windows_core::Result<()>;
-    fn GetLicenseChallengeByProductID2(&self, productid: &windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> windows_core::Result<()>;
-    fn RevokeLicense(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn RebindMdilBinaries(&self, productid: &windows_core::GUID, filenames: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RebindAllMdilBinaries(&self, productid: &windows_core::GUID, instanceid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn RegenerateXbf(&self, productid: &windows_core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn GenerateXbfForCurrentLocale(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn BeginProvision(&self, productid: &windows_core::GUID, xmlpath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn BeginDeprovision(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn ReindexSQLCEDatabases(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> windows_core::Result<u32>;
-    fn UpdateChamberProfile(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn EnterprisePolicyIsApplicationAllowed(&self, productid: &windows_core::GUID, publishername: &windows_core::PCWSTR) -> windows_core::Result<windows_core::BOOL>;
-    fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> windows_core::Result<()>;
-    fn ReportRestoreCancelled(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn ResolveResourceString(&self, resourcestring: &windows_core::PCWSTR, presolvedresourcestring: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn UpdateCapabilitiesForModernApps(&self) -> windows_core::Result<()>;
-    fn ReportDownloadStatusUpdate(&self, productid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn BeginUninstallWithOptions(&self, productid: &windows_core::GUID, removaloptions: u32) -> windows_core::Result<()>;
-    fn BindDeferredMdilBinaries(&self) -> windows_core::Result<()>;
-    fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddLicenseForAppx(&self, productid: &windows_core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> windows_core::Result<()>;
-    fn FixJunctionsForAppsOnSDCard(&self) -> windows_core::Result<()>;
+    fn ReportDownloadBegin(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn ReportDownloadProgress(&self, productid: &windows_core::GUID, usprogress: u16) -> Result<(), windows_result::HRESULT>;
+    fn ReportDownloadComplete(&self, productid: &windows_core::GUID, hrresult: windows_core::HRESULT) -> Result<(), windows_result::HRESULT>;
+    fn BeginInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT>;
+    fn BeginUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT>;
+    fn BeginDeployPackage(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT>;
+    fn BeginUpdateDeployedPackageLegacy(&self, pupdateinfo: *const PM_UPDATEINFO_LEGACY) -> Result<(), windows_result::HRESULT>;
+    fn BeginUninstall(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn BeginEnterpriseAppInstall(&self, pinstallinfo: *const PM_INSTALLINFO) -> Result<(), windows_result::HRESULT>;
+    fn BeginEnterpriseAppUpdate(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT>;
+    fn BeginUpdateLicense(&self, productid: &windows_core::GUID, offerid: &windows_core::GUID, pblicense: *const u8, cblicense: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetLicenseChallenge(&self, packagepath: &windows_core::BSTR, ppbchallenge: *mut *mut u8, pcbchallenge: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetLicenseChallengeByProductID(&self, productid: &windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetLicenseChallengeByProductID2(&self, productid: &windows_core::GUID, ppbchallenge: *mut *mut u8, pcblicense: *mut u32, ppbkid: *mut *mut u8, pcbkid: *mut u32, ppbdeviceid: *mut *mut u8, pcbdeviceid: *mut u32, ppbsaltvalue: *mut *mut u8, pcbsaltvalue: *mut u32, ppbkgvvalue: *mut *mut u8, pcbkgvvalue: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn RevokeLicense(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn RebindMdilBinaries(&self, productid: &windows_core::GUID, filenames: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn RebindAllMdilBinaries(&self, productid: &windows_core::GUID, instanceid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn RegenerateXbf(&self, productid: &windows_core::GUID, assemblypaths: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn GenerateXbfForCurrentLocale(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn BeginProvision(&self, productid: &windows_core::GUID, xmlpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BeginDeprovision(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn ReindexSQLCEDatabases(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn SetApplicationsNeedMaintenance(&self, requiredmaintenanceoperations: u32) -> Result<u32, windows_result::HRESULT>;
+    fn UpdateChamberProfile(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn EnterprisePolicyIsApplicationAllowed(&self, productid: &windows_core::GUID, publishername: &windows_core::PCWSTR) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn BeginUpdateDeployedPackage(&self, pupdateinfo: *const PM_UPDATEINFO) -> Result<(), windows_result::HRESULT>;
+    fn ReportRestoreCancelled(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn ResolveResourceString(&self, resourcestring: &windows_core::PCWSTR, presolvedresourcestring: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn UpdateCapabilitiesForModernApps(&self) -> Result<(), windows_result::HRESULT>;
+    fn ReportDownloadStatusUpdate(&self, productid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn BeginUninstallWithOptions(&self, productid: &windows_core::GUID, removaloptions: u32) -> Result<(), windows_result::HRESULT>;
+    fn BindDeferredMdilBinaries(&self) -> Result<(), windows_result::HRESULT>;
+    fn GenerateXamlLightupXbfForCurrentLocale(&self, packagefamilyname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AddLicenseForAppx(&self, productid: &windows_core::GUID, pblicense: *const u8, cblicense: u32, pbplayreadyheader: *const u8, cbplayreadyheader: u32) -> Result<(), windows_result::HRESULT>;
+    fn FixJunctionsForAppsOnSDCard(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IPMDeploymentManager_Vtbl {
@@ -6504,7 +6504,7 @@ impl IPMDeploymentManager_Vtbl {
                         pcapplications.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6522,7 +6522,7 @@ impl IPMDeploymentManager_Vtbl {
                         pisallowed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6634,43 +6634,43 @@ impl windows_core::RuntimeName for IPMDeploymentManager {}
 windows_core::imp::define_interface!(IPMEnumerationManager, IPMEnumerationManager_Vtbl, 0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
 windows_core::imp::interface_hierarchy!(IPMEnumerationManager, windows_core::IUnknown);
 impl IPMEnumerationManager {
-    pub unsafe fn get_AllApplications(&self, ppappenum: *mut Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllApplications(&self, ppappenum: *mut Option<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllApplications)(windows_core::Interface::as_raw(self), core::mem::transmute(ppappenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_AllTiles(&self, pptileenum: *mut Option<IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllTiles(&self, pptileenum: *mut Option<IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllTiles)(windows_core::Interface::as_raw(self), core::mem::transmute(pptileenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_AllTasks(&self, pptaskenum: *mut Option<IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllTasks(&self, pptaskenum: *mut Option<IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllTasks)(windows_core::Interface::as_raw(self), core::mem::transmute(pptaskenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_AllExtensions(&self, ppextensionenum: *mut Option<IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllExtensions(&self, ppextensionenum: *mut Option<IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllExtensions)(windows_core::Interface::as_raw(self), core::mem::transmute(ppextensionenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_AllBackgroundServiceAgents(&self, ppbsaenum: *mut Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllBackgroundServiceAgents(&self, ppbsaenum: *mut Option<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllBackgroundServiceAgents)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbsaenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_AllBackgroundWorkers(&self, ppbswenum: *mut Option<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn get_AllBackgroundWorkers(&self, ppbswenum: *mut Option<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllBackgroundWorkers)(windows_core::Interface::as_raw(self), core::mem::transmute(ppbswenum), core::mem::transmute_copy(filter)).ok() }
     }
-    pub unsafe fn get_ApplicationInfo(&self, productid: windows_core::GUID) -> windows_core::Result<IPMApplicationInfo> {
+    pub unsafe fn get_ApplicationInfo(&self, productid: windows_core::GUID) -> Result<IPMApplicationInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ApplicationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_TileInfo(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR) -> windows_core::Result<IPMTileInfo> {
+    pub unsafe fn get_TileInfo(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR) -> Result<IPMTileInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_TileInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_TaskInfo(&self, productid: windows_core::GUID, taskid: &windows_core::BSTR) -> windows_core::Result<IPMTaskInfo> {
+    pub unsafe fn get_TaskInfo(&self, productid: windows_core::GUID, taskid: &windows_core::BSTR) -> Result<IPMTaskInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_TaskInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(taskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_TaskInfoEx<P1>(&self, productid: windows_core::GUID, taskid: P1) -> windows_core::Result<IPMTaskInfo>
+    pub unsafe fn get_TaskInfoEx<P1>(&self, productid: windows_core::GUID, taskid: P1) -> Result<IPMTaskInfo, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -6679,43 +6679,43 @@ impl IPMEnumerationManager {
             (windows_core::Interface::vtable(self).get_TaskInfoEx)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), taskid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> windows_core::Result<IPMBackgroundServiceAgentInfo> {
+    pub unsafe fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> Result<IPMBackgroundServiceAgentInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_BackgroundServiceAgentInfo)(windows_core::Interface::as_raw(self), bsaid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AllLiveTileJobs(&self) -> windows_core::Result<IPMLiveTileJobInfoEnumerator> {
+    pub unsafe fn AllLiveTileJobs(&self) -> Result<IPMLiveTileJobInfoEnumerator, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllLiveTileJobs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_LiveTileJob(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> windows_core::Result<IPMLiveTileJobInfo> {
+    pub unsafe fn get_LiveTileJob(&self, productid: windows_core::GUID, tileid: &windows_core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> Result<IPMLiveTileJobInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_LiveTileJob)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), core::mem::transmute_copy(tileid), recurrencetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_ApplicationInfoExternal(&self, productid: windows_core::GUID) -> windows_core::Result<IPMApplicationInfo> {
+    pub unsafe fn get_ApplicationInfoExternal(&self, productid: windows_core::GUID) -> Result<IPMApplicationInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ApplicationInfoExternal)(windows_core::Interface::as_raw(self), core::mem::transmute(productid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_FileHandlerGenericLogo(&self, filetype: &windows_core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_FileHandlerGenericLogo(&self, filetype: &windows_core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_FileHandlerGenericLogo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filetype), logosize, core::mem::transmute(plogo)).ok() }
     }
-    pub unsafe fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &windows_core::BSTR, sysappid1: &windows_core::BSTR) -> windows_core::Result<IPMApplicationInfo> {
+    pub unsafe fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &windows_core::BSTR, sysappid1: &windows_core::BSTR) -> Result<IPMApplicationInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ApplicationInfoFromAccessClaims)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sysappid0), core::mem::transmute_copy(sysappid1), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> windows_core::Result<()> {
+    pub unsafe fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_StartTileEnumeratorBlob)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filter), pctiles as _, pptileblobs as _).ok() }
     }
-    pub unsafe fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> windows_core::Result<()> {
+    pub unsafe fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_StartAppEnumeratorBlob)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filter), pcapps as _, ppappblobs as _).ok() }
     }
 }
@@ -6743,24 +6743,24 @@ pub struct IPMEnumerationManager_Vtbl {
     pub get_StartAppEnumeratorBlob: unsafe extern "system" fn(*mut core::ffi::c_void, PM_ENUM_FILTER, *mut u32, *mut *mut PM_STARTAPPBLOB) -> windows_core::HRESULT,
 }
 pub trait IPMEnumerationManager_Impl: windows_core::IUnknownImpl {
-    fn get_AllApplications(&self, ppappenum: windows_core::OutRef<'_, IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllTiles(&self, pptileenum: windows_core::OutRef<'_, IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllTasks(&self, pptaskenum: windows_core::OutRef<'_, IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllExtensions(&self, ppextensionenum: windows_core::OutRef<'_, IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllBackgroundServiceAgents(&self, ppbsaenum: windows_core::OutRef<'_, IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllBackgroundWorkers(&self, ppbswenum: windows_core::OutRef<'_, IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_ApplicationInfo(&self, productid: &windows_core::GUID) -> windows_core::Result<IPMApplicationInfo>;
-    fn get_TileInfo(&self, productid: &windows_core::GUID, tileid: &windows_core::BSTR) -> windows_core::Result<IPMTileInfo>;
-    fn get_TaskInfo(&self, productid: &windows_core::GUID, taskid: &windows_core::BSTR) -> windows_core::Result<IPMTaskInfo>;
-    fn get_TaskInfoEx(&self, productid: &windows_core::GUID, taskid: &windows_core::PCWSTR) -> windows_core::Result<IPMTaskInfo>;
-    fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> windows_core::Result<IPMBackgroundServiceAgentInfo>;
-    fn AllLiveTileJobs(&self) -> windows_core::Result<IPMLiveTileJobInfoEnumerator>;
-    fn get_LiveTileJob(&self, productid: &windows_core::GUID, tileid: &windows_core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> windows_core::Result<IPMLiveTileJobInfo>;
-    fn get_ApplicationInfoExternal(&self, productid: &windows_core::GUID) -> windows_core::Result<IPMApplicationInfo>;
-    fn get_FileHandlerGenericLogo(&self, filetype: &windows_core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &windows_core::BSTR, sysappid1: &windows_core::BSTR) -> windows_core::Result<IPMApplicationInfo>;
-    fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> windows_core::Result<()>;
-    fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> windows_core::Result<()>;
+    fn get_AllApplications(&self, ppappenum: windows_core::OutRef<'_, IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_AllTiles(&self, pptileenum: windows_core::OutRef<'_, IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_AllTasks(&self, pptaskenum: windows_core::OutRef<'_, IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_AllExtensions(&self, ppextensionenum: windows_core::OutRef<'_, IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_AllBackgroundServiceAgents(&self, ppbsaenum: windows_core::OutRef<'_, IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_AllBackgroundWorkers(&self, ppbswenum: windows_core::OutRef<'_, IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> Result<(), windows_result::HRESULT>;
+    fn get_ApplicationInfo(&self, productid: &windows_core::GUID) -> Result<IPMApplicationInfo, windows_result::HRESULT>;
+    fn get_TileInfo(&self, productid: &windows_core::GUID, tileid: &windows_core::BSTR) -> Result<IPMTileInfo, windows_result::HRESULT>;
+    fn get_TaskInfo(&self, productid: &windows_core::GUID, taskid: &windows_core::BSTR) -> Result<IPMTaskInfo, windows_result::HRESULT>;
+    fn get_TaskInfoEx(&self, productid: &windows_core::GUID, taskid: &windows_core::PCWSTR) -> Result<IPMTaskInfo, windows_result::HRESULT>;
+    fn get_BackgroundServiceAgentInfo(&self, bsaid: u32) -> Result<IPMBackgroundServiceAgentInfo, windows_result::HRESULT>;
+    fn AllLiveTileJobs(&self) -> Result<IPMLiveTileJobInfoEnumerator, windows_result::HRESULT>;
+    fn get_LiveTileJob(&self, productid: &windows_core::GUID, tileid: &windows_core::BSTR, recurrencetype: PM_LIVETILE_RECURRENCE_TYPE) -> Result<IPMLiveTileJobInfo, windows_result::HRESULT>;
+    fn get_ApplicationInfoExternal(&self, productid: &windows_core::GUID) -> Result<IPMApplicationInfo, windows_result::HRESULT>;
+    fn get_FileHandlerGenericLogo(&self, filetype: &windows_core::BSTR, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_ApplicationInfoFromAccessClaims(&self, sysappid0: &windows_core::BSTR, sysappid1: &windows_core::BSTR) -> Result<IPMApplicationInfo, windows_result::HRESULT>;
+    fn get_StartTileEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pctiles: *mut u32, pptileblobs: *mut *mut PM_STARTTILEBLOB) -> Result<(), windows_result::HRESULT>;
+    fn get_StartAppEnumeratorBlob(&self, filter: &PM_ENUM_FILTER, pcapps: *mut u32, ppappblobs: *mut *mut PM_STARTAPPBLOB) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMEnumerationManager_Vtbl {
     pub const fn new<Identity: IPMEnumerationManager_Impl, const OFFSET: isize>() -> Self {
@@ -6808,7 +6808,7 @@ impl IPMEnumerationManager_Vtbl {
                         ppappinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6820,7 +6820,7 @@ impl IPMEnumerationManager_Vtbl {
                         pptileinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6832,7 +6832,7 @@ impl IPMEnumerationManager_Vtbl {
                         pptaskinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6844,7 +6844,7 @@ impl IPMEnumerationManager_Vtbl {
                         pptaskinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6856,7 +6856,7 @@ impl IPMEnumerationManager_Vtbl {
                         pptaskinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6868,7 +6868,7 @@ impl IPMEnumerationManager_Vtbl {
                         pplivetilejobenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6880,7 +6880,7 @@ impl IPMEnumerationManager_Vtbl {
                         pplivetilejobinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6892,7 +6892,7 @@ impl IPMEnumerationManager_Vtbl {
                         ppappinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6910,7 +6910,7 @@ impl IPMEnumerationManager_Vtbl {
                         ppappinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6956,7 +6956,7 @@ impl windows_core::RuntimeName for IPMEnumerationManager {}
 windows_core::imp::define_interface!(IPMExtensionCachedFileUpdaterInfo, IPMExtensionCachedFileUpdaterInfo_Vtbl, 0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
 windows_core::imp::interface_hierarchy!(IPMExtensionCachedFileUpdaterInfo, windows_core::IUnknown);
 impl IPMExtensionCachedFileUpdaterInfo {
-    pub unsafe fn SupportsUpdates(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn SupportsUpdates(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportsUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6970,7 +6970,7 @@ pub struct IPMExtensionCachedFileUpdaterInfo_Vtbl {
     pub SupportsUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionCachedFileUpdaterInfo_Impl: windows_core::IUnknownImpl {
-    fn SupportsUpdates(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn SupportsUpdates(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionCachedFileUpdaterInfo_Impl, const OFFSET: isize>() -> Self {
@@ -6982,7 +6982,7 @@ impl IPMExtensionCachedFileUpdaterInfo_Vtbl {
                         psupportsupdates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6996,7 +6996,7 @@ impl windows_core::RuntimeName for IPMExtensionCachedFileUpdaterInfo {}
 windows_core::imp::define_interface!(IPMExtensionContractInfo, IPMExtensionContractInfo_Vtbl, 0xe5666373_7ba1_467c_b819_b175db1c295b);
 windows_core::imp::interface_hierarchy!(IPMExtensionContractInfo, windows_core::IUnknown);
 impl IPMExtensionContractInfo {
-    pub unsafe fn get_InvocationInfo(&self, paumid: *mut windows_core::BSTR, pargs: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, paumid: *mut windows_core::BSTR, pargs: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(paumid), core::mem::transmute(pargs)).ok() }
     }
 }
@@ -7007,7 +7007,7 @@ pub struct IPMExtensionContractInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionContractInfo_Impl: windows_core::IUnknownImpl {
-    fn get_InvocationInfo(&self, paumid: *mut windows_core::BSTR, pargs: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn get_InvocationInfo(&self, paumid: *mut windows_core::BSTR, pargs: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMExtensionContractInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionContractInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7027,25 +7027,25 @@ impl windows_core::RuntimeName for IPMExtensionContractInfo {}
 windows_core::imp::define_interface!(IPMExtensionFileExtensionInfo, IPMExtensionFileExtensionInfo_Vtbl, 0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileExtensionInfo, windows_core::IUnknown);
 impl IPMExtensionFileExtensionInfo {
-    pub unsafe fn Name(&self, pname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Name(&self, pname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), core::mem::transmute(pname)).ok() }
     }
-    pub unsafe fn DisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute(pdisplayname)).ok() }
     }
-    pub unsafe fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_Logo)(windows_core::Interface::as_raw(self), logosize, core::mem::transmute(plogo)).ok() }
     }
-    pub unsafe fn get_ContentType(&self, filetype: &windows_core::BSTR, pcontenttype: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_ContentType(&self, filetype: &windows_core::BSTR, pcontenttype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_ContentType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filetype), core::mem::transmute(pcontenttype)).ok() }
     }
-    pub unsafe fn get_FileType(&self, contenttype: &windows_core::BSTR, pfiletype: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_FileType(&self, contenttype: &windows_core::BSTR, pfiletype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_FileType)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(contenttype), core::mem::transmute(pfiletype)).ok() }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
-    pub unsafe fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllFileTypes)(windows_core::Interface::as_raw(self), pcbtypes as _, pptypes as _).ok() }
     }
 }
@@ -7062,13 +7062,13 @@ pub struct IPMExtensionFileExtensionInfo_Vtbl {
     pub get_AllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionFileExtensionInfo_Impl: windows_core::IUnknownImpl {
-    fn Name(&self, pname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn DisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_ContentType(&self, filetype: &windows_core::BSTR, pcontenttype: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_FileType(&self, contenttype: &windows_core::BSTR, pfiletype: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Name(&self, pname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DisplayName(&self, pdisplayname: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_Logo(&self, logosize: PM_LOGO_SIZE, plogo: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_ContentType(&self, filetype: &windows_core::BSTR, pcontenttype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_FileType(&self, contenttype: &windows_core::BSTR, pfiletype: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_AllFileTypes(&self, pcbtypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMExtensionFileExtensionInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionFileExtensionInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7133,10 +7133,10 @@ impl windows_core::RuntimeName for IPMExtensionFileExtensionInfo {}
 windows_core::imp::define_interface!(IPMExtensionFileOpenPickerInfo, IPMExtensionFileOpenPickerInfo_Vtbl, 0x6dc91d25_9606_420c_9a78_e034a3418345);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileOpenPickerInfo, windows_core::IUnknown);
 impl IPMExtensionFileOpenPickerInfo {
-    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllFileTypes)(windows_core::Interface::as_raw(self), pctypes as _, pptypes as _).ok() }
     }
-    pub unsafe fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportsAllFileTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7151,8 +7151,8 @@ pub struct IPMExtensionFileOpenPickerInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionFileOpenPickerInfo_Impl: windows_core::IUnknownImpl {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMExtensionFileOpenPickerInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionFileOpenPickerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7170,7 +7170,7 @@ impl IPMExtensionFileOpenPickerInfo_Vtbl {
                         psupportsalltypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7188,10 +7188,10 @@ impl windows_core::RuntimeName for IPMExtensionFileOpenPickerInfo {}
 windows_core::imp::define_interface!(IPMExtensionFileSavePickerInfo, IPMExtensionFileSavePickerInfo_Vtbl, 0x38005cba_f81a_493e_a0f8_922c8680da43);
 windows_core::imp::interface_hierarchy!(IPMExtensionFileSavePickerInfo, windows_core::IUnknown);
 impl IPMExtensionFileSavePickerInfo {
-    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllFileTypes)(windows_core::Interface::as_raw(self), pctypes as _, pptypes as _).ok() }
     }
-    pub unsafe fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportsAllFileTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7206,8 +7206,8 @@ pub struct IPMExtensionFileSavePickerInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionFileSavePickerInfo_Impl: windows_core::IUnknownImpl {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMExtensionFileSavePickerInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionFileSavePickerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7225,7 +7225,7 @@ impl IPMExtensionFileSavePickerInfo_Vtbl {
                         psupportsalltypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7243,25 +7243,25 @@ impl windows_core::RuntimeName for IPMExtensionFileSavePickerInfo {}
 windows_core::imp::define_interface!(IPMExtensionInfo, IPMExtensionInfo_Vtbl, 0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
 windows_core::imp::interface_hierarchy!(IPMExtensionInfo, windows_core::IUnknown);
 impl IPMExtensionInfo {
-    pub unsafe fn SupplierPID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn SupplierPID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupplierPID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SupplierTaskID(&self, psuppliertid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SupplierTaskID(&self, psuppliertid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SupplierTaskID)(windows_core::Interface::as_raw(self), core::mem::transmute(psuppliertid)).ok() }
     }
-    pub unsafe fn Title(&self, ptitle: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Title(&self, ptitle: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), core::mem::transmute(ptitle)).ok() }
     }
-    pub unsafe fn IconPath(&self, piconpath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn IconPath(&self, piconpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IconPath)(windows_core::Interface::as_raw(self), core::mem::transmute(piconpath)).ok() }
     }
-    pub unsafe fn ExtraFile(&self, pfilepath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExtraFile(&self, pfilepath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExtraFile)(windows_core::Interface::as_raw(self), core::mem::transmute(pfilepath)).ok() }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
 }
@@ -7277,12 +7277,12 @@ pub struct IPMExtensionInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionInfo_Impl: windows_core::IUnknownImpl {
-    fn SupplierPID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SupplierTaskID(&self, psuppliertid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn Title(&self, ptitle: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IconPath(&self, piconpath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ExtraFile(&self, pfilepath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn SupplierPID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn SupplierTaskID(&self, psuppliertid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Title(&self, ptitle: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IconPath(&self, piconpath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ExtraFile(&self, pfilepath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMExtensionInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7294,7 +7294,7 @@ impl IPMExtensionInfo_Vtbl {
                         psupplierpid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7346,7 +7346,7 @@ impl windows_core::RuntimeName for IPMExtensionInfo {}
 windows_core::imp::define_interface!(IPMExtensionInfoEnumerator, IPMExtensionInfoEnumerator_Vtbl, 0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
 windows_core::imp::interface_hierarchy!(IPMExtensionInfoEnumerator, windows_core::IUnknown);
 impl IPMExtensionInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMExtensionInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMExtensionInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7360,7 +7360,7 @@ pub struct IPMExtensionInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMExtensionInfo>;
+    fn Next(&self) -> Result<IPMExtensionInfo, windows_result::HRESULT>;
 }
 impl IPMExtensionInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMExtensionInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -7372,7 +7372,7 @@ impl IPMExtensionInfoEnumerator_Vtbl {
                         ppextensioninfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7386,10 +7386,10 @@ impl windows_core::RuntimeName for IPMExtensionInfoEnumerator {}
 windows_core::imp::define_interface!(IPMExtensionProtocolInfo, IPMExtensionProtocolInfo_Vtbl, 0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
 windows_core::imp::interface_hierarchy!(IPMExtensionProtocolInfo, windows_core::IUnknown);
 impl IPMExtensionProtocolInfo {
-    pub unsafe fn Protocol(&self, pprotocol: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Protocol(&self, pprotocol: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Protocol)(windows_core::Interface::as_raw(self), core::mem::transmute(pprotocol)).ok() }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
 }
@@ -7401,8 +7401,8 @@ pub struct IPMExtensionProtocolInfo_Vtbl {
     pub get_InvocationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionProtocolInfo_Impl: windows_core::IUnknownImpl {
-    fn Protocol(&self, pprotocol: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Protocol(&self, pprotocol: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMExtensionProtocolInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionProtocolInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7432,13 +7432,13 @@ impl windows_core::RuntimeName for IPMExtensionProtocolInfo {}
 windows_core::imp::define_interface!(IPMExtensionShareTargetInfo, IPMExtensionShareTargetInfo_Vtbl, 0x5471f48b_c65c_4656_8c70_242e31195fea);
 windows_core::imp::interface_hierarchy!(IPMExtensionShareTargetInfo, windows_core::IUnknown);
 impl IPMExtensionShareTargetInfo {
-    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllFileTypes)(windows_core::Interface::as_raw(self), pctypes as _, pptypes as _).ok() }
     }
-    pub unsafe fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_AllDataFormats)(windows_core::Interface::as_raw(self), pcdataformats as _, ppdataformats as _).ok() }
     }
-    pub unsafe fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportsAllFileTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7454,9 +7454,9 @@ pub struct IPMExtensionShareTargetInfo_Vtbl {
     pub SupportsAllFileTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMExtensionShareTargetInfo_Impl: windows_core::IUnknownImpl {
-    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn SupportsAllFileTypes(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn get_AllFileTypes(&self, pctypes: *mut u32, pptypes: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn get_AllDataFormats(&self, pcdataformats: *mut u32, ppdataformats: *mut *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SupportsAllFileTypes(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMExtensionShareTargetInfo_Vtbl {
     pub const fn new<Identity: IPMExtensionShareTargetInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7480,7 +7480,7 @@ impl IPMExtensionShareTargetInfo_Vtbl {
                         psupportsalltypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7499,106 +7499,106 @@ impl windows_core::RuntimeName for IPMExtensionShareTargetInfo {}
 windows_core::imp::define_interface!(IPMLiveTileJobInfo, IPMLiveTileJobInfo_Vtbl, 0x6009a81f_4710_4697_b5f6_2208f6057b8e);
 windows_core::imp::interface_hierarchy!(IPMLiveTileJobInfo, windows_core::IUnknown);
 impl IPMLiveTileJobInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TileID(&self, ptileid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TileID(&self, ptileid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TileID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptileid)).ok() }
     }
-    pub unsafe fn NextSchedule(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn NextSchedule(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NextSchedule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_NextSchedule(&self, ftnextschedule: super::super::Foundation::FILETIME) -> windows_core::Result<()> {
+    pub unsafe fn set_NextSchedule(&self, ftnextschedule: super::super::Foundation::FILETIME) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_NextSchedule)(windows_core::Interface::as_raw(self), core::mem::transmute(ftnextschedule)).ok() }
     }
-    pub unsafe fn StartSchedule(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn StartSchedule(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartSchedule)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_StartSchedule(&self, ftstartschedule: super::super::Foundation::FILETIME) -> windows_core::Result<()> {
+    pub unsafe fn set_StartSchedule(&self, ftstartschedule: super::super::Foundation::FILETIME) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_StartSchedule)(windows_core::Interface::as_raw(self), core::mem::transmute(ftstartschedule)).ok() }
     }
-    pub unsafe fn IntervalDuration(&self) -> windows_core::Result<u32> {
+    pub unsafe fn IntervalDuration(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IntervalDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_IntervalDuration(&self, ulintervalduration: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_IntervalDuration(&self, ulintervalduration: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IntervalDuration)(windows_core::Interface::as_raw(self), ulintervalduration).ok() }
     }
-    pub unsafe fn RunForever(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn RunForever(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunForever)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_RunForever(&self, frunforever: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_RunForever(&self, frunforever: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_RunForever)(windows_core::Interface::as_raw(self), frunforever.into()).ok() }
     }
-    pub unsafe fn MaxRunCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaxRunCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxRunCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_MaxRunCount(&self, ulmaxruncount: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_MaxRunCount(&self, ulmaxruncount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_MaxRunCount)(windows_core::Interface::as_raw(self), ulmaxruncount).ok() }
     }
-    pub unsafe fn RunCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn RunCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_RunCount(&self, ulruncount: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_RunCount(&self, ulruncount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_RunCount)(windows_core::Interface::as_raw(self), ulruncount).ok() }
     }
-    pub unsafe fn RecurrenceType(&self) -> windows_core::Result<u32> {
+    pub unsafe fn RecurrenceType(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecurrenceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_RecurrenceType)(windows_core::Interface::as_raw(self), ulrecurrencetype).ok() }
     }
-    pub unsafe fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_TileXML)(windows_core::Interface::as_raw(self), ptilexml as _, pcbtilexml as _).ok() }
     }
-    pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn set_TileXML(&self, ptilexml: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_TileXML)(windows_core::Interface::as_raw(self), core::mem::transmute(ptilexml.as_ptr()), ptilexml.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_UrlXML)(windows_core::Interface::as_raw(self), purlxml as _, pcburlxml as _).ok() }
     }
-    pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn set_UrlXML(&self, purlxml: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_UrlXML)(windows_core::Interface::as_raw(self), core::mem::transmute(purlxml.as_ptr()), purlxml.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn AttemptCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn AttemptCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttemptCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_AttemptCount(&self, ulattemptcount: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_AttemptCount(&self, ulattemptcount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_AttemptCount)(windows_core::Interface::as_raw(self), ulattemptcount).ok() }
     }
-    pub unsafe fn DownloadState(&self) -> windows_core::Result<u32> {
+    pub unsafe fn DownloadState(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DownloadState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_DownloadState(&self, uldownloadstate: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_DownloadState(&self, uldownloadstate: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_DownloadState)(windows_core::Interface::as_raw(self), uldownloadstate).ok() }
     }
 }
@@ -7632,30 +7632,30 @@ pub struct IPMLiveTileJobInfo_Vtbl {
     pub set_DownloadState: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IPMLiveTileJobInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn TileID(&self, ptileid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn NextSchedule(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
-    fn set_NextSchedule(&self, ftnextschedule: &super::super::Foundation::FILETIME) -> windows_core::Result<()>;
-    fn StartSchedule(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
-    fn set_StartSchedule(&self, ftstartschedule: &super::super::Foundation::FILETIME) -> windows_core::Result<()>;
-    fn IntervalDuration(&self) -> windows_core::Result<u32>;
-    fn set_IntervalDuration(&self, ulintervalduration: u32) -> windows_core::Result<()>;
-    fn RunForever(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn set_RunForever(&self, frunforever: windows_core::BOOL) -> windows_core::Result<()>;
-    fn MaxRunCount(&self) -> windows_core::Result<u32>;
-    fn set_MaxRunCount(&self, ulmaxruncount: u32) -> windows_core::Result<()>;
-    fn RunCount(&self) -> windows_core::Result<u32>;
-    fn set_RunCount(&self, ulruncount: u32) -> windows_core::Result<()>;
-    fn RecurrenceType(&self) -> windows_core::Result<u32>;
-    fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> windows_core::Result<()>;
-    fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> windows_core::Result<()>;
-    fn set_TileXML(&self, ptilexml: *const u8, cbtilexml: u32) -> windows_core::Result<()>;
-    fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> windows_core::Result<()>;
-    fn set_UrlXML(&self, purlxml: *const u8, cburlxml: u32) -> windows_core::Result<()>;
-    fn AttemptCount(&self) -> windows_core::Result<u32>;
-    fn set_AttemptCount(&self, ulattemptcount: u32) -> windows_core::Result<()>;
-    fn DownloadState(&self) -> windows_core::Result<u32>;
-    fn set_DownloadState(&self, uldownloadstate: u32) -> windows_core::Result<()>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn TileID(&self, ptileid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NextSchedule(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT>;
+    fn set_NextSchedule(&self, ftnextschedule: &super::super::Foundation::FILETIME) -> Result<(), windows_result::HRESULT>;
+    fn StartSchedule(&self) -> Result<super::super::Foundation::FILETIME, windows_result::HRESULT>;
+    fn set_StartSchedule(&self, ftstartschedule: &super::super::Foundation::FILETIME) -> Result<(), windows_result::HRESULT>;
+    fn IntervalDuration(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_IntervalDuration(&self, ulintervalduration: u32) -> Result<(), windows_result::HRESULT>;
+    fn RunForever(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn set_RunForever(&self, frunforever: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MaxRunCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_MaxRunCount(&self, ulmaxruncount: u32) -> Result<(), windows_result::HRESULT>;
+    fn RunCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_RunCount(&self, ulruncount: u32) -> Result<(), windows_result::HRESULT>;
+    fn RecurrenceType(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_RecurrenceType(&self, ulrecurrencetype: u32) -> Result<(), windows_result::HRESULT>;
+    fn get_TileXML(&self, ptilexml: *mut *mut u8, pcbtilexml: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn set_TileXML(&self, ptilexml: *const u8, cbtilexml: u32) -> Result<(), windows_result::HRESULT>;
+    fn get_UrlXML(&self, purlxml: *mut *mut u8, pcburlxml: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn set_UrlXML(&self, purlxml: *const u8, cburlxml: u32) -> Result<(), windows_result::HRESULT>;
+    fn AttemptCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_AttemptCount(&self, ulattemptcount: u32) -> Result<(), windows_result::HRESULT>;
+    fn DownloadState(&self) -> Result<u32, windows_result::HRESULT>;
+    fn set_DownloadState(&self, uldownloadstate: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMLiveTileJobInfo_Vtbl {
     pub const fn new<Identity: IPMLiveTileJobInfo_Impl, const OFFSET: isize>() -> Self {
@@ -7667,7 +7667,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7685,7 +7685,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pnextschedule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7703,7 +7703,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pstartschedule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7721,7 +7721,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pintervalduration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7739,7 +7739,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         isrunforever.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7757,7 +7757,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pmaxruncount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7775,7 +7775,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pruncount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7793,7 +7793,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         precurrencetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7835,7 +7835,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pattemptcount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7853,7 +7853,7 @@ impl IPMLiveTileJobInfo_Vtbl {
                         pdownloadstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7899,7 +7899,7 @@ impl windows_core::RuntimeName for IPMLiveTileJobInfo {}
 windows_core::imp::define_interface!(IPMLiveTileJobInfoEnumerator, IPMLiveTileJobInfoEnumerator_Vtbl, 0xbc042582_9415_4f36_9f99_06f104c07c03);
 windows_core::imp::interface_hierarchy!(IPMLiveTileJobInfoEnumerator, windows_core::IUnknown);
 impl IPMLiveTileJobInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMLiveTileJobInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMLiveTileJobInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7913,7 +7913,7 @@ pub struct IPMLiveTileJobInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMLiveTileJobInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMLiveTileJobInfo>;
+    fn Next(&self) -> Result<IPMLiveTileJobInfo, windows_result::HRESULT>;
 }
 impl IPMLiveTileJobInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMLiveTileJobInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -7925,7 +7925,7 @@ impl IPMLiveTileJobInfoEnumerator_Vtbl {
                         pplivetilejobinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7939,100 +7939,100 @@ impl windows_core::RuntimeName for IPMLiveTileJobInfoEnumerator {}
 windows_core::imp::define_interface!(IPMTaskInfo, IPMTaskInfo_Vtbl, 0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
 windows_core::imp::interface_hierarchy!(IPMTaskInfo, windows_core::IUnknown);
 impl IPMTaskInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TaskID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptaskid)).ok() }
     }
-    pub unsafe fn NavigationPage(&self, pnavigationpage: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn NavigationPage(&self, pnavigationpage: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).NavigationPage)(windows_core::Interface::as_raw(self), core::mem::transmute(pnavigationpage)).ok() }
     }
-    pub unsafe fn TaskTransition(&self) -> windows_core::Result<PM_TASK_TRANSITION> {
+    pub unsafe fn TaskTransition(&self) -> Result<PM_TASK_TRANSITION, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskTransition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RuntimeType(&self) -> windows_core::Result<PACKMAN_RUNTIME> {
+    pub unsafe fn RuntimeType(&self) -> Result<PACKMAN_RUNTIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RuntimeType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ActivationPolicy(&self) -> windows_core::Result<PM_ACTIVATION_POLICY> {
+    pub unsafe fn ActivationPolicy(&self) -> Result<PM_ACTIVATION_POLICY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActivationPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TaskType(&self) -> windows_core::Result<PM_TASK_TYPE> {
+    pub unsafe fn TaskType(&self) -> Result<PM_TASK_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
-    pub unsafe fn ImagePath(&self, pimagepath: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ImagePath(&self, pimagepath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ImagePath)(windows_core::Interface::as_raw(self), core::mem::transmute(pimagepath)).ok() }
     }
-    pub unsafe fn ImageParams(&self, pimageparams: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ImageParams(&self, pimageparams: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ImageParams)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageparams)).ok() }
     }
-    pub unsafe fn InstallRootFolder(&self, pinstallrootfolder: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn InstallRootFolder(&self, pinstallrootfolder: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InstallRootFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pinstallrootfolder)).ok() }
     }
-    pub unsafe fn DataRootFolder(&self, pdatarootfolder: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DataRootFolder(&self, pdatarootfolder: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DataRootFolder)(windows_core::Interface::as_raw(self), core::mem::transmute(pdatarootfolder)).ok() }
     }
-    pub unsafe fn IsSingleInstanceHost(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsSingleInstanceHost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSingleInstanceHost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsInteropEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsInteropEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInteropEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ApplicationState(&self) -> windows_core::Result<PM_APPLICATION_STATE> {
+    pub unsafe fn ApplicationState(&self) -> Result<PM_APPLICATION_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ApplicationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InstallType(&self) -> windows_core::Result<PM_APPLICATION_INSTALL_TYPE> {
+    pub unsafe fn InstallType(&self) -> Result<PM_APPLICATION_INSTALL_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstallType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_Version)(windows_core::Interface::as_raw(self), ptargetmajorversion as _, ptargetminorversion as _).ok() }
     }
-    pub unsafe fn BitsPerPixel(&self) -> windows_core::Result<u16> {
+    pub unsafe fn BitsPerPixel(&self) -> Result<u16, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BitsPerPixel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SuppressesDehydration(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn SuppressesDehydration(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SuppressesDehydration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BackgroundExecutionAbilities)(windows_core::Interface::as_raw(self), core::mem::transmute(pbackgroundexecutionabilities)).ok() }
     }
-    pub unsafe fn IsOptedForExtendedMem(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsOptedForExtendedMem(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsOptedForExtendedMem)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8066,27 +8066,27 @@ pub struct IPMTaskInfo_Vtbl {
     pub IsOptedForExtendedMem: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMTaskInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn NavigationPage(&self, pnavigationpage: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn TaskTransition(&self) -> windows_core::Result<PM_TASK_TRANSITION>;
-    fn RuntimeType(&self) -> windows_core::Result<PACKMAN_RUNTIME>;
-    fn ActivationPolicy(&self) -> windows_core::Result<PM_ACTIVATION_POLICY>;
-    fn TaskType(&self) -> windows_core::Result<PM_TASK_TYPE>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImagePath(&self, pimagepath: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImageParams(&self, pimageparams: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn InstallRootFolder(&self, pinstallrootfolder: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn DataRootFolder(&self, pdatarootfolder: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsSingleInstanceHost(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsInteropEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn ApplicationState(&self) -> windows_core::Result<PM_APPLICATION_STATE>;
-    fn InstallType(&self) -> windows_core::Result<PM_APPLICATION_INSTALL_TYPE>;
-    fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> windows_core::Result<()>;
-    fn BitsPerPixel(&self) -> windows_core::Result<u16>;
-    fn SuppressesDehydration(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsOptedForExtendedMem(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NavigationPage(&self, pnavigationpage: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TaskTransition(&self) -> Result<PM_TASK_TRANSITION, windows_result::HRESULT>;
+    fn RuntimeType(&self) -> Result<PACKMAN_RUNTIME, windows_result::HRESULT>;
+    fn ActivationPolicy(&self) -> Result<PM_ACTIVATION_POLICY, windows_result::HRESULT>;
+    fn TaskType(&self) -> Result<PM_TASK_TYPE, windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImagePath(&self, pimagepath: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImageParams(&self, pimageparams: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn InstallRootFolder(&self, pinstallrootfolder: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DataRootFolder(&self, pdatarootfolder: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsSingleInstanceHost(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsInteropEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn ApplicationState(&self) -> Result<PM_APPLICATION_STATE, windows_result::HRESULT>;
+    fn InstallType(&self) -> Result<PM_APPLICATION_INSTALL_TYPE, windows_result::HRESULT>;
+    fn get_Version(&self, ptargetmajorversion: *mut u8, ptargetminorversion: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn BitsPerPixel(&self) -> Result<u16, windows_result::HRESULT>;
+    fn SuppressesDehydration(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn BackgroundExecutionAbilities(&self, pbackgroundexecutionabilities: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsOptedForExtendedMem(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 impl IPMTaskInfo_Vtbl {
     pub const fn new<Identity: IPMTaskInfo_Impl, const OFFSET: isize>() -> Self {
@@ -8098,7 +8098,7 @@ impl IPMTaskInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8122,7 +8122,7 @@ impl IPMTaskInfo_Vtbl {
                         ptasktransition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8134,7 +8134,7 @@ impl IPMTaskInfo_Vtbl {
                         pruntimetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8146,7 +8146,7 @@ impl IPMTaskInfo_Vtbl {
                         pactivationpolicy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8158,7 +8158,7 @@ impl IPMTaskInfo_Vtbl {
                         ptasktype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8200,7 +8200,7 @@ impl IPMTaskInfo_Vtbl {
                         pissingleinstancehost.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8212,7 +8212,7 @@ impl IPMTaskInfo_Vtbl {
                         pisinteropenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8224,7 +8224,7 @@ impl IPMTaskInfo_Vtbl {
                         papplicationstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8236,7 +8236,7 @@ impl IPMTaskInfo_Vtbl {
                         pinstalltype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8254,7 +8254,7 @@ impl IPMTaskInfo_Vtbl {
                         pbitsperpixel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8266,7 +8266,7 @@ impl IPMTaskInfo_Vtbl {
                         psuppressesdehydration.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8284,7 +8284,7 @@ impl IPMTaskInfo_Vtbl {
                         pisoptedin.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8321,7 +8321,7 @@ impl windows_core::RuntimeName for IPMTaskInfo {}
 windows_core::imp::define_interface!(IPMTaskInfoEnumerator, IPMTaskInfoEnumerator_Vtbl, 0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
 windows_core::imp::interface_hierarchy!(IPMTaskInfoEnumerator, windows_core::IUnknown);
 impl IPMTaskInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMTaskInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMTaskInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8335,7 +8335,7 @@ pub struct IPMTaskInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMTaskInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMTaskInfo>;
+    fn Next(&self) -> Result<IPMTaskInfo, windows_result::HRESULT>;
 }
 impl IPMTaskInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMTaskInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -8347,7 +8347,7 @@ impl IPMTaskInfoEnumerator_Vtbl {
                         pptaskinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8361,115 +8361,115 @@ impl windows_core::RuntimeName for IPMTaskInfoEnumerator {}
 windows_core::imp::define_interface!(IPMTileInfo, IPMTileInfo_Vtbl, 0xd1604833_2b08_4001_82cd_183ad734f752);
 windows_core::imp::interface_hierarchy!(IPMTileInfo, windows_core::IUnknown);
 impl IPMTileInfo {
-    pub unsafe fn ProductID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TileID(&self, ptileid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TileID(&self, ptileid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TileID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptileid)).ok() }
     }
-    pub unsafe fn TemplateType(&self) -> windows_core::Result<TILE_TEMPLATE_TYPE> {
+    pub unsafe fn TemplateType(&self) -> Result<TILE_TEMPLATE_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TemplateType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_HubPinnedState)(windows_core::Interface::as_raw(self), hubtype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<u32> {
+    pub unsafe fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_HubPosition)(windows_core::Interface::as_raw(self), hubtype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsNotified(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsNotified(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsNotified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDefault(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDefault(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TaskID)(windows_core::Interface::as_raw(self), core::mem::transmute(ptaskid)).ok() }
     }
-    pub unsafe fn TileType(&self) -> windows_core::Result<PM_STARTTILE_TYPE> {
+    pub unsafe fn TileType(&self) -> Result<PM_STARTTILE_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TileType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsThemable(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsThemable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsThemable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_PropertyById(&self, propid: u32) -> windows_core::Result<IPMTilePropertyInfo> {
+    pub unsafe fn get_PropertyById(&self, propid: u32) -> Result<IPMTilePropertyInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PropertyById)(windows_core::Interface::as_raw(self), propid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).get_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute(pimageurn), core::mem::transmute(pparameters)).ok() }
     }
-    pub unsafe fn PropertyEnum(&self) -> windows_core::Result<IPMTilePropertyEnumerator> {
+    pub unsafe fn PropertyEnum(&self) -> Result<IPMTilePropertyEnumerator, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<PM_TILE_SIZE> {
+    pub unsafe fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> Result<PM_TILE_SIZE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_HubTileSize)(windows_core::Interface::as_raw(self), hubtype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> windows_core::Result<()> {
+    pub unsafe fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_HubPosition)(windows_core::Interface::as_raw(self), hubtype, position).ok() }
     }
-    pub unsafe fn set_NotifiedState(&self, notified: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_NotifiedState(&self, notified: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_NotifiedState)(windows_core::Interface::as_raw(self), notified.into()).ok() }
     }
-    pub unsafe fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_HubPinnedState)(windows_core::Interface::as_raw(self), hubtype, pinned.into()).ok() }
     }
-    pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> windows_core::Result<()> {
+    pub unsafe fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_HubTileSize)(windows_core::Interface::as_raw(self), hubtype, size).ok() }
     }
-    pub unsafe fn set_InvocationInfo(&self, taskname: &windows_core::BSTR, taskparameters: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn set_InvocationInfo(&self, taskname: &windows_core::BSTR, taskparameters: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_InvocationInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname), core::mem::transmute_copy(taskparameters)).ok() }
     }
-    pub unsafe fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> windows_core::Result<()> {
+    pub unsafe fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartTileBlob)(windows_core::Interface::as_raw(self), core::mem::transmute(pblob)).ok() }
     }
-    pub unsafe fn IsRestoring(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsRestoring(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRestoring)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsAutoRestoreDisabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsAutoRestoreDisabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsAutoRestoreDisabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn set_IsRestoring(&self, restoring: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_IsRestoring(&self, restoring: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IsRestoring)(windows_core::Interface::as_raw(self), restoring.into()).ok() }
     }
-    pub unsafe fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_IsAutoRestoreDisabled)(windows_core::Interface::as_raw(self), autorestoredisabled.into()).ok() }
     }
 }
@@ -8503,30 +8503,30 @@ pub struct IPMTileInfo_Vtbl {
     pub set_IsAutoRestoreDisabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IPMTileInfo_Impl: windows_core::IUnknownImpl {
-    fn ProductID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn TileID(&self, ptileid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn TemplateType(&self) -> windows_core::Result<TILE_TEMPLATE_TYPE>;
-    fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<windows_core::BOOL>;
-    fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<u32>;
-    fn IsNotified(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsDefault(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn TileType(&self) -> windows_core::Result<PM_STARTTILE_TYPE>;
-    fn IsThemable(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn get_PropertyById(&self, propid: u32) -> windows_core::Result<IPMTilePropertyInfo>;
-    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn PropertyEnum(&self) -> windows_core::Result<IPMTilePropertyEnumerator>;
-    fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> windows_core::Result<PM_TILE_SIZE>;
-    fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> windows_core::Result<()>;
-    fn set_NotifiedState(&self, notified: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> windows_core::Result<()>;
-    fn set_InvocationInfo(&self, taskname: &windows_core::BSTR, taskparameters: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> windows_core::Result<()>;
-    fn IsRestoring(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsAutoRestoreDisabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn set_IsRestoring(&self, restoring: windows_core::BOOL) -> windows_core::Result<()>;
-    fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn ProductID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn TileID(&self, ptileid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TemplateType(&self) -> Result<TILE_TEMPLATE_TYPE, windows_result::HRESULT>;
+    fn get_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn get_HubPosition(&self, hubtype: PM_TILE_HUBTYPE) -> Result<u32, windows_result::HRESULT>;
+    fn IsNotified(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsDefault(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn TaskID(&self, ptaskid: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TileType(&self) -> Result<PM_STARTTILE_TYPE, windows_result::HRESULT>;
+    fn IsThemable(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn get_PropertyById(&self, propid: u32) -> Result<IPMTilePropertyInfo, windows_result::HRESULT>;
+    fn get_InvocationInfo(&self, pimageurn: *mut windows_core::BSTR, pparameters: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PropertyEnum(&self) -> Result<IPMTilePropertyEnumerator, windows_result::HRESULT>;
+    fn get_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE) -> Result<PM_TILE_SIZE, windows_result::HRESULT>;
+    fn set_HubPosition(&self, hubtype: PM_TILE_HUBTYPE, position: u32) -> Result<(), windows_result::HRESULT>;
+    fn set_NotifiedState(&self, notified: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_HubPinnedState(&self, hubtype: PM_TILE_HUBTYPE, pinned: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_HubTileSize(&self, hubtype: PM_TILE_HUBTYPE, size: PM_TILE_SIZE) -> Result<(), windows_result::HRESULT>;
+    fn set_InvocationInfo(&self, taskname: &windows_core::BSTR, taskparameters: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn StartTileBlob(&self, pblob: *mut PM_STARTTILEBLOB) -> Result<(), windows_result::HRESULT>;
+    fn IsRestoring(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn IsAutoRestoreDisabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn set_IsRestoring(&self, restoring: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn set_IsAutoRestoreDisabled(&self, autorestoredisabled: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMTileInfo_Vtbl {
     pub const fn new<Identity: IPMTileInfo_Impl, const OFFSET: isize>() -> Self {
@@ -8538,7 +8538,7 @@ impl IPMTileInfo_Vtbl {
                         pproductid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8556,7 +8556,7 @@ impl IPMTileInfo_Vtbl {
                         ptemplatetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8568,7 +8568,7 @@ impl IPMTileInfo_Vtbl {
                         ppinned.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8580,7 +8580,7 @@ impl IPMTileInfo_Vtbl {
                         pposition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8592,7 +8592,7 @@ impl IPMTileInfo_Vtbl {
                         pisnotified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8604,7 +8604,7 @@ impl IPMTileInfo_Vtbl {
                         pisdefault.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8622,7 +8622,7 @@ impl IPMTileInfo_Vtbl {
                         pstarttiletype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8634,7 +8634,7 @@ impl IPMTileInfo_Vtbl {
                         pisthemable.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8646,7 +8646,7 @@ impl IPMTileInfo_Vtbl {
                         pppropinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8664,7 +8664,7 @@ impl IPMTileInfo_Vtbl {
                         pptilepropenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8676,7 +8676,7 @@ impl IPMTileInfo_Vtbl {
                         psize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8724,7 +8724,7 @@ impl IPMTileInfo_Vtbl {
                         pisrestoring.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8736,7 +8736,7 @@ impl IPMTileInfo_Vtbl {
                         pisautorestoredisabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8788,7 +8788,7 @@ impl windows_core::RuntimeName for IPMTileInfo {}
 windows_core::imp::define_interface!(IPMTileInfoEnumerator, IPMTileInfoEnumerator_Vtbl, 0xded83065_e462_4b2c_acb5_e39cea61c874);
 windows_core::imp::interface_hierarchy!(IPMTileInfoEnumerator, windows_core::IUnknown);
 impl IPMTileInfoEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMTileInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMTileInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8802,7 +8802,7 @@ pub struct IPMTileInfoEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMTileInfoEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMTileInfo>;
+    fn Next(&self) -> Result<IPMTileInfo, windows_result::HRESULT>;
 }
 impl IPMTileInfoEnumerator_Vtbl {
     pub const fn new<Identity: IPMTileInfoEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -8814,7 +8814,7 @@ impl IPMTileInfoEnumerator_Vtbl {
                         pptileinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8828,7 +8828,7 @@ impl windows_core::RuntimeName for IPMTileInfoEnumerator {}
 windows_core::imp::define_interface!(IPMTilePropertyEnumerator, IPMTilePropertyEnumerator_Vtbl, 0xcc4cd629_9047_4250_aac8_930e47812421);
 windows_core::imp::interface_hierarchy!(IPMTilePropertyEnumerator, windows_core::IUnknown);
 impl IPMTilePropertyEnumerator {
-    pub unsafe fn Next(&self) -> windows_core::Result<IPMTilePropertyInfo> {
+    pub unsafe fn Next(&self) -> Result<IPMTilePropertyInfo, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8842,7 +8842,7 @@ pub struct IPMTilePropertyEnumerator_Vtbl {
     pub Next: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMTilePropertyEnumerator_Impl: windows_core::IUnknownImpl {
-    fn Next(&self) -> windows_core::Result<IPMTilePropertyInfo>;
+    fn Next(&self) -> Result<IPMTilePropertyInfo, windows_result::HRESULT>;
 }
 impl IPMTilePropertyEnumerator_Vtbl {
     pub const fn new<Identity: IPMTilePropertyEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -8854,7 +8854,7 @@ impl IPMTilePropertyEnumerator_Vtbl {
                         pppropinfo.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8868,16 +8868,16 @@ impl windows_core::RuntimeName for IPMTilePropertyEnumerator {}
 windows_core::imp::define_interface!(IPMTilePropertyInfo, IPMTilePropertyInfo_Vtbl, 0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
 windows_core::imp::interface_hierarchy!(IPMTilePropertyInfo, windows_core::IUnknown);
 impl IPMTilePropertyInfo {
-    pub unsafe fn PropertyID(&self) -> windows_core::Result<u32> {
+    pub unsafe fn PropertyID(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PropertyValue(&self, ppropvalue: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn PropertyValue(&self, ppropvalue: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).PropertyValue)(windows_core::Interface::as_raw(self), core::mem::transmute(ppropvalue)).ok() }
     }
-    pub unsafe fn set_Property(&self, propvalue: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn set_Property(&self, propvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).set_Property)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propvalue)).ok() }
     }
 }
@@ -8890,9 +8890,9 @@ pub struct IPMTilePropertyInfo_Vtbl {
     pub set_Property: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMTilePropertyInfo_Impl: windows_core::IUnknownImpl {
-    fn PropertyID(&self) -> windows_core::Result<u32>;
-    fn PropertyValue(&self, ppropvalue: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn set_Property(&self, propvalue: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn PropertyID(&self) -> Result<u32, windows_result::HRESULT>;
+    fn PropertyValue(&self, ppropvalue: *mut windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn set_Property(&self, propvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IPMTilePropertyInfo_Vtbl {
     pub const fn new<Identity: IPMTilePropertyInfo_Impl, const OFFSET: isize>() -> Self {
@@ -8904,7 +8904,7 @@ impl IPMTilePropertyInfo_Vtbl {
                         ppropid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9154,31 +9154,31 @@ pub const IPROPVALUE__CARRYINGNDP_URTUPGRADE: windows_core::PCWSTR = windows_cor
 windows_core::imp::define_interface!(IValidate, IValidate_Vtbl, 0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);
 windows_core::imp::interface_hierarchy!(IValidate, windows_core::IUnknown);
 impl IValidate {
-    pub unsafe fn OpenDatabase<P0>(&self, szdatabase: P0) -> windows_core::Result<()>
+    pub unsafe fn OpenDatabase<P0>(&self, szdatabase: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).OpenDatabase)(windows_core::Interface::as_raw(self), szdatabase.param().abi()).ok() }
     }
-    pub unsafe fn OpenCUB<P0>(&self, szcubfile: P0) -> windows_core::Result<()>
+    pub unsafe fn OpenCUB<P0>(&self, szcubfile: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).OpenCUB)(windows_core::Interface::as_raw(self), szcubfile.param().abi()).ok() }
     }
-    pub unsafe fn CloseDatabase(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseDatabase(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseDatabase)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CloseCUB(&self) -> windows_core::Result<()> {
+    pub unsafe fn CloseCUB(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CloseCUB)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplay)(windows_core::Interface::as_raw(self), pdisplayfunction, pcontext as _).ok() }
     }
-    pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), pstatusfunction, pcontext as _).ok() }
     }
-    pub unsafe fn Validate<P0>(&self, wzices: P0) -> windows_core::Result<()>
+    pub unsafe fn Validate<P0>(&self, wzices: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -9198,13 +9198,13 @@ pub struct IValidate_Vtbl {
     pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IValidate_Impl: windows_core::IUnknownImpl {
-    fn OpenDatabase(&self, szdatabase: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn OpenCUB(&self, szcubfile: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CloseDatabase(&self) -> windows_core::Result<()>;
-    fn CloseCUB(&self) -> windows_core::Result<()>;
-    fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Validate(&self, wzices: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn OpenDatabase(&self, szdatabase: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn OpenCUB(&self, szcubfile: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn CloseDatabase(&self) -> Result<(), windows_result::HRESULT>;
+    fn CloseCUB(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetDisplay(&self, pdisplayfunction: LPDISPLAYVAL, pcontext: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn SetStatus(&self, pstatusfunction: LPEVALCOMCALLBACK, pcontext: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn Validate(&self, wzices: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IValidate_Vtbl {
     pub const fn new<Identity: IValidate_Impl, const OFFSET: isize>() -> Self {

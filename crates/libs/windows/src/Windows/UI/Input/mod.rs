@@ -12,7 +12,7 @@ pub struct AttachableInputObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AttachableInputObject, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AttachableInputObject, super::super::Foundation::IClosable);
 impl AttachableInputObject {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -49,28 +49,28 @@ pub struct CrossSlidingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CrossSlidingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CrossSlidingEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CrossSlidingState(&self) -> windows_core::Result<CrossSlidingState> {
+    pub fn CrossSlidingState(&self) -> Result<CrossSlidingState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CrossSlidingState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ICrossSlidingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -112,28 +112,28 @@ pub struct DraggingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DraggingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DraggingEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DraggingState(&self) -> windows_core::Result<DraggingState> {
+    pub fn DraggingState(&self) -> Result<DraggingState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DraggingState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IDraggingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -170,7 +170,7 @@ impl windows_core::RuntimeType for DraggingState {
 pub struct EdgeGesture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGesture, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGesture {
-    pub fn Starting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Starting<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
@@ -180,11 +180,11 @@ impl EdgeGesture {
             (windows_core::Interface::vtable(this).Starting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStarting(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Completed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Completed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
@@ -194,11 +194,11 @@ impl EdgeGesture {
             (windows_core::Interface::vtable(this).Completed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Canceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Canceled<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<EdgeGesture, EdgeGestureEventArgs>>,
     {
@@ -208,17 +208,17 @@ impl EdgeGesture {
             (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCanceled(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCanceled(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCanceled)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<EdgeGesture> {
+    pub fn GetForCurrentView() -> Result<EdgeGesture, windows_result::HRESULT> {
         Self::IEdgeGestureStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEdgeGestureStatics<R, F: FnOnce(&IEdgeGestureStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<EdgeGesture, IEdgeGestureStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -238,7 +238,7 @@ impl windows_core::RuntimeName for EdgeGesture {
 pub struct EdgeGestureEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EdgeGestureEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl EdgeGestureEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<EdgeGestureKind> {
+    pub fn Kind(&self) -> Result<EdgeGestureKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -290,200 +290,200 @@ impl windows_core::RuntimeType for GazeInputAccessStatus {
 pub struct GestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl GestureRecognizer {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<GestureRecognizer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GestureSettings(&self) -> windows_core::Result<GestureSettings> {
+    pub fn GestureSettings(&self) -> Result<GestureSettings, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GestureSettings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetGestureSettings(&self, value: GestureSettings) -> windows_core::Result<()> {
+    pub fn SetGestureSettings(&self, value: GestureSettings) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGestureSettings)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsInertial(&self) -> windows_core::Result<bool> {
+    pub fn IsInertial(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInertial)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsActive(&self) -> windows_core::Result<bool> {
+    pub fn IsActive(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ShowGestureFeedback(&self) -> windows_core::Result<bool> {
+    pub fn ShowGestureFeedback(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowGestureFeedback)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetShowGestureFeedback(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetShowGestureFeedback(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetShowGestureFeedback)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PivotCenter(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn PivotCenter(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PivotCenter)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPivotCenter(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
+    pub fn SetPivotCenter(&self, value: super::super::Foundation::Point) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPivotCenter)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PivotRadius(&self) -> windows_core::Result<f32> {
+    pub fn PivotRadius(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PivotRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPivotRadius(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetPivotRadius(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPivotRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaTranslationDeceleration(&self) -> windows_core::Result<f32> {
+    pub fn InertiaTranslationDeceleration(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaTranslationDeceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaTranslationDeceleration(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaTranslationDeceleration(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaTranslationDeceleration)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaRotationDeceleration(&self) -> windows_core::Result<f32> {
+    pub fn InertiaRotationDeceleration(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaRotationDeceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaRotationDeceleration(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaRotationDeceleration(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaRotationDeceleration)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaExpansionDeceleration(&self) -> windows_core::Result<f32> {
+    pub fn InertiaExpansionDeceleration(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaExpansionDeceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaExpansionDeceleration(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaExpansionDeceleration(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaExpansionDeceleration)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaTranslationDisplacement(&self) -> windows_core::Result<f32> {
+    pub fn InertiaTranslationDisplacement(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaTranslationDisplacement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaTranslationDisplacement(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaTranslationDisplacement(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaTranslationDisplacement)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaRotationAngle(&self) -> windows_core::Result<f32> {
+    pub fn InertiaRotationAngle(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaRotationAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaRotationAngle(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaRotationAngle(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaRotationAngle)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InertiaExpansion(&self) -> windows_core::Result<f32> {
+    pub fn InertiaExpansion(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InertiaExpansion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInertiaExpansion(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetInertiaExpansion(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInertiaExpansion)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ManipulationExact(&self) -> windows_core::Result<bool> {
+    pub fn ManipulationExact(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManipulationExact)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetManipulationExact(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetManipulationExact(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetManipulationExact)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CrossSlideThresholds(&self) -> windows_core::Result<CrossSlideThresholds> {
+    pub fn CrossSlideThresholds(&self) -> Result<CrossSlideThresholds, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CrossSlideThresholds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCrossSlideThresholds(&self, value: CrossSlideThresholds) -> windows_core::Result<()> {
+    pub fn SetCrossSlideThresholds(&self, value: CrossSlideThresholds) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCrossSlideThresholds)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CrossSlideHorizontally(&self) -> windows_core::Result<bool> {
+    pub fn CrossSlideHorizontally(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CrossSlideHorizontally)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCrossSlideHorizontally(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCrossSlideHorizontally(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCrossSlideHorizontally)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CrossSlideExact(&self) -> windows_core::Result<bool> {
+    pub fn CrossSlideExact(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CrossSlideExact)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCrossSlideExact(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCrossSlideExact(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCrossSlideExact)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutoProcessInertia(&self) -> windows_core::Result<bool> {
+    pub fn AutoProcessInertia(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoProcessInertia)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoProcessInertia(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutoProcessInertia(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoProcessInertia)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MouseWheelParameters(&self) -> windows_core::Result<MouseWheelParameters> {
+    pub fn MouseWheelParameters(&self) -> Result<MouseWheelParameters, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MouseWheelParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanBeDoubleTap<P0>(&self, value: P0) -> windows_core::Result<bool>
+    pub fn CanBeDoubleTap<P0>(&self, value: P0) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
@@ -493,43 +493,43 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).CanBeDoubleTap)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn ProcessDownEvent<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessDownEvent<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessMoveEvents<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ProcessUpEvent<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessUpEvent<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ProcessMouseWheelEvent<P0>(&self, value: P0, isshiftkeydown: bool, iscontrolkeydown: bool) -> windows_core::Result<()>
+    pub fn ProcessMouseWheelEvent<P0>(&self, value: P0, isshiftkeydown: bool, iscontrolkeydown: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessMouseWheelEvent)(windows_core::Interface::as_raw(this), value.param().abi(), isshiftkeydown, iscontrolkeydown).ok() }
     }
-    pub fn ProcessInertia(&self) -> windows_core::Result<()> {
+    pub fn ProcessInertia(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessInertia)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CompleteGesture(&self) -> windows_core::Result<()> {
+    pub fn CompleteGesture(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteGesture)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Tapped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, TappedEventArgs>>,
     {
@@ -539,11 +539,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTapped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTapped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RightTapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RightTapped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, RightTappedEventArgs>>,
     {
@@ -553,11 +553,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).RightTapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRightTapped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRightTapped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRightTapped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Holding<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, HoldingEventArgs>>,
     {
@@ -567,11 +567,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveHolding(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveHolding)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Dragging<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Dragging<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, DraggingEventArgs>>,
     {
@@ -581,11 +581,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).Dragging)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDragging(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDragging(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDragging)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationStarted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationStartedEventArgs>>,
     {
@@ -595,11 +595,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationStarted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationUpdatedEventArgs>>,
     {
@@ -609,11 +609,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationInertiaStarting<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationInertiaStartingEventArgs>>,
     {
@@ -623,11 +623,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationInertiaStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationInertiaStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationInertiaStarting(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationInertiaStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, ManipulationCompletedEventArgs>>,
     {
@@ -637,11 +637,11 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CrossSliding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CrossSliding<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GestureRecognizer, CrossSlidingEventArgs>>,
     {
@@ -651,95 +651,95 @@ impl GestureRecognizer {
             (windows_core::Interface::vtable(this).CrossSliding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCrossSliding(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCrossSliding(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCrossSliding)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TapMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TapMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TapMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTapMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTapMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTapMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TapMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TapMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TapMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTapMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTapMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTapMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn HoldMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetHoldMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn HoldMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetHoldMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldRadius(&self) -> windows_core::Result<f32> {
+    pub fn HoldRadius(&self) -> Result<f32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldRadius(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetHoldRadius(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldStartDelay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HoldStartDelay(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetHoldStartDelay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TranslationMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TranslationMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TranslationMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTranslationMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTranslationMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTranslationMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TranslationMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TranslationMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TranslationMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTranslationMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTranslationMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IGestureRecognizer2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTranslationMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -822,35 +822,35 @@ pub struct HoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl HoldingEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HoldingState(&self) -> windows_core::Result<HoldingState> {
+    pub fn HoldingState(&self) -> Result<HoldingState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldingState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IHoldingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentContactCount(&self) -> windows_core::Result<u32> {
+    pub fn CurrentContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IHoldingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1414,21 +1414,21 @@ impl windows_core::RuntimeType for IPointerPointTransform {
 }
 windows_core::imp::interface_hierarchy!(IPointerPointTransform, windows_core::IUnknown, windows_core::IInspectable);
 impl IPointerPointTransform {
-    pub fn Inverse(&self) -> windows_core::Result<IPointerPointTransform> {
+    pub fn Inverse(&self) -> Result<IPointerPointTransform, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Inverse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryTransform(&self, inpoint: super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool> {
+    pub fn TryTransform(&self, inpoint: super::super::Foundation::Point, outpoint: &mut super::super::Foundation::Point) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryTransform)(windows_core::Interface::as_raw(this), inpoint, outpoint, &mut result__).map(|| result__)
         }
     }
-    pub fn TransformBounds(&self, rect: super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn TransformBounds(&self, rect: super::super::Foundation::Rect) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1440,46 +1440,46 @@ impl windows_core::RuntimeName for IPointerPointTransform {
     const NAME: &'static str = "Windows.UI.Input.IPointerPointTransform";
 }
 pub trait IPointerPointTransform_Impl: windows_core::IUnknownImpl {
-    fn Inverse(&self) -> windows_core::Result<IPointerPointTransform>;
-    fn TryTransform(&self, inPoint: &super::super::Foundation::Point, outPoint: &mut super::super::Foundation::Point) -> windows_core::Result<bool>;
-    fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> windows_core::Result<super::super::Foundation::Rect>;
+    fn Inverse(&self) -> Result<IPointerPointTransform, windows_result::HRESULT>;
+    fn TryTransform(&self, inPoint: &super::super::Foundation::Point, outPoint: &mut super::super::Foundation::Point) -> Result<bool, windows_result::HRESULT>;
+    fn TransformBounds(&self, rect: &super::super::Foundation::Rect) -> Result<super::super::Foundation::Rect, windows_result::HRESULT>;
 }
 impl IPointerPointTransform_Vtbl {
     pub const fn new<Identity: IPointerPointTransform_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn Inverse<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Inverse<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPointerPointTransform_Impl::Inverse(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn TryTransform<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn TryTransform<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, inpoint: super::super::Foundation::Point, outpoint: *mut super::super::Foundation::Point, result__: *mut bool) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPointerPointTransform_Impl::TryTransform(this, core::mem::transmute(&inpoint), core::mem::transmute_copy(&outpoint)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn TransformBounds<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> windows_core::HRESULT {
+        unsafe extern "system" fn TransformBounds<Identity: IPointerPointTransform_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, rect: super::super::Foundation::Rect, result__: *mut super::super::Foundation::Rect) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IPointerPointTransform_Impl::TransformBounds(this, core::mem::transmute(&rect)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2042,18 +2042,18 @@ pub struct InputActivationListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListener, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(InputActivationListener, super::super::Foundation::IClosable, AttachableInputObject);
 impl InputActivationListener {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn State(&self) -> windows_core::Result<InputActivationState> {
+    pub fn State(&self) -> Result<InputActivationState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn InputActivationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InputActivationChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<InputActivationListener, InputActivationListenerActivationChangedEventArgs>>,
     {
@@ -2063,7 +2063,7 @@ impl InputActivationListener {
             (windows_core::Interface::vtable(this).InputActivationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveInputActivationChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveInputActivationChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInputActivationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2085,7 +2085,7 @@ unsafe impl Sync for InputActivationListener {}
 pub struct InputActivationListenerActivationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputActivationListenerActivationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InputActivationListenerActivationChangedEventArgs {
-    pub fn State(&self) -> windows_core::Result<InputActivationState> {
+    pub fn State(&self) -> Result<InputActivationState, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2125,19 +2125,19 @@ impl windows_core::RuntimeType for InputActivationState {
 pub struct KeyboardDeliveryInterceptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardDeliveryInterceptor, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardDeliveryInterceptor {
-    pub fn IsInterceptionEnabledWhenInForeground(&self) -> windows_core::Result<bool> {
+    pub fn IsInterceptionEnabledWhenInForeground(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInterceptionEnabledWhenInForeground)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsInterceptionEnabledWhenInForeground(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsInterceptionEnabledWhenInForeground(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsInterceptionEnabledWhenInForeground)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn KeyDown<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyDown<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
     {
@@ -2147,12 +2147,12 @@ impl KeyboardDeliveryInterceptor {
             (windows_core::Interface::vtable(this).KeyDown)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveKeyDown(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveKeyDown(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveKeyDown)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn KeyUp<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyUp<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<KeyboardDeliveryInterceptor, super::Core::KeyEventArgs>>,
     {
@@ -2162,17 +2162,17 @@ impl KeyboardDeliveryInterceptor {
             (windows_core::Interface::vtable(this).KeyUp)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveKeyUp(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveKeyUp(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveKeyUp)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<KeyboardDeliveryInterceptor> {
+    pub fn GetForCurrentView() -> Result<KeyboardDeliveryInterceptor, windows_result::HRESULT> {
         Self::IKeyboardDeliveryInterceptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyboardDeliveryInterceptorStatics<R, F: FnOnce(&IKeyboardDeliveryInterceptorStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<KeyboardDeliveryInterceptor, IKeyboardDeliveryInterceptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2195,42 +2195,42 @@ pub struct ManipulationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationCompletedEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> Result<ManipulationVelocities, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentContactCount(&self) -> windows_core::Result<u32> {
+    pub fn CurrentContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2268,42 +2268,42 @@ pub struct ManipulationInertiaStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationInertiaStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationInertiaStartingEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Delta(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> Result<ManipulationVelocities, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationInertiaStartingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2327,28 +2327,28 @@ pub struct ManipulationStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationStartedEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationStartedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2372,49 +2372,49 @@ pub struct ManipulationUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManipulationUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ManipulationUpdatedEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Delta(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Delta(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Cumulative(&self) -> windows_core::Result<ManipulationDelta> {
+    pub fn Cumulative(&self) -> Result<ManipulationDelta, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cumulative)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Velocities(&self) -> windows_core::Result<ManipulationVelocities> {
+    pub fn Velocities(&self) -> Result<ManipulationVelocities, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Velocities)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CurrentContactCount(&self) -> windows_core::Result<u32> {
+    pub fn CurrentContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IManipulationUpdatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2450,47 +2450,47 @@ impl windows_core::RuntimeType for ManipulationVelocities {
 pub struct MouseWheelParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseWheelParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseWheelParameters {
-    pub fn CharTranslation(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn CharTranslation(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCharTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
+    pub fn SetCharTranslation(&self, value: super::super::Foundation::Point) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCharTranslation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeltaScale(&self) -> windows_core::Result<f32> {
+    pub fn DeltaScale(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeltaScale)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeltaScale(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetDeltaScale(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeltaScale)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DeltaRotationAngle(&self) -> windows_core::Result<f32> {
+    pub fn DeltaRotationAngle(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeltaRotationAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDeltaRotationAngle(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetDeltaRotationAngle(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDeltaRotationAngle)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PageTranslation(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn PageTranslation(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageTranslation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPageTranslation(&self, value: super::super::Foundation::Point) -> windows_core::Result<()> {
+    pub fn SetPageTranslation(&self, value: super::super::Foundation::Point) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPageTranslation)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2510,138 +2510,138 @@ impl windows_core::RuntimeName for MouseWheelParameters {
 pub struct PhysicalGestureRecognizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhysicalGestureRecognizer, windows_core::IUnknown, windows_core::IInspectable);
 impl PhysicalGestureRecognizer {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PhysicalGestureRecognizer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GestureSettings(&self) -> windows_core::Result<GestureSettings> {
+    pub fn GestureSettings(&self) -> Result<GestureSettings, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GestureSettings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetGestureSettings(&self, value: GestureSettings) -> windows_core::Result<()> {
+    pub fn SetGestureSettings(&self, value: GestureSettings) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGestureSettings)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TapMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TapMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TapMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTapMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTapMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTapMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TapMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TapMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TapMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTapMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTapMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTapMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn HoldMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetHoldMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHoldMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn HoldMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetHoldMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHoldMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldRadius(&self) -> windows_core::Result<f32> {
+    pub fn HoldRadius(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldRadius)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldRadius(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetHoldRadius(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHoldRadius)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HoldStartDelay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn HoldStartDelay(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HoldStartDelay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetHoldStartDelay(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHoldStartDelay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TranslationMinContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TranslationMinContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TranslationMinContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTranslationMinContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTranslationMinContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTranslationMinContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TranslationMaxContactCount(&self) -> windows_core::Result<u32> {
+    pub fn TranslationMaxContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TranslationMaxContactCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTranslationMaxContactCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetTranslationMaxContactCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTranslationMaxContactCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ProcessDownEvent<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessDownEvent<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessDownEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ProcessMoveEvents<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessMoveEvents<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IVector<PointerPoint>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessMoveEvents)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ProcessUpEvent<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn ProcessUpEvent<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<PointerPoint>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessUpEvent)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn CompleteGesture(&self) -> windows_core::Result<()> {
+    pub fn CompleteGesture(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteGesture)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ManipulationStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationStarted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationStartedEventArgs>>,
     {
@@ -2651,11 +2651,11 @@ impl PhysicalGestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationStarted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationStarted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationStarted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationUpdated<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationUpdatedEventArgs>>,
     {
@@ -2665,11 +2665,11 @@ impl PhysicalGestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationUpdated(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ManipulationCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, ManipulationCompletedEventArgs>>,
     {
@@ -2679,11 +2679,11 @@ impl PhysicalGestureRecognizer {
             (windows_core::Interface::vtable(this).ManipulationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveManipulationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveManipulationCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveManipulationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Tapped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Tapped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, TappedEventArgs>>,
     {
@@ -2693,11 +2693,11 @@ impl PhysicalGestureRecognizer {
             (windows_core::Interface::vtable(this).Tapped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTapped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTapped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTapped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Holding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Holding<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhysicalGestureRecognizer, HoldingEventArgs>>,
     {
@@ -2707,7 +2707,7 @@ impl PhysicalGestureRecognizer {
             (windows_core::Interface::vtable(this).Holding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveHolding(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveHolding(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveHolding)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -2728,89 +2728,89 @@ pub struct PointerPoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPoint, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPoint {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDevice(&self) -> windows_core::Result<super::super::Devices::Input::PointerDevice> {
+    pub fn PointerDevice(&self) -> Result<super::super::Devices::Input::PointerDevice, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RawPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn RawPosition(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PointerId(&self) -> windows_core::Result<u32> {
+    pub fn PointerId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FrameId(&self) -> windows_core::Result<u32> {
+    pub fn FrameId(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FrameId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<u64> {
+    pub fn Timestamp(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsInContact(&self) -> windows_core::Result<bool> {
+    pub fn IsInContact(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInContact)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<PointerPointProperties> {
+    pub fn Properties(&self) -> Result<PointerPointProperties, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPhysicalPositionSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsPhysicalPositionSupported(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPointerPointPhysicalPosition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPhysicalPositionSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PhysicalPosition(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn PhysicalPosition(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPointerPointPhysicalPosition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhysicalPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCurrentPoint(pointerid: u32) -> windows_core::Result<PointerPoint> {
+    pub fn GetCurrentPoint(pointerid: u32) -> Result<PointerPoint, windows_result::HRESULT> {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentPoint)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetIntermediatePoints(pointerid: u32) -> windows_core::Result<windows_collections::IVector<PointerPoint>> {
+    pub fn GetIntermediatePoints(pointerid: u32) -> Result<windows_collections::IVector<PointerPoint>, windows_result::HRESULT> {
         Self::IPointerPointStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIntermediatePoints)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetCurrentPointTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<PointerPoint>
+    pub fn GetCurrentPointTransformed<P1>(pointerid: u32, transform: P1) -> Result<PointerPoint, windows_result::HRESULT>
     where
         P1: windows_core::Param<IPointerPointTransform>,
     {
@@ -2819,7 +2819,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetCurrentPointTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> windows_core::Result<windows_collections::IVector<PointerPoint>>
+    pub fn GetIntermediatePointsTransformed<P1>(pointerid: u32, transform: P1) -> Result<windows_collections::IVector<PointerPoint>, windows_result::HRESULT>
     where
         P1: windows_core::Param<IPointerPointTransform>,
     {
@@ -2828,7 +2828,7 @@ impl PointerPoint {
             (windows_core::Interface::vtable(this).GetIntermediatePointsTransformed)(windows_core::Interface::as_raw(this), pointerid, transform.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerPointStatics<R, F: FnOnce(&IPointerPointStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PointerPoint, IPointerPointStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2848,175 +2848,175 @@ impl windows_core::RuntimeName for PointerPoint {
 pub struct PointerPointProperties(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerPointProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerPointProperties {
-    pub fn Pressure(&self) -> windows_core::Result<f32> {
+    pub fn Pressure(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsInverted(&self) -> windows_core::Result<bool> {
+    pub fn IsInverted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInverted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsEraser(&self) -> windows_core::Result<bool> {
+    pub fn IsEraser(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEraser)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Orientation(&self) -> windows_core::Result<f32> {
+    pub fn Orientation(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn XTilt(&self) -> windows_core::Result<f32> {
+    pub fn XTilt(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).XTilt)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn YTilt(&self) -> windows_core::Result<f32> {
+    pub fn YTilt(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).YTilt)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Twist(&self) -> windows_core::Result<f32> {
+    pub fn Twist(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Twist)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn ContactRect(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactRectRaw(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn ContactRectRaw(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactRectRaw)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TouchConfidence(&self) -> windows_core::Result<bool> {
+    pub fn TouchConfidence(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchConfidence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsLeftButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsLeftButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsLeftButtonPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsRightButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsRightButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRightButtonPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsMiddleButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsMiddleButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMiddleButtonPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MouseWheelDelta(&self) -> windows_core::Result<i32> {
+    pub fn MouseWheelDelta(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MouseWheelDelta)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsHorizontalMouseWheel(&self) -> windows_core::Result<bool> {
+    pub fn IsHorizontalMouseWheel(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsHorizontalMouseWheel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPrimary(&self) -> windows_core::Result<bool> {
+    pub fn IsPrimary(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPrimary)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsInRange(&self) -> windows_core::Result<bool> {
+    pub fn IsInRange(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCanceled(&self) -> windows_core::Result<bool> {
+    pub fn IsCanceled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCanceled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsBarrelButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsBarrelButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBarrelButtonPressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsXButton1Pressed(&self) -> windows_core::Result<bool> {
+    pub fn IsXButton1Pressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsXButton1Pressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsXButton2Pressed(&self) -> windows_core::Result<bool> {
+    pub fn IsXButton2Pressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsXButton2Pressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PointerUpdateKind(&self) -> windows_core::Result<PointerUpdateKind> {
+    pub fn PointerUpdateKind(&self) -> Result<PointerUpdateKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerUpdateKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasUsage(&self, usagepage: u32, usageid: u32) -> windows_core::Result<bool> {
+    pub fn HasUsage(&self, usagepage: u32, usageid: u32) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasUsage)(windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).map(|| result__)
         }
     }
-    pub fn GetUsageValue(&self, usagepage: u32, usageid: u32) -> windows_core::Result<i32> {
+    pub fn GetUsageValue(&self, usagepage: u32, usageid: u32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUsageValue)(windows_core::Interface::as_raw(this), usagepage, usageid, &mut result__).map(|| result__)
         }
     }
-    pub fn ZDistance(&self) -> windows_core::Result<super::super::Foundation::IReference<f32>> {
+    pub fn ZDistance(&self) -> Result<super::super::Foundation::IReference<f32>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPointerPointProperties2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3061,35 +3061,35 @@ impl windows_core::RuntimeType for PointerUpdateKind {
 pub struct PointerVisualizationSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerVisualizationSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerVisualizationSettings {
-    pub fn SetIsContactFeedbackEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsContactFeedbackEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsContactFeedbackEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsContactFeedbackEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsContactFeedbackEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsContactFeedbackEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsBarrelButtonFeedbackEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsBarrelButtonFeedbackEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsBarrelButtonFeedbackEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsBarrelButtonFeedbackEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsBarrelButtonFeedbackEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBarrelButtonFeedbackEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<PointerVisualizationSettings> {
+    pub fn GetForCurrentView() -> Result<PointerVisualizationSettings, windows_result::HRESULT> {
         Self::IPointerVisualizationSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerVisualizationSettingsStatics<R, F: FnOnce(&IPointerVisualizationSettingsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PointerVisualizationSettings, IPointerVisualizationSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3111,36 +3111,36 @@ unsafe impl Sync for PointerVisualizationSettings {}
 pub struct RadialController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialController, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialController {
-    pub fn Menu(&self) -> windows_core::Result<RadialControllerMenu> {
+    pub fn Menu(&self) -> Result<RadialControllerMenu, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Menu)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RotationResolutionInDegrees(&self) -> windows_core::Result<f64> {
+    pub fn RotationResolutionInDegrees(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationResolutionInDegrees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRotationResolutionInDegrees(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetRotationResolutionInDegrees(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRotationResolutionInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UseAutomaticHapticFeedback(&self) -> windows_core::Result<bool> {
+    pub fn UseAutomaticHapticFeedback(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseAutomaticHapticFeedback)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUseAutomaticHapticFeedback(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetUseAutomaticHapticFeedback(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUseAutomaticHapticFeedback)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ScreenContactStarted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactStarted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactStartedEventArgs>>,
     {
@@ -3150,11 +3150,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ScreenContactStarted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScreenContactStarted(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveScreenContactStarted(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenContactStarted)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn ScreenContactEnded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactEnded<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
     {
@@ -3164,11 +3164,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ScreenContactEnded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScreenContactEnded(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveScreenContactEnded(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenContactEnded)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn ScreenContactContinued<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScreenContactContinued<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerScreenContactContinuedEventArgs>>,
     {
@@ -3178,11 +3178,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ScreenContactContinued)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScreenContactContinued(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveScreenContactContinued(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveScreenContactContinued)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn ControlLost<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ControlLost<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, windows_core::IInspectable>>,
     {
@@ -3192,11 +3192,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ControlLost)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveControlLost(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveControlLost(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveControlLost)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn RotationChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RotationChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerRotationChangedEventArgs>>,
     {
@@ -3206,11 +3206,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).RotationChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRotationChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRotationChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRotationChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonClicked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonClickedEventArgs>>,
     {
@@ -3220,11 +3220,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveButtonClicked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveButtonClicked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveButtonClicked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ControlAcquired<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ControlAcquired<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerControlAcquiredEventArgs>>,
     {
@@ -3234,11 +3234,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ControlAcquired)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveControlAcquired(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveControlAcquired(&self, cookie: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveControlAcquired)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn ButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonPressed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonPressedEventArgs>>,
     {
@@ -3248,11 +3248,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveButtonPressed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveButtonPressed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveButtonPressed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ButtonHolding<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonHolding<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonHoldingEventArgs>>,
     {
@@ -3262,11 +3262,11 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ButtonHolding)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveButtonHolding(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveButtonHolding(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveButtonHolding)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ButtonReleased<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialController, RadialControllerButtonReleasedEventArgs>>,
     {
@@ -3276,23 +3276,23 @@ impl RadialController {
             (windows_core::Interface::vtable(this).ButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveButtonReleased(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveButtonReleased(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialController2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveButtonReleased)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> Result<bool, windows_result::HRESULT> {
         Self::IRadialControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateForCurrentView() -> windows_core::Result<RadialController> {
+    pub fn CreateForCurrentView() -> Result<RadialController, windows_result::HRESULT> {
         Self::IRadialControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerStatics<R, F: FnOnce(&IRadialControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RadialController, IRadialControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3314,7 +3314,7 @@ unsafe impl Sync for RadialController {}
 pub struct RadialControllerButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonClickedEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3322,7 +3322,7 @@ impl RadialControllerButtonClickedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerButtonClickedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3347,7 +3347,7 @@ unsafe impl Sync for RadialControllerButtonClickedEventArgs {}
 pub struct RadialControllerButtonHoldingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonHoldingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonHoldingEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3355,7 +3355,7 @@ impl RadialControllerButtonHoldingEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3380,7 +3380,7 @@ unsafe impl Sync for RadialControllerButtonHoldingEventArgs {}
 pub struct RadialControllerButtonPressedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonPressedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonPressedEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3388,7 +3388,7 @@ impl RadialControllerButtonPressedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3413,7 +3413,7 @@ unsafe impl Sync for RadialControllerButtonPressedEventArgs {}
 pub struct RadialControllerButtonReleasedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerButtonReleasedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerButtonReleasedEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3421,7 +3421,7 @@ impl RadialControllerButtonReleasedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3446,81 +3446,81 @@ unsafe impl Sync for RadialControllerButtonReleasedEventArgs {}
 pub struct RadialControllerConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerConfiguration {
-    pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> windows_core::Result<()>
+    pub fn SetDefaultMenuItems<P0>(&self, buttons: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<RadialControllerSystemMenuItemKind>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDefaultMenuItems)(windows_core::Interface::as_raw(this), buttons.param().abi()).ok() }
     }
-    pub fn ResetToDefaultMenuItems(&self) -> windows_core::Result<()> {
+    pub fn ResetToDefaultMenuItems(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetToDefaultMenuItems)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> windows_core::Result<bool> {
+    pub fn TrySelectDefaultMenuItem(&self, r#type: RadialControllerSystemMenuItemKind) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrySelectDefaultMenuItem)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
         }
     }
-    pub fn SetActiveControllerWhenMenuIsSuppressed<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetActiveControllerWhenMenuIsSuppressed<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<RadialController>,
     {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> windows_core::Result<RadialController> {
+    pub fn ActiveControllerWhenMenuIsSuppressed(&self) -> Result<RadialController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActiveControllerWhenMenuIsSuppressed)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIsMenuSuppressed(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsMenuSuppressed(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsMenuSuppressed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsMenuSuppressed(&self) -> windows_core::Result<bool> {
+    pub fn IsMenuSuppressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerConfiguration2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMenuSuppressed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<RadialControllerConfiguration> {
+    pub fn GetForCurrentView() -> Result<RadialControllerConfiguration, windows_result::HRESULT> {
         Self::IRadialControllerConfigurationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetAppController<P0>(value: P0) -> windows_core::Result<()>
+    pub fn SetAppController<P0>(value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<RadialController>,
     {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetAppController)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    pub fn AppController() -> windows_core::Result<RadialController> {
+    pub fn AppController() -> Result<RadialController, windows_result::HRESULT> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetIsAppControllerEnabled(value: bool) -> windows_core::Result<()> {
+    pub fn SetIsAppControllerEnabled(value: bool) -> Result<(), windows_result::HRESULT> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetIsAppControllerEnabled)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn IsAppControllerEnabled() -> windows_core::Result<bool> {
+    pub fn IsAppControllerEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IRadialControllerConfigurationStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppControllerEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerConfigurationStatics<R, F: FnOnce(&IRadialControllerConfigurationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerConfigurationStatics2<R, F: FnOnce(&IRadialControllerConfigurationStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerConfiguration, IRadialControllerConfigurationStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3542,14 +3542,14 @@ unsafe impl Sync for RadialControllerConfiguration {}
 pub struct RadialControllerControlAcquiredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerControlAcquiredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerControlAcquiredEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3557,7 +3557,7 @@ impl RadialControllerControlAcquiredEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerControlAcquiredEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3582,39 +3582,39 @@ unsafe impl Sync for RadialControllerControlAcquiredEventArgs {}
 pub struct RadialControllerMenu(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenu, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenu {
-    pub fn Items(&self) -> windows_core::Result<windows_collections::IVector<RadialControllerMenuItem>> {
+    pub fn Items(&self) -> Result<windows_collections::IVector<RadialControllerMenuItem>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Items)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetSelectedMenuItem(&self) -> windows_core::Result<RadialControllerMenuItem> {
+    pub fn GetSelectedMenuItem(&self) -> Result<RadialControllerMenuItem, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSelectedMenuItem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectMenuItem<P0>(&self, menuitem: P0) -> windows_core::Result<()>
+    pub fn SelectMenuItem<P0>(&self, menuitem: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<RadialControllerMenuItem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SelectMenuItem)(windows_core::Interface::as_raw(this), menuitem.param().abi()).ok() }
     }
-    pub fn TrySelectPreviouslySelectedMenuItem(&self) -> windows_core::Result<bool> {
+    pub fn TrySelectPreviouslySelectedMenuItem(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3639,28 +3639,28 @@ unsafe impl Sync for RadialControllerMenu {}
 pub struct RadialControllerMenuItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerMenuItem, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerMenuItem {
-    pub fn DisplayText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Tag(&self) -> Result<windows_core::IInspectable, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTag<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Invoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Invoked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<RadialControllerMenuItem, windows_core::IInspectable>>,
     {
@@ -3670,12 +3670,12 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).Invoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveInvoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveInvoked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromIcon<P1>(displaytext: &windows_core::HSTRING, icon: P1) -> Result<RadialControllerMenuItem, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
@@ -3684,19 +3684,19 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).CreateFromIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), icon.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> windows_core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromKnownIcon(displaytext: &windows_core::HSTRING, value: RadialControllerMenuKnownIcon) -> Result<RadialControllerMenuItem, windows_result::HRESULT> {
         Self::IRadialControllerMenuItemStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromKnownIcon)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), value, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyph(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<RadialControllerMenuItem> {
+    pub fn CreateFromFontGlyph(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> Result<RadialControllerMenuItem, windows_result::HRESULT> {
         Self::IRadialControllerMenuItemStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyphWithUri<P3>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P3) -> windows_core::Result<RadialControllerMenuItem>
+    pub fn CreateFromFontGlyphWithUri<P3>(displaytext: &windows_core::HSTRING, glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P3) -> Result<RadialControllerMenuItem, windows_result::HRESULT>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -3705,11 +3705,11 @@ impl RadialControllerMenuItem {
             (windows_core::Interface::vtable(this).CreateFromFontGlyphWithUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displaytext), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), fonturi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerMenuItemStatics<R, F: FnOnce(&IRadialControllerMenuItemStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerMenuItemStatics2<R, F: FnOnce(&IRadialControllerMenuItemStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerMenuItem, IRadialControllerMenuItemStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3751,21 +3751,21 @@ impl windows_core::RuntimeType for RadialControllerMenuKnownIcon {
 pub struct RadialControllerRotationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerRotationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerRotationChangedEventArgs {
-    pub fn RotationDeltaInDegrees(&self) -> windows_core::Result<f64> {
+    pub fn RotationDeltaInDegrees(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RotationDeltaInDegrees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3773,7 +3773,7 @@ impl RadialControllerRotationChangedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerRotationChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3798,14 +3798,14 @@ unsafe impl Sync for RadialControllerRotationChangedEventArgs {}
 pub struct RadialControllerScreenContact(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContact, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContact {
-    pub fn Bounds(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn Bounds(&self) -> Result<super::super::Foundation::Rect, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3830,14 +3830,14 @@ unsafe impl Sync for RadialControllerScreenContact {}
 pub struct RadialControllerScreenContactContinuedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactContinuedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactContinuedEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3845,7 +3845,7 @@ impl RadialControllerScreenContactContinuedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerScreenContactContinuedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3870,7 +3870,7 @@ unsafe impl Sync for RadialControllerScreenContactContinuedEventArgs {}
 pub struct RadialControllerScreenContactEndedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactEndedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactEndedEventArgs {
-    pub fn IsButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3878,7 +3878,7 @@ impl RadialControllerScreenContactEndedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3903,14 +3903,14 @@ unsafe impl Sync for RadialControllerScreenContactEndedEventArgs {}
 pub struct RadialControllerScreenContactStartedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerScreenContactStartedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerScreenContactStartedEventArgs {
-    pub fn Contact(&self) -> windows_core::Result<RadialControllerScreenContact> {
+    pub fn Contact(&self) -> Result<RadialControllerScreenContact, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsButtonPressed(&self) -> windows_core::Result<bool> {
+    pub fn IsButtonPressed(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3918,7 +3918,7 @@ impl RadialControllerScreenContactStartedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::super::Devices::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> Result<super::super::Devices::Haptics::SimpleHapticsController, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRadialControllerScreenContactStartedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3960,21 +3960,21 @@ pub struct RightTappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RightTappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl RightTappedEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IRightTappedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3998,11 +3998,11 @@ pub struct SystemButtonEventController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemButtonEventController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SystemButtonEventController, super::super::Foundation::IClosable, AttachableInputObject);
 impl SystemButtonEventController {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionButtonPressed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
     {
@@ -4012,11 +4012,11 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).SystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSystemFunctionButtonPressed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSystemFunctionButtonPressed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSystemFunctionButtonPressed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionButtonReleased<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionButtonEventArgs>>,
     {
@@ -4026,11 +4026,11 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).SystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSystemFunctionButtonReleased(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSystemFunctionButtonReleased(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSystemFunctionButtonReleased)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionLockChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockChangedEventArgs>>,
     {
@@ -4040,11 +4040,11 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).SystemFunctionLockChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSystemFunctionLockChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSystemFunctionLockChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSystemFunctionLockChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SystemFunctionLockIndicatorChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SystemButtonEventController, SystemFunctionLockIndicatorChangedEventArgs>>,
     {
@@ -4054,12 +4054,12 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).SystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSystemFunctionLockIndicatorChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSystemFunctionLockIndicatorChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "System")]
-    pub fn CreateForDispatcherQueue<P0>(queue: P0) -> windows_core::Result<SystemButtonEventController>
+    pub fn CreateForDispatcherQueue<P0>(queue: P0) -> Result<SystemButtonEventController, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::DispatcherQueue>,
     {
@@ -4068,7 +4068,7 @@ impl SystemButtonEventController {
             (windows_core::Interface::vtable(this).CreateForDispatcherQueue)(windows_core::Interface::as_raw(this), queue.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemButtonEventControllerStatics<R, F: FnOnce(&ISystemButtonEventControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemButtonEventController, ISystemButtonEventControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4090,21 +4090,21 @@ unsafe impl Sync for SystemButtonEventController {}
 pub struct SystemFunctionButtonEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionButtonEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionButtonEventArgs {
-    pub fn Timestamp(&self) -> windows_core::Result<u64> {
+    pub fn Timestamp(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4126,28 +4126,28 @@ unsafe impl Sync for SystemFunctionButtonEventArgs {}
 pub struct SystemFunctionLockChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockChangedEventArgs {
-    pub fn Timestamp(&self) -> windows_core::Result<u64> {
+    pub fn Timestamp(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsLocked(&self) -> windows_core::Result<bool> {
+    pub fn IsLocked(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsLocked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4169,28 +4169,28 @@ unsafe impl Sync for SystemFunctionLockChangedEventArgs {}
 pub struct SystemFunctionLockIndicatorChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemFunctionLockIndicatorChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemFunctionLockIndicatorChangedEventArgs {
-    pub fn Timestamp(&self) -> windows_core::Result<u64> {
+    pub fn Timestamp(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsIndicatorOn(&self) -> windows_core::Result<bool> {
+    pub fn IsIndicatorOn(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIndicatorOn)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -4213,28 +4213,28 @@ pub struct TappedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TappedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TappedEventArgs {
     #[cfg(feature = "Devices_Input")]
-    pub fn PointerDeviceType(&self) -> windows_core::Result<super::super::Devices::Input::PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> Result<super::super::Devices::Input::PointerDeviceType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Position(&self) -> Result<super::super::Foundation::Point, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TapCount(&self) -> windows_core::Result<u32> {
+    pub fn TapCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TapCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContactCount(&self) -> windows_core::Result<u32> {
+    pub fn ContactCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITappedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4257,30 +4257,30 @@ impl windows_core::RuntimeName for TappedEventArgs {
 pub struct TouchpadGesturesController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchpadGesturesController, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchpadGesturesController {
-    pub fn GesturesEnabled(&self) -> windows_core::Result<bool> {
+    pub fn GesturesEnabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GesturesEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetGesturesEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetGesturesEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGesturesEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SupportedGestures(&self) -> windows_core::Result<TouchpadGlobalGestureKinds> {
+    pub fn SupportedGestures(&self) -> Result<TouchpadGlobalGestureKinds, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedGestures)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSupportedGestures(&self, value: TouchpadGlobalGestureKinds) -> windows_core::Result<()> {
+    pub fn SetSupportedGestures(&self, value: TouchpadGlobalGestureKinds) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSupportedGestures)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerPressed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
     {
@@ -4290,12 +4290,12 @@ impl TouchpadGesturesController {
             (windows_core::Interface::vtable(this).PointerPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePointerPressed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePointerPressed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerPressed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerMoved<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
     {
@@ -4305,12 +4305,12 @@ impl TouchpadGesturesController {
             (windows_core::Interface::vtable(this).PointerMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePointerMoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePointerMoved(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerMoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn PointerReleased<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PointerReleased<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, super::Core::PointerEventArgs>>,
     {
@@ -4320,11 +4320,11 @@ impl TouchpadGesturesController {
             (windows_core::Interface::vtable(this).PointerReleased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePointerReleased(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePointerReleased(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerReleased)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TouchpadGlobalActionPerformed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TouchpadGlobalActionPerformed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, TouchpadGlobalActionEventArgs>>,
     {
@@ -4334,23 +4334,23 @@ impl TouchpadGesturesController {
             (windows_core::Interface::vtable(this).TouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTouchpadGlobalActionPerformed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTouchpadGlobalActionPerformed(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> Result<bool, windows_result::HRESULT> {
         Self::ITouchpadGesturesControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateForProcess() -> windows_core::Result<TouchpadGesturesController> {
+    pub fn CreateForProcess() -> Result<TouchpadGesturesController, windows_result::HRESULT> {
         Self::ITouchpadGesturesControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForProcess)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITouchpadGesturesControllerStatics<R, F: FnOnce(&ITouchpadGesturesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITouchpadGesturesControllerStatics<R, F: FnOnce(&ITouchpadGesturesControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<TouchpadGesturesController, ITouchpadGesturesControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4392,7 +4392,7 @@ impl windows_core::RuntimeType for TouchpadGlobalAction {
 pub struct TouchpadGlobalActionEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchpadGlobalActionEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchpadGlobalActionEventArgs {
-    pub fn Action(&self) -> windows_core::Result<TouchpadGlobalAction> {
+    pub fn Action(&self) -> Result<TouchpadGlobalAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

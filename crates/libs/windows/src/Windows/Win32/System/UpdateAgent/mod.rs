@@ -42,31 +42,31 @@ impl core::ops::Deref for IAutomaticUpdates {
 windows_core::imp::interface_hierarchy!(IAutomaticUpdates, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates {
-    pub unsafe fn DetectNow(&self) -> windows_core::Result<()> {
+    pub unsafe fn DetectNow(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DetectNow)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub unsafe fn Pause(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub unsafe fn Resume(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ShowSettingsDialog(&self) -> windows_core::Result<()> {
+    pub unsafe fn ShowSettingsDialog(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ShowSettingsDialog)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Settings(&self) -> windows_core::Result<IAutomaticUpdatesSettings> {
+    pub unsafe fn Settings(&self) -> Result<IAutomaticUpdatesSettings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Settings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ServiceEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ServiceEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnableService(&self) -> windows_core::Result<()> {
+    pub unsafe fn EnableService(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EnableService)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -85,13 +85,13 @@ pub struct IAutomaticUpdates_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdates_Impl: super::Com::IDispatch_Impl {
-    fn DetectNow(&self) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn ShowSettingsDialog(&self) -> windows_core::Result<()>;
-    fn Settings(&self) -> windows_core::Result<IAutomaticUpdatesSettings>;
-    fn ServiceEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn EnableService(&self) -> windows_core::Result<()>;
+    fn DetectNow(&self) -> Result<(), windows_result::HRESULT>;
+    fn Pause(&self) -> Result<(), windows_result::HRESULT>;
+    fn Resume(&self) -> Result<(), windows_result::HRESULT>;
+    fn ShowSettingsDialog(&self) -> Result<(), windows_result::HRESULT>;
+    fn Settings(&self) -> Result<IAutomaticUpdatesSettings, windows_result::HRESULT>;
+    fn ServiceEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn EnableService(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdates_Vtbl {
@@ -128,7 +128,7 @@ impl IAutomaticUpdates_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -140,7 +140,7 @@ impl IAutomaticUpdates_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -180,7 +180,7 @@ impl core::ops::Deref for IAutomaticUpdates2 {
 windows_core::imp::interface_hierarchy!(IAutomaticUpdates2, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdates);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdates2 {
-    pub unsafe fn Results(&self) -> windows_core::Result<IAutomaticUpdatesResults> {
+    pub unsafe fn Results(&self) -> Result<IAutomaticUpdatesResults, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -196,7 +196,7 @@ pub struct IAutomaticUpdates2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdates2_Impl: IAutomaticUpdates_Impl {
-    fn Results(&self) -> windows_core::Result<IAutomaticUpdatesResults>;
+    fn Results(&self) -> Result<IAutomaticUpdatesResults, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdates2_Vtbl {
@@ -209,7 +209,7 @@ impl IAutomaticUpdates2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -235,14 +235,14 @@ windows_core::imp::interface_hierarchy!(IAutomaticUpdatesResults, windows_core::
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesResults {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastSearchSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn LastSearchSuccessDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastSearchSuccessDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastInstallationSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn LastInstallationSuccessDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastInstallationSuccessDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -265,8 +265,8 @@ pub struct IAutomaticUpdatesResults_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesResults_Impl: super::Com::IDispatch_Impl {
-    fn LastSearchSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn LastInstallationSuccessDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
+    fn LastSearchSuccessDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn LastInstallationSuccessDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesResults_Vtbl {
@@ -279,7 +279,7 @@ impl IAutomaticUpdatesResults_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -291,7 +291,7 @@ impl IAutomaticUpdatesResults_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -320,49 +320,49 @@ impl core::ops::Deref for IAutomaticUpdatesSettings {
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings {
-    pub unsafe fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel> {
+    pub unsafe fn NotificationLevel(&self) -> Result<AutomaticUpdatesNotificationLevel, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NotificationLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()> {
+    pub unsafe fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNotificationLevel)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Required(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Required(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Required)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ScheduledInstallationDay(&self) -> windows_core::Result<AutomaticUpdatesScheduledInstallationDay> {
+    pub unsafe fn ScheduledInstallationDay(&self) -> Result<AutomaticUpdatesScheduledInstallationDay, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScheduledInstallationDay)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()> {
+    pub unsafe fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScheduledInstallationDay)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ScheduledInstallationTime(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ScheduledInstallationTime(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScheduledInstallationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetScheduledInstallationTime(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScheduledInstallationTime)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Save(&self) -> windows_core::Result<()> {
+    pub unsafe fn Save(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -384,16 +384,16 @@ pub struct IAutomaticUpdatesSettings_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings_Impl: super::Com::IDispatch_Impl {
-    fn NotificationLevel(&self) -> windows_core::Result<AutomaticUpdatesNotificationLevel>;
-    fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Required(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ScheduledInstallationDay(&self) -> windows_core::Result<AutomaticUpdatesScheduledInstallationDay>;
-    fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> windows_core::Result<()>;
-    fn ScheduledInstallationTime(&self) -> windows_core::Result<i32>;
-    fn SetScheduledInstallationTime(&self, value: i32) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn Save(&self) -> windows_core::Result<()>;
+    fn NotificationLevel(&self) -> Result<AutomaticUpdatesNotificationLevel, windows_result::HRESULT>;
+    fn SetNotificationLevel(&self, value: AutomaticUpdatesNotificationLevel) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Required(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ScheduledInstallationDay(&self) -> Result<AutomaticUpdatesScheduledInstallationDay, windows_result::HRESULT>;
+    fn SetScheduledInstallationDay(&self, value: AutomaticUpdatesScheduledInstallationDay) -> Result<(), windows_result::HRESULT>;
+    fn ScheduledInstallationTime(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetScheduledInstallationTime(&self, value: i32) -> Result<(), windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn Save(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings_Vtbl {
@@ -406,7 +406,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -424,7 +424,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -436,7 +436,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -448,7 +448,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -466,7 +466,7 @@ impl IAutomaticUpdatesSettings_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -521,16 +521,16 @@ impl core::ops::Deref for IAutomaticUpdatesSettings2 {
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings2, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings2 {
-    pub unsafe fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IncludeRecommendedUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeRecommendedUpdates)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckPermission)(windows_core::Interface::as_raw(self), usertype, permissiontype, &mut result__).map(|| result__)
@@ -548,9 +548,9 @@ pub struct IAutomaticUpdatesSettings2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings2_Impl: IAutomaticUpdatesSettings_Impl {
-    fn IncludeRecommendedUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IncludeRecommendedUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIncludeRecommendedUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn CheckPermission(&self, usertype: AutomaticUpdatesUserType, permissiontype: AutomaticUpdatesPermissionType) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings2_Vtbl {
@@ -563,7 +563,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -581,7 +581,7 @@ impl IAutomaticUpdatesSettings2_Vtbl {
                         userhaspermission.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -611,22 +611,22 @@ impl core::ops::Deref for IAutomaticUpdatesSettings3 {
 windows_core::imp::interface_hierarchy!(IAutomaticUpdatesSettings3, windows_core::IUnknown, super::Com::IDispatch, IAutomaticUpdatesSettings, IAutomaticUpdatesSettings2);
 #[cfg(feature = "Win32_System_Com")]
 impl IAutomaticUpdatesSettings3 {
-    pub unsafe fn NonAdministratorsElevated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn NonAdministratorsElevated(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NonAdministratorsElevated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNonAdministratorsElevated)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn FeaturedUpdatesEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFeaturedUpdatesEnabled)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -642,10 +642,10 @@ pub struct IAutomaticUpdatesSettings3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAutomaticUpdatesSettings3_Impl: IAutomaticUpdatesSettings2_Impl {
-    fn NonAdministratorsElevated(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FeaturedUpdatesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn NonAdministratorsElevated(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetNonAdministratorsElevated(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn FeaturedUpdatesEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetFeaturedUpdatesEnabled(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAutomaticUpdatesSettings3_Vtbl {
@@ -658,7 +658,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -676,7 +676,7 @@ impl IAutomaticUpdatesSettings3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -713,55 +713,55 @@ impl core::ops::Deref for ICategory {
 windows_core::imp::interface_hierarchy!(ICategory, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICategory {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CategoryID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CategoryID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CategoryID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Children(&self) -> windows_core::Result<ICategoryCollection> {
+    pub unsafe fn Children(&self) -> Result<ICategoryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Children)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
+    pub unsafe fn Image(&self) -> Result<IImageInformation, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Order(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Order(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Order)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Parent(&self) -> windows_core::Result<ICategory> {
+    pub unsafe fn Parent(&self) -> Result<ICategory, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Type(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -785,15 +785,15 @@ pub struct ICategory_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICategory_Impl: super::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CategoryID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Children(&self) -> windows_core::Result<ICategoryCollection>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Image(&self) -> windows_core::Result<IImageInformation>;
-    fn Order(&self) -> windows_core::Result<i32>;
-    fn Parent(&self) -> windows_core::Result<ICategory>;
-    fn Type(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CategoryID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Children(&self) -> Result<ICategoryCollection, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Image(&self) -> Result<IImageInformation, windows_result::HRESULT>;
+    fn Order(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Parent(&self) -> Result<ICategory, windows_result::HRESULT>;
+    fn Type(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICategory_Vtbl {
@@ -806,7 +806,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -818,7 +818,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -830,7 +830,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -842,7 +842,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -854,7 +854,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -866,7 +866,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -878,7 +878,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -890,7 +890,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -902,7 +902,7 @@ impl ICategory_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -938,19 +938,19 @@ impl core::ops::Deref for ICategoryCollection {
 windows_core::imp::interface_hierarchy!(ICategoryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICategoryCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<ICategory> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<ICategory, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -968,9 +968,9 @@ pub struct ICategoryCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICategoryCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<ICategory>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<ICategory, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICategoryCollection_Vtbl {
@@ -983,7 +983,7 @@ impl ICategoryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -995,7 +995,7 @@ impl ICategoryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1007,7 +1007,7 @@ impl ICategoryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1028,7 +1028,7 @@ windows_core::imp::define_interface!(IDownloadCompletedCallback, IDownloadComple
 windows_core::imp::interface_hierarchy!(IDownloadCompletedCallback, windows_core::IUnknown);
 impl IDownloadCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> windows_core::Result<()>
+    pub unsafe fn Invoke<P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDownloadJob>,
         P1: windows_core::Param<IDownloadCompletedCallbackArgs>,
@@ -1047,7 +1047,7 @@ pub struct IDownloadCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadCompletedCallbackArgs>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadCompletedCallback_Vtbl {
@@ -1110,34 +1110,34 @@ windows_core::imp::interface_hierarchy!(IDownloadJob, windows_core::IUnknown, su
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadJob {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AsyncState)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCompleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CleanUp(&self) -> windows_core::Result<()> {
+    pub unsafe fn CleanUp(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CleanUp)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetProgress(&self) -> windows_core::Result<IDownloadProgress> {
+    pub unsafe fn GetProgress(&self) -> Result<IDownloadProgress, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RequestAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn RequestAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RequestAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1158,12 +1158,12 @@ pub struct IDownloadJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadJob_Impl: super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
-    fn GetProgress(&self) -> windows_core::Result<IDownloadProgress>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn CleanUp(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetProgress(&self) -> Result<IDownloadProgress, windows_result::HRESULT>;
+    fn RequestAbort(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadJob_Vtbl {
@@ -1176,7 +1176,7 @@ impl IDownloadJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1188,7 +1188,7 @@ impl IDownloadJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1200,7 +1200,7 @@ impl IDownloadJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1218,7 +1218,7 @@ impl IDownloadJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1257,55 +1257,55 @@ impl core::ops::Deref for IDownloadProgress {
 windows_core::imp::interface_hierarchy!(IDownloadProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgress {
-    pub unsafe fn CurrentUpdateBytesDownloaded(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn CurrentUpdateBytesDownloaded(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdateBytesDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentUpdateBytesToDownload(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn CurrentUpdateBytesToDownload(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdateBytesToDownload)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentUpdateIndex(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentUpdateIndex(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdateIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PercentComplete(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PercentComplete(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PercentComplete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalBytesDownloaded(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn TotalBytesDownloaded(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalBytesDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn TotalBytesToDownload(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn TotalBytesToDownload(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TotalBytesToDownload)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
+    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateDownloadResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CurrentUpdateDownloadPhase(&self) -> windows_core::Result<DownloadPhase> {
+    pub unsafe fn CurrentUpdateDownloadPhase(&self) -> Result<DownloadPhase, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdateDownloadPhase)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentUpdatePercentComplete(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdatePercentComplete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1329,15 +1329,15 @@ pub struct IDownloadProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadProgress_Impl: super::Com::IDispatch_Impl {
-    fn CurrentUpdateBytesDownloaded(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn CurrentUpdateBytesToDownload(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn CurrentUpdateIndex(&self) -> windows_core::Result<i32>;
-    fn PercentComplete(&self) -> windows_core::Result<i32>;
-    fn TotalBytesDownloaded(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn TotalBytesToDownload(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult>;
-    fn CurrentUpdateDownloadPhase(&self) -> windows_core::Result<DownloadPhase>;
-    fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32>;
+    fn CurrentUpdateBytesDownloaded(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn CurrentUpdateBytesToDownload(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn CurrentUpdateIndex(&self) -> Result<i32, windows_result::HRESULT>;
+    fn PercentComplete(&self) -> Result<i32, windows_result::HRESULT>;
+    fn TotalBytesDownloaded(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn TotalBytesToDownload(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateDownloadResult, windows_result::HRESULT>;
+    fn CurrentUpdateDownloadPhase(&self) -> Result<DownloadPhase, windows_result::HRESULT>;
+    fn CurrentUpdatePercentComplete(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadProgress_Vtbl {
@@ -1350,7 +1350,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1362,7 +1362,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1374,7 +1374,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1386,7 +1386,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1398,7 +1398,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1410,7 +1410,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1422,7 +1422,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1434,7 +1434,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1446,7 +1446,7 @@ impl IDownloadProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1473,7 +1473,7 @@ windows_core::imp::define_interface!(IDownloadProgressChangedCallback, IDownload
 windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallback, windows_core::IUnknown);
 impl IDownloadProgressChangedCallback {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> windows_core::Result<()>
+    pub unsafe fn Invoke<P0, P1>(&self, downloadjob: P0, callbackargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDownloadJob>,
         P1: windows_core::Param<IDownloadProgressChangedCallbackArgs>,
@@ -1492,7 +1492,7 @@ pub struct IDownloadProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDownloadProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, downloadjob: windows_core::Ref<'_, IDownloadJob>, callbackargs: windows_core::Ref<'_, IDownloadProgressChangedCallbackArgs>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallback_Vtbl {
@@ -1524,7 +1524,7 @@ impl core::ops::Deref for IDownloadProgressChangedCallbackArgs {
 windows_core::imp::interface_hierarchy!(IDownloadProgressChangedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadProgressChangedCallbackArgs {
-    pub unsafe fn Progress(&self) -> windows_core::Result<IDownloadProgress> {
+    pub unsafe fn Progress(&self) -> Result<IDownloadProgress, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1540,7 +1540,7 @@ pub struct IDownloadProgressChangedCallbackArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadProgressChangedCallbackArgs_Impl: super::Com::IDispatch_Impl {
-    fn Progress(&self) -> windows_core::Result<IDownloadProgress>;
+    fn Progress(&self) -> Result<IDownloadProgress, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadProgressChangedCallbackArgs_Vtbl {
@@ -1553,7 +1553,7 @@ impl IDownloadProgressChangedCallbackArgs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1578,19 +1578,19 @@ impl core::ops::Deref for IDownloadResult {
 windows_core::imp::interface_hierarchy!(IDownloadResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDownloadResult {
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult> {
+    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateDownloadResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1608,9 +1608,9 @@ pub struct IDownloadResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDownloadResult_Impl: super::Com::IDispatch_Impl {
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
-    fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateDownloadResult>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
+    fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateDownloadResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDownloadResult_Vtbl {
@@ -1623,7 +1623,7 @@ impl IDownloadResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1635,7 +1635,7 @@ impl IDownloadResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1647,7 +1647,7 @@ impl IDownloadResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1677,25 +1677,25 @@ impl core::ops::Deref for IImageInformation {
 windows_core::imp::interface_hierarchy!(IImageInformation, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IImageInformation {
-    pub unsafe fn AltText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn AltText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AltText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Height(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Source(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Source(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Source)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Width(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1714,10 +1714,10 @@ pub struct IImageInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IImageInformation_Impl: super::Com::IDispatch_Impl {
-    fn AltText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Height(&self) -> windows_core::Result<i32>;
-    fn Source(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Width(&self) -> windows_core::Result<i32>;
+    fn AltText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Height(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Source(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Width(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IImageInformation_Vtbl {
@@ -1730,7 +1730,7 @@ impl IImageInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1742,7 +1742,7 @@ impl IImageInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1754,7 +1754,7 @@ impl IImageInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1766,7 +1766,7 @@ impl IImageInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1797,7 +1797,7 @@ impl core::ops::Deref for IInstallationAgent {
 windows_core::imp::interface_hierarchy!(IInstallationAgent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationAgent {
-    pub unsafe fn RecordInstallationResult<P2>(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: P2) -> windows_core::Result<()>
+    pub unsafe fn RecordInstallationResult<P2>(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: P2) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IStringCollection>,
     {
@@ -1813,7 +1813,7 @@ pub struct IInstallationAgent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationAgent_Impl: super::Com::IDispatch_Impl {
-    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn RecordInstallationResult(&self, installationresultcookie: &windows_core::BSTR, hresult: i32, extendedreportingdata: windows_core::Ref<'_, IStringCollection>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationAgent_Vtbl {
@@ -1845,25 +1845,25 @@ impl core::ops::Deref for IInstallationBehavior {
 windows_core::imp::interface_hierarchy!(IInstallationBehavior, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationBehavior {
-    pub unsafe fn CanRequestUserInput(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CanRequestUserInput(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanRequestUserInput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Impact(&self) -> windows_core::Result<InstallationImpact> {
+    pub unsafe fn Impact(&self) -> Result<InstallationImpact, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Impact)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RebootBehavior(&self) -> windows_core::Result<InstallationRebootBehavior> {
+    pub unsafe fn RebootBehavior(&self) -> Result<InstallationRebootBehavior, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootBehavior)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequiresNetworkConnectivity(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RequiresNetworkConnectivity(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequiresNetworkConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1882,10 +1882,10 @@ pub struct IInstallationBehavior_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationBehavior_Impl: super::Com::IDispatch_Impl {
-    fn CanRequestUserInput(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Impact(&self) -> windows_core::Result<InstallationImpact>;
-    fn RebootBehavior(&self) -> windows_core::Result<InstallationRebootBehavior>;
-    fn RequiresNetworkConnectivity(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CanRequestUserInput(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Impact(&self) -> Result<InstallationImpact, windows_result::HRESULT>;
+    fn RebootBehavior(&self) -> Result<InstallationRebootBehavior, windows_result::HRESULT>;
+    fn RequiresNetworkConnectivity(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationBehavior_Vtbl {
@@ -1898,7 +1898,7 @@ impl IInstallationBehavior_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1910,7 +1910,7 @@ impl IInstallationBehavior_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1922,7 +1922,7 @@ impl IInstallationBehavior_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1934,7 +1934,7 @@ impl IInstallationBehavior_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1956,7 +1956,7 @@ windows_core::imp::define_interface!(IInstallationCompletedCallback, IInstallati
 windows_core::imp::interface_hierarchy!(IInstallationCompletedCallback, windows_core::IUnknown);
 impl IInstallationCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<P0, P1>(&self, installationjob: P0, callbackargs: P1) -> windows_core::Result<()>
+    pub unsafe fn Invoke<P0, P1>(&self, installationjob: P0, callbackargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IInstallationJob>,
         P1: windows_core::Param<IInstallationCompletedCallbackArgs>,
@@ -1975,7 +1975,7 @@ pub struct IInstallationCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationCompletedCallbackArgs>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationCompletedCallback_Vtbl {
@@ -2038,34 +2038,34 @@ windows_core::imp::interface_hierarchy!(IInstallationJob, windows_core::IUnknown
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationJob {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AsyncState)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCompleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CleanUp(&self) -> windows_core::Result<()> {
+    pub unsafe fn CleanUp(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CleanUp)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetProgress(&self) -> windows_core::Result<IInstallationProgress> {
+    pub unsafe fn GetProgress(&self) -> Result<IInstallationProgress, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProgress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RequestAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn RequestAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RequestAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2086,12 +2086,12 @@ pub struct IInstallationJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationJob_Impl: super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
-    fn GetProgress(&self) -> windows_core::Result<IInstallationProgress>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn CleanUp(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetProgress(&self) -> Result<IInstallationProgress, windows_result::HRESULT>;
+    fn RequestAbort(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationJob_Vtbl {
@@ -2104,7 +2104,7 @@ impl IInstallationJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2116,7 +2116,7 @@ impl IInstallationJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2128,7 +2128,7 @@ impl IInstallationJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2146,7 +2146,7 @@ impl IInstallationJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2185,25 +2185,25 @@ impl core::ops::Deref for IInstallationProgress {
 windows_core::imp::interface_hierarchy!(IInstallationProgress, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgress {
-    pub unsafe fn CurrentUpdateIndex(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentUpdateIndex(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdateIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentUpdatePercentComplete(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentUpdatePercentComplete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PercentComplete(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PercentComplete(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PercentComplete)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
+    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateInstallationResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2222,10 +2222,10 @@ pub struct IInstallationProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationProgress_Impl: super::Com::IDispatch_Impl {
-    fn CurrentUpdateIndex(&self) -> windows_core::Result<i32>;
-    fn CurrentUpdatePercentComplete(&self) -> windows_core::Result<i32>;
-    fn PercentComplete(&self) -> windows_core::Result<i32>;
-    fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult>;
+    fn CurrentUpdateIndex(&self) -> Result<i32, windows_result::HRESULT>;
+    fn CurrentUpdatePercentComplete(&self) -> Result<i32, windows_result::HRESULT>;
+    fn PercentComplete(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateInstallationResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationProgress_Vtbl {
@@ -2238,7 +2238,7 @@ impl IInstallationProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2250,7 +2250,7 @@ impl IInstallationProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2262,7 +2262,7 @@ impl IInstallationProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2274,7 +2274,7 @@ impl IInstallationProgress_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2296,7 +2296,7 @@ windows_core::imp::define_interface!(IInstallationProgressChangedCallback, IInst
 windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallback, windows_core::IUnknown);
 impl IInstallationProgressChangedCallback {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<P0, P1>(&self, installationjob: P0, callbackargs: P1) -> windows_core::Result<()>
+    pub unsafe fn Invoke<P0, P1>(&self, installationjob: P0, callbackargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IInstallationJob>,
         P1: windows_core::Param<IInstallationProgressChangedCallbackArgs>,
@@ -2315,7 +2315,7 @@ pub struct IInstallationProgressChangedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInstallationProgressChangedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationProgressChangedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, installationjob: windows_core::Ref<'_, IInstallationJob>, callbackargs: windows_core::Ref<'_, IInstallationProgressChangedCallbackArgs>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallback_Vtbl {
@@ -2347,7 +2347,7 @@ impl core::ops::Deref for IInstallationProgressChangedCallbackArgs {
 windows_core::imp::interface_hierarchy!(IInstallationProgressChangedCallbackArgs, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationProgressChangedCallbackArgs {
-    pub unsafe fn Progress(&self) -> windows_core::Result<IInstallationProgress> {
+    pub unsafe fn Progress(&self) -> Result<IInstallationProgress, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2363,7 +2363,7 @@ pub struct IInstallationProgressChangedCallbackArgs_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationProgressChangedCallbackArgs_Impl: super::Com::IDispatch_Impl {
-    fn Progress(&self) -> windows_core::Result<IInstallationProgress>;
+    fn Progress(&self) -> Result<IInstallationProgress, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationProgressChangedCallbackArgs_Vtbl {
@@ -2376,7 +2376,7 @@ impl IInstallationProgressChangedCallbackArgs_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2401,25 +2401,25 @@ impl core::ops::Deref for IInstallationResult {
 windows_core::imp::interface_hierarchy!(IInstallationResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInstallationResult {
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult> {
+    pub unsafe fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateInstallationResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUpdateResult)(windows_core::Interface::as_raw(self), updateindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2438,10 +2438,10 @@ pub struct IInstallationResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInstallationResult_Impl: super::Com::IDispatch_Impl {
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
-    fn GetUpdateResult(&self, updateindex: i32) -> windows_core::Result<IUpdateInstallationResult>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
+    fn GetUpdateResult(&self, updateindex: i32) -> Result<IUpdateInstallationResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInstallationResult_Vtbl {
@@ -2454,7 +2454,7 @@ impl IInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2466,7 +2466,7 @@ impl IInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2478,7 +2478,7 @@ impl IInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2490,7 +2490,7 @@ impl IInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2521,7 +2521,7 @@ impl core::ops::Deref for IInvalidProductLicenseException {
 windows_core::imp::interface_hierarchy!(IInvalidProductLicenseException, windows_core::IUnknown, super::Com::IDispatch, IUpdateException);
 #[cfg(feature = "Win32_System_Com")]
 impl IInvalidProductLicenseException {
-    pub unsafe fn Product(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Product(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Product)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -2537,7 +2537,7 @@ pub struct IInvalidProductLicenseException_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInvalidProductLicenseException_Impl: IUpdateException_Impl {
-    fn Product(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Product(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInvalidProductLicenseException_Vtbl {
@@ -2550,7 +2550,7 @@ impl IInvalidProductLicenseException_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2566,7 +2566,7 @@ windows_core::imp::define_interface!(ISearchCompletedCallback, ISearchCompletedC
 windows_core::imp::interface_hierarchy!(ISearchCompletedCallback, windows_core::IUnknown);
 impl ISearchCompletedCallback {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Invoke<P0, P1>(&self, searchjob: P0, callbackargs: P1) -> windows_core::Result<()>
+    pub unsafe fn Invoke<P0, P1>(&self, searchjob: P0, callbackargs: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISearchJob>,
         P1: windows_core::Param<ISearchCompletedCallbackArgs>,
@@ -2585,7 +2585,7 @@ pub struct ISearchCompletedCallback_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ISearchCompletedCallback_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, searchjob: windows_core::Ref<'_, ISearchJob>, callbackargs: windows_core::Ref<'_, ISearchCompletedCallbackArgs>) -> windows_core::Result<()>;
+    fn Invoke(&self, searchjob: windows_core::Ref<'_, ISearchJob>, callbackargs: windows_core::Ref<'_, ISearchCompletedCallbackArgs>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchCompletedCallback_Vtbl {
@@ -2648,22 +2648,22 @@ windows_core::imp::interface_hierarchy!(ISearchJob, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchJob {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AsyncState)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsCompleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CleanUp(&self) -> windows_core::Result<()> {
+    pub unsafe fn CleanUp(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CleanUp)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RequestAbort(&self) -> windows_core::Result<()> {
+    pub unsafe fn RequestAbort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RequestAbort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2682,10 +2682,10 @@ pub struct ISearchJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISearchJob_Impl: super::Com::IDispatch_Impl {
-    fn AsyncState(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn IsCompleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CleanUp(&self) -> windows_core::Result<()>;
-    fn RequestAbort(&self) -> windows_core::Result<()>;
+    fn AsyncState(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn IsCompleted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CleanUp(&self) -> Result<(), windows_result::HRESULT>;
+    fn RequestAbort(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISearchJob_Vtbl {
@@ -2698,7 +2698,7 @@ impl ISearchJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2710,7 +2710,7 @@ impl ISearchJob_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2753,25 +2753,25 @@ impl core::ops::Deref for ISearchResult {
 windows_core::imp::interface_hierarchy!(ISearchResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISearchResult {
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RootCategories(&self) -> windows_core::Result<ICategoryCollection> {
+    pub unsafe fn RootCategories(&self) -> Result<ICategoryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RootCategories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Warnings(&self) -> windows_core::Result<IUpdateExceptionCollection> {
+    pub unsafe fn Warnings(&self) -> Result<IUpdateExceptionCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Warnings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2790,10 +2790,10 @@ pub struct ISearchResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISearchResult_Impl: super::Com::IDispatch_Impl {
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
-    fn RootCategories(&self) -> windows_core::Result<ICategoryCollection>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn Warnings(&self) -> windows_core::Result<IUpdateExceptionCollection>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
+    fn RootCategories(&self) -> Result<ICategoryCollection, windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn Warnings(&self) -> Result<IUpdateExceptionCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISearchResult_Vtbl {
@@ -2806,7 +2806,7 @@ impl ISearchResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2818,7 +2818,7 @@ impl ISearchResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2830,7 +2830,7 @@ impl ISearchResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2842,7 +2842,7 @@ impl ISearchResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2873,52 +2873,52 @@ impl core::ops::Deref for IStringCollection {
 windows_core::imp::interface_hierarchy!(IStringCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IStringCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), index, core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Add(&self, value: &windows_core::BSTR) -> windows_core::Result<i32> {
+    pub unsafe fn Add(&self, value: &windows_core::BSTR) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn Copy(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Insert(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Insert(&self, index: i32, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn RemoveAt(&self, index: i32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAt(&self, index: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok() }
     }
 }
@@ -2940,16 +2940,16 @@ pub struct IStringCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IStringCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Add(&self, value: &windows_core::BSTR) -> windows_core::Result<i32>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn Copy(&self) -> windows_core::Result<IStringCollection>;
-    fn Insert(&self, index: i32, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
+    fn get_Item(&self, index: i32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn put_Item(&self, index: i32, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Add(&self, value: &windows_core::BSTR) -> Result<i32, windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn Copy(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn Insert(&self, index: i32, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAt(&self, index: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IStringCollection_Vtbl {
@@ -2962,7 +2962,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2980,7 +2980,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2992,7 +2992,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3004,7 +3004,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3016,7 +3016,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3034,7 +3034,7 @@ impl IStringCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3083,13 +3083,13 @@ impl core::ops::Deref for ISystemInformation {
 windows_core::imp::interface_hierarchy!(ISystemInformation, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ISystemInformation {
-    pub unsafe fn OemHardwareSupportLink(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn OemHardwareSupportLink(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OemHardwareSupportLink)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3106,8 +3106,8 @@ pub struct ISystemInformation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISystemInformation_Impl: super::Com::IDispatch_Impl {
-    fn OemHardwareSupportLink(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn OemHardwareSupportLink(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISystemInformation_Vtbl {
@@ -3120,7 +3120,7 @@ impl ISystemInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3132,7 +3132,7 @@ impl ISystemInformation_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3161,263 +3161,263 @@ impl core::ops::Deref for IUpdate {
 windows_core::imp::interface_hierarchy!(IUpdate, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate {
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Title(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoSelectOnWebSites(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoSelectOnWebSites)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn BundledUpdates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BundledUpdates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CanRequireSource(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanRequireSource)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
+    pub unsafe fn Categories(&self) -> Result<ICategoryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Deadline(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn Deadline(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deadline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DeltaCompressedContentAvailable(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeltaCompressedContentAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DeltaCompressedContentPreferred(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeltaCompressedContentPreferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EulaAccepted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EulaAccepted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EulaText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn EulaText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EulaText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn HandlerID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HandlerID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Identity(&self) -> windows_core::Result<IUpdateIdentity> {
+    pub unsafe fn Identity(&self) -> Result<IUpdateIdentity, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Identity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Image(&self) -> windows_core::Result<IImageInformation> {
+    pub unsafe fn Image(&self) -> Result<IImageInformation, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Image)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
+    pub unsafe fn InstallationBehavior(&self) -> Result<IInstallationBehavior, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsBeta(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsBeta)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsDownloaded(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDownloaded)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsHidden(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsHidden)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIsHidden)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsInstalled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsInstalled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsMandatory(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMandatory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsUninstallable(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsUninstallable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Languages(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn Languages(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LastDeploymentChangeTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastDeploymentChangeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn MaxDownloadSize(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL> {
+    pub unsafe fn MinDownloadSize(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinDownloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn MoreInfoUrls(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoreInfoUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MsrcSeverity(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MsrcSeverity)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RecommendedCpuSpeed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecommendedCpuSpeed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RecommendedHardDiskSpace(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecommendedHardDiskSpace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RecommendedMemory(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RecommendedMemory(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecommendedMemory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReleaseNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReleaseNotes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn SecurityBulletinIDs(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SecurityBulletinIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn SupersededUpdateIDs(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupersededUpdateIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SupportUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<UpdateType> {
+    pub unsafe fn Type(&self) -> Result<UpdateType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UninstallationNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior> {
+    pub unsafe fn UninstallationBehavior(&self) -> Result<IInstallationBehavior, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UninstallationBehavior)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn UninstallationSteps(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn KBArticleIDs(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KBArticleIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AcceptEula(&self) -> windows_core::Result<()> {
+    pub unsafe fn AcceptEula(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AcceptEula)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction> {
+    pub unsafe fn DeploymentAction(&self) -> Result<DeploymentAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeploymentAction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CopyFromCache)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), toextractcabfiles).ok() }
     }
-    pub unsafe fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority> {
+    pub unsafe fn DownloadPriority(&self) -> Result<DownloadPriority, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection> {
+    pub unsafe fn DownloadContents(&self) -> Result<IUpdateDownloadContentCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DownloadContents)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3480,51 +3480,51 @@ pub struct IUpdate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate_Impl: super::Com::IDispatch_Impl {
-    fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AutoSelectOnWebSites(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn BundledUpdates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn CanRequireSource(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Categories(&self) -> windows_core::Result<ICategoryCollection>;
-    fn Deadline(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn DeltaCompressedContentAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn DeltaCompressedContentPreferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn EulaAccepted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn EulaText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn HandlerID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Identity(&self) -> windows_core::Result<IUpdateIdentity>;
-    fn Image(&self) -> windows_core::Result<IImageInformation>;
-    fn InstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior>;
-    fn IsBeta(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsDownloaded(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsHidden(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn IsInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsMandatory(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsUninstallable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Languages(&self) -> windows_core::Result<IStringCollection>;
-    fn LastDeploymentChangeTime(&self) -> windows_core::Result<f64>;
-    fn MaxDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn MinDownloadSize(&self) -> windows_core::Result<super::super::Foundation::DECIMAL>;
-    fn MoreInfoUrls(&self) -> windows_core::Result<IStringCollection>;
-    fn MsrcSeverity(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RecommendedCpuSpeed(&self) -> windows_core::Result<i32>;
-    fn RecommendedHardDiskSpace(&self) -> windows_core::Result<i32>;
-    fn RecommendedMemory(&self) -> windows_core::Result<i32>;
-    fn ReleaseNotes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SecurityBulletinIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn SupersededUpdateIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Type(&self) -> windows_core::Result<UpdateType>;
-    fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UninstallationBehavior(&self) -> windows_core::Result<IInstallationBehavior>;
-    fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection>;
-    fn KBArticleIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn AcceptEula(&self) -> windows_core::Result<()>;
-    fn DeploymentAction(&self) -> windows_core::Result<DeploymentAction>;
-    fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DownloadPriority(&self) -> windows_core::Result<DownloadPriority>;
-    fn DownloadContents(&self) -> windows_core::Result<IUpdateDownloadContentCollection>;
+    fn Title(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn AutoSelectOnWebSites(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn BundledUpdates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn CanRequireSource(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Categories(&self) -> Result<ICategoryCollection, windows_result::HRESULT>;
+    fn Deadline(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn DeltaCompressedContentAvailable(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn DeltaCompressedContentPreferred(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn EulaAccepted(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn EulaText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn HandlerID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Identity(&self) -> Result<IUpdateIdentity, windows_result::HRESULT>;
+    fn Image(&self) -> Result<IImageInformation, windows_result::HRESULT>;
+    fn InstallationBehavior(&self) -> Result<IInstallationBehavior, windows_result::HRESULT>;
+    fn IsBeta(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsDownloaded(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsHidden(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIsHidden(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn IsInstalled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsMandatory(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsUninstallable(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Languages(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn LastDeploymentChangeTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn MaxDownloadSize(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn MinDownloadSize(&self) -> Result<super::super::Foundation::DECIMAL, windows_result::HRESULT>;
+    fn MoreInfoUrls(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn MsrcSeverity(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RecommendedCpuSpeed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RecommendedHardDiskSpace(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RecommendedMemory(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ReleaseNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SecurityBulletinIDs(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn SupersededUpdateIDs(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn SupportUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Type(&self) -> Result<UpdateType, windows_result::HRESULT>;
+    fn UninstallationNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UninstallationBehavior(&self) -> Result<IInstallationBehavior, windows_result::HRESULT>;
+    fn UninstallationSteps(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn KBArticleIDs(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn AcceptEula(&self) -> Result<(), windows_result::HRESULT>;
+    fn DeploymentAction(&self) -> Result<DeploymentAction, windows_result::HRESULT>;
+    fn CopyFromCache(&self, path: &windows_core::BSTR, toextractcabfiles: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn DownloadPriority(&self) -> Result<DownloadPriority, windows_result::HRESULT>;
+    fn DownloadContents(&self) -> Result<IUpdateDownloadContentCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate_Vtbl {
@@ -3537,7 +3537,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3549,7 +3549,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3561,7 +3561,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3573,7 +3573,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3585,7 +3585,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3597,7 +3597,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3609,7 +3609,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3621,7 +3621,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3633,7 +3633,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3645,7 +3645,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3657,7 +3657,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3669,7 +3669,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3681,7 +3681,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3693,7 +3693,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3705,7 +3705,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3717,7 +3717,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3729,7 +3729,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3741,7 +3741,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3759,7 +3759,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3771,7 +3771,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3783,7 +3783,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3795,7 +3795,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3807,7 +3807,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3819,7 +3819,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3831,7 +3831,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3843,7 +3843,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3855,7 +3855,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3867,7 +3867,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3879,7 +3879,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3891,7 +3891,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3903,7 +3903,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3915,7 +3915,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3927,7 +3927,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3939,7 +3939,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3951,7 +3951,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3963,7 +3963,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3975,7 +3975,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3987,7 +3987,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3999,7 +3999,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4017,7 +4017,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4035,7 +4035,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4047,7 +4047,7 @@ impl IUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4119,25 +4119,25 @@ impl core::ops::Deref for IUpdate2 {
 windows_core::imp::interface_hierarchy!(IUpdate2, windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate2 {
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPresent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn CveIDs(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
+    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IStringCollection>,
     {
@@ -4156,10 +4156,10 @@ pub struct IUpdate2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate2_Impl: IUpdate_Impl {
-    fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsPresent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CveIDs(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate2_Vtbl {
@@ -4172,7 +4172,7 @@ impl IUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4184,7 +4184,7 @@ impl IUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4196,7 +4196,7 @@ impl IUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4233,7 +4233,7 @@ impl core::ops::Deref for IUpdate3 {
 windows_core::imp::interface_hierarchy!(IUpdate3, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate3 {
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BrowseOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4249,7 +4249,7 @@ pub struct IUpdate3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate3_Impl: IUpdate2_Impl {
-    fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn BrowseOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate3_Vtbl {
@@ -4262,7 +4262,7 @@ impl IUpdate3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4287,7 +4287,7 @@ impl core::ops::Deref for IUpdate4 {
 windows_core::imp::interface_hierarchy!(IUpdate4, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate4 {
-    pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn PerUser(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4303,7 +4303,7 @@ pub struct IUpdate4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate4_Impl: IUpdate3_Impl {
-    fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn PerUser(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate4_Vtbl {
@@ -4316,7 +4316,7 @@ impl IUpdate4_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4341,13 +4341,13 @@ impl core::ops::Deref for IUpdate5 {
 windows_core::imp::interface_hierarchy!(IUpdate5, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IUpdate2, IUpdate3, IUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdate5 {
-    pub unsafe fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode> {
+    pub unsafe fn AutoSelection(&self) -> Result<AutoSelectionMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode> {
+    pub unsafe fn AutoDownload(&self) -> Result<AutoDownloadMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoDownload)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4364,8 +4364,8 @@ pub struct IUpdate5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdate5_Impl: IUpdate4_Impl {
-    fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode>;
-    fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode>;
+    fn AutoSelection(&self) -> Result<AutoSelectionMode, windows_result::HRESULT>;
+    fn AutoDownload(&self) -> Result<AutoDownloadMode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdate5_Vtbl {
@@ -4378,7 +4378,7 @@ impl IUpdate5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4390,7 +4390,7 @@ impl IUpdate5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4419,37 +4419,37 @@ impl core::ops::Deref for IUpdateCollection {
 windows_core::imp::interface_hierarchy!(IUpdateCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IUpdate, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn put_Item<P1>(&self, index: i32, value: P1) -> windows_core::Result<()>
+    pub unsafe fn put_Item<P1>(&self, index: i32, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUpdate>,
     {
         unsafe { (windows_core::Interface::vtable(self).put_Item)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok() }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Add<P0>(&self, value: P0) -> windows_core::Result<i32>
+    pub unsafe fn Add<P0>(&self, value: P0) -> Result<i32, windows_result::HRESULT>
     where
         P0: windows_core::Param<IUpdate>,
     {
@@ -4458,22 +4458,22 @@ impl IUpdateCollection {
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Copy(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Insert<P1>(&self, index: i32, value: P1) -> windows_core::Result<()>
+    pub unsafe fn Insert<P1>(&self, index: i32, value: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IUpdate>,
     {
         unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, value.param().abi()).ok() }
     }
-    pub unsafe fn RemoveAt(&self, index: i32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAt(&self, index: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok() }
     }
 }
@@ -4495,16 +4495,16 @@ pub struct IUpdateCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IUpdate>;
-    fn put_Item(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Add(&self, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<i32>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn Copy(&self) -> windows_core::Result<IUpdateCollection>;
-    fn Insert(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: i32) -> windows_core::Result<()>;
+    fn get_Item(&self, index: i32) -> Result<IUpdate, windows_result::HRESULT>;
+    fn put_Item(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> Result<(), windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Add(&self, value: windows_core::Ref<'_, IUpdate>) -> Result<i32, windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn Copy(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn Insert(&self, index: i32, value: windows_core::Ref<'_, IUpdate>) -> Result<(), windows_result::HRESULT>;
+    fn RemoveAt(&self, index: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateCollection_Vtbl {
@@ -4517,7 +4517,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4535,7 +4535,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4547,7 +4547,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4559,7 +4559,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4571,7 +4571,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4589,7 +4589,7 @@ impl IUpdateCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4638,7 +4638,7 @@ impl core::ops::Deref for IUpdateDownloadContent {
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent {
-    pub unsafe fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DownloadUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DownloadUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -4654,7 +4654,7 @@ pub struct IUpdateDownloadContent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContent_Impl: super::Com::IDispatch_Impl {
-    fn DownloadUrl(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn DownloadUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContent_Vtbl {
@@ -4667,7 +4667,7 @@ impl IUpdateDownloadContent_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4692,7 +4692,7 @@ impl core::ops::Deref for IUpdateDownloadContent2 {
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContent2, windows_core::IUnknown, super::Com::IDispatch, IUpdateDownloadContent);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContent2 {
-    pub unsafe fn IsDeltaCompressedContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsDeltaCompressedContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDeltaCompressedContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4708,7 +4708,7 @@ pub struct IUpdateDownloadContent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContent2_Impl: IUpdateDownloadContent_Impl {
-    fn IsDeltaCompressedContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsDeltaCompressedContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContent2_Vtbl {
@@ -4721,7 +4721,7 @@ impl IUpdateDownloadContent2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4746,19 +4746,19 @@ impl core::ops::Deref for IUpdateDownloadContentCollection {
 windows_core::imp::interface_hierarchy!(IUpdateDownloadContentCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadContentCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateDownloadContent> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IUpdateDownloadContent, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4776,9 +4776,9 @@ pub struct IUpdateDownloadContentCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadContentCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateDownloadContent>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<IUpdateDownloadContent, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadContentCollection_Vtbl {
@@ -4791,7 +4791,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4803,7 +4803,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4815,7 +4815,7 @@ impl IUpdateDownloadContentCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4845,13 +4845,13 @@ impl core::ops::Deref for IUpdateDownloadResult {
 windows_core::imp::interface_hierarchy!(IUpdateDownloadResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloadResult {
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4868,8 +4868,8 @@ pub struct IUpdateDownloadResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloadResult_Impl: super::Com::IDispatch_Impl {
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloadResult_Vtbl {
@@ -4882,7 +4882,7 @@ impl IUpdateDownloadResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4894,7 +4894,7 @@ impl IUpdateDownloadResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4919,47 +4919,47 @@ impl core::ops::Deref for IUpdateDownloader {
 windows_core::imp::interface_hierarchy!(IUpdateDownloader, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateDownloader {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientApplicationID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsForced(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn Priority(&self) -> windows_core::Result<DownloadPriority> {
+    pub unsafe fn Priority(&self) -> Result<DownloadPriority, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Priority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()> {
+    pub unsafe fn SetPriority(&self, value: DownloadPriority) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPriority)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUpdateCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BeginDownload<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>
+    pub unsafe fn BeginDownload<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> Result<IDownloadJob, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -4969,13 +4969,13 @@ impl IUpdateDownloader {
             (windows_core::Interface::vtable(self).BeginDownload)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Download(&self) -> windows_core::Result<IDownloadResult> {
+    pub unsafe fn Download(&self) -> Result<IDownloadResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Download)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EndDownload<P0>(&self, value: P0) -> windows_core::Result<IDownloadResult>
+    pub unsafe fn EndDownload<P0>(&self, value: P0) -> Result<IDownloadResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<IDownloadJob>,
     {
@@ -5007,17 +5007,17 @@ pub struct IUpdateDownloader_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateDownloader_Impl: super::Com::IDispatch_Impl {
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Priority(&self) -> windows_core::Result<DownloadPriority>;
-    fn SetPriority(&self, value: DownloadPriority) -> windows_core::Result<()>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginDownload(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IDownloadJob>;
-    fn Download(&self) -> windows_core::Result<IDownloadResult>;
-    fn EndDownload(&self, value: windows_core::Ref<'_, IDownloadJob>) -> windows_core::Result<IDownloadResult>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsForced(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Priority(&self) -> Result<DownloadPriority, windows_result::HRESULT>;
+    fn SetPriority(&self, value: DownloadPriority) -> Result<(), windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> Result<(), windows_result::HRESULT>;
+    fn BeginDownload(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> Result<IDownloadJob, windows_result::HRESULT>;
+    fn Download(&self) -> Result<IDownloadResult, windows_result::HRESULT>;
+    fn EndDownload(&self, value: windows_core::Ref<'_, IDownloadJob>) -> Result<IDownloadResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateDownloader_Vtbl {
@@ -5030,7 +5030,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5048,7 +5048,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5066,7 +5066,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5084,7 +5084,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5102,7 +5102,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5114,7 +5114,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5126,7 +5126,7 @@ impl IUpdateDownloader_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5164,19 +5164,19 @@ impl core::ops::Deref for IUpdateException {
 windows_core::imp::interface_hierarchy!(IUpdateException, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateException {
-    pub unsafe fn Message(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Message(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Context(&self) -> windows_core::Result<UpdateExceptionContext> {
+    pub unsafe fn Context(&self) -> Result<UpdateExceptionContext, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Context)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5194,9 +5194,9 @@ pub struct IUpdateException_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateException_Impl: super::Com::IDispatch_Impl {
-    fn Message(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn Context(&self) -> windows_core::Result<UpdateExceptionContext>;
+    fn Message(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Context(&self) -> Result<UpdateExceptionContext, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateException_Vtbl {
@@ -5209,7 +5209,7 @@ impl IUpdateException_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5221,7 +5221,7 @@ impl IUpdateException_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5233,7 +5233,7 @@ impl IUpdateException_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5263,19 +5263,19 @@ impl core::ops::Deref for IUpdateExceptionCollection {
 windows_core::imp::interface_hierarchy!(IUpdateExceptionCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateExceptionCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateException> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IUpdateException, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5293,9 +5293,9 @@ pub struct IUpdateExceptionCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateExceptionCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateException>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<IUpdateException, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateExceptionCollection_Vtbl {
@@ -5308,7 +5308,7 @@ impl IUpdateExceptionCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5320,7 +5320,7 @@ impl IUpdateExceptionCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5332,7 +5332,7 @@ impl IUpdateExceptionCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5362,85 +5362,85 @@ impl core::ops::Deref for IUpdateHistoryEntry {
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntry {
-    pub unsafe fn Operation(&self) -> windows_core::Result<UpdateOperation> {
+    pub unsafe fn Operation(&self) -> Result<UpdateOperation, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Operation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Date(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Date(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Date)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpdateIdentity(&self) -> windows_core::Result<IUpdateIdentity> {
+    pub unsafe fn UpdateIdentity(&self) -> Result<IUpdateIdentity, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateIdentity)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Title(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UnmappedResultCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn UnmappedResultCode(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UnmappedResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
+    pub unsafe fn ServerSelection(&self) -> Result<ServerSelection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn UninstallationSteps(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UninstallationSteps)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UninstallationNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UninstallationNotes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SupportUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5469,20 +5469,20 @@ pub struct IUpdateHistoryEntry_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntry_Impl: super::Com::IDispatch_Impl {
-    fn Operation(&self) -> windows_core::Result<UpdateOperation>;
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn Date(&self) -> windows_core::Result<f64>;
-    fn UpdateIdentity(&self) -> windows_core::Result<IUpdateIdentity>;
-    fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UnmappedResultCode(&self) -> windows_core::Result<i32>;
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
-    fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UninstallationSteps(&self) -> windows_core::Result<IStringCollection>;
-    fn UninstallationNotes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SupportUrl(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Operation(&self) -> Result<UpdateOperation, windows_result::HRESULT>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Date(&self) -> Result<f64, windows_result::HRESULT>;
+    fn UpdateIdentity(&self) -> Result<IUpdateIdentity, windows_result::HRESULT>;
+    fn Title(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UnmappedResultCode(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ServerSelection(&self) -> Result<ServerSelection, windows_result::HRESULT>;
+    fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UninstallationSteps(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn UninstallationNotes(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SupportUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntry_Vtbl {
@@ -5495,7 +5495,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5507,7 +5507,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5519,7 +5519,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5531,7 +5531,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5543,7 +5543,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5555,7 +5555,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5567,7 +5567,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5579,7 +5579,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5591,7 +5591,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5603,7 +5603,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5615,7 +5615,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5627,7 +5627,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5639,7 +5639,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5651,7 +5651,7 @@ impl IUpdateHistoryEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5692,7 +5692,7 @@ impl core::ops::Deref for IUpdateHistoryEntry2 {
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntry2, windows_core::IUnknown, super::Com::IDispatch, IUpdateHistoryEntry);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntry2 {
-    pub unsafe fn Categories(&self) -> windows_core::Result<ICategoryCollection> {
+    pub unsafe fn Categories(&self) -> Result<ICategoryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Categories)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5708,7 +5708,7 @@ pub struct IUpdateHistoryEntry2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntry2_Impl: IUpdateHistoryEntry_Impl {
-    fn Categories(&self) -> windows_core::Result<ICategoryCollection>;
+    fn Categories(&self) -> Result<ICategoryCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntry2_Vtbl {
@@ -5721,7 +5721,7 @@ impl IUpdateHistoryEntry2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5746,19 +5746,19 @@ impl core::ops::Deref for IUpdateHistoryEntryCollection {
 windows_core::imp::interface_hierarchy!(IUpdateHistoryEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateHistoryEntryCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateHistoryEntry> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IUpdateHistoryEntry, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5776,9 +5776,9 @@ pub struct IUpdateHistoryEntryCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateHistoryEntryCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateHistoryEntry>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<IUpdateHistoryEntry, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateHistoryEntryCollection_Vtbl {
@@ -5791,7 +5791,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5803,7 +5803,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5815,7 +5815,7 @@ impl IUpdateHistoryEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5845,13 +5845,13 @@ impl core::ops::Deref for IUpdateIdentity {
 windows_core::imp::interface_hierarchy!(IUpdateIdentity, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateIdentity {
-    pub unsafe fn RevisionNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RevisionNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RevisionNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UpdateID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UpdateID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5868,8 +5868,8 @@ pub struct IUpdateIdentity_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateIdentity_Impl: super::Com::IDispatch_Impl {
-    fn RevisionNumber(&self) -> windows_core::Result<i32>;
-    fn UpdateID(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn RevisionNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn UpdateID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateIdentity_Vtbl {
@@ -5882,7 +5882,7 @@ impl IUpdateIdentity_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5894,7 +5894,7 @@ impl IUpdateIdentity_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5923,19 +5923,19 @@ impl core::ops::Deref for IUpdateInstallationResult {
 windows_core::imp::interface_hierarchy!(IUpdateInstallationResult, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstallationResult {
-    pub unsafe fn HResult(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HResult(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResultCode(&self) -> windows_core::Result<OperationResultCode> {
+    pub unsafe fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5953,9 +5953,9 @@ pub struct IUpdateInstallationResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstallationResult_Impl: super::Com::IDispatch_Impl {
-    fn HResult(&self) -> windows_core::Result<i32>;
-    fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ResultCode(&self) -> windows_core::Result<OperationResultCode>;
+    fn HResult(&self) -> Result<i32, windows_result::HRESULT>;
+    fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ResultCode(&self) -> Result<OperationResultCode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstallationResult_Vtbl {
@@ -5968,7 +5968,7 @@ impl IUpdateInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5980,7 +5980,7 @@ impl IUpdateInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5992,7 +5992,7 @@ impl IUpdateInstallationResult_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6022,59 +6022,59 @@ impl core::ops::Deref for IUpdateInstaller {
 windows_core::imp::interface_hierarchy!(IUpdateInstaller, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientApplicationID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsForced(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsForced)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIsForced)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND> {
+    pub unsafe fn ParentHwnd(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentHwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()> {
+    pub unsafe fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetParentHwnd)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetParentWindow<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetParentWindow)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn ParentWindow(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentWindow)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Updates(&self) -> windows_core::Result<IUpdateCollection> {
+    pub unsafe fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Updates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUpdates<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IUpdateCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetUpdates)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>
+    pub unsafe fn BeginInstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> Result<IInstallationJob, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -6085,7 +6085,7 @@ impl IUpdateInstaller {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>
+    pub unsafe fn BeginUninstall<P0, P1>(&self, onprogresschanged: P0, oncompleted: P1, state: &super::Variant::VARIANT) -> Result<IInstallationJob, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -6095,7 +6095,7 @@ impl IUpdateInstaller {
             (windows_core::Interface::vtable(self).BeginUninstall)(windows_core::Interface::as_raw(self), onprogresschanged.param().abi(), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EndInstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
+    pub unsafe fn EndInstall<P0>(&self, value: P0) -> Result<IInstallationResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<IInstallationJob>,
     {
@@ -6104,7 +6104,7 @@ impl IUpdateInstaller {
             (windows_core::Interface::vtable(self).EndInstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EndUninstall<P0>(&self, value: P0) -> windows_core::Result<IInstallationResult>
+    pub unsafe fn EndUninstall<P0>(&self, value: P0) -> Result<IInstallationResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<IInstallationJob>,
     {
@@ -6113,40 +6113,40 @@ impl IUpdateInstaller {
             (windows_core::Interface::vtable(self).EndUninstall)(windows_core::Interface::as_raw(self), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Install(&self) -> windows_core::Result<IInstallationResult> {
+    pub unsafe fn Install(&self) -> Result<IInstallationResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Install)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> windows_core::Result<IInstallationResult> {
+    pub unsafe fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> Result<IInstallationResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunWizard)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(dialogtitle), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsBusy(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsBusy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Uninstall(&self) -> windows_core::Result<IInstallationResult> {
+    pub unsafe fn Uninstall(&self) -> Result<IInstallationResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Uninstall)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AllowSourcePrompts(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AllowSourcePrompts(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowSourcePrompts)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowSourcePrompts)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequiredBeforeInstallation(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequiredBeforeInstallation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6188,27 +6188,27 @@ pub struct IUpdateInstaller_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller_Impl: super::Com::IDispatch_Impl {
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsForced(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ParentHwnd(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn SetParentWindow(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn ParentWindow(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Updates(&self) -> windows_core::Result<IUpdateCollection>;
-    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> windows_core::Result<()>;
-    fn BeginInstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<IInstallationJob>;
-    fn EndInstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
-    fn EndUninstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> windows_core::Result<IInstallationResult>;
-    fn Install(&self) -> windows_core::Result<IInstallationResult>;
-    fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> windows_core::Result<IInstallationResult>;
-    fn IsBusy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Uninstall(&self) -> windows_core::Result<IInstallationResult>;
-    fn AllowSourcePrompts(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn RebootRequiredBeforeInstallation(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsForced(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIsForced(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ParentHwnd(&self) -> Result<super::super::Foundation::HWND, windows_result::HRESULT>;
+    fn SetParentHwnd(&self, value: super::super::Foundation::HWND) -> Result<(), windows_result::HRESULT>;
+    fn SetParentWindow(&self, value: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
+    fn ParentWindow(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Updates(&self) -> Result<IUpdateCollection, windows_result::HRESULT>;
+    fn SetUpdates(&self, value: windows_core::Ref<'_, IUpdateCollection>) -> Result<(), windows_result::HRESULT>;
+    fn BeginInstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> Result<IInstallationJob, windows_result::HRESULT>;
+    fn BeginUninstall(&self, onprogresschanged: windows_core::Ref<'_, windows_core::IUnknown>, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> Result<IInstallationJob, windows_result::HRESULT>;
+    fn EndInstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> Result<IInstallationResult, windows_result::HRESULT>;
+    fn EndUninstall(&self, value: windows_core::Ref<'_, IInstallationJob>) -> Result<IInstallationResult, windows_result::HRESULT>;
+    fn Install(&self) -> Result<IInstallationResult, windows_result::HRESULT>;
+    fn RunWizard(&self, dialogtitle: &windows_core::BSTR) -> Result<IInstallationResult, windows_result::HRESULT>;
+    fn IsBusy(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Uninstall(&self) -> Result<IInstallationResult, windows_result::HRESULT>;
+    fn AllowSourcePrompts(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetAllowSourcePrompts(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn RebootRequiredBeforeInstallation(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller_Vtbl {
@@ -6221,7 +6221,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6239,7 +6239,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6257,7 +6257,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6281,7 +6281,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6293,7 +6293,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6311,7 +6311,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6323,7 +6323,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6335,7 +6335,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6347,7 +6347,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6359,7 +6359,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6371,7 +6371,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6383,7 +6383,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6395,7 +6395,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6407,7 +6407,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6425,7 +6425,7 @@ impl IUpdateInstaller_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6473,13 +6473,13 @@ impl core::ops::Deref for IUpdateInstaller2 {
 windows_core::imp::interface_hierarchy!(IUpdateInstaller2, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller2 {
-    pub unsafe fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ForceQuiet(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForceQuiet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetForceQuiet)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -6493,8 +6493,8 @@ pub struct IUpdateInstaller2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller2_Impl: IUpdateInstaller_Impl {
-    fn ForceQuiet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ForceQuiet(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetForceQuiet(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller2_Vtbl {
@@ -6507,7 +6507,7 @@ impl IUpdateInstaller2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6542,13 +6542,13 @@ impl core::ops::Deref for IUpdateInstaller3 {
 windows_core::imp::interface_hierarchy!(IUpdateInstaller3, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller3 {
-    pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AttemptCloseAppsIfNecessary(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttemptCloseAppsIfNecessary)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -6562,8 +6562,8 @@ pub struct IUpdateInstaller3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller3_Impl: IUpdateInstaller2_Impl {
-    fn AttemptCloseAppsIfNecessary(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn AttemptCloseAppsIfNecessary(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetAttemptCloseAppsIfNecessary(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller3_Vtbl {
@@ -6576,7 +6576,7 @@ impl IUpdateInstaller3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6611,7 +6611,7 @@ impl core::ops::Deref for IUpdateInstaller4 {
 windows_core::imp::interface_hierarchy!(IUpdateInstaller4, windows_core::IUnknown, super::Com::IDispatch, IUpdateInstaller, IUpdateInstaller2, IUpdateInstaller3);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateInstaller4 {
-    pub unsafe fn Commit(&self, dwflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn Commit(&self, dwflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), dwflags).ok() }
     }
 }
@@ -6624,7 +6624,7 @@ pub struct IUpdateInstaller4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateInstaller4_Impl: IUpdateInstaller3_Impl {
-    fn Commit(&self, dwflags: u32) -> windows_core::Result<()>;
+    fn Commit(&self, dwflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateInstaller4_Vtbl {
@@ -6646,7 +6646,7 @@ impl windows_core::RuntimeName for IUpdateInstaller4 {}
 windows_core::imp::define_interface!(IUpdateLockdown, IUpdateLockdown_Vtbl, 0xa976c28d_75a1_42aa_94ae_8af8b872089a);
 windows_core::imp::interface_hierarchy!(IUpdateLockdown, windows_core::IUnknown);
 impl IUpdateLockdown {
-    pub unsafe fn LockDown(&self, flags: i32) -> windows_core::Result<()> {
+    pub unsafe fn LockDown(&self, flags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LockDown)(windows_core::Interface::as_raw(self), flags).ok() }
     }
 }
@@ -6657,7 +6657,7 @@ pub struct IUpdateLockdown_Vtbl {
     pub LockDown: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 pub trait IUpdateLockdown_Impl: windows_core::IUnknownImpl {
-    fn LockDown(&self, flags: i32) -> windows_core::Result<()>;
+    fn LockDown(&self, flags: i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IUpdateLockdown_Vtbl {
     pub const fn new<Identity: IUpdateLockdown_Impl, const OFFSET: isize>() -> Self {
@@ -6687,44 +6687,44 @@ impl core::ops::Deref for IUpdateSearcher {
 windows_core::imp::interface_hierarchy!(IUpdateSearcher, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher {
-    pub unsafe fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CanAutomaticallyUpgradeService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCanAutomaticallyUpgradeService)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientApplicationID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IncludePotentiallySupersededUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludePotentiallySupersededUpdates)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ServerSelection(&self) -> windows_core::Result<ServerSelection> {
+    pub unsafe fn ServerSelection(&self) -> Result<ServerSelection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServerSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()> {
+    pub unsafe fn SetServerSelection(&self, value: ServerSelection) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetServerSelection)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BeginSearch<P1>(&self, criteria: &windows_core::BSTR, oncompleted: P1, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>
+    pub unsafe fn BeginSearch<P1>(&self, criteria: &windows_core::BSTR, oncompleted: P1, state: &super::Variant::VARIANT) -> Result<ISearchJob, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -6733,7 +6733,7 @@ impl IUpdateSearcher {
             (windows_core::Interface::vtable(self).BeginSearch)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), oncompleted.param().abi(), core::mem::transmute_copy(state), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EndSearch<P0>(&self, searchjob: P0) -> windows_core::Result<ISearchResult>
+    pub unsafe fn EndSearch<P0>(&self, searchjob: P0) -> Result<ISearchResult, windows_result::HRESULT>
     where
         P0: windows_core::Param<ISearchJob>,
     {
@@ -6742,46 +6742,46 @@ impl IUpdateSearcher {
             (windows_core::Interface::vtable(self).EndSearch)(windows_core::Interface::as_raw(self), searchjob.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn EscapeString(&self, unescaped: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EscapeString)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(unescaped), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
+    pub unsafe fn QueryHistory(&self, startindex: i32, count: i32) -> Result<IUpdateHistoryEntryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult> {
+    pub unsafe fn Search(&self, criteria: &windows_core::BSTR) -> Result<ISearchResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Search)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Online(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Online(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOnline)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn GetTotalHistoryCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetTotalHistoryCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalHistoryCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetServiceID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetServiceID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetServiceID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
 }
@@ -6814,24 +6814,24 @@ pub struct IUpdateSearcher_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher_Impl: super::Com::IDispatch_Impl {
-    fn CanAutomaticallyUpgradeService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IncludePotentiallySupersededUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ServerSelection(&self) -> windows_core::Result<ServerSelection>;
-    fn SetServerSelection(&self, value: ServerSelection) -> windows_core::Result<()>;
-    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> windows_core::Result<ISearchJob>;
-    fn EndSearch(&self, searchjob: windows_core::Ref<'_, ISearchJob>) -> windows_core::Result<ISearchResult>;
-    fn EscapeString(&self, unescaped: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn QueryHistory(&self, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
-    fn Search(&self, criteria: &windows_core::BSTR) -> windows_core::Result<ISearchResult>;
-    fn Online(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetTotalHistoryCount(&self) -> windows_core::Result<i32>;
-    fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetServiceID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn CanAutomaticallyUpgradeService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetCanAutomaticallyUpgradeService(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IncludePotentiallySupersededUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIncludePotentiallySupersededUpdates(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ServerSelection(&self) -> Result<ServerSelection, windows_result::HRESULT>;
+    fn SetServerSelection(&self, value: ServerSelection) -> Result<(), windows_result::HRESULT>;
+    fn BeginSearch(&self, criteria: &windows_core::BSTR, oncompleted: windows_core::Ref<'_, windows_core::IUnknown>, state: &super::Variant::VARIANT) -> Result<ISearchJob, windows_result::HRESULT>;
+    fn EndSearch(&self, searchjob: windows_core::Ref<'_, ISearchJob>) -> Result<ISearchResult, windows_result::HRESULT>;
+    fn EscapeString(&self, unescaped: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn QueryHistory(&self, startindex: i32, count: i32) -> Result<IUpdateHistoryEntryCollection, windows_result::HRESULT>;
+    fn Search(&self, criteria: &windows_core::BSTR) -> Result<ISearchResult, windows_result::HRESULT>;
+    fn Online(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetOnline(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalHistoryCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetServiceID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher_Vtbl {
@@ -6844,7 +6844,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6862,7 +6862,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6880,7 +6880,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6898,7 +6898,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6916,7 +6916,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6928,7 +6928,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6940,7 +6940,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6952,7 +6952,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6964,7 +6964,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6976,7 +6976,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6994,7 +6994,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7006,7 +7006,7 @@ impl IUpdateSearcher_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7057,13 +7057,13 @@ impl core::ops::Deref for IUpdateSearcher2 {
 windows_core::imp::interface_hierarchy!(IUpdateSearcher2, windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher2 {
-    pub unsafe fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IgnoreDownloadPriority(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IgnoreDownloadPriority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIgnoreDownloadPriority)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -7077,8 +7077,8 @@ pub struct IUpdateSearcher2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher2_Impl: IUpdateSearcher_Impl {
-    fn IgnoreDownloadPriority(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn IgnoreDownloadPriority(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetIgnoreDownloadPriority(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher2_Vtbl {
@@ -7091,7 +7091,7 @@ impl IUpdateSearcher2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7126,13 +7126,13 @@ impl core::ops::Deref for IUpdateSearcher3 {
 windows_core::imp::interface_hierarchy!(IUpdateSearcher3, windows_core::IUnknown, super::Com::IDispatch, IUpdateSearcher, IUpdateSearcher2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSearcher3 {
-    pub unsafe fn SearchScope(&self) -> windows_core::Result<SearchScope> {
+    pub unsafe fn SearchScope(&self) -> Result<SearchScope, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SearchScope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSearchScope(&self, value: SearchScope) -> windows_core::Result<()> {
+    pub unsafe fn SetSearchScope(&self, value: SearchScope) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSearchScope)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -7146,8 +7146,8 @@ pub struct IUpdateSearcher3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSearcher3_Impl: IUpdateSearcher2_Impl {
-    fn SearchScope(&self) -> windows_core::Result<SearchScope>;
-    fn SetSearchScope(&self, value: SearchScope) -> windows_core::Result<()>;
+    fn SearchScope(&self) -> Result<SearchScope, windows_result::HRESULT>;
+    fn SetSearchScope(&self, value: SearchScope) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSearcher3_Vtbl {
@@ -7160,7 +7160,7 @@ impl IUpdateSearcher3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7195,80 +7195,80 @@ impl core::ops::Deref for IUpdateService {
 windows_core::imp::interface_hierarchy!(IUpdateService, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateService {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ContentValidationCert(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn ContentValidationCert(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ContentValidationCert)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ExpirationDate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn ExpirationDate(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpirationDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsManaged(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsManaged(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsManaged)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsRegisteredWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsRegisteredWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsRegisteredWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IssueDate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn IssueDate(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IssueDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OffersWindowsUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn OffersWindowsUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OffersWindowsUpdates)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RedirectUrls(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn RedirectUrls(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RedirectUrls)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsScanPackageService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsScanPackageService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsScanPackageService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CanRegisterWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CanRegisterWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanRegisterWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ServiceUrl(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ServiceUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceUrl)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetupPrefix(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SetupPrefix(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetupPrefix)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -7299,19 +7299,19 @@ pub struct IUpdateService_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateService_Impl: super::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ContentValidationCert(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn ExpirationDate(&self) -> windows_core::Result<f64>;
-    fn IsManaged(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsRegisteredWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IssueDate(&self) -> windows_core::Result<f64>;
-    fn OffersWindowsUpdates(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn RedirectUrls(&self) -> windows_core::Result<IStringCollection>;
-    fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsScanPackageService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CanRegisterWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ServiceUrl(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetupPrefix(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ContentValidationCert(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn ExpirationDate(&self) -> Result<f64, windows_result::HRESULT>;
+    fn IsManaged(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsRegisteredWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IssueDate(&self) -> Result<f64, windows_result::HRESULT>;
+    fn OffersWindowsUpdates(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn RedirectUrls(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn IsScanPackageService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CanRegisterWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ServiceUrl(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetupPrefix(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateService_Vtbl {
@@ -7324,7 +7324,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7336,7 +7336,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7348,7 +7348,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7360,7 +7360,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7372,7 +7372,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7384,7 +7384,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7396,7 +7396,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7408,7 +7408,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7420,7 +7420,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7432,7 +7432,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7444,7 +7444,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7456,7 +7456,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7468,7 +7468,7 @@ impl IUpdateService_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7508,7 +7508,7 @@ impl core::ops::Deref for IUpdateService2 {
 windows_core::imp::interface_hierarchy!(IUpdateService2, windows_core::IUnknown, super::Com::IDispatch, IUpdateService);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateService2 {
-    pub unsafe fn IsDefaultAUService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsDefaultAUService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDefaultAUService)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7524,7 +7524,7 @@ pub struct IUpdateService2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateService2_Impl: IUpdateService_Impl {
-    fn IsDefaultAUService(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsDefaultAUService(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateService2_Vtbl {
@@ -7537,7 +7537,7 @@ impl IUpdateService2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7562,19 +7562,19 @@ impl core::ops::Deref for IUpdateServiceCollection {
 windows_core::imp::interface_hierarchy!(IUpdateServiceCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateService> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IUpdateService, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7592,9 +7592,9 @@ pub struct IUpdateServiceCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IUpdateService>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<IUpdateService, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceCollection_Vtbl {
@@ -7607,7 +7607,7 @@ impl IUpdateServiceCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7619,7 +7619,7 @@ impl IUpdateServiceCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7631,7 +7631,7 @@ impl IUpdateServiceCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7661,35 +7661,35 @@ impl core::ops::Deref for IUpdateServiceManager {
 windows_core::imp::interface_hierarchy!(IUpdateServiceManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceManager {
-    pub unsafe fn Services(&self) -> windows_core::Result<IUpdateServiceCollection> {
+    pub unsafe fn Services(&self) -> Result<IUpdateServiceCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Services)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateService> {
+    pub unsafe fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> Result<IUpdateService, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RegisterServiceWithAU)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid)).ok() }
     }
-    pub unsafe fn RemoveService(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RemoveService(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid)).ok() }
     }
-    pub unsafe fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterServiceWithAU)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid)).ok() }
     }
-    pub unsafe fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<IUpdateService> {
+    pub unsafe fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> Result<IUpdateService, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddScanPackageService)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(servicename), core::mem::transmute_copy(scanfilelocation), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(optionname), core::mem::transmute_copy(optionvalue)).ok() }
     }
 }
@@ -7711,13 +7711,13 @@ pub struct IUpdateServiceManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceManager_Impl: super::Com::IDispatch_Impl {
-    fn Services(&self) -> windows_core::Result<IUpdateServiceCollection>;
-    fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateService>;
-    fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveService(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> windows_core::Result<IUpdateService>;
-    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Services(&self) -> Result<IUpdateServiceCollection, windows_result::HRESULT>;
+    fn AddService(&self, serviceid: &windows_core::BSTR, authorizationcabpath: &windows_core::BSTR) -> Result<IUpdateService, windows_result::HRESULT>;
+    fn RegisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RemoveService(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn UnregisterServiceWithAU(&self, serviceid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AddScanPackageService(&self, servicename: &windows_core::BSTR, scanfilelocation: &windows_core::BSTR, flags: i32) -> Result<IUpdateService, windows_result::HRESULT>;
+    fn SetOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceManager_Vtbl {
@@ -7730,7 +7730,7 @@ impl IUpdateServiceManager_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7742,7 +7742,7 @@ impl IUpdateServiceManager_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7772,7 +7772,7 @@ impl IUpdateServiceManager_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7812,22 +7812,22 @@ impl core::ops::Deref for IUpdateServiceManager2 {
 windows_core::imp::interface_hierarchy!(IUpdateServiceManager2, windows_core::IUnknown, super::Com::IDispatch, IUpdateServiceManager);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceManager2 {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientApplicationID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> Result<IUpdateServiceRegistration, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryServiceRegistration)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration> {
+    pub unsafe fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> Result<IUpdateServiceRegistration, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddService2)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serviceid), flags, core::mem::transmute_copy(authorizationcabpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7846,10 +7846,10 @@ pub struct IUpdateServiceManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceManager2_Impl: IUpdateServiceManager_Impl {
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
-    fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> windows_core::Result<IUpdateServiceRegistration>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn QueryServiceRegistration(&self, serviceid: &windows_core::BSTR) -> Result<IUpdateServiceRegistration, windows_result::HRESULT>;
+    fn AddService2(&self, serviceid: &windows_core::BSTR, flags: i32, authorizationcabpath: &windows_core::BSTR) -> Result<IUpdateServiceRegistration, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceManager2_Vtbl {
@@ -7862,7 +7862,7 @@ impl IUpdateServiceManager2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7880,7 +7880,7 @@ impl IUpdateServiceManager2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7892,7 +7892,7 @@ impl IUpdateServiceManager2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7923,25 +7923,25 @@ impl core::ops::Deref for IUpdateServiceRegistration {
 windows_core::imp::interface_hierarchy!(IUpdateServiceRegistration, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateServiceRegistration {
-    pub unsafe fn RegistrationState(&self) -> windows_core::Result<UpdateServiceRegistrationState> {
+    pub unsafe fn RegistrationState(&self) -> Result<UpdateServiceRegistrationState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegistrationState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ServiceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsPendingRegistrationWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPendingRegistrationWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPendingRegistrationWithAU)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Service(&self) -> windows_core::Result<IUpdateService2> {
+    pub unsafe fn Service(&self) -> Result<IUpdateService2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Service)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7960,10 +7960,10 @@ pub struct IUpdateServiceRegistration_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateServiceRegistration_Impl: super::Com::IDispatch_Impl {
-    fn RegistrationState(&self) -> windows_core::Result<UpdateServiceRegistrationState>;
-    fn ServiceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsPendingRegistrationWithAU(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Service(&self) -> windows_core::Result<IUpdateService2>;
+    fn RegistrationState(&self) -> Result<UpdateServiceRegistrationState, windows_result::HRESULT>;
+    fn ServiceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn IsPendingRegistrationWithAU(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Service(&self) -> Result<IUpdateService2, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateServiceRegistration_Vtbl {
@@ -7976,7 +7976,7 @@ impl IUpdateServiceRegistration_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7988,7 +7988,7 @@ impl IUpdateServiceRegistration_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8000,7 +8000,7 @@ impl IUpdateServiceRegistration_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8012,7 +8012,7 @@ impl IUpdateServiceRegistration_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8043,46 +8043,46 @@ impl core::ops::Deref for IUpdateSession {
 windows_core::imp::interface_hierarchy!(IUpdateSession, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession {
-    pub unsafe fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientApplicationID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClientApplicationID)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn WebProxy(&self) -> windows_core::Result<IWebProxy> {
+    pub unsafe fn WebProxy(&self) -> Result<IWebProxy, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WebProxy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetWebProxy<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWebProxy<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWebProxy>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetWebProxy)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher> {
+    pub unsafe fn CreateUpdateSearcher(&self) -> Result<IUpdateSearcher, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateUpdateSearcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader> {
+    pub unsafe fn CreateUpdateDownloader(&self) -> Result<IUpdateDownloader, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateUpdateDownloader)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller> {
+    pub unsafe fn CreateUpdateInstaller(&self) -> Result<IUpdateInstaller, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateUpdateInstaller)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8105,14 +8105,14 @@ pub struct IUpdateSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession_Impl: super::Com::IDispatch_Impl {
-    fn ClientApplicationID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn WebProxy(&self) -> windows_core::Result<IWebProxy>;
-    fn SetWebProxy(&self, value: windows_core::Ref<'_, IWebProxy>) -> windows_core::Result<()>;
-    fn CreateUpdateSearcher(&self) -> windows_core::Result<IUpdateSearcher>;
-    fn CreateUpdateDownloader(&self) -> windows_core::Result<IUpdateDownloader>;
-    fn CreateUpdateInstaller(&self) -> windows_core::Result<IUpdateInstaller>;
+    fn ClientApplicationID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClientApplicationID(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn WebProxy(&self) -> Result<IWebProxy, windows_result::HRESULT>;
+    fn SetWebProxy(&self, value: windows_core::Ref<'_, IWebProxy>) -> Result<(), windows_result::HRESULT>;
+    fn CreateUpdateSearcher(&self) -> Result<IUpdateSearcher, windows_result::HRESULT>;
+    fn CreateUpdateDownloader(&self) -> Result<IUpdateDownloader, windows_result::HRESULT>;
+    fn CreateUpdateInstaller(&self) -> Result<IUpdateInstaller, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession_Vtbl {
@@ -8125,7 +8125,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8143,7 +8143,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8155,7 +8155,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8173,7 +8173,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8185,7 +8185,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8197,7 +8197,7 @@ impl IUpdateSession_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8232,13 +8232,13 @@ impl core::ops::Deref for IUpdateSession2 {
 windows_core::imp::interface_hierarchy!(IUpdateSession2, windows_core::IUnknown, super::Com::IDispatch, IUpdateSession);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession2 {
-    pub unsafe fn UserLocale(&self) -> windows_core::Result<u32> {
+    pub unsafe fn UserLocale(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserLocale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUserLocale(&self, lcid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetUserLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUserLocale)(windows_core::Interface::as_raw(self), lcid).ok() }
     }
 }
@@ -8252,8 +8252,8 @@ pub struct IUpdateSession2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession2_Impl: IUpdateSession_Impl {
-    fn UserLocale(&self) -> windows_core::Result<u32>;
-    fn SetUserLocale(&self, lcid: u32) -> windows_core::Result<()>;
+    fn UserLocale(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetUserLocale(&self, lcid: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession2_Vtbl {
@@ -8266,7 +8266,7 @@ impl IUpdateSession2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8301,13 +8301,13 @@ impl core::ops::Deref for IUpdateSession3 {
 windows_core::imp::interface_hierarchy!(IUpdateSession3, windows_core::IUnknown, super::Com::IDispatch, IUpdateSession, IUpdateSession2);
 #[cfg(feature = "Win32_System_Com")]
 impl IUpdateSession3 {
-    pub unsafe fn CreateUpdateServiceManager(&self) -> windows_core::Result<IUpdateServiceManager2> {
+    pub unsafe fn CreateUpdateServiceManager(&self) -> Result<IUpdateServiceManager2, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateUpdateServiceManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection> {
+    pub unsafe fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> Result<IUpdateHistoryEntryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryHistory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(criteria), startindex, count, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8324,8 +8324,8 @@ pub struct IUpdateSession3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUpdateSession3_Impl: IUpdateSession2_Impl {
-    fn CreateUpdateServiceManager(&self) -> windows_core::Result<IUpdateServiceManager2>;
-    fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> windows_core::Result<IUpdateHistoryEntryCollection>;
+    fn CreateUpdateServiceManager(&self) -> Result<IUpdateServiceManager2, windows_result::HRESULT>;
+    fn QueryHistory(&self, criteria: &windows_core::BSTR, startindex: i32, count: i32) -> Result<IUpdateHistoryEntryCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUpdateSession3_Vtbl {
@@ -8338,7 +8338,7 @@ impl IUpdateSession3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8350,7 +8350,7 @@ impl IUpdateSession3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8379,70 +8379,70 @@ impl core::ops::Deref for IWebProxy {
 windows_core::imp::interface_hierarchy!(IWebProxy, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWebProxy {
-    pub unsafe fn Address(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Address(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Address)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetAddress(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn BypassList(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn BypassList(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BypassList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBypassList<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetBypassList<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IStringCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetBypassList)(windows_core::Interface::as_raw(self), value.param().abi()).ok() }
     }
-    pub unsafe fn BypassProxyOnLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BypassProxyOnLocal(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BypassProxyOnLocal)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBypassProxyOnLocal)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UserName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetUserName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPassword(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn PromptForCredentials<P0>(&self, parentwindow: P0, title: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn PromptForCredentials<P0>(&self, parentwindow: P0, title: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).PromptForCredentials)(windows_core::Interface::as_raw(self), parentwindow.param().abi(), core::mem::transmute_copy(title)).ok() }
     }
-    pub unsafe fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).PromptForCredentialsFromHwnd)(windows_core::Interface::as_raw(self), parentwindow, core::mem::transmute_copy(title)).ok() }
     }
-    pub unsafe fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoDetect(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoDetect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoDetect)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -8468,20 +8468,20 @@ pub struct IWebProxy_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWebProxy_Impl: super::Com::IDispatch_Impl {
-    fn Address(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAddress(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn BypassList(&self) -> windows_core::Result<IStringCollection>;
-    fn SetBypassList(&self, value: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
-    fn BypassProxyOnLocal(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUserName(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPassword(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<'_, windows_core::IUnknown>, title: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AutoDetect(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Address(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetAddress(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn BypassList(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn SetBypassList(&self, value: windows_core::Ref<'_, IStringCollection>) -> Result<(), windows_result::HRESULT>;
+    fn BypassProxyOnLocal(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetBypassProxyOnLocal(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn UserName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetUserName(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetPassword(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PromptForCredentials(&self, parentwindow: windows_core::Ref<'_, windows_core::IUnknown>, title: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PromptForCredentialsFromHwnd(&self, parentwindow: super::super::Foundation::HWND, title: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AutoDetect(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetAutoDetect(&self, value: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWebProxy_Vtbl {
@@ -8494,7 +8494,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8512,7 +8512,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8530,7 +8530,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8548,7 +8548,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8560,7 +8560,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8596,7 +8596,7 @@ impl IWebProxy_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8643,49 +8643,49 @@ impl core::ops::Deref for IWindowsDriverUpdate {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate, windows_core::IUnknown, super::Com::IDispatch, IUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate {
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverClass(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverHardwareID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverManufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverModel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverModel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverProvider(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn DriverVerDate(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DeviceProblemNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DeviceStatus(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8708,14 +8708,14 @@ pub struct IWindowsDriverUpdate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate_Impl: IUpdate_Impl {
-    fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverVerDate(&self) -> windows_core::Result<f64>;
-    fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
-    fn DeviceStatus(&self) -> windows_core::Result<i32>;
+    fn DriverClass(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverHardwareID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverManufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverModel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverProvider(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverVerDate(&self) -> Result<f64, windows_result::HRESULT>;
+    fn DeviceProblemNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DeviceStatus(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate_Vtbl {
@@ -8728,7 +8728,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8740,7 +8740,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8752,7 +8752,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8764,7 +8764,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8776,7 +8776,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8788,7 +8788,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8800,7 +8800,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8812,7 +8812,7 @@ impl IWindowsDriverUpdate_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8847,25 +8847,25 @@ impl core::ops::Deref for IWindowsDriverUpdate2 {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate2, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate2 {
-    pub unsafe fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RebootRequired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPresent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPresent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CveIDs(&self) -> windows_core::Result<IStringCollection> {
+    pub unsafe fn CveIDs(&self) -> Result<IStringCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CveIDs)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> windows_core::Result<()>
+    pub unsafe fn CopyToCache<P0>(&self, pfiles: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IStringCollection>,
     {
@@ -8884,10 +8884,10 @@ pub struct IWindowsDriverUpdate2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate2_Impl: IWindowsDriverUpdate_Impl {
-    fn RebootRequired(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsPresent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CveIDs(&self) -> windows_core::Result<IStringCollection>;
-    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> windows_core::Result<()>;
+    fn RebootRequired(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn IsPresent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CveIDs(&self) -> Result<IStringCollection, windows_result::HRESULT>;
+    fn CopyToCache(&self, pfiles: windows_core::Ref<'_, IStringCollection>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate2_Vtbl {
@@ -8900,7 +8900,7 @@ impl IWindowsDriverUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8912,7 +8912,7 @@ impl IWindowsDriverUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8924,7 +8924,7 @@ impl IWindowsDriverUpdate2_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8961,7 +8961,7 @@ impl core::ops::Deref for IWindowsDriverUpdate3 {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate3, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate3 {
-    pub unsafe fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn BrowseOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BrowseOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8977,7 +8977,7 @@ pub struct IWindowsDriverUpdate3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate3_Impl: IWindowsDriverUpdate2_Impl {
-    fn BrowseOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn BrowseOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate3_Vtbl {
@@ -8990,7 +8990,7 @@ impl IWindowsDriverUpdate3_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9015,13 +9015,13 @@ impl core::ops::Deref for IWindowsDriverUpdate4 {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate4, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate4 {
-    pub unsafe fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection> {
+    pub unsafe fn WindowsDriverUpdateEntries(&self) -> Result<IWindowsDriverUpdateEntryCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowsDriverUpdateEntries)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn PerUser(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PerUser)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9038,8 +9038,8 @@ pub struct IWindowsDriverUpdate4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate4_Impl: IWindowsDriverUpdate3_Impl {
-    fn WindowsDriverUpdateEntries(&self) -> windows_core::Result<IWindowsDriverUpdateEntryCollection>;
-    fn PerUser(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn WindowsDriverUpdateEntries(&self) -> Result<IWindowsDriverUpdateEntryCollection, windows_result::HRESULT>;
+    fn PerUser(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate4_Vtbl {
@@ -9052,7 +9052,7 @@ impl IWindowsDriverUpdate4_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9064,7 +9064,7 @@ impl IWindowsDriverUpdate4_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9093,13 +9093,13 @@ impl core::ops::Deref for IWindowsDriverUpdate5 {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdate5, windows_core::IUnknown, super::Com::IDispatch, IUpdate, IWindowsDriverUpdate, IWindowsDriverUpdate2, IWindowsDriverUpdate3, IWindowsDriverUpdate4);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdate5 {
-    pub unsafe fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode> {
+    pub unsafe fn AutoSelection(&self) -> Result<AutoSelectionMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoSelection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode> {
+    pub unsafe fn AutoDownload(&self) -> Result<AutoDownloadMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoDownload)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9116,8 +9116,8 @@ pub struct IWindowsDriverUpdate5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdate5_Impl: IWindowsDriverUpdate4_Impl {
-    fn AutoSelection(&self) -> windows_core::Result<AutoSelectionMode>;
-    fn AutoDownload(&self) -> windows_core::Result<AutoDownloadMode>;
+    fn AutoSelection(&self) -> Result<AutoSelectionMode, windows_result::HRESULT>;
+    fn AutoDownload(&self) -> Result<AutoDownloadMode, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdate5_Vtbl {
@@ -9130,7 +9130,7 @@ impl IWindowsDriverUpdate5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9142,7 +9142,7 @@ impl IWindowsDriverUpdate5_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9171,49 +9171,49 @@ impl core::ops::Deref for IWindowsDriverUpdateEntry {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntry, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdateEntry {
-    pub unsafe fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverClass(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverClass)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverHardwareID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverHardwareID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverManufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverManufacturer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverModel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverModel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DriverProvider(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverProvider)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DriverVerDate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn DriverVerDate(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DriverVerDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceProblemNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DeviceProblemNumber(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceProblemNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceStatus(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DeviceStatus(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9236,14 +9236,14 @@ pub struct IWindowsDriverUpdateEntry_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdateEntry_Impl: super::Com::IDispatch_Impl {
-    fn DriverClass(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverHardwareID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverManufacturer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverModel(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverProvider(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DriverVerDate(&self) -> windows_core::Result<f64>;
-    fn DeviceProblemNumber(&self) -> windows_core::Result<i32>;
-    fn DeviceStatus(&self) -> windows_core::Result<i32>;
+    fn DriverClass(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverHardwareID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverManufacturer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverModel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverProvider(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DriverVerDate(&self) -> Result<f64, windows_result::HRESULT>;
+    fn DeviceProblemNumber(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DeviceStatus(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdateEntry_Vtbl {
@@ -9256,7 +9256,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9268,7 +9268,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9280,7 +9280,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9292,7 +9292,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9304,7 +9304,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9316,7 +9316,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9328,7 +9328,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9340,7 +9340,7 @@ impl IWindowsDriverUpdateEntry_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9375,19 +9375,19 @@ impl core::ops::Deref for IWindowsDriverUpdateEntryCollection {
 windows_core::imp::interface_hierarchy!(IWindowsDriverUpdateEntryCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsDriverUpdateEntryCollection {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsDriverUpdateEntry> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IWindowsDriverUpdateEntry, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -9405,9 +9405,9 @@ pub struct IWindowsDriverUpdateEntryCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsDriverUpdateEntryCollection_Impl: super::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsDriverUpdateEntry>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Count(&self) -> windows_core::Result<i32>;
+    fn get_Item(&self, index: i32) -> Result<IWindowsDriverUpdateEntry, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsDriverUpdateEntryCollection_Vtbl {
@@ -9420,7 +9420,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9432,7 +9432,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9444,7 +9444,7 @@ impl IWindowsDriverUpdateEntryCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9475,7 +9475,7 @@ windows_core::imp::interface_hierarchy!(IWindowsUpdateAgentInfo, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsUpdateAgentInfo {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetInfo(&self, varinfoidentifier: &super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn GetInfo(&self, varinfoidentifier: &super::Variant::VARIANT) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varinfoidentifier), &mut result__).map(|| core::mem::transmute(result__))
@@ -9494,7 +9494,7 @@ pub struct IWindowsUpdateAgentInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsUpdateAgentInfo_Impl: super::Com::IDispatch_Impl {
-    fn GetInfo(&self, varinfoidentifier: &super::Variant::VARIANT) -> windows_core::Result<super::Variant::VARIANT>;
+    fn GetInfo(&self, varinfoidentifier: &super::Variant::VARIANT) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsUpdateAgentInfo_Vtbl {
@@ -9507,7 +9507,7 @@ impl IWindowsUpdateAgentInfo_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

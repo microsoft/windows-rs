@@ -189,11 +189,11 @@ impl windows_core::RuntimeType for MenuClosedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MenuClosedEventHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = MenuClosedEventHandlerBox { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
+    pub fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -202,21 +202,21 @@ impl MenuClosedEventHandler {
 #[doc(hidden)]
 pub struct MenuClosedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_result::HRESULT,
 }
 #[repr(C)]
-struct MenuClosedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct MenuClosedEventHandlerBox<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const MenuClosedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHandlerBox<F> {
+impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static> MenuClosedEventHandlerBox<F> {
     const VTABLE: MenuClosedEventHandler_Vtbl = MenuClosedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
+                return windows_result::HRESULT(-2147467261);
             }
             *interface = if *iid == <MenuClosedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
@@ -227,10 +227,10 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHan
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
+                windows_result::HRESULT(-2147467262)
             } else {
                 (*this).count.add_ref();
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
     }
@@ -250,7 +250,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHan
             remaining
         }
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)().into()
@@ -262,11 +262,11 @@ impl windows_core::RuntimeType for MenuOpenedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MenuOpenedEventHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = MenuOpenedEventHandlerBox { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
+    pub fn Invoke(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -275,21 +275,21 @@ impl MenuOpenedEventHandler {
 #[doc(hidden)]
 pub struct MenuOpenedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_result::HRESULT,
 }
 #[repr(C)]
-struct MenuOpenedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct MenuOpenedEventHandlerBox<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const MenuOpenedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHandlerBox<F> {
+impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static> MenuOpenedEventHandlerBox<F> {
     const VTABLE: MenuOpenedEventHandler_Vtbl = MenuOpenedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
+                return windows_result::HRESULT(-2147467261);
             }
             *interface = if *iid == <MenuOpenedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
@@ -300,10 +300,10 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHan
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
+                windows_result::HRESULT(-2147467262)
             } else {
                 (*this).count.add_ref();
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
     }
@@ -323,7 +323,7 @@ impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHan
             remaining
         }
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)().into()
@@ -335,11 +335,11 @@ impl windows_core::RuntimeType for SizeChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SizeChangedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static>(invoke: F) -> Self {
         let com = SizeChangedEventHandlerBox { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, eventargs: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, eventargs: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<WebUICommandBarSizeChangedEventArgs>,
     {
@@ -351,21 +351,21 @@ impl SizeChangedEventHandler {
 #[doc(hidden)]
 pub struct SizeChangedEventHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_result::HRESULT,
 }
 #[repr(C)]
-struct SizeChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SizeChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> {
     vtable: *const SizeChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> SizeChangedEventHandlerBox<F> {
+impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> Result<(), windows_result::HRESULT> + Send + 'static> SizeChangedEventHandlerBox<F> {
     const VTABLE: SizeChangedEventHandler_Vtbl = SizeChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
-    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
+                return windows_result::HRESULT(-2147467261);
             }
             *interface = if *iid == <SizeChangedEventHandler as windows_core::Interface>::IID || *iid == <windows_core::IUnknown as windows_core::Interface>::IID || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID {
                 &mut (*this).vtable as *mut _ as _
@@ -376,10 +376,10 @@ impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> win
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
+                windows_result::HRESULT(-2147467262)
             } else {
                 (*this).count.add_ref();
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
     }
@@ -399,7 +399,7 @@ impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> win
             remaining
         }
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(core::mem::transmute_copy(&eventargs)).into()
@@ -411,73 +411,73 @@ impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> win
 pub struct WebUICommandBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBar, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBar {
-    pub fn Visible(&self) -> windows_core::Result<bool> {
+    pub fn Visible(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetVisible(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetVisible(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVisible)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Opacity(&self) -> windows_core::Result<f64> {
+    pub fn Opacity(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Opacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetOpacity(&self, value: f64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOpacity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Color> {
+    pub fn ForegroundColor(&self) -> Result<super::super::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetForegroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
+    pub fn SetForegroundColor(&self, value: super::super::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Color> {
+    pub fn BackgroundColor(&self) -> Result<super::super::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBackgroundColor(&self, value: super::super::Color) -> windows_core::Result<()> {
+    pub fn SetBackgroundColor(&self, value: super::super::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ClosedDisplayMode(&self) -> windows_core::Result<WebUICommandBarClosedDisplayMode> {
+    pub fn ClosedDisplayMode(&self) -> Result<WebUICommandBarClosedDisplayMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClosedDisplayMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetClosedDisplayMode(&self, value: WebUICommandBarClosedDisplayMode) -> windows_core::Result<()> {
+    pub fn SetClosedDisplayMode(&self, value: WebUICommandBarClosedDisplayMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetClosedDisplayMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsOpen(&self) -> windows_core::Result<bool> {
+    pub fn IsOpen(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOpen)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsOpen(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsOpen(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsOpen)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Size(&self) -> windows_core::Result<super::super::super::Foundation::Size> {
+    pub fn Size(&self) -> Result<super::super::super::Foundation::Size, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -485,7 +485,7 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn PrimaryCommands(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
+    pub fn PrimaryCommands(&self) -> Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -493,14 +493,14 @@ impl WebUICommandBar {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SecondaryCommands(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>> {
+    pub fn SecondaryCommands(&self) -> Result<super::super::super::Foundation::Collections::IObservableVector<IWebUICommandBarElement>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecondaryCommands)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MenuOpened<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MenuOpened<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<MenuOpenedEventHandler>,
     {
@@ -510,11 +510,11 @@ impl WebUICommandBar {
             (windows_core::Interface::vtable(this).MenuOpened)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMenuOpened(&self, value: i64) -> windows_core::Result<()> {
+    pub fn RemoveMenuOpened(&self, value: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMenuOpened)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MenuClosed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MenuClosed<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<MenuClosedEventHandler>,
     {
@@ -524,11 +524,11 @@ impl WebUICommandBar {
             (windows_core::Interface::vtable(this).MenuClosed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMenuClosed(&self, value: i64) -> windows_core::Result<()> {
+    pub fn RemoveMenuClosed(&self, value: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMenuClosed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SizeChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<SizeChangedEventHandler>,
     {
@@ -538,17 +538,17 @@ impl WebUICommandBar {
             (windows_core::Interface::vtable(this).SizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSizeChanged(&self, value: i64) -> windows_core::Result<()> {
+    pub fn RemoveSizeChanged(&self, value: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSizeChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<WebUICommandBar> {
+    pub fn GetForCurrentView() -> Result<WebUICommandBar, windows_result::HRESULT> {
         Self::IWebUICommandBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebUICommandBarStatics<R, F: FnOnce(&IWebUICommandBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarStatics<R, F: FnOnce(&IWebUICommandBarStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBar, IWebUICommandBarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -571,28 +571,28 @@ pub struct WebUICommandBarBitmapIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarBitmapIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarBitmapIcon, IWebUICommandBarIcon);
 impl WebUICommandBarBitmapIcon {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarBitmapIcon, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Create<P0>(uri: P0) -> windows_core::Result<WebUICommandBarBitmapIcon>
+    pub fn Create<P0>(uri: P0) -> Result<WebUICommandBarBitmapIcon, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -601,7 +601,7 @@ impl WebUICommandBarBitmapIcon {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebUICommandBarBitmapIconFactory<R, F: FnOnce(&IWebUICommandBarBitmapIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarBitmapIconFactory<R, F: FnOnce(&IWebUICommandBarBitmapIconFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarBitmapIcon, IWebUICommandBarBitmapIconFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -638,25 +638,25 @@ pub struct WebUICommandBarConfirmationButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarConfirmationButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarConfirmationButton, IWebUICommandBarElement);
 impl WebUICommandBarConfirmationButton {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarConfirmationButton, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetText(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ItemInvoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ItemInvoked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebUICommandBarConfirmationButton, WebUICommandBarItemInvokedEventArgs>>,
     {
@@ -666,7 +666,7 @@ impl WebUICommandBarConfirmationButton {
             (windows_core::Interface::vtable(this).ItemInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveItemInvoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveItemInvoked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -689,72 +689,72 @@ pub struct WebUICommandBarIconButton(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarIconButton, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarIconButton, IWebUICommandBarElement);
 impl WebUICommandBarIconButton {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarIconButton, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Enabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Label(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Label(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Label)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLabel(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLabel)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IsToggleButton(&self) -> windows_core::Result<bool> {
+    pub fn IsToggleButton(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsToggleButton)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsToggleButton(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsToggleButton(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsToggleButton)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsChecked(&self) -> windows_core::Result<bool> {
+    pub fn IsChecked(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsChecked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsChecked(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsChecked(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsChecked)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Icon(&self) -> windows_core::Result<IWebUICommandBarIcon> {
+    pub fn Icon(&self) -> Result<IWebUICommandBarIcon, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetIcon<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWebUICommandBarIcon>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ItemInvoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ItemInvoked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<WebUICommandBarIconButton, WebUICommandBarItemInvokedEventArgs>>,
     {
@@ -764,7 +764,7 @@ impl WebUICommandBarIconButton {
             (windows_core::Interface::vtable(this).ItemInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveItemInvoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveItemInvoked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -786,7 +786,7 @@ unsafe impl Sync for WebUICommandBarIconButton {}
 pub struct WebUICommandBarItemInvokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarItemInvokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBarItemInvokedEventArgs {
-    pub fn IsPrimaryCommand(&self) -> windows_core::Result<bool> {
+    pub fn IsPrimaryCommand(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -811,7 +811,7 @@ unsafe impl Sync for WebUICommandBarItemInvokedEventArgs {}
 pub struct WebUICommandBarSizeChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarSizeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WebUICommandBarSizeChangedEventArgs {
-    pub fn Size(&self) -> windows_core::Result<super::super::super::Foundation::Size> {
+    pub fn Size(&self) -> Result<super::super::super::Foundation::Size, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -837,31 +837,31 @@ pub struct WebUICommandBarSymbolIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WebUICommandBarSymbolIcon, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WebUICommandBarSymbolIcon, IWebUICommandBarIcon);
 impl WebUICommandBarSymbolIcon {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarSymbolIcon, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Symbol(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Symbol(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Symbol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSymbol(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSymbol(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSymbol)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Create(symbol: &windows_core::HSTRING) -> windows_core::Result<WebUICommandBarSymbolIcon> {
+    pub fn Create(symbol: &windows_core::HSTRING) -> Result<WebUICommandBarSymbolIcon, windows_result::HRESULT> {
         Self::IWebUICommandBarSymbolIconFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(symbol), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWebUICommandBarSymbolIconFactory<R, F: FnOnce(&IWebUICommandBarSymbolIconFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebUICommandBarSymbolIconFactory<R, F: FnOnce(&IWebUICommandBarSymbolIconFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WebUICommandBarSymbolIcon, IWebUICommandBarSymbolIconFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

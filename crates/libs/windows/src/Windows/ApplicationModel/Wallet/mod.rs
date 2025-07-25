@@ -320,14 +320,14 @@ impl windows_core::RuntimeType for WalletActionKind {
 pub struct WalletBarcode(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletBarcode, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletBarcode {
-    pub fn Symbology(&self) -> windows_core::Result<WalletBarcodeSymbology> {
+    pub fn Symbology(&self) -> Result<WalletBarcodeSymbology, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Symbology)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Value(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -335,21 +335,21 @@ impl WalletBarcode {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetImageAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>> {
+    pub fn GetImageAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStreamReference>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetImageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> windows_core::Result<WalletBarcode> {
+    pub fn CreateWalletBarcode(symbology: WalletBarcodeSymbology, value: &windows_core::HSTRING) -> Result<WalletBarcode, windows_result::HRESULT> {
         Self::IWalletBarcodeFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletBarcode)(windows_core::Interface::as_raw(this), symbology, core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> windows_core::Result<WalletBarcode>
+    pub fn CreateCustomWalletBarcode<P0>(streamtobarcodeimage: P0) -> Result<WalletBarcode, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -358,7 +358,7 @@ impl WalletBarcode {
             (windows_core::Interface::vtable(this).CreateCustomWalletBarcode)(windows_core::Interface::as_raw(this), streamtobarcodeimage.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletBarcodeFactory<R, F: FnOnce(&IWalletBarcodeFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletBarcode, IWalletBarcodeFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -429,89 +429,89 @@ impl windows_core::RuntimeType for WalletDetailViewPosition {
 pub struct WalletItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletItem, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletItem {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsAcknowledged(&self) -> windows_core::Result<bool> {
+    pub fn IsAcknowledged(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAcknowledged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsAcknowledged(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsAcknowledged(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsAcknowledged)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IssuerDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IssuerDisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IssuerDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetIssuerDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetIssuerDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIssuerDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn LastUpdated(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn LastUpdated(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastUpdated)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetLastUpdated<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLastUpdated<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLastUpdated)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<WalletItemKind> {
+    pub fn Kind(&self) -> Result<WalletItemKind, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Barcode(&self) -> windows_core::Result<WalletBarcode> {
+    pub fn Barcode(&self) -> Result<WalletBarcode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Barcode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBarcode<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBarcode<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<WalletBarcode>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBarcode)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationDate(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationDate<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
@@ -519,7 +519,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetExpirationDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Logo159x159(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Logo159x159(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -527,7 +527,7 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLogo159x159<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLogo159x159<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -535,7 +535,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetLogo159x159)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Logo336x336(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Logo336x336(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -543,7 +543,7 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLogo336x336<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLogo336x336<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -551,7 +551,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetLogo336x336)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Logo99x99(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Logo99x99(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -559,48 +559,48 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLogo99x99<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLogo99x99<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLogo99x99)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayMessage(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IsDisplayMessageLaunchable(&self) -> windows_core::Result<bool> {
+    pub fn IsDisplayMessageLaunchable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsDisplayMessageLaunchable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsDisplayMessageLaunchable(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsDisplayMessageLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn LogoText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LogoText(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogoText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLogoText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLogoText(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLogoText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn HeaderColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn HeaderColor(&self) -> Result<super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -608,12 +608,12 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetHeaderColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetHeaderColor(&self, value: super::super::UI::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHeaderColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn BodyColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn BodyColor(&self) -> Result<super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -621,12 +621,12 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetBodyColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetBodyColor(&self, value: super::super::UI::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBodyColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn HeaderFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn HeaderFontColor(&self) -> Result<super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -634,12 +634,12 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetHeaderFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetHeaderFontColor(&self, value: super::super::UI::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHeaderFontColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn BodyFontColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn BodyFontColor(&self) -> Result<super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -647,12 +647,12 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetBodyFontColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetBodyFontColor(&self, value: super::super::UI::Color) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBodyFontColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn HeaderBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn HeaderBackgroundImage(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -660,7 +660,7 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetHeaderBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetHeaderBackgroundImage<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -668,7 +668,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetHeaderBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BodyBackgroundImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn BodyBackgroundImage(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -676,7 +676,7 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBodyBackgroundImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBodyBackgroundImage<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -684,7 +684,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetBodyBackgroundImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LogoImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn LogoImage(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -692,7 +692,7 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetLogoImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetLogoImage<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -700,7 +700,7 @@ impl WalletItem {
         unsafe { (windows_core::Interface::vtable(this).SetLogoImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PromotionalImage(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn PromotionalImage(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -708,84 +708,84 @@ impl WalletItem {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetPromotionalImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetPromotionalImage<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPromotionalImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelevantDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn RelevantDate(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelevantDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRelevantDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetRelevantDate<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRelevantDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RelevantDateDisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RelevantDateDisplayMessage(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetRelevantDateDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRelevantDateDisplayMessage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRelevantDateDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TransactionHistory(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletTransaction>> {
+    pub fn TransactionHistory(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, WalletTransaction>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransactionHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RelevantLocations(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletRelevantLocation>> {
+    pub fn RelevantLocations(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, WalletRelevantLocation>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelevantLocations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsMoreTransactionHistoryLaunchable(&self) -> windows_core::Result<bool> {
+    pub fn IsMoreTransactionHistoryLaunchable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsMoreTransactionHistoryLaunchable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsMoreTransactionHistoryLaunchable(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsMoreTransactionHistoryLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisplayProperties(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>> {
+    pub fn DisplayProperties(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, WalletItemCustomProperty>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Verbs(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, WalletVerb>> {
+    pub fn Verbs(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, WalletVerb>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Verbs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> windows_core::Result<WalletItem> {
+    pub fn CreateWalletItem(kind: WalletItemKind, displayname: &windows_core::HSTRING) -> Result<WalletItem, windows_result::HRESULT> {
         Self::IWalletItemFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletItem)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletItemFactory<R, F: FnOnce(&IWalletItemFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletItem, IWalletItemFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -807,68 +807,68 @@ unsafe impl Sync for WalletItem {}
 pub struct WalletItemCustomProperty(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletItemCustomProperty, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletItemCustomProperty {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Value(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Value(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetValue(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetValue(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn AutoDetectLinks(&self) -> windows_core::Result<bool> {
+    pub fn AutoDetectLinks(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutoDetectLinks)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutoDetectLinks(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAutoDetectLinks(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutoDetectLinks)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DetailViewPosition(&self) -> windows_core::Result<WalletDetailViewPosition> {
+    pub fn DetailViewPosition(&self) -> Result<WalletDetailViewPosition, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetailViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> windows_core::Result<()> {
+    pub fn SetDetailViewPosition(&self, value: WalletDetailViewPosition) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDetailViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SummaryViewPosition(&self) -> windows_core::Result<WalletSummaryViewPosition> {
+    pub fn SummaryViewPosition(&self) -> Result<WalletSummaryViewPosition, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SummaryViewPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> windows_core::Result<()> {
+    pub fn SetSummaryViewPosition(&self, value: WalletSummaryViewPosition) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSummaryViewPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<WalletItemCustomProperty> {
+    pub fn CreateWalletItemCustomProperty(name: &windows_core::HSTRING, value: &windows_core::HSTRING) -> Result<WalletItemCustomProperty, windows_result::HRESULT> {
         Self::IWalletItemCustomPropertyFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletItemCustomProperty)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletItemCustomPropertyFactory<R, F: FnOnce(&IWalletItemCustomPropertyFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletItemCustomProperty, IWalletItemCustomPropertyFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -908,7 +908,7 @@ impl windows_core::RuntimeType for WalletItemKind {
 pub struct WalletItemStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletItemStore, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletItemStore {
-    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn AddAsync<P1>(&self, id: &windows_core::HSTRING, item: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P1: windows_core::Param<WalletItem>,
     {
@@ -918,28 +918,28 @@ impl WalletItemStore {
             (windows_core::Interface::vtable(this).AddAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), item.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ClearAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ClearAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClearAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<WalletItem>> {
+    pub fn GetWalletItemAsync(&self, id: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<WalletItem>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetWalletItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>> {
+    pub fn GetItemsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>> {
+    pub fn GetItemsWithKindAsync(&self, kind: WalletItemKind) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<WalletItem>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -947,7 +947,7 @@ impl WalletItemStore {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportItemAsync<P0>(&self, stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<WalletItem>>
+    pub fn ImportItemAsync<P0>(&self, stream: P0) -> Result<windows_future::IAsyncOperation<WalletItem>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -957,28 +957,28 @@ impl WalletItemStore {
             (windows_core::Interface::vtable(this).ImportItemAsync)(windows_core::Interface::as_raw(this), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteAsync(&self, id: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowItemAsync(&self, id: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowItemAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateAsync<P0>(&self, item: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn UpdateAsync<P0>(&self, item: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<WalletItem>,
     {
@@ -1003,13 +1003,13 @@ unsafe impl Send for WalletItemStore {}
 unsafe impl Sync for WalletItemStore {}
 pub struct WalletManager;
 impl WalletManager {
-    pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<WalletItemStore>> {
+    pub fn RequestStoreAsync() -> Result<windows_future::IAsyncOperation<WalletItemStore>, windows_result::HRESULT> {
         Self::IWalletManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletManagerStatics<R, F: FnOnce(&IWalletManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletManager, IWalletManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1022,15 +1022,15 @@ impl windows_core::RuntimeName for WalletManager {
 pub struct WalletRelevantLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletRelevantLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletRelevantLocation {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletRelevantLocation, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Position(&self) -> windows_core::Result<super::super::Devices::Geolocation::BasicGeoposition> {
+    pub fn Position(&self) -> Result<super::super::Devices::Geolocation::BasicGeoposition, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1038,18 +1038,18 @@ impl WalletRelevantLocation {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn SetPosition(&self, value: super::super::Devices::Geolocation::BasicGeoposition) -> windows_core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Devices::Geolocation::BasicGeoposition) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayMessage(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -1085,79 +1085,79 @@ impl windows_core::RuntimeType for WalletSummaryViewPosition {
 pub struct WalletTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletTransaction, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletTransaction {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletTransaction, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DisplayAmount(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayAmount(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayAmount(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayAmount(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayAmount)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn IgnoreTimeOfDay(&self) -> windows_core::Result<bool> {
+    pub fn IgnoreTimeOfDay(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IgnoreTimeOfDay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIgnoreTimeOfDay(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIgnoreTimeOfDay(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIgnoreTimeOfDay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisplayLocation(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayLocation(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayLocation(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TransactionDate(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn TransactionDate(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransactionDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTransactionDate<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTransactionDate<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransactionDate)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsLaunchable(&self) -> windows_core::Result<bool> {
+    pub fn IsLaunchable(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsLaunchable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsLaunchable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsLaunchable(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsLaunchable)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1179,24 +1179,24 @@ unsafe impl Sync for WalletTransaction {}
 pub struct WalletVerb(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WalletVerb, windows_core::IUnknown, windows_core::IInspectable);
 impl WalletVerb {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> windows_core::Result<WalletVerb> {
+    pub fn CreateWalletVerb(name: &windows_core::HSTRING) -> Result<WalletVerb, windows_result::HRESULT> {
         Self::IWalletVerbFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWalletVerb)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWalletVerbFactory<R, F: FnOnce(&IWalletVerbFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WalletVerb, IWalletVerbFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

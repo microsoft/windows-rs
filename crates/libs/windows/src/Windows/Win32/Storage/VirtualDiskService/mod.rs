@@ -111,16 +111,16 @@ pub const GPT_PARTITION_NAME_LENGTH: u32 = 36u32;
 windows_core::imp::define_interface!(IEnumVdsObject, IEnumVdsObject_Vtbl, 0x118610b7_8d94_4030_b5b8_500889788e4e);
 windows_core::imp::interface_hierarchy!(IEnumVdsObject, windows_core::IUnknown);
 impl IEnumVdsObject {
-    pub unsafe fn Next(&self, ppobjectarray: &mut [Option<windows_core::IUnknown>], pcfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppobjectarray: &mut [Option<windows_core::IUnknown>], pcfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppobjectarray.len().try_into().unwrap(), core::mem::transmute(ppobjectarray.as_ptr()), pcfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn Clone(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -137,10 +137,10 @@ pub struct IEnumVdsObject_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumVdsObject_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn Next(&self, celt: u32, ppobjectarray: *mut Option<windows_core::IUnknown>, pcfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IEnumVdsObject_Vtbl {
     pub const fn new<Identity: IEnumVdsObject_Impl, const OFFSET: isize>() -> Self {
@@ -170,7 +170,7 @@ impl IEnumVdsObject_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -190,7 +190,7 @@ impl windows_core::RuntimeName for IEnumVdsObject {}
 windows_core::imp::define_interface!(IVdsAdmin, IVdsAdmin_Vtbl, 0xd188e97d_85aa_4d33_abc6_26299a10ffc1);
 windows_core::imp::interface_hierarchy!(IVdsAdmin, windows_core::IUnknown);
 impl IVdsAdmin {
-    pub unsafe fn RegisterProvider<P2, P4, P5>(&self, providerid: windows_core::GUID, providerclsid: windows_core::GUID, pwszname: P2, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P4, pwszversion: P5, guidversionid: windows_core::GUID) -> windows_core::Result<()>
+    pub unsafe fn RegisterProvider<P2, P4, P5>(&self, providerid: windows_core::GUID, providerclsid: windows_core::GUID, pwszname: P2, r#type: VDS_PROVIDER_TYPE, pwszmachinename: P4, pwszversion: P5, guidversionid: windows_core::GUID) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
@@ -198,7 +198,7 @@ impl IVdsAdmin {
     {
         unsafe { (windows_core::Interface::vtable(self).RegisterProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid), core::mem::transmute(providerclsid), pwszname.param().abi(), r#type, pwszmachinename.param().abi(), pwszversion.param().abi(), core::mem::transmute(guidversionid)).ok() }
     }
-    pub unsafe fn UnregisterProvider(&self, providerid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn UnregisterProvider(&self, providerid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterProvider)(windows_core::Interface::as_raw(self), core::mem::transmute(providerid)).ok() }
     }
 }
@@ -210,8 +210,8 @@ pub struct IVdsAdmin_Vtbl {
     pub UnregisterProvider: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IVdsAdmin_Impl: windows_core::IUnknownImpl {
-    fn RegisterProvider(&self, providerid: &windows_core::GUID, providerclsid: &windows_core::GUID, pwszname: &windows_core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: &windows_core::PCWSTR, pwszversion: &windows_core::PCWSTR, guidversionid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn UnregisterProvider(&self, providerid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn RegisterProvider(&self, providerid: &windows_core::GUID, providerclsid: &windows_core::GUID, pwszname: &windows_core::PCWSTR, r#type: VDS_PROVIDER_TYPE, pwszmachinename: &windows_core::PCWSTR, pwszversion: &windows_core::PCWSTR, guidversionid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn UnregisterProvider(&self, providerid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsAdmin_Vtbl {
     pub const fn new<Identity: IVdsAdmin_Impl, const OFFSET: isize>() -> Self {
@@ -241,34 +241,34 @@ impl windows_core::RuntimeName for IVdsAdmin {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk, IVdsAdvancedDisk_Vtbl, 0x6e6f6b40_977c_4069_bddd_ac710059f8c0);
 windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk, windows_core::IUnknown);
 impl IVdsAdvancedDisk {
-    pub unsafe fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPartitionProperties)(windows_core::Interface::as_raw(self), ulloffset, ppartitionprop as _).ok() }
     }
-    pub unsafe fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryPartitions)(windows_core::Interface::as_raw(self), pppartitionproparray as _, plnumberofpartitions as _).ok() }
     }
-    pub unsafe fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePartition)(windows_core::Interface::as_raw(self), ulloffset, ullsize, para, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeletePartition(&self, ulloffset: u64, bforce: bool, bforceprotected: bool) -> windows_core::Result<()> {
+    pub unsafe fn DeletePartition(&self, ulloffset: u64, bforce: bool, bforceprotected: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeletePartition)(windows_core::Interface::as_raw(self), ulloffset, bforce.into(), bforceprotected.into()).ok() }
     }
-    pub unsafe fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()> {
+    pub unsafe fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ChangeAttributes)(windows_core::Interface::as_raw(self), ulloffset, para).ok() }
     }
-    pub unsafe fn AssignDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()> {
+    pub unsafe fn AssignDriveLetter(&self, ulloffset: u64, wcletter: u16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AssignDriveLetter)(windows_core::Interface::as_raw(self), ulloffset, wcletter).ok() }
     }
-    pub unsafe fn DeleteDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()> {
+    pub unsafe fn DeleteDriveLetter(&self, ulloffset: u64, wcletter: u16) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteDriveLetter)(windows_core::Interface::as_raw(self), ulloffset, wcletter).ok() }
     }
-    pub unsafe fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDriveLetter)(windows_core::Interface::as_raw(self), ulloffset, core::mem::transmute(pwcletter)).ok() }
     }
-    pub unsafe fn FormatPartition<P2>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatPartition<P2>(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P2, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -277,7 +277,7 @@ impl IVdsAdvancedDisk {
             (windows_core::Interface::vtable(self).FormatPartition)(windows_core::Interface::as_raw(self), ulloffset, r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clean(&self, bforce: bool, bforceoem: bool, bfullclean: bool) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Clean(&self, bforce: bool, bforceoem: bool, bfullclean: bool) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clean)(windows_core::Interface::as_raw(self), bforce.into(), bforceoem.into(), bfullclean.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -300,16 +300,16 @@ pub struct IVdsAdvancedDisk_Vtbl {
     pub Clean: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsAdvancedDisk_Impl: windows_core::IUnknownImpl {
-    fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> windows_core::Result<()>;
-    fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> windows_core::Result<()>;
-    fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
-    fn DeletePartition(&self, ulloffset: u64, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> windows_core::Result<()>;
-    fn AssignDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()>;
-    fn DeleteDriveLetter(&self, ulloffset: u64, wcletter: u16) -> windows_core::Result<()>;
-    fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> windows_core::Result<()>;
-    fn FormatPartition(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
-    fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn GetPartitionProperties(&self, ulloffset: u64, ppartitionprop: *mut VDS_PARTITION_PROP) -> Result<(), windows_result::HRESULT>;
+    fn QueryPartitions(&self, pppartitionproparray: *mut *mut VDS_PARTITION_PROP, plnumberofpartitions: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn CreatePartition(&self, ulloffset: u64, ullsize: u64, para: *const CREATE_PARTITION_PARAMETERS) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn DeletePartition(&self, ulloffset: u64, bforce: windows_core::BOOL, bforceprotected: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ChangeAttributes(&self, ulloffset: u64, para: *const CHANGE_ATTRIBUTES_PARAMETERS) -> Result<(), windows_result::HRESULT>;
+    fn AssignDriveLetter(&self, ulloffset: u64, wcletter: u16) -> Result<(), windows_result::HRESULT>;
+    fn DeleteDriveLetter(&self, ulloffset: u64, wcletter: u16) -> Result<(), windows_result::HRESULT>;
+    fn GetDriveLetter(&self, ulloffset: u64, pwcletter: windows_core::PWSTR) -> Result<(), windows_result::HRESULT>;
+    fn FormatPartition(&self, ulloffset: u64, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Clean(&self, bforce: windows_core::BOOL, bforceoem: windows_core::BOOL, bfullclean: windows_core::BOOL) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsAdvancedDisk_Vtbl {
     pub const fn new<Identity: IVdsAdvancedDisk_Impl, const OFFSET: isize>() -> Self {
@@ -333,7 +333,7 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -375,7 +375,7 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -387,7 +387,7 @@ impl IVdsAdvancedDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -413,7 +413,7 @@ impl windows_core::RuntimeName for IVdsAdvancedDisk {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk2, IVdsAdvancedDisk2_Vtbl, 0x9723f420_9355_42de_ab66_e31bb15beeac);
 windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk2, windows_core::IUnknown);
 impl IVdsAdvancedDisk2 {
-    pub unsafe fn ChangePartitionType(&self, ulloffset: u64, bforce: bool, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()> {
+    pub unsafe fn ChangePartitionType(&self, ulloffset: u64, bforce: bool, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ChangePartitionType)(windows_core::Interface::as_raw(self), ulloffset, bforce.into(), para).ok() }
     }
 }
@@ -424,7 +424,7 @@ pub struct IVdsAdvancedDisk2_Vtbl {
     pub ChangePartitionType: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::BOOL, *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::HRESULT,
 }
 pub trait IVdsAdvancedDisk2_Impl: windows_core::IUnknownImpl {
-    fn ChangePartitionType(&self, ulloffset: u64, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> windows_core::Result<()>;
+    fn ChangePartitionType(&self, ulloffset: u64, bforce: windows_core::BOOL, para: *const CHANGE_PARTITION_TYPE_PARAMETERS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsAdvancedDisk2_Vtbl {
     pub const fn new<Identity: IVdsAdvancedDisk2_Impl, const OFFSET: isize>() -> Self {
@@ -444,10 +444,10 @@ impl windows_core::RuntimeName for IVdsAdvancedDisk2 {}
 windows_core::imp::define_interface!(IVdsAdvancedDisk3, IVdsAdvancedDisk3_Vtbl, 0x3858c0d5_0f35_4bf5_9714_69874963bc36);
 windows_core::imp::interface_hierarchy!(IVdsAdvancedDisk3, windows_core::IUnknown);
 impl IVdsAdvancedDisk3 {
-    pub unsafe fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), padvdiskprop as _).ok() }
     }
-    pub unsafe fn GetUniqueId(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetUniqueId(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUniqueId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -462,8 +462,8 @@ pub struct IVdsAdvancedDisk3_Vtbl {
     pub GetUniqueId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsAdvancedDisk3_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> windows_core::Result<()>;
-    fn GetUniqueId(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn GetProperties(&self, padvdiskprop: *mut VDS_ADVANCEDDISK_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetUniqueId(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
 }
 impl IVdsAdvancedDisk3_Vtbl {
     pub const fn new<Identity: IVdsAdvancedDisk3_Impl, const OFFSET: isize>() -> Self {
@@ -481,7 +481,7 @@ impl IVdsAdvancedDisk3_Vtbl {
                         ppwszid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -499,7 +499,7 @@ impl windows_core::RuntimeName for IVdsAdvancedDisk3 {}
 windows_core::imp::define_interface!(IVdsAdviseSink, IVdsAdviseSink_Vtbl, 0x8326cd1d_cf59_4936_b786_5efc08798e25);
 windows_core::imp::interface_hierarchy!(IVdsAdviseSink, windows_core::IUnknown);
 impl IVdsAdviseSink {
-    pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> windows_core::Result<()> {
+    pub unsafe fn OnNotify(&self, pnotificationarray: &[VDS_NOTIFICATION]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnNotify)(windows_core::Interface::as_raw(self), pnotificationarray.len().try_into().unwrap(), core::mem::transmute(pnotificationarray.as_ptr())).ok() }
     }
 }
@@ -510,7 +510,7 @@ pub struct IVdsAdviseSink_Vtbl {
     pub OnNotify: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *const VDS_NOTIFICATION) -> windows_core::HRESULT,
 }
 pub trait IVdsAdviseSink_Impl: windows_core::IUnknownImpl {
-    fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> windows_core::Result<()>;
+    fn OnNotify(&self, lnumberofnotifications: i32, pnotificationarray: *const VDS_NOTIFICATION) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsAdviseSink_Vtbl {
     pub const fn new<Identity: IVdsAdviseSink_Impl, const OFFSET: isize>() -> Self {
@@ -530,13 +530,13 @@ impl windows_core::RuntimeName for IVdsAdviseSink {}
 windows_core::imp::define_interface!(IVdsAsync, IVdsAsync_Vtbl, 0xd5d23b6d_5a55_4492_9889_397a3c2d2dbc);
 windows_core::imp::interface_hierarchy!(IVdsAsync, windows_core::IUnknown);
 impl IVdsAsync {
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::Result<()> {
+    pub unsafe fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), phrresult as _, core::mem::transmute(pasyncout)).ok() }
     }
-    pub unsafe fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryStatus)(windows_core::Interface::as_raw(self), phrresult as _, pulpercentcompleted as _).ok() }
     }
 }
@@ -549,9 +549,9 @@ pub struct IVdsAsync_Vtbl {
     pub QueryStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IVdsAsync_Impl: windows_core::IUnknownImpl {
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> windows_core::Result<()>;
-    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut u32) -> windows_core::Result<()>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
+    fn Wait(&self, phrresult: *mut windows_core::HRESULT, pasyncout: *mut VDS_ASYNC_OUTPUT) -> Result<(), windows_result::HRESULT>;
+    fn QueryStatus(&self, phrresult: *mut windows_core::HRESULT, pulpercentcompleted: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsAsync_Vtbl {
     pub const fn new<Identity: IVdsAsync_Impl, const OFFSET: isize>() -> Self {
@@ -588,34 +588,34 @@ impl windows_core::RuntimeName for IVdsAsync {}
 windows_core::imp::define_interface!(IVdsController, IVdsController_Vtbl, 0xcb53d96e_dffb_474a_a078_790d1e2bc082);
 windows_core::imp::interface_hierarchy!(IVdsController, windows_core::IUnknown);
 impl IVdsController {
-    pub unsafe fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pcontrollerprop as _).ok() }
     }
-    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+    pub unsafe fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPortProperties)(windows_core::Interface::as_raw(self), sportnumber, pportprop as _).ok() }
     }
-    pub unsafe fn FlushCache(&self) -> windows_core::Result<()> {
+    pub unsafe fn FlushCache(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).FlushCache)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn InvalidateCache(&self) -> windows_core::Result<()> {
+    pub unsafe fn InvalidateCache(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).InvalidateCache)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
 }
@@ -633,14 +633,14 @@ pub struct IVdsController_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_CONTROLLER_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsController_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
-    fn FlushCache(&self) -> windows_core::Result<()>;
-    fn InvalidateCache(&self) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> windows_core::Result<()>;
+    fn GetProperties(&self, pcontrollerprop: *mut VDS_CONTROLLER_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT>;
+    fn GetPortProperties(&self, sportnumber: i16, pportprop: *mut VDS_PORT_PROP) -> Result<(), windows_result::HRESULT>;
+    fn FlushCache(&self) -> Result<(), windows_result::HRESULT>;
+    fn InvalidateCache(&self) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_CONTROLLER_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsController_Vtbl {
     pub const fn new<Identity: IVdsController_Impl, const OFFSET: isize>() -> Self {
@@ -658,7 +658,7 @@ impl IVdsController_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -694,7 +694,7 @@ impl IVdsController_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -724,7 +724,7 @@ impl windows_core::RuntimeName for IVdsController {}
 windows_core::imp::define_interface!(IVdsControllerControllerPort, IVdsControllerControllerPort_Vtbl, 0xca5d735f_6bae_42c0_b30e_f2666045ce71);
 windows_core::imp::interface_hierarchy!(IVdsControllerControllerPort, windows_core::IUnknown);
 impl IVdsControllerControllerPort {
-    pub unsafe fn QueryControllerPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryControllerPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryControllerPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -738,7 +738,7 @@ pub struct IVdsControllerControllerPort_Vtbl {
     pub QueryControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsControllerControllerPort_Impl: windows_core::IUnknownImpl {
-    fn QueryControllerPorts(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryControllerPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IVdsControllerControllerPort_Vtbl {
     pub const fn new<Identity: IVdsControllerControllerPort_Impl, const OFFSET: isize>() -> Self {
@@ -750,7 +750,7 @@ impl IVdsControllerControllerPort_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -764,25 +764,25 @@ impl windows_core::RuntimeName for IVdsControllerControllerPort {}
 windows_core::imp::define_interface!(IVdsControllerPort, IVdsControllerPort_Vtbl, 0x18691d0d_4e7f_43e8_92e4_cf44beeed11c);
 windows_core::imp::interface_hierarchy!(IVdsControllerPort, windows_core::IUnknown);
 impl IVdsControllerPort {
-    pub unsafe fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportprop as _).ok() }
     }
-    pub unsafe fn GetController(&self) -> windows_core::Result<IVdsController> {
+    pub unsafe fn GetController(&self) -> Result<IVdsController, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetController)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_PORT_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_PORT_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
 }
@@ -797,11 +797,11 @@ pub struct IVdsControllerPort_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_PORT_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsControllerPort_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> windows_core::Result<()>;
-    fn GetController(&self) -> windows_core::Result<IVdsController>;
-    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_PORT_STATUS) -> windows_core::Result<()>;
+    fn GetProperties(&self, pportprop: *mut VDS_PORT_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetController(&self) -> Result<IVdsController, windows_result::HRESULT>;
+    fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_PORT_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsControllerPort_Vtbl {
     pub const fn new<Identity: IVdsControllerPort_Impl, const OFFSET: isize>() -> Self {
@@ -819,7 +819,7 @@ impl IVdsControllerPort_Vtbl {
                         ppcontroller.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -831,7 +831,7 @@ impl IVdsControllerPort_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -864,7 +864,7 @@ impl windows_core::RuntimeName for IVdsControllerPort {}
 windows_core::imp::define_interface!(IVdsCreatePartitionEx, IVdsCreatePartitionEx_Vtbl, 0x9882f547_cfc3_420b_9750_00dfbec50662);
 windows_core::imp::interface_hierarchy!(IVdsCreatePartitionEx, windows_core::IUnknown);
 impl IVdsCreatePartitionEx {
-    pub unsafe fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePartitionEx)(windows_core::Interface::as_raw(self), ulloffset, ullsize, ulalign, para, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -878,7 +878,7 @@ pub struct IVdsCreatePartitionEx_Vtbl {
     pub CreatePartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, u32, *const CREATE_PARTITION_PARAMETERS, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsCreatePartitionEx_Impl: windows_core::IUnknownImpl {
-    fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> windows_core::Result<IVdsAsync>;
+    fn CreatePartitionEx(&self, ulloffset: u64, ullsize: u64, ulalign: u32, para: *const CREATE_PARTITION_PARAMETERS) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsCreatePartitionEx_Vtbl {
     pub const fn new<Identity: IVdsCreatePartitionEx_Impl, const OFFSET: isize>() -> Self {
@@ -890,7 +890,7 @@ impl IVdsCreatePartitionEx_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -904,28 +904,28 @@ impl windows_core::RuntimeName for IVdsCreatePartitionEx {}
 windows_core::imp::define_interface!(IVdsDisk, IVdsDisk_Vtbl, 0x07e5c822_f00c_47a1_8fce_b244da56fd06);
 windows_core::imp::interface_hierarchy!(IVdsDisk, windows_core::IUnknown);
 impl IVdsDisk {
-    pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdiskproperties as _).ok() }
     }
-    pub unsafe fn GetPack(&self) -> windows_core::Result<IVdsPack> {
+    pub unsafe fn GetPack(&self) -> Result<IVdsPack, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> windows_core::Result<()> {
+    pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetIdentificationData)(windows_core::Interface::as_raw(self), pluninfo as _).ok() }
     }
-    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _).ok() }
     }
-    pub unsafe fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> windows_core::Result<()> {
+    pub unsafe fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ConvertStyle)(windows_core::Interface::as_raw(self), newstyle).ok() }
     }
-    pub unsafe fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
-    pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
 }
@@ -942,13 +942,13 @@ pub struct IVdsDisk_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsDisk_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> windows_core::Result<()>;
-    fn GetPack(&self) -> windows_core::Result<IVdsPack>;
-    fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> windows_core::Result<()>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()>;
-    fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()>;
+    fn GetProperties(&self, pdiskproperties: *mut VDS_DISK_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetPack(&self) -> Result<IVdsPack, windows_result::HRESULT>;
+    fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> Result<(), windows_result::HRESULT>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn ConvertStyle(&self, newstyle: VDS_PARTITION_STYLE) -> Result<(), windows_result::HRESULT>;
+    fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDisk_Vtbl {
     pub const fn new<Identity: IVdsDisk_Impl, const OFFSET: isize>() -> Self {
@@ -966,7 +966,7 @@ impl IVdsDisk_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1019,7 +1019,7 @@ impl windows_core::RuntimeName for IVdsDisk {}
 windows_core::imp::define_interface!(IVdsDisk2, IVdsDisk2_Vtbl, 0x40f73c8b_687d_4a13_8d96_3d7f2e683936);
 windows_core::imp::interface_hierarchy!(IVdsDisk2, windows_core::IUnknown);
 impl IVdsDisk2 {
-    pub unsafe fn SetSANMode(&self, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSANMode(&self, benable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSANMode)(windows_core::Interface::as_raw(self), benable.into()).ok() }
     }
 }
@@ -1030,7 +1030,7 @@ pub struct IVdsDisk2_Vtbl {
     pub SetSANMode: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVdsDisk2_Impl: windows_core::IUnknownImpl {
-    fn SetSANMode(&self, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSANMode(&self, benable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDisk2_Vtbl {
     pub const fn new<Identity: IVdsDisk2_Impl, const OFFSET: isize>() -> Self {
@@ -1050,10 +1050,10 @@ impl windows_core::RuntimeName for IVdsDisk2 {}
 windows_core::imp::define_interface!(IVdsDisk3, IVdsDisk3_Vtbl, 0x8f4b2f5d_ec15_4357_992f_473ef10975b9);
 windows_core::imp::interface_hierarchy!(IVdsDisk3, windows_core::IUnknown);
 impl IVdsDisk3 {
-    pub unsafe fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties2)(windows_core::Interface::as_raw(self), pdiskproperties as _).ok() }
     }
-    pub unsafe fn QueryFreeExtents(&self, ulalign: u32, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryFreeExtents(&self, ulalign: u32, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryFreeExtents)(windows_core::Interface::as_raw(self), ulalign, ppfreeextentarray as _, plnumberoffreeextents as _).ok() }
     }
 }
@@ -1065,8 +1065,8 @@ pub struct IVdsDisk3_Vtbl {
     pub QueryFreeExtents: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut VDS_DISK_FREE_EXTENT, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IVdsDisk3_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> windows_core::Result<()>;
-    fn QueryFreeExtents(&self, ulalign: u32, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut i32) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pdiskproperties: *mut VDS_DISK_PROP2) -> Result<(), windows_result::HRESULT>;
+    fn QueryFreeExtents(&self, ulalign: u32, ppfreeextentarray: *mut *mut VDS_DISK_FREE_EXTENT, plnumberoffreeextents: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDisk3_Vtbl {
     pub const fn new<Identity: IVdsDisk3_Impl, const OFFSET: isize>() -> Self {
@@ -1096,10 +1096,10 @@ impl windows_core::RuntimeName for IVdsDisk3 {}
 windows_core::imp::define_interface!(IVdsDiskOnline, IVdsDiskOnline_Vtbl, 0x90681b1d_6a7f_48e8_9061_31b7aa125322);
 windows_core::imp::interface_hierarchy!(IVdsDiskOnline, windows_core::IUnknown);
 impl IVdsDiskOnline {
-    pub unsafe fn Online(&self) -> windows_core::Result<()> {
+    pub unsafe fn Online(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Offline(&self) -> windows_core::Result<()> {
+    pub unsafe fn Offline(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Offline)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1111,8 +1111,8 @@ pub struct IVdsDiskOnline_Vtbl {
     pub Offline: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsDiskOnline_Impl: windows_core::IUnknownImpl {
-    fn Online(&self) -> windows_core::Result<()>;
-    fn Offline(&self) -> windows_core::Result<()>;
+    fn Online(&self) -> Result<(), windows_result::HRESULT>;
+    fn Offline(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDiskOnline_Vtbl {
     pub const fn new<Identity: IVdsDiskOnline_Impl, const OFFSET: isize>() -> Self {
@@ -1138,19 +1138,19 @@ impl windows_core::RuntimeName for IVdsDiskOnline {}
 windows_core::imp::define_interface!(IVdsDiskPartitionMF, IVdsDiskPartitionMF_Vtbl, 0x538684e0_ba3d_4bc0_aca9_164aff85c2a9);
 windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF, windows_core::IUnknown);
 impl IVdsDiskPartitionMF {
-    pub unsafe fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPartitionFileSystemProperties)(windows_core::Interface::as_raw(self), ulloffset, pfilesystemprop as _).ok() }
     }
-    pub unsafe fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPartitionFileSystemTypeName)(windows_core::Interface::as_raw(self), ulloffset, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryPartitionFileSystemFormatSupport)(windows_core::Interface::as_raw(self), ulloffset, ppfilesystemsupportprops as _, plnumberoffilesystems as _).ok() }
     }
-    pub unsafe fn FormatPartitionEx<P1, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatPartitionEx<P1, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, bforce: bool, bquickformat: bool, benablecompression: bool) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
@@ -1171,10 +1171,10 @@ pub struct IVdsDiskPartitionMF_Vtbl {
     pub FormatPartitionEx: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsDiskPartitionMF_Impl: windows_core::IUnknownImpl {
-    fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> windows_core::Result<windows_core::PWSTR>;
-    fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()>;
-    fn FormatPartitionEx(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn GetPartitionFileSystemProperties(&self, ulloffset: u64, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetPartitionFileSystemTypeName(&self, ulloffset: u64) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn QueryPartitionFileSystemFormatSupport(&self, ulloffset: u64, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn FormatPartitionEx(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsDiskPartitionMF_Vtbl {
     pub const fn new<Identity: IVdsDiskPartitionMF_Impl, const OFFSET: isize>() -> Self {
@@ -1192,7 +1192,7 @@ impl IVdsDiskPartitionMF_Vtbl {
                         ppwszfilesystemtypename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1210,7 +1210,7 @@ impl IVdsDiskPartitionMF_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1230,7 +1230,7 @@ impl windows_core::RuntimeName for IVdsDiskPartitionMF {}
 windows_core::imp::define_interface!(IVdsDiskPartitionMF2, IVdsDiskPartitionMF2_Vtbl, 0x9cbe50ca_f2d2_4bf4_ace1_96896b729625);
 windows_core::imp::interface_hierarchy!(IVdsDiskPartitionMF2, windows_core::IUnknown);
 impl IVdsDiskPartitionMF2 {
-    pub unsafe fn FormatPartitionEx2<P1, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, options: u32) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatPartitionEx2<P1, P4>(&self, ulloffset: u64, pwszfilesystemtypename: P1, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P4, options: u32) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P4: windows_core::Param<windows_core::PCWSTR>,
@@ -1248,7 +1248,7 @@ pub struct IVdsDiskPartitionMF2_Vtbl {
     pub FormatPartitionEx2: unsafe extern "system" fn(*mut core::ffi::c_void, u64, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsDiskPartitionMF2_Impl: windows_core::IUnknownImpl {
-    fn FormatPartitionEx2(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, options: u32) -> windows_core::Result<IVdsAsync>;
+    fn FormatPartitionEx2(&self, ulloffset: u64, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, options: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsDiskPartitionMF2_Vtbl {
     pub const fn new<Identity: IVdsDiskPartitionMF2_Impl, const OFFSET: isize>() -> Self {
@@ -1260,7 +1260,7 @@ impl IVdsDiskPartitionMF2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1274,25 +1274,25 @@ impl windows_core::RuntimeName for IVdsDiskPartitionMF2 {}
 windows_core::imp::define_interface!(IVdsDrive, IVdsDrive_Vtbl, 0xff24efa4_aade_4b6b_898b_eaa6a20887c7);
 windows_core::imp::interface_hierarchy!(IVdsDrive, windows_core::IUnknown);
 impl IVdsDrive {
-    pub unsafe fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdriveprop as _).ok() }
     }
-    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+    pub unsafe fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _).ok() }
     }
-    pub unsafe fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
-    pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
 }
@@ -1308,12 +1308,12 @@ pub struct IVdsDrive_Vtbl {
     pub SetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_DRIVE_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsDrive_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> windows_core::Result<()>;
+    fn GetProperties(&self, pdriveprop: *mut VDS_DRIVE_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_DRIVE_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDrive_Vtbl {
     pub const fn new<Identity: IVdsDrive_Impl, const OFFSET: isize>() -> Self {
@@ -1331,7 +1331,7 @@ impl IVdsDrive_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1377,7 +1377,7 @@ impl windows_core::RuntimeName for IVdsDrive {}
 windows_core::imp::define_interface!(IVdsDrive2, IVdsDrive2_Vtbl, 0x60b5a730_addf_4436_8ca7_5769e2d1ffa4);
 windows_core::imp::interface_hierarchy!(IVdsDrive2, windows_core::IUnknown);
 impl IVdsDrive2 {
-    pub unsafe fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties2)(windows_core::Interface::as_raw(self), pdriveprop2 as _).ok() }
     }
 }
@@ -1388,7 +1388,7 @@ pub struct IVdsDrive2_Vtbl {
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_DRIVE_PROP2) -> windows_core::HRESULT,
 }
 pub trait IVdsDrive2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pdriveprop2: *mut VDS_DRIVE_PROP2) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsDrive2_Vtbl {
     pub const fn new<Identity: IVdsDrive2_Impl, const OFFSET: isize>() -> Self {
@@ -1408,10 +1408,10 @@ impl windows_core::RuntimeName for IVdsDrive2 {}
 windows_core::imp::define_interface!(IVdsHbaPort, IVdsHbaPort_Vtbl, 0x2abd757f_2851_4997_9a13_47d2a885d6ca);
 windows_core::imp::interface_hierarchy!(IVdsHbaPort, windows_core::IUnknown);
 impl IVdsHbaPort {
-    pub unsafe fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), phbaportprop as _).ok() }
     }
-    pub unsafe fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllPathStatuses)(windows_core::Interface::as_raw(self), status).ok() }
     }
 }
@@ -1423,8 +1423,8 @@ pub struct IVdsHbaPort_Vtbl {
     pub SetAllPathStatuses: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_PATH_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsHbaPort_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> windows_core::Result<()>;
-    fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> windows_core::Result<()>;
+    fn GetProperties(&self, phbaportprop: *mut VDS_HBAPORT_PROP) -> Result<(), windows_result::HRESULT>;
+    fn SetAllPathStatuses(&self, status: VDS_PATH_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsHbaPort_Vtbl {
     pub const fn new<Identity: IVdsHbaPort_Impl, const OFFSET: isize>() -> Self {
@@ -1454,16 +1454,16 @@ impl windows_core::RuntimeName for IVdsHbaPort {}
 windows_core::imp::define_interface!(IVdsHwProvider, IVdsHwProvider_Vtbl, 0xd99bdaae_b13a_4178_9fdb_e27f16b4603e);
 windows_core::imp::interface_hierarchy!(IVdsHwProvider, windows_core::IUnknown);
 impl IVdsHwProvider {
-    pub unsafe fn QuerySubSystems(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QuerySubSystems(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuerySubSystems)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Reenumerate(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reenumerate(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1476,9 +1476,9 @@ pub struct IVdsHwProvider_Vtbl {
     pub Refresh: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProvider_Impl: windows_core::IUnknownImpl {
-    fn QuerySubSystems(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
+    fn QuerySubSystems(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn Reenumerate(&self) -> Result<(), windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsHwProvider_Vtbl {
     pub const fn new<Identity: IVdsHwProvider_Impl, const OFFSET: isize>() -> Self {
@@ -1490,7 +1490,7 @@ impl IVdsHwProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1521,7 +1521,7 @@ impl windows_core::RuntimeName for IVdsHwProvider {}
 windows_core::imp::define_interface!(IVdsHwProviderPrivate, IVdsHwProviderPrivate_Vtbl, 0x98f17bf3_9f33_4f12_8714_8b4075092c2e);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivate, windows_core::IUnknown);
 impl IVdsHwProviderPrivate {
-    pub unsafe fn QueryIfCreatedLun<P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID>
+    pub unsafe fn QueryIfCreatedLun<P0>(&self, pwszdevicepath: P0, pvdsluninformation: *const VDS_LUN_INFORMATION) -> Result<windows_core::GUID, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1538,7 +1538,7 @@ pub struct IVdsHwProviderPrivate_Vtbl {
     pub QueryIfCreatedLun: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *const VDS_LUN_INFORMATION, *mut windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderPrivate_Impl: windows_core::IUnknownImpl {
-    fn QueryIfCreatedLun(&self, pwszdevicepath: &windows_core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID>;
+    fn QueryIfCreatedLun(&self, pwszdevicepath: &windows_core::PCWSTR, pvdsluninformation: *const VDS_LUN_INFORMATION) -> Result<windows_core::GUID, windows_result::HRESULT>;
 }
 impl IVdsHwProviderPrivate_Vtbl {
     pub const fn new<Identity: IVdsHwProviderPrivate_Impl, const OFFSET: isize>() -> Self {
@@ -1550,7 +1550,7 @@ impl IVdsHwProviderPrivate_Vtbl {
                         plunid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1564,7 +1564,7 @@ impl windows_core::RuntimeName for IVdsHwProviderPrivate {}
 windows_core::imp::define_interface!(IVdsHwProviderPrivateMpio, IVdsHwProviderPrivateMpio_Vtbl, 0x310a7715_ac2b_4c6f_9827_3d742f351676);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderPrivateMpio, windows_core::IUnknown);
 impl IVdsHwProviderPrivateMpio {
-    pub unsafe fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllPathStatusesFromHbaPort)(windows_core::Interface::as_raw(self), core::mem::transmute(hbaportprop), status).ok() }
     }
 }
@@ -1575,7 +1575,7 @@ pub struct IVdsHwProviderPrivateMpio_Vtbl {
     pub SetAllPathStatusesFromHbaPort: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_HBAPORT_PROP, VDS_PATH_STATUS) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderPrivateMpio_Impl: windows_core::IUnknownImpl {
-    fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> windows_core::Result<()>;
+    fn SetAllPathStatusesFromHbaPort(&self, hbaportprop: &VDS_HBAPORT_PROP, status: VDS_PATH_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsHwProviderPrivateMpio_Vtbl {
     pub const fn new<Identity: IVdsHwProviderPrivateMpio_Impl, const OFFSET: isize>() -> Self {
@@ -1595,13 +1595,13 @@ impl windows_core::RuntimeName for IVdsHwProviderPrivateMpio {}
 windows_core::imp::define_interface!(IVdsHwProviderStoragePools, IVdsHwProviderStoragePools_Vtbl, 0xd5b5937a_f188_4c79_b86c_11c920ad11b8);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderStoragePools, windows_core::IUnknown);
 impl IVdsHwProviderStoragePools {
-    pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryStoragePools)(windows_core::Interface::as_raw(self), ulflags, ullremainingfreespace, ppoolattributes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateLunInStoragePool<P3>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: windows_core::GUID, pwszunmaskinglist: P3, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLunInStoragePool<P3>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: windows_core::GUID, pwszunmaskinglist: P3, phints2: *const VDS_HINTS2) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1610,7 +1610,7 @@ impl IVdsHwProviderStoragePools {
             (windows_core::Interface::vtable(self).CreateLunInStoragePool)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(storagepoolid), pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: windows_core::GUID, phints2: *const VDS_HINTS2) -> windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: windows_core::GUID, phints2: *const VDS_HINTS2) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaxLunCreateSizeInStoragePool)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(storagepoolid), phints2, &mut result__).map(|| result__)
@@ -1626,9 +1626,9 @@ pub struct IVdsHwProviderStoragePools_Vtbl {
     pub QueryMaxLunCreateSizeInStoragePool: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, windows_core::GUID, *const VDS_HINTS2, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderStoragePools_Impl: windows_core::IUnknownImpl {
-    fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &windows_core::GUID, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &windows_core::GUID, phints2: *const VDS_HINTS2) -> windows_core::Result<u64>;
+    fn QueryStoragePools(&self, ulflags: u32, ullremainingfreespace: u64, ppoolattributes: *const VDS_POOL_ATTRIBUTES) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreateLunInStoragePool(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, storagepoolid: &windows_core::GUID, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn QueryMaxLunCreateSizeInStoragePool(&self, r#type: VDS_LUN_TYPE, storagepoolid: &windows_core::GUID, phints2: *const VDS_HINTS2) -> Result<u64, windows_result::HRESULT>;
 }
 impl IVdsHwProviderStoragePools_Vtbl {
     pub const fn new<Identity: IVdsHwProviderStoragePools_Impl, const OFFSET: isize>() -> Self {
@@ -1640,7 +1640,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1652,7 +1652,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1664,7 +1664,7 @@ impl IVdsHwProviderStoragePools_Vtbl {
                         pullmaxlunsize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1683,7 +1683,7 @@ impl windows_core::RuntimeName for IVdsHwProviderStoragePools {}
 windows_core::imp::define_interface!(IVdsHwProviderType, IVdsHwProviderType_Vtbl, 0x3e0f5166_542d_4fc6_947a_012174240b7e);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderType, windows_core::IUnknown);
 impl IVdsHwProviderType {
-    pub unsafe fn GetProviderType(&self) -> windows_core::Result<VDS_HWPROVIDER_TYPE> {
+    pub unsafe fn GetProviderType(&self) -> Result<VDS_HWPROVIDER_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProviderType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1697,7 +1697,7 @@ pub struct IVdsHwProviderType_Vtbl {
     pub GetProviderType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderType_Impl: windows_core::IUnknownImpl {
-    fn GetProviderType(&self) -> windows_core::Result<VDS_HWPROVIDER_TYPE>;
+    fn GetProviderType(&self) -> Result<VDS_HWPROVIDER_TYPE, windows_result::HRESULT>;
 }
 impl IVdsHwProviderType_Vtbl {
     pub const fn new<Identity: IVdsHwProviderType_Impl, const OFFSET: isize>() -> Self {
@@ -1709,7 +1709,7 @@ impl IVdsHwProviderType_Vtbl {
                         ptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1723,7 +1723,7 @@ impl windows_core::RuntimeName for IVdsHwProviderType {}
 windows_core::imp::define_interface!(IVdsHwProviderType2, IVdsHwProviderType2_Vtbl, 0x8190236f_c4d0_4e81_8011_d69512fcc984);
 windows_core::imp::interface_hierarchy!(IVdsHwProviderType2, windows_core::IUnknown);
 impl IVdsHwProviderType2 {
-    pub unsafe fn GetProviderType2(&self) -> windows_core::Result<VDS_HWPROVIDER_TYPE> {
+    pub unsafe fn GetProviderType2(&self) -> Result<VDS_HWPROVIDER_TYPE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProviderType2)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1737,7 +1737,7 @@ pub struct IVdsHwProviderType2_Vtbl {
     pub GetProviderType2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_HWPROVIDER_TYPE) -> windows_core::HRESULT,
 }
 pub trait IVdsHwProviderType2_Impl: windows_core::IUnknownImpl {
-    fn GetProviderType2(&self) -> windows_core::Result<VDS_HWPROVIDER_TYPE>;
+    fn GetProviderType2(&self) -> Result<VDS_HWPROVIDER_TYPE, windows_result::HRESULT>;
 }
 impl IVdsHwProviderType2_Vtbl {
     pub const fn new<Identity: IVdsHwProviderType2_Impl, const OFFSET: isize>() -> Self {
@@ -1749,7 +1749,7 @@ impl IVdsHwProviderType2_Vtbl {
                         ptype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1763,22 +1763,22 @@ impl windows_core::RuntimeName for IVdsHwProviderType2 {}
 windows_core::imp::define_interface!(IVdsIscsiInitiatorAdapter, IVdsIscsiInitiatorAdapter_Vtbl, 0xb07fedd4_1682_4440_9189_a39b55194dc5);
 windows_core::imp::interface_hierarchy!(IVdsIscsiInitiatorAdapter, windows_core::IUnknown);
 impl IVdsIscsiInitiatorAdapter {
-    pub unsafe fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pinitiatoradapterprop as _).ok() }
     }
-    pub unsafe fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryInitiatorPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryInitiatorPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: windows_core::GUID, targetportalid: windows_core::GUID, initiatorportalid: windows_core::GUID, ulloginflags: u32, bheaderdigest: bool, bdatadigest: bool, authtype: VDS_ISCSI_AUTH_TYPE) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LoginToTarget)(windows_core::Interface::as_raw(self), logintype, core::mem::transmute(targetid), core::mem::transmute(targetportalid), core::mem::transmute(initiatorportalid), ulloginflags, bheaderdigest.into(), bdatadigest.into(), authtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LogoutFromTarget(&self, targetid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn LogoutFromTarget(&self, targetid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogoutFromTarget)(windows_core::Interface::as_raw(self), core::mem::transmute(targetid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1795,10 +1795,10 @@ pub struct IVdsIscsiInitiatorAdapter_Vtbl {
     pub LogoutFromTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiInitiatorAdapter_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> windows_core::Result<()>;
-    fn QueryInitiatorPortals(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &windows_core::GUID, targetportalid: &windows_core::GUID, initiatorportalid: &windows_core::GUID, ulloginflags: u32, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> windows_core::Result<IVdsAsync>;
-    fn LogoutFromTarget(&self, targetid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
+    fn GetProperties(&self, pinitiatoradapterprop: *mut VDS_ISCSI_INITIATOR_ADAPTER_PROP) -> Result<(), windows_result::HRESULT>;
+    fn QueryInitiatorPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn LoginToTarget(&self, logintype: VDS_ISCSI_LOGIN_TYPE, targetid: &windows_core::GUID, targetportalid: &windows_core::GUID, initiatorportalid: &windows_core::GUID, ulloginflags: u32, bheaderdigest: windows_core::BOOL, bdatadigest: windows_core::BOOL, authtype: VDS_ISCSI_AUTH_TYPE) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn LogoutFromTarget(&self, targetid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsIscsiInitiatorAdapter_Vtbl {
     pub const fn new<Identity: IVdsIscsiInitiatorAdapter_Impl, const OFFSET: isize>() -> Self {
@@ -1816,7 +1816,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1828,7 +1828,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1840,7 +1840,7 @@ impl IVdsIscsiInitiatorAdapter_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1860,25 +1860,25 @@ impl windows_core::RuntimeName for IVdsIscsiInitiatorAdapter {}
 windows_core::imp::define_interface!(IVdsIscsiInitiatorPortal, IVdsIscsiInitiatorPortal_Vtbl, 0x38a0a9ab_7cc8_4693_ac07_1f28bd03c3da);
 windows_core::imp::interface_hierarchy!(IVdsIscsiInitiatorPortal, windows_core::IUnknown);
 impl IVdsIscsiInitiatorPortal {
-    pub unsafe fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pinitiatorportalprop as _).ok() }
     }
-    pub unsafe fn GetInitiatorAdapter(&self) -> windows_core::Result<IVdsIscsiInitiatorAdapter> {
+    pub unsafe fn GetInitiatorAdapter(&self) -> Result<IVdsIscsiInitiatorAdapter, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInitiatorAdapter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecTunnelAddress)(windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress).ok() }
     }
-    pub unsafe fn GetIpsecSecurity(&self, targetportalid: windows_core::GUID) -> windows_core::Result<u64> {
+    pub unsafe fn GetIpsecSecurity(&self, targetportalid: windows_core::GUID) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIpsecSecurity(&self, targetportalid: windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecSecurity(&self, targetportalid: windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), ullsecurityflags, pipseckey).ok() }
     }
 }
@@ -1893,11 +1893,11 @@ pub struct IVdsIscsiInitiatorPortal_Vtbl {
     pub SetIpsecSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiInitiatorPortal_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> windows_core::Result<()>;
-    fn GetInitiatorAdapter(&self) -> windows_core::Result<IVdsIscsiInitiatorAdapter>;
-    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn GetIpsecSecurity(&self, targetportalid: &windows_core::GUID) -> windows_core::Result<u64>;
-    fn SetIpsecSecurity(&self, targetportalid: &windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn GetProperties(&self, pinitiatorportalprop: *mut VDS_ISCSI_INITIATOR_PORTAL_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetInitiatorAdapter(&self) -> Result<IVdsIscsiInitiatorAdapter, windows_result::HRESULT>;
+    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT>;
+    fn GetIpsecSecurity(&self, targetportalid: &windows_core::GUID) -> Result<u64, windows_result::HRESULT>;
+    fn SetIpsecSecurity(&self, targetportalid: &windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsIscsiInitiatorPortal_Vtbl {
     pub const fn new<Identity: IVdsIscsiInitiatorPortal_Impl, const OFFSET: isize>() -> Self {
@@ -1915,7 +1915,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
                         ppinitiatoradapter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1933,7 +1933,7 @@ impl IVdsIscsiInitiatorPortal_Vtbl {
                         pullsecurityflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1960,34 +1960,34 @@ impl windows_core::RuntimeName for IVdsIscsiInitiatorPortal {}
 windows_core::imp::define_interface!(IVdsIscsiPortal, IVdsIscsiPortal_Vtbl, 0x7fa1499d_ec85_4a8a_a47b_ff69201fcd34);
 windows_core::imp::interface_hierarchy!(IVdsIscsiPortal, windows_core::IUnknown);
 impl IVdsIscsiPortal {
-    pub unsafe fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportalprop as _).ok() }
     }
-    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+    pub unsafe fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryAssociatedPortalGroups(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedPortalGroups(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedPortalGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecTunnelAddress)(windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress).ok() }
     }
-    pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> windows_core::Result<u64> {
+    pub unsafe fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIpsecSecurity)(windows_core::Interface::as_raw(self), pinitiatorportaladdress, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecSecurity)(windows_core::Interface::as_raw(self), pinitiatorportaladdress, ullsecurityflags, pipseckey).ok() }
     }
 }
@@ -2004,13 +2004,13 @@ pub struct IVdsIscsiPortal_Vtbl {
     pub SetIpsecSecurity: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_IPADDRESS, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiPortal_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn QueryAssociatedPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> windows_core::Result<()>;
-    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> windows_core::Result<u64>;
-    fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn GetProperties(&self, pportalprop: *mut VDS_ISCSI_PORTAL_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT>;
+    fn QueryAssociatedPortalGroups(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_ISCSI_PORTAL_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn SetIpsecTunnelAddress(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT>;
+    fn GetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS) -> Result<u64, windows_result::HRESULT>;
+    fn SetIpsecSecurity(&self, pinitiatorportaladdress: *const VDS_IPADDRESS, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsIscsiPortal_Vtbl {
     pub const fn new<Identity: IVdsIscsiPortal_Impl, const OFFSET: isize>() -> Self {
@@ -2028,7 +2028,7 @@ impl IVdsIscsiPortal_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2040,7 +2040,7 @@ impl IVdsIscsiPortal_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2064,7 +2064,7 @@ impl IVdsIscsiPortal_Vtbl {
                         pullsecurityflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2093,34 +2093,34 @@ impl windows_core::RuntimeName for IVdsIscsiPortal {}
 windows_core::imp::define_interface!(IVdsIscsiPortalGroup, IVdsIscsiPortalGroup_Vtbl, 0xfef5f89d_a3dd_4b36_bf28_e7dde045c593);
 windows_core::imp::interface_hierarchy!(IVdsIscsiPortalGroup, windows_core::IUnknown);
 impl IVdsIscsiPortalGroup {
-    pub unsafe fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pportalgroupprop as _).ok() }
     }
-    pub unsafe fn GetTarget(&self) -> windows_core::Result<IVdsIscsiTarget> {
+    pub unsafe fn GetTarget(&self) -> Result<IVdsIscsiTarget, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTarget)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryAssociatedPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddPortal(&self, portalid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn AddPortal(&self, portalid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddPortal)(windows_core::Interface::as_raw(self), core::mem::transmute(portalid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemovePortal(&self, portalid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn RemovePortal(&self, portalid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemovePortal)(windows_core::Interface::as_raw(self), core::mem::transmute(portalid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Delete(&self) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2139,12 +2139,12 @@ pub struct IVdsIscsiPortalGroup_Vtbl {
     pub Delete: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiPortalGroup_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> windows_core::Result<()>;
-    fn GetTarget(&self) -> windows_core::Result<IVdsIscsiTarget>;
-    fn QueryAssociatedPortals(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn AddPortal(&self, portalid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn RemovePortal(&self, portalid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn Delete(&self) -> windows_core::Result<IVdsAsync>;
+    fn GetProperties(&self, pportalgroupprop: *mut VDS_ISCSI_PORTALGROUP_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetTarget(&self) -> Result<IVdsIscsiTarget, windows_result::HRESULT>;
+    fn QueryAssociatedPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn AddPortal(&self, portalid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn RemovePortal(&self, portalid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsIscsiPortalGroup_Vtbl {
     pub const fn new<Identity: IVdsIscsiPortalGroup_Impl, const OFFSET: isize>() -> Self {
@@ -2162,7 +2162,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         pptarget.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2174,7 +2174,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2186,7 +2186,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2198,7 +2198,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2210,7 +2210,7 @@ impl IVdsIscsiPortalGroup_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2232,7 +2232,7 @@ impl windows_core::RuntimeName for IVdsIscsiPortalGroup {}
 windows_core::imp::define_interface!(IVdsIscsiPortalLocal, IVdsIscsiPortalLocal_Vtbl, 0xad837c28_52c1_421d_bf04_fae7da665396);
 windows_core::imp::interface_hierarchy!(IVdsIscsiPortalLocal, windows_core::IUnknown);
 impl IVdsIscsiPortalLocal {
-    pub unsafe fn SetIpsecSecurityLocal(&self, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecSecurityLocal(&self, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecSecurityLocal)(windows_core::Interface::as_raw(self), ullsecurityflags, pipseckey).ok() }
     }
 }
@@ -2243,7 +2243,7 @@ pub struct IVdsIscsiPortalLocal_Vtbl {
     pub SetIpsecSecurityLocal: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiPortalLocal_Impl: windows_core::IUnknownImpl {
-    fn SetIpsecSecurityLocal(&self, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn SetIpsecSecurityLocal(&self, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsIscsiPortalLocal_Vtbl {
     pub const fn new<Identity: IVdsIscsiPortalLocal_Impl, const OFFSET: isize>() -> Self {
@@ -2263,58 +2263,58 @@ impl windows_core::RuntimeName for IVdsIscsiPortalLocal {}
 windows_core::imp::define_interface!(IVdsIscsiTarget, IVdsIscsiTarget_Vtbl, 0xaa8f5055_83e5_4bcc_aa73_19851a36a849);
 windows_core::imp::interface_hierarchy!(IVdsIscsiTarget, windows_core::IUnknown);
 impl IVdsIscsiTarget {
-    pub unsafe fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), ptargetprop as _).ok() }
     }
-    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+    pub unsafe fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryPortalGroups(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryPortalGroups(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryPortalGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreatePortalGroup(&self) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreatePortalGroup(&self) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePortalGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Delete(&self) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetFriendlyName)(windows_core::Interface::as_raw(self), pwszfriendlyname.param().abi()).ok() }
     }
-    pub unsafe fn SetSharedSecret<P1>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: P1) -> windows_core::Result<()>
+    pub unsafe fn SetSharedSecret<P1>(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSharedSecret)(windows_core::Interface::as_raw(self), ptargetsharedsecret, pwszinitiatorname.param().abi()).ok() }
     }
-    pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>
+    pub unsafe fn RememberInitiatorSharedSecret<P0>(&self, pwszinitiatorname: P0, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).RememberInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pwszinitiatorname.param().abi(), pinitiatorsharedsecret).ok() }
     }
-    pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetConnectedInitiators)(windows_core::Interface::as_raw(self), pppwszinitiatorlist as _, plnumberofinitiators as _).ok() }
     }
 }
@@ -2334,16 +2334,16 @@ pub struct IVdsIscsiTarget_Vtbl {
     pub GetConnectedInitiators: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut windows_core::PWSTR, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IVdsIscsiTarget_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn QueryPortalGroups(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryAssociatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreatePortalGroup(&self) -> windows_core::Result<IVdsAsync>;
-    fn Delete(&self) -> windows_core::Result<IVdsAsync>;
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>;
-    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut i32) -> windows_core::Result<()>;
+    fn GetProperties(&self, ptargetprop: *mut VDS_ISCSI_TARGET_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT>;
+    fn QueryPortalGroups(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryAssociatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreatePortalGroup(&self) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetSharedSecret(&self, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET, pwszinitiatorname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn RememberInitiatorSharedSecret(&self, pwszinitiatorname: &windows_core::PCWSTR, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> Result<(), windows_result::HRESULT>;
+    fn GetConnectedInitiators(&self, pppwszinitiatorlist: *mut *mut windows_core::PWSTR, plnumberofinitiators: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsIscsiTarget_Vtbl {
     pub const fn new<Identity: IVdsIscsiTarget_Impl, const OFFSET: isize>() -> Self {
@@ -2361,7 +2361,7 @@ impl IVdsIscsiTarget_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2373,7 +2373,7 @@ impl IVdsIscsiTarget_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2385,7 +2385,7 @@ impl IVdsIscsiTarget_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2397,7 +2397,7 @@ impl IVdsIscsiTarget_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2409,7 +2409,7 @@ impl IVdsIscsiTarget_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2459,82 +2459,82 @@ impl windows_core::RuntimeName for IVdsIscsiTarget {}
 windows_core::imp::define_interface!(IVdsLun, IVdsLun_Vtbl, 0x3540a9c7_e60f_4111_a840_8bba6c2c83d8);
 windows_core::imp::interface_hierarchy!(IVdsLun, windows_core::IUnknown);
 impl IVdsLun {
-    pub unsafe fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), plunprop as _).ok() }
     }
-    pub unsafe fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem> {
+    pub unsafe fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSubSystem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> windows_core::Result<()> {
+    pub unsafe fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetIdentificationData)(windows_core::Interface::as_raw(self), pluninfo as _).ok() }
     }
-    pub unsafe fn QueryActiveControllers(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryActiveControllers(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryActiveControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: &[windows_core::GUID]) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: &[windows_core::GUID]) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), ullnumberofbytestoadd, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryPlexes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddPlex(&self, lunid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn AddPlex(&self, lunid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(lunid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemovePlex(&self, plexid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn RemovePlex(&self, plexid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Recover(&self) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMask<P0>(&self, pwszunmaskinglist: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMask)(windows_core::Interface::as_raw(self), pwszunmaskinglist.param().abi()).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[windows_core::GUID], pinactivecontrolleridarray: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn AssociateControllers(&self, pactivecontrolleridarray: &[windows_core::GUID], pinactivecontrolleridarray: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AssociateControllers)(windows_core::Interface::as_raw(self), core::mem::transmute(pactivecontrolleridarray.as_ptr()), pactivecontrolleridarray.len().try_into().unwrap(), core::mem::transmute(pinactivecontrolleridarray.as_ptr()), pinactivecontrolleridarray.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()> {
+    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryHints)(windows_core::Interface::as_raw(self), phints as _).ok() }
     }
-    pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()> {
+    pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ApplyHints)(windows_core::Interface::as_raw(self), phints).ok() }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_LUN_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[windows_core::GUID]) -> windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunExtendSize(&self, pdriveidarray: &[windows_core::GUID]) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaxLunExtendSize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), &mut result__).map(|| result__)
@@ -2564,23 +2564,23 @@ pub struct IVdsLun_Vtbl {
     pub QueryMaxLunExtendSize: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, i32, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IVdsLun_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> windows_core::Result<()>;
-    fn GetSubSystem(&self) -> windows_core::Result<IVdsSubSystem>;
-    fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> windows_core::Result<()>;
-    fn QueryActiveControllers(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32) -> windows_core::Result<IVdsAsync>;
-    fn Shrink(&self, ullnumberofbytestoremove: u64) -> windows_core::Result<IVdsAsync>;
-    fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn AddPlex(&self, lunid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn RemovePlex(&self, plexid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn Recover(&self) -> windows_core::Result<IVdsAsync>;
-    fn SetMask(&self, pwszunmaskinglist: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn AssociateControllers(&self, pactivecontrolleridarray: *const windows_core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const windows_core::GUID, lnumberofinactivecontrollers: i32) -> windows_core::Result<()>;
-    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()>;
-    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_LUN_STATUS) -> windows_core::Result<()>;
-    fn QueryMaxLunExtendSize(&self, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32) -> windows_core::Result<u64>;
+    fn GetProperties(&self, plunprop: *mut VDS_LUN_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetSubSystem(&self) -> Result<IVdsSubSystem, windows_result::HRESULT>;
+    fn GetIdentificationData(&self, pluninfo: *mut VDS_LUN_INFORMATION) -> Result<(), windows_result::HRESULT>;
+    fn QueryActiveControllers(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn Extend(&self, ullnumberofbytestoadd: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Shrink(&self, ullnumberofbytestoremove: u64) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn QueryPlexes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn AddPlex(&self, lunid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn RemovePlex(&self, plexid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Recover(&self) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn SetMask(&self, pwszunmaskinglist: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn AssociateControllers(&self, pactivecontrolleridarray: *const windows_core::GUID, lnumberofactivecontrollers: i32, pinactivecontrolleridarray: *const windows_core::GUID, lnumberofinactivecontrollers: i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> Result<(), windows_result::HRESULT>;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> Result<(), windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_LUN_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn QueryMaxLunExtendSize(&self, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32) -> Result<u64, windows_result::HRESULT>;
 }
 impl IVdsLun_Vtbl {
     pub const fn new<Identity: IVdsLun_Impl, const OFFSET: isize>() -> Self {
@@ -2598,7 +2598,7 @@ impl IVdsLun_Vtbl {
                         ppsubsystem.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2616,7 +2616,7 @@ impl IVdsLun_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2628,7 +2628,7 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2640,7 +2640,7 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2652,7 +2652,7 @@ impl IVdsLun_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2664,7 +2664,7 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2676,7 +2676,7 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2688,7 +2688,7 @@ impl IVdsLun_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2736,7 +2736,7 @@ impl IVdsLun_Vtbl {
                         pullmaxbytestobeadded.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2769,10 +2769,10 @@ impl windows_core::RuntimeName for IVdsLun {}
 windows_core::imp::define_interface!(IVdsLun2, IVdsLun2_Vtbl, 0xe5b3a735_9efb_499a_8071_4394d9ee6fcb);
 windows_core::imp::interface_hierarchy!(IVdsLun2, windows_core::IUnknown);
 impl IVdsLun2 {
-    pub unsafe fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> windows_core::Result<()> {
+    pub unsafe fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryHints2)(windows_core::Interface::as_raw(self), phints2 as _).ok() }
     }
-    pub unsafe fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> windows_core::Result<()> {
+    pub unsafe fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ApplyHints2)(windows_core::Interface::as_raw(self), phints2).ok() }
     }
 }
@@ -2784,8 +2784,8 @@ pub struct IVdsLun2_Vtbl {
     pub ApplyHints2: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_HINTS2) -> windows_core::HRESULT,
 }
 pub trait IVdsLun2_Impl: windows_core::IUnknownImpl {
-    fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> windows_core::Result<()>;
-    fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> windows_core::Result<()>;
+    fn QueryHints2(&self, phints2: *mut VDS_HINTS2) -> Result<(), windows_result::HRESULT>;
+    fn ApplyHints2(&self, phints2: *const VDS_HINTS2) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsLun2_Vtbl {
     pub const fn new<Identity: IVdsLun2_Impl, const OFFSET: isize>() -> Self {
@@ -2815,10 +2815,10 @@ impl windows_core::RuntimeName for IVdsLun2 {}
 windows_core::imp::define_interface!(IVdsLunControllerPorts, IVdsLunControllerPorts_Vtbl, 0x451fe266_da6d_406a_bb60_82e534f85aeb);
 windows_core::imp::interface_hierarchy!(IVdsLunControllerPorts, windows_core::IUnknown);
 impl IVdsLunControllerPorts {
-    pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[windows_core::GUID], pinactivecontrollerportidarray: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn AssociateControllerPorts(&self, pactivecontrollerportidarray: &[windows_core::GUID], pinactivecontrollerportidarray: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AssociateControllerPorts)(windows_core::Interface::as_raw(self), core::mem::transmute(pactivecontrollerportidarray.as_ptr()), pactivecontrollerportidarray.len().try_into().unwrap(), core::mem::transmute(pinactivecontrollerportidarray.as_ptr()), pinactivecontrollerportidarray.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn QueryActiveControllerPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryActiveControllerPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryActiveControllerPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2833,8 +2833,8 @@ pub struct IVdsLunControllerPorts_Vtbl {
     pub QueryActiveControllerPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsLunControllerPorts_Impl: windows_core::IUnknownImpl {
-    fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const windows_core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const windows_core::GUID, lnumberofinactivecontrollerports: i32) -> windows_core::Result<()>;
-    fn QueryActiveControllerPorts(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn AssociateControllerPorts(&self, pactivecontrollerportidarray: *const windows_core::GUID, lnumberofactivecontrollerports: i32, pinactivecontrollerportidarray: *const windows_core::GUID, lnumberofinactivecontrollerports: i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryActiveControllerPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IVdsLunControllerPorts_Vtbl {
     pub const fn new<Identity: IVdsLunControllerPorts_Impl, const OFFSET: isize>() -> Self {
@@ -2852,7 +2852,7 @@ impl IVdsLunControllerPorts_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2870,10 +2870,10 @@ impl windows_core::RuntimeName for IVdsLunControllerPorts {}
 windows_core::imp::define_interface!(IVdsLunIscsi, IVdsLunIscsi_Vtbl, 0x0d7c1e64_b59b_45ae_b86a_2c2cc6a42067);
 windows_core::imp::interface_hierarchy!(IVdsLunIscsi, windows_core::IUnknown);
 impl IVdsLunIscsi {
-    pub unsafe fn AssociateTargets(&self, ptargetidarray: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn AssociateTargets(&self, ptargetidarray: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AssociateTargets)(windows_core::Interface::as_raw(self), core::mem::transmute(ptargetidarray.as_ptr()), ptargetidarray.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn QueryAssociatedTargets(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAssociatedTargets(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAssociatedTargets)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2888,8 +2888,8 @@ pub struct IVdsLunIscsi_Vtbl {
     pub QueryAssociatedTargets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsLunIscsi_Impl: windows_core::IUnknownImpl {
-    fn AssociateTargets(&self, ptargetidarray: *const windows_core::GUID, lnumberoftargets: i32) -> windows_core::Result<()>;
-    fn QueryAssociatedTargets(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn AssociateTargets(&self, ptargetidarray: *const windows_core::GUID, lnumberoftargets: i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryAssociatedTargets(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IVdsLunIscsi_Vtbl {
     pub const fn new<Identity: IVdsLunIscsi_Impl, const OFFSET: isize>() -> Self {
@@ -2907,7 +2907,7 @@ impl IVdsLunIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2925,16 +2925,16 @@ impl windows_core::RuntimeName for IVdsLunIscsi {}
 windows_core::imp::define_interface!(IVdsLunMpio, IVdsLunMpio_Vtbl, 0x7c5fbae3_333a_48a1_a982_33c15788cde3);
 windows_core::imp::interface_hierarchy!(IVdsLunMpio, windows_core::IUnknown);
 impl IVdsLunMpio {
-    pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPathInfo)(windows_core::Interface::as_raw(self), pppaths as _, plnumberofpaths as _).ok() }
     }
-    pub unsafe fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetLoadBalancePolicy)(windows_core::Interface::as_raw(self), ppolicy as _, pppaths as _, plnumberofpaths as _).ok() }
     }
-    pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> windows_core::Result<()> {
+    pub unsafe fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: &[VDS_PATH_POLICY]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLoadBalancePolicy)(windows_core::Interface::as_raw(self), policy, core::mem::transmute(ppaths.as_ptr()), ppaths.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetSupportedLbPolicies(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetSupportedLbPolicies(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedLbPolicies)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2951,10 +2951,10 @@ pub struct IVdsLunMpio_Vtbl {
     pub GetSupportedLbPolicies: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IVdsLunMpio_Impl: windows_core::IUnknownImpl {
-    fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> windows_core::Result<()>;
-    fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> windows_core::Result<()>;
-    fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: i32) -> windows_core::Result<()>;
-    fn GetSupportedLbPolicies(&self) -> windows_core::Result<u32>;
+    fn GetPathInfo(&self, pppaths: *mut *mut VDS_PATH_INFO, plnumberofpaths: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetLoadBalancePolicy(&self, ppolicy: *mut VDS_LOADBALANCE_POLICY_ENUM, pppaths: *mut *mut VDS_PATH_POLICY, plnumberofpaths: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn SetLoadBalancePolicy(&self, policy: VDS_LOADBALANCE_POLICY_ENUM, ppaths: *const VDS_PATH_POLICY, lnumberofpaths: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetSupportedLbPolicies(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IVdsLunMpio_Vtbl {
     pub const fn new<Identity: IVdsLunMpio_Impl, const OFFSET: isize>() -> Self {
@@ -2984,7 +2984,7 @@ impl IVdsLunMpio_Vtbl {
                         pullbflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3004,7 +3004,7 @@ impl windows_core::RuntimeName for IVdsLunMpio {}
 windows_core::imp::define_interface!(IVdsLunNaming, IVdsLunNaming_Vtbl, 0x907504cb_6b4e_4d88_a34d_17ba661fbb06);
 windows_core::imp::interface_hierarchy!(IVdsLunNaming, windows_core::IUnknown);
 impl IVdsLunNaming {
-    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3018,7 +3018,7 @@ pub struct IVdsLunNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsLunNaming_Impl: windows_core::IUnknownImpl {
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsLunNaming_Vtbl {
     pub const fn new<Identity: IVdsLunNaming_Impl, const OFFSET: isize>() -> Self {
@@ -3038,7 +3038,7 @@ impl windows_core::RuntimeName for IVdsLunNaming {}
 windows_core::imp::define_interface!(IVdsLunNumber, IVdsLunNumber_Vtbl, 0xd3f95e46_54b3_41f9_b678_0f1871443a08);
 windows_core::imp::interface_hierarchy!(IVdsLunNumber, windows_core::IUnknown);
 impl IVdsLunNumber {
-    pub unsafe fn GetLunNumber(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetLunNumber(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLunNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3052,7 +3052,7 @@ pub struct IVdsLunNumber_Vtbl {
     pub GetLunNumber: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IVdsLunNumber_Impl: windows_core::IUnknownImpl {
-    fn GetLunNumber(&self) -> windows_core::Result<u32>;
+    fn GetLunNumber(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IVdsLunNumber_Vtbl {
     pub const fn new<Identity: IVdsLunNumber_Impl, const OFFSET: isize>() -> Self {
@@ -3064,7 +3064,7 @@ impl IVdsLunNumber_Vtbl {
                         pullunnumber.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3078,22 +3078,22 @@ impl windows_core::RuntimeName for IVdsLunNumber {}
 windows_core::imp::define_interface!(IVdsLunPlex, IVdsLunPlex_Vtbl, 0x0ee1a790_5d2e_4abb_8c99_c481e8be2138);
 windows_core::imp::interface_hierarchy!(IVdsLunPlex, windows_core::IUnknown);
 impl IVdsLunPlex {
-    pub unsafe fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pplexprop as _).ok() }
     }
-    pub unsafe fn GetLun(&self) -> windows_core::Result<IVdsLun> {
+    pub unsafe fn GetLun(&self) -> Result<IVdsLun, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLun)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _).ok() }
     }
-    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()> {
+    pub unsafe fn QueryHints(&self, phints: *mut VDS_HINTS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryHints)(windows_core::Interface::as_raw(self), phints as _).ok() }
     }
-    pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()> {
+    pub unsafe fn ApplyHints(&self, phints: *const VDS_HINTS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ApplyHints)(windows_core::Interface::as_raw(self), phints).ok() }
     }
 }
@@ -3108,11 +3108,11 @@ pub struct IVdsLunPlex_Vtbl {
     pub ApplyHints: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_HINTS) -> windows_core::HRESULT,
 }
 pub trait IVdsLunPlex_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> windows_core::Result<()>;
-    fn GetLun(&self) -> windows_core::Result<IVdsLun>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()>;
-    fn QueryHints(&self, phints: *mut VDS_HINTS) -> windows_core::Result<()>;
-    fn ApplyHints(&self, phints: *const VDS_HINTS) -> windows_core::Result<()>;
+    fn GetProperties(&self, pplexprop: *mut VDS_LUN_PLEX_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetLun(&self) -> Result<IVdsLun, windows_result::HRESULT>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryHints(&self, phints: *mut VDS_HINTS) -> Result<(), windows_result::HRESULT>;
+    fn ApplyHints(&self, phints: *const VDS_HINTS) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsLunPlex_Vtbl {
     pub const fn new<Identity: IVdsLunPlex_Impl, const OFFSET: isize>() -> Self {
@@ -3130,7 +3130,7 @@ impl IVdsLunPlex_Vtbl {
                         pplun.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3169,13 +3169,13 @@ impl windows_core::RuntimeName for IVdsLunPlex {}
 windows_core::imp::define_interface!(IVdsMaintenance, IVdsMaintenance_Vtbl, 0xdaebeef3_8523_47ed_a2b9_05cecce2a1ae);
 windows_core::imp::interface_hierarchy!(IVdsMaintenance, windows_core::IUnknown);
 impl IVdsMaintenance {
-    pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()> {
+    pub unsafe fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StartMaintenance)(windows_core::Interface::as_raw(self), operation).ok() }
     }
-    pub unsafe fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()> {
+    pub unsafe fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).StopMaintenance)(windows_core::Interface::as_raw(self), operation).ok() }
     }
-    pub unsafe fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> windows_core::Result<()> {
+    pub unsafe fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).PulseMaintenance)(windows_core::Interface::as_raw(self), operation, ulcount).ok() }
     }
 }
@@ -3188,9 +3188,9 @@ pub struct IVdsMaintenance_Vtbl {
     pub PulseMaintenance: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_MAINTENANCE_OPERATION, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsMaintenance_Impl: windows_core::IUnknownImpl {
-    fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()>;
-    fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> windows_core::Result<()>;
-    fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> windows_core::Result<()>;
+    fn StartMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> Result<(), windows_result::HRESULT>;
+    fn StopMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION) -> Result<(), windows_result::HRESULT>;
+    fn PulseMaintenance(&self, operation: VDS_MAINTENANCE_OPERATION, ulcount: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsMaintenance_Vtbl {
     pub const fn new<Identity: IVdsMaintenance_Impl, const OFFSET: isize>() -> Self {
@@ -3228,7 +3228,7 @@ windows_core::imp::define_interface!(IVdsOpenVDisk, IVdsOpenVDisk_Vtbl, 0x75c8f3
 windows_core::imp::interface_hierarchy!(IVdsOpenVDisk, windows_core::IUnknown);
 impl IVdsOpenVDisk {
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn Attach<P0>(&self, pstringsecuritydescriptor: P0, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3238,29 +3238,29 @@ impl IVdsOpenVDisk {
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Detach)(windows_core::Interface::as_raw(self), flags, providerspecificflags).ok() }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DetachAndDelete)(windows_core::Interface::as_raw(self), flags, providerspecificflags).ok() }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Compact)(windows_core::Interface::as_raw(self), flags, reserved, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Merge)(windows_core::Interface::as_raw(self), flags, mergedepth, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Expand)(windows_core::Interface::as_raw(self), flags, newsize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3298,12 +3298,12 @@ pub struct IVdsOpenVDisk_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsOpenVDisk_Impl: windows_core::IUnknownImpl {
-    fn Attach(&self, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> windows_core::Result<IVdsAsync>;
-    fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> windows_core::Result<()>;
-    fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> windows_core::Result<()>;
-    fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> windows_core::Result<IVdsAsync>;
-    fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> windows_core::Result<IVdsAsync>;
-    fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> windows_core::Result<IVdsAsync>;
+    fn Attach(&self, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::ATTACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32, timeoutinms: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Detach(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn DetachAndDelete(&self, flags: super::Vhd::DETACH_VIRTUAL_DISK_FLAG, providerspecificflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn Compact(&self, flags: super::Vhd::COMPACT_VIRTUAL_DISK_FLAG, reserved: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Merge(&self, flags: super::Vhd::MERGE_VIRTUAL_DISK_FLAG, mergedepth: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Expand(&self, flags: super::Vhd::EXPAND_VIRTUAL_DISK_FLAG, newsize: u64) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl IVdsOpenVDisk_Vtbl {
@@ -3316,7 +3316,7 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3340,7 +3340,7 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3352,7 +3352,7 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3364,7 +3364,7 @@ impl IVdsOpenVDisk_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3387,49 +3387,49 @@ impl windows_core::RuntimeName for IVdsOpenVDisk {}
 windows_core::imp::define_interface!(IVdsPack, IVdsPack_Vtbl, 0x3b69d7f5_9d94_4648_91ca_79939ba263bf);
 windows_core::imp::interface_hierarchy!(IVdsPack, windows_core::IUnknown);
 impl IVdsPack {
-    pub unsafe fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), ppackprop as _).ok() }
     }
-    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+    pub unsafe fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryVolumes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryVolumes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVolume)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), ulstripesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddDisk(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> windows_core::Result<()> {
+    pub unsafe fn AddDisk(&self, diskid: windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid), partitionstyle, bashotspare.into()).ok() }
     }
-    pub unsafe fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: windows_core::GUID, bforce: bool, bqueryonly: bool, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).MigrateDisks)(windows_core::Interface::as_raw(self), pdiskarray, lnumberofdisks, core::mem::transmute(targetpack), bforce.into(), bqueryonly.into(), presults as _, pbrebootneeded as _).ok() }
     }
-    pub unsafe fn ReplaceDisk(&self, olddiskid: windows_core::GUID, newdiskid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn ReplaceDisk(&self, olddiskid: windows_core::GUID, newdiskid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReplaceDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(olddiskid), core::mem::transmute(newdiskid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveMissingDisk(&self, diskid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn RemoveMissingDisk(&self, diskid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveMissingDisk)(windows_core::Interface::as_raw(self), core::mem::transmute(diskid)).ok() }
     }
-    pub unsafe fn Recover(&self) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Recover(&self) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recover)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3452,16 +3452,16 @@ pub struct IVdsPack_Vtbl {
     pub Recover: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsPack_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> windows_core::Result<()>;
-    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
-    fn QueryVolumes(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32, ulstripesize: u32) -> windows_core::Result<IVdsAsync>;
-    fn AddDisk(&self, diskid: &windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> windows_core::Result<()>;
-    fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: &windows_core::GUID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn ReplaceDisk(&self, olddiskid: &windows_core::GUID, newdiskid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn RemoveMissingDisk(&self, diskid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn Recover(&self) -> windows_core::Result<IVdsAsync>;
+    fn GetProperties(&self, ppackprop: *mut VDS_PACK_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT>;
+    fn QueryVolumes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreateVolume(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32, ulstripesize: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn AddDisk(&self, diskid: &windows_core::GUID, partitionstyle: VDS_PARTITION_STYLE, bashotspare: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MigrateDisks(&self, pdiskarray: *const windows_core::GUID, lnumberofdisks: i32, targetpack: &windows_core::GUID, bforce: windows_core::BOOL, bqueryonly: windows_core::BOOL, presults: *mut windows_core::HRESULT, pbrebootneeded: *mut windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ReplaceDisk(&self, olddiskid: &windows_core::GUID, newdiskid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn RemoveMissingDisk(&self, diskid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn Recover(&self) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsPack_Vtbl {
     pub const fn new<Identity: IVdsPack_Impl, const OFFSET: isize>() -> Self {
@@ -3479,7 +3479,7 @@ impl IVdsPack_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3491,7 +3491,7 @@ impl IVdsPack_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3503,7 +3503,7 @@ impl IVdsPack_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3515,7 +3515,7 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3539,7 +3539,7 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3557,7 +3557,7 @@ impl IVdsPack_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3583,7 +3583,7 @@ impl windows_core::RuntimeName for IVdsPack {}
 windows_core::imp::define_interface!(IVdsPack2, IVdsPack2_Vtbl, 0x13b50bff_290a_47dd_8558_b7c58db1a71a);
 windows_core::imp::interface_hierarchy!(IVdsPack2, windows_core::IUnknown);
 impl IVdsPack2 {
-    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32, ulalign: u32) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: &[VDS_INPUT_DISK], ulstripesize: u32, ulalign: u32) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVolume2)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), ulstripesize, ulalign, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3597,7 +3597,7 @@ pub struct IVdsPack2_Vtbl {
     pub CreateVolume2: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_VOLUME_TYPE, *const VDS_INPUT_DISK, i32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsPack2_Impl: windows_core::IUnknownImpl {
-    fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32, ulstripesize: u32, ulalign: u32) -> windows_core::Result<IVdsAsync>;
+    fn CreateVolume2(&self, r#type: VDS_VOLUME_TYPE, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32, ulstripesize: u32, ulalign: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsPack2_Vtbl {
     pub const fn new<Identity: IVdsPack2_Impl, const OFFSET: isize>() -> Self {
@@ -3609,7 +3609,7 @@ impl IVdsPack2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3623,7 +3623,7 @@ impl windows_core::RuntimeName for IVdsPack2 {}
 windows_core::imp::define_interface!(IVdsProvider, IVdsProvider_Vtbl, 0x10c5e575_7984_4e81_a56b_431f5f92ae42);
 windows_core::imp::interface_hierarchy!(IVdsProvider, windows_core::IUnknown);
 impl IVdsProvider {
-    pub unsafe fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pproviderprop as _).ok() }
     }
 }
@@ -3634,7 +3634,7 @@ pub struct IVdsProvider_Vtbl {
     pub GetProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_PROVIDER_PROP) -> windows_core::HRESULT,
 }
 pub trait IVdsProvider_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> windows_core::Result<()>;
+    fn GetProperties(&self, pproviderprop: *mut VDS_PROVIDER_PROP) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsProvider_Vtbl {
     pub const fn new<Identity: IVdsProvider_Impl, const OFFSET: isize>() -> Self {
@@ -3654,20 +3654,20 @@ impl windows_core::RuntimeName for IVdsProvider {}
 windows_core::imp::define_interface!(IVdsProviderPrivate, IVdsProviderPrivate_Vtbl, 0x11f3cd41_b7e8_48ff_9472_9dff018aa292);
 windows_core::imp::interface_hierarchy!(IVdsProviderPrivate, windows_core::IUnknown);
 impl IVdsProviderPrivate {
-    pub unsafe fn GetObject(&self, objectid: windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetObject(&self, objectid: windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(objectid), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> windows_core::Result<()>
+    pub unsafe fn OnLoad<P0, P1>(&self, pwszmachinename: P0, pcallbackobject: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), pwszmachinename.param().abi(), pcallbackobject.param().abi()).ok() }
     }
-    pub unsafe fn OnUnload(&self, bforceunload: bool) -> windows_core::Result<()> {
+    pub unsafe fn OnUnload(&self, bforceunload: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self), bforceunload.into()).ok() }
     }
 }
@@ -3680,9 +3680,9 @@ pub struct IVdsProviderPrivate_Vtbl {
     pub OnUnload: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IVdsProviderPrivate_Impl: windows_core::IUnknownImpl {
-    fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
-    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn OnUnload(&self, bforceunload: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn OnLoad(&self, pwszmachinename: &windows_core::PCWSTR, pcallbackobject: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
+    fn OnUnload(&self, bforceunload: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsProviderPrivate_Vtbl {
     pub const fn new<Identity: IVdsProviderPrivate_Impl, const OFFSET: isize>() -> Self {
@@ -3694,7 +3694,7 @@ impl IVdsProviderPrivate_Vtbl {
                         ppobjectunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3725,7 +3725,7 @@ impl windows_core::RuntimeName for IVdsProviderPrivate {}
 windows_core::imp::define_interface!(IVdsProviderSupport, IVdsProviderSupport_Vtbl, 0x1732be13_e8f9_4a03_bfbc_5f616aa66ce1);
 windows_core::imp::interface_hierarchy!(IVdsProviderSupport, windows_core::IUnknown);
 impl IVdsProviderSupport {
-    pub unsafe fn GetVersionSupport(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetVersionSupport(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVersionSupport)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3739,7 +3739,7 @@ pub struct IVdsProviderSupport_Vtbl {
     pub GetVersionSupport: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IVdsProviderSupport_Impl: windows_core::IUnknownImpl {
-    fn GetVersionSupport(&self) -> windows_core::Result<u32>;
+    fn GetVersionSupport(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IVdsProviderSupport_Vtbl {
     pub const fn new<Identity: IVdsProviderSupport_Impl, const OFFSET: isize>() -> Self {
@@ -3751,7 +3751,7 @@ impl IVdsProviderSupport_Vtbl {
                         ulversionsupport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3765,10 +3765,10 @@ impl windows_core::RuntimeName for IVdsProviderSupport {}
 windows_core::imp::define_interface!(IVdsRemovable, IVdsRemovable_Vtbl, 0x0316560b_5db4_4ed9_bbb5_213436ddc0d9);
 windows_core::imp::interface_hierarchy!(IVdsRemovable, windows_core::IUnknown);
 impl IVdsRemovable {
-    pub unsafe fn QueryMedia(&self) -> windows_core::Result<()> {
+    pub unsafe fn QueryMedia(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryMedia)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Eject(&self) -> windows_core::Result<()> {
+    pub unsafe fn Eject(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Eject)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3780,8 +3780,8 @@ pub struct IVdsRemovable_Vtbl {
     pub Eject: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsRemovable_Impl: windows_core::IUnknownImpl {
-    fn QueryMedia(&self) -> windows_core::Result<()>;
-    fn Eject(&self) -> windows_core::Result<()>;
+    fn QueryMedia(&self) -> Result<(), windows_result::HRESULT>;
+    fn Eject(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsRemovable_Vtbl {
     pub const fn new<Identity: IVdsRemovable_Impl, const OFFSET: isize>() -> Self {
@@ -3807,58 +3807,58 @@ impl windows_core::RuntimeName for IVdsRemovable {}
 windows_core::imp::define_interface!(IVdsService, IVdsService_Vtbl, 0x0818a8ef_9ba9_40d8_a6f9_e22833cc771e);
 windows_core::imp::interface_hierarchy!(IVdsService, windows_core::IUnknown);
 impl IVdsService {
-    pub unsafe fn IsServiceReady(&self) -> windows_core::Result<()> {
+    pub unsafe fn IsServiceReady(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsServiceReady)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForServiceReady(&self) -> windows_core::Result<()> {
+    pub unsafe fn WaitForServiceReady(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).WaitForServiceReady)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetProperties(&self) -> windows_core::Result<VDS_SERVICE_PROP> {
+    pub unsafe fn GetProperties(&self) -> Result<VDS_SERVICE_PROP, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn QueryProviders(&self, masks: u32) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryProviders(&self, masks: u32) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryProviders)(windows_core::Interface::as_raw(self), masks, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryMaskedDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryMaskedDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaskedDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryUnallocatedDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryUnallocatedDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryUnallocatedDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetObject(&self, objectid: windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetObject(&self, objectid: windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetObject)(windows_core::Interface::as_raw(self), core::mem::transmute(objectid), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryDriveLetters(&self, wcfirstletter: u16, pdriveletterproparray: &mut [VDS_DRIVE_LETTER_PROP]) -> windows_core::Result<()> {
+    pub unsafe fn QueryDriveLetters(&self, wcfirstletter: u16, pdriveletterproparray: &mut [VDS_DRIVE_LETTER_PROP]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryDriveLetters)(windows_core::Interface::as_raw(self), wcfirstletter, pdriveletterproparray.len().try_into().unwrap(), core::mem::transmute(pdriveletterproparray.as_ptr())).ok() }
     }
-    pub unsafe fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryFileSystemTypes)(windows_core::Interface::as_raw(self), ppfilesystemtypeprops as _, plnumberoffilesystems as _).ok() }
     }
-    pub unsafe fn Reenumerate(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reenumerate(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn CleanupObsoleteMountPoints(&self) -> windows_core::Result<()> {
+    pub unsafe fn CleanupObsoleteMountPoints(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CleanupObsoleteMountPoints)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Advise<P0>(&self, psink: P0) -> windows_core::Result<u32>
+    pub unsafe fn Advise<P0>(&self, psink: P0) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<IVdsAdviseSink>,
     {
@@ -3867,16 +3867,16 @@ impl IVdsService {
             (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), psink.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn Unadvise(&self, dwcookie: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwcookie).ok() }
     }
-    pub unsafe fn Reboot(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reboot(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reboot)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
-    pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
 }
@@ -3903,23 +3903,23 @@ pub struct IVdsService_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsService_Impl: windows_core::IUnknownImpl {
-    fn IsServiceReady(&self) -> windows_core::Result<()>;
-    fn WaitForServiceReady(&self) -> windows_core::Result<()>;
-    fn GetProperties(&self) -> windows_core::Result<VDS_SERVICE_PROP>;
-    fn QueryProviders(&self, masks: u32) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryMaskedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryUnallocatedDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> windows_core::Result<windows_core::IUnknown>;
-    fn QueryDriveLetters(&self, wcfirstletter: u16, count: u32, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> windows_core::Result<()>;
-    fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn CleanupObsoleteMountPoints(&self) -> windows_core::Result<()>;
-    fn Advise(&self, psink: windows_core::Ref<'_, IVdsAdviseSink>) -> windows_core::Result<u32>;
-    fn Unadvise(&self, dwcookie: u32) -> windows_core::Result<()>;
-    fn Reboot(&self) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: u32) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()>;
+    fn IsServiceReady(&self) -> Result<(), windows_result::HRESULT>;
+    fn WaitForServiceReady(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetProperties(&self) -> Result<VDS_SERVICE_PROP, windows_result::HRESULT>;
+    fn QueryProviders(&self, masks: u32) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryMaskedDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryUnallocatedDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn GetObject(&self, objectid: &windows_core::GUID, r#type: VDS_OBJECT_TYPE) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn QueryDriveLetters(&self, wcfirstletter: u16, count: u32, pdriveletterproparray: *mut VDS_DRIVE_LETTER_PROP) -> Result<(), windows_result::HRESULT>;
+    fn QueryFileSystemTypes(&self, ppfilesystemtypeprops: *mut *mut VDS_FILE_SYSTEM_TYPE_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn Reenumerate(&self) -> Result<(), windows_result::HRESULT>;
+    fn Refresh(&self) -> Result<(), windows_result::HRESULT>;
+    fn CleanupObsoleteMountPoints(&self) -> Result<(), windows_result::HRESULT>;
+    fn Advise(&self, psink: windows_core::Ref<'_, IVdsAdviseSink>) -> Result<u32, windows_result::HRESULT>;
+    fn Unadvise(&self, dwcookie: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reboot(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsService_Vtbl {
     pub const fn new<Identity: IVdsService_Impl, const OFFSET: isize>() -> Self {
@@ -3943,7 +3943,7 @@ impl IVdsService_Vtbl {
                         pserviceprop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3955,7 +3955,7 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3967,7 +3967,7 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3979,7 +3979,7 @@ impl IVdsService_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3991,7 +3991,7 @@ impl IVdsService_Vtbl {
                         ppobjectunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4033,7 +4033,7 @@ impl IVdsService_Vtbl {
                         pdwcookie.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4090,7 +4090,7 @@ impl windows_core::RuntimeName for IVdsService {}
 windows_core::imp::define_interface!(IVdsServiceHba, IVdsServiceHba_Vtbl, 0x0ac13689_3134_47c6_a17c_4669216801be);
 windows_core::imp::interface_hierarchy!(IVdsServiceHba, windows_core::IUnknown);
 impl IVdsServiceHba {
-    pub unsafe fn QueryHbaPorts(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryHbaPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryHbaPorts)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4104,7 +4104,7 @@ pub struct IVdsServiceHba_Vtbl {
     pub QueryHbaPorts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceHba_Impl: windows_core::IUnknownImpl {
-    fn QueryHbaPorts(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn QueryHbaPorts(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IVdsServiceHba_Vtbl {
     pub const fn new<Identity: IVdsServiceHba_Impl, const OFFSET: isize>() -> Self {
@@ -4116,7 +4116,7 @@ impl IVdsServiceHba_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4130,7 +4130,7 @@ impl windows_core::RuntimeName for IVdsServiceHba {}
 windows_core::imp::define_interface!(IVdsServiceInitialization, IVdsServiceInitialization_Vtbl, 0x4afc3636_db01_4052_80c3_03bbcb8d3c69);
 windows_core::imp::interface_hierarchy!(IVdsServiceInitialization, windows_core::IUnknown);
 impl IVdsServiceInitialization {
-    pub unsafe fn Initialize<P0>(&self, pwszmachinename: P0) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P0>(&self, pwszmachinename: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4144,7 +4144,7 @@ pub struct IVdsServiceInitialization_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceInitialization_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pwszmachinename: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn Initialize(&self, pwszmachinename: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsServiceInitialization_Vtbl {
     pub const fn new<Identity: IVdsServiceInitialization_Impl, const OFFSET: isize>() -> Self {
@@ -4164,31 +4164,31 @@ impl windows_core::RuntimeName for IVdsServiceInitialization {}
 windows_core::imp::define_interface!(IVdsServiceIscsi, IVdsServiceIscsi_Vtbl, 0x14fbe036_3ed7_4e10_90e9_a5ff991aff01);
 windows_core::imp::interface_hierarchy!(IVdsServiceIscsi, windows_core::IUnknown);
 impl IVdsServiceIscsi {
-    pub unsafe fn GetInitiatorName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetInitiatorName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInitiatorName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn QueryInitiatorAdapters(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryInitiatorAdapters(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryInitiatorAdapters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecGroupPresharedKey)(windows_core::Interface::as_raw(self), pipseckey).ok() }
     }
-    pub unsafe fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()> {
+    pub unsafe fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllIpsecTunnelAddresses)(windows_core::Interface::as_raw(self), ptunneladdress, pdestinationaddress).ok() }
     }
-    pub unsafe fn SetAllIpsecSecurity(&self, targetportalid: windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetAllIpsecSecurity(&self, targetportalid: windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAllIpsecSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute(targetportalid), ullsecurityflags, pipseckey).ok() }
     }
-    pub unsafe fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetInitiatorSharedSecret)(windows_core::Interface::as_raw(self), pinitiatorsharedsecret, core::mem::transmute(targetid)).ok() }
     }
-    pub unsafe fn RememberTargetSharedSecret(&self, targetid: windows_core::GUID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()> {
+    pub unsafe fn RememberTargetSharedSecret(&self, targetid: windows_core::GUID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RememberTargetSharedSecret)(windows_core::Interface::as_raw(self), core::mem::transmute(targetid), ptargetsharedsecret).ok() }
     }
 }
@@ -4205,13 +4205,13 @@ pub struct IVdsServiceIscsi_Vtbl {
     pub RememberTargetSharedSecret: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, *const VDS_ISCSI_SHARED_SECRET) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceIscsi_Impl: windows_core::IUnknownImpl {
-    fn GetInitiatorName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn QueryInitiatorAdapters(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
-    fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> windows_core::Result<()>;
-    fn SetAllIpsecSecurity(&self, targetportalid: &windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
-    fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn RememberTargetSharedSecret(&self, targetid: &windows_core::GUID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> windows_core::Result<()>;
+    fn GetInitiatorName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn QueryInitiatorAdapters(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
+    fn SetAllIpsecTunnelAddresses(&self, ptunneladdress: *const VDS_IPADDRESS, pdestinationaddress: *const VDS_IPADDRESS) -> Result<(), windows_result::HRESULT>;
+    fn SetAllIpsecSecurity(&self, targetportalid: &windows_core::GUID, ullsecurityflags: u64, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
+    fn SetInitiatorSharedSecret(&self, pinitiatorsharedsecret: *const VDS_ISCSI_SHARED_SECRET, targetid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn RememberTargetSharedSecret(&self, targetid: &windows_core::GUID, ptargetsharedsecret: *const VDS_ISCSI_SHARED_SECRET) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsServiceIscsi_Vtbl {
     pub const fn new<Identity: IVdsServiceIscsi_Impl, const OFFSET: isize>() -> Self {
@@ -4223,7 +4223,7 @@ impl IVdsServiceIscsi_Vtbl {
                         ppwsziscsiname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4235,7 +4235,7 @@ impl IVdsServiceIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4288,7 +4288,7 @@ impl windows_core::RuntimeName for IVdsServiceIscsi {}
 windows_core::imp::define_interface!(IVdsServiceLoader, IVdsServiceLoader_Vtbl, 0xe0393303_90d4_4a97_ab71_e9b671ee2729);
 windows_core::imp::interface_hierarchy!(IVdsServiceLoader, windows_core::IUnknown);
 impl IVdsServiceLoader {
-    pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0) -> windows_core::Result<IVdsService>
+    pub unsafe fn LoadService<P0>(&self, pwszmachinename: P0) -> Result<IVdsService, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4305,7 +4305,7 @@ pub struct IVdsServiceLoader_Vtbl {
     pub LoadService: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceLoader_Impl: windows_core::IUnknownImpl {
-    fn LoadService(&self, pwszmachinename: &windows_core::PCWSTR) -> windows_core::Result<IVdsService>;
+    fn LoadService(&self, pwszmachinename: &windows_core::PCWSTR) -> Result<IVdsService, windows_result::HRESULT>;
 }
 impl IVdsServiceLoader_Vtbl {
     pub const fn new<Identity: IVdsServiceLoader_Impl, const OFFSET: isize>() -> Self {
@@ -4317,7 +4317,7 @@ impl IVdsServiceLoader_Vtbl {
                         ppservice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4331,13 +4331,13 @@ impl windows_core::RuntimeName for IVdsServiceLoader {}
 windows_core::imp::define_interface!(IVdsServiceSAN, IVdsServiceSAN_Vtbl, 0xfc5d23e8_a88b_41a5_8de0_2d2f73c5a630);
 windows_core::imp::interface_hierarchy!(IVdsServiceSAN, windows_core::IUnknown);
 impl IVdsServiceSAN {
-    pub unsafe fn GetSANPolicy(&self) -> windows_core::Result<VDS_SAN_POLICY> {
+    pub unsafe fn GetSANPolicy(&self) -> Result<VDS_SAN_POLICY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSANPolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> windows_core::Result<()> {
+    pub unsafe fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSANPolicy)(windows_core::Interface::as_raw(self), sanpolicy).ok() }
     }
 }
@@ -4349,8 +4349,8 @@ pub struct IVdsServiceSAN_Vtbl {
     pub SetSANPolicy: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_SAN_POLICY) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceSAN_Impl: windows_core::IUnknownImpl {
-    fn GetSANPolicy(&self) -> windows_core::Result<VDS_SAN_POLICY>;
-    fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> windows_core::Result<()>;
+    fn GetSANPolicy(&self) -> Result<VDS_SAN_POLICY, windows_result::HRESULT>;
+    fn SetSANPolicy(&self, sanpolicy: VDS_SAN_POLICY) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsServiceSAN_Vtbl {
     pub const fn new<Identity: IVdsServiceSAN_Impl, const OFFSET: isize>() -> Self {
@@ -4362,7 +4362,7 @@ impl IVdsServiceSAN_Vtbl {
                         psanpolicy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4386,7 +4386,7 @@ impl windows_core::RuntimeName for IVdsServiceSAN {}
 windows_core::imp::define_interface!(IVdsServiceSw, IVdsServiceSw_Vtbl, 0x15fc031c_0652_4306_b2c3_f558b8f837e2);
 windows_core::imp::interface_hierarchy!(IVdsServiceSw, windows_core::IUnknown);
 impl IVdsServiceSw {
-    pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn GetDiskObject<P0>(&self, pwszdeviceid: P0) -> Result<windows_core::IUnknown, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4403,7 +4403,7 @@ pub struct IVdsServiceSw_Vtbl {
     pub GetDiskObject: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceSw_Impl: windows_core::IUnknownImpl {
-    fn GetDiskObject(&self, pwszdeviceid: &windows_core::PCWSTR) -> windows_core::Result<windows_core::IUnknown>;
+    fn GetDiskObject(&self, pwszdeviceid: &windows_core::PCWSTR) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 impl IVdsServiceSw_Vtbl {
     pub const fn new<Identity: IVdsServiceSw_Impl, const OFFSET: isize>() -> Self {
@@ -4415,7 +4415,7 @@ impl IVdsServiceSw_Vtbl {
                         ppdiskunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4429,13 +4429,13 @@ impl windows_core::RuntimeName for IVdsServiceSw {}
 windows_core::imp::define_interface!(IVdsServiceUninstallDisk, IVdsServiceUninstallDisk_Vtbl, 0xb6b22da8_f903_4be7_b492_c09d875ac9da);
 windows_core::imp::interface_hierarchy!(IVdsServiceUninstallDisk, windows_core::IUnknown);
 impl IVdsServiceUninstallDisk {
-    pub unsafe fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDiskIdFromLunInfo)(windows_core::Interface::as_raw(self), pluninfo, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UninstallDisks)(windows_core::Interface::as_raw(self), pdiskidarray, ulcount, bforce, pbreboot as _, presults as _).ok() }
     }
 }
@@ -4447,8 +4447,8 @@ pub struct IVdsServiceUninstallDisk_Vtbl {
     pub UninstallDisks: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, u32, bool, *mut u8, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IVdsServiceUninstallDisk_Impl: windows_core::IUnknownImpl {
-    fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> windows_core::Result<windows_core::GUID>;
-    fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn GetDiskIdFromLunInfo(&self, pluninfo: *const VDS_LUN_INFORMATION) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn UninstallDisks(&self, pdiskidarray: *const windows_core::GUID, ulcount: u32, bforce: bool, pbreboot: *mut u8, presults: *mut windows_core::HRESULT) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsServiceUninstallDisk_Vtbl {
     pub const fn new<Identity: IVdsServiceUninstallDisk_Impl, const OFFSET: isize>() -> Self {
@@ -4460,7 +4460,7 @@ impl IVdsServiceUninstallDisk_Vtbl {
                         pdiskid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4484,28 +4484,28 @@ impl windows_core::RuntimeName for IVdsServiceUninstallDisk {}
 windows_core::imp::define_interface!(IVdsStoragePool, IVdsStoragePool_Vtbl, 0x932ca8cf_0eb3_4ba8_9620_22665d7f8450);
 windows_core::imp::interface_hierarchy!(IVdsStoragePool, windows_core::IUnknown);
 impl IVdsStoragePool {
-    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+    pub unsafe fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pstoragepoolprop as _).ok() }
     }
-    pub unsafe fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), pstoragepoolattributes as _).ok() }
     }
-    pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryDriveExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _).ok() }
     }
-    pub unsafe fn QueryAllocatedLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAllocatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAllocatedLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryAllocatedStoragePools(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryAllocatedStoragePools(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryAllocatedStoragePools)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4524,12 +4524,12 @@ pub struct IVdsStoragePool_Vtbl {
     pub QueryAllocatedStoragePools: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsStoragePool_Impl: windows_core::IUnknownImpl {
-    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
-    fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> windows_core::Result<()>;
-    fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> windows_core::Result<()>;
-    fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()>;
-    fn QueryAllocatedLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryAllocatedStoragePools(&self) -> windows_core::Result<IEnumVdsObject>;
+    fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT>;
+    fn GetProperties(&self, pstoragepoolprop: *mut VDS_STORAGE_POOL_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetAttributes(&self, pstoragepoolattributes: *mut VDS_POOL_ATTRIBUTES) -> Result<(), windows_result::HRESULT>;
+    fn QueryDriveExtents(&self, ppextentarray: *mut *mut VDS_STORAGE_POOL_DRIVE_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryAllocatedLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryAllocatedStoragePools(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
 }
 impl IVdsStoragePool_Vtbl {
     pub const fn new<Identity: IVdsStoragePool_Impl, const OFFSET: isize>() -> Self {
@@ -4541,7 +4541,7 @@ impl IVdsStoragePool_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4571,7 +4571,7 @@ impl IVdsStoragePool_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4583,7 +4583,7 @@ impl IVdsStoragePool_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4605,46 +4605,46 @@ impl windows_core::RuntimeName for IVdsStoragePool {}
 windows_core::imp::define_interface!(IVdsSubSystem, IVdsSubSystem_Vtbl, 0x6fcee2d3_6d90_4f91_80e2_a5c7caaca9d8);
 windows_core::imp::interface_hierarchy!(IVdsSubSystem, windows_core::IUnknown);
 impl IVdsSubSystem {
-    pub unsafe fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), psubsystemprop as _).ok() }
     }
-    pub unsafe fn GetProvider(&self) -> windows_core::Result<IVdsProvider> {
+    pub unsafe fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryControllers(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryControllers(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryControllers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryLuns(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryLuns)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryDrives(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryDrives(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryDrives)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> windows_core::Result<IVdsDrive> {
+    pub unsafe fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> Result<IVdsDrive, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDrive)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Reenumerate(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reenumerate(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reenumerate)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[windows_core::GUID], pofflinecontrolleridarray: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn SetControllerStatus(&self, ponlinecontrolleridarray: &[windows_core::GUID], pofflinecontrolleridarray: &[windows_core::GUID]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetControllerStatus)(windows_core::Interface::as_raw(self), core::mem::transmute(ponlinecontrolleridarray.as_ptr()), ponlinecontrolleridarray.len().try_into().unwrap(), core::mem::transmute(pofflinecontrolleridarray.as_ptr()), pofflinecontrolleridarray.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P4, phints: *const VDS_HINTS) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLun<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P4, phints: *const VDS_HINTS) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4653,13 +4653,13 @@ impl IVdsSubSystem {
             (windows_core::Interface::vtable(self).CreateLun)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.param().abi(), phints, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ReplaceDrive(&self, drivetobereplaced: windows_core::GUID, replacementdrive: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ReplaceDrive(&self, drivetobereplaced: windows_core::GUID, replacementdrive: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReplaceDrive)(windows_core::Interface::as_raw(self), core::mem::transmute(drivetobereplaced), core::mem::transmute(replacementdrive)).ok() }
     }
-    pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStatus)(windows_core::Interface::as_raw(self), status).ok() }
     }
-    pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[windows_core::GUID], phints: *const VDS_HINTS) -> windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[windows_core::GUID], phints: *const VDS_HINTS) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaxLunCreateSize)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), phints, &mut result__).map(|| result__)
@@ -4684,18 +4684,18 @@ pub struct IVdsSubSystem_Vtbl {
     pub QueryMaxLunCreateSize: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, *const windows_core::GUID, i32, *const VDS_HINTS, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystem_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn GetProvider(&self) -> windows_core::Result<IVdsProvider>;
-    fn QueryControllers(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryLuns(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryDrives(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> windows_core::Result<IVdsDrive>;
-    fn Reenumerate(&self) -> windows_core::Result<()>;
-    fn SetControllerStatus(&self, ponlinecontrolleridarray: *const windows_core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const windows_core::GUID, lnumberofofflinecontrollers: i32) -> windows_core::Result<()>;
-    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &windows_core::PCWSTR, phints: *const VDS_HINTS) -> windows_core::Result<IVdsAsync>;
-    fn ReplaceDrive(&self, drivetobereplaced: &windows_core::GUID, replacementdrive: &windows_core::GUID) -> windows_core::Result<()>;
-    fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> windows_core::Result<()>;
-    fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> windows_core::Result<u64>;
+    fn GetProperties(&self, psubsystemprop: *mut VDS_SUB_SYSTEM_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetProvider(&self) -> Result<IVdsProvider, windows_result::HRESULT>;
+    fn QueryControllers(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryLuns(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryDrives(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn GetDrive(&self, sbusnumber: i16, sslotnumber: i16) -> Result<IVdsDrive, windows_result::HRESULT>;
+    fn Reenumerate(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetControllerStatus(&self, ponlinecontrolleridarray: *const windows_core::GUID, lnumberofonlinecontrollers: i32, pofflinecontrolleridarray: *const windows_core::GUID, lnumberofofflinecontrollers: i32) -> Result<(), windows_result::HRESULT>;
+    fn CreateLun(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &windows_core::PCWSTR, phints: *const VDS_HINTS) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn ReplaceDrive(&self, drivetobereplaced: &windows_core::GUID, replacementdrive: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn SetStatus(&self, status: VDS_SUB_SYSTEM_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn QueryMaxLunCreateSize(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, phints: *const VDS_HINTS) -> Result<u64, windows_result::HRESULT>;
 }
 impl IVdsSubSystem_Vtbl {
     pub const fn new<Identity: IVdsSubSystem_Impl, const OFFSET: isize>() -> Self {
@@ -4713,7 +4713,7 @@ impl IVdsSubSystem_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4725,7 +4725,7 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4737,7 +4737,7 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4749,7 +4749,7 @@ impl IVdsSubSystem_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4761,7 +4761,7 @@ impl IVdsSubSystem_Vtbl {
                         ppdrive.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4785,7 +4785,7 @@ impl IVdsSubSystem_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4809,7 +4809,7 @@ impl IVdsSubSystem_Vtbl {
                         pullmaxlunsize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4837,16 +4837,16 @@ impl windows_core::RuntimeName for IVdsSubSystem {}
 windows_core::imp::define_interface!(IVdsSubSystem2, IVdsSubSystem2_Vtbl, 0xbe666735_7800_4a77_9d9c_40f85b87e292);
 windows_core::imp::interface_hierarchy!(IVdsSubSystem2, windows_core::IUnknown);
 impl IVdsSubSystem2 {
-    pub unsafe fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties2)(windows_core::Interface::as_raw(self), psubsystemprop2 as _).ok() }
     }
-    pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> windows_core::Result<IVdsDrive> {
+    pub unsafe fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> Result<IVdsDrive, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDrive2)(windows_core::Interface::as_raw(self), sbusnumber, sslotnumber, ulenclosurenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateLun2<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P4, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateLun2<P4>(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: &[windows_core::GUID], pwszunmaskinglist: P4, phints2: *const VDS_HINTS2) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4855,7 +4855,7 @@ impl IVdsSubSystem2 {
             (windows_core::Interface::vtable(self).CreateLun2)(windows_core::Interface::as_raw(self), r#type, ullsizeinbytes, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), pwszunmaskinglist.param().abi(), phints2, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[windows_core::GUID], phints2: *const VDS_HINTS2) -> windows_core::Result<u64> {
+    pub unsafe fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: &[windows_core::GUID], phints2: *const VDS_HINTS2) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaxLunCreateSize2)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pdriveidarray.as_ptr()), pdriveidarray.len().try_into().unwrap(), phints2, &mut result__).map(|| result__)
@@ -4872,10 +4872,10 @@ pub struct IVdsSubSystem2_Vtbl {
     pub QueryMaxLunCreateSize2: unsafe extern "system" fn(*mut core::ffi::c_void, VDS_LUN_TYPE, *const windows_core::GUID, i32, *const VDS_HINTS2, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystem2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> windows_core::Result<()>;
-    fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> windows_core::Result<IVdsDrive>;
-    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> windows_core::Result<IVdsAsync>;
-    fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> windows_core::Result<u64>;
+    fn GetProperties2(&self, psubsystemprop2: *mut VDS_SUB_SYSTEM_PROP2) -> Result<(), windows_result::HRESULT>;
+    fn GetDrive2(&self, sbusnumber: i16, sslotnumber: i16, ulenclosurenumber: u32) -> Result<IVdsDrive, windows_result::HRESULT>;
+    fn CreateLun2(&self, r#type: VDS_LUN_TYPE, ullsizeinbytes: u64, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, pwszunmaskinglist: &windows_core::PCWSTR, phints2: *const VDS_HINTS2) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn QueryMaxLunCreateSize2(&self, r#type: VDS_LUN_TYPE, pdriveidarray: *const windows_core::GUID, lnumberofdrives: i32, phints2: *const VDS_HINTS2) -> Result<u64, windows_result::HRESULT>;
 }
 impl IVdsSubSystem2_Vtbl {
     pub const fn new<Identity: IVdsSubSystem2_Impl, const OFFSET: isize>() -> Self {
@@ -4893,7 +4893,7 @@ impl IVdsSubSystem2_Vtbl {
                         ppdrive.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4905,7 +4905,7 @@ impl IVdsSubSystem2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4917,7 +4917,7 @@ impl IVdsSubSystem2_Vtbl {
                         pullmaxlunsize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4937,13 +4937,13 @@ impl windows_core::RuntimeName for IVdsSubSystem2 {}
 windows_core::imp::define_interface!(IVdsSubSystemImportTarget, IVdsSubSystemImportTarget_Vtbl, 0x83bfb87f_43fb_4903_baa6_127f01029eec);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemImportTarget, windows_core::IUnknown);
 impl IVdsSubSystemImportTarget {
-    pub unsafe fn GetImportTarget(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetImportTarget(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetImportTarget)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetImportTarget<P0>(&self, pwsziscsiname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetImportTarget<P0>(&self, pwsziscsiname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4958,8 +4958,8 @@ pub struct IVdsSubSystemImportTarget_Vtbl {
     pub SetImportTarget: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemImportTarget_Impl: windows_core::IUnknownImpl {
-    fn GetImportTarget(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn SetImportTarget(&self, pwsziscsiname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetImportTarget(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn SetImportTarget(&self, pwsziscsiname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsSubSystemImportTarget_Vtbl {
     pub const fn new<Identity: IVdsSubSystemImportTarget_Impl, const OFFSET: isize>() -> Self {
@@ -4971,7 +4971,7 @@ impl IVdsSubSystemImportTarget_Vtbl {
                         ppwsziscsiname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4995,7 +4995,7 @@ impl windows_core::RuntimeName for IVdsSubSystemImportTarget {}
 windows_core::imp::define_interface!(IVdsSubSystemInterconnect, IVdsSubSystemInterconnect_Vtbl, 0x9e6fa560_c141_477b_83ba_0b6c38f7febf);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemInterconnect, windows_core::IUnknown);
 impl IVdsSubSystemInterconnect {
-    pub unsafe fn GetSupportedInterconnects(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetSupportedInterconnects(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSupportedInterconnects)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5009,7 +5009,7 @@ pub struct IVdsSubSystemInterconnect_Vtbl {
     pub GetSupportedInterconnects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemInterconnect_Impl: windows_core::IUnknownImpl {
-    fn GetSupportedInterconnects(&self) -> windows_core::Result<u32>;
+    fn GetSupportedInterconnects(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IVdsSubSystemInterconnect_Vtbl {
     pub const fn new<Identity: IVdsSubSystemInterconnect_Impl, const OFFSET: isize>() -> Self {
@@ -5021,7 +5021,7 @@ impl IVdsSubSystemInterconnect_Vtbl {
                         pulsupportedinterconnectsflag.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5035,19 +5035,19 @@ impl windows_core::RuntimeName for IVdsSubSystemInterconnect {}
 windows_core::imp::define_interface!(IVdsSubSystemIscsi, IVdsSubSystemIscsi_Vtbl, 0x0027346f_40d0_4b45_8cec_5906dc0380c8);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemIscsi, windows_core::IUnknown);
 impl IVdsSubSystemIscsi {
-    pub unsafe fn QueryTargets(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryTargets(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryTargets)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryPortals(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryPortals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn CreateTarget<P0, P1>(&self, pwsziscsiname: P0, pwszfriendlyname: P1) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -5057,7 +5057,7 @@ impl IVdsSubSystemIscsi {
             (windows_core::Interface::vtable(self).CreateTarget)(windows_core::Interface::as_raw(self), pwsziscsiname.param().abi(), pwszfriendlyname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()> {
+    pub unsafe fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIpsecGroupPresharedKey)(windows_core::Interface::as_raw(self), pipseckey).ok() }
     }
 }
@@ -5071,10 +5071,10 @@ pub struct IVdsSubSystemIscsi_Vtbl {
     pub SetIpsecGroupPresharedKey: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_ISCSI_IPSEC_KEY) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemIscsi_Impl: windows_core::IUnknownImpl {
-    fn QueryTargets(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn QueryPortals(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateTarget(&self, pwsziscsiname: &windows_core::PCWSTR, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<IVdsAsync>;
-    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> windows_core::Result<()>;
+    fn QueryTargets(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn QueryPortals(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreateTarget(&self, pwsziscsiname: &windows_core::PCWSTR, pwszfriendlyname: &windows_core::PCWSTR) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn SetIpsecGroupPresharedKey(&self, pipseckey: *const VDS_ISCSI_IPSEC_KEY) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsSubSystemIscsi_Vtbl {
     pub const fn new<Identity: IVdsSubSystemIscsi_Impl, const OFFSET: isize>() -> Self {
@@ -5086,7 +5086,7 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5098,7 +5098,7 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5110,7 +5110,7 @@ impl IVdsSubSystemIscsi_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5136,7 +5136,7 @@ impl windows_core::RuntimeName for IVdsSubSystemIscsi {}
 windows_core::imp::define_interface!(IVdsSubSystemNaming, IVdsSubSystemNaming_Vtbl, 0x0d70faa3_9cd4_4900_aa20_6981b6aafc75);
 windows_core::imp::interface_hierarchy!(IVdsSubSystemNaming, windows_core::IUnknown);
 impl IVdsSubSystemNaming {
-    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> windows_core::Result<()>
+    pub unsafe fn SetFriendlyName<P0>(&self, pwszfriendlyname: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5150,7 +5150,7 @@ pub struct IVdsSubSystemNaming_Vtbl {
     pub SetFriendlyName: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IVdsSubSystemNaming_Impl: windows_core::IUnknownImpl {
-    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFriendlyName(&self, pwszfriendlyname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsSubSystemNaming_Vtbl {
     pub const fn new<Identity: IVdsSubSystemNaming_Impl, const OFFSET: isize>() -> Self {
@@ -5170,13 +5170,13 @@ impl windows_core::RuntimeName for IVdsSubSystemNaming {}
 windows_core::imp::define_interface!(IVdsSwProvider, IVdsSwProvider_Vtbl, 0x9aa58360_ce33_4f92_b658_ed24b14425b8);
 windows_core::imp::interface_hierarchy!(IVdsSwProvider, windows_core::IUnknown);
 impl IVdsSwProvider {
-    pub unsafe fn QueryPacks(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryPacks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryPacks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreatePack(&self) -> windows_core::Result<IVdsPack> {
+    pub unsafe fn CreatePack(&self) -> Result<IVdsPack, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5191,8 +5191,8 @@ pub struct IVdsSwProvider_Vtbl {
     pub CreatePack: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsSwProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryPacks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreatePack(&self) -> windows_core::Result<IVdsPack>;
+    fn QueryPacks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreatePack(&self) -> Result<IVdsPack, windows_result::HRESULT>;
 }
 impl IVdsSwProvider_Vtbl {
     pub const fn new<Identity: IVdsSwProvider_Impl, const OFFSET: isize>() -> Self {
@@ -5204,7 +5204,7 @@ impl IVdsSwProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5216,7 +5216,7 @@ impl IVdsSwProvider_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5235,23 +5235,23 @@ windows_core::imp::define_interface!(IVdsVDisk, IVdsVDisk_Vtbl, 0x1e062b84_e5e6_
 windows_core::imp::interface_hierarchy!(IVdsVDisk, windows_core::IUnknown);
 impl IVdsVDisk {
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> windows_core::Result<IVdsOpenVDisk> {
+    pub unsafe fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> Result<IVdsOpenVDisk, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), accessmask, flags, readwritedepth, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pdiskproperties as _).ok() }
     }
-    pub unsafe fn GetHostVolume(&self) -> windows_core::Result<IVdsVolume> {
+    pub unsafe fn GetHostVolume(&self) -> Result<IVdsVolume, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHostVolume)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDeviceName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetDeviceName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5275,10 +5275,10 @@ pub struct IVdsVDisk_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVDisk_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> windows_core::Result<IVdsOpenVDisk>;
-    fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> windows_core::Result<()>;
-    fn GetHostVolume(&self) -> windows_core::Result<IVdsVolume>;
-    fn GetDeviceName(&self) -> windows_core::Result<windows_core::PWSTR>;
+    fn Open(&self, accessmask: super::Vhd::VIRTUAL_DISK_ACCESS_MASK, flags: super::Vhd::OPEN_VIRTUAL_DISK_FLAG, readwritedepth: u32) -> Result<IVdsOpenVDisk, windows_result::HRESULT>;
+    fn GetProperties(&self, pdiskproperties: *mut VDS_VDISK_PROPERTIES) -> Result<(), windows_result::HRESULT>;
+    fn GetHostVolume(&self) -> Result<IVdsVolume, windows_result::HRESULT>;
+    fn GetDeviceName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl IVdsVDisk_Vtbl {
@@ -5291,7 +5291,7 @@ impl IVdsVDisk_Vtbl {
                         ppopenvdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5309,7 +5309,7 @@ impl IVdsVDisk_Vtbl {
                         ppvolume.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5321,7 +5321,7 @@ impl IVdsVDisk_Vtbl {
                         ppdevicename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5342,14 +5342,14 @@ impl windows_core::RuntimeName for IVdsVDisk {}
 windows_core::imp::define_interface!(IVdsVdProvider, IVdsVdProvider_Vtbl, 0xb481498c_8354_45f9_84a0_0bdd2832a91f);
 windows_core::imp::interface_hierarchy!(IVdsVdProvider, windows_core::IUnknown);
 impl IVdsVdProvider {
-    pub unsafe fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryVDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryVDisks)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn CreateVDisk<P1, P2>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, pstringsecuritydescriptor: P2, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> windows_core::Result<()>
+    pub unsafe fn CreateVDisk<P1, P2>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, pstringsecuritydescriptor: P2, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: *mut Option<IVdsAsync>) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -5357,13 +5357,13 @@ impl IVdsVdProvider {
         unsafe { (windows_core::Interface::vtable(self).CreateVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), pstringsecuritydescriptor.param().abi(), flags, providerspecificflags, reserved, pcreatediskparameters, core::mem::transmute(ppasync)).ok() }
     }
     #[cfg(feature = "Win32_Storage_Vhd")]
-    pub unsafe fn AddVDisk<P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, ppvdisk: *mut Option<IVdsVDisk>) -> windows_core::Result<()>
+    pub unsafe fn AddVDisk<P1>(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: P1, ppvdisk: *mut Option<IVdsVDisk>) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddVDisk)(windows_core::Interface::as_raw(self), virtualdevicetype, ppath.param().abi(), core::mem::transmute(ppvdisk)).ok() }
     }
-    pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> windows_core::Result<IVdsDisk>
+    pub unsafe fn GetDiskFromVDisk<P0>(&self, pvdisk: P0) -> Result<IVdsDisk, windows_result::HRESULT>
     where
         P0: windows_core::Param<IVdsVDisk>,
     {
@@ -5372,7 +5372,7 @@ impl IVdsVdProvider {
             (windows_core::Interface::vtable(self).GetDiskFromVDisk)(windows_core::Interface::as_raw(self), pvdisk.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0) -> windows_core::Result<IVdsVDisk>
+    pub unsafe fn GetVDiskFromDisk<P0>(&self, pdisk: P0) -> Result<IVdsVDisk, windows_result::HRESULT>
     where
         P0: windows_core::Param<IVdsDisk>,
     {
@@ -5400,11 +5400,11 @@ pub struct IVdsVdProvider_Vtbl {
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 pub trait IVdsVdProvider_Impl: windows_core::IUnknownImpl {
-    fn QueryVDisks(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: windows_core::OutRef<'_, IVdsAsync>) -> windows_core::Result<()>;
-    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: windows_core::OutRef<'_, IVdsVDisk>) -> windows_core::Result<()>;
-    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<'_, IVdsVDisk>) -> windows_core::Result<IVdsDisk>;
-    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<'_, IVdsDisk>) -> windows_core::Result<IVdsVDisk>;
+    fn QueryVDisks(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn CreateVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, pstringsecuritydescriptor: &windows_core::PCWSTR, flags: super::Vhd::CREATE_VIRTUAL_DISK_FLAG, providerspecificflags: u32, reserved: u32, pcreatediskparameters: *const VDS_CREATE_VDISK_PARAMETERS, ppasync: windows_core::OutRef<'_, IVdsAsync>) -> Result<(), windows_result::HRESULT>;
+    fn AddVDisk(&self, virtualdevicetype: *const super::Vhd::VIRTUAL_STORAGE_TYPE, ppath: &windows_core::PCWSTR, ppvdisk: windows_core::OutRef<'_, IVdsVDisk>) -> Result<(), windows_result::HRESULT>;
+    fn GetDiskFromVDisk(&self, pvdisk: windows_core::Ref<'_, IVdsVDisk>) -> Result<IVdsDisk, windows_result::HRESULT>;
+    fn GetVDiskFromDisk(&self, pdisk: windows_core::Ref<'_, IVdsDisk>) -> Result<IVdsVDisk, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Storage_Vhd")]
 impl IVdsVdProvider_Vtbl {
@@ -5417,7 +5417,7 @@ impl IVdsVdProvider_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5441,7 +5441,7 @@ impl IVdsVdProvider_Vtbl {
                         ppdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5453,7 +5453,7 @@ impl IVdsVdProvider_Vtbl {
                         ppvdisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5475,58 +5475,58 @@ impl windows_core::RuntimeName for IVdsVdProvider {}
 windows_core::imp::define_interface!(IVdsVolume, IVdsVolume_Vtbl, 0x88306bb2_e71f_478c_86a2_79da200a0f11);
 windows_core::imp::interface_hierarchy!(IVdsVolume, windows_core::IUnknown);
 impl IVdsVolume {
-    pub unsafe fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pvolumeproperties as _).ok() }
     }
-    pub unsafe fn GetPack(&self) -> windows_core::Result<IVdsPack> {
+    pub unsafe fn GetPack(&self) -> Result<IVdsPack, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPack)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject> {
+    pub unsafe fn QueryPlexes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryPlexes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Extend(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Extend(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Extend)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Shrink(&self, ullnumberofbytestoremove: u64) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ullnumberofbytestoremove, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddPlex(&self, volumeid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn AddPlex(&self, volumeid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(volumeid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn BreakPlex(&self, plexid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn BreakPlex(&self, plexid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BreakPlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemovePlex(&self, plexid: windows_core::GUID) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn RemovePlex(&self, plexid: windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemovePlex)(windows_core::Interface::as_raw(self), core::mem::transmute(plexid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self, bforce: bool) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self, bforce: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), bforce.into()).ok() }
     }
-    pub unsafe fn SetFlags(&self, ulflags: u32, brevertonclose: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, ulflags: u32, brevertonclose: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), ulflags, brevertonclose.into()).ok() }
     }
-    pub unsafe fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
 }
@@ -5547,17 +5547,17 @@ pub struct IVdsVolume_Vtbl {
     pub ClearFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsVolume_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> windows_core::Result<()>;
-    fn GetPack(&self) -> windows_core::Result<IVdsPack>;
-    fn QueryPlexes(&self) -> windows_core::Result<IEnumVdsObject>;
-    fn Extend(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32) -> windows_core::Result<IVdsAsync>;
-    fn Shrink(&self, ullnumberofbytestoremove: u64) -> windows_core::Result<IVdsAsync>;
-    fn AddPlex(&self, volumeid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn BreakPlex(&self, plexid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn RemovePlex(&self, plexid: &windows_core::GUID) -> windows_core::Result<IVdsAsync>;
-    fn Delete(&self, bforce: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetFlags(&self, ulflags: u32, brevertonclose: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ClearFlags(&self, ulflags: u32) -> windows_core::Result<()>;
+    fn GetProperties(&self, pvolumeproperties: *mut VDS_VOLUME_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetPack(&self) -> Result<IVdsPack, windows_result::HRESULT>;
+    fn QueryPlexes(&self) -> Result<IEnumVdsObject, windows_result::HRESULT>;
+    fn Extend(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Shrink(&self, ullnumberofbytestoremove: u64) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn AddPlex(&self, volumeid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn BreakPlex(&self, plexid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn RemovePlex(&self, plexid: &windows_core::GUID) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn Delete(&self, bforce: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetFlags(&self, ulflags: u32, brevertonclose: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ClearFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsVolume_Vtbl {
     pub const fn new<Identity: IVdsVolume_Impl, const OFFSET: isize>() -> Self {
@@ -5575,7 +5575,7 @@ impl IVdsVolume_Vtbl {
                         pppack.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5587,7 +5587,7 @@ impl IVdsVolume_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5599,7 +5599,7 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5611,7 +5611,7 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5623,7 +5623,7 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5635,7 +5635,7 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5647,7 +5647,7 @@ impl IVdsVolume_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5692,7 +5692,7 @@ impl windows_core::RuntimeName for IVdsVolume {}
 windows_core::imp::define_interface!(IVdsVolume2, IVdsVolume2_Vtbl, 0x72ae6713_dcbb_4a03_b36b_371f6ac6b53d);
 windows_core::imp::interface_hierarchy!(IVdsVolume2, windows_core::IUnknown);
 impl IVdsVolume2 {
-    pub unsafe fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties2)(windows_core::Interface::as_raw(self), pvolumeproperties as _).ok() }
     }
 }
@@ -5703,7 +5703,7 @@ pub struct IVdsVolume2_Vtbl {
     pub GetProperties2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VDS_VOLUME_PROP2) -> windows_core::HRESULT,
 }
 pub trait IVdsVolume2_Impl: windows_core::IUnknownImpl {
-    fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> windows_core::Result<()>;
+    fn GetProperties2(&self, pvolumeproperties: *mut VDS_VOLUME_PROP2) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsVolume2_Vtbl {
     pub const fn new<Identity: IVdsVolume2_Impl, const OFFSET: isize>() -> Self {
@@ -5723,10 +5723,10 @@ impl windows_core::RuntimeName for IVdsVolume2 {}
 windows_core::imp::define_interface!(IVdsVolumeMF, IVdsVolumeMF_Vtbl, 0xee2d5ded_6236_4169_931d_b9778ce03dc6);
 windows_core::imp::interface_hierarchy!(IVdsVolumeMF, windows_core::IUnknown);
 impl IVdsVolumeMF {
-    pub unsafe fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFileSystemProperties)(windows_core::Interface::as_raw(self), pfilesystemprop as _).ok() }
     }
-    pub unsafe fn Format<P1>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn Format<P1>(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: P1, dwunitallocationsize: u32, bforce: bool, bquickformat: bool, benablecompression: bool) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5735,34 +5735,34 @@ impl IVdsVolumeMF {
             (windows_core::Interface::vtable(self).Format)(windows_core::Interface::as_raw(self), r#type, pwszlabel.param().abi(), dwunitallocationsize, bforce.into(), bquickformat.into(), benablecompression.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddAccessPath<P0>(&self, pwszpath: P0) -> windows_core::Result<()>
+    pub unsafe fn AddAccessPath<P0>(&self, pwszpath: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi()).ok() }
     }
-    pub unsafe fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryAccessPaths)(windows_core::Interface::as_raw(self), pwszpatharray as _, plnumberofaccesspaths as _).ok() }
     }
-    pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryReparsePoints)(windows_core::Interface::as_raw(self), ppreparsepointprops as _, plnumberofreparsepointprops as _).ok() }
     }
-    pub unsafe fn DeleteAccessPath<P0>(&self, pwszpath: P0, bforce: bool) -> windows_core::Result<()>
+    pub unsafe fn DeleteAccessPath<P0>(&self, pwszpath: P0, bforce: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteAccessPath)(windows_core::Interface::as_raw(self), pwszpath.param().abi(), bforce.into()).ok() }
     }
-    pub unsafe fn Mount(&self) -> windows_core::Result<()> {
+    pub unsafe fn Mount(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Mount)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Dismount(&self, bforce: bool, bpermanent: bool) -> windows_core::Result<()> {
+    pub unsafe fn Dismount(&self, bforce: bool, bpermanent: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Dismount)(windows_core::Interface::as_raw(self), bforce.into(), bpermanent.into()).ok() }
     }
-    pub unsafe fn SetFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFileSystemFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileSystemFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
-    pub unsafe fn ClearFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn ClearFileSystemFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFileSystemFlags)(windows_core::Interface::as_raw(self), ulflags).ok() }
     }
 }
@@ -5782,16 +5782,16 @@ pub struct IVdsVolumeMF_Vtbl {
     pub ClearFileSystemFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeMF_Impl: windows_core::IUnknownImpl {
-    fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> windows_core::Result<()>;
-    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
-    fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> windows_core::Result<()>;
-    fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> windows_core::Result<()>;
-    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Mount(&self) -> windows_core::Result<()>;
-    fn Dismount(&self, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()>;
-    fn ClearFileSystemFlags(&self, ulflags: u32) -> windows_core::Result<()>;
+    fn GetFileSystemProperties(&self, pfilesystemprop: *mut VDS_FILE_SYSTEM_PROP) -> Result<(), windows_result::HRESULT>;
+    fn Format(&self, r#type: VDS_FILE_SYSTEM_TYPE, pwszlabel: &windows_core::PCWSTR, dwunitallocationsize: u32, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn AddAccessPath(&self, pwszpath: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
+    fn QueryAccessPaths(&self, pwszpatharray: *mut *mut windows_core::PWSTR, plnumberofaccesspaths: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn QueryReparsePoints(&self, ppreparsepointprops: *mut *mut VDS_REPARSE_POINT_PROP, plnumberofreparsepointprops: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn DeleteAccessPath(&self, pwszpath: &windows_core::PCWSTR, bforce: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Mount(&self) -> Result<(), windows_result::HRESULT>;
+    fn Dismount(&self, bforce: windows_core::BOOL, bpermanent: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetFileSystemFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClearFileSystemFlags(&self, ulflags: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsVolumeMF_Vtbl {
     pub const fn new<Identity: IVdsVolumeMF_Impl, const OFFSET: isize>() -> Self {
@@ -5809,7 +5809,7 @@ impl IVdsVolumeMF_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5883,16 +5883,16 @@ impl windows_core::RuntimeName for IVdsVolumeMF {}
 windows_core::imp::define_interface!(IVdsVolumeMF2, IVdsVolumeMF2_Vtbl, 0x4dbcee9a_6343_4651_b85f_5e75d74d983c);
 windows_core::imp::interface_hierarchy!(IVdsVolumeMF2, windows_core::IUnknown);
 impl IVdsVolumeMF2 {
-    pub unsafe fn GetFileSystemTypeName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetFileSystemTypeName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileSystemTypeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryFileSystemFormatSupport)(windows_core::Interface::as_raw(self), ppfilesystemsupportprops as _, plnumberoffilesystems as _).ok() }
     }
-    pub unsafe fn FormatEx<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, bforce: bool, bquickformat: bool, benablecompression: bool) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatEx<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, bforce: bool, bquickformat: bool, benablecompression: bool) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -5912,9 +5912,9 @@ pub struct IVdsVolumeMF2_Vtbl {
     pub FormatEx: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u16, u32, windows_core::PCWSTR, windows_core::BOOL, windows_core::BOOL, windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeMF2_Impl: windows_core::IUnknownImpl {
-    fn GetFileSystemTypeName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> windows_core::Result<()>;
-    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> windows_core::Result<IVdsAsync>;
+    fn GetFileSystemTypeName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn QueryFileSystemFormatSupport(&self, ppfilesystemsupportprops: *mut *mut VDS_FILE_SYSTEM_FORMAT_SUPPORT_PROP, plnumberoffilesystems: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn FormatEx(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, bforce: windows_core::BOOL, bquickformat: windows_core::BOOL, benablecompression: windows_core::BOOL) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsVolumeMF2_Vtbl {
     pub const fn new<Identity: IVdsVolumeMF2_Impl, const OFFSET: isize>() -> Self {
@@ -5926,7 +5926,7 @@ impl IVdsVolumeMF2_Vtbl {
                         ppwszfilesystemtypename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5944,7 +5944,7 @@ impl IVdsVolumeMF2_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5963,10 +5963,10 @@ impl windows_core::RuntimeName for IVdsVolumeMF2 {}
 windows_core::imp::define_interface!(IVdsVolumeMF3, IVdsVolumeMF3_Vtbl, 0x6788faf9_214e_4b85_ba59_266953616e09);
 windows_core::imp::interface_hierarchy!(IVdsVolumeMF3, windows_core::IUnknown);
 impl IVdsVolumeMF3 {
-    pub unsafe fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryVolumeGuidPathnames)(windows_core::Interface::as_raw(self), pwszpatharray as _, pulnumberofpaths as _).ok() }
     }
-    pub unsafe fn FormatEx2<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, options: u32) -> windows_core::Result<IVdsAsync>
+    pub unsafe fn FormatEx2<P0, P3>(&self, pwszfilesystemtypename: P0, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: P3, options: u32) -> Result<IVdsAsync, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -5976,7 +5976,7 @@ impl IVdsVolumeMF3 {
             (windows_core::Interface::vtable(self).FormatEx2)(windows_core::Interface::as_raw(self), pwszfilesystemtypename.param().abi(), usfilesystemrevision, uldesiredunitallocationsize, pwszlabel.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OfflineVolume(&self) -> windows_core::Result<()> {
+    pub unsafe fn OfflineVolume(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OfflineVolume)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -5989,9 +5989,9 @@ pub struct IVdsVolumeMF3_Vtbl {
     pub OfflineVolume: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeMF3_Impl: windows_core::IUnknownImpl {
-    fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut u32) -> windows_core::Result<()>;
-    fn FormatEx2(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, options: u32) -> windows_core::Result<IVdsAsync>;
-    fn OfflineVolume(&self) -> windows_core::Result<()>;
+    fn QueryVolumeGuidPathnames(&self, pwszpatharray: *mut *mut windows_core::PWSTR, pulnumberofpaths: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn FormatEx2(&self, pwszfilesystemtypename: &windows_core::PCWSTR, usfilesystemrevision: u16, uldesiredunitallocationsize: u32, pwszlabel: &windows_core::PCWSTR, options: u32) -> Result<IVdsAsync, windows_result::HRESULT>;
+    fn OfflineVolume(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsVolumeMF3_Vtbl {
     pub const fn new<Identity: IVdsVolumeMF3_Impl, const OFFSET: isize>() -> Self {
@@ -6009,7 +6009,7 @@ impl IVdsVolumeMF3_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6034,7 +6034,7 @@ impl windows_core::RuntimeName for IVdsVolumeMF3 {}
 windows_core::imp::define_interface!(IVdsVolumeOnline, IVdsVolumeOnline_Vtbl, 0x1be2275a_b315_4f70_9e44_879b3a2a53f2);
 windows_core::imp::interface_hierarchy!(IVdsVolumeOnline, windows_core::IUnknown);
 impl IVdsVolumeOnline {
-    pub unsafe fn Online(&self) -> windows_core::Result<()> {
+    pub unsafe fn Online(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Online)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6045,7 +6045,7 @@ pub struct IVdsVolumeOnline_Vtbl {
     pub Online: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeOnline_Impl: windows_core::IUnknownImpl {
-    fn Online(&self) -> windows_core::Result<()>;
+    fn Online(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IVdsVolumeOnline_Vtbl {
     pub const fn new<Identity: IVdsVolumeOnline_Impl, const OFFSET: isize>() -> Self {
@@ -6065,19 +6065,19 @@ impl windows_core::RuntimeName for IVdsVolumeOnline {}
 windows_core::imp::define_interface!(IVdsVolumePlex, IVdsVolumePlex_Vtbl, 0x4daa0135_e1d1_40f1_aaa5_3cc1e53221c3);
 windows_core::imp::interface_hierarchy!(IVdsVolumePlex, windows_core::IUnknown);
 impl IVdsVolumePlex {
-    pub unsafe fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::Result<()> {
+    pub unsafe fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetProperties)(windows_core::Interface::as_raw(self), pplexproperties as _).ok() }
     }
-    pub unsafe fn GetVolume(&self) -> windows_core::Result<IVdsVolume> {
+    pub unsafe fn GetVolume(&self) -> Result<IVdsVolume, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVolume)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryExtents)(windows_core::Interface::as_raw(self), ppextentarray as _, plnumberofextents as _).ok() }
     }
-    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Repair(&self, pinputdiskarray: &[VDS_INPUT_DISK]) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), core::mem::transmute(pinputdiskarray.as_ptr()), pinputdiskarray.len().try_into().unwrap(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6094,10 +6094,10 @@ pub struct IVdsVolumePlex_Vtbl {
     pub Repair: unsafe extern "system" fn(*mut core::ffi::c_void, *const VDS_INPUT_DISK, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumePlex_Impl: windows_core::IUnknownImpl {
-    fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> windows_core::Result<()>;
-    fn GetVolume(&self) -> windows_core::Result<IVdsVolume>;
-    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> windows_core::Result<()>;
-    fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32) -> windows_core::Result<IVdsAsync>;
+    fn GetProperties(&self, pplexproperties: *mut VDS_VOLUME_PLEX_PROP) -> Result<(), windows_result::HRESULT>;
+    fn GetVolume(&self) -> Result<IVdsVolume, windows_result::HRESULT>;
+    fn QueryExtents(&self, ppextentarray: *mut *mut VDS_DISK_EXTENT, plnumberofextents: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn Repair(&self, pinputdiskarray: *const VDS_INPUT_DISK, lnumberofdisks: i32) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsVolumePlex_Vtbl {
     pub const fn new<Identity: IVdsVolumePlex_Impl, const OFFSET: isize>() -> Self {
@@ -6115,7 +6115,7 @@ impl IVdsVolumePlex_Vtbl {
                         ppvolume.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6133,7 +6133,7 @@ impl IVdsVolumePlex_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6153,13 +6153,13 @@ impl windows_core::RuntimeName for IVdsVolumePlex {}
 windows_core::imp::define_interface!(IVdsVolumeShrink, IVdsVolumeShrink_Vtbl, 0xd68168c9_82a2_4f85_b6e9_74707c49a58f);
 windows_core::imp::interface_hierarchy!(IVdsVolumeShrink, windows_core::IUnknown);
 impl IVdsVolumeShrink {
-    pub unsafe fn QueryMaxReclaimableBytes(&self) -> windows_core::Result<u64> {
+    pub unsafe fn QueryMaxReclaimableBytes(&self) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryMaxReclaimableBytes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Shrink(&self, ulldesirednumberofreclaimablebytes: u64, ullminnumberofreclaimablebytes: u64) -> windows_core::Result<IVdsAsync> {
+    pub unsafe fn Shrink(&self, ulldesirednumberofreclaimablebytes: u64, ullminnumberofreclaimablebytes: u64) -> Result<IVdsAsync, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shrink)(windows_core::Interface::as_raw(self), ulldesirednumberofreclaimablebytes, ullminnumberofreclaimablebytes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -6174,8 +6174,8 @@ pub struct IVdsVolumeShrink_Vtbl {
     pub Shrink: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IVdsVolumeShrink_Impl: windows_core::IUnknownImpl {
-    fn QueryMaxReclaimableBytes(&self) -> windows_core::Result<u64>;
-    fn Shrink(&self, ulldesirednumberofreclaimablebytes: u64, ullminnumberofreclaimablebytes: u64) -> windows_core::Result<IVdsAsync>;
+    fn QueryMaxReclaimableBytes(&self) -> Result<u64, windows_result::HRESULT>;
+    fn Shrink(&self, ulldesirednumberofreclaimablebytes: u64, ullminnumberofreclaimablebytes: u64) -> Result<IVdsAsync, windows_result::HRESULT>;
 }
 impl IVdsVolumeShrink_Vtbl {
     pub const fn new<Identity: IVdsVolumeShrink_Impl, const OFFSET: isize>() -> Self {
@@ -6187,7 +6187,7 @@ impl IVdsVolumeShrink_Vtbl {
                         pullmaxnumberofreclaimablebytes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6199,7 +6199,7 @@ impl IVdsVolumeShrink_Vtbl {
                         ppasync.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

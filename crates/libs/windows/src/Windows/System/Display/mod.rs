@@ -3,18 +3,18 @@
 pub struct DisplayRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DisplayRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn RequestActive(&self) -> windows_core::Result<()> {
+    pub fn RequestActive(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestActive)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RequestRelease(&self) -> windows_core::Result<()> {
+    pub fn RequestRelease(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestRelease)(windows_core::Interface::as_raw(this)).ok() }
     }

@@ -24,7 +24,7 @@ impl windows_core::RuntimeType for ISysStorageProviderEventSource {
 }
 windows_core::imp::interface_hierarchy!(ISysStorageProviderEventSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ISysStorageProviderEventSource {
-    pub fn EventReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EventReceived<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>,
     {
@@ -34,7 +34,7 @@ impl ISysStorageProviderEventSource {
             (windows_core::Interface::vtable(this).EventReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveEventReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEventReceived(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveEventReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -43,24 +43,24 @@ impl windows_core::RuntimeName for ISysStorageProviderEventSource {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderEventSource";
 }
 pub trait ISysStorageProviderEventSource_Impl: windows_core::IUnknownImpl {
-    fn EventReceived(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> windows_core::Result<i64>;
-    fn RemoveEventReceived(&self, token: i64) -> windows_core::Result<()>;
+    fn EventReceived(&self, handler: windows_core::Ref<'_, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>) -> Result<i64, windows_result::HRESULT>;
+    fn RemoveEventReceived(&self, token: i64) -> Result<(), windows_result::HRESULT>;
 }
 impl ISysStorageProviderEventSource_Vtbl {
     pub const fn new<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn EventReceived<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn EventReceived<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, handler: *mut core::ffi::c_void, result__: *mut i64) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderEventSource_Impl::EventReceived(this, core::mem::transmute_copy(&handler)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn RemoveEventReceived<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_core::HRESULT {
+        unsafe extern "system" fn RemoveEventReceived<Identity: ISysStorageProviderEventSource_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, token: i64) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ISysStorageProviderEventSource_Impl::RemoveEventReceived(this, token).into()
@@ -89,14 +89,14 @@ impl windows_core::RuntimeType for ISysStorageProviderHandlerFactory {
 }
 windows_core::imp::interface_hierarchy!(ISysStorageProviderHandlerFactory, windows_core::IUnknown, windows_core::IInspectable);
 impl ISysStorageProviderHandlerFactory {
-    pub fn GetHttpRequestProvider(&self, syncrootid: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderHttpRequestProvider> {
+    pub fn GetHttpRequestProvider(&self, syncrootid: &windows_core::HSTRING) -> Result<ISysStorageProviderHttpRequestProvider, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHttpRequestProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(syncrootid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetEventSource(&self, syncrootid: &windows_core::HSTRING, eventname: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderEventSource> {
+    pub fn GetEventSource(&self, syncrootid: &windows_core::HSTRING, eventname: &windows_core::HSTRING) -> Result<ISysStorageProviderEventSource, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -108,34 +108,34 @@ impl windows_core::RuntimeName for ISysStorageProviderHandlerFactory {
     const NAME: &'static str = "Windows.System.Implementation.FileExplorer.ISysStorageProviderHandlerFactory";
 }
 pub trait ISysStorageProviderHandlerFactory_Impl: windows_core::IUnknownImpl {
-    fn GetHttpRequestProvider(&self, syncRootId: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderHttpRequestProvider>;
-    fn GetEventSource(&self, syncRootId: &windows_core::HSTRING, eventName: &windows_core::HSTRING) -> windows_core::Result<ISysStorageProviderEventSource>;
+    fn GetHttpRequestProvider(&self, syncRootId: &windows_core::HSTRING) -> Result<ISysStorageProviderHttpRequestProvider, windows_result::HRESULT>;
+    fn GetEventSource(&self, syncRootId: &windows_core::HSTRING, eventName: &windows_core::HSTRING) -> Result<ISysStorageProviderEventSource, windows_result::HRESULT>;
 }
 impl ISysStorageProviderHandlerFactory_Vtbl {
     pub const fn new<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetHttpRequestProvider<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetHttpRequestProvider<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHandlerFactory_Impl::GetHttpRequestProvider(this, core::mem::transmute(&syncrootid)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetEventSource<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetEventSource<Identity: ISysStorageProviderHandlerFactory_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, syncrootid: *mut core::ffi::c_void, eventname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHandlerFactory_Impl::GetEventSource(this, core::mem::transmute(&syncrootid), core::mem::transmute(&eventname)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -163,7 +163,7 @@ impl windows_core::RuntimeType for ISysStorageProviderHttpRequestProvider {
 windows_core::imp::interface_hierarchy!(ISysStorageProviderHttpRequestProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ISysStorageProviderHttpRequestProvider {
     #[cfg(feature = "Web_Http")]
-    pub fn SendRequestAsync<P0>(&self, request: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>
+    pub fn SendRequestAsync<P0>(&self, request: P0) -> Result<windows_future::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Web::Http::HttpRequestMessage>,
     {
@@ -180,21 +180,21 @@ impl windows_core::RuntimeName for ISysStorageProviderHttpRequestProvider {
 }
 #[cfg(feature = "Web_Http")]
 pub trait ISysStorageProviderHttpRequestProvider_Impl: windows_core::IUnknownImpl {
-    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>>;
+    fn SendRequestAsync(&self, request: windows_core::Ref<'_, super::super::super::Web::Http::HttpRequestMessage>) -> Result<windows_future::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>, windows_result::HRESULT>;
 }
 #[cfg(feature = "Web_Http")]
 impl ISysStorageProviderHttpRequestProvider_Vtbl {
     pub const fn new<Identity: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn SendRequestAsync<Identity: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SendRequestAsync<Identity: ISysStorageProviderHttpRequestProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ISysStorageProviderHttpRequestProvider_Impl::SendRequestAsync(this, core::mem::transmute_copy(&request)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -221,20 +221,20 @@ pub struct ISysStorageProviderHttpRequestProvider_Vtbl {
 pub struct SysStorageProviderEventReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SysStorageProviderEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SysStorageProviderEventReceivedEventArgs {
-    pub fn Json(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Json(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Json)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(json: &windows_core::HSTRING) -> windows_core::Result<SysStorageProviderEventReceivedEventArgs> {
+    pub fn CreateInstance(json: &windows_core::HSTRING) -> Result<SysStorageProviderEventReceivedEventArgs, windows_result::HRESULT> {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(json), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

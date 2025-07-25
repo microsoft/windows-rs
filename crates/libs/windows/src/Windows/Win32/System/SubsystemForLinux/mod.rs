@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn WslConfigureDistribution<P0>(distributionname: P0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> windows_core::Result<()>
+pub unsafe fn WslConfigureDistribution<P0>(distributionname: P0, defaultuid: u32, wsldistributionflags: WSL_DISTRIBUTION_FLAGS) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -7,7 +7,7 @@ where
     unsafe { WslConfigureDistribution(distributionname.param().abi(), defaultuid, wsldistributionflags).ok() }
 }
 #[inline]
-pub unsafe fn WslGetDistributionConfiguration<P0>(distributionname: P0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut windows_core::PSTR, defaultenvironmentvariablecount: *mut u32) -> windows_core::Result<()>
+pub unsafe fn WslGetDistributionConfiguration<P0>(distributionname: P0, distributionversion: *mut u32, defaultuid: *mut u32, wsldistributionflags: *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables: *mut *mut windows_core::PSTR, defaultenvironmentvariablecount: *mut u32) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -23,7 +23,7 @@ where
     unsafe { WslIsDistributionRegistered(distributionname.param().abi()) }
 }
 #[inline]
-pub unsafe fn WslLaunch<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool, stdin: super::super::Foundation::HANDLE, stdout: super::super::Foundation::HANDLE, stderr: super::super::Foundation::HANDLE) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn WslLaunch<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool, stdin: super::super::Foundation::HANDLE, stdout: super::super::Foundation::HANDLE, stderr: super::super::Foundation::HANDLE) -> Result<super::super::Foundation::HANDLE, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -35,7 +35,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn WslLaunchInteractive<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool) -> windows_core::Result<u32>
+pub unsafe fn WslLaunchInteractive<P0, P1>(distributionname: P0, command: P1, usecurrentworkingdirectory: bool) -> Result<u32, windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -47,7 +47,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn WslRegisterDistribution<P0, P1>(distributionname: P0, targzfilename: P1) -> windows_core::Result<()>
+pub unsafe fn WslRegisterDistribution<P0, P1>(distributionname: P0, targzfilename: P1) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -56,7 +56,7 @@ where
     unsafe { WslRegisterDistribution(distributionname.param().abi(), targzfilename.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn WslUnregisterDistribution<P0>(distributionname: P0) -> windows_core::Result<()>
+pub unsafe fn WslUnregisterDistribution<P0>(distributionname: P0) -> Result<(), windows_result::HRESULT>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {

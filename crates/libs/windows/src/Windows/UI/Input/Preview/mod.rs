@@ -16,7 +16,7 @@ pub struct IInputActivationListenerPreviewStatics_Vtbl {
 pub struct InputActivationListenerPreview;
 impl InputActivationListenerPreview {
     #[cfg(feature = "UI_WindowManagement")]
-    pub fn CreateForApplicationWindow<P0>(window: P0) -> windows_core::Result<super::InputActivationListener>
+    pub fn CreateForApplicationWindow<P0>(window: P0) -> Result<super::InputActivationListener, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
@@ -25,7 +25,7 @@ impl InputActivationListenerPreview {
             (windows_core::Interface::vtable(this).CreateForApplicationWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IInputActivationListenerPreviewStatics<R, F: FnOnce(&IInputActivationListenerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInputActivationListenerPreviewStatics<R, F: FnOnce(&IInputActivationListenerPreviewStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<InputActivationListenerPreview, IInputActivationListenerPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

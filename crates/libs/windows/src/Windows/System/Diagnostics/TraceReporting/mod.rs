@@ -57,13 +57,13 @@ impl windows_core::RuntimeType for PlatformDiagnosticActionState {
 }
 pub struct PlatformDiagnosticActions;
 impl PlatformDiagnosticActions {
-    pub fn IsScenarioEnabled(scenarioid: windows_core::GUID) -> windows_core::Result<bool> {
+    pub fn IsScenarioEnabled(scenarioid: windows_core::GUID) -> Result<bool, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsScenarioEnabled)(windows_core::Interface::as_raw(this), scenarioid, &mut result__).map(|| result__)
         })
     }
-    pub fn TryEscalateScenario<P5>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P5) -> windows_core::Result<bool>
+    pub fn TryEscalateScenario<P5>(scenarioid: windows_core::GUID, escalationtype: PlatformDiagnosticEscalationType, outputdirectory: &windows_core::HSTRING, timestampoutputdirectory: bool, forceescalationupload: bool, triggers: P5) -> Result<bool, windows_result::HRESULT>
     where
         P5: windows_core::Param<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>,
     {
@@ -72,43 +72,43 @@ impl PlatformDiagnosticActions {
             (windows_core::Interface::vtable(this).TryEscalateScenario)(windows_core::Interface::as_raw(this), scenarioid, escalationtype, core::mem::transmute_copy(outputdirectory), timestampoutputdirectory, forceescalationupload, triggers.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn DownloadLatestSettingsForNamespace(partner: &windows_core::HSTRING, feature: &windows_core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> windows_core::Result<PlatformDiagnosticActionState> {
+    pub fn DownloadLatestSettingsForNamespace(partner: &windows_core::HSTRING, feature: &windows_core::HSTRING, isscenarionamespace: bool, downloadovercostednetwork: bool, downloadoverbattery: bool) -> Result<PlatformDiagnosticActionState, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DownloadLatestSettingsForNamespace)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(partner), core::mem::transmute_copy(feature), isscenarionamespace, downloadovercostednetwork, downloadoverbattery, &mut result__).map(|| result__)
         })
     }
-    pub fn GetActiveScenarioList() -> windows_core::Result<windows_collections::IVectorView<windows_core::GUID>> {
+    pub fn GetActiveScenarioList() -> Result<windows_collections::IVectorView<windows_core::GUID>, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActiveScenarioList)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ForceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool) -> windows_core::Result<PlatformDiagnosticActionState> {
+    pub fn ForceUpload(latency: PlatformDiagnosticEventBufferLatencies, uploadovercostednetwork: bool, uploadoverbattery: bool) -> Result<PlatformDiagnosticActionState, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForceUpload)(windows_core::Interface::as_raw(this), latency, uploadovercostednetwork, uploadoverbattery, &mut result__).map(|| result__)
         })
     }
-    pub fn IsTraceRunning(slottype: PlatformDiagnosticTraceSlotType, scenarioid: windows_core::GUID, traceprofilehash: u64) -> windows_core::Result<PlatformDiagnosticTraceSlotState> {
+    pub fn IsTraceRunning(slottype: PlatformDiagnosticTraceSlotType, scenarioid: windows_core::GUID, traceprofilehash: u64) -> Result<PlatformDiagnosticTraceSlotState, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTraceRunning)(windows_core::Interface::as_raw(this), slottype, scenarioid, traceprofilehash, &mut result__).map(|| result__)
         })
     }
-    pub fn GetActiveTraceRuntime(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<PlatformDiagnosticTraceRuntimeInfo> {
+    pub fn GetActiveTraceRuntime(slottype: PlatformDiagnosticTraceSlotType) -> Result<PlatformDiagnosticTraceRuntimeInfo, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActiveTraceRuntime)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> windows_core::Result<windows_collections::IVectorView<PlatformDiagnosticTraceInfo>> {
+    pub fn GetKnownTraceList(slottype: PlatformDiagnosticTraceSlotType) -> Result<windows_collections::IVectorView<PlatformDiagnosticTraceInfo>, windows_result::HRESULT> {
         Self::IPlatformDiagnosticActionsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetKnownTraceList)(windows_core::Interface::as_raw(this), slottype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PlatformDiagnosticActions, IPlatformDiagnosticActionsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -181,42 +181,42 @@ impl core::ops::Not for PlatformDiagnosticEventBufferLatencies {
 pub struct PlatformDiagnosticTraceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformDiagnosticTraceInfo {
-    pub fn ScenarioId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ScenarioId(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScenarioId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProfileHash(&self) -> windows_core::Result<u64> {
+    pub fn ProfileHash(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProfileHash)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsExclusive(&self) -> windows_core::Result<bool> {
+    pub fn IsExclusive(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsExclusive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsAutoLogger(&self) -> windows_core::Result<bool> {
+    pub fn IsAutoLogger(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAutoLogger)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxTraceDurationFileTime(&self) -> windows_core::Result<i64> {
+    pub fn MaxTraceDurationFileTime(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxTraceDurationFileTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Priority(&self) -> windows_core::Result<PlatformDiagnosticTracePriority> {
+    pub fn Priority(&self) -> Result<PlatformDiagnosticTracePriority, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -254,14 +254,14 @@ impl windows_core::RuntimeType for PlatformDiagnosticTracePriority {
 pub struct PlatformDiagnosticTraceRuntimeInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlatformDiagnosticTraceRuntimeInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlatformDiagnosticTraceRuntimeInfo {
-    pub fn RuntimeFileTime(&self) -> windows_core::Result<i64> {
+    pub fn RuntimeFileTime(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RuntimeFileTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EtwRuntimeFileTime(&self) -> windows_core::Result<i64> {
+    pub fn EtwRuntimeFileTime(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

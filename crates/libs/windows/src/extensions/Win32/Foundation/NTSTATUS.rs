@@ -23,11 +23,11 @@ impl NTSTATUS {
     }
 
     #[inline]
-    pub fn ok(self) -> windows_core::Result<()> {
+    pub fn ok(self) -> Result<(), Self> {
         if self.is_ok() {
             Ok(())
         } else {
-            Err(self.to_hresult().into())
+            Err(self)
         }
     }
 }

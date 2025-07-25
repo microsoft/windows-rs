@@ -195,28 +195,28 @@ pub struct IResourceQualifier_Vtbl {
 pub struct NamedResource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedResource, windows_core::IUnknown, windows_core::IInspectable);
 impl NamedResource {
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Candidates(&self) -> windows_core::Result<windows_collections::IVectorView<ResourceCandidate>> {
+    pub fn Candidates(&self) -> Result<windows_collections::IVectorView<ResourceCandidate>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Candidates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Resolve(&self) -> windows_core::Result<ResourceCandidate> {
+    pub fn Resolve(&self) -> Result<ResourceCandidate, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Resolve)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResolveForContext<P0>(&self, resourcecontext: P0) -> windows_core::Result<ResourceCandidate>
+    pub fn ResolveForContext<P0>(&self, resourcecontext: P0) -> Result<ResourceCandidate, windows_result::HRESULT>
     where
         P0: windows_core::Param<ResourceContext>,
     {
@@ -226,14 +226,14 @@ impl NamedResource {
             (windows_core::Interface::vtable(this).ResolveForContext)(windows_core::Interface::as_raw(this), resourcecontext.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResolveAll(&self) -> windows_core::Result<windows_collections::IVectorView<ResourceCandidate>> {
+    pub fn ResolveAll(&self) -> Result<windows_collections::IVectorView<ResourceCandidate>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResolveAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ResolveAllForContext<P0>(&self, resourcecontext: P0) -> windows_core::Result<windows_collections::IVectorView<ResourceCandidate>>
+    pub fn ResolveAllForContext<P0>(&self, resourcecontext: P0) -> Result<windows_collections::IVectorView<ResourceCandidate>, windows_result::HRESULT>
     where
         P0: windows_core::Param<ResourceContext>,
     {
@@ -261,35 +261,35 @@ unsafe impl Sync for NamedResource {}
 pub struct ResourceCandidate(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceCandidate, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceCandidate {
-    pub fn Qualifiers(&self) -> windows_core::Result<windows_collections::IVectorView<ResourceQualifier>> {
+    pub fn Qualifiers(&self) -> Result<windows_collections::IVectorView<ResourceQualifier>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Qualifiers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsMatch(&self) -> windows_core::Result<bool> {
+    pub fn IsMatch(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMatch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsMatchAsDefault(&self) -> windows_core::Result<bool> {
+    pub fn IsMatchAsDefault(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMatchAsDefault)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDefault(&self) -> windows_core::Result<bool> {
+    pub fn IsDefault(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDefault)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ValueAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ValueAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -297,14 +297,14 @@ impl ResourceCandidate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetValueAsFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetValueAsFileAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetValueAsFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetQualifierValue(&self, qualifiername: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetQualifierValue(&self, qualifiername: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -312,14 +312,14 @@ impl ResourceCandidate {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetValueAsStreamAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>> {
+    pub fn GetValueAsStreamAsync(&self) -> Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IRandomAccessStream>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IResourceCandidate2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetValueAsStreamAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<ResourceCandidateKind> {
+    pub fn Kind(&self) -> Result<ResourceCandidateKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IResourceCandidate3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -359,28 +359,28 @@ pub struct ResourceCandidateVectorView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceCandidateVectorView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<ResourceCandidate>);
 windows_core::imp::required_hierarchy!(ResourceCandidateVectorView, windows_collections::IIterable<ResourceCandidate>);
 impl ResourceCandidateVectorView {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<ResourceCandidate>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<ResourceCandidate>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<ResourceCandidate>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<ResourceCandidate> {
+    pub fn GetAt(&self, index: u32) -> Result<ResourceCandidate, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<ResourceCandidate>,
     {
@@ -390,7 +390,7 @@ impl ResourceCandidateVectorView {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceCandidate>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceCandidate>]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -429,61 +429,61 @@ impl IntoIterator for &ResourceCandidateVectorView {
 pub struct ResourceContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceContext {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn QualifierValues(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn QualifierValues(&self) -> Result<super::super::super::Foundation::Collections::IObservableMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QualifierValues)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Reset(&self) -> windows_core::Result<()> {
+    pub fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ResetQualifierValues<P0>(&self, qualifiernames: P0) -> windows_core::Result<()>
+    pub fn ResetQualifierValues<P0>(&self, qualifiernames: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetQualifierValues)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() }
     }
-    pub fn OverrideToMatch<P0>(&self, result: P0) -> windows_core::Result<()>
+    pub fn OverrideToMatch<P0>(&self, result: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<ResourceQualifier>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OverrideToMatch)(windows_core::Interface::as_raw(this), result.param().abi()).ok() }
     }
-    pub fn Clone(&self) -> windows_core::Result<ResourceContext> {
+    pub fn Clone(&self) -> Result<ResourceContext, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Languages(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn Languages(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Languages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetLanguages<P0>(&self, languages: P0) -> windows_core::Result<()>
+    pub fn SetLanguages<P0>(&self, languages: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IVectorView<windows_core::HSTRING>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguages)(windows_core::Interface::as_raw(this), languages.param().abi()).ok() }
     }
-    pub fn CreateMatchingContext<P0>(result: P0) -> windows_core::Result<ResourceContext>
+    pub fn CreateMatchingContext<P0>(result: P0) -> Result<ResourceContext, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<ResourceQualifier>>,
     {
@@ -492,35 +492,35 @@ impl ResourceContext {
             (windows_core::Interface::vtable(this).CreateMatchingContext)(windows_core::Interface::as_raw(this), result.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ResourceContext> {
+    pub fn GetForCurrentView() -> Result<ResourceContext, windows_result::HRESULT> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetGlobalQualifierValue(key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetGlobalQualifierValue(key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetGlobalQualifierValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value)).ok() })
     }
-    pub fn ResetGlobalQualifierValues() -> windows_core::Result<()> {
+    pub fn ResetGlobalQualifierValues() -> Result<(), windows_result::HRESULT> {
         Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValues)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<P0>(qualifiernames: P0) -> windows_core::Result<()>
+    pub fn ResetGlobalQualifierValuesForSpecifiedQualifiers<P0>(qualifiernames: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         Self::IResourceContextStatics2(|this| unsafe { (windows_core::Interface::vtable(this).ResetGlobalQualifierValuesForSpecifiedQualifiers)(windows_core::Interface::as_raw(this), qualifiernames.param().abi()).ok() })
     }
-    pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceContext> {
+    pub fn GetForViewIndependentUse() -> Result<ResourceContext, windows_result::HRESULT> {
         Self::IResourceContextStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetGlobalQualifierValueWithPersistence(key: &windows_core::HSTRING, value: &windows_core::HSTRING, persistence: ResourceQualifierPersistence) -> windows_core::Result<()> {
+    pub fn SetGlobalQualifierValueWithPersistence(key: &windows_core::HSTRING, value: &windows_core::HSTRING, persistence: ResourceQualifierPersistence) -> Result<(), windows_result::HRESULT> {
         Self::IResourceContextStatics3(|this| unsafe { (windows_core::Interface::vtable(this).SetGlobalQualifierValueWithPersistence)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), persistence).ok() })
     }
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceContext>
+    pub fn GetForUIContext<P0>(context: P0) -> Result<ResourceContext, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::UI::UIContext>,
     {
@@ -529,19 +529,19 @@ impl ResourceContext {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IResourceContextStatics<R, F: FnOnce(&IResourceContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics<R, F: FnOnce(&IResourceContextStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceContextStatics2<R, F: FnOnce(&IResourceContextStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics2<R, F: FnOnce(&IResourceContextStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceContextStatics3<R, F: FnOnce(&IResourceContextStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics3<R, F: FnOnce(&IResourceContextStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceContextStatics4<R, F: FnOnce(&IResourceContextStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceContextStatics4<R, F: FnOnce(&IResourceContextStatics4) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceContext, IResourceContextStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -564,35 +564,35 @@ pub struct ResourceContextLanguagesVectorView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceContextLanguagesVectorView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<windows_core::HSTRING>);
 windows_core::imp::required_hierarchy!(ResourceContextLanguagesVectorView, windows_collections::IIterable<windows_core::HSTRING>);
 impl ResourceContextLanguagesVectorView {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_core::HSTRING>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetAt(&self, index: u32) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IndexOf(&self, value: &windows_core::HSTRING, index: &mut u32) -> windows_core::Result<bool> {
+    pub fn IndexOf(&self, value: &windows_core::HSTRING, index: &mut u32) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), index, &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [windows_core::HSTRING]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [windows_core::HSTRING]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -646,21 +646,21 @@ impl windows_core::RuntimeType for ResourceLayoutInfo {
 pub struct ResourceManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceManager {
-    pub fn MainResourceMap(&self) -> windows_core::Result<ResourceMap> {
+    pub fn MainResourceMap(&self) -> Result<ResourceMap, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MainResourceMap)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AllResourceMaps(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>> {
+    pub fn AllResourceMaps(&self) -> Result<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllResourceMaps)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DefaultContext(&self) -> windows_core::Result<ResourceContext> {
+    pub fn DefaultContext(&self) -> Result<ResourceContext, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -668,7 +668,7 @@ impl ResourceManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadPriFiles<P0>(&self, files: P0) -> windows_core::Result<()>
+    pub fn LoadPriFiles<P0>(&self, files: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
@@ -676,40 +676,40 @@ impl ResourceManager {
         unsafe { (windows_core::Interface::vtable(this).LoadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn UnloadPriFiles<P0>(&self, files: P0) -> windows_core::Result<()>
+    pub fn UnloadPriFiles<P0>(&self, files: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::super::Storage::IStorageFile>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UnloadPriFiles)(windows_core::Interface::as_raw(this), files.param().abi()).ok() }
     }
-    pub fn GetAllNamedResourcesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> windows_core::Result<windows_collections::IVectorView<NamedResource>> {
+    pub fn GetAllNamedResourcesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> Result<windows_collections::IVectorView<NamedResource>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IResourceManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllNamedResourcesForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), resourcelayoutinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllSubtreesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> windows_core::Result<windows_collections::IVectorView<ResourceMap>> {
+    pub fn GetAllSubtreesForPackage(&self, packagename: &windows_core::HSTRING, resourcelayoutinfo: ResourceLayoutInfo) -> Result<windows_collections::IVectorView<ResourceMap>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IResourceManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllSubtreesForPackage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagename), resourcelayoutinfo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<ResourceManager> {
+    pub fn Current() -> Result<ResourceManager, windows_result::HRESULT> {
         Self::IResourceManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsResourceReference(resourcereference: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn IsResourceReference(resourcereference: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         Self::IResourceManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsResourceReference)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resourcereference), &mut result__).map(|| result__)
         })
     }
-    fn IResourceManagerStatics<R, F: FnOnce(&IResourceManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceManagerStatics<R, F: FnOnce(&IResourceManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ResourceManager, IResourceManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -732,53 +732,53 @@ pub struct ResourceMap(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceMap, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( ResourceMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , NamedResource > > , windows_collections:: IMapView < windows_core::HSTRING , NamedResource > );
 impl ResourceMap {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<NamedResource> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<NamedResource, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>) -> windows_core::Result<()> {
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, NamedResource>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetValue(&self, resource: &windows_core::HSTRING) -> windows_core::Result<ResourceCandidate> {
+    pub fn GetValue(&self, resource: &windows_core::HSTRING) -> Result<ResourceCandidate, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetValueForContext<P1>(&self, resource: &windows_core::HSTRING, context: P1) -> windows_core::Result<ResourceCandidate>
+    pub fn GetValueForContext<P1>(&self, resource: &windows_core::HSTRING, context: P1) -> Result<ResourceCandidate, windows_result::HRESULT>
     where
         P1: windows_core::Param<ResourceContext>,
     {
@@ -788,7 +788,7 @@ impl ResourceMap {
             (windows_core::Interface::vtable(this).GetValueForContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
+    pub fn GetSubtree(&self, reference: &windows_core::HSTRING) -> Result<ResourceMap, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,28 +827,28 @@ impl IntoIterator for &ResourceMap {
 pub struct ResourceMapIterator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceMapIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>);
 impl ResourceMapIterator {
-    pub fn Current(&self) -> windows_core::Result<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>> {
+    pub fn Current(&self) -> Result<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCurrent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, NamedResource>>]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -874,35 +874,35 @@ pub struct ResourceMapMapView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy ! ( ResourceMapMapView , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMapView < windows_core::HSTRING , ResourceMap > );
 windows_core::imp::required_hierarchy!(ResourceMapMapView, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>);
 impl ResourceMapMapView {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<ResourceMap> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<ResourceMap, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>) -> windows_core::Result<()> {
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, ResourceMap>>) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
@@ -938,28 +938,28 @@ impl IntoIterator for &ResourceMapMapView {
 pub struct ResourceMapMapViewIterator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceMapMapViewIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>);
 impl ResourceMapMapViewIterator {
-    pub fn Current(&self) -> windows_core::Result<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>> {
+    pub fn Current(&self) -> Result<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCurrent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [Option<windows_collections::IKeyValuePair<windows_core::HSTRING, ResourceMap>>]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -984,35 +984,35 @@ unsafe impl Sync for ResourceMapMapViewIterator {}
 pub struct ResourceQualifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceQualifier, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceQualifier {
-    pub fn QualifierName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QualifierName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QualifierName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn QualifierValue(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn QualifierValue(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).QualifierValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsDefault(&self) -> windows_core::Result<bool> {
+    pub fn IsDefault(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDefault)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsMatch(&self) -> windows_core::Result<bool> {
+    pub fn IsMatch(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMatch)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Score(&self) -> windows_core::Result<f64> {
+    pub fn Score(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1038,35 +1038,35 @@ pub struct ResourceQualifierMapView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy ! ( ResourceQualifierMapView , windows_core::IUnknown , windows_core::IInspectable , windows_collections:: IMapView < windows_core::HSTRING , windows_core::HSTRING > );
 windows_core::imp::required_hierarchy!(ResourceQualifierMapView, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>);
 impl ResourceQualifierMapView {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>) -> windows_core::Result<()> {
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
@@ -1107,57 +1107,57 @@ windows_core::imp::interface_hierarchy ! ( ResourceQualifierObservableMap , wind
 windows_core::imp::required_hierarchy ! ( ResourceQualifierObservableMap , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::HSTRING > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::HSTRING > );
 #[cfg(feature = "Foundation_Collections")]
 impl ResourceQualifierObservableMap {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn GetView(&self) -> Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Insert(&self, key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn Insert(&self, key: &windows_core::HSTRING, value: &windows_core::HSTRING) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), core::mem::transmute_copy(value), &mut result__).map(|| result__)
         }
     }
-    pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Remove(&self, key: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn MapChanged<P0>(&self, vhnd: P0) -> windows_core::Result<i64>
+    pub fn MapChanged<P0>(&self, vhnd: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::MapChangedEventHandler<windows_core::HSTRING, windows_core::HSTRING>>,
     {
@@ -1167,7 +1167,7 @@ impl ResourceQualifierObservableMap {
             (windows_core::Interface::vtable(this).MapChanged)(windows_core::Interface::as_raw(this), vhnd.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMapChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMapChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMapChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1224,28 +1224,28 @@ pub struct ResourceQualifierVectorView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceQualifierVectorView, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<ResourceQualifier>);
 windows_core::imp::required_hierarchy!(ResourceQualifierVectorView, windows_collections::IIterable<ResourceQualifier>);
 impl ResourceQualifierVectorView {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<ResourceQualifier>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<ResourceQualifier>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<ResourceQualifier>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<ResourceQualifier> {
+    pub fn GetAt(&self, index: u32) -> Result<ResourceQualifier, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<ResourceQualifier>,
     {
@@ -1255,7 +1255,7 @@ impl ResourceQualifierVectorView {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceQualifier>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<ResourceQualifier>]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -7,10 +7,10 @@ pub const EVENT_WMDM_CONTENT_TRANSFER: windows_core::GUID = windows_core::GUID::
 windows_core::imp::define_interface!(IComponentAuthenticate, IComponentAuthenticate_Vtbl, 0xa9889c00_6d2b_11d3_8496_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IComponentAuthenticate, windows_core::IUnknown);
 impl IComponentAuthenticate {
-    pub unsafe fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: &[u8], ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: &[u8], ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SACAuth)(windows_core::Interface::as_raw(self), dwprotocolid, dwpass, core::mem::transmute(pbdatain.as_ptr()), pbdatain.len().try_into().unwrap(), ppbdataout as _, pdwdataoutlen as _).ok() }
     }
-    pub unsafe fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SACGetProtocols)(windows_core::Interface::as_raw(self), ppdwprotocols as _, pdwprotocolcount as _).ok() }
     }
 }
@@ -22,8 +22,8 @@ pub struct IComponentAuthenticate_Vtbl {
     pub SACGetProtocols: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IComponentAuthenticate_Impl: windows_core::IUnknownImpl {
-    fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> windows_core::Result<()>;
-    fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> windows_core::Result<()>;
+    fn SACAuth(&self, dwprotocolid: u32, dwpass: u32, pbdatain: *const u8, dwdatainlen: u32, ppbdataout: *mut *mut u8, pdwdataoutlen: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SACGetProtocols(&self, ppdwprotocols: *mut *mut u32, pdwprotocolcount: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IComponentAuthenticate_Vtbl {
     pub const fn new<Identity: IComponentAuthenticate_Impl, const OFFSET: isize>() -> Self {
@@ -53,53 +53,53 @@ impl windows_core::RuntimeName for IComponentAuthenticate {}
 windows_core::imp::define_interface!(IMDSPDevice, IMDSPDevice_Vtbl, 0x1dcb3a12_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPDevice, windows_core::IUnknown);
 impl IMDSPDevice {
-    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetManufacturer)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetVersion(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetType(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetType(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSerialNumber)(windows_core::Interface::as_raw(self), pserialnumber as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPowerSource)(windows_core::Interface::as_raw(self), pdwpowersource as _, pdwpercentremaining as _).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDeviceIcon(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetDeviceIcon(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage> {
+    pub unsafe fn EnumStorage(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFormatSupport)(windows_core::Interface::as_raw(self), pformatex as _, pnformatcount as _, pppwszmimetype as _, pnmimetypecount as _).ok() }
     }
-    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendOpaqueCommand)(windows_core::Interface::as_raw(self), pcommand as _).ok() }
     }
 }
@@ -124,17 +124,17 @@ pub struct IMDSPDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDevice_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetVersion(&self) -> windows_core::Result<u32>;
-    fn GetType(&self) -> windows_core::Result<u32>;
-    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn GetDeviceIcon(&self) -> windows_core::Result<u32>;
-    fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage>;
-    fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()>;
-    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetVersion(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetType(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetDeviceIcon(&self) -> Result<u32, windows_result::HRESULT>;
+    fn EnumStorage(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT>;
+    fn GetFormatSupport(&self, pformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPDevice_Vtbl {
@@ -159,7 +159,7 @@ impl IMDSPDevice_Vtbl {
                         pdwversion.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -171,7 +171,7 @@ impl IMDSPDevice_Vtbl {
                         pdwtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -195,7 +195,7 @@ impl IMDSPDevice_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -207,7 +207,7 @@ impl IMDSPDevice_Vtbl {
                         hicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -219,7 +219,7 @@ impl IMDSPDevice_Vtbl {
                         ppenumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -265,7 +265,7 @@ impl core::ops::Deref for IMDSPDevice2 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPDevice2, windows_core::IUnknown, IMDSPDevice);
 impl IMDSPDevice2 {
-    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -275,14 +275,14 @@ impl IMDSPDevice2 {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFormatSupport2)(windows_core::Interface::as_raw(self), dwflags, ppaudioformatex as _, pnaudioformatcount as _, ppvideoformatex as _, pnvideoformatcount as _, ppfiletype as _, pnfiletypecount as _).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(windows_core::Interface::as_raw(self), core::mem::transmute(ppspecifyproppages), pppunknowns as _, pcunks as _).ok() }
     }
-    pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCanonicalName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok() }
     }
 }
@@ -303,10 +303,10 @@ pub struct IMDSPDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IMDSPDevice2_Impl: IMDSPDevice_Impl {
-    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
-    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()>;
-    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: windows_core::OutRef<'_, super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()>;
-    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: windows_core::OutRef<'_, super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl IMDSPDevice2_Vtbl {
@@ -319,7 +319,7 @@ impl IMDSPDevice2_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -365,7 +365,7 @@ impl core::ops::Deref for IMDSPDevice3 {
 windows_core::imp::interface_hierarchy!(IMDSPDevice3, windows_core::IUnknown, IMDSPDevice, IMDSPDevice2);
 impl IMDSPDevice3 {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> Result<super::super::System::Com::StructuredStorage::PROPVARIANT, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -375,23 +375,23 @@ impl IMDSPDevice3 {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> Result<WMDM_FORMAT_CAPABILITY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatCapability)(windows_core::Interface::as_raw(self), format, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeviceIoControl)(windows_core::Interface::as_raw(self), dwiocontrolcode, core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len().try_into().unwrap(), lpoutbuffer as _, pnoutbuffersize as _).ok() }
     }
-    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -422,11 +422,11 @@ pub struct IMDSPDevice3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMDSPDevice3_Impl: IMDSPDevice2_Impl {
-    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
-    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> Result<super::super::System::Com::StructuredStorage::PROPVARIANT, windows_result::HRESULT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> Result<(), windows_result::HRESULT>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> Result<WMDM_FORMAT_CAPABILITY, windows_result::HRESULT>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> Result<IMDSPStorage, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMDSPDevice3_Vtbl {
@@ -439,7 +439,7 @@ impl IMDSPDevice3_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -457,7 +457,7 @@ impl IMDSPDevice3_Vtbl {
                         pformatsupport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -475,7 +475,7 @@ impl IMDSPDevice3_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -497,35 +497,35 @@ impl windows_core::RuntimeName for IMDSPDevice3 {}
 windows_core::imp::define_interface!(IMDSPDeviceControl, IMDSPDeviceControl_Vtbl, 0x1dcb3a14_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPDeviceControl, windows_core::IUnknown);
 impl IMDSPDeviceControl {
-    pub unsafe fn GetDCStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetDCStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDCStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Play(&self) -> windows_core::Result<()> {
+    pub unsafe fn Play(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Play)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()> {
+    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Record)(windows_core::Interface::as_raw(self), pformat).ok() }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub unsafe fn Pause(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub unsafe fn Resume(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), fumode, noffset).ok() }
     }
 }
@@ -547,14 +547,14 @@ pub struct IMDSPDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPDeviceControl_Impl: windows_core::IUnknownImpl {
-    fn GetDCStatus(&self) -> windows_core::Result<u32>;
-    fn GetCapabilities(&self) -> windows_core::Result<u32>;
-    fn Play(&self) -> windows_core::Result<()>;
-    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()>;
+    fn GetDCStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT>;
+    fn Play(&self) -> Result<(), windows_result::HRESULT>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn Pause(&self) -> Result<(), windows_result::HRESULT>;
+    fn Resume(&self) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self) -> Result<(), windows_result::HRESULT>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPDeviceControl_Vtbl {
@@ -567,7 +567,7 @@ impl IMDSPDeviceControl_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -579,7 +579,7 @@ impl IMDSPDeviceControl_Vtbl {
                         pdwcapabilitiesmask.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -640,7 +640,7 @@ impl windows_core::RuntimeName for IMDSPDeviceControl {}
 windows_core::imp::define_interface!(IMDSPDirectTransfer, IMDSPDirectTransfer_Vtbl, 0xc2fe57a8_9304_478c_9ee4_47e397b912d7);
 windows_core::imp::interface_hierarchy!(IMDSPDirectTransfer, windows_core::IUnknown);
 impl IMDSPDirectTransfer {
-    pub unsafe fn TransferToDevice<P0, P1, P3, P4, P5>(&self, pwszsourcefilepath: P0, psourceoperation: P1, fuflags: u32, pwszdestinationname: P3, psourcemetadata: P4, ptransferprogress: P5) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn TransferToDevice<P0, P1, P3, P4, P5>(&self, pwszsourcefilepath: P0, psourceoperation: P1, fuflags: u32, pwszdestinationname: P3, psourcemetadata: P4, ptransferprogress: P5) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWMDMOperation>,
@@ -661,7 +661,7 @@ pub struct IMDSPDirectTransfer_Vtbl {
     pub TransferToDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, u32, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPDirectTransfer_Impl: windows_core::IUnknownImpl {
-    fn TransferToDevice(&self, pwszsourcefilepath: &windows_core::PCWSTR, psourceoperation: windows_core::Ref<'_, IWMDMOperation>, fuflags: u32, pwszdestinationname: &windows_core::PCWSTR, psourcemetadata: windows_core::Ref<'_, IWMDMMetaData>, ptransferprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<IMDSPStorage>;
+    fn TransferToDevice(&self, pwszsourcefilepath: &windows_core::PCWSTR, psourceoperation: windows_core::Ref<'_, IWMDMOperation>, fuflags: u32, pwszdestinationname: &windows_core::PCWSTR, psourcemetadata: windows_core::Ref<'_, IWMDMMetaData>, ptransferprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<IMDSPStorage, windows_result::HRESULT>;
 }
 impl IMDSPDirectTransfer_Vtbl {
     pub const fn new<Identity: IMDSPDirectTransfer_Impl, const OFFSET: isize>() -> Self {
@@ -673,7 +673,7 @@ impl IMDSPDirectTransfer_Vtbl {
                         ppnewobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -687,19 +687,19 @@ impl windows_core::RuntimeName for IMDSPDirectTransfer {}
 windows_core::imp::define_interface!(IMDSPEnumDevice, IMDSPEnumDevice_Vtbl, 0x1dcb3a11_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPEnumDevice, windows_core::IUnknown);
 impl IMDSPEnumDevice {
-    pub unsafe fn Next(&self, ppdevice: &mut [Option<IMDSPDevice>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppdevice: &mut [Option<IMDSPDevice>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppdevice.len().try_into().unwrap(), core::mem::transmute(ppdevice.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<u32> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMDSPEnumDevice> {
+    pub unsafe fn Clone(&self) -> Result<IMDSPEnumDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -716,10 +716,10 @@ pub struct IMDSPEnumDevice_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPEnumDevice_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppdevice: *mut Option<IMDSPDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IMDSPEnumDevice>;
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IMDSPDevice>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IMDSPEnumDevice, windows_result::HRESULT>;
 }
 impl IMDSPEnumDevice_Vtbl {
     pub const fn new<Identity: IMDSPEnumDevice_Impl, const OFFSET: isize>() -> Self {
@@ -737,7 +737,7 @@ impl IMDSPEnumDevice_Vtbl {
                         pceltfetched.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -755,7 +755,7 @@ impl IMDSPEnumDevice_Vtbl {
                         ppenumdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -775,19 +775,19 @@ impl windows_core::RuntimeName for IMDSPEnumDevice {}
 windows_core::imp::define_interface!(IMDSPEnumStorage, IMDSPEnumStorage_Vtbl, 0x1dcb3a15_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPEnumStorage, windows_core::IUnknown);
 impl IMDSPEnumStorage {
-    pub unsafe fn Next(&self, ppstorage: &mut [Option<IMDSPStorage>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppstorage: &mut [Option<IMDSPStorage>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstorage.len().try_into().unwrap(), core::mem::transmute(ppstorage.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<u32> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IMDSPEnumStorage> {
+    pub unsafe fn Clone(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -804,10 +804,10 @@ pub struct IMDSPEnumStorage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPEnumStorage_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppstorage: *mut Option<IMDSPStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IMDSPEnumStorage>;
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IMDSPStorage>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT>;
 }
 impl IMDSPEnumStorage_Vtbl {
     pub const fn new<Identity: IMDSPEnumStorage_Impl, const OFFSET: isize>() -> Self {
@@ -825,7 +825,7 @@ impl IMDSPEnumStorage_Vtbl {
                         pceltfetched.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -843,7 +843,7 @@ impl IMDSPEnumStorage_Vtbl {
                         ppenumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -863,39 +863,39 @@ impl windows_core::RuntimeName for IMDSPEnumStorage {}
 windows_core::imp::define_interface!(IMDSPObject, IMDSPObject_Vtbl, 0x1dcb3a18_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPObject, windows_core::IUnknown);
 impl IMDSPObject {
-    pub unsafe fn Open(&self, fumode: u32) -> windows_core::Result<()> {
+    pub unsafe fn Open(&self, fumode: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), fumode).ok() }
     }
-    pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), pdata as _, pdwsize as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Write)(windows_core::Interface::as_raw(self), pdata, pdwsize as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
     }
-    pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> windows_core::Result<()> {
+    pub unsafe fn Seek(&self, fuflags: u32, dwoffset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), fuflags, dwoffset).ok() }
     }
-    pub unsafe fn Rename<P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn Rename<P0, P1>(&self, pwsznewname: P0, pprogress: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWMDMProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), pwsznewname.param().abi(), pprogress.param().abi()).ok() }
     }
-    pub unsafe fn Move<P1, P2>(&self, fumode: u32, pprogress: P1, ptarget: P2) -> windows_core::Result<()>
+    pub unsafe fn Move<P1, P2>(&self, fumode: u32, pprogress: P1, ptarget: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMProgress>,
         P2: windows_core::Param<IMDSPStorage>,
     {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi(), ptarget.param().abi()).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -913,14 +913,14 @@ pub struct IMDSPObject_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPObject_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, fumode: u32) -> windows_core::Result<()>;
-    fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
-    fn Seek(&self, fuflags: u32, dwoffset: u32) -> windows_core::Result<()>;
-    fn Rename(&self, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
-    fn Move(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>, ptarget: windows_core::Ref<'_, IMDSPStorage>) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Open(&self, fumode: u32) -> Result<(), windows_result::HRESULT>;
+    fn Read(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn Write(&self, pdata: *const u8, pdwsize: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
+    fn Seek(&self, fuflags: u32, dwoffset: u32) -> Result<(), windows_result::HRESULT>;
+    fn Rename(&self, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
+    fn Move(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>, ptarget: windows_core::Ref<'_, IMDSPStorage>) -> Result<(), windows_result::HRESULT>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IMDSPObject_Vtbl {
     pub const fn new<Identity: IMDSPObject_Impl, const OFFSET: isize>() -> Self {
@@ -998,10 +998,10 @@ impl core::ops::Deref for IMDSPObject2 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPObject2, windows_core::IUnknown, IMDSPObject);
 impl IMDSPObject2 {
-    pub unsafe fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ReadOnClearChannel)(windows_core::Interface::as_raw(self), pdata as _, pdwsize as _).ok() }
     }
-    pub unsafe fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).WriteOnClearChannel)(windows_core::Interface::as_raw(self), pdata, pdwsize as _).ok() }
     }
 }
@@ -1013,8 +1013,8 @@ pub struct IMDSPObject2_Vtbl {
     pub WriteOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMDSPObject2_Impl: IMDSPObject_Impl {
-    fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
-    fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn ReadOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn WriteOnClearChannel(&self, pdata: *const u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IMDSPObject2_Vtbl {
     pub const fn new<Identity: IMDSPObject2_Impl, const OFFSET: isize>() -> Self {
@@ -1044,37 +1044,37 @@ impl windows_core::RuntimeName for IMDSPObject2 {}
 windows_core::imp::define_interface!(IMDSPObjectInfo, IMDSPObjectInfo_Vtbl, 0x1dcb3a19_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPObjectInfo, windows_core::IUnknown);
 impl IMDSPObjectInfo {
-    pub unsafe fn GetPlayLength(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetPlayLength(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPlayLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPlayLength(&self, dwlength: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPlayLength)(windows_core::Interface::as_raw(self), dwlength).ok() }
     }
-    pub unsafe fn GetPlayOffset(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetPlayOffset(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPlayOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPlayOffset)(windows_core::Interface::as_raw(self), dwoffset).ok() }
     }
-    pub unsafe fn GetTotalLength(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetTotalLength(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLastPlayPosition(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetLastPlayPosition(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastPlayPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLongestPlayPosition(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetLongestPlayPosition(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLongestPlayPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1094,13 +1094,13 @@ pub struct IMDSPObjectInfo_Vtbl {
     pub GetLongestPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMDSPObjectInfo_Impl: windows_core::IUnknownImpl {
-    fn GetPlayLength(&self) -> windows_core::Result<u32>;
-    fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()>;
-    fn GetPlayOffset(&self) -> windows_core::Result<u32>;
-    fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()>;
-    fn GetTotalLength(&self) -> windows_core::Result<u32>;
-    fn GetLastPlayPosition(&self) -> windows_core::Result<u32>;
-    fn GetLongestPlayPosition(&self) -> windows_core::Result<u32>;
+    fn GetPlayLength(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetPlayLength(&self, dwlength: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetPlayOffset(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalLength(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetLastPlayPosition(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetLongestPlayPosition(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IMDSPObjectInfo_Vtbl {
     pub const fn new<Identity: IMDSPObjectInfo_Impl, const OFFSET: isize>() -> Self {
@@ -1112,7 +1112,7 @@ impl IMDSPObjectInfo_Vtbl {
                         pdwlength.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1130,7 +1130,7 @@ impl IMDSPObjectInfo_Vtbl {
                         pdwoffset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1148,7 +1148,7 @@ impl IMDSPObjectInfo_Vtbl {
                         pdwlength.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1160,7 +1160,7 @@ impl IMDSPObjectInfo_Vtbl {
                         pdwlastpos.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1172,7 +1172,7 @@ impl IMDSPObjectInfo_Vtbl {
                         pdwlongestpos.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1195,7 +1195,7 @@ impl windows_core::RuntimeName for IMDSPObjectInfo {}
 windows_core::imp::define_interface!(IMDSPRevoked, IMDSPRevoked_Vtbl, 0xa4e8f2d4_3f31_464d_b53d_4fc335998184);
 windows_core::imp::interface_hierarchy!(IMDSPRevoked, windows_core::IUnknown);
 impl IMDSPRevoked {
-    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRevocationURL)(windows_core::Interface::as_raw(self), ppwszrevocationurl as _, pdwbufferlen as _).ok() }
     }
 }
@@ -1206,7 +1206,7 @@ pub struct IMDSPRevoked_Vtbl {
     pub GetRevocationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMDSPRevoked_Impl: windows_core::IUnknownImpl {
-    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> windows_core::Result<()>;
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IMDSPRevoked_Vtbl {
     pub const fn new<Identity: IMDSPRevoked_Impl, const OFFSET: isize>() -> Self {
@@ -1227,36 +1227,36 @@ windows_core::imp::define_interface!(IMDSPStorage, IMDSPStorage_Vtbl, 0x1dcb3a16
 windows_core::imp::interface_hierarchy!(IMDSPStorage, windows_core::IUnknown);
 impl IMDSPStorage {
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttributes)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetStorageGlobals(&self) -> windows_core::Result<IMDSPStorageGlobals> {
+    pub unsafe fn GetStorageGlobals(&self) -> Result<IMDSPStorageGlobals, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), pdwattributes as _, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetDate(&self) -> windows_core::Result<WMDMDATETIME> {
+    pub unsafe fn GetDate(&self) -> Result<WMDMDATETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pdwsizelow as _, pdwsizehigh as _).ok() }
     }
-    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRights)(windows_core::Interface::as_raw(self), pprights as _, pnrightscount as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn CreateStorage<P2>(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pwszname: P2) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage<P2>(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pwszname: P2) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1265,13 +1265,13 @@ impl IMDSPStorage {
             (windows_core::Interface::vtable(self).CreateStorage)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _, pwszname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage> {
+    pub unsafe fn EnumStorage(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendOpaqueCommand)(windows_core::Interface::as_raw(self), pcommand as _).ok() }
     }
 }
@@ -1301,16 +1301,16 @@ pub struct IMDSPStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IMDSPStorage_Impl: windows_core::IUnknownImpl {
-    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetStorageGlobals(&self) -> windows_core::Result<IMDSPStorageGlobals>;
-    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetDate(&self) -> windows_core::Result<WMDMDATETIME>;
-    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
-    fn EnumStorage(&self) -> windows_core::Result<IMDSPEnumStorage>;
-    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn GetStorageGlobals(&self) -> Result<IMDSPStorageGlobals, windows_result::HRESULT>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetDate(&self) -> Result<WMDMDATETIME, windows_result::HRESULT>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn CreateStorage(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX, pwszname: &windows_core::PCWSTR) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn EnumStorage(&self) -> Result<IMDSPEnumStorage, windows_result::HRESULT>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IMDSPStorage_Vtbl {
@@ -1329,7 +1329,7 @@ impl IMDSPStorage_Vtbl {
                         ppstorageglobals.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1353,7 +1353,7 @@ impl IMDSPStorage_Vtbl {
                         pdatetimeutc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1377,7 +1377,7 @@ impl IMDSPStorage_Vtbl {
                         ppnewstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1389,7 +1389,7 @@ impl IMDSPStorage_Vtbl {
                         ppenumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1428,7 +1428,7 @@ impl core::ops::Deref for IMDSPStorage2 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPStorage2, windows_core::IUnknown, IMDSPStorage);
 impl IMDSPStorage2 {
-    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1438,7 +1438,7 @@ impl IMDSPStorage2 {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn CreateStorage2<P4>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P4, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorage2<P4>(&self, dwattributes: u32, dwattributesex: u32, paudioformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>, pwszname: P4, qwfilesize: u64) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P4: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1448,11 +1448,11 @@ impl IMDSPStorage2 {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttributes2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes2)(windows_core::Interface::as_raw(self), pdwattributes as _, pdwattributesex as _, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -1476,10 +1476,10 @@ pub struct IMDSPStorage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage2_Impl: IMDSPStorage_Impl {
-    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
-    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: &windows_core::PCWSTR, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
-    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
-    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn CreateStorage2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER, pwszname: &windows_core::PCWSTR, qwfilesize: u64) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, paudioformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage2_Vtbl {
@@ -1492,7 +1492,7 @@ impl IMDSPStorage2_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1504,7 +1504,7 @@ impl IMDSPStorage2_Vtbl {
                         ppnewstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1543,13 +1543,13 @@ impl core::ops::Deref for IMDSPStorage3 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPStorage3, windows_core::IUnknown, IMDSPStorage, IMDSPStorage2);
 impl IMDSPStorage3 {
-    pub unsafe fn GetMetadata<P0>(&self, pmetadata: P0) -> windows_core::Result<()>
+    pub unsafe fn GetMetadata<P0>(&self, pmetadata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), pmetadata.param().abi()).ok() }
     }
-    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
@@ -1565,8 +1565,8 @@ pub struct IMDSPStorage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage3_Impl: IMDSPStorage2_Impl {
-    fn GetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> windows_core::Result<()>;
-    fn SetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> windows_core::Result<()>;
+    fn GetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> Result<(), windows_result::HRESULT>;
+    fn SetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage3_Vtbl {
@@ -1604,13 +1604,13 @@ impl core::ops::Deref for IMDSPStorage4 {
 }
 windows_core::imp::interface_hierarchy!(IMDSPStorage4, windows_core::IUnknown, IMDSPStorage, IMDSPStorage2, IMDSPStorage3);
 impl IMDSPStorage4 {
-    pub unsafe fn SetReferences(&self, ppispstorage: Option<&[Option<IMDSPStorage>]>) -> windows_core::Result<()> {
+    pub unsafe fn SetReferences(&self, ppispstorage: Option<&[Option<IMDSPStorage>]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppispstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppispstorage.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
-    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::Result<()> {
+    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetReferences)(windows_core::Interface::as_raw(self), pdwrefs as _, pppispstorage as _).ok() }
     }
-    pub unsafe fn CreateStorageWithMetadata<P1, P2>(&self, dwattributes: u32, pwszname: P1, pmetadata: P2, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn CreateStorageWithMetadata<P1, P2>(&self, dwattributes: u32, pwszname: P1, pmetadata: P2, qwfilesize: u64) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IWMDMMetaData>,
@@ -1620,13 +1620,13 @@ impl IMDSPStorage4 {
             (windows_core::Interface::vtable(self).CreateStorageWithMetadata)(windows_core::Interface::as_raw(self), dwattributes, pwszname.param().abi(), pmetadata.param().abi(), qwfilesize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetSpecifiedMetadata<P2>(&self, ppwszpropnames: &[windows_core::PCWSTR], pmetadata: P2) -> windows_core::Result<()>
+    pub unsafe fn GetSpecifiedMetadata<P2>(&self, ppwszpropnames: &[windows_core::PCWSTR], pmetadata: P2) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IWMDMMetaData>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), pmetadata.param().abi()).ok() }
     }
-    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IMDSPStorage>
+    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> Result<IMDSPStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1635,7 +1635,7 @@ impl IMDSPStorage4 {
             (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IMDSPStorage> {
+    pub unsafe fn GetParent(&self) -> Result<IMDSPStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1655,12 +1655,12 @@ pub struct IMDSPStorage4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IMDSPStorage4_Impl: IMDSPStorage3_Impl {
-    fn SetReferences(&self, dwrefs: u32, ppispstorage: *const Option<IMDSPStorage>) -> windows_core::Result<()>;
-    fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> windows_core::Result<()>;
-    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &windows_core::PCWSTR, pmetadata: windows_core::Ref<'_, IWMDMMetaData>, qwfilesize: u64) -> windows_core::Result<IMDSPStorage>;
-    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> windows_core::Result<()>;
-    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IMDSPStorage>;
-    fn GetParent(&self) -> windows_core::Result<IMDSPStorage>;
+    fn SetReferences(&self, dwrefs: u32, ppispstorage: *const Option<IMDSPStorage>) -> Result<(), windows_result::HRESULT>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppispstorage: *mut *mut Option<IMDSPStorage>) -> Result<(), windows_result::HRESULT>;
+    fn CreateStorageWithMetadata(&self, dwattributes: u32, pwszname: &windows_core::PCWSTR, pmetadata: windows_core::Ref<'_, IWMDMMetaData>, qwfilesize: u64) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> Result<(), windows_result::HRESULT>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> Result<IMDSPStorage, windows_result::HRESULT>;
+    fn GetParent(&self) -> Result<IMDSPStorage, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IMDSPStorage4_Vtbl {
@@ -1685,7 +1685,7 @@ impl IMDSPStorage4_Vtbl {
                         ppnewstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1703,7 +1703,7 @@ impl IMDSPStorage4_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1715,7 +1715,7 @@ impl IMDSPStorage4_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1738,43 +1738,43 @@ impl windows_core::RuntimeName for IMDSPStorage4 {}
 windows_core::imp::define_interface!(IMDSPStorageGlobals, IMDSPStorageGlobals_Vtbl, 0x1dcb3a17_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDSPStorageGlobals, windows_core::IUnknown);
 impl IMDSPStorageGlobals {
-    pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSerialNumber)(windows_core::Interface::as_raw(self), pserialnum as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalSize)(windows_core::Interface::as_raw(self), pdwtotalsizelow as _, pdwtotalsizehigh as _).ok() }
     }
-    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalFree)(windows_core::Interface::as_raw(self), pdwfreelow as _, pdwfreehigh as _).ok() }
     }
-    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalBad)(windows_core::Interface::as_raw(self), pdwbadlow as _, pdwbadhigh as _).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Initialize<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, fumode: u32, pprogress: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
     }
-    pub unsafe fn GetDevice(&self) -> windows_core::Result<IMDSPDevice> {
+    pub unsafe fn GetDevice(&self) -> Result<IMDSPDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRootStorage(&self) -> windows_core::Result<IMDSPStorage> {
+    pub unsafe fn GetRootStorage(&self) -> Result<IMDSPStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRootStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1796,15 +1796,15 @@ pub struct IMDSPStorageGlobals_Vtbl {
     pub GetRootStorage: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDSPStorageGlobals_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self) -> windows_core::Result<u32>;
-    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
-    fn GetDevice(&self) -> windows_core::Result<IMDSPDevice>;
-    fn GetRootStorage(&self) -> windows_core::Result<IMDSPStorage>;
+    fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
+    fn GetDevice(&self) -> Result<IMDSPDevice, windows_result::HRESULT>;
+    fn GetRootStorage(&self) -> Result<IMDSPStorage, windows_result::HRESULT>;
 }
 impl IMDSPStorageGlobals_Vtbl {
     pub const fn new<Identity: IMDSPStorageGlobals_Impl, const OFFSET: isize>() -> Self {
@@ -1816,7 +1816,7 @@ impl IMDSPStorageGlobals_Vtbl {
                         pdwcapabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1852,7 +1852,7 @@ impl IMDSPStorageGlobals_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1870,7 +1870,7 @@ impl IMDSPStorageGlobals_Vtbl {
                         ppdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1882,7 +1882,7 @@ impl IMDSPStorageGlobals_Vtbl {
                         pproot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1907,13 +1907,13 @@ impl windows_core::RuntimeName for IMDSPStorageGlobals {}
 windows_core::imp::define_interface!(IMDServiceProvider, IMDServiceProvider_Vtbl, 0x1dcb3a10_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IMDServiceProvider, windows_core::IUnknown);
 impl IMDServiceProvider {
-    pub unsafe fn GetDeviceCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetDeviceCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumDevices(&self) -> windows_core::Result<IMDSPEnumDevice> {
+    pub unsafe fn EnumDevices(&self) -> Result<IMDSPEnumDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1928,8 +1928,8 @@ pub struct IMDServiceProvider_Vtbl {
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDServiceProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceCount(&self) -> windows_core::Result<u32>;
-    fn EnumDevices(&self) -> windows_core::Result<IMDSPEnumDevice>;
+    fn GetDeviceCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn EnumDevices(&self) -> Result<IMDSPEnumDevice, windows_result::HRESULT>;
 }
 impl IMDServiceProvider_Vtbl {
     pub const fn new<Identity: IMDServiceProvider_Impl, const OFFSET: isize>() -> Self {
@@ -1941,7 +1941,7 @@ impl IMDServiceProvider_Vtbl {
                         pdwcount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1953,7 +1953,7 @@ impl IMDServiceProvider_Vtbl {
                         ppenumdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1977,7 +1977,7 @@ impl core::ops::Deref for IMDServiceProvider2 {
 }
 windows_core::imp::interface_hierarchy!(IMDServiceProvider2, windows_core::IUnknown, IMDServiceProvider);
 impl IMDServiceProvider2 {
-    pub unsafe fn CreateDevice<P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> windows_core::Result<()>
+    pub unsafe fn CreateDevice<P0>(&self, pwszdevicepath: P0, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -1991,7 +1991,7 @@ pub struct IMDServiceProvider2_Vtbl {
     pub CreateDevice: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMDServiceProvider2_Impl: IMDServiceProvider_Impl {
-    fn CreateDevice(&self, pwszdevicepath: &windows_core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, pwszdevicepath: &windows_core::PCWSTR, pdwcount: *mut u32, pppdevicearray: *mut *mut Option<IMDSPDevice>) -> Result<(), windows_result::HRESULT>;
 }
 impl IMDServiceProvider2_Vtbl {
     pub const fn new<Identity: IMDServiceProvider2_Impl, const OFFSET: isize>() -> Self {
@@ -2017,7 +2017,7 @@ impl core::ops::Deref for IMDServiceProvider3 {
 }
 windows_core::imp::interface_hierarchy!(IMDServiceProvider3, windows_core::IUnknown, IMDServiceProvider, IMDServiceProvider2);
 impl IMDServiceProvider3 {
-    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDeviceEnumPreference)(windows_core::Interface::as_raw(self), dwenumpref).ok() }
     }
 }
@@ -2028,7 +2028,7 @@ pub struct IMDServiceProvider3_Vtbl {
     pub SetDeviceEnumPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IMDServiceProvider3_Impl: IMDServiceProvider2_Impl {
-    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()>;
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IMDServiceProvider3_Vtbl {
     pub const fn new<Identity: IMDServiceProvider3_Impl, const OFFSET: isize>() -> Self {
@@ -2049,7 +2049,7 @@ pub const IOCTL_MTP_CUSTOM_COMMAND: u32 = 827348045u32;
 windows_core::imp::define_interface!(ISCPSecureAuthenticate, ISCPSecureAuthenticate_Vtbl, 0x1dcb3a0f_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(ISCPSecureAuthenticate, windows_core::IUnknown);
 impl ISCPSecureAuthenticate {
-    pub unsafe fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery> {
+    pub unsafe fn GetSecureQuery(&self) -> Result<ISCPSecureQuery, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2063,7 +2063,7 @@ pub struct ISCPSecureAuthenticate_Vtbl {
     pub GetSecureQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureAuthenticate_Impl: windows_core::IUnknownImpl {
-    fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery>;
+    fn GetSecureQuery(&self) -> Result<ISCPSecureQuery, windows_result::HRESULT>;
 }
 impl ISCPSecureAuthenticate_Vtbl {
     pub const fn new<Identity: ISCPSecureAuthenticate_Impl, const OFFSET: isize>() -> Self {
@@ -2075,7 +2075,7 @@ impl ISCPSecureAuthenticate_Vtbl {
                         ppsecurequery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2095,7 +2095,7 @@ impl core::ops::Deref for ISCPSecureAuthenticate2 {
 }
 windows_core::imp::interface_hierarchy!(ISCPSecureAuthenticate2, windows_core::IUnknown, ISCPSecureAuthenticate);
 impl ISCPSecureAuthenticate2 {
-    pub unsafe fn GetSCPSession(&self) -> windows_core::Result<ISCPSession> {
+    pub unsafe fn GetSCPSession(&self) -> Result<ISCPSession, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSCPSession)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2109,7 +2109,7 @@ pub struct ISCPSecureAuthenticate2_Vtbl {
     pub GetSCPSession: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureAuthenticate2_Impl: ISCPSecureAuthenticate_Impl {
-    fn GetSCPSession(&self) -> windows_core::Result<ISCPSession>;
+    fn GetSCPSession(&self) -> Result<ISCPSession, windows_result::HRESULT>;
 }
 impl ISCPSecureAuthenticate2_Vtbl {
     pub const fn new<Identity: ISCPSecureAuthenticate2_Impl, const OFFSET: isize>() -> Self {
@@ -2121,7 +2121,7 @@ impl ISCPSecureAuthenticate2_Vtbl {
                         ppscpsession.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2135,13 +2135,13 @@ impl windows_core::RuntimeName for ISCPSecureAuthenticate2 {}
 windows_core::imp::define_interface!(ISCPSecureExchange, ISCPSecureExchange_Vtbl, 0x1dcb3a0e_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(ISCPSecureExchange, windows_core::IUnknown);
 impl ISCPSecureExchange {
-    pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn TransferContainerData(&self, pdata: &[u8], pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TransferContainerData)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pfureadyflags as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ObjectData)(windows_core::Interface::as_raw(self), pdata as _, pdwsize as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn TransferComplete(&self) -> windows_core::Result<()> {
+    pub unsafe fn TransferComplete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TransferComplete)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2154,9 +2154,9 @@ pub struct ISCPSecureExchange_Vtbl {
     pub TransferComplete: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureExchange_Impl: windows_core::IUnknownImpl {
-    fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn TransferComplete(&self) -> windows_core::Result<()>;
+    fn TransferContainerData(&self, pdata: *const u8, dwsize: u32, pfureadyflags: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn ObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn TransferComplete(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureExchange_Vtbl {
     pub const fn new<Identity: ISCPSecureExchange_Impl, const OFFSET: isize>() -> Self {
@@ -2199,7 +2199,7 @@ impl core::ops::Deref for ISCPSecureExchange2 {
 }
 windows_core::imp::interface_hierarchy!(ISCPSecureExchange2, windows_core::IUnknown, ISCPSecureExchange);
 impl ISCPSecureExchange2 {
-    pub unsafe fn TransferContainerData2<P2>(&self, pdata: &[u8], pprogresscallback: P2, pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()>
+    pub unsafe fn TransferContainerData2<P2>(&self, pdata: &[u8], pprogresscallback: P2, pfureadyflags: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<IWMDMProgress3>,
     {
@@ -2213,7 +2213,7 @@ pub struct ISCPSecureExchange2_Vtbl {
     pub TransferContainerData2: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *mut core::ffi::c_void, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureExchange2_Impl: ISCPSecureExchange_Impl {
-    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn TransferContainerData2(&self, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pfureadyflags: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureExchange2_Vtbl {
     pub const fn new<Identity: ISCPSecureExchange2_Impl, const OFFSET: isize>() -> Self {
@@ -2239,7 +2239,7 @@ impl core::ops::Deref for ISCPSecureExchange3 {
 }
 windows_core::imp::interface_hierarchy!(ISCPSecureExchange3, windows_core::IUnknown, ISCPSecureExchange, ISCPSecureExchange2);
 impl ISCPSecureExchange3 {
-    pub unsafe fn TransferContainerDataOnClearChannel<P0, P3>(&self, pdevice: P0, pdata: &[u8], pprogresscallback: P3) -> windows_core::Result<u32>
+    pub unsafe fn TransferContainerDataOnClearChannel<P0, P3>(&self, pdevice: P0, pdata: &[u8], pprogresscallback: P3) -> Result<u32, windows_result::HRESULT>
     where
         P0: windows_core::Param<IMDSPDevice>,
         P3: windows_core::Param<IWMDMProgress3>,
@@ -2249,13 +2249,13 @@ impl ISCPSecureExchange3 {
             (windows_core::Interface::vtable(self).TransferContainerDataOnClearChannel)(windows_core::Interface::as_raw(self), pdevice.param().abi(), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), pprogresscallback.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetObjectDataOnClearChannel<P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetObjectDataOnClearChannel<P0>(&self, pdevice: P0, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetObjectDataOnClearChannel)(windows_core::Interface::as_raw(self), pdevice.param().abi(), pdata as _, pdwsize as _).ok() }
     }
-    pub unsafe fn TransferCompleteForDevice<P0>(&self, pdevice: P0) -> windows_core::Result<()>
+    pub unsafe fn TransferCompleteForDevice<P0>(&self, pdevice: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
@@ -2271,9 +2271,9 @@ pub struct ISCPSecureExchange3_Vtbl {
     pub TransferCompleteForDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureExchange3_Impl: ISCPSecureExchange2_Impl {
-    fn TransferContainerDataOnClearChannel(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>) -> windows_core::Result<u32>;
-    fn GetObjectDataOnClearChannel(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
-    fn TransferCompleteForDevice(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>) -> windows_core::Result<()>;
+    fn TransferContainerDataOnClearChannel(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>, pdata: *const u8, dwsize: u32, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>) -> Result<u32, windows_result::HRESULT>;
+    fn GetObjectDataOnClearChannel(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn TransferCompleteForDevice(&self, pdevice: windows_core::Ref<'_, IMDSPDevice>) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureExchange3_Vtbl {
     pub const fn new<Identity: ISCPSecureExchange3_Impl, const OFFSET: isize>() -> Self {
@@ -2285,7 +2285,7 @@ impl ISCPSecureExchange3_Vtbl {
                         pfureadyflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2316,22 +2316,22 @@ impl windows_core::RuntimeName for ISCPSecureExchange3 {}
 windows_core::imp::define_interface!(ISCPSecureQuery, ISCPSecureQuery_Vtbl, 0x1dcb3a0d_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(ISCPSecureQuery, windows_core::IUnknown);
 impl ISCPSecureQuery {
-    pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDataDemands)(windows_core::Interface::as_raw(self), pfuflags as _, pdwminrightsdata as _, pdwminexaminedata as _, pdwmindecidedata as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn ExamineData<P1>(&self, fuflags: u32, pwszextension: P1, pdata: &[u8], abmac: &mut [u8; 8]) -> windows_core::Result<()>
+    pub unsafe fn ExamineData<P1>(&self, fuflags: u32, pwszextension: P1, pdata: &[u8], abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).ExamineData)(windows_core::Interface::as_raw(self), fuflags, pwszextension.param().abi(), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn MakeDecision<P6>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, ppexchange: *mut Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> windows_core::Result<()>
+    pub unsafe fn MakeDecision<P6>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, ppexchange: *mut Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT>
     where
         P6: windows_core::Param<IMDSPStorageGlobals>,
     {
         unsafe { (windows_core::Interface::vtable(self).MakeDecision)(windows_core::Interface::as_raw(self), fuflags, core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), dwappsec, core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstorageglobals.param().abi(), core::mem::transmute(ppexchange), core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn GetRights<P4>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()>
+    pub unsafe fn GetRights<P4>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P4, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IMDSPStorageGlobals>,
     {
@@ -2348,10 +2348,10 @@ pub struct ISCPSecureQuery_Vtbl {
     pub GetRights: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut core::ffi::c_void, *mut *mut WMDMRIGHTS, *mut u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureQuery_Impl: windows_core::IUnknownImpl {
-    fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn ExamineData(&self, fuflags: u32, pwszextension: &windows_core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
+    fn GetDataDemands(&self, pfuflags: *mut u32, pdwminrightsdata: *mut u32, pdwminexaminedata: *mut u32, pdwmindecidedata: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn ExamineData(&self, fuflags: u32, pwszextension: &windows_core::PCWSTR, pdata: *const u8, dwsize: u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn MakeDecision(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetRights(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureQuery_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery_Impl, const OFFSET: isize>() -> Self {
@@ -2401,7 +2401,7 @@ impl core::ops::Deref for ISCPSecureQuery2 {
 }
 windows_core::imp::interface_hierarchy!(ISCPSecureQuery2, windows_core::IUnknown, ISCPSecureQuery);
 impl ISCPSecureQuery2 {
-    pub unsafe fn MakeDecision2<P6, P15>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: Option<*mut u64>, punknown: P15, ppexchange: *mut Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> windows_core::Result<()>
+    pub unsafe fn MakeDecision2<P6, P15>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: Option<*mut u64>, punknown: P15, ppexchange: *mut Option<ISCPSecureExchange>, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT>
     where
         P6: windows_core::Param<IMDSPStorageGlobals>,
         P15: windows_core::Param<windows_core::IUnknown>,
@@ -2439,7 +2439,7 @@ pub struct ISCPSecureQuery2_Vtbl {
     pub MakeDecision2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut u8) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureQuery2_Impl: ISCPSecureQuery_Impl {
-    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>, abmac: *mut u8) -> windows_core::Result<()>;
+    fn MakeDecision2(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureQuery2_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery2_Impl, const OFFSET: isize>() -> Self {
@@ -2486,14 +2486,14 @@ impl core::ops::Deref for ISCPSecureQuery3 {
 }
 windows_core::imp::interface_hierarchy!(ISCPSecureQuery3, windows_core::IUnknown, ISCPSecureQuery, ISCPSecureQuery2);
 impl ISCPSecureQuery3 {
-    pub unsafe fn GetRightsOnClearChannel<P4, P5>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P4, pprogresscallback: P5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetRightsOnClearChannel<P4, P5>(&self, pdata: &[u8], pbspsessionkey: &[u8], pstgglobals: P4, pprogresscallback: P5, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P4: windows_core::Param<IMDSPStorageGlobals>,
         P5: windows_core::Param<IWMDMProgress3>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetRightsOnClearChannel)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap(), core::mem::transmute(pbspsessionkey.as_ptr()), pbspsessionkey.len().try_into().unwrap(), pstgglobals.param().abi(), pprogresscallback.param().abi(), pprights as _, pnrightscount as _).ok() }
     }
-    pub unsafe fn MakeDecisionOnClearChannel<P6, P7, P16>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, pprogresscallback: P7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: Option<*mut u64>, punknown: P16, ppexchange: *mut Option<ISCPSecureExchange>) -> windows_core::Result<()>
+    pub unsafe fn MakeDecisionOnClearChannel<P6, P7, P16>(&self, fuflags: u32, pdata: &[u8], dwappsec: u32, pbspsessionkey: &[u8], pstorageglobals: P6, pprogresscallback: P7, pappcertapp: &[u8], pappcertsp: &[u8], pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: Option<*mut u64>, punknown: P16, ppexchange: *mut Option<ISCPSecureExchange>) -> Result<(), windows_result::HRESULT>
     where
         P6: windows_core::Param<IMDSPStorageGlobals>,
         P7: windows_core::Param<IWMDMProgress3>,
@@ -2533,8 +2533,8 @@ pub struct ISCPSecureQuery3_Vtbl {
     pub MakeDecisionOnClearChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, u32, u32, *const u8, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *const u8, u32, *const u8, u32, *mut windows_core::PWSTR, *mut u32, *mut u32, *mut u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSecureQuery3_Impl: ISCPSecureQuery2_Impl {
-    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
-    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>) -> windows_core::Result<()>;
+    fn GetRightsOnClearChannel(&self, pdata: *const u8, dwsize: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstgglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn MakeDecisionOnClearChannel(&self, fuflags: u32, pdata: *const u8, dwsize: u32, dwappsec: u32, pbspsessionkey: *const u8, dwsessionkeylen: u32, pstorageglobals: windows_core::Ref<'_, IMDSPStorageGlobals>, pprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pappcertapp: *const u8, dwappcertapplen: u32, pappcertsp: *const u8, dwappcertsplen: u32, pszrevocationurl: *mut windows_core::PWSTR, pdwrevocationurllen: *mut u32, pdwrevocationbitflag: *mut u32, pqwfilesize: *mut u64, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppexchange: windows_core::OutRef<'_, ISCPSecureExchange>) -> Result<(), windows_result::HRESULT>;
 }
 impl ISCPSecureQuery3_Vtbl {
     pub const fn new<Identity: ISCPSecureQuery3_Impl, const OFFSET: isize>() -> Self {
@@ -2585,16 +2585,16 @@ impl windows_core::RuntimeName for ISCPSecureQuery3 {}
 windows_core::imp::define_interface!(ISCPSession, ISCPSession_Vtbl, 0x88a3e6ed_eee4_4619_bbb3_fd4fb62715d1);
 windows_core::imp::interface_hierarchy!(ISCPSession, windows_core::IUnknown);
 impl ISCPSession {
-    pub unsafe fn BeginSession<P0>(&self, pidevice: P0, pctx: &[u8]) -> windows_core::Result<()>
+    pub unsafe fn BeginSession<P0>(&self, pidevice: P0, pctx: &[u8]) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IMDSPDevice>,
     {
         unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), pidevice.param().abi(), core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn EndSession(&self, pctx: &[u8]) -> windows_core::Result<()> {
+    pub unsafe fn EndSession(&self, pctx: &[u8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), core::mem::transmute(pctx.as_ptr()), pctx.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery> {
+    pub unsafe fn GetSecureQuery(&self) -> Result<ISCPSecureQuery, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecureQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2610,9 +2610,9 @@ pub struct ISCPSession_Vtbl {
     pub GetSecureQuery: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCPSession_Impl: windows_core::IUnknownImpl {
-    fn BeginSession(&self, pidevice: windows_core::Ref<'_, IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
-    fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
-    fn GetSecureQuery(&self) -> windows_core::Result<ISCPSecureQuery>;
+    fn BeginSession(&self, pidevice: windows_core::Ref<'_, IMDSPDevice>, pctx: *const u8, dwsizectx: u32) -> Result<(), windows_result::HRESULT>;
+    fn EndSession(&self, pctx: *const u8, dwsizectx: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSecureQuery(&self) -> Result<ISCPSecureQuery, windows_result::HRESULT>;
 }
 impl ISCPSession_Vtbl {
     pub const fn new<Identity: ISCPSession_Impl, const OFFSET: isize>() -> Self {
@@ -2636,7 +2636,7 @@ impl ISCPSession_Vtbl {
                         ppsecurequery.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2655,53 +2655,53 @@ impl windows_core::RuntimeName for ISCPSession {}
 windows_core::imp::define_interface!(IWMDMDevice, IWMDMDevice_Vtbl, 0x1dcb3a02_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMDevice, windows_core::IUnknown);
 impl IWMDMDevice {
-    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetManufacturer(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetManufacturer)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetVersion(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetVersion(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetVersion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetType(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetType(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSerialNumber)(windows_core::Interface::as_raw(self), pserialnumber as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPowerSource)(windows_core::Interface::as_raw(self), pdwpowersource as _, pdwpercentremaining as _).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDeviceIcon(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetDeviceIcon(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceIcon)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage> {
+    pub unsafe fn EnumStorage(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFormatSupport)(windows_core::Interface::as_raw(self), ppformatex as _, pnformatcount as _, pppwszmimetype as _, pnmimetypecount as _).ok() }
     }
-    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendOpaqueCommand)(windows_core::Interface::as_raw(self), pcommand as _).ok() }
     }
 }
@@ -2726,17 +2726,17 @@ pub struct IWMDMDevice_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDevice_Impl: windows_core::IUnknownImpl {
-    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetVersion(&self) -> windows_core::Result<u32>;
-    fn GetType(&self) -> windows_core::Result<u32>;
-    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn GetDeviceIcon(&self) -> windows_core::Result<u32>;
-    fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage>;
-    fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> windows_core::Result<()>;
-    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetManufacturer(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetVersion(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetType(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetSerialNumber(&self, pserialnumber: *mut WMDMID, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetPowerSource(&self, pdwpowersource: *mut u32, pdwpercentremaining: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetDeviceIcon(&self) -> Result<u32, windows_result::HRESULT>;
+    fn EnumStorage(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT>;
+    fn GetFormatSupport(&self, ppformatex: *mut *mut super::Audio::WAVEFORMATEX, pnformatcount: *mut u32, pppwszmimetype: *mut *mut windows_core::PWSTR, pnmimetypecount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMDevice_Vtbl {
@@ -2761,7 +2761,7 @@ impl IWMDMDevice_Vtbl {
                         pdwversion.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2773,7 +2773,7 @@ impl IWMDMDevice_Vtbl {
                         pdwtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2797,7 +2797,7 @@ impl IWMDMDevice_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2809,7 +2809,7 @@ impl IWMDMDevice_Vtbl {
                         hicon.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2821,7 +2821,7 @@ impl IWMDMDevice_Vtbl {
                         ppenumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2867,7 +2867,7 @@ impl core::ops::Deref for IWMDMDevice2 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMDevice2, windows_core::IUnknown, IWMDMDevice);
 impl IWMDMDevice2 {
-    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> windows_core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> Result<IWMDMStorage, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2877,14 +2877,14 @@ impl IWMDMDevice2 {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetFormatSupport2)(windows_core::Interface::as_raw(self), dwflags, ppaudioformatex as _, pnaudioformatcount as _, ppvideoformatex as _, pnvideoformatcount as _, ppfiletype as _, pnfiletypecount as _).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSpecifyPropertyPages(&self, ppspecifyproppages: *mut Option<super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSpecifyPropertyPages)(windows_core::Interface::as_raw(self), core::mem::transmute(ppspecifyproppages), pppunknowns as _, pcunks as _).ok() }
     }
-    pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetCanonicalName(&self, pwszpnpname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetCanonicalName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszpnpname.as_ptr()), pwszpnpname.len().try_into().unwrap()).ok() }
     }
 }
@@ -2905,10 +2905,10 @@ pub struct IWMDMDevice2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 pub trait IWMDMDevice2_Impl: IWMDMDevice_Impl {
-    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
-    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> windows_core::Result<()>;
-    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: windows_core::OutRef<'_, super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> windows_core::Result<()>;
-    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> Result<IWMDMStorage, windows_result::HRESULT>;
+    fn GetFormatSupport2(&self, dwflags: u32, ppaudioformatex: *mut *mut super::Audio::WAVEFORMATEX, pnaudioformatcount: *mut u32, ppvideoformatex: *mut *mut super::MediaFoundation::VIDEOINFOHEADER, pnvideoformatcount: *mut u32, ppfiletype: *mut *mut WMFILECAPABILITIES, pnfiletypecount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSpecifyPropertyPages(&self, ppspecifyproppages: windows_core::OutRef<'_, super::super::System::Ole::ISpecifyPropertyPages>, pppunknowns: *mut *mut Option<windows_core::IUnknown>, pcunks: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetCanonicalName(&self, pwszpnpname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Ole"))]
 impl IWMDMDevice2_Vtbl {
@@ -2921,7 +2921,7 @@ impl IWMDMDevice2_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2967,7 +2967,7 @@ impl core::ops::Deref for IWMDMDevice3 {
 windows_core::imp::interface_hierarchy!(IWMDMDevice3, windows_core::IUnknown, IWMDMDevice, IWMDMDevice2);
 impl IWMDMDevice3 {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>
+    pub unsafe fn GetProperty<P0>(&self, pwszpropname: P0) -> Result<super::super::System::Com::StructuredStorage::PROPVARIANT, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -2977,23 +2977,23 @@ impl IWMDMDevice3 {
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>
+    pub unsafe fn SetProperty<P0>(&self, pwszpropname: P0, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetProperty)(windows_core::Interface::as_raw(self), pwszpropname.param().abi(), core::mem::transmute(pvalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY> {
+    pub unsafe fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> Result<WMDM_FORMAT_CAPABILITY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFormatCapability)(windows_core::Interface::as_raw(self), format, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: &[u8], lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeviceIoControl)(windows_core::Interface::as_raw(self), dwiocontrolcode, core::mem::transmute(lpinbuffer.as_ptr()), lpinbuffer.len().try_into().unwrap(), lpoutbuffer as _, pnoutbuffersize as _).ok() }
     }
-    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> Result<IWMDMStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3024,11 +3024,11 @@ pub struct IWMDMDevice3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWMDMDevice3_Impl: IWMDMDevice2_Impl {
-    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> windows_core::Result<WMDM_FORMAT_CAPABILITY>;
-    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> windows_core::Result<()>;
-    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
+    fn GetProperty(&self, pwszpropname: &windows_core::PCWSTR) -> Result<super::super::System::Com::StructuredStorage::PROPVARIANT, windows_result::HRESULT>;
+    fn SetProperty(&self, pwszpropname: &windows_core::PCWSTR, pvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> Result<(), windows_result::HRESULT>;
+    fn GetFormatCapability(&self, format: WMDM_FORMATCODE) -> Result<WMDM_FORMAT_CAPABILITY, windows_result::HRESULT>;
+    fn DeviceIoControl(&self, dwiocontrolcode: u32, lpinbuffer: *const u8, ninbuffersize: u32, lpoutbuffer: *mut u8, pnoutbuffersize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> Result<IWMDMStorage, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWMDMDevice3_Vtbl {
@@ -3041,7 +3041,7 @@ impl IWMDMDevice3_Vtbl {
                         pvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3059,7 +3059,7 @@ impl IWMDMDevice3_Vtbl {
                         pformatsupport.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3077,7 +3077,7 @@ impl IWMDMDevice3_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3099,35 +3099,35 @@ impl windows_core::RuntimeName for IWMDMDevice3 {}
 windows_core::imp::define_interface!(IWMDMDeviceControl, IWMDMDeviceControl_Vtbl, 0x1dcb3a04_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMDeviceControl, windows_core::IUnknown);
 impl IWMDMDeviceControl {
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Play(&self) -> windows_core::Result<()> {
+    pub unsafe fn Play(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Play)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()> {
+    pub unsafe fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Record)(windows_core::Interface::as_raw(self), pformat).ok() }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub unsafe fn Pause(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub unsafe fn Resume(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn Seek(&self, fumode: u32, noffset: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Seek)(windows_core::Interface::as_raw(self), fumode, noffset).ok() }
     }
 }
@@ -3149,14 +3149,14 @@ pub struct IWMDMDeviceControl_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMDeviceControl_Impl: windows_core::IUnknownImpl {
-    fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn GetCapabilities(&self) -> windows_core::Result<u32>;
-    fn Play(&self) -> windows_core::Result<()>;
-    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn Seek(&self, fumode: u32, noffset: i32) -> windows_core::Result<()>;
+    fn GetStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT>;
+    fn Play(&self) -> Result<(), windows_result::HRESULT>;
+    fn Record(&self, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn Pause(&self) -> Result<(), windows_result::HRESULT>;
+    fn Resume(&self) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self) -> Result<(), windows_result::HRESULT>;
+    fn Seek(&self, fumode: u32, noffset: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMDeviceControl_Vtbl {
@@ -3169,7 +3169,7 @@ impl IWMDMDeviceControl_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3181,7 +3181,7 @@ impl IWMDMDeviceControl_Vtbl {
                         pdwcapabilitiesmask.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3242,10 +3242,10 @@ impl windows_core::RuntimeName for IWMDMDeviceControl {}
 windows_core::imp::define_interface!(IWMDMDeviceSession, IWMDMDeviceSession_Vtbl, 0x82af0a65_9d96_412c_83e5_3c43e4b06cc7);
 windows_core::imp::interface_hierarchy!(IWMDMDeviceSession, windows_core::IUnknown);
 impl IWMDMDeviceSession {
-    pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> windows_core::Result<()> {
+    pub unsafe fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> windows_core::Result<()> {
+    pub unsafe fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: Option<&[u8]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EndSession)(windows_core::Interface::as_raw(self), r#type, core::mem::transmute(pctx.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pctx.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
 }
@@ -3257,8 +3257,8 @@ pub struct IWMDMDeviceSession_Vtbl {
     pub EndSession: unsafe extern "system" fn(*mut core::ffi::c_void, WMDM_SESSION_TYPE, *const u8, u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMDeviceSession_Impl: windows_core::IUnknownImpl {
-    fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
-    fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> windows_core::Result<()>;
+    fn BeginSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> Result<(), windows_result::HRESULT>;
+    fn EndSession(&self, r#type: WMDM_SESSION_TYPE, pctx: *const u8, dwsizectx: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMDeviceSession_Vtbl {
     pub const fn new<Identity: IWMDMDeviceSession_Impl, const OFFSET: isize>() -> Self {
@@ -3288,19 +3288,19 @@ impl windows_core::RuntimeName for IWMDMDeviceSession {}
 windows_core::imp::define_interface!(IWMDMEnumDevice, IWMDMEnumDevice_Vtbl, 0x1dcb3a01_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMEnumDevice, windows_core::IUnknown);
 impl IWMDMEnumDevice {
-    pub unsafe fn Next(&self, ppdevice: &mut [Option<IWMDMDevice>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppdevice: &mut [Option<IWMDMDevice>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppdevice.len().try_into().unwrap(), core::mem::transmute(ppdevice.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<u32> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IWMDMEnumDevice> {
+    pub unsafe fn Clone(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3317,10 +3317,10 @@ pub struct IWMDMEnumDevice_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMEnumDevice_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppdevice: *mut Option<IWMDMDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IWMDMEnumDevice>;
+    fn Next(&self, celt: u32, ppdevice: *mut Option<IWMDMDevice>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT>;
 }
 impl IWMDMEnumDevice_Vtbl {
     pub const fn new<Identity: IWMDMEnumDevice_Impl, const OFFSET: isize>() -> Self {
@@ -3338,7 +3338,7 @@ impl IWMDMEnumDevice_Vtbl {
                         pceltfetched.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3356,7 +3356,7 @@ impl IWMDMEnumDevice_Vtbl {
                         ppenumdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3376,19 +3376,19 @@ impl windows_core::RuntimeName for IWMDMEnumDevice {}
 windows_core::imp::define_interface!(IWMDMEnumStorage, IWMDMEnumStorage_Vtbl, 0x1dcb3a05_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMEnumStorage, windows_core::IUnknown);
 impl IWMDMEnumStorage {
-    pub unsafe fn Next(&self, ppstorage: &mut [Option<IWMDMStorage>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppstorage: &mut [Option<IWMDMStorage>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppstorage.len().try_into().unwrap(), core::mem::transmute(ppstorage.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<u32> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IWMDMEnumStorage> {
+    pub unsafe fn Clone(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3405,10 +3405,10 @@ pub struct IWMDMEnumStorage_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMEnumStorage_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppstorage: *mut Option<IWMDMStorage>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<u32>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IWMDMEnumStorage>;
+    fn Next(&self, celt: u32, ppstorage: *mut Option<IWMDMStorage>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<u32, windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT>;
 }
 impl IWMDMEnumStorage_Vtbl {
     pub const fn new<Identity: IWMDMEnumStorage_Impl, const OFFSET: isize>() -> Self {
@@ -3426,7 +3426,7 @@ impl IWMDMEnumStorage_Vtbl {
                         pceltfetched.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3444,7 +3444,7 @@ impl IWMDMEnumStorage_Vtbl {
                         ppenumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3464,45 +3464,45 @@ impl windows_core::RuntimeName for IWMDMEnumStorage {}
 windows_core::imp::define_interface!(IWMDMLogger, IWMDMLogger_Vtbl, 0x110a3200_5a79_11d3_8d78_444553540000);
 windows_core::imp::interface_hierarchy!(IWMDMLogger, windows_core::IUnknown);
 impl IWMDMLogger {
-    pub unsafe fn IsEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Enable(&self, fenable: bool) -> windows_core::Result<()> {
+    pub unsafe fn Enable(&self, fenable: bool) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Enable)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
-    pub unsafe fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetLogFileName)(windows_core::Interface::as_raw(self), core::mem::transmute(pszfilename), nmaxchars).ok() }
     }
-    pub unsafe fn SetLogFileName<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
+    pub unsafe fn SetLogFileName<P0>(&self, pszfilename: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetLogFileName)(windows_core::Interface::as_raw(self), pszfilename.param().abi()).ok() }
     }
-    pub unsafe fn LogString<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlog: P2) -> windows_core::Result<()>
+    pub unsafe fn LogString<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlog: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LogString)(windows_core::Interface::as_raw(self), dwflags, pszsrcname.param().abi(), pszlog.param().abi()).ok() }
     }
-    pub unsafe fn LogDword<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlogformat: P2, dwlog: u32) -> windows_core::Result<()>
+    pub unsafe fn LogDword<P1, P2>(&self, dwflags: u32, pszsrcname: P1, pszlogformat: P2, dwlog: u32) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         P2: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LogDword)(windows_core::Interface::as_raw(self), dwflags, pszsrcname.param().abi(), pszlogformat.param().abi(), dwlog).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSizeParams)(windows_core::Interface::as_raw(self), pdwmaxsize as _, pdwshrinktosize as _).ok() }
     }
-    pub unsafe fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSizeParams)(windows_core::Interface::as_raw(self), dwmaxsize, dwshrinktosize).ok() }
     }
 }
@@ -3521,15 +3521,15 @@ pub struct IWMDMLogger_Vtbl {
     pub SetSizeParams: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMLogger_Impl: windows_core::IUnknownImpl {
-    fn IsEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn SetLogFileName(&self, pszfilename: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn LogString(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlog: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn LogDword(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlogformat: &windows_core::PCSTR, dwlog: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> windows_core::Result<()>;
-    fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> windows_core::Result<()>;
+    fn IsEnabled(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
+    fn Enable(&self, fenable: windows_core::BOOL) -> Result<(), windows_result::HRESULT>;
+    fn GetLogFileName(&self, pszfilename: windows_core::PSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetLogFileName(&self, pszfilename: &windows_core::PCSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogString(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlog: &windows_core::PCSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogDword(&self, dwflags: u32, pszsrcname: &windows_core::PCSTR, pszlogformat: &windows_core::PCSTR, dwlog: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetSizeParams(&self, pdwmaxsize: *mut u32, pdwshrinktosize: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetSizeParams(&self, dwmaxsize: u32, dwshrinktosize: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMLogger_Vtbl {
     pub const fn new<Identity: IWMDMLogger_Impl, const OFFSET: isize>() -> Self {
@@ -3541,7 +3541,7 @@ impl IWMDMLogger_Vtbl {
                         pfenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3614,22 +3614,22 @@ impl windows_core::RuntimeName for IWMDMLogger {}
 windows_core::imp::define_interface!(IWMDMMetaData, IWMDMMetaData_Vtbl, 0xec3b0663_0951_460a_9a80_0dceed3c043c);
 windows_core::imp::interface_hierarchy!(IWMDMMetaData, windows_core::IUnknown);
 impl IWMDMMetaData {
-    pub unsafe fn AddItem<P1>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: P1, pvalue: Option<&[u8]>) -> windows_core::Result<()>
+    pub unsafe fn AddItem<P1>(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: P1, pvalue: Option<&[u8]>) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddItem)(windows_core::Interface::as_raw(self), r#type, pwsztagname.param().abi(), core::mem::transmute(pvalue.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pvalue.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
     }
-    pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn QueryByName<P0>(&self, pwsztagname: P0, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).QueryByName)(windows_core::Interface::as_raw(self), pwsztagname.param().abi(), ptype as _, pvalue as _, pcblength as _).ok() }
     }
-    pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).QueryByIndex)(windows_core::Interface::as_raw(self), iindex, ppwszname as _, ptype as _, ppvalue as _, pcblength as _).ok() }
     }
-    pub unsafe fn GetItemCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetItemCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItemCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3646,10 +3646,10 @@ pub struct IWMDMMetaData_Vtbl {
     pub GetItemCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMMetaData_Impl: windows_core::IUnknownImpl {
-    fn AddItem(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: &windows_core::PCWSTR, pvalue: *const u8, ilength: u32) -> windows_core::Result<()>;
-    fn QueryByName(&self, pwsztagname: &windows_core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>;
-    fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> windows_core::Result<()>;
-    fn GetItemCount(&self) -> windows_core::Result<u32>;
+    fn AddItem(&self, r#type: WMDM_TAG_DATATYPE, pwsztagname: &windows_core::PCWSTR, pvalue: *const u8, ilength: u32) -> Result<(), windows_result::HRESULT>;
+    fn QueryByName(&self, pwsztagname: &windows_core::PCWSTR, ptype: *mut WMDM_TAG_DATATYPE, pvalue: *mut *mut u8, pcblength: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn QueryByIndex(&self, iindex: u32, ppwszname: *mut *mut u16, ptype: *mut WMDM_TAG_DATATYPE, ppvalue: *mut *mut u8, pcblength: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetItemCount(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IWMDMMetaData_Vtbl {
     pub const fn new<Identity: IWMDMMetaData_Impl, const OFFSET: isize>() -> Self {
@@ -3679,7 +3679,7 @@ impl IWMDMMetaData_Vtbl {
                         icount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3699,7 +3699,7 @@ impl windows_core::RuntimeName for IWMDMMetaData {}
 windows_core::imp::define_interface!(IWMDMNotification, IWMDMNotification_Vtbl, 0x3f5e95c0_0f43_4ed4_93d2_c89a45d59b81);
 windows_core::imp::interface_hierarchy!(IWMDMNotification, windows_core::IUnknown);
 impl IWMDMNotification {
-    pub unsafe fn WMDMMessage<P1>(&self, dwmessagetype: u32, pwszcanonicalname: P1) -> windows_core::Result<()>
+    pub unsafe fn WMDMMessage<P1>(&self, dwmessagetype: u32, pwszcanonicalname: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -3713,7 +3713,7 @@ pub struct IWMDMNotification_Vtbl {
     pub WMDMMessage: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWMDMNotification_Impl: windows_core::IUnknownImpl {
-    fn WMDMMessage(&self, dwmessagetype: u32, pwszcanonicalname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn WMDMMessage(&self, dwmessagetype: u32, pwszcanonicalname: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMNotification_Vtbl {
     pub const fn new<Identity: IWMDMNotification_Impl, const OFFSET: isize>() -> Self {
@@ -3733,37 +3733,37 @@ impl windows_core::RuntimeName for IWMDMNotification {}
 windows_core::imp::define_interface!(IWMDMObjectInfo, IWMDMObjectInfo_Vtbl, 0x1dcb3a09_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMObjectInfo, windows_core::IUnknown);
 impl IWMDMObjectInfo {
-    pub unsafe fn GetPlayLength(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetPlayLength(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPlayLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPlayLength(&self, dwlength: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPlayLength)(windows_core::Interface::as_raw(self), dwlength).ok() }
     }
-    pub unsafe fn GetPlayOffset(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetPlayOffset(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPlayOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPlayOffset(&self, dwoffset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPlayOffset)(windows_core::Interface::as_raw(self), dwoffset).ok() }
     }
-    pub unsafe fn GetTotalLength(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetTotalLength(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTotalLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLastPlayPosition(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetLastPlayPosition(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLastPlayPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetLongestPlayPosition(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetLongestPlayPosition(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLongestPlayPosition)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3783,13 +3783,13 @@ pub struct IWMDMObjectInfo_Vtbl {
     pub GetLongestPlayPosition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMObjectInfo_Impl: windows_core::IUnknownImpl {
-    fn GetPlayLength(&self) -> windows_core::Result<u32>;
-    fn SetPlayLength(&self, dwlength: u32) -> windows_core::Result<()>;
-    fn GetPlayOffset(&self) -> windows_core::Result<u32>;
-    fn SetPlayOffset(&self, dwoffset: u32) -> windows_core::Result<()>;
-    fn GetTotalLength(&self) -> windows_core::Result<u32>;
-    fn GetLastPlayPosition(&self) -> windows_core::Result<u32>;
-    fn GetLongestPlayPosition(&self) -> windows_core::Result<u32>;
+    fn GetPlayLength(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetPlayLength(&self, dwlength: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetPlayOffset(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetPlayOffset(&self, dwoffset: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalLength(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetLastPlayPosition(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetLongestPlayPosition(&self) -> Result<u32, windows_result::HRESULT>;
 }
 impl IWMDMObjectInfo_Vtbl {
     pub const fn new<Identity: IWMDMObjectInfo_Impl, const OFFSET: isize>() -> Self {
@@ -3801,7 +3801,7 @@ impl IWMDMObjectInfo_Vtbl {
                         pdwlength.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3819,7 +3819,7 @@ impl IWMDMObjectInfo_Vtbl {
                         pdwoffset.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3837,7 +3837,7 @@ impl IWMDMObjectInfo_Vtbl {
                         pdwlength.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3849,7 +3849,7 @@ impl IWMDMObjectInfo_Vtbl {
                         pdwlastpos.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3861,7 +3861,7 @@ impl IWMDMObjectInfo_Vtbl {
                         pdwlongestpos.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3884,36 +3884,36 @@ impl windows_core::RuntimeName for IWMDMObjectInfo {}
 windows_core::imp::define_interface!(IWMDMOperation, IWMDMOperation_Vtbl, 0x1dcb3a0b_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMOperation, windows_core::IUnknown);
 impl IWMDMOperation {
-    pub unsafe fn BeginRead(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginRead(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginRead)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn BeginWrite(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginWrite(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BeginWrite)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectName(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> windows_core::Result<()> {
+    pub unsafe fn SetObjectName(&self, pwszname: &[u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetObjectName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectAttributes)(windows_core::Interface::as_raw(self), pdwattributes as _, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn SetObjectAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetObjectAttributes)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectTotalSize)(windows_core::Interface::as_raw(self), pdwsize as _, pdwsizehigh as _).ok() }
     }
-    pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetObjectTotalSize)(windows_core::Interface::as_raw(self), dwsize, dwsizehigh).ok() }
     }
-    pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TransferObjectData)(windows_core::Interface::as_raw(self), pdata as _, pdwsize as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn End<P1>(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: P1) -> windows_core::Result<()>
+    pub unsafe fn End<P1>(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -3943,16 +3943,16 @@ pub struct IWMDMOperation_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation_Impl: windows_core::IUnknownImpl {
-    fn BeginRead(&self) -> windows_core::Result<()>;
-    fn BeginWrite(&self) -> windows_core::Result<()>;
-    fn GetObjectName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn SetObjectName(&self, pwszname: &windows_core::PCWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
-    fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> windows_core::Result<()>;
-    fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn End(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginRead(&self) -> Result<(), windows_result::HRESULT>;
+    fn BeginWrite(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetObjectName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetObjectName(&self, pwszname: &windows_core::PCWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetObjectAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn SetObjectAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn GetObjectTotalSize(&self, pdwsize: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn SetObjectTotalSize(&self, dwsize: u32, dwsizehigh: u32) -> Result<(), windows_result::HRESULT>;
+    fn TransferObjectData(&self, pdata: *mut u8, pdwsize: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn End(&self, phcompletioncode: *const windows_core::HRESULT, pnewobject: windows_core::Ref<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMOperation_Vtbl {
@@ -4047,11 +4047,11 @@ impl core::ops::Deref for IWMDMOperation2 {
 windows_core::imp::interface_hierarchy!(IWMDMOperation2, windows_core::IUnknown, IWMDMOperation);
 impl IWMDMOperation2 {
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetObjectAttributes2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, pformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetObjectAttributes2)(windows_core::Interface::as_raw(self), pdwattributes as _, pdwattributesex as _, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -4070,8 +4070,8 @@ pub struct IWMDMOperation2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMOperation2_Impl: IWMDMOperation_Impl {
-    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
-    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn SetObjectAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
+    fn GetObjectAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMOperation2_Vtbl {
@@ -4109,7 +4109,7 @@ impl core::ops::Deref for IWMDMOperation3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMOperation3, windows_core::IUnknown, IWMDMOperation);
 impl IWMDMOperation3 {
-    pub unsafe fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).TransferObjectDataOnClearChannel)(windows_core::Interface::as_raw(self), pdata as _, pdwsize as _).ok() }
     }
 }
@@ -4121,7 +4121,7 @@ pub struct IWMDMOperation3_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMOperation3_Impl: IWMDMOperation_Impl {
-    fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> windows_core::Result<()>;
+    fn TransferObjectDataOnClearChannel(&self, pdata: *mut u8, pdwsize: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMOperation3_Vtbl {
@@ -4143,13 +4143,13 @@ impl windows_core::RuntimeName for IWMDMOperation3 {}
 windows_core::imp::define_interface!(IWMDMProgress, IWMDMProgress_Vtbl, 0x1dcb3a0c_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMProgress, windows_core::IUnknown);
 impl IWMDMProgress {
-    pub unsafe fn Begin(&self, dwestimatedticks: u32) -> windows_core::Result<()> {
+    pub unsafe fn Begin(&self, dwestimatedticks: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Begin)(windows_core::Interface::as_raw(self), dwestimatedticks).ok() }
     }
-    pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> windows_core::Result<()> {
+    pub unsafe fn Progress(&self, dwtranspiredticks: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Progress)(windows_core::Interface::as_raw(self), dwtranspiredticks).ok() }
     }
-    pub unsafe fn End(&self) -> windows_core::Result<()> {
+    pub unsafe fn End(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).End)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4162,9 +4162,9 @@ pub struct IWMDMProgress_Vtbl {
     pub End: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMProgress_Impl: windows_core::IUnknownImpl {
-    fn Begin(&self, dwestimatedticks: u32) -> windows_core::Result<()>;
-    fn Progress(&self, dwtranspiredticks: u32) -> windows_core::Result<()>;
-    fn End(&self) -> windows_core::Result<()>;
+    fn Begin(&self, dwestimatedticks: u32) -> Result<(), windows_result::HRESULT>;
+    fn Progress(&self, dwtranspiredticks: u32) -> Result<(), windows_result::HRESULT>;
+    fn End(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMProgress_Vtbl {
     pub const fn new<Identity: IWMDMProgress_Impl, const OFFSET: isize>() -> Self {
@@ -4207,7 +4207,7 @@ impl core::ops::Deref for IWMDMProgress2 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMProgress2, windows_core::IUnknown, IWMDMProgress);
 impl IWMDMProgress2 {
-    pub unsafe fn End2(&self, hrcompletioncode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub unsafe fn End2(&self, hrcompletioncode: windows_core::HRESULT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).End2)(windows_core::Interface::as_raw(self), hrcompletioncode).ok() }
     }
 }
@@ -4218,7 +4218,7 @@ pub struct IWMDMProgress2_Vtbl {
     pub End2: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IWMDMProgress2_Impl: IWMDMProgress_Impl {
-    fn End2(&self, hrcompletioncode: windows_core::HRESULT) -> windows_core::Result<()>;
+    fn End2(&self, hrcompletioncode: windows_core::HRESULT) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMProgress2_Vtbl {
     pub const fn new<Identity: IWMDMProgress2_Impl, const OFFSET: isize>() -> Self {
@@ -4244,13 +4244,13 @@ impl core::ops::Deref for IWMDMProgress3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMProgress3, windows_core::IUnknown, IWMDMProgress, IWMDMProgress2);
 impl IWMDMProgress3 {
-    pub unsafe fn Begin3(&self, eventid: windows_core::GUID, dwestimatedticks: u32, pcontext: Option<*mut OPAQUECOMMAND>) -> windows_core::Result<()> {
+    pub unsafe fn Begin3(&self, eventid: windows_core::GUID, dwestimatedticks: u32, pcontext: Option<*mut OPAQUECOMMAND>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Begin3)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), dwestimatedticks, pcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Progress3(&self, eventid: windows_core::GUID, dwtranspiredticks: u32, pcontext: Option<*mut OPAQUECOMMAND>) -> windows_core::Result<()> {
+    pub unsafe fn Progress3(&self, eventid: windows_core::GUID, dwtranspiredticks: u32, pcontext: Option<*mut OPAQUECOMMAND>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Progress3)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), dwtranspiredticks, pcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn End3(&self, eventid: windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: Option<*mut OPAQUECOMMAND>) -> windows_core::Result<()> {
+    pub unsafe fn End3(&self, eventid: windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: Option<*mut OPAQUECOMMAND>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).End3)(windows_core::Interface::as_raw(self), core::mem::transmute(eventid), hrcompletioncode, pcontext.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -4263,9 +4263,9 @@ pub struct IWMDMProgress3_Vtbl {
     pub End3: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, windows_core::HRESULT, *mut OPAQUECOMMAND) -> windows_core::HRESULT,
 }
 pub trait IWMDMProgress3_Impl: IWMDMProgress2_Impl {
-    fn Begin3(&self, eventid: &windows_core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
-    fn Progress3(&self, eventid: &windows_core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
-    fn End3(&self, eventid: &windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn Begin3(&self, eventid: &windows_core::GUID, dwestimatedticks: u32, pcontext: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
+    fn Progress3(&self, eventid: &windows_core::GUID, dwtranspiredticks: u32, pcontext: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
+    fn End3(&self, eventid: &windows_core::GUID, hrcompletioncode: windows_core::HRESULT, pcontext: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMProgress3_Vtbl {
     pub const fn new<Identity: IWMDMProgress3_Impl, const OFFSET: isize>() -> Self {
@@ -4302,7 +4302,7 @@ impl windows_core::RuntimeName for IWMDMProgress3 {}
 windows_core::imp::define_interface!(IWMDMRevoked, IWMDMRevoked_Vtbl, 0xebeccedb_88ee_4e55_b6a4_8d9f07d696aa);
 windows_core::imp::interface_hierarchy!(IWMDMRevoked, windows_core::IUnknown);
 impl IWMDMRevoked {
-    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRevocationURL)(windows_core::Interface::as_raw(self), ppwszrevocationurl as _, pdwbufferlen as _, pdwrevokedbitflag as _).ok() }
     }
 }
@@ -4313,7 +4313,7 @@ pub struct IWMDMRevoked_Vtbl {
     pub GetRevocationURL: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::PWSTR, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IWMDMRevoked_Impl: windows_core::IUnknownImpl {
-    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> windows_core::Result<()>;
+    fn GetRevocationURL(&self, ppwszrevocationurl: *mut windows_core::PWSTR, pdwbufferlen: *mut u32, pdwrevokedbitflag: *mut u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMRevoked_Vtbl {
     pub const fn new<Identity: IWMDMRevoked_Impl, const OFFSET: isize>() -> Self {
@@ -4334,41 +4334,41 @@ windows_core::imp::define_interface!(IWMDMStorage, IWMDMStorage_Vtbl, 0x1dcb3a06
 windows_core::imp::interface_hierarchy!(IWMDMStorage, windows_core::IUnknown);
 impl IWMDMStorage {
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn SetAttributes(&self, dwattributes: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttributes)(windows_core::Interface::as_raw(self), dwattributes, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetStorageGlobals(&self) -> windows_core::Result<IWMDMStorageGlobals> {
+    pub unsafe fn GetStorageGlobals(&self) -> Result<IWMDMStorageGlobals, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStorageGlobals)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_Media_Audio")]
-    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes(&self, pdwattributes: *mut u32, pformat: Option<*mut super::Audio::WAVEFORMATEX>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), pdwattributes as _, pformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> windows_core::Result<()> {
+    pub unsafe fn GetName(&self, pwszname: &mut [u16]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), core::mem::transmute(pwszname.as_ptr()), pwszname.len().try_into().unwrap()).ok() }
     }
-    pub unsafe fn GetDate(&self) -> windows_core::Result<WMDMDATETIME> {
+    pub unsafe fn GetDate(&self) -> Result<WMDMDATETIME, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), pdwsizelow as _, pdwsizehigh as _).ok() }
     }
-    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetRights)(windows_core::Interface::as_raw(self), pprights as _, pnrightscount as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage> {
+    pub unsafe fn EnumStorage(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumStorage)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()> {
+    pub unsafe fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SendOpaqueCommand)(windows_core::Interface::as_raw(self), pcommand as _).ok() }
     }
 }
@@ -4394,15 +4394,15 @@ pub struct IWMDMStorage_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio")]
 pub trait IWMDMStorage_Impl: windows_core::IUnknownImpl {
-    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetStorageGlobals(&self) -> windows_core::Result<IWMDMStorageGlobals>;
-    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> windows_core::Result<()>;
-    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> windows_core::Result<()>;
-    fn GetDate(&self) -> windows_core::Result<WMDMDATETIME>;
-    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> windows_core::Result<()>;
-    fn EnumStorage(&self) -> windows_core::Result<IWMDMEnumStorage>;
-    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> windows_core::Result<()>;
+    fn SetAttributes(&self, dwattributes: u32, pformat: *const super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn GetStorageGlobals(&self) -> Result<IWMDMStorageGlobals, windows_result::HRESULT>;
+    fn GetAttributes(&self, pdwattributes: *mut u32, pformat: *mut super::Audio::WAVEFORMATEX) -> Result<(), windows_result::HRESULT>;
+    fn GetName(&self, pwszname: windows_core::PWSTR, nmaxchars: u32) -> Result<(), windows_result::HRESULT>;
+    fn GetDate(&self) -> Result<WMDMDATETIME, windows_result::HRESULT>;
+    fn GetSize(&self, pdwsizelow: *mut u32, pdwsizehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetRights(&self, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn EnumStorage(&self) -> Result<IWMDMEnumStorage, windows_result::HRESULT>;
+    fn SendOpaqueCommand(&self, pcommand: *mut OPAQUECOMMAND) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Media_Audio")]
 impl IWMDMStorage_Vtbl {
@@ -4421,7 +4421,7 @@ impl IWMDMStorage_Vtbl {
                         ppstorageglobals.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4445,7 +4445,7 @@ impl IWMDMStorage_Vtbl {
                         pdatetimeutc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4469,7 +4469,7 @@ impl IWMDMStorage_Vtbl {
                         penumstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4507,7 +4507,7 @@ impl core::ops::Deref for IWMDMStorage2 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMStorage2, windows_core::IUnknown, IWMDMStorage);
 impl IWMDMStorage2 {
-    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> windows_core::Result<IWMDMStorage>
+    pub unsafe fn GetStorage<P0>(&self, pszstoragename: P0) -> Result<IWMDMStorage, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4517,11 +4517,11 @@ impl IWMDMStorage2 {
         }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: Option<*const super::Audio::WAVEFORMATEX>, pvideoformat: Option<*const super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttributes2)(windows_core::Interface::as_raw(self), dwattributes, dwattributesex, pformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
-    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: Option<*mut super::Audio::WAVEFORMATEX>, pvideoformat: Option<*mut super::MediaFoundation::VIDEOINFOHEADER>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes2)(windows_core::Interface::as_raw(self), pdwattributes as _, pdwattributesex as _, paudioformat.unwrap_or(core::mem::zeroed()) as _, pvideoformat.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -4541,9 +4541,9 @@ pub struct IWMDMStorage2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage2_Impl: IWMDMStorage_Impl {
-    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
-    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
-    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> windows_core::Result<()>;
+    fn GetStorage(&self, pszstoragename: &windows_core::PCWSTR) -> Result<IWMDMStorage, windows_result::HRESULT>;
+    fn SetAttributes2(&self, dwattributes: u32, dwattributesex: u32, pformat: *const super::Audio::WAVEFORMATEX, pvideoformat: *const super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
+    fn GetAttributes2(&self, pdwattributes: *mut u32, pdwattributesex: *mut u32, paudioformat: *mut super::Audio::WAVEFORMATEX, pvideoformat: *mut super::MediaFoundation::VIDEOINFOHEADER) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage2_Vtbl {
@@ -4556,7 +4556,7 @@ impl IWMDMStorage2_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4594,25 +4594,25 @@ impl core::ops::Deref for IWMDMStorage3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMStorage3, windows_core::IUnknown, IWMDMStorage, IWMDMStorage2);
 impl IWMDMStorage3 {
-    pub unsafe fn GetMetadata(&self) -> windows_core::Result<IWMDMMetaData> {
+    pub unsafe fn GetMetadata(&self) -> Result<IWMDMMetaData, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMetadata)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMetadata<P0>(&self, pmetadata: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWMDMMetaData>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMetadata)(windows_core::Interface::as_raw(self), pmetadata.param().abi()).ok() }
     }
-    pub unsafe fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData> {
+    pub unsafe fn CreateEmptyMetadataObject(&self) -> Result<IWMDMMetaData, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateEmptyMetadataObject)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: Option<&[WMDMMetadataView]>) -> windows_core::Result<()> {
+    pub unsafe fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, pviews: Option<&[WMDMMetadataView]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnumPreference)(windows_core::Interface::as_raw(self), pmode as _, pviews.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pviews.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
 }
@@ -4627,10 +4627,10 @@ pub struct IWMDMStorage3_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage3_Impl: IWMDMStorage2_Impl {
-    fn GetMetadata(&self) -> windows_core::Result<IWMDMMetaData>;
-    fn SetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> windows_core::Result<()>;
-    fn CreateEmptyMetadataObject(&self) -> windows_core::Result<IWMDMMetaData>;
-    fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> windows_core::Result<()>;
+    fn GetMetadata(&self) -> Result<IWMDMMetaData, windows_result::HRESULT>;
+    fn SetMetadata(&self, pmetadata: windows_core::Ref<'_, IWMDMMetaData>) -> Result<(), windows_result::HRESULT>;
+    fn CreateEmptyMetadataObject(&self) -> Result<IWMDMMetaData, windows_result::HRESULT>;
+    fn SetEnumPreference(&self, pmode: *mut WMDM_STORAGE_ENUM_MODE, nviews: u32, pviews: *const WMDMMetadataView) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage3_Vtbl {
@@ -4643,7 +4643,7 @@ impl IWMDMStorage3_Vtbl {
                         ppmetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4661,7 +4661,7 @@ impl IWMDMStorage3_Vtbl {
                         ppmetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4694,25 +4694,25 @@ impl core::ops::Deref for IWMDMStorage4 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMStorage4, windows_core::IUnknown, IWMDMStorage, IWMDMStorage2, IWMDMStorage3);
 impl IWMDMStorage4 {
-    pub unsafe fn SetReferences(&self, ppiwmdmstorage: Option<&[Option<IWMDMStorage>]>) -> windows_core::Result<()> {
+    pub unsafe fn SetReferences(&self, ppiwmdmstorage: Option<&[Option<IWMDMStorage>]>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReferences)(windows_core::Interface::as_raw(self), ppiwmdmstorage.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(ppiwmdmstorage.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
-    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::Result<()> {
+    pub unsafe fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetReferences)(windows_core::Interface::as_raw(self), pdwrefs as _, pppiwmdmstorage as _).ok() }
     }
-    pub unsafe fn GetRightsWithProgress<P0>(&self, piprogresscallback: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn GetRightsWithProgress<P0>(&self, piprogresscallback: P0, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IWMDMProgress3>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetRightsWithProgress)(windows_core::Interface::as_raw(self), piprogresscallback.param().abi(), pprights as _, pnrightscount as _).ok() }
     }
-    pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[windows_core::PCWSTR]) -> windows_core::Result<IWMDMMetaData> {
+    pub unsafe fn GetSpecifiedMetadata(&self, ppwszpropnames: &[windows_core::PCWSTR]) -> Result<IWMDMMetaData, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSpecifiedMetadata)(windows_core::Interface::as_raw(self), ppwszpropnames.len().try_into().unwrap(), core::mem::transmute(ppwszpropnames.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> windows_core::Result<IWMDMStorage>
+    pub unsafe fn FindStorage<P1>(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: P1) -> Result<IWMDMStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -4721,7 +4721,7 @@ impl IWMDMStorage4 {
             (windows_core::Interface::vtable(self).FindStorage)(windows_core::Interface::as_raw(self), findscope, pwszuniqueid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetParent(&self) -> windows_core::Result<IWMDMStorage> {
+    pub unsafe fn GetParent(&self) -> Result<IWMDMStorage, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetParent)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4741,12 +4741,12 @@ pub struct IWMDMStorage4_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 pub trait IWMDMStorage4_Impl: IWMDMStorage3_Impl {
-    fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const Option<IWMDMStorage>) -> windows_core::Result<()>;
-    fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> windows_core::Result<()>;
-    fn GetRightsWithProgress(&self, piprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> windows_core::Result<()>;
-    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR) -> windows_core::Result<IWMDMMetaData>;
-    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<IWMDMStorage>;
-    fn GetParent(&self) -> windows_core::Result<IWMDMStorage>;
+    fn SetReferences(&self, dwrefs: u32, ppiwmdmstorage: *const Option<IWMDMStorage>) -> Result<(), windows_result::HRESULT>;
+    fn GetReferences(&self, pdwrefs: *mut u32, pppiwmdmstorage: *mut *mut Option<IWMDMStorage>) -> Result<(), windows_result::HRESULT>;
+    fn GetRightsWithProgress(&self, piprogresscallback: windows_core::Ref<'_, IWMDMProgress3>, pprights: *mut *mut WMDMRIGHTS, pnrightscount: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSpecifiedMetadata(&self, cproperties: u32, ppwszpropnames: *const windows_core::PCWSTR) -> Result<IWMDMMetaData, windows_result::HRESULT>;
+    fn FindStorage(&self, findscope: WMDM_FIND_SCOPE, pwszuniqueid: &windows_core::PCWSTR) -> Result<IWMDMStorage, windows_result::HRESULT>;
+    fn GetParent(&self) -> Result<IWMDMStorage, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Media_Audio", feature = "Win32_Media_MediaFoundation"))]
 impl IWMDMStorage4_Vtbl {
@@ -4777,7 +4777,7 @@ impl IWMDMStorage4_Vtbl {
                         ppmetadata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4789,7 +4789,7 @@ impl IWMDMStorage4_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4801,7 +4801,7 @@ impl IWMDMStorage4_Vtbl {
                         ppstorage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4824,7 +4824,7 @@ impl windows_core::RuntimeName for IWMDMStorage4 {}
 windows_core::imp::define_interface!(IWMDMStorageControl, IWMDMStorageControl_Vtbl, 0x1dcb3a08_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMStorageControl, windows_core::IUnknown);
 impl IWMDMStorageControl {
-    pub unsafe fn Insert<P1, P2, P3>(&self, fumode: u32, pwszfile: P1, poperation: P2, pprogress: P3) -> windows_core::Result<IWMDMStorage>
+    pub unsafe fn Insert<P1, P2, P3>(&self, fumode: u32, pwszfile: P1, poperation: P2, pprogress: P3) -> Result<IWMDMStorage, windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IWMDMOperation>,
@@ -4835,20 +4835,20 @@ impl IWMDMStorageControl {
             (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), poperation.param().abi(), pprogress.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn Delete<P1>(&self, fumode: u32, pprogress: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), fumode, pprogress.param().abi()).ok() }
     }
-    pub unsafe fn Rename<P1, P2>(&self, fumode: u32, pwsznewname: P1, pprogress: P2) -> windows_core::Result<()>
+    pub unsafe fn Rename<P1, P2>(&self, fumode: u32, pwsznewname: P1, pprogress: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IWMDMProgress>,
     {
         unsafe { (windows_core::Interface::vtable(self).Rename)(windows_core::Interface::as_raw(self), fumode, pwsznewname.param().abi(), pprogress.param().abi()).ok() }
     }
-    pub unsafe fn Read<P1, P2, P3>(&self, fumode: u32, pwszfile: P1, pprogress: P2, poperation: P3) -> windows_core::Result<()>
+    pub unsafe fn Read<P1, P2, P3>(&self, fumode: u32, pwszfile: P1, pprogress: P2, poperation: P3) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<IWMDMProgress>,
@@ -4856,7 +4856,7 @@ impl IWMDMStorageControl {
     {
         unsafe { (windows_core::Interface::vtable(self).Read)(windows_core::Interface::as_raw(self), fumode, pwszfile.param().abi(), pprogress.param().abi(), poperation.param().abi()).ok() }
     }
-    pub unsafe fn Move<P1, P2>(&self, fumode: u32, ptargetobject: P1, pprogress: P2) -> windows_core::Result<()>
+    pub unsafe fn Move<P1, P2>(&self, fumode: u32, ptargetobject: P1, pprogress: P2) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMStorage>,
         P2: windows_core::Param<IWMDMProgress>,
@@ -4875,11 +4875,11 @@ pub struct IWMDMStorageControl_Vtbl {
     pub Move: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl_Impl: windows_core::IUnknownImpl {
-    fn Insert(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<IWMDMStorage>;
-    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
-    fn Rename(&self, fumode: u32, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
-    fn Read(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>, poperation: windows_core::Ref<'_, IWMDMOperation>) -> windows_core::Result<()>;
-    fn Move(&self, fumode: u32, ptargetobject: windows_core::Ref<'_, IWMDMStorage>, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
+    fn Insert(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<IWMDMStorage, windows_result::HRESULT>;
+    fn Delete(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
+    fn Rename(&self, fumode: u32, pwsznewname: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
+    fn Read(&self, fumode: u32, pwszfile: &windows_core::PCWSTR, pprogress: windows_core::Ref<'_, IWMDMProgress>, poperation: windows_core::Ref<'_, IWMDMOperation>) -> Result<(), windows_result::HRESULT>;
+    fn Move(&self, fumode: u32, ptargetobject: windows_core::Ref<'_, IWMDMStorage>, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMStorageControl_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl_Impl, const OFFSET: isize>() -> Self {
@@ -4891,7 +4891,7 @@ impl IWMDMStorageControl_Vtbl {
                         ppnewobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4942,7 +4942,7 @@ impl core::ops::Deref for IWMDMStorageControl2 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMStorageControl2, windows_core::IUnknown, IWMDMStorageControl);
 impl IWMDMStorageControl2 {
-    pub unsafe fn Insert2<P1, P2, P3, P4, P5>(&self, fumode: u32, pwszfilesource: P1, pwszfiledest: P2, poperation: P3, pprogress: P4, punknown: P5, ppnewobject: Option<*mut Option<IWMDMStorage>>) -> windows_core::Result<()>
+    pub unsafe fn Insert2<P1, P2, P3, P4, P5>(&self, fumode: u32, pwszfilesource: P1, pwszfiledest: P2, poperation: P3, pprogress: P4, punknown: P5, ppnewobject: Option<*mut Option<IWMDMStorage>>) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
         P2: windows_core::Param<windows_core::PCWSTR>,
@@ -4960,7 +4960,7 @@ pub struct IWMDMStorageControl2_Vtbl {
     pub Insert2: unsafe extern "system" fn(*mut core::ffi::c_void, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl2_Impl: IWMDMStorageControl_Impl {
-    fn Insert2(&self, fumode: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppnewobject: windows_core::OutRef<'_, IWMDMStorage>) -> windows_core::Result<()>;
+    fn Insert2(&self, fumode: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppnewobject: windows_core::OutRef<'_, IWMDMStorage>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMStorageControl2_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl2_Impl, const OFFSET: isize>() -> Self {
@@ -4986,7 +4986,7 @@ impl core::ops::Deref for IWMDMStorageControl3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDMStorageControl3, windows_core::IUnknown, IWMDMStorageControl, IWMDMStorageControl2);
 impl IWMDMStorageControl3 {
-    pub unsafe fn Insert3<P2, P3, P4, P5, P6, P7>(&self, fumode: u32, futype: u32, pwszfilesource: P2, pwszfiledest: P3, poperation: P4, pprogress: P5, pmetadata: P6, punknown: P7, ppnewobject: Option<*mut Option<IWMDMStorage>>) -> windows_core::Result<()>
+    pub unsafe fn Insert3<P2, P3, P4, P5, P6, P7>(&self, fumode: u32, futype: u32, pwszfilesource: P2, pwszfiledest: P3, poperation: P4, pprogress: P5, pmetadata: P6, punknown: P7, ppnewobject: Option<*mut Option<IWMDMStorage>>) -> Result<(), windows_result::HRESULT>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -5005,7 +5005,7 @@ pub struct IWMDMStorageControl3_Vtbl {
     pub Insert3: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageControl3_Impl: IWMDMStorageControl2_Impl {
-    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>, pmetadata: windows_core::Ref<'_, IWMDMMetaData>, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppnewobject: windows_core::OutRef<'_, IWMDMStorage>) -> windows_core::Result<()>;
+    fn Insert3(&self, fumode: u32, futype: u32, pwszfilesource: &windows_core::PCWSTR, pwszfiledest: &windows_core::PCWSTR, poperation: windows_core::Ref<'_, IWMDMOperation>, pprogress: windows_core::Ref<'_, IWMDMProgress>, pmetadata: windows_core::Ref<'_, IWMDMMetaData>, punknown: windows_core::Ref<'_, windows_core::IUnknown>, ppnewobject: windows_core::OutRef<'_, IWMDMStorage>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMStorageControl3_Vtbl {
     pub const fn new<Identity: IWMDMStorageControl3_Impl, const OFFSET: isize>() -> Self {
@@ -5025,31 +5025,31 @@ impl windows_core::RuntimeName for IWMDMStorageControl3 {}
 windows_core::imp::define_interface!(IWMDMStorageGlobals, IWMDMStorageGlobals_Vtbl, 0x1dcb3a07_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDMStorageGlobals, windows_core::IUnknown);
 impl IWMDMStorageGlobals {
-    pub unsafe fn GetCapabilities(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: &mut [u8; 8]) -> windows_core::Result<()> {
+    pub unsafe fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: &mut [u8; 8]) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSerialNumber)(windows_core::Interface::as_raw(self), pserialnum as _, core::mem::transmute(abmac.as_ptr())).ok() }
     }
-    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalSize)(windows_core::Interface::as_raw(self), pdwtotalsizelow as _, pdwtotalsizehigh as _).ok() }
     }
-    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalFree)(windows_core::Interface::as_raw(self), pdwfreelow as _, pdwfreehigh as _).ok() }
     }
-    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTotalBad)(windows_core::Interface::as_raw(self), pdwbadlow as _, pdwbadhigh as _).ok() }
     }
-    pub unsafe fn GetStatus(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStatus(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Initialize<P1>(&self, fumode: u32, pprogress: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, fumode: u32, pprogress: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<IWMDMProgress>,
     {
@@ -5069,13 +5069,13 @@ pub struct IWMDMStorageGlobals_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDMStorageGlobals_Impl: windows_core::IUnknownImpl {
-    fn GetCapabilities(&self) -> windows_core::Result<u32>;
-    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> windows_core::Result<()>;
-    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> windows_core::Result<()>;
-    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> windows_core::Result<()>;
-    fn GetStatus(&self) -> windows_core::Result<u32>;
-    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> windows_core::Result<()>;
+    fn GetCapabilities(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetSerialNumber(&self, pserialnum: *mut WMDMID, abmac: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalSize(&self, pdwtotalsizelow: *mut u32, pdwtotalsizehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalFree(&self, pdwfreelow: *mut u32, pdwfreehigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetTotalBad(&self, pdwbadlow: *mut u32, pdwbadhigh: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatus(&self) -> Result<u32, windows_result::HRESULT>;
+    fn Initialize(&self, fumode: u32, pprogress: windows_core::Ref<'_, IWMDMProgress>) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDMStorageGlobals_Vtbl {
     pub const fn new<Identity: IWMDMStorageGlobals_Impl, const OFFSET: isize>() -> Self {
@@ -5087,7 +5087,7 @@ impl IWMDMStorageGlobals_Vtbl {
                         pdwcapabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5123,7 +5123,7 @@ impl IWMDMStorageGlobals_Vtbl {
                         pdwstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5152,19 +5152,19 @@ impl windows_core::RuntimeName for IWMDMStorageGlobals {}
 windows_core::imp::define_interface!(IWMDeviceManager, IWMDeviceManager_Vtbl, 0x1dcb3a00_33ed_11d3_8470_00c04f79dbc0);
 windows_core::imp::interface_hierarchy!(IWMDeviceManager, windows_core::IUnknown);
 impl IWMDeviceManager {
-    pub unsafe fn GetRevision(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetRevision(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRevision)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDeviceCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetDeviceCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDeviceCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumDevices(&self) -> windows_core::Result<IWMDMEnumDevice> {
+    pub unsafe fn EnumDevices(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5180,9 +5180,9 @@ pub struct IWMDeviceManager_Vtbl {
     pub EnumDevices: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDeviceManager_Impl: windows_core::IUnknownImpl {
-    fn GetRevision(&self) -> windows_core::Result<u32>;
-    fn GetDeviceCount(&self) -> windows_core::Result<u32>;
-    fn EnumDevices(&self) -> windows_core::Result<IWMDMEnumDevice>;
+    fn GetRevision(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetDeviceCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn EnumDevices(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT>;
 }
 impl IWMDeviceManager_Vtbl {
     pub const fn new<Identity: IWMDeviceManager_Impl, const OFFSET: isize>() -> Self {
@@ -5194,7 +5194,7 @@ impl IWMDeviceManager_Vtbl {
                         pdwrevision.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5206,7 +5206,7 @@ impl IWMDeviceManager_Vtbl {
                         pdwcount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5218,7 +5218,7 @@ impl IWMDeviceManager_Vtbl {
                         ppenumdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5243,7 +5243,7 @@ impl core::ops::Deref for IWMDeviceManager2 {
 }
 windows_core::imp::interface_hierarchy!(IWMDeviceManager2, windows_core::IUnknown, IWMDeviceManager);
 impl IWMDeviceManager2 {
-    pub unsafe fn GetDeviceFromCanonicalName<P0>(&self, pwszcanonicalname: P0) -> windows_core::Result<IWMDMDevice>
+    pub unsafe fn GetDeviceFromCanonicalName<P0>(&self, pwszcanonicalname: P0) -> Result<IWMDMDevice, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -5252,13 +5252,13 @@ impl IWMDeviceManager2 {
             (windows_core::Interface::vtable(self).GetDeviceFromCanonicalName)(windows_core::Interface::as_raw(self), pwszcanonicalname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumDevices2(&self) -> windows_core::Result<IWMDMEnumDevice> {
+    pub unsafe fn EnumDevices2(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumDevices2)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Reinitialize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reinitialize(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reinitialize)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -5271,9 +5271,9 @@ pub struct IWMDeviceManager2_Vtbl {
     pub Reinitialize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IWMDeviceManager2_Impl: IWMDeviceManager_Impl {
-    fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: &windows_core::PCWSTR) -> windows_core::Result<IWMDMDevice>;
-    fn EnumDevices2(&self) -> windows_core::Result<IWMDMEnumDevice>;
-    fn Reinitialize(&self) -> windows_core::Result<()>;
+    fn GetDeviceFromCanonicalName(&self, pwszcanonicalname: &windows_core::PCWSTR) -> Result<IWMDMDevice, windows_result::HRESULT>;
+    fn EnumDevices2(&self) -> Result<IWMDMEnumDevice, windows_result::HRESULT>;
+    fn Reinitialize(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDeviceManager2_Vtbl {
     pub const fn new<Identity: IWMDeviceManager2_Impl, const OFFSET: isize>() -> Self {
@@ -5285,7 +5285,7 @@ impl IWMDeviceManager2_Vtbl {
                         ppdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5297,7 +5297,7 @@ impl IWMDeviceManager2_Vtbl {
                         ppenumdevice.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5328,7 +5328,7 @@ impl core::ops::Deref for IWMDeviceManager3 {
 }
 windows_core::imp::interface_hierarchy!(IWMDeviceManager3, windows_core::IUnknown, IWMDeviceManager, IWMDeviceManager2);
 impl IWMDeviceManager3 {
-    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDeviceEnumPreference)(windows_core::Interface::as_raw(self), dwenumpref).ok() }
     }
 }
@@ -5339,7 +5339,7 @@ pub struct IWMDeviceManager3_Vtbl {
     pub SetDeviceEnumPreference: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IWMDeviceManager3_Impl: IWMDeviceManager2_Impl {
-    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> windows_core::Result<()>;
+    fn SetDeviceEnumPreference(&self, dwenumpref: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IWMDeviceManager3_Vtbl {
     pub const fn new<Identity: IWMDeviceManager3_Impl, const OFFSET: isize>() -> Self {

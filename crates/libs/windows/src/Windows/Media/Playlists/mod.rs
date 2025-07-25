@@ -38,22 +38,22 @@ pub struct IPlaylistStatics_Vtbl {
 pub struct Playlist(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Playlist, windows_core::IUnknown, windows_core::IInspectable);
 impl Playlist {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Playlist, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Files(&self) -> windows_core::Result<windows_collections::IVector<super::super::Storage::StorageFile>> {
+    pub fn Files(&self) -> Result<windows_collections::IVector<super::super::Storage::StorageFile>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Files)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SaveAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -61,7 +61,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption) -> Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -72,7 +72,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>>
+    pub fn SaveAsWithFormatAsync<P0>(&self, savelocation: P0, desiredname: &windows_core::HSTRING, option: super::super::Storage::NameCollisionOption, playlistformat: PlaylistFormat) -> Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -83,7 +83,7 @@ impl Playlist {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<Playlist>>
+    pub fn LoadAsync<P0>(file: P0) -> Result<windows_future::IAsyncOperation<Playlist>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -92,7 +92,7 @@ impl Playlist {
             (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaylistStatics<R, F: FnOnce(&IPlaylistStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Playlist, IPlaylistStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -78,59 +78,59 @@ pub struct IPhoneCallOriginManagerStatics3_Vtbl {
 pub struct PhoneCallOrigin(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhoneCallOrigin, windows_core::IUnknown, windows_core::IInspectable);
 impl PhoneCallOrigin {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PhoneCallOrigin, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Category(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Category(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Category)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCategory(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCategory(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategory)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CategoryDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CategoryDescription(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CategoryDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetCategoryDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetCategoryDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCategoryDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Location(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Location(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLocation(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DisplayPicture(&self) -> windows_core::Result<super::super::super::Storage::StorageFile> {
+    pub fn DisplayPicture(&self) -> Result<super::super::super::Storage::StorageFile, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPhoneCallOrigin3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -138,7 +138,7 @@ impl PhoneCallOrigin {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDisplayPicture<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetDisplayPicture<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Storage::StorageFile>,
     {
@@ -160,42 +160,42 @@ unsafe impl Send for PhoneCallOrigin {}
 unsafe impl Sync for PhoneCallOrigin {}
 pub struct PhoneCallOriginManager;
 impl PhoneCallOriginManager {
-    pub fn IsCurrentAppActiveCallOriginApp() -> windows_core::Result<bool> {
+    pub fn IsCurrentAppActiveCallOriginApp() -> Result<bool, windows_result::HRESULT> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppActiveCallOriginApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ShowPhoneCallOriginSettingsUI() -> windows_core::Result<()> {
+    pub fn ShowPhoneCallOriginSettingsUI() -> Result<(), windows_result::HRESULT> {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowPhoneCallOriginSettingsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn SetCallOrigin<P1>(requestid: windows_core::GUID, callorigin: P1) -> windows_core::Result<()>
+    pub fn SetCallOrigin<P1>(requestid: windows_core::GUID, callorigin: P1) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<PhoneCallOrigin>,
     {
         Self::IPhoneCallOriginManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetCallOrigin)(windows_core::Interface::as_raw(this), requestid, callorigin.param().abi()).ok() })
     }
-    pub fn RequestSetAsActiveCallOriginAppAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RequestSetAsActiveCallOriginAppAsync() -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::IPhoneCallOriginManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestSetAsActiveCallOriginAppAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> Result<bool, windows_result::HRESULT> {
         Self::IPhoneCallOriginManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IPhoneCallOriginManagerStatics<R, F: FnOnce(&IPhoneCallOriginManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhoneCallOriginManagerStatics<R, F: FnOnce(&IPhoneCallOriginManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PhoneCallOriginManager, IPhoneCallOriginManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPhoneCallOriginManagerStatics2<R, F: FnOnce(&IPhoneCallOriginManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhoneCallOriginManagerStatics2<R, F: FnOnce(&IPhoneCallOriginManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PhoneCallOriginManager, IPhoneCallOriginManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPhoneCallOriginManagerStatics3<R, F: FnOnce(&IPhoneCallOriginManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhoneCallOriginManagerStatics3<R, F: FnOnce(&IPhoneCallOriginManagerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PhoneCallOriginManager, IPhoneCallOriginManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

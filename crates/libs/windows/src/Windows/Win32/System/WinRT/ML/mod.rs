@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(ILearningModelDeviceFactoryNative, ILearnin
 windows_core::imp::interface_hierarchy!(ILearningModelDeviceFactoryNative, windows_core::IUnknown);
 impl ILearningModelDeviceFactoryNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12CommandQueue<P0>(&self, value: P0) -> windows_core::Result<windows_core::IUnknown>
+    pub unsafe fn CreateFromD3D12CommandQueue<P0>(&self, value: P0) -> Result<windows_core::IUnknown, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>,
     {
@@ -23,7 +23,7 @@ pub struct ILearningModelDeviceFactoryNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ILearningModelDeviceFactoryNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12CommandQueue(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateFromD3D12CommandQueue(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12CommandQueue>) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ILearningModelDeviceFactoryNative_Vtbl {
@@ -36,7 +36,7 @@ impl ILearningModelDeviceFactoryNative_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -52,7 +52,7 @@ windows_core::imp::define_interface!(ILearningModelOperatorProviderNative, ILear
 windows_core::imp::interface_hierarchy!(ILearningModelOperatorProviderNative, windows_core::IUnknown);
 impl ILearningModelOperatorProviderNative {
     #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
-    pub unsafe fn GetRegistry(&self) -> windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry> {
+    pub unsafe fn GetRegistry(&self) -> Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRegistry)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -70,7 +70,7 @@ pub struct ILearningModelOperatorProviderNative_Vtbl {
 }
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 pub trait ILearningModelOperatorProviderNative_Impl: windows_core::IUnknownImpl {
-    fn GetRegistry(&self) -> windows_core::Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry>;
+    fn GetRegistry(&self) -> Result<super::super::super::AI::MachineLearning::WinML::IMLOperatorRegistry, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_AI_MachineLearning_WinML")]
 impl ILearningModelOperatorProviderNative_Vtbl {
@@ -83,7 +83,7 @@ impl ILearningModelOperatorProviderNative_Vtbl {
                         ppoperatorregistry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -98,7 +98,7 @@ impl windows_core::RuntimeName for ILearningModelOperatorProviderNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative, ILearningModelSessionOptionsNative_Vtbl, 0xc71e953f_37b4_4564_8658_d8396866db0d);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative {
-    pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIntraOpNumThreadsOverride)(windows_core::Interface::as_raw(self), intraopnumthreads).ok() }
     }
 }
@@ -109,7 +109,7 @@ pub struct ILearningModelSessionOptionsNative_Vtbl {
     pub SetIntraOpNumThreadsOverride: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ILearningModelSessionOptionsNative_Impl: windows_core::IUnknownImpl {
-    fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> windows_core::Result<()>;
+    fn SetIntraOpNumThreadsOverride(&self, intraopnumthreads: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl ILearningModelSessionOptionsNative_Vtbl {
     pub const fn new<Identity: ILearningModelSessionOptionsNative_Impl, const OFFSET: isize>() -> Self {
@@ -129,7 +129,7 @@ impl windows_core::RuntimeName for ILearningModelSessionOptionsNative {}
 windows_core::imp::define_interface!(ILearningModelSessionOptionsNative1, ILearningModelSessionOptionsNative1_Vtbl, 0x5da37a26_0526_414b_91e4_2a0fa3ddba40);
 windows_core::imp::interface_hierarchy!(ILearningModelSessionOptionsNative1, windows_core::IUnknown);
 impl ILearningModelSessionOptionsNative1 {
-    pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()> {
+    pub unsafe fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIntraOpThreadSpinning)(windows_core::Interface::as_raw(self), allowspinning).ok() }
     }
 }
@@ -140,7 +140,7 @@ pub struct ILearningModelSessionOptionsNative1_Vtbl {
     pub SetIntraOpThreadSpinning: unsafe extern "system" fn(*mut core::ffi::c_void, u8) -> windows_core::HRESULT,
 }
 pub trait ILearningModelSessionOptionsNative1_Impl: windows_core::IUnknownImpl {
-    fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> windows_core::Result<()>;
+    fn SetIntraOpThreadSpinning(&self, allowspinning: u8) -> Result<(), windows_result::HRESULT>;
 }
 impl ILearningModelSessionOptionsNative1_Vtbl {
     pub const fn new<Identity: ILearningModelSessionOptionsNative1_Impl, const OFFSET: isize>() -> Self {
@@ -160,11 +160,11 @@ impl windows_core::RuntimeName for ILearningModelSessionOptionsNative1 {}
 windows_core::imp::define_interface!(ITensorNative, ITensorNative_Vtbl, 0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
 windows_core::imp::interface_hierarchy!(ITensorNative, windows_core::IUnknown);
 impl ITensorNative {
-    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), value as _, capacity as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn GetD3D12Resource(&self) -> windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource> {
+    pub unsafe fn GetD3D12Resource(&self) -> Result<super::super::super::Graphics::Direct3D12::ID3D12Resource, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetD3D12Resource)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -183,8 +183,8 @@ pub struct ITensorNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorNative_Impl: windows_core::IUnknownImpl {
-    fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> windows_core::Result<()>;
-    fn GetD3D12Resource(&self) -> windows_core::Result<super::super::super::Graphics::Direct3D12::ID3D12Resource>;
+    fn GetBuffer(&self, value: *mut *mut u8, capacity: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetD3D12Resource(&self) -> Result<super::super::super::Graphics::Direct3D12::ID3D12Resource, windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorNative_Vtbl {
@@ -203,7 +203,7 @@ impl ITensorNative_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -223,7 +223,7 @@ windows_core::imp::define_interface!(ITensorStaticsNative, ITensorStaticsNative_
 windows_core::imp::interface_hierarchy!(ITensorStaticsNative, windows_core::IUnknown);
 impl ITensorStaticsNative {
     #[cfg(feature = "Win32_Graphics_Direct3D12")]
-    pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut Option<windows_core::IUnknown>) -> windows_core::Result<()>
+    pub unsafe fn CreateFromD3D12Resource<P0>(&self, value: P0, shape: *mut i64, shapecount: i32, result: *mut Option<windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Graphics::Direct3D12::ID3D12Resource>,
     {
@@ -241,7 +241,7 @@ pub struct ITensorStaticsNative_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait ITensorStaticsNative_Impl: windows_core::IUnknownImpl {
-    fn CreateFromD3D12Resource(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateFromD3D12Resource(&self, value: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12Resource>, shape: *mut i64, shapecount: i32, result: windows_core::OutRef<'_, windows_core::IUnknown>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl ITensorStaticsNative_Vtbl {

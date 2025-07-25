@@ -4,61 +4,61 @@ impl windows_core::RuntimeType for IAdcControllerProvider {
 }
 windows_core::imp::interface_hierarchy!(IAdcControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcControllerProvider {
-    pub fn ChannelCount(&self) -> windows_core::Result<i32> {
+    pub fn ChannelCount(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChannelCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResolutionInBits(&self) -> windows_core::Result<i32> {
+    pub fn ResolutionInBits(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResolutionInBits)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinValue(&self) -> windows_core::Result<i32> {
+    pub fn MinValue(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxValue(&self) -> windows_core::Result<i32> {
+    pub fn MaxValue(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ChannelMode(&self) -> windows_core::Result<ProviderAdcChannelMode> {
+    pub fn ChannelMode(&self) -> Result<ProviderAdcChannelMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChannelMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> windows_core::Result<()> {
+    pub fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetChannelMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> windows_core::Result<bool> {
+    pub fn IsChannelModeSupported(&self, channelmode: ProviderAdcChannelMode) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsChannelModeSupported)(windows_core::Interface::as_raw(this), channelmode, &mut result__).map(|| result__)
         }
     }
-    pub fn AcquireChannel(&self, channel: i32) -> windows_core::Result<()> {
+    pub fn AcquireChannel(&self, channel: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AcquireChannel)(windows_core::Interface::as_raw(this), channel).ok() }
     }
-    pub fn ReleaseChannel(&self, channel: i32) -> windows_core::Result<()> {
+    pub fn ReleaseChannel(&self, channel: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReleaseChannel)(windows_core::Interface::as_raw(this), channel).ok() }
     }
-    pub fn ReadValue(&self, channelnumber: i32) -> windows_core::Result<i32> {
+    pub fn ReadValue(&self, channelnumber: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,118 +70,118 @@ impl windows_core::RuntimeName for IAdcControllerProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcControllerProvider";
 }
 pub trait IAdcControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn ChannelCount(&self) -> windows_core::Result<i32>;
-    fn ResolutionInBits(&self) -> windows_core::Result<i32>;
-    fn MinValue(&self) -> windows_core::Result<i32>;
-    fn MaxValue(&self) -> windows_core::Result<i32>;
-    fn ChannelMode(&self) -> windows_core::Result<ProviderAdcChannelMode>;
-    fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> windows_core::Result<()>;
-    fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> windows_core::Result<bool>;
-    fn AcquireChannel(&self, channel: i32) -> windows_core::Result<()>;
-    fn ReleaseChannel(&self, channel: i32) -> windows_core::Result<()>;
-    fn ReadValue(&self, channelNumber: i32) -> windows_core::Result<i32>;
+    fn ChannelCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ResolutionInBits(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MinValue(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MaxValue(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ChannelMode(&self) -> Result<ProviderAdcChannelMode, windows_result::HRESULT>;
+    fn SetChannelMode(&self, value: ProviderAdcChannelMode) -> Result<(), windows_result::HRESULT>;
+    fn IsChannelModeSupported(&self, channelMode: ProviderAdcChannelMode) -> Result<bool, windows_result::HRESULT>;
+    fn AcquireChannel(&self, channel: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReleaseChannel(&self, channel: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReadValue(&self, channelNumber: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IAdcControllerProvider_Vtbl {
     pub const fn new<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn ChannelCount<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChannelCount<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::ChannelCount(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn ResolutionInBits<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ResolutionInBits<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::ResolutionInBits(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn MinValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MinValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::MinValue(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn MaxValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn MaxValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::MaxValue(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn ChannelMode<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn ChannelMode<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut ProviderAdcChannelMode) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::ChannelMode(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn SetChannelMode<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ProviderAdcChannelMode) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetChannelMode<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: ProviderAdcChannelMode) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAdcControllerProvider_Impl::SetChannelMode(this, value).into()
             }
         }
-        unsafe extern "system" fn IsChannelModeSupported<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> windows_core::HRESULT {
+        unsafe extern "system" fn IsChannelModeSupported<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelmode: ProviderAdcChannelMode, result__: *mut bool) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::IsChannelModeSupported(this, channelmode) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn AcquireChannel<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn AcquireChannel<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAdcControllerProvider_Impl::AcquireChannel(this, channel).into()
             }
         }
-        unsafe extern "system" fn ReleaseChannel<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReleaseChannel<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channel: i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAdcControllerProvider_Impl::ReleaseChannel(this, channel).into()
             }
         }
-        unsafe extern "system" fn ReadValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> windows_core::HRESULT {
+        unsafe extern "system" fn ReadValue<Identity: IAdcControllerProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, channelnumber: i32, result__: *mut i32) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcControllerProvider_Impl::ReadValue(this, channelnumber) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -224,7 +224,7 @@ impl windows_core::RuntimeType for IAdcProvider {
 }
 windows_core::imp::interface_hierarchy!(IAdcProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdcProvider {
-    pub fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IAdcControllerProvider>> {
+    pub fn GetControllers(&self) -> Result<windows_collections::IVectorView<IAdcControllerProvider>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -236,20 +236,20 @@ impl windows_core::RuntimeName for IAdcProvider {
     const NAME: &'static str = "Windows.Devices.Adc.Provider.IAdcProvider";
 }
 pub trait IAdcProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllers(&self) -> windows_core::Result<windows_collections::IVectorView<IAdcControllerProvider>>;
+    fn GetControllers(&self) -> Result<windows_collections::IVectorView<IAdcControllerProvider>, windows_result::HRESULT>;
 }
 impl IAdcProvider_Vtbl {
     pub const fn new<Identity: IAdcProvider_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetControllers<Identity: IAdcProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetControllers<Identity: IAdcProvider_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAdcProvider_Impl::GetControllers(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

@@ -181,65 +181,65 @@ pub struct IUserDataAccountStoreChangedEventArgs_Vtbl {
 pub struct UserDataAccount(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccount, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccount {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn UserDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetUserDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetUserDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUserDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn OtherAppReadAccess(&self) -> windows_core::Result<UserDataAccountOtherAppReadAccess> {
+    pub fn OtherAppReadAccess(&self) -> Result<UserDataAccountOtherAppReadAccess, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherAppReadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOtherAppReadAccess(&self, value: UserDataAccountOtherAppReadAccess) -> windows_core::Result<()> {
+    pub fn SetOtherAppReadAccess(&self, value: UserDataAccountOtherAppReadAccess) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOtherAppReadAccess)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Icon(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Icon(&self) -> Result<super::super::Storage::Streams::IRandomAccessStreamReference, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceAccountTypeId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceAccountTypeId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceAccountTypeId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageFamilyName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SaveAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -247,7 +247,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_Appointments")]
-    pub fn FindAppointmentCalendarsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Appointments::AppointmentCalendar>>> {
+    pub fn FindAppointmentCalendarsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Appointments::AppointmentCalendar>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -255,7 +255,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_Email")]
-    pub fn FindEmailMailboxesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Email::EmailMailbox>>> {
+    pub fn FindEmailMailboxesAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Email::EmailMailbox>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -263,7 +263,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn FindContactListsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactList>>> {
+    pub fn FindContactListsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactList>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,58 +271,58 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn FindContactAnnotationListsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactAnnotationList>>> {
+    pub fn FindContactAnnotationListsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactAnnotationList>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactAnnotationListsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EnterpriseId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsProtectedUnderLock(&self) -> windows_core::Result<bool> {
+    pub fn IsProtectedUnderLock(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsProtectedUnderLock)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExplictReadAccessPackageFamilyNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn ExplictReadAccessPackageFamilyNames(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExplictReadAccessPackageFamilyNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CanShowCreateContactGroup(&self) -> windows_core::Result<bool> {
+    pub fn CanShowCreateContactGroup(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanShowCreateContactGroup)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanShowCreateContactGroup(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanShowCreateContactGroup(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanShowCreateContactGroup)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ProviderProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn ProviderProperties(&self) -> Result<super::super::Foundation::Collections::IPropertySet, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -330,7 +330,7 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_UserDataTasks")]
-    pub fn FindUserDataTaskListsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::UserDataTasks::UserDataTaskList>>> {
+    pub fn FindUserDataTaskListsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::UserDataTasks::UserDataTaskList>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -338,26 +338,26 @@ impl UserDataAccount {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn FindContactGroupsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactGroup>>> {
+    pub fn FindContactGroupsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::Contacts::ContactGroup>>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindContactGroupsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryShowCreateContactGroupAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn TryShowCreateContactGroupAsync(&self) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowCreateContactGroupAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIsProtectedUnderLock(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsProtectedUnderLock(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccount4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsProtectedUnderLock)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetIcon<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -426,32 +426,32 @@ impl core::ops::Not for UserDataAccountContentKinds {
 }
 pub struct UserDataAccountManager;
 impl UserDataAccountManager {
-    pub fn RequestStoreAsync(storeaccesstype: UserDataAccountStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccountStore>> {
+    pub fn RequestStoreAsync(storeaccesstype: UserDataAccountStoreAccessType) -> Result<windows_future::IAsyncOperation<UserDataAccountStore>, windows_result::HRESULT> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), storeaccesstype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAddAccountAsync(contentkinds: UserDataAccountContentKinds) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn ShowAddAccountAsync(contentkinds: UserDataAccountContentKinds) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAddAccountAsync)(windows_core::Interface::as_raw(this), contentkinds, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAccountSettingsAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAccountSettingsAsync(id: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAccountSettingsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAccountErrorResolverAsync(id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAccountErrorResolverAsync(id: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IUserDataAccountManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAccountErrorResolverAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<UserDataAccountManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> Result<UserDataAccountManagerForUser, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -460,11 +460,11 @@ impl UserDataAccountManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IUserDataAccountManagerStatics<R, F: FnOnce(&IUserDataAccountManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserDataAccountManagerStatics<R, F: FnOnce(&IUserDataAccountManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UserDataAccountManager, IUserDataAccountManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IUserDataAccountManagerStatics2<R, F: FnOnce(&IUserDataAccountManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IUserDataAccountManagerStatics2<R, F: FnOnce(&IUserDataAccountManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<UserDataAccountManager, IUserDataAccountManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -477,7 +477,7 @@ impl windows_core::RuntimeName for UserDataAccountManager {
 pub struct UserDataAccountManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountManagerForUser {
-    pub fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccountStore>> {
+    pub fn RequestStoreAsync(&self, storeaccesstype: UserDataAccountStoreAccessType) -> Result<windows_future::IAsyncOperation<UserDataAccountStore>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -485,7 +485,7 @@ impl UserDataAccountManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -524,35 +524,35 @@ impl windows_core::RuntimeType for UserDataAccountOtherAppReadAccess {
 pub struct UserDataAccountStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountStore, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountStore {
-    pub fn FindAccountsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<UserDataAccount>>> {
+    pub fn FindAccountsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<UserDataAccount>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAccountsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAccountAsync(&self, id: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccount>> {
+    pub fn GetAccountAsync(&self, id: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<UserDataAccount>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAccountAsync(&self, userdisplayname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccount>> {
+    pub fn CreateAccountAsync(&self, userdisplayname: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<UserDataAccount>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdisplayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAccountWithPackageRelativeAppIdAsync(&self, userdisplayname: &windows_core::HSTRING, packagerelativeappid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccount>> {
+    pub fn CreateAccountWithPackageRelativeAppIdAsync(&self, userdisplayname: &windows_core::HSTRING, packagerelativeappid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<UserDataAccount>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAccountWithPackageRelativeAppIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdisplayname), core::mem::transmute_copy(packagerelativeappid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StoreChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UserDataAccountStore, UserDataAccountStoreChangedEventArgs>>,
     {
@@ -562,11 +562,11 @@ impl UserDataAccountStore {
             (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStoreChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStoreChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(&self, userdisplayname: &windows_core::HSTRING, packagerelativeappid: &windows_core::HSTRING, enterpriseid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<UserDataAccount>> {
+    pub fn CreateAccountWithPackageRelativeAppIdAndEnterpriseIdAsync(&self, userdisplayname: &windows_core::HSTRING, packagerelativeappid: &windows_core::HSTRING, enterpriseid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<UserDataAccount>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IUserDataAccountStore3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -604,7 +604,7 @@ impl windows_core::RuntimeType for UserDataAccountStoreAccessType {
 pub struct UserDataAccountStoreChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountStoreChangedEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> Result<super::super::Foundation::Deferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

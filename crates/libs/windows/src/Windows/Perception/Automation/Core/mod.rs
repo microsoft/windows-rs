@@ -1,12 +1,12 @@
 pub struct CorePerceptionAutomation;
 impl CorePerceptionAutomation {
-    pub fn SetActivationFactoryProvider<P0>(provider: P0) -> windows_core::Result<()>
+    pub fn SetActivationFactoryProvider<P0>(provider: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::IGetActivationFactory>,
     {
         Self::ICorePerceptionAutomationStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetActivationFactoryProvider)(windows_core::Interface::as_raw(this), provider.param().abi()).ok() })
     }
-    fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICorePerceptionAutomationStatics<R, F: FnOnce(&ICorePerceptionAutomationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<CorePerceptionAutomation, ICorePerceptionAutomationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

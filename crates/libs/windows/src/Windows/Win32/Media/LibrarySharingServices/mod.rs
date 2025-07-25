@@ -14,22 +14,22 @@ impl core::ops::Deref for IWindowsMediaLibrarySharingDevice {
 windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevice, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevice {
-    pub unsafe fn DeviceID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DeviceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Authorization(&self) -> windows_core::Result<WindowsMediaLibrarySharingDeviceAuthorizationStatus> {
+    pub unsafe fn Authorization(&self) -> Result<WindowsMediaLibrarySharingDeviceAuthorizationStatus, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Authorization)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> windows_core::Result<()> {
+    pub unsafe fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAuthorization)(windows_core::Interface::as_raw(self), authorization).ok() }
     }
-    pub unsafe fn Properties(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperties> {
+    pub unsafe fn Properties(&self) -> Result<IWindowsMediaLibrarySharingDeviceProperties, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -48,10 +48,10 @@ pub struct IWindowsMediaLibrarySharingDevice_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsMediaLibrarySharingDevice_Impl: super::super::System::Com::IDispatch_Impl {
-    fn DeviceID(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Authorization(&self) -> windows_core::Result<WindowsMediaLibrarySharingDeviceAuthorizationStatus>;
-    fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> windows_core::Result<()>;
-    fn Properties(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperties>;
+    fn DeviceID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Authorization(&self) -> Result<WindowsMediaLibrarySharingDeviceAuthorizationStatus, windows_result::HRESULT>;
+    fn SetAuthorization(&self, authorization: WindowsMediaLibrarySharingDeviceAuthorizationStatus) -> Result<(), windows_result::HRESULT>;
+    fn Properties(&self) -> Result<IWindowsMediaLibrarySharingDeviceProperties, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsMediaLibrarySharingDevice_Vtbl {
@@ -64,7 +64,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
                         deviceid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -76,7 +76,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
                         authorization.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -94,7 +94,7 @@ impl IWindowsMediaLibrarySharingDevice_Vtbl {
                         deviceproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -125,19 +125,19 @@ impl core::ops::Deref for IWindowsMediaLibrarySharingDeviceProperties {
 windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperties, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperties {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IWindowsMediaLibrarySharingDeviceProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty> {
+    pub unsafe fn GetProperty(&self, name: &windows_core::BSTR) -> Result<IWindowsMediaLibrarySharingDeviceProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -155,9 +155,9 @@ pub struct IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsMediaLibrarySharingDeviceProperties_Impl: super::super::System::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn GetProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDeviceProperty>;
+    fn get_Item(&self, index: i32) -> Result<IWindowsMediaLibrarySharingDeviceProperty, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetProperty(&self, name: &windows_core::BSTR) -> Result<IWindowsMediaLibrarySharingDeviceProperty, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
@@ -170,7 +170,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -182,7 +182,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
                         count.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -194,7 +194,7 @@ impl IWindowsMediaLibrarySharingDeviceProperties_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -224,14 +224,14 @@ impl core::ops::Deref for IWindowsMediaLibrarySharingDeviceProperty {
 windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDeviceProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDeviceProperty {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -251,8 +251,8 @@ pub struct IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsMediaLibrarySharingDeviceProperty_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
@@ -265,7 +265,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -277,7 +277,7 @@ impl IWindowsMediaLibrarySharingDeviceProperty_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -302,19 +302,19 @@ impl core::ops::Deref for IWindowsMediaLibrarySharingDevices {
 windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingDevices, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingDevices {
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDevice> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<IWindowsMediaLibrarySharingDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDevice(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDevice> {
+    pub unsafe fn GetDevice(&self, deviceid: &windows_core::BSTR) -> Result<IWindowsMediaLibrarySharingDevice, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -332,9 +332,9 @@ pub struct IWindowsMediaLibrarySharingDevices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsMediaLibrarySharingDevices_Impl: super::super::System::Com::IDispatch_Impl {
-    fn get_Item(&self, index: i32) -> windows_core::Result<IWindowsMediaLibrarySharingDevice>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn GetDevice(&self, deviceid: &windows_core::BSTR) -> windows_core::Result<IWindowsMediaLibrarySharingDevice>;
+    fn get_Item(&self, index: i32) -> Result<IWindowsMediaLibrarySharingDevice, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetDevice(&self, deviceid: &windows_core::BSTR) -> Result<IWindowsMediaLibrarySharingDevice, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsMediaLibrarySharingDevices_Vtbl {
@@ -347,7 +347,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
                         device.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -359,7 +359,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
                         count.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -371,7 +371,7 @@ impl IWindowsMediaLibrarySharingDevices_Vtbl {
                         device.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -401,85 +401,85 @@ impl core::ops::Deref for IWindowsMediaLibrarySharingServices {
 windows_core::imp::interface_hierarchy!(IWindowsMediaLibrarySharingServices, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWindowsMediaLibrarySharingServices {
-    pub unsafe fn showShareMediaCPL(&self, device: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn showShareMediaCPL(&self, device: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).showShareMediaCPL)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(device)).ok() }
     }
-    pub unsafe fn userHomeMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn userHomeMediaSharingState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).userHomeMediaSharingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetuserHomeMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled).ok() }
     }
-    pub unsafe fn userHomeMediaSharingLibraryName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn userHomeMediaSharingLibraryName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).userHomeMediaSharingLibraryName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetuserHomeMediaSharingLibraryName(&self, libraryname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetuserHomeMediaSharingLibraryName(&self, libraryname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetuserHomeMediaSharingLibraryName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(libraryname)).ok() }
     }
-    pub unsafe fn computerHomeMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn computerHomeMediaSharingAllowedState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).computerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetcomputerHomeMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed).ok() }
     }
-    pub unsafe fn userInternetMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn userInternetMediaSharingState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).userInternetMediaSharingState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetuserInternetMediaSharingState)(windows_core::Interface::as_raw(self), sharingenabled).ok() }
     }
-    pub unsafe fn computerInternetMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn computerInternetMediaSharingAllowedState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).computerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetcomputerInternetMediaSharingAllowedState)(windows_core::Interface::as_raw(self), sharingallowed).ok() }
     }
-    pub unsafe fn internetMediaSharingSecurityGroup(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn internetMediaSharingSecurityGroup(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).internetMediaSharingSecurityGroup)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetinternetMediaSharingSecurityGroup(&self, securitygroup: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetinternetMediaSharingSecurityGroup(&self, securitygroup: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetinternetMediaSharingSecurityGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(securitygroup)).ok() }
     }
-    pub unsafe fn allowSharingToAllDevices(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn allowSharingToAllDevices(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).allowSharingToAllDevices)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetallowSharingToAllDevices)(windows_core::Interface::as_raw(self), sharingenabled).ok() }
     }
-    pub unsafe fn setDefaultAuthorization(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn setDefaultAuthorization(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).setDefaultAuthorization)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddresses), core::mem::transmute_copy(friendlyname), authorization).ok() }
     }
-    pub unsafe fn setAuthorizationState(&self, macaddress: &windows_core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn setAuthorizationState(&self, macaddress: &windows_core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).setAuthorizationState)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(macaddress), authorizationstate).ok() }
     }
-    pub unsafe fn getAllDevices(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDevices> {
+    pub unsafe fn getAllDevices(&self) -> Result<IWindowsMediaLibrarySharingDevices, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).getAllDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn customSettingsApplied(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn customSettingsApplied(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).customSettingsApplied)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -513,25 +513,25 @@ pub struct IWindowsMediaLibrarySharingServices_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWindowsMediaLibrarySharingServices_Impl: super::super::System::Com::IDispatch_Impl {
-    fn showShareMediaCPL(&self, device: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn userHomeMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn userHomeMediaSharingLibraryName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetuserHomeMediaSharingLibraryName(&self, libraryname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn computerHomeMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn userInternetMediaSharingState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn computerInternetMediaSharingAllowedState(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn internetMediaSharingSecurityGroup(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetinternetMediaSharingSecurityGroup(&self, securitygroup: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn allowSharingToAllDevices(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn setDefaultAuthorization(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn setAuthorizationState(&self, macaddress: &windows_core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn getAllDevices(&self) -> windows_core::Result<IWindowsMediaLibrarySharingDevices>;
-    fn customSettingsApplied(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn showShareMediaCPL(&self, device: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn userHomeMediaSharingState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetuserHomeMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn userHomeMediaSharingLibraryName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetuserHomeMediaSharingLibraryName(&self, libraryname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn computerHomeMediaSharingAllowedState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetcomputerHomeMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn userInternetMediaSharingState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetuserInternetMediaSharingState(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn computerInternetMediaSharingAllowedState(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetcomputerInternetMediaSharingAllowedState(&self, sharingallowed: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn internetMediaSharingSecurityGroup(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetinternetMediaSharingSecurityGroup(&self, securitygroup: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn allowSharingToAllDevices(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetallowSharingToAllDevices(&self, sharingenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn setDefaultAuthorization(&self, macaddresses: &windows_core::BSTR, friendlyname: &windows_core::BSTR, authorization: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn setAuthorizationState(&self, macaddress: &windows_core::BSTR, authorizationstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn getAllDevices(&self) -> Result<IWindowsMediaLibrarySharingDevices, windows_result::HRESULT>;
+    fn customSettingsApplied(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWindowsMediaLibrarySharingServices_Vtbl {
@@ -550,7 +550,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         sharingenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -568,7 +568,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         libraryname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -586,7 +586,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         sharingallowed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -604,7 +604,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         sharingenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -622,7 +622,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         sharingallowed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -640,7 +640,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         securitygroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -658,7 +658,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         sharingenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -688,7 +688,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         devices.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -700,7 +700,7 @@ impl IWindowsMediaLibrarySharingServices_Vtbl {
                         customsettingsapplied.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

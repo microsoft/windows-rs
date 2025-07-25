@@ -7,309 +7,309 @@ pub mod DataProvider;
 pub struct Appointment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Appointment, windows_core::IUnknown, windows_core::IInspectable);
 impl Appointment {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Appointment, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetStartTime(&self, value: super::super::Foundation::DateTime) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStartTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> Result<super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDuration(&self, value: super::super::Foundation::TimeSpan) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDuration)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Location(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Location(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLocation(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLocation(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocation)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSubject(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetSubject(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubject)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Details(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Details(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Details)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDetails(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDetails(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDetails)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Reminder(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn Reminder(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reminder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetReminder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetReminder<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReminder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Organizer(&self) -> windows_core::Result<AppointmentOrganizer> {
+    pub fn Organizer(&self) -> Result<AppointmentOrganizer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Organizer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetOrganizer<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetOrganizer<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<AppointmentOrganizer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOrganizer)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Invitees(&self) -> windows_core::Result<windows_collections::IVector<AppointmentInvitee>> {
+    pub fn Invitees(&self) -> Result<windows_collections::IVector<AppointmentInvitee>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invitees)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Recurrence(&self) -> windows_core::Result<AppointmentRecurrence> {
+    pub fn Recurrence(&self) -> Result<AppointmentRecurrence, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Recurrence)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRecurrence<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetRecurrence<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<AppointmentRecurrence>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRecurrence)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn BusyStatus(&self) -> windows_core::Result<AppointmentBusyStatus> {
+    pub fn BusyStatus(&self) -> Result<AppointmentBusyStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BusyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBusyStatus(&self, value: AppointmentBusyStatus) -> windows_core::Result<()> {
+    pub fn SetBusyStatus(&self, value: AppointmentBusyStatus) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBusyStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllDay(&self) -> windows_core::Result<bool> {
+    pub fn AllDay(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllDay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllDay(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllDay(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAllDay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Sensitivity(&self) -> windows_core::Result<AppointmentSensitivity> {
+    pub fn Sensitivity(&self) -> Result<AppointmentSensitivity, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sensitivity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSensitivity(&self, value: AppointmentSensitivity) -> windows_core::Result<()> {
+    pub fn SetSensitivity(&self, value: AppointmentSensitivity) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSensitivity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> Result<super::super::Foundation::Uri, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CalendarId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CalendarId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CalendarId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RoamingId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RoamingId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoamingId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetRoamingId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRoamingId(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRoamingId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn OriginalStartTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn OriginalStartTime(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsResponseRequested(&self) -> windows_core::Result<bool> {
+    pub fn IsResponseRequested(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsResponseRequested)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsResponseRequested(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsResponseRequested(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsResponseRequested)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AllowNewTimeProposal(&self) -> windows_core::Result<bool> {
+    pub fn AllowNewTimeProposal(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowNewTimeProposal)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAllowNewTimeProposal(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowNewTimeProposal(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAllowNewTimeProposal)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OnlineMeetingLink(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn OnlineMeetingLink(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OnlineMeetingLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetOnlineMeetingLink(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetOnlineMeetingLink(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOnlineMeetingLink)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ReplyTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ReplyTime(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplyTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetReplyTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetReplyTime<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetReplyTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn UserResponse(&self) -> windows_core::Result<AppointmentParticipantResponse> {
+    pub fn UserResponse(&self) -> Result<AppointmentParticipantResponse, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserResponse)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUserResponse(&self, value: AppointmentParticipantResponse) -> windows_core::Result<()> {
+    pub fn SetUserResponse(&self, value: AppointmentParticipantResponse) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUserResponse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HasInvitees(&self) -> windows_core::Result<bool> {
+    pub fn HasInvitees(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCanceledMeeting(&self) -> windows_core::Result<bool> {
+    pub fn IsCanceledMeeting(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCanceledMeeting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsCanceledMeeting(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsCanceledMeeting(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsCanceledMeeting)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsOrganizedByUser(&self) -> windows_core::Result<bool> {
+    pub fn IsOrganizedByUser(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOrganizedByUser)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsOrganizedByUser(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsOrganizedByUser(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsOrganizedByUser)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ChangeNumber(&self) -> windows_core::Result<u64> {
+    pub fn ChangeNumber(&self) -> Result<u64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoteChangeNumber(&self) -> windows_core::Result<u64> {
+    pub fn RemoteChangeNumber(&self) -> Result<u64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteChangeNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRemoteChangeNumber(&self, value: u64) -> windows_core::Result<()> {
+    pub fn SetRemoteChangeNumber(&self, value: u64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteChangeNumber)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DetailsKind(&self) -> windows_core::Result<AppointmentDetailsKind> {
+    pub fn DetailsKind(&self) -> Result<AppointmentDetailsKind, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetailsKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDetailsKind(&self, value: AppointmentDetailsKind) -> windows_core::Result<()> {
+    pub fn SetDetailsKind(&self, value: AppointmentDetailsKind) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointment3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDetailsKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -348,86 +348,86 @@ pub struct AppointmentCalendar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendar, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendar {
     #[cfg(feature = "UI")]
-    pub fn DisplayColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn DisplayColor(&self) -> Result<super::super::UI::Color, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn LocalId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsHidden(&self) -> windows_core::Result<bool> {
+    pub fn IsHidden(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsHidden)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OtherAppReadAccess(&self) -> windows_core::Result<AppointmentCalendarOtherAppReadAccess> {
+    pub fn OtherAppReadAccess(&self) -> Result<AppointmentCalendarOtherAppReadAccess, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherAppReadAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOtherAppReadAccess(&self, value: AppointmentCalendarOtherAppReadAccess) -> windows_core::Result<()> {
+    pub fn SetOtherAppReadAccess(&self, value: AppointmentCalendarOtherAppReadAccess) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOtherAppReadAccess)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OtherAppWriteAccess(&self) -> windows_core::Result<AppointmentCalendarOtherAppWriteAccess> {
+    pub fn OtherAppWriteAccess(&self) -> Result<AppointmentCalendarOtherAppWriteAccess, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherAppWriteAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOtherAppWriteAccess(&self, value: AppointmentCalendarOtherAppWriteAccess) -> windows_core::Result<()> {
+    pub fn SetOtherAppWriteAccess(&self, value: AppointmentCalendarOtherAppWriteAccess) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOtherAppWriteAccess)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SourceDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourceDisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SummaryCardView(&self) -> windows_core::Result<AppointmentSummaryCardView> {
+    pub fn SummaryCardView(&self) -> Result<AppointmentSummaryCardView, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SummaryCardView)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSummaryCardView(&self, value: AppointmentSummaryCardView) -> windows_core::Result<()> {
+    pub fn SetSummaryCardView(&self, value: AppointmentSummaryCardView) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSummaryCardView)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>> {
+    pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppointmentsAsync)(windows_core::Interface::as_raw(this), rangestart, rangelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAppointmentsAsyncWithOptions<P2>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>>
+    pub fn FindAppointmentsAsyncWithOptions<P2>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P2) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT>
     where
         P2: windows_core::Param<FindAppointmentsOptions>,
     {
@@ -437,21 +437,21 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).FindAppointmentsAsyncWithOptions)(windows_core::Interface::as_raw(this), rangestart, rangelength, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindExceptionsFromMasterAsync(&self, masterlocalid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentException>>> {
+    pub fn FindExceptionsFromMasterAsync(&self, masterlocalid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentException>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindExceptionsFromMasterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(masterlocalid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllInstancesAsync(&self, masterlocalid: &windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>> {
+    pub fn FindAllInstancesAsync(&self, masterlocalid: &windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllInstancesAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(masterlocalid), rangestart, rangelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllInstancesAsyncWithOptions<P3>(&self, masterlocalid: &windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, poptions: P3) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>>
+    pub fn FindAllInstancesAsyncWithOptions<P3>(&self, masterlocalid: &windows_core::HSTRING, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, poptions: P3) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT>
     where
         P3: windows_core::Param<FindAppointmentsOptions>,
     {
@@ -461,28 +461,28 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).FindAllInstancesAsyncWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(masterlocalid), rangestart, rangelength, poptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppointmentAsync(&self, localid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Appointment>> {
+    pub fn GetAppointmentAsync(&self, localid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<Appointment>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppointmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<Appointment>> {
+    pub fn GetAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<Appointment>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppointmentInstanceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), instancestarttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindUnexpandedAppointmentsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>> {
+    pub fn FindUnexpandedAppointmentsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindUnexpandedAppointmentsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindUnexpandedAppointmentsAsyncWithOptions<P0>(&self, options: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>>
+    pub fn FindUnexpandedAppointmentsAsyncWithOptions<P0>(&self, options: P0) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT>
     where
         P0: windows_core::Param<FindAppointmentsOptions>,
     {
@@ -492,35 +492,35 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).FindUnexpandedAppointmentsAsyncWithOptions)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SaveAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAppointmentAsync(&self, localid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteAppointmentAsync(&self, localid: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAppointmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeleteAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn DeleteAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeleteAppointmentInstanceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), instancestarttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveAppointmentAsync<P0>(&self, pappointment: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SaveAppointmentAsync<P0>(&self, pappointment: P0) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -530,118 +530,118 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).SaveAppointmentAsync)(windows_core::Interface::as_raw(this), pappointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SyncManager(&self) -> windows_core::Result<AppointmentCalendarSyncManager> {
+    pub fn SyncManager(&self) -> Result<AppointmentCalendarSyncManager, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SyncManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RemoteId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn SetDisplayColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetDisplayColor(&self, value: super::super::UI::Color) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetIsHidden(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsHidden(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIsHidden)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UserDataAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDataAccountId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDataAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CanCreateOrUpdateAppointments(&self) -> windows_core::Result<bool> {
+    pub fn CanCreateOrUpdateAppointments(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanCreateOrUpdateAppointments)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanCreateOrUpdateAppointments(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanCreateOrUpdateAppointments(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanCreateOrUpdateAppointments)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CanCancelMeetings(&self) -> windows_core::Result<bool> {
+    pub fn CanCancelMeetings(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanCancelMeetings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanCancelMeetings(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanCancelMeetings(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanCancelMeetings)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CanForwardMeetings(&self) -> windows_core::Result<bool> {
+    pub fn CanForwardMeetings(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanForwardMeetings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanForwardMeetings(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanForwardMeetings(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanForwardMeetings)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CanProposeNewTimeForMeetings(&self) -> windows_core::Result<bool> {
+    pub fn CanProposeNewTimeForMeetings(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanProposeNewTimeForMeetings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanProposeNewTimeForMeetings(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanProposeNewTimeForMeetings(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanProposeNewTimeForMeetings)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CanUpdateMeetingResponses(&self) -> windows_core::Result<bool> {
+    pub fn CanUpdateMeetingResponses(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanUpdateMeetingResponses)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanUpdateMeetingResponses(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanUpdateMeetingResponses(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanUpdateMeetingResponses)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CanNotifyInvitees(&self) -> windows_core::Result<bool> {
+    pub fn CanNotifyInvitees(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanNotifyInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanNotifyInvitees(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanNotifyInvitees(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCanNotifyInvitees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MustNofityInvitees(&self) -> windows_core::Result<bool> {
+    pub fn MustNofityInvitees(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MustNofityInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMustNofityInvitees(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetMustNofityInvitees(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMustNofityInvitees)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TryCreateOrUpdateAppointmentAsync<P0>(&self, appointment: P0, notifyinvitees: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryCreateOrUpdateAppointmentAsync<P0>(&self, appointment: P0, notifyinvitees: bool) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -651,7 +651,7 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).TryCreateOrUpdateAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), notifyinvitees, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryCancelMeetingAsync<P0>(&self, meeting: P0, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING, notifyinvitees: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryCancelMeetingAsync<P0>(&self, meeting: P0, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING, notifyinvitees: bool) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -661,7 +661,7 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).TryCancelMeetingAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), notifyinvitees, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryForwardMeetingAsync<P0, P1>(&self, meeting: P0, invitees: P1, subject: &windows_core::HSTRING, forwardheader: &windows_core::HSTRING, comment: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryForwardMeetingAsync<P0, P1>(&self, meeting: P0, invitees: P1, subject: &windows_core::HSTRING, forwardheader: &windows_core::HSTRING, comment: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
         P1: windows_core::Param<windows_collections::IIterable<AppointmentInvitee>>,
@@ -672,7 +672,7 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).TryForwardMeetingAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), invitees.param().abi(), core::mem::transmute_copy(subject), core::mem::transmute_copy(forwardheader), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryProposeNewTimeForMeetingAsync<P0>(&self, meeting: P0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryProposeNewTimeForMeetingAsync<P0>(&self, meeting: P0, newstarttime: super::super::Foundation::DateTime, newduration: super::super::Foundation::TimeSpan, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -682,7 +682,7 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).TryProposeNewTimeForMeetingAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), newstarttime, newduration, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUpdateMeetingResponseAsync<P0>(&self, meeting: P0, response: AppointmentParticipantResponse, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING, sendupdate: bool) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryUpdateMeetingResponseAsync<P0>(&self, meeting: P0, response: AppointmentParticipantResponse, subject: &windows_core::HSTRING, comment: &windows_core::HSTRING, sendupdate: bool) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -692,7 +692,7 @@ impl AppointmentCalendar {
             (windows_core::Interface::vtable(this).TryUpdateMeetingResponseAsync)(windows_core::Interface::as_raw(this), meeting.param().abi(), response, core::mem::transmute_copy(subject), core::mem::transmute_copy(comment), sendupdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RegisterSyncManagerAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn RegisterSyncManagerAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendar3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -746,35 +746,35 @@ impl windows_core::RuntimeType for AppointmentCalendarOtherAppWriteAccess {
 pub struct AppointmentCalendarSyncManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentCalendarSyncManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentCalendarSyncManager {
-    pub fn Status(&self) -> windows_core::Result<AppointmentCalendarSyncStatus> {
+    pub fn Status(&self) -> Result<AppointmentCalendarSyncStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LastSuccessfulSyncTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastSuccessfulSyncTime(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastSuccessfulSyncTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LastAttemptedSyncTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn LastAttemptedSyncTime(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LastAttemptedSyncTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SyncAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn SyncAsync(&self) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SyncAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncStatusChanged<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppointmentCalendarSyncManager, windows_core::IInspectable>>,
     {
@@ -784,19 +784,19 @@ impl AppointmentCalendarSyncManager {
             (windows_core::Interface::vtable(this).SyncStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSyncStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSyncStatusChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSyncStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetStatus(&self, value: AppointmentCalendarSyncStatus) -> windows_core::Result<()> {
+    pub fn SetStatus(&self, value: AppointmentCalendarSyncStatus) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendarSyncManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetLastSuccessfulSyncTime(&self, value: super::super::Foundation::DateTime) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendarSyncManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLastSuccessfulSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> windows_core::Result<()> {
+    pub fn SetLastAttemptedSyncTime(&self, value: super::super::Foundation::DateTime) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentCalendarSyncManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLastAttemptedSyncTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -836,14 +836,14 @@ impl windows_core::RuntimeType for AppointmentCalendarSyncStatus {
 pub struct AppointmentConflictResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentConflictResult, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentConflictResult {
-    pub fn Type(&self) -> windows_core::Result<AppointmentConflictType> {
+    pub fn Type(&self) -> Result<AppointmentConflictType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> Result<super::super::Foundation::DateTime, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -947,21 +947,21 @@ impl windows_core::RuntimeType for AppointmentDetailsKind {
 pub struct AppointmentException(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentException, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentException {
-    pub fn Appointment(&self) -> windows_core::Result<Appointment> {
+    pub fn Appointment(&self) -> Result<Appointment, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExceptionProperties(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ExceptionProperties(&self) -> Result<windows_collections::IVectorView<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExceptionProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsDeleted(&self) -> windows_core::Result<bool> {
+    pub fn IsDeleted(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -987,54 +987,54 @@ pub struct AppointmentInvitee(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentInvitee, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AppointmentInvitee, IAppointmentParticipant);
 impl AppointmentInvitee {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentInvitee, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Role(&self) -> windows_core::Result<AppointmentParticipantRole> {
+    pub fn Role(&self) -> Result<AppointmentParticipantRole, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Role)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRole(&self, value: AppointmentParticipantRole) -> windows_core::Result<()> {
+    pub fn SetRole(&self, value: AppointmentParticipantRole) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRole)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Response(&self) -> windows_core::Result<AppointmentParticipantResponse> {
+    pub fn Response(&self) -> Result<AppointmentParticipantResponse, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Response)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetResponse(&self, value: AppointmentParticipantResponse) -> windows_core::Result<()> {
+    pub fn SetResponse(&self, value: AppointmentParticipantResponse) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetResponse)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentParticipant>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentParticipant>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Address(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Address(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentParticipant>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentParticipant>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -1053,7 +1053,7 @@ unsafe impl Send for AppointmentInvitee {}
 unsafe impl Sync for AppointmentInvitee {}
 pub struct AppointmentManager;
 impl AppointmentManager {
-    pub fn ShowAddAppointmentAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowAddAppointmentAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1063,7 +1063,7 @@ impl AppointmentManager {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAddAppointmentWithPlacementAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowAddAppointmentWithPlacementAsync<P0>(appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1072,7 +1072,7 @@ impl AppointmentManager {
             (windows_core::Interface::vtable(this).ShowAddAppointmentWithPlacementAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowReplaceAppointmentAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1082,7 +1082,7 @@ impl AppointmentManager {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowReplaceAppointmentWithPlacementAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentWithPlacementAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1092,7 +1092,7 @@ impl AppointmentManager {
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1101,45 +1101,45 @@ impl AppointmentManager {
             (windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), appointment.param().abi(), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowRemoveAppointmentAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowRemoveAppointmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowRemoveAppointmentWithPlacementAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentWithPlacementAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowTimeFrameAsync(timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowTimeFrameAsync(timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowTimeFrameAsync)(windows_core::Interface::as_raw(this), timetoshow, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAppointmentDetailsAsync(appointmentid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsAsync(appointmentid: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowAppointmentDetailsWithDateAsync(appointmentid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsWithDateAsync(appointmentid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ShowEditNewAppointmentAsync<P0>(appointment: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowEditNewAppointmentAsync<P0>(appointment: P0) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1148,14 +1148,14 @@ impl AppointmentManager {
             (windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestStoreAsync(options: AppointmentStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentStore>> {
+    pub fn RequestStoreAsync(options: AppointmentStoreAccessType) -> Result<windows_future::IAsyncOperation<AppointmentStore>, windows_result::HRESULT> {
         Self::IAppointmentManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppointmentManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> Result<AppointmentManagerForUser, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -1164,15 +1164,15 @@ impl AppointmentManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppointmentManagerStatics<R, F: FnOnce(&IAppointmentManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentManagerStatics<R, F: FnOnce(&IAppointmentManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAppointmentManagerStatics2<R, F: FnOnce(&IAppointmentManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentManagerStatics2<R, F: FnOnce(&IAppointmentManagerStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAppointmentManagerStatics3<R, F: FnOnce(&IAppointmentManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentManagerStatics3<R, F: FnOnce(&IAppointmentManagerStatics3) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentManager, IAppointmentManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1185,7 +1185,7 @@ impl windows_core::RuntimeName for AppointmentManager {
 pub struct AppointmentManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentManagerForUser {
-    pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1196,7 +1196,7 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowAddAppointmentWithPlacementAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowAddAppointmentWithPlacementAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1206,7 +1206,7 @@ impl AppointmentManagerForUser {
             (windows_core::Interface::vtable(this).ShowAddAppointmentWithPlacementAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowReplaceAppointmentAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1217,7 +1217,7 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowReplaceAppointmentWithPlacementAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentWithPlacementAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1228,7 +1228,7 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(&self, appointmentid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1238,7 +1238,7 @@ impl AppointmentManagerForUser {
             (windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), appointment.param().abi(), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowRemoveAppointmentAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1246,7 +1246,7 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentWithPlacementAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1254,35 +1254,35 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, appointmentid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowTimeFrameAsync(&self, timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowTimeFrameAsync(&self, timetoshow: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowTimeFrameAsync)(windows_core::Interface::as_raw(this), timetoshow, duration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAppointmentDetailsAsync(&self, appointmentid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsAsync(&self, appointmentid: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAppointmentDetailsWithDateAsync(&self, appointmentid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsWithDateAsync(&self, appointmentid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appointmentid), instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1292,7 +1292,7 @@ impl AppointmentManagerForUser {
             (windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentStore>> {
+    pub fn RequestStoreAsync(&self, options: AppointmentStoreAccessType) -> Result<windows_future::IAsyncOperation<AppointmentStore>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1300,7 +1300,7 @@ impl AppointmentManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> Result<super::super::System::User, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1325,32 +1325,32 @@ unsafe impl Sync for AppointmentManagerForUser {}
 pub struct AppointmentOrganizer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentOrganizer, windows_core::IUnknown, windows_core::IInspectable, IAppointmentParticipant);
 impl AppointmentOrganizer {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentOrganizer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Address(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Address(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -1399,167 +1399,167 @@ impl windows_core::RuntimeType for AppointmentParticipantRole {
 }
 pub struct AppointmentProperties;
 impl AppointmentProperties {
-    pub fn Subject() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Location() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Location() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Location)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn StartTime() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn StartTime() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Duration() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Duration() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Reminder() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Reminder() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reminder)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BusyStatus() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BusyStatus() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BusyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sensitivity() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sensitivity() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sensitivity)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn OriginalStartTime() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn OriginalStartTime() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OriginalStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn IsResponseRequested() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IsResponseRequested() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsResponseRequested)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AllowNewTimeProposal() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AllowNewTimeProposal() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowNewTimeProposal)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AllDay() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AllDay() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllDay)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Details() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Details() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Details)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn OnlineMeetingLink() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn OnlineMeetingLink() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OnlineMeetingLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ReplyTime() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ReplyTime() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplyTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Organizer() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Organizer() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Organizer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn UserResponse() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserResponse() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserResponse)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HasInvitees() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HasInvitees() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasInvitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn IsCanceledMeeting() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IsCanceledMeeting() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCanceledMeeting)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn IsOrganizedByUser() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IsOrganizedByUser() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOrganizedByUser)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Recurrence() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Recurrence() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Recurrence)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Uri() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Uri() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Invitees() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Invitees() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Invitees)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DefaultProperties() -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn DefaultProperties() -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ChangeNumber() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChangeNumber() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RemoteChangeNumber() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RemoteChangeNumber() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteChangeNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DetailsKind() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DetailsKind() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAppointmentPropertiesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetailsKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IAppointmentPropertiesStatics<R, F: FnOnce(&IAppointmentPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentPropertiesStatics<R, F: FnOnce(&IAppointmentPropertiesStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAppointmentPropertiesStatics2<R, F: FnOnce(&IAppointmentPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentPropertiesStatics2<R, F: FnOnce(&IAppointmentPropertiesStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentProperties, IAppointmentPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1572,126 +1572,126 @@ impl windows_core::RuntimeName for AppointmentProperties {
 pub struct AppointmentRecurrence(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentRecurrence, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentRecurrence {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentRecurrence, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Unit(&self) -> windows_core::Result<AppointmentRecurrenceUnit> {
+    pub fn Unit(&self) -> Result<AppointmentRecurrenceUnit, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Unit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUnit(&self, value: AppointmentRecurrenceUnit) -> windows_core::Result<()> {
+    pub fn SetUnit(&self, value: AppointmentRecurrenceUnit) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUnit)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Occurrences(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn Occurrences(&self) -> Result<super::super::Foundation::IReference<u32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Occurrences)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetOccurrences<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetOccurrences<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<u32>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOccurrences)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Until(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn Until(&self) -> Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Until)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUntil<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUntil<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUntil)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Interval(&self) -> windows_core::Result<u32> {
+    pub fn Interval(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Interval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetInterval(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetInterval(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DaysOfWeek(&self) -> windows_core::Result<AppointmentDaysOfWeek> {
+    pub fn DaysOfWeek(&self) -> Result<AppointmentDaysOfWeek, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DaysOfWeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDaysOfWeek(&self, value: AppointmentDaysOfWeek) -> windows_core::Result<()> {
+    pub fn SetDaysOfWeek(&self, value: AppointmentDaysOfWeek) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDaysOfWeek)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn WeekOfMonth(&self) -> windows_core::Result<AppointmentWeekOfMonth> {
+    pub fn WeekOfMonth(&self) -> Result<AppointmentWeekOfMonth, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WeekOfMonth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWeekOfMonth(&self, value: AppointmentWeekOfMonth) -> windows_core::Result<()> {
+    pub fn SetWeekOfMonth(&self, value: AppointmentWeekOfMonth) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWeekOfMonth)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Month(&self) -> windows_core::Result<u32> {
+    pub fn Month(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Month)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMonth(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetMonth(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMonth)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Day(&self) -> windows_core::Result<u32> {
+    pub fn Day(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Day)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDay(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetDay(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RecurrenceType(&self) -> windows_core::Result<RecurrenceType> {
+    pub fn RecurrenceType(&self) -> Result<RecurrenceType, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentRecurrence2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecurrenceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeZone(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TimeZone(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentRecurrence2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeZone)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTimeZone(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTimeZone(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentRecurrence2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTimeZone)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn CalendarIdentifier(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CalendarIdentifier(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentRecurrence3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1746,63 +1746,63 @@ impl windows_core::RuntimeType for AppointmentSensitivity {
 pub struct AppointmentStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStore, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStore {
-    pub fn ChangeTracker(&self) -> windows_core::Result<AppointmentStoreChangeTracker> {
+    pub fn ChangeTracker(&self) -> Result<AppointmentStoreChangeTracker, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeTracker)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAppointmentCalendarAsync(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentCalendar>> {
+    pub fn CreateAppointmentCalendarAsync(&self, name: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<AppointmentCalendar>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAppointmentCalendarAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppointmentCalendarAsync(&self, calendarid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentCalendar>> {
+    pub fn GetAppointmentCalendarAsync(&self, calendarid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<AppointmentCalendar>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppointmentCalendarAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(calendarid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppointmentAsync(&self, localid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Appointment>> {
+    pub fn GetAppointmentAsync(&self, localid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<Appointment>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppointmentAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<Appointment>> {
+    pub fn GetAppointmentInstanceAsync(&self, localid: &windows_core::HSTRING, instancestarttime: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<Appointment>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppointmentInstanceAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), instancestarttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAppointmentCalendarsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentCalendar>>> {
+    pub fn FindAppointmentCalendarsAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentCalendar>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppointmentCalendarsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAppointmentCalendarsAsyncWithOptions(&self, options: FindAppointmentCalendarsOptions) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentCalendar>>> {
+    pub fn FindAppointmentCalendarsAsyncWithOptions(&self, options: FindAppointmentCalendarsOptions) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentCalendar>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppointmentCalendarsAsyncWithOptions)(windows_core::Interface::as_raw(this), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>> {
+    pub fn FindAppointmentsAsync(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAppointmentsAsync)(windows_core::Interface::as_raw(this), rangestart, rangelength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAppointmentsAsyncWithOptions<P2>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>>
+    pub fn FindAppointmentsAsyncWithOptions<P2>(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan, options: P2) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<Appointment>>, windows_result::HRESULT>
     where
         P2: windows_core::Param<FindAppointmentsOptions>,
     {
@@ -1812,7 +1812,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).FindAppointmentsAsyncWithOptions)(windows_core::Interface::as_raw(this), rangestart, rangelength, options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindConflictAsync<P0>(&self, appointment: P0) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentConflictResult>>
+    pub fn FindConflictAsync<P0>(&self, appointment: P0) -> Result<windows_future::IAsyncOperation<AppointmentConflictResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1822,7 +1822,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).FindConflictAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindConflictAsyncWithInstanceStart<P0>(&self, appointment: P0, instancestarttime: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentConflictResult>>
+    pub fn FindConflictAsyncWithInstanceStart<P0>(&self, appointment: P0, instancestarttime: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<AppointmentConflictResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1832,7 +1832,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).FindConflictAsyncWithInstanceStart)(windows_core::Interface::as_raw(this), appointment.param().abi(), instancestarttime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MoveAppointmentAsync<P0, P1>(&self, appointment: P0, destinationcalendar: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn MoveAppointmentAsync<P0, P1>(&self, appointment: P0, destinationcalendar: P1) -> Result<windows_future::IAsyncAction, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
         P1: windows_core::Param<AppointmentCalendar>,
@@ -1843,7 +1843,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).MoveAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), destinationcalendar.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowAddAppointmentAsync<P0>(&self, appointment: P0, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1853,7 +1853,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).ShowAddAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), selection, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowReplaceAppointmentAsync<P1>(&self, localid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentAsync<P1>(&self, localid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1864,7 +1864,7 @@ impl AppointmentStore {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(&self, localid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowReplaceAppointmentWithPlacementAndDateAsync<P1>(&self, localid: &windows_core::HSTRING, appointment: P1, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P1: windows_core::Param<Appointment>,
     {
@@ -1874,7 +1874,7 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).ShowReplaceAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), appointment.param().abi(), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowRemoveAppointmentAsync(&self, localid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentAsync(&self, localid: &windows_core::HSTRING, selection: super::super::Foundation::Rect) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1882,28 +1882,28 @@ impl AppointmentStore {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, localid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn ShowRemoveAppointmentWithPlacementAndDateAsync(&self, localid: &windows_core::HSTRING, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncOperation<bool>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowRemoveAppointmentWithPlacementAndDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), selection, preferredplacement, instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAppointmentDetailsAsync(&self, localid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsAsync(&self, localid: &windows_core::HSTRING) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowAppointmentDetailsWithDateAsync(&self, localid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ShowAppointmentDetailsWithDateAsync(&self, localid: &windows_core::HSTRING, instancestartdate: super::super::Foundation::DateTime) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetailsWithDateAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(localid), instancestartdate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn ShowEditNewAppointmentAsync<P0>(&self, appointment: P0) -> Result<windows_future::IAsyncOperation<windows_core::HSTRING>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Appointment>,
     {
@@ -1913,14 +1913,14 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).ShowEditNewAppointmentAsync)(windows_core::Interface::as_raw(this), appointment.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindLocalIdsFromRoamingIdAsync(&self, roamingid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>> {
+    pub fn FindLocalIdsFromRoamingIdAsync(&self, roamingid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<windows_core::HSTRING>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindLocalIdsFromRoamingIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(roamingid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StoreChanged<P0>(&self, phandler: P0) -> windows_core::Result<i64>
+    pub fn StoreChanged<P0>(&self, phandler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppointmentStore, AppointmentStoreChangedEventArgs>>,
     {
@@ -1930,18 +1930,18 @@ impl AppointmentStore {
             (windows_core::Interface::vtable(this).StoreChanged)(windows_core::Interface::as_raw(this), phandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStoreChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStoreChanged(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveStoreChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CreateAppointmentCalendarInAccountAsync(&self, name: &windows_core::HSTRING, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<AppointmentCalendar>> {
+    pub fn CreateAppointmentCalendarInAccountAsync(&self, name: &windows_core::HSTRING, userdataaccountid: &windows_core::HSTRING) -> Result<windows_future::IAsyncOperation<AppointmentCalendar>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentStore2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAppointmentCalendarInAccountAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), core::mem::transmute_copy(userdataaccountid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetChangeTracker(&self, identity: &windows_core::HSTRING) -> windows_core::Result<AppointmentStoreChangeTracker> {
+    pub fn GetChangeTracker(&self, identity: &windows_core::HSTRING) -> Result<AppointmentStoreChangeTracker, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentStore3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1980,21 +1980,21 @@ impl windows_core::RuntimeType for AppointmentStoreAccessType {
 pub struct AppointmentStoreChange(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChange, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStoreChange {
-    pub fn Appointment(&self) -> windows_core::Result<Appointment> {
+    pub fn Appointment(&self) -> Result<Appointment, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appointment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ChangeType(&self) -> windows_core::Result<AppointmentStoreChangeType> {
+    pub fn ChangeType(&self) -> Result<AppointmentStoreChangeType, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AppointmentCalendar(&self) -> windows_core::Result<AppointmentCalendar> {
+    pub fn AppointmentCalendar(&self) -> Result<AppointmentCalendar, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentStoreChange2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2019,18 +2019,18 @@ unsafe impl Sync for AppointmentStoreChange {}
 pub struct AppointmentStoreChangeReader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangeReader, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStoreChangeReader {
-    pub fn ReadBatchAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentStoreChange>>> {
+    pub fn ReadBatchAsync(&self) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AppointmentStoreChange>>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadBatchAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AcceptChanges(&self) -> windows_core::Result<()> {
+    pub fn AcceptChanges(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AcceptChanges)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn AcceptChangesThrough<P0>(&self, lastchangetoaccept: P0) -> windows_core::Result<()>
+    pub fn AcceptChangesThrough<P0>(&self, lastchangetoaccept: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<AppointmentStoreChange>,
     {
@@ -2055,22 +2055,22 @@ unsafe impl Sync for AppointmentStoreChangeReader {}
 pub struct AppointmentStoreChangeTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangeTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStoreChangeTracker {
-    pub fn GetChangeReader(&self) -> windows_core::Result<AppointmentStoreChangeReader> {
+    pub fn GetChangeReader(&self) -> Result<AppointmentStoreChangeReader, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetChangeReader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Enable(&self) -> windows_core::Result<()> {
+    pub fn Enable(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Enable)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Reset(&self) -> windows_core::Result<()> {
+    pub fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Reset)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsTracking(&self) -> windows_core::Result<bool> {
+    pub fn IsTracking(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAppointmentStoreChangeTracker2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2113,7 +2113,7 @@ impl windows_core::RuntimeType for AppointmentStoreChangeType {
 pub struct AppointmentStoreChangedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStoreChangedDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -2135,7 +2135,7 @@ unsafe impl Sync for AppointmentStoreChangedDeferral {}
 pub struct AppointmentStoreChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppointmentStoreChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppointmentStoreChangedEventArgs {
-    pub fn GetDeferral(&self) -> windows_core::Result<AppointmentStoreChangedDeferral> {
+    pub fn GetDeferral(&self) -> Result<AppointmentStoreChangedDeferral, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2252,46 +2252,46 @@ impl core::ops::Not for FindAppointmentCalendarsOptions {
 pub struct FindAppointmentsOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FindAppointmentsOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl FindAppointmentsOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<FindAppointmentsOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CalendarIds(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn CalendarIds(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CalendarIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FetchProperties(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn FetchProperties(&self) -> Result<windows_collections::IVector<windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FetchProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IncludeHidden(&self) -> windows_core::Result<bool> {
+    pub fn IncludeHidden(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IncludeHidden)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIncludeHidden(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIncludeHidden(&self, value: bool) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeHidden)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MaxCount(&self) -> windows_core::Result<u32> {
+    pub fn MaxCount(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaxCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetMaxCount(&self, value: u32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2639,25 +2639,25 @@ impl windows_core::RuntimeType for IAppointmentParticipant {
 }
 windows_core::imp::interface_hierarchy!(IAppointmentParticipant, windows_core::IUnknown, windows_core::IInspectable);
 impl IAppointmentParticipant {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Address(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Address(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Address)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetAddress(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -2666,46 +2666,46 @@ impl windows_core::RuntimeName for IAppointmentParticipant {
     const NAME: &'static str = "Windows.ApplicationModel.Appointments.IAppointmentParticipant";
 }
 pub trait IAppointmentParticipant_Impl: windows_core::IUnknownImpl {
-    fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Address(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn DisplayName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetDisplayName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
+    fn Address(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn SetAddress(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT>;
 }
 impl IAppointmentParticipant_Vtbl {
     pub const fn new<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn DisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn DisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentParticipant_Impl::DisplayName(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn SetDisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetDisplayName<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppointmentParticipant_Impl::SetDisplayName(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn Address<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn Address<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IAppointmentParticipant_Impl::Address(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn SetAddress<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn SetAddress<Identity: IAppointmentParticipant_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, value: *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IAppointmentParticipant_Impl::SetAddress(this, core::mem::transmute(&value)).into()

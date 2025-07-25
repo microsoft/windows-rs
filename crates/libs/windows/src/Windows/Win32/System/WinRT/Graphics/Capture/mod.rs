@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(IGraphicsCaptureItemInterop, IGraphicsCaptureItemInterop_Vtbl, 0x3628e81b_3cac_4c60_b7f4_23ce0e0c3356);
 windows_core::imp::interface_hierarchy!(IGraphicsCaptureItemInterop, windows_core::IUnknown);
 impl IGraphicsCaptureItemInterop {
-    pub unsafe fn CreateForWindow<T>(&self, window: super::super::super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn CreateForWindow<T>(&self, window: super::super::super::super::Foundation::HWND) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -9,7 +9,7 @@ impl IGraphicsCaptureItemInterop {
         unsafe { (windows_core::Interface::vtable(self).CreateForWindow)(windows_core::Interface::as_raw(self), window, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateForMonitor<T>(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR) -> windows_core::Result<T>
+    pub unsafe fn CreateForMonitor<T>(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -29,8 +29,8 @@ pub struct IGraphicsCaptureItemInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IGraphicsCaptureItemInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateForWindow(&self, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateForMonitor(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateForWindow(&self, window: super::super::super::super::Foundation::HWND, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn CreateForMonitor(&self, monitor: super::super::super::super::Graphics::Gdi::HMONITOR, riid: *const windows_core::GUID, result: *mut *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IGraphicsCaptureItemInterop_Vtbl {

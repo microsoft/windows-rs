@@ -46,28 +46,28 @@ pub struct VariablePhotoCapturedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoCapturedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoCapturedEventArgs {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Frame(&self) -> windows_core::Result<super::CapturedFrame> {
+    pub fn Frame(&self) -> Result<super::CapturedFrame, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Frame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaptureTimeOffset(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn CaptureTimeOffset(&self) -> Result<super::super::super::Foundation::TimeSpan, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaptureTimeOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UsedFrameControllerIndex(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u32>> {
+    pub fn UsedFrameControllerIndex(&self) -> Result<super::super::super::Foundation::IReference<u32>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UsedFrameControllerIndex)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CapturedFrameControlValues(&self) -> windows_core::Result<super::CapturedFrameControlValues> {
+    pub fn CapturedFrameControlValues(&self) -> Result<super::CapturedFrameControlValues, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -92,28 +92,28 @@ unsafe impl Sync for VariablePhotoCapturedEventArgs {}
 pub struct VariablePhotoSequenceCapture(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VariablePhotoSequenceCapture, windows_core::IUnknown, windows_core::IInspectable);
 impl VariablePhotoSequenceCapture {
-    pub fn StartAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn StartAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn StopAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn FinishAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinishAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotoCaptured<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PhotoCaptured<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, VariablePhotoCapturedEventArgs>>,
     {
@@ -123,11 +123,11 @@ impl VariablePhotoSequenceCapture {
             (windows_core::Interface::vtable(this).PhotoCaptured)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePhotoCaptured(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePhotoCaptured(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePhotoCaptured)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Stopped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<VariablePhotoSequenceCapture, windows_core::IInspectable>>,
     {
@@ -137,11 +137,11 @@ impl VariablePhotoSequenceCapture {
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStopped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn UpdateSettingsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn UpdateSettingsAsync(&self) -> Result<windows_future::IAsyncAction, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVariablePhotoSequenceCapture2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

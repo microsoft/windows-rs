@@ -1,12 +1,12 @@
 pub struct ApplicationProfile;
 impl ApplicationProfile {
-    pub fn Modes() -> windows_core::Result<ApplicationProfileModes> {
+    pub fn Modes() -> Result<ApplicationProfileModes, windows_result::HRESULT> {
         Self::IApplicationProfileStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Modes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

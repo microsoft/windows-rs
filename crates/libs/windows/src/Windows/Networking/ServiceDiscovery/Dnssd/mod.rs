@@ -4,35 +4,35 @@ pub struct DnssdRegistrationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DnssdRegistrationResult, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DnssdRegistrationResult, super::super::super::Foundation::IStringable);
 impl DnssdRegistrationResult {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DnssdRegistrationResult, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Status(&self) -> windows_core::Result<DnssdRegistrationStatus> {
+    pub fn Status(&self) -> Result<DnssdRegistrationStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IPAddress(&self) -> windows_core::Result<super::super::HostName> {
+    pub fn IPAddress(&self) -> Result<super::super::HostName, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IPAddress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasInstanceNameChanged(&self) -> windows_core::Result<bool> {
+    pub fn HasInstanceNameChanged(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasInstanceNameChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -73,65 +73,65 @@ pub struct DnssdServiceInstance(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DnssdServiceInstance, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DnssdServiceInstance, super::super::super::Foundation::IStringable);
 impl DnssdServiceInstance {
-    pub fn DnssdServiceInstanceName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DnssdServiceInstanceName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DnssdServiceInstanceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDnssdServiceInstanceName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDnssdServiceInstanceName(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDnssdServiceInstanceName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn HostName(&self) -> windows_core::Result<super::super::HostName> {
+    pub fn HostName(&self) -> Result<super::super::HostName, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetHostName<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetHostName<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::HostName>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHostName)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Port(&self) -> windows_core::Result<u16> {
+    pub fn Port(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Port)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPort(&self, value: u16) -> windows_core::Result<()> {
+    pub fn SetPort(&self, value: u16) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPort)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Priority(&self) -> windows_core::Result<u16> {
+    pub fn Priority(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Priority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPriority(&self, value: u16) -> windows_core::Result<()> {
+    pub fn SetPriority(&self, value: u16) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Weight(&self) -> windows_core::Result<u16> {
+    pub fn Weight(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Weight)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWeight(&self, value: u16) -> windows_core::Result<()> {
+    pub fn SetWeight(&self, value: u16) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWeight)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TextAttributes(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn TextAttributes(&self) -> Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -139,7 +139,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterStreamSocketListenerAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterStreamSocketListenerAsync<P0>(&self, socket: P0) -> Result<windows_future::IAsyncOperation<DnssdRegistrationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Sockets::StreamSocketListener>,
     {
@@ -150,7 +150,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterStreamSocketListenerAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterStreamSocketListenerAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> Result<windows_future::IAsyncOperation<DnssdRegistrationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Sockets::StreamSocketListener>,
         P1: windows_core::Param<super::super::Connectivity::NetworkAdapter>,
@@ -162,7 +162,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn RegisterDatagramSocketAsync<P0>(&self, socket: P0) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterDatagramSocketAsync<P0>(&self, socket: P0) -> Result<windows_future::IAsyncOperation<DnssdRegistrationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Sockets::DatagramSocket>,
     {
@@ -173,7 +173,7 @@ impl DnssdServiceInstance {
         }
     }
     #[cfg(all(feature = "Networking_Connectivity", feature = "Networking_Sockets"))]
-    pub fn RegisterDatagramSocketAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> windows_core::Result<windows_future::IAsyncOperation<DnssdRegistrationResult>>
+    pub fn RegisterDatagramSocketAsync2<P0, P1>(&self, socket: P0, adapter: P1) -> Result<windows_future::IAsyncOperation<DnssdRegistrationResult>, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Sockets::DatagramSocket>,
         P1: windows_core::Param<super::super::Connectivity::NetworkAdapter>,
@@ -184,7 +184,7 @@ impl DnssdServiceInstance {
             (windows_core::Interface::vtable(this).RegisterDatagramSocketAsync2)(windows_core::Interface::as_raw(this), socket.param().abi(), adapter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> windows_core::Result<DnssdServiceInstance>
+    pub fn Create<P1>(dnssdserviceinstancename: &windows_core::HSTRING, hostname: P1, port: u16) -> Result<DnssdServiceInstance, windows_result::HRESULT>
     where
         P1: windows_core::Param<super::super::HostName>,
     {
@@ -193,14 +193,14 @@ impl DnssdServiceInstance {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(dnssdserviceinstancename), hostname.param().abi(), port, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    fn IDnssdServiceInstanceFactory<R, F: FnOnce(&IDnssdServiceInstanceFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDnssdServiceInstanceFactory<R, F: FnOnce(&IDnssdServiceInstanceFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<DnssdServiceInstance, IDnssdServiceInstanceFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -223,28 +223,28 @@ pub struct DnssdServiceInstanceCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DnssdServiceInstanceCollection, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IVectorView<DnssdServiceInstance>);
 windows_core::imp::required_hierarchy!(DnssdServiceInstanceCollection, windows_collections::IIterable<DnssdServiceInstance>);
 impl DnssdServiceInstanceCollection {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<DnssdServiceInstance>> {
+    pub fn First(&self) -> Result<windows_collections::IIterator<DnssdServiceInstance>, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<DnssdServiceInstance>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<DnssdServiceInstance> {
+    pub fn GetAt(&self, index: u32) -> Result<DnssdServiceInstance, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> Result<bool, windows_result::HRESULT>
     where
         P0: windows_core::Param<DnssdServiceInstance>,
     {
@@ -254,7 +254,7 @@ impl DnssdServiceInstanceCollection {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<DnssdServiceInstance>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<DnssdServiceInstance>]) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -293,7 +293,7 @@ impl IntoIterator for &DnssdServiceInstanceCollection {
 pub struct DnssdServiceWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DnssdServiceWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl DnssdServiceWatcher {
-    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Added<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, DnssdServiceInstance>>,
     {
@@ -303,11 +303,11 @@ impl DnssdServiceWatcher {
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAdded(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, windows_core::IInspectable>>,
     {
@@ -317,11 +317,11 @@ impl DnssdServiceWatcher {
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Stopped<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<DnssdServiceWatcher, windows_core::IInspectable>>,
     {
@@ -331,22 +331,22 @@ impl DnssdServiceWatcher {
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStopped(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Status(&self) -> windows_core::Result<DnssdServiceWatcherStatus> {
+    pub fn Status(&self) -> Result<DnssdServiceWatcherStatus, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }

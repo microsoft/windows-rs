@@ -4207,43 +4207,43 @@ pub const GUID_DEVINTERFACE_WIFIDIRECT_DEVICE: windows_core::GUID = windows_core
 windows_core::imp::define_interface!(IDot11AdHocInterface, IDot11AdHocInterface_Vtbl, 0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocInterface, windows_core::IUnknown);
 impl IDot11AdHocInterface {
-    pub unsafe fn GetDeviceSignature(&self, psignature: *mut windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GetDeviceSignature(&self, psignature: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceSignature)(windows_core::Interface::as_raw(self), psignature as _).ok() }
     }
-    pub unsafe fn GetFriendlyName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetFriendlyName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFriendlyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsDot11d(&self, pf11d: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn IsDot11d(&self, pf11d: *mut u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsDot11d)(windows_core::Interface::as_raw(self), pf11d as _).ok() }
     }
-    pub unsafe fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsAdHocCapable)(windows_core::Interface::as_raw(self), pfadhoccapable as _).ok() }
     }
-    pub unsafe fn IsRadioOn(&self, pfisradioon: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn IsRadioOn(&self, pfisradioon: *mut u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).IsRadioOn)(windows_core::Interface::as_raw(self), pfisradioon as _).ok() }
     }
-    pub unsafe fn GetActiveNetwork(&self) -> windows_core::Result<IDot11AdHocNetwork> {
+    pub unsafe fn GetActiveNetwork(&self) -> Result<IDot11AdHocNetwork, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActiveNetwork)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetIEnumSecuritySettings(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings> {
+    pub unsafe fn GetIEnumSecuritySettings(&self) -> Result<IEnumDot11AdHocSecuritySettings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIEnumSecuritySettings)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks> {
+    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const windows_core::GUID) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pfilterguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), pstate as _).ok() }
     }
 }
@@ -4262,15 +4262,15 @@ pub struct IDot11AdHocInterface_Vtbl {
     pub GetStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocInterface_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceSignature(&self, psignature: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetFriendlyName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn IsDot11d(&self, pf11d: *mut u8) -> windows_core::Result<()>;
-    fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> windows_core::Result<()>;
-    fn IsRadioOn(&self, pfisradioon: *mut u8) -> windows_core::Result<()>;
-    fn GetActiveNetwork(&self) -> windows_core::Result<IDot11AdHocNetwork>;
-    fn GetIEnumSecuritySettings(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings>;
-    fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks>;
-    fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()>;
+    fn GetDeviceSignature(&self, psignature: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn GetFriendlyName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn IsDot11d(&self, pf11d: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn IsAdHocCapable(&self, pfadhoccapable: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn IsRadioOn(&self, pfisradioon: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetActiveNetwork(&self) -> Result<IDot11AdHocNetwork, windows_result::HRESULT>;
+    fn GetIEnumSecuritySettings(&self) -> Result<IEnumDot11AdHocSecuritySettings, windows_result::HRESULT>;
+    fn GetIEnumDot11AdHocNetworks(&self, pfilterguid: *const windows_core::GUID) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT>;
+    fn GetStatus(&self, pstate: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocInterface_Vtbl {
     pub const fn new<Identity: IDot11AdHocInterface_Impl, const OFFSET: isize>() -> Self {
@@ -4288,7 +4288,7 @@ impl IDot11AdHocInterface_Vtbl {
                         ppszname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4318,7 +4318,7 @@ impl IDot11AdHocInterface_Vtbl {
                         ppnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4330,7 +4330,7 @@ impl IDot11AdHocInterface_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4342,7 +4342,7 @@ impl IDot11AdHocInterface_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4373,7 +4373,7 @@ impl windows_core::RuntimeName for IDot11AdHocInterface {}
 windows_core::imp::define_interface!(IDot11AdHocInterfaceNotificationSink, IDot11AdHocInterfaceNotificationSink_Vtbl, 0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocInterfaceNotificationSink, windows_core::IUnknown);
 impl IDot11AdHocInterfaceNotificationSink {
-    pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnConnectionStatusChange)(windows_core::Interface::as_raw(self), estatus).ok() }
     }
 }
@@ -4384,7 +4384,7 @@ pub struct IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub OnConnectionStatusChange: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocInterfaceNotificationSink_Impl: windows_core::IUnknownImpl {
-    fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()>;
+    fn OnConnectionStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocInterfaceNotificationSink_Vtbl {
     pub const fn new<Identity: IDot11AdHocInterfaceNotificationSink_Impl, const OFFSET: isize>() -> Self {
@@ -4404,7 +4404,7 @@ impl windows_core::RuntimeName for IDot11AdHocInterfaceNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocManager, IDot11AdHocManager_Vtbl, 0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocManager, windows_core::IUnknown);
 impl IDot11AdHocManager {
-    pub unsafe fn CreateNetwork<P0, P1, P3, P4>(&self, name: P0, password: P1, geographicalid: i32, pinterface: P3, psecurity: P4, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork>
+    pub unsafe fn CreateNetwork<P0, P1, P3, P4>(&self, name: P0, password: P1, geographicalid: i32, pinterface: P3, psecurity: P4, pcontextguid: *const windows_core::GUID) -> Result<IDot11AdHocNetwork, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -4416,25 +4416,25 @@ impl IDot11AdHocManager {
             (windows_core::Interface::vtable(self).CreateNetwork)(windows_core::Interface::as_raw(self), name.param().abi(), password.param().abi(), geographicalid, pinterface.param().abi(), psecurity.param().abi(), pcontextguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommitCreatedNetwork<P0>(&self, piadhoc: P0, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
+    pub unsafe fn CommitCreatedNetwork<P0>(&self, piadhoc: P0, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDot11AdHocNetwork>,
     {
         unsafe { (windows_core::Interface::vtable(self).CommitCreatedNetwork)(windows_core::Interface::as_raw(self), piadhoc.param().abi(), fsaveprofile, fmakesavedprofileuserspecific).ok() }
     }
-    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks> {
+    pub unsafe fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIEnumDot11AdHocNetworks)(windows_core::Interface::as_raw(self), pcontextguid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces> {
+    pub unsafe fn GetIEnumDot11AdHocInterfaces(&self) -> Result<IEnumDot11AdHocInterfaces, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetIEnumDot11AdHocInterfaces)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork> {
+    pub unsafe fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> Result<IDot11AdHocNetwork, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), networksignature, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4452,11 +4452,11 @@ pub struct IDot11AdHocManager_Vtbl {
     pub GetNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocManager_Impl: windows_core::IUnknownImpl {
-    fn CreateNetwork(&self, name: &windows_core::PCWSTR, password: &windows_core::PCWSTR, geographicalid: i32, pinterface: windows_core::Ref<'_, IDot11AdHocInterface>, psecurity: windows_core::Ref<'_, IDot11AdHocSecuritySettings>, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork>;
-    fn CommitCreatedNetwork(&self, piadhoc: windows_core::Ref<'_, IDot11AdHocNetwork>, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>;
-    fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> windows_core::Result<IEnumDot11AdHocNetworks>;
-    fn GetIEnumDot11AdHocInterfaces(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces>;
-    fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> windows_core::Result<IDot11AdHocNetwork>;
+    fn CreateNetwork(&self, name: &windows_core::PCWSTR, password: &windows_core::PCWSTR, geographicalid: i32, pinterface: windows_core::Ref<'_, IDot11AdHocInterface>, psecurity: windows_core::Ref<'_, IDot11AdHocSecuritySettings>, pcontextguid: *const windows_core::GUID) -> Result<IDot11AdHocNetwork, windows_result::HRESULT>;
+    fn CommitCreatedNetwork(&self, piadhoc: windows_core::Ref<'_, IDot11AdHocNetwork>, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> Result<(), windows_result::HRESULT>;
+    fn GetIEnumDot11AdHocNetworks(&self, pcontextguid: *const windows_core::GUID) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT>;
+    fn GetIEnumDot11AdHocInterfaces(&self) -> Result<IEnumDot11AdHocInterfaces, windows_result::HRESULT>;
+    fn GetNetwork(&self, networksignature: *const windows_core::GUID) -> Result<IDot11AdHocNetwork, windows_result::HRESULT>;
 }
 impl IDot11AdHocManager_Vtbl {
     pub const fn new<Identity: IDot11AdHocManager_Impl, const OFFSET: isize>() -> Self {
@@ -4468,7 +4468,7 @@ impl IDot11AdHocManager_Vtbl {
                         piadhoc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4486,7 +4486,7 @@ impl IDot11AdHocManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4498,7 +4498,7 @@ impl IDot11AdHocManager_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4510,7 +4510,7 @@ impl IDot11AdHocManager_Vtbl {
                         pnetwork.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4531,22 +4531,22 @@ impl windows_core::RuntimeName for IDot11AdHocManager {}
 windows_core::imp::define_interface!(IDot11AdHocManagerNotificationSink, IDot11AdHocManagerNotificationSink_Vtbl, 0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocManagerNotificationSink, windows_core::IUnknown);
 impl IDot11AdHocManagerNotificationSink {
-    pub unsafe fn OnNetworkAdd<P0>(&self, piadhocnetwork: P0) -> windows_core::Result<()>
+    pub unsafe fn OnNetworkAdd<P0>(&self, piadhocnetwork: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDot11AdHocNetwork>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnNetworkAdd)(windows_core::Interface::as_raw(self), piadhocnetwork.param().abi()).ok() }
     }
-    pub unsafe fn OnNetworkRemove(&self, signature: *const windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn OnNetworkRemove(&self, signature: *const windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnNetworkRemove)(windows_core::Interface::as_raw(self), signature).ok() }
     }
-    pub unsafe fn OnInterfaceAdd<P0>(&self, piadhocinterface: P0) -> windows_core::Result<()>
+    pub unsafe fn OnInterfaceAdd<P0>(&self, piadhocinterface: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDot11AdHocInterface>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnInterfaceAdd)(windows_core::Interface::as_raw(self), piadhocinterface.param().abi()).ok() }
     }
-    pub unsafe fn OnInterfaceRemove(&self, signature: *const windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn OnInterfaceRemove(&self, signature: *const windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnInterfaceRemove)(windows_core::Interface::as_raw(self), signature).ok() }
     }
 }
@@ -4560,10 +4560,10 @@ pub struct IDot11AdHocManagerNotificationSink_Vtbl {
     pub OnInterfaceRemove: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocManagerNotificationSink_Impl: windows_core::IUnknownImpl {
-    fn OnNetworkAdd(&self, piadhocnetwork: windows_core::Ref<'_, IDot11AdHocNetwork>) -> windows_core::Result<()>;
-    fn OnNetworkRemove(&self, signature: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn OnInterfaceAdd(&self, piadhocinterface: windows_core::Ref<'_, IDot11AdHocInterface>) -> windows_core::Result<()>;
-    fn OnInterfaceRemove(&self, signature: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn OnNetworkAdd(&self, piadhocnetwork: windows_core::Ref<'_, IDot11AdHocNetwork>) -> Result<(), windows_result::HRESULT>;
+    fn OnNetworkRemove(&self, signature: *const windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn OnInterfaceAdd(&self, piadhocinterface: windows_core::Ref<'_, IDot11AdHocInterface>) -> Result<(), windows_result::HRESULT>;
+    fn OnInterfaceRemove(&self, signature: *const windows_core::GUID) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocManagerNotificationSink_Vtbl {
     pub const fn new<Identity: IDot11AdHocManagerNotificationSink_Impl, const OFFSET: isize>() -> Self {
@@ -4607,55 +4607,55 @@ impl windows_core::RuntimeName for IDot11AdHocManagerNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocNetwork, IDot11AdHocNetwork_Vtbl, 0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocNetwork, windows_core::IUnknown);
 impl IDot11AdHocNetwork {
-    pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStatus)(windows_core::Interface::as_raw(self), estatus as _).ok() }
     }
-    pub unsafe fn GetSSID(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetSSID(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSSID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn HasProfile(&self, pf11d: *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn HasProfile(&self, pf11d: *mut u8) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).HasProfile)(windows_core::Interface::as_raw(self), pf11d as _).ok() }
     }
-    pub unsafe fn GetProfileName(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetProfileName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetProfileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DeleteProfile(&self) -> windows_core::Result<()> {
+    pub unsafe fn DeleteProfile(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteProfile)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSignalQuality)(windows_core::Interface::as_raw(self), pustrengthvalue as _, pustrengthmax as _).ok() }
     }
-    pub unsafe fn GetSecuritySetting(&self) -> windows_core::Result<IDot11AdHocSecuritySettings> {
+    pub unsafe fn GetSecuritySetting(&self) -> Result<IDot11AdHocSecuritySettings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecuritySetting)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetContextGuid)(windows_core::Interface::as_raw(self), pcontextguid as _).ok() }
     }
-    pub unsafe fn GetSignature(&self, psignature: *mut windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GetSignature(&self, psignature: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetSignature)(windows_core::Interface::as_raw(self), psignature as _).ok() }
     }
-    pub unsafe fn GetInterface(&self) -> windows_core::Result<IDot11AdHocInterface> {
+    pub unsafe fn GetInterface(&self) -> Result<IDot11AdHocInterface, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetInterface)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Connect<P0>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>
+    pub unsafe fn Connect<P0>(&self, passphrase: P0, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), passphrase.param().abi(), geographicalid, fsaveprofile, fmakesavedprofileuserspecific).ok() }
     }
-    pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
+    pub unsafe fn Disconnect(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4677,18 +4677,18 @@ pub struct IDot11AdHocNetwork_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocNetwork_Impl: windows_core::IUnknownImpl {
-    fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()>;
-    fn GetSSID(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn HasProfile(&self, pf11d: *mut u8) -> windows_core::Result<()>;
-    fn GetProfileName(&self) -> windows_core::Result<windows_core::PWSTR>;
-    fn DeleteProfile(&self) -> windows_core::Result<()>;
-    fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> windows_core::Result<()>;
-    fn GetSecuritySetting(&self) -> windows_core::Result<IDot11AdHocSecuritySettings>;
-    fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetSignature(&self, psignature: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetInterface(&self) -> windows_core::Result<IDot11AdHocInterface>;
-    fn Connect(&self, passphrase: &windows_core::PCWSTR, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> windows_core::Result<()>;
-    fn Disconnect(&self) -> windows_core::Result<()>;
+    fn GetStatus(&self, estatus: *mut DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn GetSSID(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn HasProfile(&self, pf11d: *mut u8) -> Result<(), windows_result::HRESULT>;
+    fn GetProfileName(&self) -> Result<windows_core::PWSTR, windows_result::HRESULT>;
+    fn DeleteProfile(&self) -> Result<(), windows_result::HRESULT>;
+    fn GetSignalQuality(&self, pustrengthvalue: *mut u32, pustrengthmax: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn GetSecuritySetting(&self) -> Result<IDot11AdHocSecuritySettings, windows_result::HRESULT>;
+    fn GetContextGuid(&self, pcontextguid: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn GetSignature(&self, psignature: *mut windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn GetInterface(&self) -> Result<IDot11AdHocInterface, windows_result::HRESULT>;
+    fn Connect(&self, passphrase: &windows_core::PCWSTR, geographicalid: i32, fsaveprofile: bool, fmakesavedprofileuserspecific: bool) -> Result<(), windows_result::HRESULT>;
+    fn Disconnect(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocNetwork_Vtbl {
     pub const fn new<Identity: IDot11AdHocNetwork_Impl, const OFFSET: isize>() -> Self {
@@ -4706,7 +4706,7 @@ impl IDot11AdHocNetwork_Vtbl {
                         ppszwssid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4724,7 +4724,7 @@ impl IDot11AdHocNetwork_Vtbl {
                         ppszwprofilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4748,7 +4748,7 @@ impl IDot11AdHocNetwork_Vtbl {
                         padhocsecuritysetting.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4772,7 +4772,7 @@ impl IDot11AdHocNetwork_Vtbl {
                         padhocinterface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4812,10 +4812,10 @@ impl windows_core::RuntimeName for IDot11AdHocNetwork {}
 windows_core::imp::define_interface!(IDot11AdHocNetworkNotificationSink, IDot11AdHocNetworkNotificationSink_Vtbl, 0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocNetworkNotificationSink, windows_core::IUnknown);
 impl IDot11AdHocNetworkNotificationSink {
-    pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnStatusChange)(windows_core::Interface::as_raw(self), estatus).ok() }
     }
-    pub unsafe fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> windows_core::Result<()> {
+    pub unsafe fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnConnectFail)(windows_core::Interface::as_raw(self), efailreason).ok() }
     }
 }
@@ -4827,8 +4827,8 @@ pub struct IDot11AdHocNetworkNotificationSink_Vtbl {
     pub OnConnectFail: unsafe extern "system" fn(*mut core::ffi::c_void, DOT11_ADHOC_CONNECT_FAIL_REASON) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocNetworkNotificationSink_Impl: windows_core::IUnknownImpl {
-    fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> windows_core::Result<()>;
-    fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> windows_core::Result<()>;
+    fn OnStatusChange(&self, estatus: DOT11_ADHOC_NETWORK_CONNECTION_STATUS) -> Result<(), windows_result::HRESULT>;
+    fn OnConnectFail(&self, efailreason: DOT11_ADHOC_CONNECT_FAIL_REASON) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocNetworkNotificationSink_Vtbl {
     pub const fn new<Identity: IDot11AdHocNetworkNotificationSink_Impl, const OFFSET: isize>() -> Self {
@@ -4858,10 +4858,10 @@ impl windows_core::RuntimeName for IDot11AdHocNetworkNotificationSink {}
 windows_core::imp::define_interface!(IDot11AdHocSecuritySettings, IDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IDot11AdHocSecuritySettings, windows_core::IUnknown);
 impl IDot11AdHocSecuritySettings {
-    pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> windows_core::Result<()> {
+    pub unsafe fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDot11AuthAlgorithm)(windows_core::Interface::as_raw(self), pauth as _).ok() }
     }
-    pub unsafe fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> windows_core::Result<()> {
+    pub unsafe fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDot11CipherAlgorithm)(windows_core::Interface::as_raw(self), pcipher as _).ok() }
     }
 }
@@ -4873,8 +4873,8 @@ pub struct IDot11AdHocSecuritySettings_Vtbl {
     pub GetDot11CipherAlgorithm: unsafe extern "system" fn(*mut core::ffi::c_void, *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> windows_core::HRESULT,
 }
 pub trait IDot11AdHocSecuritySettings_Impl: windows_core::IUnknownImpl {
-    fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> windows_core::Result<()>;
-    fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> windows_core::Result<()>;
+    fn GetDot11AuthAlgorithm(&self, pauth: *mut DOT11_ADHOC_AUTH_ALGORITHM) -> Result<(), windows_result::HRESULT>;
+    fn GetDot11CipherAlgorithm(&self, pcipher: *mut DOT11_ADHOC_CIPHER_ALGORITHM) -> Result<(), windows_result::HRESULT>;
 }
 impl IDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: IDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> Self {
@@ -4904,16 +4904,16 @@ impl windows_core::RuntimeName for IDot11AdHocSecuritySettings {}
 windows_core::imp::define_interface!(IEnumDot11AdHocInterfaces, IEnumDot11AdHocInterfaces_Vtbl, 0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IEnumDot11AdHocInterfaces, windows_core::IUnknown);
 impl IEnumDot11AdHocInterfaces {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocInterface>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocInterface>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces> {
+    pub unsafe fn Clone(&self) -> Result<IEnumDot11AdHocInterfaces, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4930,10 +4930,10 @@ pub struct IEnumDot11AdHocInterfaces_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocInterfaces_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocInterfaces>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocInterface>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumDot11AdHocInterfaces, windows_result::HRESULT>;
 }
 impl IEnumDot11AdHocInterfaces_Vtbl {
     pub const fn new<Identity: IEnumDot11AdHocInterfaces_Impl, const OFFSET: isize>() -> Self {
@@ -4963,7 +4963,7 @@ impl IEnumDot11AdHocInterfaces_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4983,16 +4983,16 @@ impl windows_core::RuntimeName for IEnumDot11AdHocInterfaces {}
 windows_core::imp::define_interface!(IEnumDot11AdHocNetworks, IEnumDot11AdHocNetworks_Vtbl, 0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IEnumDot11AdHocNetworks, windows_core::IUnknown);
 impl IEnumDot11AdHocNetworks {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocNetwork>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocNetwork>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocNetworks> {
+    pub unsafe fn Clone(&self) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5009,10 +5009,10 @@ pub struct IEnumDot11AdHocNetworks_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocNetworks_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocNetworks>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocNetwork>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumDot11AdHocNetworks, windows_result::HRESULT>;
 }
 impl IEnumDot11AdHocNetworks_Vtbl {
     pub const fn new<Identity: IEnumDot11AdHocNetworks_Impl, const OFFSET: isize>() -> Self {
@@ -5042,7 +5042,7 @@ impl IEnumDot11AdHocNetworks_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5062,16 +5062,16 @@ impl windows_core::RuntimeName for IEnumDot11AdHocNetworks {}
 windows_core::imp::define_interface!(IEnumDot11AdHocSecuritySettings, IEnumDot11AdHocSecuritySettings_Vtbl, 0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);
 windows_core::imp::interface_hierarchy!(IEnumDot11AdHocSecuritySettings, windows_core::IUnknown);
 impl IEnumDot11AdHocSecuritySettings {
-    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocSecuritySettings>], pceltfetched: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<IDot11AdHocSecuritySettings>], pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings> {
+    pub unsafe fn Clone(&self) -> Result<IEnumDot11AdHocSecuritySettings, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5088,10 +5088,10 @@ pub struct IEnumDot11AdHocSecuritySettings_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumDot11AdHocSecuritySettings_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumDot11AdHocSecuritySettings>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<IDot11AdHocSecuritySettings>, pceltfetched: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn Skip(&self, celt: u32) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IEnumDot11AdHocSecuritySettings, windows_result::HRESULT>;
 }
 impl IEnumDot11AdHocSecuritySettings_Vtbl {
     pub const fn new<Identity: IEnumDot11AdHocSecuritySettings_Impl, const OFFSET: isize>() -> Self {
@@ -5121,7 +5121,7 @@ impl IEnumDot11AdHocSecuritySettings_Vtbl {
                         ppenum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

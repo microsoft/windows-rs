@@ -53,82 +53,82 @@ impl windows_core::RuntimeType for ClosedCaptionOpacity {
 }
 pub struct ClosedCaptionProperties;
 impl ClosedCaptionProperties {
-    pub fn FontColor() -> windows_core::Result<ClosedCaptionColor> {
+    pub fn FontColor() -> Result<ClosedCaptionColor, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "UI")]
-    pub fn ComputedFontColor() -> windows_core::Result<super::super::UI::Color> {
+    pub fn ComputedFontColor() -> Result<super::super::UI::Color, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ComputedFontColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FontOpacity() -> windows_core::Result<ClosedCaptionOpacity> {
+    pub fn FontOpacity() -> Result<ClosedCaptionOpacity, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FontSize() -> windows_core::Result<ClosedCaptionSize> {
+    pub fn FontSize() -> Result<ClosedCaptionSize, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FontStyle() -> windows_core::Result<ClosedCaptionStyle> {
+    pub fn FontStyle() -> Result<ClosedCaptionStyle, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontStyle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FontEffect() -> windows_core::Result<ClosedCaptionEdgeEffect> {
+    pub fn FontEffect() -> Result<ClosedCaptionEdgeEffect, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FontEffect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BackgroundColor() -> windows_core::Result<ClosedCaptionColor> {
+    pub fn BackgroundColor() -> Result<ClosedCaptionColor, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "UI")]
-    pub fn ComputedBackgroundColor() -> windows_core::Result<super::super::UI::Color> {
+    pub fn ComputedBackgroundColor() -> Result<super::super::UI::Color, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ComputedBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BackgroundOpacity() -> windows_core::Result<ClosedCaptionOpacity> {
+    pub fn BackgroundOpacity() -> Result<ClosedCaptionOpacity, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RegionColor() -> windows_core::Result<ClosedCaptionColor> {
+    pub fn RegionColor() -> Result<ClosedCaptionColor, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegionColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "UI")]
-    pub fn ComputedRegionColor() -> windows_core::Result<super::super::UI::Color> {
+    pub fn ComputedRegionColor() -> Result<super::super::UI::Color, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ComputedRegionColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RegionOpacity() -> windows_core::Result<ClosedCaptionOpacity> {
+    pub fn RegionOpacity() -> Result<ClosedCaptionOpacity, windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegionOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PropertiesChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn PropertiesChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -137,14 +137,14 @@ impl ClosedCaptionProperties {
             (windows_core::Interface::vtable(this).PropertiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePropertiesChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemovePropertiesChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IClosedCaptionPropertiesStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemovePropertiesChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IClosedCaptionPropertiesStatics2<R, F: FnOnce(&IClosedCaptionPropertiesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClosedCaptionPropertiesStatics2<R, F: FnOnce(&IClosedCaptionPropertiesStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

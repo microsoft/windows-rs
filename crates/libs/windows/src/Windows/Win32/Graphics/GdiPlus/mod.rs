@@ -4095,7 +4095,7 @@ pub const GDIP_WMF_RECORD_BASE: u32 = 65536u32;
 pub const GREEN_SHIFT: u32 = 8u32;
 windows_core::imp::define_interface!(GdiplusAbort, GdiplusAbort_Vtbl);
 impl GdiplusAbort {
-    pub unsafe fn Abort(&self) -> windows_core::Result<()> {
+    pub unsafe fn Abort(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Abort)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -4105,7 +4105,7 @@ pub struct GdiplusAbort_Vtbl {
     pub Abort: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait GdiplusAbort_Impl {
-    fn Abort(&self) -> windows_core::Result<()>;
+    fn Abort(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl GdiplusAbort_Vtbl {
     pub const fn new<Identity: GdiplusAbort_Impl>() -> Self {
@@ -4334,13 +4334,13 @@ pub struct HueSaturationLightnessParams {
 windows_core::imp::define_interface!(IImageBytes, IImageBytes_Vtbl, 0x025d1823_6c7d_447b_bbdb_a3cbc3dfa2fc);
 windows_core::imp::interface_hierarchy!(IImageBytes, windows_core::IUnknown);
 impl IImageBytes {
-    pub unsafe fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn CountBytes(&self, pcb: *mut u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CountBytes)(windows_core::Interface::as_raw(self), pcb as _).ok() }
     }
-    pub unsafe fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LockBytes)(windows_core::Interface::as_raw(self), cb, uloffset, ppvbytes).ok() }
     }
-    pub unsafe fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()> {
+    pub unsafe fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UnlockBytes)(windows_core::Interface::as_raw(self), pvbytes, cb, uloffset).ok() }
     }
 }
@@ -4353,9 +4353,9 @@ pub struct IImageBytes_Vtbl {
     pub UnlockBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *const core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait IImageBytes_Impl: windows_core::IUnknownImpl {
-    fn CountBytes(&self, pcb: *mut u32) -> windows_core::Result<()>;
-    fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> windows_core::Result<()>;
+    fn CountBytes(&self, pcb: *mut u32) -> Result<(), windows_result::HRESULT>;
+    fn LockBytes(&self, cb: u32, uloffset: u32, ppvbytes: *const *const core::ffi::c_void) -> Result<(), windows_result::HRESULT>;
+    fn UnlockBytes(&self, pvbytes: *const core::ffi::c_void, cb: u32, uloffset: u32) -> Result<(), windows_result::HRESULT>;
 }
 impl IImageBytes_Vtbl {
     pub const fn new<Identity: IImageBytes_Impl, const OFFSET: isize>() -> Self {

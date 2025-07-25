@@ -10,10 +10,10 @@ pub struct IToastOcclusionManagerPreviewStatics_Vtbl {
 }
 pub struct ToastOcclusionManagerPreview;
 impl ToastOcclusionManagerPreview {
-    pub fn SetToastWindowMargin(appwindowid: super::super::WindowId, margin: f64) -> windows_core::Result<()> {
+    pub fn SetToastWindowMargin(appwindowid: super::super::WindowId, margin: f64) -> Result<(), windows_result::HRESULT> {
         Self::IToastOcclusionManagerPreviewStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetToastWindowMargin)(windows_core::Interface::as_raw(this), appwindowid, margin).ok() })
     }
-    fn IToastOcclusionManagerPreviewStatics<R, F: FnOnce(&IToastOcclusionManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastOcclusionManagerPreviewStatics<R, F: FnOnce(&IToastOcclusionManagerPreviewStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ToastOcclusionManagerPreview, IToastOcclusionManagerPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

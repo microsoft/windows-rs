@@ -31,7 +31,7 @@ impl windows_core::RuntimeType for ExtendedExecutionForegroundResult {
 pub struct ExtendedExecutionForegroundRevokedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundRevokedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ExtendedExecutionForegroundRevokedEventArgs {
-    pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionForegroundRevokedReason> {
+    pub fn Reason(&self) -> Result<ExtendedExecutionForegroundRevokedReason, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,29 +70,29 @@ pub struct ExtendedExecutionForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ExtendedExecutionForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ExtendedExecutionForegroundSession, super::super::super::Foundation::IClosable);
 impl ExtendedExecutionForegroundSession {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<ExtendedExecutionForegroundSession, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Revoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Revoked<P0>(&self, handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<windows_core::IInspectable, ExtendedExecutionForegroundRevokedEventArgs>>,
     {
@@ -102,25 +102,25 @@ impl ExtendedExecutionForegroundSession {
             (windows_core::Interface::vtable(this).Revoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRevoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRevoked(&self, token: i64) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRevoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestExtensionAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<ExtendedExecutionForegroundResult>> {
+    pub fn RequestExtensionAsync(&self) -> Result<windows_future::IAsyncOperation<ExtendedExecutionForegroundResult>, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestExtensionAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Reason(&self) -> windows_core::Result<ExtendedExecutionForegroundReason> {
+    pub fn Reason(&self) -> Result<ExtendedExecutionForegroundReason, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Reason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReason(&self, value: ExtendedExecutionForegroundReason) -> windows_core::Result<()> {
+    pub fn SetReason(&self, value: ExtendedExecutionForegroundReason) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReason)(windows_core::Interface::as_raw(this), value).ok() }
     }

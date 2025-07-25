@@ -863,12 +863,12 @@ pub unsafe fn PerfStopProvider(providerhandle: super::super::Foundation::HANDLE)
     unsafe { PerfStopProvider(providerhandle) }
 }
 #[inline]
-pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> windows_core::Result<()> {
+pub unsafe fn QueryPerformanceCounter(lpperformancecount: *mut i64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn QueryPerformanceCounter(lpperformancecount : *mut i64) -> windows_core::BOOL);
     unsafe { QueryPerformanceCounter(lpperformancecount as _).ok() }
 }
 #[inline]
-pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> windows_core::Result<()> {
+pub unsafe fn QueryPerformanceFrequency(lpfrequency: *mut i64) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn QueryPerformanceFrequency(lpfrequency : *mut i64) -> windows_core::BOOL);
     unsafe { QueryPerformanceFrequency(lpfrequency as _).ok() }
 }
@@ -1148,76 +1148,76 @@ impl core::ops::Deref for IAlertDataCollector {
 windows_core::imp::interface_hierarchy!(IAlertDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IAlertDataCollector {
-    pub unsafe fn AlertThresholds(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn AlertThresholds(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlertThresholds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAlertThresholds)(windows_core::Interface::as_raw(self), alerts).ok() }
     }
-    pub unsafe fn EventLog(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EventLog(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventLog)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEventLog)(windows_core::Interface::as_raw(self), log).ok() }
     }
-    pub unsafe fn SampleInterval(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SampleInterval(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SampleInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSampleInterval(&self, interval: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSampleInterval)(windows_core::Interface::as_raw(self), interval).ok() }
     }
-    pub unsafe fn Task(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Task)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTask(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(task)).ok() }
     }
-    pub unsafe fn TaskRunAsSelf(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn TaskRunAsSelf(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskRunAsSelf)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), runasself).ok() }
     }
-    pub unsafe fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TaskArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskArguments)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(task)).ok() }
     }
-    pub unsafe fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TaskUserTextArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskUserTextArguments)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskUserTextArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(task)).ok() }
     }
-    pub unsafe fn TriggerDataCollectorSet(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TriggerDataCollectorSet(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TriggerDataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTriggerDataCollectorSet)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
 }
@@ -1245,22 +1245,22 @@ pub struct IAlertDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IAlertDataCollector_Impl: IDataCollector_Impl {
-    fn AlertThresholds(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn EventLog(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SampleInterval(&self) -> windows_core::Result<u32>;
-    fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()>;
-    fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn TaskRunAsSelf(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn TriggerDataCollectorSet(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AlertThresholds(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetAlertThresholds(&self, alerts: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn EventLog(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEventLog(&self, log: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SampleInterval(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSampleInterval(&self, interval: u32) -> Result<(), windows_result::HRESULT>;
+    fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTask(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TaskRunAsSelf(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn TaskArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TaskUserTextArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTaskUserTextArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TriggerDataCollectorSet(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTriggerDataCollectorSet(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IAlertDataCollector_Vtbl {
@@ -1273,7 +1273,7 @@ impl IAlertDataCollector_Vtbl {
                         alerts.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1291,7 +1291,7 @@ impl IAlertDataCollector_Vtbl {
                         log.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1309,7 +1309,7 @@ impl IAlertDataCollector_Vtbl {
                         interval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1327,7 +1327,7 @@ impl IAlertDataCollector_Vtbl {
                         task.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1345,7 +1345,7 @@ impl IAlertDataCollector_Vtbl {
                         runasself.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1363,7 +1363,7 @@ impl IAlertDataCollector_Vtbl {
                         task.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1381,7 +1381,7 @@ impl IAlertDataCollector_Vtbl {
                         task.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1399,7 +1399,7 @@ impl IAlertDataCollector_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1448,67 +1448,67 @@ impl core::ops::Deref for IApiTracingDataCollector {
 windows_core::imp::interface_hierarchy!(IApiTracingDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IApiTracingDataCollector {
-    pub unsafe fn LogApiNamesOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogApiNamesOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogApiNamesOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogApiNamesOnly)(windows_core::Interface::as_raw(self), logapinames).ok() }
     }
-    pub unsafe fn LogApisRecursively(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogApisRecursively(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogApisRecursively)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogApisRecursively)(windows_core::Interface::as_raw(self), logrecursively).ok() }
     }
-    pub unsafe fn ExePath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetExePath(&self, exepath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetExePath(&self, exepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExePath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(exepath)).ok() }
     }
-    pub unsafe fn LogFilePath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LogFilePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFilePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogFilePath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(logfilepath)).ok() }
     }
-    pub unsafe fn IncludeModules(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn IncludeModules(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeModules)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeModules)(windows_core::Interface::as_raw(self), includemodules).ok() }
     }
-    pub unsafe fn IncludeApis(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn IncludeApis(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IncludeApis)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIncludeApis)(windows_core::Interface::as_raw(self), includeapis).ok() }
     }
-    pub unsafe fn ExcludeApis(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn ExcludeApis(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExcludeApis)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExcludeApis)(windows_core::Interface::as_raw(self), excludeapis).ok() }
     }
 }
@@ -1534,20 +1534,20 @@ pub struct IApiTracingDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IApiTracingDataCollector_Impl: IDataCollector_Impl {
-    fn LogApiNamesOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn LogApisRecursively(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ExePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetExePath(&self, exepath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LogFilePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IncludeModules(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn IncludeApis(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn ExcludeApis(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn LogApiNamesOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogApiNamesOnly(&self, logapinames: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn LogApisRecursively(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogApisRecursively(&self, logrecursively: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ExePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetExePath(&self, exepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogFilePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetLogFilePath(&self, logfilepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IncludeModules(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetIncludeModules(&self, includemodules: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn IncludeApis(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetIncludeApis(&self, includeapis: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn ExcludeApis(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetExcludeApis(&self, excludeapis: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IApiTracingDataCollector_Vtbl {
@@ -1560,7 +1560,7 @@ impl IApiTracingDataCollector_Vtbl {
                         logapinames.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1578,7 +1578,7 @@ impl IApiTracingDataCollector_Vtbl {
                         logrecursively.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1596,7 +1596,7 @@ impl IApiTracingDataCollector_Vtbl {
                         exepath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1614,7 +1614,7 @@ impl IApiTracingDataCollector_Vtbl {
                         logfilepath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1632,7 +1632,7 @@ impl IApiTracingDataCollector_Vtbl {
                         includemodules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1650,7 +1650,7 @@ impl IApiTracingDataCollector_Vtbl {
                         includeapis.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1668,7 +1668,7 @@ impl IApiTracingDataCollector_Vtbl {
                         excludeapis.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1715,85 +1715,85 @@ impl core::ops::Deref for IConfigurationDataCollector {
 windows_core::imp::interface_hierarchy!(IConfigurationDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IConfigurationDataCollector {
-    pub unsafe fn FileMaxCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FileMaxCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileMaxCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileMaxCount(&self, count: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFileMaxCount(&self, count: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileMaxCount)(windows_core::Interface::as_raw(self), count).ok() }
     }
-    pub unsafe fn FileMaxRecursiveDepth(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FileMaxRecursiveDepth(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileMaxRecursiveDepth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFileMaxRecursiveDepth(&self, depth: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileMaxRecursiveDepth)(windows_core::Interface::as_raw(self), depth).ok() }
     }
-    pub unsafe fn FileMaxTotalSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FileMaxTotalSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileMaxTotalSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFileMaxTotalSize(&self, size: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileMaxTotalSize)(windows_core::Interface::as_raw(self), size).ok() }
     }
-    pub unsafe fn Files(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn Files(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Files)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFiles)(windows_core::Interface::as_raw(self), files).ok() }
     }
-    pub unsafe fn ManagementQueries(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn ManagementQueries(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ManagementQueries)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetManagementQueries)(windows_core::Interface::as_raw(self), queries).ok() }
     }
-    pub unsafe fn QueryNetworkAdapters(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn QueryNetworkAdapters(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QueryNetworkAdapters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetQueryNetworkAdapters)(windows_core::Interface::as_raw(self), network).ok() }
     }
-    pub unsafe fn RegistryKeys(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn RegistryKeys(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegistryKeys)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRegistryKeys)(windows_core::Interface::as_raw(self), query).ok() }
     }
-    pub unsafe fn RegistryMaxRecursiveDepth(&self) -> windows_core::Result<u32> {
+    pub unsafe fn RegistryMaxRecursiveDepth(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegistryMaxRecursiveDepth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRegistryMaxRecursiveDepth)(windows_core::Interface::as_raw(self), depth).ok() }
     }
-    pub unsafe fn SystemStateFile(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SystemStateFile(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemStateFile)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSystemStateFile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok() }
     }
 }
@@ -1823,24 +1823,24 @@ pub struct IConfigurationDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IConfigurationDataCollector_Impl: IDataCollector_Impl {
-    fn FileMaxCount(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxCount(&self, count: u32) -> windows_core::Result<()>;
-    fn FileMaxRecursiveDepth(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()>;
-    fn FileMaxTotalSize(&self) -> windows_core::Result<u32>;
-    fn SetFileMaxTotalSize(&self, size: u32) -> windows_core::Result<()>;
-    fn Files(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn ManagementQueries(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn QueryNetworkAdapters(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn RegistryKeys(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RegistryMaxRecursiveDepth(&self) -> windows_core::Result<u32>;
-    fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> windows_core::Result<()>;
-    fn SystemStateFile(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn FileMaxCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFileMaxCount(&self, count: u32) -> Result<(), windows_result::HRESULT>;
+    fn FileMaxRecursiveDepth(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFileMaxRecursiveDepth(&self, depth: u32) -> Result<(), windows_result::HRESULT>;
+    fn FileMaxTotalSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFileMaxTotalSize(&self, size: u32) -> Result<(), windows_result::HRESULT>;
+    fn Files(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetFiles(&self, files: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn ManagementQueries(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetManagementQueries(&self, queries: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn QueryNetworkAdapters(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetQueryNetworkAdapters(&self, network: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn RegistryKeys(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetRegistryKeys(&self, query: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn RegistryMaxRecursiveDepth(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetRegistryMaxRecursiveDepth(&self, depth: u32) -> Result<(), windows_result::HRESULT>;
+    fn SystemStateFile(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSystemStateFile(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IConfigurationDataCollector_Vtbl {
@@ -1853,7 +1853,7 @@ impl IConfigurationDataCollector_Vtbl {
                         count.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1871,7 +1871,7 @@ impl IConfigurationDataCollector_Vtbl {
                         depth.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1889,7 +1889,7 @@ impl IConfigurationDataCollector_Vtbl {
                         size.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1907,7 +1907,7 @@ impl IConfigurationDataCollector_Vtbl {
                         files.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1925,7 +1925,7 @@ impl IConfigurationDataCollector_Vtbl {
                         queries.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1943,7 +1943,7 @@ impl IConfigurationDataCollector_Vtbl {
                         network.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1961,7 +1961,7 @@ impl IConfigurationDataCollector_Vtbl {
                         query.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1979,7 +1979,7 @@ impl IConfigurationDataCollector_Vtbl {
                         depth.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1997,7 +1997,7 @@ impl IConfigurationDataCollector_Vtbl {
                         filename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2038,58 +2038,58 @@ impl windows_core::RuntimeName for IConfigurationDataCollector {}
 windows_core::imp::define_interface!(ICounterItem, ICounterItem_Vtbl, 0x771a9520_ee28_11ce_941e_008029004347);
 windows_core::imp::interface_hierarchy!(ICounterItem, windows_core::IUnknown);
 impl ICounterItem {
-    pub unsafe fn Value(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Value(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn Color(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Color(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, iwidth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetWidth(&self, iwidth: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), iwidth).ok() }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Width(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLineStyle)(windows_core::Interface::as_raw(self), ilinestyle).ok() }
     }
-    pub unsafe fn LineStyle(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LineStyle(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LineStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScaleFactor(&self, iscale: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetScaleFactor(&self, iscale: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScaleFactor)(windows_core::Interface::as_raw(self), iscale).ok() }
     }
-    pub unsafe fn ScaleFactor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ScaleFactor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScaleFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), value as _, status as _).ok() }
     }
-    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), max as _, min as _, avg as _, status as _).ok() }
     }
 }
@@ -2111,18 +2111,18 @@ pub struct ICounterItem_Vtbl {
     pub GetStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64, *mut f64, *mut f64, *mut i32) -> windows_core::HRESULT,
 }
 pub trait ICounterItem_Impl: windows_core::IUnknownImpl {
-    fn Value(&self) -> windows_core::Result<f64>;
-    fn SetColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Color(&self) -> windows_core::Result<u32>;
-    fn SetWidth(&self, iwidth: i32) -> windows_core::Result<()>;
-    fn Width(&self) -> windows_core::Result<i32>;
-    fn SetLineStyle(&self, ilinestyle: i32) -> windows_core::Result<()>;
-    fn LineStyle(&self) -> windows_core::Result<i32>;
-    fn SetScaleFactor(&self, iscale: i32) -> windows_core::Result<()>;
-    fn ScaleFactor(&self) -> windows_core::Result<i32>;
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetValue(&self, value: *mut f64, status: *mut i32) -> windows_core::Result<()>;
-    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()>;
+    fn Value(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Color(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetWidth(&self, iwidth: i32) -> Result<(), windows_result::HRESULT>;
+    fn Width(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetLineStyle(&self, ilinestyle: i32) -> Result<(), windows_result::HRESULT>;
+    fn LineStyle(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetScaleFactor(&self, iscale: i32) -> Result<(), windows_result::HRESULT>;
+    fn ScaleFactor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetValue(&self, value: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT>;
 }
 impl ICounterItem_Vtbl {
     pub const fn new<Identity: ICounterItem_Impl, const OFFSET: isize>() -> Self {
@@ -2134,7 +2134,7 @@ impl ICounterItem_Vtbl {
                         pdblvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2152,7 +2152,7 @@ impl ICounterItem_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2170,7 +2170,7 @@ impl ICounterItem_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2188,7 +2188,7 @@ impl ICounterItem_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2206,7 +2206,7 @@ impl ICounterItem_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2218,7 +2218,7 @@ impl ICounterItem_Vtbl {
                         pstrvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2264,26 +2264,26 @@ impl core::ops::Deref for ICounterItem2 {
 }
 windows_core::imp::interface_hierarchy!(ICounterItem2, windows_core::IUnknown, ICounterItem);
 impl ICounterItem2 {
-    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Selected(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Selected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Visible(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDataAt)(windows_core::Interface::as_raw(self), iindex, iwhich, &mut result__).map(|| core::mem::transmute(result__))
@@ -2305,11 +2305,11 @@ pub struct ICounterItem2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICounterItem2_Impl: ICounterItem_Impl {
-    fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Selected(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Visible(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICounterItem2_Vtbl {
@@ -2328,7 +2328,7 @@ impl ICounterItem2_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2346,7 +2346,7 @@ impl ICounterItem2_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2358,7 +2358,7 @@ impl ICounterItem2_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2390,33 +2390,33 @@ impl core::ops::Deref for ICounters {
 windows_core::imp::interface_hierarchy!(ICounters, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ICounters {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<DICounterItem> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<DICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add(&self, pathname: &windows_core::BSTR) -> windows_core::Result<DICounterItem> {
+    pub unsafe fn Add(&self, pathname: &windows_core::BSTR) -> Result<DICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pathname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)).ok() }
     }
 }
@@ -2439,11 +2439,11 @@ pub struct ICounters_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ICounters_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<DICounterItem>;
-    fn Add(&self, pathname: &windows_core::BSTR) -> windows_core::Result<DICounterItem>;
-    fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<DICounterItem, windows_result::HRESULT>;
+    fn Add(&self, pathname: &windows_core::BSTR) -> Result<DICounterItem, windows_result::HRESULT>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICounters_Vtbl {
@@ -2456,7 +2456,7 @@ impl ICounters_Vtbl {
                         plong.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2468,7 +2468,7 @@ impl ICounters_Vtbl {
                         ppiunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2480,7 +2480,7 @@ impl ICounters_Vtbl {
                         ppi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2492,7 +2492,7 @@ impl ICounters_Vtbl {
                         ppi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2530,124 +2530,124 @@ impl core::ops::Deref for IDataCollector {
 windows_core::imp::interface_hierarchy!(IDataCollector, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollector {
-    pub unsafe fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet> {
+    pub unsafe fn DataCollectorSet(&self) -> Result<IDataCollectorSet, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataCollectorSet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDataCollectorSet<P0>(&self, group: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDataCollectorSet>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDataCollectorSet)(windows_core::Interface::as_raw(self), group.param().abi()).ok() }
     }
-    pub unsafe fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType> {
+    pub unsafe fn DataCollectorType(&self) -> Result<DataCollectorType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataCollectorType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFileName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat> {
+    pub unsafe fn FileNameFormat(&self) -> Result<AutoPathFormat, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileNameFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
+    pub unsafe fn SetFileNameFormat(&self, format: AutoPathFormat) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileNameFormat)(windows_core::Interface::as_raw(self), format).ok() }
     }
-    pub unsafe fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileNameFormatPattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileNameFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileNameFormatPattern)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pattern)).ok() }
     }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LatestOutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLatestOutputLocation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogAppend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogAppend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogAppend)(windows_core::Interface::as_raw(self), append).ok() }
     }
-    pub unsafe fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogCircular(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogCircular)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogCircular)(windows_core::Interface::as_raw(self), circular).ok() }
     }
-    pub unsafe fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogOverwrite(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogOverwrite)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogOverwrite)(windows_core::Interface::as_raw(self), overwrite).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn OutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Index(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Index(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Index)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIndex(&self, index: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetIndex(&self, index: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetIndex)(windows_core::Interface::as_raw(self), index).ok() }
     }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Xml(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap> {
+    pub unsafe fn SetXml(&self, xml: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateOutputLocation)(windows_core::Interface::as_raw(self), latest, &mut result__).map(|| core::mem::transmute(result__))
@@ -2687,31 +2687,31 @@ pub struct IDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollector_Impl: super::Com::IDispatch_Impl {
-    fn DataCollectorSet(&self) -> windows_core::Result<IDataCollectorSet>;
-    fn SetDataCollectorSet(&self, group: windows_core::Ref<'_, IDataCollectorSet>) -> windows_core::Result<()>;
-    fn DataCollectorType(&self) -> windows_core::Result<DataCollectorType>;
-    fn FileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFileName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn FileNameFormat(&self) -> windows_core::Result<AutoPathFormat>;
-    fn SetFileNameFormat(&self, format: AutoPathFormat) -> windows_core::Result<()>;
-    fn FileNameFormatPattern(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LogAppend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn LogCircular(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn LogOverwrite(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Index(&self) -> windows_core::Result<i32>;
-    fn SetIndex(&self, index: i32) -> windows_core::Result<()>;
-    fn Xml(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
-    fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<windows_core::BSTR>;
+    fn DataCollectorSet(&self) -> Result<IDataCollectorSet, windows_result::HRESULT>;
+    fn SetDataCollectorSet(&self, group: windows_core::Ref<'_, IDataCollectorSet>) -> Result<(), windows_result::HRESULT>;
+    fn DataCollectorType(&self) -> Result<DataCollectorType, windows_result::HRESULT>;
+    fn FileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetFileName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn FileNameFormat(&self) -> Result<AutoPathFormat, windows_result::HRESULT>;
+    fn SetFileNameFormat(&self, format: AutoPathFormat) -> Result<(), windows_result::HRESULT>;
+    fn FileNameFormatPattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetFileNameFormatPattern(&self, pattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LatestOutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogAppend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogAppend(&self, append: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn LogCircular(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogCircular(&self, circular: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn LogOverwrite(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogOverwrite(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn OutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Index(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetIndex(&self, index: i32) -> Result<(), windows_result::HRESULT>;
+    fn Xml(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetXml(&self, xml: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT>;
+    fn CreateOutputLocation(&self, latest: super::super::Foundation::VARIANT_BOOL) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollector_Vtbl {
@@ -2724,7 +2724,7 @@ impl IDataCollector_Vtbl {
                         group.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2742,7 +2742,7 @@ impl IDataCollector_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2754,7 +2754,7 @@ impl IDataCollector_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2772,7 +2772,7 @@ impl IDataCollector_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2790,7 +2790,7 @@ impl IDataCollector_Vtbl {
                         pattern.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2808,7 +2808,7 @@ impl IDataCollector_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2826,7 +2826,7 @@ impl IDataCollector_Vtbl {
                         append.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2844,7 +2844,7 @@ impl IDataCollector_Vtbl {
                         circular.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2862,7 +2862,7 @@ impl IDataCollector_Vtbl {
                         overwrite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2880,7 +2880,7 @@ impl IDataCollector_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2898,7 +2898,7 @@ impl IDataCollector_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2910,7 +2910,7 @@ impl IDataCollector_Vtbl {
                         index.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2928,7 +2928,7 @@ impl IDataCollector_Vtbl {
                         xml.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2940,7 +2940,7 @@ impl IDataCollector_Vtbl {
                         validation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2952,7 +2952,7 @@ impl IDataCollector_Vtbl {
                         location.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3004,48 +3004,48 @@ impl core::ops::Deref for IDataCollectorCollection {
 windows_core::imp::interface_hierarchy!(IDataCollectorCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollector> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IDataCollector, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, collector: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, collector: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDataCollector>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), collector.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, collector: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, collector: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(collector)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, collectors: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, collectors: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDataCollectorCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), collectors.param().abi()).ok() }
     }
-    pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: *mut Option<IValueMap>, pcollector: *mut Option<IDataCollector>) -> windows_core::Result<()> {
+    pub unsafe fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: *mut Option<IValueMap>, pcollector: *mut Option<IDataCollector>) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateDataCollectorFromXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml), core::mem::transmute(pvalidation), core::mem::transmute(pcollector)).ok() }
     }
-    pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector> {
+    pub unsafe fn CreateDataCollector(&self, r#type: DataCollectorType) -> Result<IDataCollector, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateDataCollector)(windows_core::Interface::as_raw(self), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3075,15 +3075,15 @@ pub struct IDataCollectorCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollector>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, collector: windows_core::Ref<'_, IDataCollector>) -> windows_core::Result<()>;
-    fn Remove(&self, collector: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, collectors: windows_core::Ref<'_, IDataCollectorCollection>) -> windows_core::Result<()>;
-    fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<'_, IValueMap>, pcollector: windows_core::OutRef<'_, IDataCollector>) -> windows_core::Result<()>;
-    fn CreateDataCollector(&self, r#type: DataCollectorType) -> windows_core::Result<IDataCollector>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IDataCollector, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Add(&self, collector: windows_core::Ref<'_, IDataCollector>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, collector: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, collectors: windows_core::Ref<'_, IDataCollectorCollection>) -> Result<(), windows_result::HRESULT>;
+    fn CreateDataCollectorFromXml(&self, bstrxml: &windows_core::BSTR, pvalidation: windows_core::OutRef<'_, IValueMap>, pcollector: windows_core::OutRef<'_, IDataCollector>) -> Result<(), windows_result::HRESULT>;
+    fn CreateDataCollector(&self, r#type: DataCollectorType) -> Result<IDataCollector, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorCollection_Vtbl {
@@ -3096,7 +3096,7 @@ impl IDataCollectorCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3108,7 +3108,7 @@ impl IDataCollectorCollection_Vtbl {
                         collector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3120,7 +3120,7 @@ impl IDataCollectorCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3162,7 +3162,7 @@ impl IDataCollectorCollection_Vtbl {
                         collector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3198,283 +3198,283 @@ impl core::ops::Deref for IDataCollectorSet {
 windows_core::imp::interface_hierarchy!(IDataCollectorSet, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorSet {
-    pub unsafe fn DataCollectors(&self) -> windows_core::Result<IDataCollectorCollection> {
+    pub unsafe fn DataCollectors(&self) -> Result<IDataCollectorCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataCollectors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Duration(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Duration(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Duration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDuration(&self, seconds: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDuration(&self, seconds: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDuration)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
-    pub unsafe fn DescriptionUnresolved(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DescriptionUnresolved(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DescriptionUnresolved)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(displayname)).ok() }
     }
-    pub unsafe fn DisplayNameUnresolved(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisplayNameUnresolved(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayNameUnresolved)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Keywords(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn Keywords(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Keywords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetKeywords)(windows_core::Interface::as_raw(self), keywords).ok() }
     }
-    pub unsafe fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LatestOutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LatestOutputLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLatestOutputLocation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn OutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OutputLocation)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RootPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RootPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RootPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetRootPath(&self, folder: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetRootPath(&self, folder: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRootPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(folder)).ok() }
     }
-    pub unsafe fn Segment(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Segment(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Segment)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSegment)(windows_core::Interface::as_raw(self), segment).ok() }
     }
-    pub unsafe fn SegmentMaxDuration(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SegmentMaxDuration(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SegmentMaxDuration)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSegmentMaxDuration(&self, seconds: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSegmentMaxDuration(&self, seconds: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSegmentMaxDuration)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn SegmentMaxSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SegmentMaxSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SegmentMaxSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSegmentMaxSize(&self, size: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSegmentMaxSize(&self, size: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSegmentMaxSize)(windows_core::Interface::as_raw(self), size).ok() }
     }
-    pub unsafe fn SerialNumber(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SerialNumber(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SerialNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSerialNumber(&self, index: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSerialNumber(&self, index: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSerialNumber)(windows_core::Interface::as_raw(self), index).ok() }
     }
-    pub unsafe fn Server(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Server(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Server)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Status(&self) -> windows_core::Result<DataCollectorSetStatus> {
+    pub unsafe fn Status(&self) -> Result<DataCollectorSetStatus, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Subdirectory(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Subdirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Subdirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSubdirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(folder)).ok() }
     }
-    pub unsafe fn SubdirectoryFormat(&self) -> windows_core::Result<AutoPathFormat> {
+    pub unsafe fn SubdirectoryFormat(&self) -> Result<AutoPathFormat, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SubdirectoryFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> windows_core::Result<()> {
+    pub unsafe fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSubdirectoryFormat)(windows_core::Interface::as_raw(self), format).ok() }
     }
-    pub unsafe fn SubdirectoryFormatPattern(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SubdirectoryFormatPattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SubdirectoryFormatPattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSubdirectoryFormatPattern)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pattern)).ok() }
     }
-    pub unsafe fn Task(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Task)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTask(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(task)).ok() }
     }
-    pub unsafe fn TaskRunAsSelf(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn TaskRunAsSelf(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskRunAsSelf)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskRunAsSelf)(windows_core::Interface::as_raw(self), runasself).ok() }
     }
-    pub unsafe fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TaskArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskArguments)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(task)).ok() }
     }
-    pub unsafe fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TaskUserTextArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TaskUserTextArguments)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTaskUserTextArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(usertext)).ok() }
     }
-    pub unsafe fn Schedules(&self) -> windows_core::Result<IScheduleCollection> {
+    pub unsafe fn Schedules(&self) -> Result<IScheduleCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Schedules)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SchedulesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SchedulesEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SchedulesEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSchedulesEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
-    pub unsafe fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserAccount)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Xml(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Xml(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Xml)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Security(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Security(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Security)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsecurity)).ok() }
     }
-    pub unsafe fn StopOnCompletion(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn StopOnCompletion(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StopOnCompletion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStopOnCompletion)(windows_core::Interface::as_raw(self), stop).ok() }
     }
-    pub unsafe fn DataManager(&self) -> windows_core::Result<IDataManager> {
+    pub unsafe fn DataManager(&self) -> Result<IDataManager, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(user), core::mem::transmute_copy(password)).ok() }
     }
-    pub unsafe fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(server)).ok() }
     }
-    pub unsafe fn Commit(&self, name: &windows_core::BSTR, server: &windows_core::BSTR, mode: CommitMode) -> windows_core::Result<IValueMap> {
+    pub unsafe fn Commit(&self, name: &windows_core::BSTR, server: &windows_core::BSTR, mode: CommitMode) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(server), mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self), synchronous).ok() }
     }
-    pub unsafe fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self), synchronous).ok() }
     }
-    pub unsafe fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap> {
+    pub unsafe fn SetXml(&self, xml: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetXml)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(key), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn GetValue(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetValue(&self, key: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(key), &mut result__).map(|| core::mem::transmute(result__))
@@ -3549,66 +3549,66 @@ pub struct IDataCollectorSet_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorSet_Impl: super::Com::IDispatch_Impl {
-    fn DataCollectors(&self) -> windows_core::Result<IDataCollectorCollection>;
-    fn Duration(&self) -> windows_core::Result<u32>;
-    fn SetDuration(&self, seconds: u32) -> windows_core::Result<()>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DescriptionUnresolved(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DisplayNameUnresolved(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Keywords(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn LatestOutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn OutputLocation(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RootPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRootPath(&self, folder: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Segment(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SegmentMaxDuration(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxDuration(&self, seconds: u32) -> windows_core::Result<()>;
-    fn SegmentMaxSize(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxSize(&self, size: u32) -> windows_core::Result<()>;
-    fn SerialNumber(&self) -> windows_core::Result<u32>;
-    fn SetSerialNumber(&self, index: u32) -> windows_core::Result<()>;
-    fn Server(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Status(&self) -> windows_core::Result<DataCollectorSetStatus>;
-    fn Subdirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SubdirectoryFormat(&self) -> windows_core::Result<AutoPathFormat>;
-    fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> windows_core::Result<()>;
-    fn SubdirectoryFormatPattern(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn TaskRunAsSelf(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn TaskArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn TaskUserTextArguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Schedules(&self) -> windows_core::Result<IScheduleCollection>;
-    fn SchedulesEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Xml(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Security(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn StopOnCompletion(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DataManager(&self) -> windows_core::Result<IDataManager>;
-    fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Commit(&self, name: &windows_core::BSTR, server: &windows_core::BSTR, mode: CommitMode) -> windows_core::Result<IValueMap>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetXml(&self, xml: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
-    fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetValue(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn DataCollectors(&self) -> Result<IDataCollectorCollection, windows_result::HRESULT>;
+    fn Duration(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetDuration(&self, seconds: u32) -> Result<(), windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DescriptionUnresolved(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDisplayName(&self, displayname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DisplayNameUnresolved(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Keywords(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetKeywords(&self, keywords: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn LatestOutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetLatestOutputLocation(&self, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn OutputLocation(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RootPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetRootPath(&self, folder: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Segment(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetSegment(&self, segment: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SegmentMaxDuration(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSegmentMaxDuration(&self, seconds: u32) -> Result<(), windows_result::HRESULT>;
+    fn SegmentMaxSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSegmentMaxSize(&self, size: u32) -> Result<(), windows_result::HRESULT>;
+    fn SerialNumber(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSerialNumber(&self, index: u32) -> Result<(), windows_result::HRESULT>;
+    fn Server(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Status(&self) -> Result<DataCollectorSetStatus, windows_result::HRESULT>;
+    fn Subdirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSubdirectory(&self, folder: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SubdirectoryFormat(&self) -> Result<AutoPathFormat, windows_result::HRESULT>;
+    fn SetSubdirectoryFormat(&self, format: AutoPathFormat) -> Result<(), windows_result::HRESULT>;
+    fn SubdirectoryFormatPattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSubdirectoryFormatPattern(&self, pattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTask(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TaskRunAsSelf(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetTaskRunAsSelf(&self, runasself: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn TaskArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTaskArguments(&self, task: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn TaskUserTextArguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTaskUserTextArguments(&self, usertext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Schedules(&self) -> Result<IScheduleCollection, windows_result::HRESULT>;
+    fn SchedulesEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetSchedulesEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Xml(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Security(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSecurity(&self, bstrsecurity: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn StopOnCompletion(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetStopOnCompletion(&self, stop: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn DataManager(&self) -> Result<IDataManager, windows_result::HRESULT>;
+    fn SetCredentials(&self, user: &windows_core::BSTR, password: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Query(&self, name: &windows_core::BSTR, server: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Commit(&self, name: &windows_core::BSTR, server: &windows_core::BSTR, mode: CommitMode) -> Result<IValueMap, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn Start(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Stop(&self, synchronous: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SetXml(&self, xml: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT>;
+    fn SetValue(&self, key: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetValue(&self, key: &windows_core::BSTR) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorSet_Vtbl {
@@ -3621,7 +3621,7 @@ impl IDataCollectorSet_Vtbl {
                         collectors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3633,7 +3633,7 @@ impl IDataCollectorSet_Vtbl {
                         seconds.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3651,7 +3651,7 @@ impl IDataCollectorSet_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3669,7 +3669,7 @@ impl IDataCollectorSet_Vtbl {
                         descr.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3681,7 +3681,7 @@ impl IDataCollectorSet_Vtbl {
                         displayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3699,7 +3699,7 @@ impl IDataCollectorSet_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3711,7 +3711,7 @@ impl IDataCollectorSet_Vtbl {
                         keywords.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3729,7 +3729,7 @@ impl IDataCollectorSet_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3747,7 +3747,7 @@ impl IDataCollectorSet_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3759,7 +3759,7 @@ impl IDataCollectorSet_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3771,7 +3771,7 @@ impl IDataCollectorSet_Vtbl {
                         folder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3789,7 +3789,7 @@ impl IDataCollectorSet_Vtbl {
                         segment.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3807,7 +3807,7 @@ impl IDataCollectorSet_Vtbl {
                         seconds.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3825,7 +3825,7 @@ impl IDataCollectorSet_Vtbl {
                         size.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3843,7 +3843,7 @@ impl IDataCollectorSet_Vtbl {
                         index.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3861,7 +3861,7 @@ impl IDataCollectorSet_Vtbl {
                         server.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3873,7 +3873,7 @@ impl IDataCollectorSet_Vtbl {
                         status.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3885,7 +3885,7 @@ impl IDataCollectorSet_Vtbl {
                         folder.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3903,7 +3903,7 @@ impl IDataCollectorSet_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3921,7 +3921,7 @@ impl IDataCollectorSet_Vtbl {
                         pattern.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3939,7 +3939,7 @@ impl IDataCollectorSet_Vtbl {
                         task.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3957,7 +3957,7 @@ impl IDataCollectorSet_Vtbl {
                         runasself.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3975,7 +3975,7 @@ impl IDataCollectorSet_Vtbl {
                         task.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3993,7 +3993,7 @@ impl IDataCollectorSet_Vtbl {
                         usertext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4011,7 +4011,7 @@ impl IDataCollectorSet_Vtbl {
                         ppschedules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4023,7 +4023,7 @@ impl IDataCollectorSet_Vtbl {
                         enabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4041,7 +4041,7 @@ impl IDataCollectorSet_Vtbl {
                         user.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4053,7 +4053,7 @@ impl IDataCollectorSet_Vtbl {
                         xml.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4065,7 +4065,7 @@ impl IDataCollectorSet_Vtbl {
                         pbstrsecurity.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4083,7 +4083,7 @@ impl IDataCollectorSet_Vtbl {
                         stop.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4101,7 +4101,7 @@ impl IDataCollectorSet_Vtbl {
                         datamanager.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4125,7 +4125,7 @@ impl IDataCollectorSet_Vtbl {
                         validation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4155,7 +4155,7 @@ impl IDataCollectorSet_Vtbl {
                         validation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4173,7 +4173,7 @@ impl IDataCollectorSet_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4260,45 +4260,45 @@ impl core::ops::Deref for IDataCollectorSetCollection {
 windows_core::imp::interface_hierarchy!(IDataCollectorSetCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataCollectorSetCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollectorSet> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IDataCollectorSet, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, set: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, set: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDataCollectorSet>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), set.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, set: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, set: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(set)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, sets: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, sets: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IDataCollectorSetCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), sets.param().abi()).ok() }
     }
-    pub unsafe fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetDataCollectorSets)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server), core::mem::transmute_copy(filter)).ok() }
     }
 }
@@ -4324,14 +4324,14 @@ pub struct IDataCollectorSetCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataCollectorSetCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IDataCollectorSet>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, set: windows_core::Ref<'_, IDataCollectorSet>) -> windows_core::Result<()>;
-    fn Remove(&self, set: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, sets: windows_core::Ref<'_, IDataCollectorSetCollection>) -> windows_core::Result<()>;
-    fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IDataCollectorSet, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Add(&self, set: windows_core::Ref<'_, IDataCollectorSet>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, set: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, sets: windows_core::Ref<'_, IDataCollectorSetCollection>) -> Result<(), windows_result::HRESULT>;
+    fn GetDataCollectorSets(&self, server: &windows_core::BSTR, filter: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataCollectorSetCollection_Vtbl {
@@ -4344,7 +4344,7 @@ impl IDataCollectorSetCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4356,7 +4356,7 @@ impl IDataCollectorSetCollection_Vtbl {
                         set.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4368,7 +4368,7 @@ impl IDataCollectorSetCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4433,118 +4433,118 @@ impl core::ops::Deref for IDataManager {
 windows_core::imp::interface_hierarchy!(IDataManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IDataManager {
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled).ok() }
     }
-    pub unsafe fn CheckBeforeRunning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CheckBeforeRunning(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CheckBeforeRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCheckBeforeRunning)(windows_core::Interface::as_raw(self), fcheck).ok() }
     }
-    pub unsafe fn MinFreeDisk(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MinFreeDisk(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinFreeDisk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinFreeDisk(&self, minfreedisk: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinFreeDisk(&self, minfreedisk: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinFreeDisk)(windows_core::Interface::as_raw(self), minfreedisk).ok() }
     }
-    pub unsafe fn MaxSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaxSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxSize(&self, ulmaxsize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxSize(&self, ulmaxsize: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxSize)(windows_core::Interface::as_raw(self), ulmaxsize).ok() }
     }
-    pub unsafe fn MaxFolderCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaxFolderCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxFolderCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxFolderCount)(windows_core::Interface::as_raw(self), ulmaxfoldercount).ok() }
     }
-    pub unsafe fn ResourcePolicy(&self) -> windows_core::Result<ResourcePolicy> {
+    pub unsafe fn ResourcePolicy(&self) -> Result<ResourcePolicy, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResourcePolicy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> windows_core::Result<()> {
+    pub unsafe fn SetResourcePolicy(&self, policy: ResourcePolicy) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetResourcePolicy)(windows_core::Interface::as_raw(self), policy).ok() }
     }
-    pub unsafe fn FolderActions(&self) -> windows_core::Result<IFolderActionCollection> {
+    pub unsafe fn FolderActions(&self) -> Result<IFolderActionCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FolderActions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ReportSchema(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReportSchema(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportSchema)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportSchema)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(reportschema)).ok() }
     }
-    pub unsafe fn ReportFileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReportFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrfilename)).ok() }
     }
-    pub unsafe fn RuleTargetFileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RuleTargetFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RuleTargetFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRuleTargetFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filename)).ok() }
     }
-    pub unsafe fn EventsFileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn EventsFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventsFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEventsFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrfilename)).ok() }
     }
-    pub unsafe fn Rules(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Rules(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Rules)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetRules(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetRules(&self, bstrxml: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRules)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrxml)).ok() }
     }
-    pub unsafe fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> windows_core::Result<IValueMap> {
+    pub unsafe fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), steps, core::mem::transmute_copy(bstrfolder), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Extract)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(cabfilename), core::mem::transmute_copy(destinationpath)).ok() }
     }
 }
@@ -4581,31 +4581,31 @@ pub struct IDataManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataManager_Impl: super::Com::IDispatch_Impl {
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CheckBeforeRunning(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MinFreeDisk(&self) -> windows_core::Result<u32>;
-    fn SetMinFreeDisk(&self, minfreedisk: u32) -> windows_core::Result<()>;
-    fn MaxSize(&self) -> windows_core::Result<u32>;
-    fn SetMaxSize(&self, ulmaxsize: u32) -> windows_core::Result<()>;
-    fn MaxFolderCount(&self) -> windows_core::Result<u32>;
-    fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> windows_core::Result<()>;
-    fn ResourcePolicy(&self) -> windows_core::Result<ResourcePolicy>;
-    fn SetResourcePolicy(&self, policy: ResourcePolicy) -> windows_core::Result<()>;
-    fn FolderActions(&self) -> windows_core::Result<IFolderActionCollection>;
-    fn ReportSchema(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReportFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RuleTargetFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn EventsFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Rules(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRules(&self, bstrxml: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> windows_core::Result<IValueMap>;
-    fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnabled(&self, fenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn CheckBeforeRunning(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetCheckBeforeRunning(&self, fcheck: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MinFreeDisk(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMinFreeDisk(&self, minfreedisk: u32) -> Result<(), windows_result::HRESULT>;
+    fn MaxSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMaxSize(&self, ulmaxsize: u32) -> Result<(), windows_result::HRESULT>;
+    fn MaxFolderCount(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMaxFolderCount(&self, ulmaxfoldercount: u32) -> Result<(), windows_result::HRESULT>;
+    fn ResourcePolicy(&self) -> Result<ResourcePolicy, windows_result::HRESULT>;
+    fn SetResourcePolicy(&self, policy: ResourcePolicy) -> Result<(), windows_result::HRESULT>;
+    fn FolderActions(&self) -> Result<IFolderActionCollection, windows_result::HRESULT>;
+    fn ReportSchema(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetReportSchema(&self, reportschema: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ReportFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetReportFileName(&self, pbstrfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RuleTargetFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetRuleTargetFileName(&self, filename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn EventsFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetEventsFileName(&self, pbstrfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Rules(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetRules(&self, bstrxml: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Run(&self, steps: DataManagerSteps, bstrfolder: &windows_core::BSTR) -> Result<IValueMap, windows_result::HRESULT>;
+    fn Extract(&self, cabfilename: &windows_core::BSTR, destinationpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataManager_Vtbl {
@@ -4618,7 +4618,7 @@ impl IDataManager_Vtbl {
                         pfenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4636,7 +4636,7 @@ impl IDataManager_Vtbl {
                         pfcheck.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4654,7 +4654,7 @@ impl IDataManager_Vtbl {
                         minfreedisk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4672,7 +4672,7 @@ impl IDataManager_Vtbl {
                         pulmaxsize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4690,7 +4690,7 @@ impl IDataManager_Vtbl {
                         pulmaxfoldercount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4708,7 +4708,7 @@ impl IDataManager_Vtbl {
                         ppolicy.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4726,7 +4726,7 @@ impl IDataManager_Vtbl {
                         actions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4738,7 +4738,7 @@ impl IDataManager_Vtbl {
                         reportschema.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4756,7 +4756,7 @@ impl IDataManager_Vtbl {
                         pbstrfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4774,7 +4774,7 @@ impl IDataManager_Vtbl {
                         filename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4792,7 +4792,7 @@ impl IDataManager_Vtbl {
                         pbstrfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4810,7 +4810,7 @@ impl IDataManager_Vtbl {
                         pbstrxml.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4828,7 +4828,7 @@ impl IDataManager_Vtbl {
                         errors.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4886,40 +4886,40 @@ impl core::ops::Deref for IFolderAction {
 windows_core::imp::interface_hierarchy!(IFolderAction, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFolderAction {
-    pub unsafe fn Age(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Age(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Age)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAge(&self, ulage: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetAge(&self, ulage: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAge)(windows_core::Interface::as_raw(self), ulage).ok() }
     }
-    pub unsafe fn Size(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Size(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSize(&self, ulage: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSize(&self, ulage: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), ulage).ok() }
     }
-    pub unsafe fn Actions(&self) -> windows_core::Result<FolderActionSteps> {
+    pub unsafe fn Actions(&self) -> Result<FolderActionSteps, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Actions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetActions(&self, steps: FolderActionSteps) -> windows_core::Result<()> {
+    pub unsafe fn SetActions(&self, steps: FolderActionSteps) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetActions)(windows_core::Interface::as_raw(self), steps).ok() }
     }
-    pub unsafe fn SendCabTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SendCabTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SendCabTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSendCabTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdestination)).ok() }
     }
 }
@@ -4939,14 +4939,14 @@ pub struct IFolderAction_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFolderAction_Impl: super::Com::IDispatch_Impl {
-    fn Age(&self) -> windows_core::Result<u32>;
-    fn SetAge(&self, ulage: u32) -> windows_core::Result<()>;
-    fn Size(&self) -> windows_core::Result<u32>;
-    fn SetSize(&self, ulage: u32) -> windows_core::Result<()>;
-    fn Actions(&self) -> windows_core::Result<FolderActionSteps>;
-    fn SetActions(&self, steps: FolderActionSteps) -> windows_core::Result<()>;
-    fn SendCabTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Age(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetAge(&self, ulage: u32) -> Result<(), windows_result::HRESULT>;
+    fn Size(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSize(&self, ulage: u32) -> Result<(), windows_result::HRESULT>;
+    fn Actions(&self) -> Result<FolderActionSteps, windows_result::HRESULT>;
+    fn SetActions(&self, steps: FolderActionSteps) -> Result<(), windows_result::HRESULT>;
+    fn SendCabTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSendCabTo(&self, bstrdestination: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFolderAction_Vtbl {
@@ -4959,7 +4959,7 @@ impl IFolderAction_Vtbl {
                         pulage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4977,7 +4977,7 @@ impl IFolderAction_Vtbl {
                         pulage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4995,7 +4995,7 @@ impl IFolderAction_Vtbl {
                         steps.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5013,7 +5013,7 @@ impl IFolderAction_Vtbl {
                         pbstrdestination.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5054,45 +5054,45 @@ impl core::ops::Deref for IFolderActionCollection {
 windows_core::imp::interface_hierarchy!(IFolderActionCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFolderActionCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Count(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IFolderAction> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IFolderAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, action: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, action: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFolderAction>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), action.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, actions: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, actions: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFolderActionCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), actions.param().abi()).ok() }
     }
-    pub unsafe fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction> {
+    pub unsafe fn CreateFolderAction(&self) -> Result<IFolderAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFolderAction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5121,14 +5121,14 @@ pub struct IFolderActionCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFolderActionCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<u32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IFolderAction>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, action: windows_core::Ref<'_, IFolderAction>) -> windows_core::Result<()>;
-    fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, actions: windows_core::Ref<'_, IFolderActionCollection>) -> windows_core::Result<()>;
-    fn CreateFolderAction(&self) -> windows_core::Result<IFolderAction>;
+    fn Count(&self) -> Result<u32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IFolderAction, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Add(&self, action: windows_core::Ref<'_, IFolderAction>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, actions: windows_core::Ref<'_, IFolderActionCollection>) -> Result<(), windows_result::HRESULT>;
+    fn CreateFolderAction(&self) -> Result<IFolderAction, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFolderActionCollection_Vtbl {
@@ -5141,7 +5141,7 @@ impl IFolderActionCollection_Vtbl {
                         count.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5153,7 +5153,7 @@ impl IFolderActionCollection_Vtbl {
                         action.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5165,7 +5165,7 @@ impl IFolderActionCollection_Vtbl {
                         r#enum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5201,7 +5201,7 @@ impl IFolderActionCollection_Vtbl {
                         folderaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5226,7 +5226,7 @@ impl windows_core::RuntimeName for IFolderActionCollection {}
 windows_core::imp::define_interface!(ILogFileItem, ILogFileItem_Vtbl, 0xd6b518dd_05c7_418a_89e6_4f9ce8c6841e);
 windows_core::imp::interface_hierarchy!(ILogFileItem, windows_core::IUnknown);
 impl ILogFileItem {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5240,7 +5240,7 @@ pub struct ILogFileItem_Vtbl {
     pub Path: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ILogFileItem_Impl: windows_core::IUnknownImpl {
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 impl ILogFileItem_Vtbl {
     pub const fn new<Identity: ILogFileItem_Impl, const OFFSET: isize>() -> Self {
@@ -5252,7 +5252,7 @@ impl ILogFileItem_Vtbl {
                         pstrvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5276,33 +5276,33 @@ impl core::ops::Deref for ILogFiles {
 windows_core::imp::interface_hierarchy!(ILogFiles, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ILogFiles {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<DILogFileItem> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<DILogFileItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add(&self, pathname: &windows_core::BSTR) -> windows_core::Result<DILogFileItem> {
+    pub unsafe fn Add(&self, pathname: &windows_core::BSTR) -> Result<DILogFileItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pathname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index)).ok() }
     }
 }
@@ -5325,11 +5325,11 @@ pub struct ILogFiles_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ILogFiles_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<DILogFileItem>;
-    fn Add(&self, pathname: &windows_core::BSTR) -> windows_core::Result<DILogFileItem>;
-    fn Remove(&self, index: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<DILogFileItem, windows_result::HRESULT>;
+    fn Add(&self, pathname: &windows_core::BSTR) -> Result<DILogFileItem, windows_result::HRESULT>;
+    fn Remove(&self, index: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ILogFiles_Vtbl {
@@ -5342,7 +5342,7 @@ impl ILogFiles_Vtbl {
                         plong.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5354,7 +5354,7 @@ impl ILogFiles_Vtbl {
                         ppiunk.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5366,7 +5366,7 @@ impl ILogFiles_Vtbl {
                         ppi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5378,7 +5378,7 @@ impl ILogFiles_Vtbl {
                         ppi.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5416,49 +5416,49 @@ impl core::ops::Deref for IPerformanceCounterDataCollector {
 windows_core::imp::interface_hierarchy!(IPerformanceCounterDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl IPerformanceCounterDataCollector {
-    pub unsafe fn DataSourceName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DataSourceName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSourceName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDataSourceName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(dsn)).ok() }
     }
-    pub unsafe fn PerformanceCounters(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn PerformanceCounters(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PerformanceCounters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPerformanceCounters)(windows_core::Interface::as_raw(self), counters).ok() }
     }
-    pub unsafe fn LogFileFormat(&self) -> windows_core::Result<FileFormat> {
+    pub unsafe fn LogFileFormat(&self) -> Result<FileFormat, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFileFormat)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogFileFormat(&self, format: FileFormat) -> windows_core::Result<()> {
+    pub unsafe fn SetLogFileFormat(&self, format: FileFormat) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogFileFormat)(windows_core::Interface::as_raw(self), format).ok() }
     }
-    pub unsafe fn SampleInterval(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SampleInterval(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SampleInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSampleInterval(&self, interval: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSampleInterval)(windows_core::Interface::as_raw(self), interval).ok() }
     }
-    pub unsafe fn SegmentMaxRecords(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SegmentMaxRecords(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SegmentMaxRecords)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSegmentMaxRecords(&self, records: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSegmentMaxRecords(&self, records: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSegmentMaxRecords)(windows_core::Interface::as_raw(self), records).ok() }
     }
 }
@@ -5480,16 +5480,16 @@ pub struct IPerformanceCounterDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPerformanceCounterDataCollector_Impl: IDataCollector_Impl {
-    fn DataSourceName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PerformanceCounters(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn LogFileFormat(&self) -> windows_core::Result<FileFormat>;
-    fn SetLogFileFormat(&self, format: FileFormat) -> windows_core::Result<()>;
-    fn SampleInterval(&self) -> windows_core::Result<u32>;
-    fn SetSampleInterval(&self, interval: u32) -> windows_core::Result<()>;
-    fn SegmentMaxRecords(&self) -> windows_core::Result<u32>;
-    fn SetSegmentMaxRecords(&self, records: u32) -> windows_core::Result<()>;
+    fn DataSourceName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDataSourceName(&self, dsn: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PerformanceCounters(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetPerformanceCounters(&self, counters: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn LogFileFormat(&self) -> Result<FileFormat, windows_result::HRESULT>;
+    fn SetLogFileFormat(&self, format: FileFormat) -> Result<(), windows_result::HRESULT>;
+    fn SampleInterval(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSampleInterval(&self, interval: u32) -> Result<(), windows_result::HRESULT>;
+    fn SegmentMaxRecords(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSegmentMaxRecords(&self, records: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPerformanceCounterDataCollector_Vtbl {
@@ -5502,7 +5502,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                         dsn.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5520,7 +5520,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                         counters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5538,7 +5538,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                         format.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5556,7 +5556,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                         interval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5574,7 +5574,7 @@ impl IPerformanceCounterDataCollector_Vtbl {
                         records.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5618,45 +5618,45 @@ windows_core::imp::interface_hierarchy!(ISchedule, windows_core::IUnknown, super
 #[cfg(feature = "Win32_System_Com")]
 impl ISchedule {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn StartDate(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn StartDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetStartDate(&self, start: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetStartDate(&self, start: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStartDate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(start)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EndDate(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn EndDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EndDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetEndDate(&self, end: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetEndDate(&self, end: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEndDate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(end)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn StartTime(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn StartTime(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetStartTime(&self, start: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetStartTime(&self, start: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStartTime)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(start)).ok() }
     }
-    pub unsafe fn Days(&self) -> windows_core::Result<WeekDays> {
+    pub unsafe fn Days(&self) -> Result<WeekDays, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Days)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDays(&self, days: WeekDays) -> windows_core::Result<()> {
+    pub unsafe fn SetDays(&self, days: WeekDays) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDays)(windows_core::Interface::as_raw(self), days).ok() }
     }
 }
@@ -5694,14 +5694,14 @@ pub struct ISchedule_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISchedule_Impl: super::Com::IDispatch_Impl {
-    fn StartDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SetStartDate(&self, start: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn EndDate(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SetEndDate(&self, end: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn StartTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SetStartTime(&self, start: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Days(&self) -> windows_core::Result<WeekDays>;
-    fn SetDays(&self, days: WeekDays) -> windows_core::Result<()>;
+    fn StartDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetStartDate(&self, start: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn EndDate(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetEndDate(&self, end: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn StartTime(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetStartTime(&self, start: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Days(&self) -> Result<WeekDays, windows_result::HRESULT>;
+    fn SetDays(&self, days: WeekDays) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ISchedule_Vtbl {
@@ -5714,7 +5714,7 @@ impl ISchedule_Vtbl {
                         start.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5732,7 +5732,7 @@ impl ISchedule_Vtbl {
                         end.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5750,7 +5750,7 @@ impl ISchedule_Vtbl {
                         start.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5768,7 +5768,7 @@ impl ISchedule_Vtbl {
                         days.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5809,45 +5809,45 @@ impl core::ops::Deref for IScheduleCollection {
 windows_core::imp::interface_hierarchy!(IScheduleCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IScheduleCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ISchedule> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<ISchedule, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, pschedule: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, pschedule: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ISchedule>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pschedule.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, vschedule: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, vschedule: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vschedule)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, pschedules: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, pschedules: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IScheduleCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), pschedules.param().abi()).ok() }
     }
-    pub unsafe fn CreateSchedule(&self) -> windows_core::Result<ISchedule> {
+    pub unsafe fn CreateSchedule(&self) -> Result<ISchedule, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSchedule)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5876,14 +5876,14 @@ pub struct IScheduleCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IScheduleCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ISchedule>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pschedule: windows_core::Ref<'_, ISchedule>) -> windows_core::Result<()>;
-    fn Remove(&self, vschedule: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, pschedules: windows_core::Ref<'_, IScheduleCollection>) -> windows_core::Result<()>;
-    fn CreateSchedule(&self) -> windows_core::Result<ISchedule>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<ISchedule, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Add(&self, pschedule: windows_core::Ref<'_, ISchedule>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, vschedule: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, pschedules: windows_core::Ref<'_, IScheduleCollection>) -> Result<(), windows_result::HRESULT>;
+    fn CreateSchedule(&self) -> Result<ISchedule, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IScheduleCollection_Vtbl {
@@ -5896,7 +5896,7 @@ impl IScheduleCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5908,7 +5908,7 @@ impl IScheduleCollection_Vtbl {
                         ppschedule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5920,7 +5920,7 @@ impl IScheduleCollection_Vtbl {
                         ienum.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5956,7 +5956,7 @@ impl IScheduleCollection_Vtbl {
                         schedule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5981,347 +5981,347 @@ impl windows_core::RuntimeName for IScheduleCollection {}
 windows_core::imp::define_interface!(ISystemMonitor, ISystemMonitor_Vtbl, 0x194eb241_c32c_11cf_9398_00aa00a3ddea);
 windows_core::imp::interface_hierarchy!(ISystemMonitor, windows_core::IUnknown);
 impl ISystemMonitor {
-    pub unsafe fn Appearance(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Appearance(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Appearance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAppearance(&self, iappearance: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAppearance(&self, iappearance: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAppearance)(windows_core::Interface::as_raw(self), iappearance).ok() }
     }
-    pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn BorderStyle(&self) -> windows_core::Result<i32> {
+    pub unsafe fn BorderStyle(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BorderStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBorderStyle)(windows_core::Interface::as_raw(self), iborderstyle).ok() }
     }
-    pub unsafe fn ForeColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ForeColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForeColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetForeColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetForeColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetForeColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp> {
+    pub unsafe fn Font(&self) -> Result<super::Ole::IFontDisp, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Font)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Ole::IFontDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Counters(&self) -> windows_core::Result<ICounters> {
+    pub unsafe fn Counters(&self) -> Result<ICounters, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Counters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowVerticalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowVerticalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowHorizontalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowHorizontalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowLegend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowLegend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowScaleLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowScaleLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowValueBar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowValueBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumScale)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn MaximumScale(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaximumScale(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinimumScale)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn MinimumScale(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MinimumScale(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinimumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUpdateInterval)(windows_core::Interface::as_raw(self), fvalue).ok() }
     }
-    pub unsafe fn UpdateInterval(&self) -> windows_core::Result<f32> {
+    pub unsafe fn UpdateInterval(&self) -> Result<f32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayType)(windows_core::Interface::as_raw(self), edisplaytype).ok() }
     }
-    pub unsafe fn DisplayType(&self) -> windows_core::Result<DisplayTypeConstants> {
+    pub unsafe fn DisplayType(&self) -> Result<DisplayTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ManualUpdate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ManualUpdate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGraphTitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstitle)).ok() }
     }
-    pub unsafe fn GraphTitle(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GraphTitle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GraphTitle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetYAxisLabel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstitle)).ok() }
     }
-    pub unsafe fn YAxisLabel(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn YAxisLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).YAxisLabel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CollectSample(&self) -> windows_core::Result<()> {
+    pub unsafe fn CollectSample(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CollectSample)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn UpdateGraph(&self) -> windows_core::Result<()> {
+    pub unsafe fn UpdateGraph(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UpdateGraph)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn BrowseCounters(&self) -> windows_core::Result<()> {
+    pub unsafe fn BrowseCounters(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BrowseCounters)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DisplayProperties(&self) -> windows_core::Result<()> {
+    pub unsafe fn DisplayProperties(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisplayProperties)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem> {
+    pub unsafe fn Counter(&self, iindex: i32) -> Result<ICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Counter)(windows_core::Interface::as_raw(self), iindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem> {
+    pub unsafe fn AddCounter(&self, bspath: &windows_core::BSTR) -> Result<ICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddCounter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bspath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteCounter<P0>(&self, pctr: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteCounter<P0>(&self, pctr: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICounterItem>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), pctr.param().abi()).ok() }
     }
-    pub unsafe fn BackColorCtl(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColorCtl(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColorCtl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColorCtl(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColorCtl)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bsfilename)).ok() }
     }
-    pub unsafe fn LogFileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LogFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLogViewStart(&self, starttime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewStart(&self, starttime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewStart)(windows_core::Interface::as_raw(self), starttime).ok() }
     }
-    pub unsafe fn LogViewStart(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogViewStart(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogViewStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewStop)(windows_core::Interface::as_raw(self), stoptime).ok() }
     }
-    pub unsafe fn LogViewStop(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogViewStop(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogViewStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GridColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GridColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GridColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGridColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetGridColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGridColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn TimeBarColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn TimeBarColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeBarColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTimeBarColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeBarColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeBarColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn Highlight(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Highlight(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Highlight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowToolbar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowToolbar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Paste(&self) -> windows_core::Result<()> {
+    pub unsafe fn Paste(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<()> {
+    pub unsafe fn Copy(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportValueType)(windows_core::Interface::as_raw(self), ereportvaluetype).ok() }
     }
-    pub unsafe fn ReportValueType(&self) -> windows_core::Result<ReportValueTypeConstants> {
+    pub unsafe fn ReportValueType(&self) -> Result<ReportValueTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MonitorDuplicateInstances(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MonitorDuplicateInstances)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayFilter)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn DisplayFilter(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DisplayFilter(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LogFiles(&self) -> windows_core::Result<ILogFiles> {
+    pub unsafe fn LogFiles(&self) -> Result<ILogFiles, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDataSourceType)(windows_core::Interface::as_raw(self), edatasourcetype).ok() }
     }
-    pub unsafe fn DataSourceType(&self) -> windows_core::Result<DataSourceTypeConstants> {
+    pub unsafe fn DataSourceType(&self) -> Result<DataSourceTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSourceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSqlDsnName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bssqldsnname)).ok() }
     }
-    pub unsafe fn SqlDsnName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SqlDsnName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SqlDsnName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSqlLogSetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bssqllogsetname)).ok() }
     }
-    pub unsafe fn SqlLogSetName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SqlLogSetName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SqlLogSetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6423,82 +6423,82 @@ pub struct ISystemMonitor_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor_Impl: windows_core::IUnknownImpl {
-    fn Appearance(&self) -> windows_core::Result<i32>;
-    fn SetAppearance(&self, iappearance: i32) -> windows_core::Result<()>;
-    fn BackColor(&self) -> windows_core::Result<u32>;
-    fn SetBackColor(&self, color: u32) -> windows_core::Result<()>;
-    fn BorderStyle(&self) -> windows_core::Result<i32>;
-    fn SetBorderStyle(&self, iborderstyle: i32) -> windows_core::Result<()>;
-    fn ForeColor(&self) -> windows_core::Result<u32>;
-    fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> windows_core::Result<()>;
-    fn Counters(&self) -> windows_core::Result<ICounters>;
-    fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetMaximumScale(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn MaximumScale(&self) -> windows_core::Result<i32>;
-    fn SetMinimumScale(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn MinimumScale(&self) -> windows_core::Result<i32>;
-    fn SetUpdateInterval(&self, fvalue: f32) -> windows_core::Result<()>;
-    fn UpdateInterval(&self) -> windows_core::Result<f32>;
-    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> windows_core::Result<()>;
-    fn DisplayType(&self) -> windows_core::Result<DisplayTypeConstants>;
-    fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GraphTitle(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn YAxisLabel(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CollectSample(&self) -> windows_core::Result<()>;
-    fn UpdateGraph(&self) -> windows_core::Result<()>;
-    fn BrowseCounters(&self) -> windows_core::Result<()>;
-    fn DisplayProperties(&self) -> windows_core::Result<()>;
-    fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
-    fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> windows_core::Result<()>;
-    fn BackColorCtl(&self) -> windows_core::Result<u32>;
-    fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
-    fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LogFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLogViewStart(&self, starttime: f64) -> windows_core::Result<()>;
-    fn LogViewStart(&self) -> windows_core::Result<f64>;
-    fn SetLogViewStop(&self, stoptime: f64) -> windows_core::Result<()>;
-    fn LogViewStop(&self) -> windows_core::Result<f64>;
-    fn GridColor(&self) -> windows_core::Result<u32>;
-    fn SetGridColor(&self, color: u32) -> windows_core::Result<()>;
-    fn TimeBarColor(&self) -> windows_core::Result<u32>;
-    fn SetTimeBarColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Highlight(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Paste(&self) -> windows_core::Result<()>;
-    fn Copy(&self) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> windows_core::Result<()>;
-    fn ReportValueType(&self) -> windows_core::Result<ReportValueTypeConstants>;
-    fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDisplayFilter(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn DisplayFilter(&self) -> windows_core::Result<i32>;
-    fn LogFiles(&self) -> windows_core::Result<ILogFiles>;
-    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> windows_core::Result<()>;
-    fn DataSourceType(&self) -> windows_core::Result<DataSourceTypeConstants>;
-    fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SqlDsnName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SqlLogSetName(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Appearance(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetAppearance(&self, iappearance: i32) -> Result<(), windows_result::HRESULT>;
+    fn BackColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBackColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn BorderStyle(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetBorderStyle(&self, iborderstyle: i32) -> Result<(), windows_result::HRESULT>;
+    fn ForeColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetForeColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Font(&self) -> Result<super::Ole::IFontDisp, windows_result::HRESULT>;
+    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> Result<(), windows_result::HRESULT>;
+    fn Counters(&self) -> Result<ICounters, windows_result::HRESULT>;
+    fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowVerticalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowHorizontalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowLegend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowScaleLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowValueBar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetMaximumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn MaximumScale(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetMinimumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn MinimumScale(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetUpdateInterval(&self, fvalue: f32) -> Result<(), windows_result::HRESULT>;
+    fn UpdateInterval(&self) -> Result<f32, windows_result::HRESULT>;
+    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn DisplayType(&self) -> Result<DisplayTypeConstants, windows_result::HRESULT>;
+    fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ManualUpdate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GraphTitle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn YAxisLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CollectSample(&self) -> Result<(), windows_result::HRESULT>;
+    fn UpdateGraph(&self) -> Result<(), windows_result::HRESULT>;
+    fn BrowseCounters(&self) -> Result<(), windows_result::HRESULT>;
+    fn DisplayProperties(&self) -> Result<(), windows_result::HRESULT>;
+    fn Counter(&self, iindex: i32) -> Result<ICounterItem, windows_result::HRESULT>;
+    fn AddCounter(&self, bspath: &windows_core::BSTR) -> Result<ICounterItem, windows_result::HRESULT>;
+    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> Result<(), windows_result::HRESULT>;
+    fn BackColorCtl(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBackColorCtl(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetLogViewStart(&self, starttime: f64) -> Result<(), windows_result::HRESULT>;
+    fn LogViewStart(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLogViewStop(&self, stoptime: f64) -> Result<(), windows_result::HRESULT>;
+    fn LogViewStop(&self) -> Result<f64, windows_result::HRESULT>;
+    fn GridColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetGridColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn TimeBarColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetTimeBarColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Highlight(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowToolbar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Paste(&self) -> Result<(), windows_result::HRESULT>;
+    fn Copy(&self) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn ReportValueType(&self) -> Result<ReportValueTypeConstants, windows_result::HRESULT>;
+    fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MonitorDuplicateInstances(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDisplayFilter(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn DisplayFilter(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LogFiles(&self) -> Result<ILogFiles, windows_result::HRESULT>;
+    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn DataSourceType(&self) -> Result<DataSourceTypeConstants, windows_result::HRESULT>;
+    fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SqlDsnName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SqlLogSetName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor_Vtbl {
@@ -6511,7 +6511,7 @@ impl ISystemMonitor_Vtbl {
                         iappearance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6529,7 +6529,7 @@ impl ISystemMonitor_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6547,7 +6547,7 @@ impl ISystemMonitor_Vtbl {
                         iborderstyle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6565,7 +6565,7 @@ impl ISystemMonitor_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6583,7 +6583,7 @@ impl ISystemMonitor_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6601,7 +6601,7 @@ impl ISystemMonitor_Vtbl {
                         ppicounters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6619,7 +6619,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6637,7 +6637,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6655,7 +6655,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6673,7 +6673,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6691,7 +6691,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6709,7 +6709,7 @@ impl ISystemMonitor_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6727,7 +6727,7 @@ impl ISystemMonitor_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6745,7 +6745,7 @@ impl ISystemMonitor_Vtbl {
                         pfvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6763,7 +6763,7 @@ impl ISystemMonitor_Vtbl {
                         pedisplaytype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6781,7 +6781,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6799,7 +6799,7 @@ impl ISystemMonitor_Vtbl {
                         pbstitle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6817,7 +6817,7 @@ impl ISystemMonitor_Vtbl {
                         pbstitle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6853,7 +6853,7 @@ impl ISystemMonitor_Vtbl {
                         ppicounter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6865,7 +6865,7 @@ impl ISystemMonitor_Vtbl {
                         ppicounter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6883,7 +6883,7 @@ impl ISystemMonitor_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6907,7 +6907,7 @@ impl ISystemMonitor_Vtbl {
                         bsfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6925,7 +6925,7 @@ impl ISystemMonitor_Vtbl {
                         starttime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6943,7 +6943,7 @@ impl ISystemMonitor_Vtbl {
                         stoptime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6955,7 +6955,7 @@ impl ISystemMonitor_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6973,7 +6973,7 @@ impl ISystemMonitor_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6991,7 +6991,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7009,7 +7009,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7051,7 +7051,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7069,7 +7069,7 @@ impl ISystemMonitor_Vtbl {
                         pereportvaluetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7087,7 +7087,7 @@ impl ISystemMonitor_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7105,7 +7105,7 @@ impl ISystemMonitor_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7117,7 +7117,7 @@ impl ISystemMonitor_Vtbl {
                         ppilogfiles.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7135,7 +7135,7 @@ impl ISystemMonitor_Vtbl {
                         pedatasourcetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7153,7 +7153,7 @@ impl ISystemMonitor_Vtbl {
                         bssqldsnname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7171,7 +7171,7 @@ impl ISystemMonitor_Vtbl {
                         bssqllogsetname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7270,85 +7270,85 @@ impl core::ops::Deref for ISystemMonitor2 {
 }
 windows_core::imp::interface_hierarchy!(ISystemMonitor2, windows_core::IUnknown, ISystemMonitor);
 impl ISystemMonitor2 {
-    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EnableDigitGrouping(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableDigitGrouping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EnableToolTips(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableToolTips)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowTimeAxisLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowTimeAxisLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), bscroll).ok() }
     }
-    pub unsafe fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ChartScroll(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChartScroll)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDataPointCount)(windows_core::Interface::as_raw(self), inewcount).ok() }
     }
-    pub unsafe fn DataPointCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DataPointCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataPointCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), bselectedcountersonly).ok() }
     }
-    pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()> {
+    pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), esysmonfiletype).ok() }
     }
-    pub unsafe fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> windows_core::Result<()> {
+    pub unsafe fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Relog)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), esysmonfiletype, ifilter).ok() }
     }
-    pub unsafe fn ClearData(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearData(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearData)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn LogSourceStartTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogSourceStartTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogSourceStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LogSourceStopTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogSourceStopTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogSourceStopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewRange)(windows_core::Interface::as_raw(self), starttime, stoptime).ok() }
     }
-    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()> {
+    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetLogViewRange)(windows_core::Interface::as_raw(self), starttime as _, stoptime as _).ok() }
     }
-    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()> {
+    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), flock, ebatchreason).ok() }
     }
-    pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LoadSettings)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsettingfilename)).ok() }
     }
 }
@@ -7379,26 +7379,26 @@ pub struct ISystemMonitor2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait ISystemMonitor2_Impl: ISystemMonitor_Impl {
-    fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDataPointCount(&self, inewcount: i32) -> windows_core::Result<()>;
-    fn DataPointCount(&self) -> windows_core::Result<i32>;
-    fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()>;
-    fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> windows_core::Result<()>;
-    fn ClearData(&self) -> windows_core::Result<()>;
-    fn LogSourceStartTime(&self) -> windows_core::Result<f64>;
-    fn LogSourceStopTime(&self) -> windows_core::Result<f64>;
-    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> windows_core::Result<()>;
-    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()>;
-    fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()>;
-    fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnableDigitGrouping(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnableToolTips(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowTimeAxisLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ChartScroll(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDataPointCount(&self, inewcount: i32) -> Result<(), windows_result::HRESULT>;
+    fn DataPointCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> Result<(), windows_result::HRESULT>;
+    fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> Result<(), windows_result::HRESULT>;
+    fn ClearData(&self) -> Result<(), windows_result::HRESULT>;
+    fn LogSourceStartTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn LogSourceStopTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> Result<(), windows_result::HRESULT>;
+    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> Result<(), windows_result::HRESULT>;
+    fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> Result<(), windows_result::HRESULT>;
+    fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ISystemMonitor2_Vtbl {
@@ -7417,7 +7417,7 @@ impl ISystemMonitor2_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7435,7 +7435,7 @@ impl ISystemMonitor2_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7453,7 +7453,7 @@ impl ISystemMonitor2_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7471,7 +7471,7 @@ impl ISystemMonitor2_Vtbl {
                         pbscroll.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7489,7 +7489,7 @@ impl ISystemMonitor2_Vtbl {
                         pidatapointcount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7525,7 +7525,7 @@ impl ISystemMonitor2_Vtbl {
                         pdate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7537,7 +7537,7 @@ impl ISystemMonitor2_Vtbl {
                         pdate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7690,184 +7690,184 @@ impl core::ops::Deref for ITraceDataCollector {
 windows_core::imp::interface_hierarchy!(ITraceDataCollector, windows_core::IUnknown, super::Com::IDispatch, IDataCollector);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataCollector {
-    pub unsafe fn BufferSize(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BufferSize(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BufferSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBufferSize(&self, size: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBufferSize(&self, size: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBufferSize)(windows_core::Interface::as_raw(self), size).ok() }
     }
-    pub unsafe fn BuffersLost(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BuffersLost(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BuffersLost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBuffersLost(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBuffersLost(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBuffersLost)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn BuffersWritten(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BuffersWritten(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BuffersWritten)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBuffersWritten(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBuffersWritten(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBuffersWritten)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn ClockType(&self) -> windows_core::Result<ClockType> {
+    pub unsafe fn ClockType(&self) -> Result<ClockType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClockType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClockType(&self, clock: ClockType) -> windows_core::Result<()> {
+    pub unsafe fn SetClockType(&self, clock: ClockType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClockType)(windows_core::Interface::as_raw(self), clock).ok() }
     }
-    pub unsafe fn EventsLost(&self) -> windows_core::Result<u32> {
+    pub unsafe fn EventsLost(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventsLost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventsLost(&self, events: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetEventsLost(&self, events: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEventsLost)(windows_core::Interface::as_raw(self), events).ok() }
     }
-    pub unsafe fn ExtendedModes(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ExtendedModes(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtendedModes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExtendedModes(&self, mode: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetExtendedModes(&self, mode: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExtendedModes)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn FlushTimer(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FlushTimer(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FlushTimer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFlushTimer(&self, seconds: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFlushTimer(&self, seconds: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFlushTimer)(windows_core::Interface::as_raw(self), seconds).ok() }
     }
-    pub unsafe fn FreeBuffers(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FreeBuffers(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FreeBuffers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFreeBuffers(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFreeBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFreeBuffers)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn Guid(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)).ok() }
     }
-    pub unsafe fn IsKernelTrace(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsKernelTrace(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsKernelTrace)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MaximumBuffers(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaximumBuffers(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumBuffers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumBuffers(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaximumBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumBuffers)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn MinimumBuffers(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MinimumBuffers(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinimumBuffers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinimumBuffers(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinimumBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinimumBuffers)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn NumberOfBuffers(&self) -> windows_core::Result<u32> {
+    pub unsafe fn NumberOfBuffers(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NumberOfBuffers)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNumberOfBuffers(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetNumberOfBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNumberOfBuffers)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn PreallocateFile(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn PreallocateFile(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreallocateFile)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPreallocateFile)(windows_core::Interface::as_raw(self), allocate).ok() }
     }
-    pub unsafe fn ProcessMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ProcessMode(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProcessMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetProcessMode)(windows_core::Interface::as_raw(self), process).ok() }
     }
-    pub unsafe fn RealTimeBuffersLost(&self) -> windows_core::Result<u32> {
+    pub unsafe fn RealTimeBuffersLost(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RealTimeBuffersLost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetRealTimeBuffersLost(&self, buffers: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRealTimeBuffersLost)(windows_core::Interface::as_raw(self), buffers).ok() }
     }
-    pub unsafe fn SessionId(&self) -> windows_core::Result<u64> {
+    pub unsafe fn SessionId(&self) -> Result<u64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSessionId(&self, id: u64) -> windows_core::Result<()> {
+    pub unsafe fn SetSessionId(&self, id: u64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSessionId)(windows_core::Interface::as_raw(self), id).ok() }
     }
-    pub unsafe fn SessionName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SessionName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSessionName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSessionName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSessionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn SessionThreadId(&self) -> windows_core::Result<u32> {
+    pub unsafe fn SessionThreadId(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionThreadId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSessionThreadId(&self, tid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetSessionThreadId(&self, tid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSessionThreadId)(windows_core::Interface::as_raw(self), tid).ok() }
     }
-    pub unsafe fn StreamMode(&self) -> windows_core::Result<StreamMode> {
+    pub unsafe fn StreamMode(&self) -> Result<StreamMode, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StreamMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> windows_core::Result<()> {
+    pub unsafe fn SetStreamMode(&self, mode: StreamMode) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStreamMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn TraceDataProviders(&self) -> windows_core::Result<ITraceDataProviderCollection> {
+    pub unsafe fn TraceDataProviders(&self) -> Result<ITraceDataProviderCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TraceDataProviders)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7922,46 +7922,46 @@ pub struct ITraceDataCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataCollector_Impl: IDataCollector_Impl {
-    fn BufferSize(&self) -> windows_core::Result<u32>;
-    fn SetBufferSize(&self, size: u32) -> windows_core::Result<()>;
-    fn BuffersLost(&self) -> windows_core::Result<u32>;
-    fn SetBuffersLost(&self, buffers: u32) -> windows_core::Result<()>;
-    fn BuffersWritten(&self) -> windows_core::Result<u32>;
-    fn SetBuffersWritten(&self, buffers: u32) -> windows_core::Result<()>;
-    fn ClockType(&self) -> windows_core::Result<ClockType>;
-    fn SetClockType(&self, clock: ClockType) -> windows_core::Result<()>;
-    fn EventsLost(&self) -> windows_core::Result<u32>;
-    fn SetEventsLost(&self, events: u32) -> windows_core::Result<()>;
-    fn ExtendedModes(&self) -> windows_core::Result<u32>;
-    fn SetExtendedModes(&self, mode: u32) -> windows_core::Result<()>;
-    fn FlushTimer(&self) -> windows_core::Result<u32>;
-    fn SetFlushTimer(&self, seconds: u32) -> windows_core::Result<()>;
-    fn FreeBuffers(&self) -> windows_core::Result<u32>;
-    fn SetFreeBuffers(&self, buffers: u32) -> windows_core::Result<()>;
-    fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn IsKernelTrace(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn MaximumBuffers(&self) -> windows_core::Result<u32>;
-    fn SetMaximumBuffers(&self, buffers: u32) -> windows_core::Result<()>;
-    fn MinimumBuffers(&self) -> windows_core::Result<u32>;
-    fn SetMinimumBuffers(&self, buffers: u32) -> windows_core::Result<()>;
-    fn NumberOfBuffers(&self) -> windows_core::Result<u32>;
-    fn SetNumberOfBuffers(&self, buffers: u32) -> windows_core::Result<()>;
-    fn PreallocateFile(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ProcessMode(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn RealTimeBuffersLost(&self) -> windows_core::Result<u32>;
-    fn SetRealTimeBuffersLost(&self, buffers: u32) -> windows_core::Result<()>;
-    fn SessionId(&self) -> windows_core::Result<u64>;
-    fn SetSessionId(&self, id: u64) -> windows_core::Result<()>;
-    fn SessionName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSessionName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SessionThreadId(&self) -> windows_core::Result<u32>;
-    fn SetSessionThreadId(&self, tid: u32) -> windows_core::Result<()>;
-    fn StreamMode(&self) -> windows_core::Result<StreamMode>;
-    fn SetStreamMode(&self, mode: StreamMode) -> windows_core::Result<()>;
-    fn TraceDataProviders(&self) -> windows_core::Result<ITraceDataProviderCollection>;
+    fn BufferSize(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBufferSize(&self, size: u32) -> Result<(), windows_result::HRESULT>;
+    fn BuffersLost(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBuffersLost(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn BuffersWritten(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBuffersWritten(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn ClockType(&self) -> Result<ClockType, windows_result::HRESULT>;
+    fn SetClockType(&self, clock: ClockType) -> Result<(), windows_result::HRESULT>;
+    fn EventsLost(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetEventsLost(&self, events: u32) -> Result<(), windows_result::HRESULT>;
+    fn ExtendedModes(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetExtendedModes(&self, mode: u32) -> Result<(), windows_result::HRESULT>;
+    fn FlushTimer(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFlushTimer(&self, seconds: u32) -> Result<(), windows_result::HRESULT>;
+    fn FreeBuffers(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFreeBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn Guid(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn SetGuid(&self, guid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn IsKernelTrace(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn MaximumBuffers(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMaximumBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn MinimumBuffers(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetMinimumBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn NumberOfBuffers(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetNumberOfBuffers(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn PreallocateFile(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetPreallocateFile(&self, allocate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ProcessMode(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetProcessMode(&self, process: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn RealTimeBuffersLost(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetRealTimeBuffersLost(&self, buffers: u32) -> Result<(), windows_result::HRESULT>;
+    fn SessionId(&self) -> Result<u64, windows_result::HRESULT>;
+    fn SetSessionId(&self, id: u64) -> Result<(), windows_result::HRESULT>;
+    fn SessionName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSessionName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SessionThreadId(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetSessionThreadId(&self, tid: u32) -> Result<(), windows_result::HRESULT>;
+    fn StreamMode(&self) -> Result<StreamMode, windows_result::HRESULT>;
+    fn SetStreamMode(&self, mode: StreamMode) -> Result<(), windows_result::HRESULT>;
+    fn TraceDataProviders(&self) -> Result<ITraceDataProviderCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataCollector_Vtbl {
@@ -7974,7 +7974,7 @@ impl ITraceDataCollector_Vtbl {
                         size.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7992,7 +7992,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8010,7 +8010,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8028,7 +8028,7 @@ impl ITraceDataCollector_Vtbl {
                         clock.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8046,7 +8046,7 @@ impl ITraceDataCollector_Vtbl {
                         events.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8064,7 +8064,7 @@ impl ITraceDataCollector_Vtbl {
                         mode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8082,7 +8082,7 @@ impl ITraceDataCollector_Vtbl {
                         seconds.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8100,7 +8100,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8118,7 +8118,7 @@ impl ITraceDataCollector_Vtbl {
                         guid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8136,7 +8136,7 @@ impl ITraceDataCollector_Vtbl {
                         kernel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8148,7 +8148,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8166,7 +8166,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8184,7 +8184,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8202,7 +8202,7 @@ impl ITraceDataCollector_Vtbl {
                         allocate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8220,7 +8220,7 @@ impl ITraceDataCollector_Vtbl {
                         process.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8238,7 +8238,7 @@ impl ITraceDataCollector_Vtbl {
                         buffers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8256,7 +8256,7 @@ impl ITraceDataCollector_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8274,7 +8274,7 @@ impl ITraceDataCollector_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8292,7 +8292,7 @@ impl ITraceDataCollector_Vtbl {
                         tid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8310,7 +8310,7 @@ impl ITraceDataCollector_Vtbl {
                         mode.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8328,7 +8328,7 @@ impl ITraceDataCollector_Vtbl {
                         providers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8395,94 +8395,94 @@ impl core::ops::Deref for ITraceDataProvider {
 windows_core::imp::interface_hierarchy!(ITraceDataProvider, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataProvider {
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn Guid(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn SetGuid(&self, guid: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGuid)(windows_core::Interface::as_raw(self), core::mem::transmute(guid)).ok() }
     }
-    pub unsafe fn Level(&self) -> windows_core::Result<IValueMap> {
+    pub unsafe fn Level(&self) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Level)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn KeywordsAny(&self) -> windows_core::Result<IValueMap> {
+    pub unsafe fn KeywordsAny(&self) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KeywordsAny)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn KeywordsAll(&self) -> windows_core::Result<IValueMap> {
+    pub unsafe fn KeywordsAll(&self) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KeywordsAll)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Properties(&self) -> windows_core::Result<IValueMap> {
+    pub unsafe fn Properties(&self) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FilterEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn FilterEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilterEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFilterEnabled)(windows_core::Interface::as_raw(self), filterenabled).ok() }
     }
-    pub unsafe fn FilterType(&self) -> windows_core::Result<u32> {
+    pub unsafe fn FilterType(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilterType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFilterType(&self, ultype: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFilterType(&self, ultype: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFilterType)(windows_core::Interface::as_raw(self), ultype).ok() }
     }
-    pub unsafe fn FilterData(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn FilterData(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilterData)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFilterData)(windows_core::Interface::as_raw(self), pdata).ok() }
     }
-    pub unsafe fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrserver)).ok() }
     }
-    pub unsafe fn Resolve<P0>(&self, pfrom: P0) -> windows_core::Result<()>
+    pub unsafe fn Resolve<P0>(&self, pfrom: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
     {
         unsafe { (windows_core::Interface::vtable(self).Resolve)(windows_core::Interface::as_raw(self), pfrom.param().abi()).ok() }
     }
-    pub unsafe fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSecurity(&self, sddl: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSecurity)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sddl)).ok() }
     }
-    pub unsafe fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetSecurity(&self, securityinfo: u32) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSecurity)(windows_core::Interface::as_raw(self), securityinfo, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap> {
+    pub unsafe fn GetRegisteredProcesses(&self) -> Result<IValueMap, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRegisteredProcesses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8516,25 +8516,25 @@ pub struct ITraceDataProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataProvider_Impl: super::Com::IDispatch_Impl {
-    fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Guid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetGuid(&self, guid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn Level(&self) -> windows_core::Result<IValueMap>;
-    fn KeywordsAny(&self) -> windows_core::Result<IValueMap>;
-    fn KeywordsAll(&self) -> windows_core::Result<IValueMap>;
-    fn Properties(&self) -> windows_core::Result<IValueMap>;
-    fn FilterEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn FilterType(&self) -> windows_core::Result<u32>;
-    fn SetFilterType(&self, ultype: u32) -> windows_core::Result<()>;
-    fn FilterData(&self) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
-    fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Resolve(&self, pfrom: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
-    fn SetSecurity(&self, sddl: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetSecurity(&self, securityinfo: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn GetRegisteredProcesses(&self) -> windows_core::Result<IValueMap>;
+    fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDisplayName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Guid(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn SetGuid(&self, guid: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn Level(&self) -> Result<IValueMap, windows_result::HRESULT>;
+    fn KeywordsAny(&self) -> Result<IValueMap, windows_result::HRESULT>;
+    fn KeywordsAll(&self) -> Result<IValueMap, windows_result::HRESULT>;
+    fn Properties(&self) -> Result<IValueMap, windows_result::HRESULT>;
+    fn FilterEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetFilterEnabled(&self, filterenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn FilterType(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetFilterType(&self, ultype: u32) -> Result<(), windows_result::HRESULT>;
+    fn FilterData(&self) -> Result<*mut super::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetFilterData(&self, pdata: *const super::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Query(&self, bstrname: &windows_core::BSTR, bstrserver: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Resolve(&self, pfrom: windows_core::Ref<'_, super::Com::IDispatch>) -> Result<(), windows_result::HRESULT>;
+    fn SetSecurity(&self, sddl: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetSecurity(&self, securityinfo: u32) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetRegisteredProcesses(&self) -> Result<IValueMap, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataProvider_Vtbl {
@@ -8547,7 +8547,7 @@ impl ITraceDataProvider_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8565,7 +8565,7 @@ impl ITraceDataProvider_Vtbl {
                         guid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8583,7 +8583,7 @@ impl ITraceDataProvider_Vtbl {
                         pplevel.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8595,7 +8595,7 @@ impl ITraceDataProvider_Vtbl {
                         ppkeywords.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8607,7 +8607,7 @@ impl ITraceDataProvider_Vtbl {
                         ppkeywords.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8619,7 +8619,7 @@ impl ITraceDataProvider_Vtbl {
                         ppproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8631,7 +8631,7 @@ impl ITraceDataProvider_Vtbl {
                         filterenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8649,7 +8649,7 @@ impl ITraceDataProvider_Vtbl {
                         pultype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8667,7 +8667,7 @@ impl ITraceDataProvider_Vtbl {
                         ppdata.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8703,7 +8703,7 @@ impl ITraceDataProvider_Vtbl {
                         sddl.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8715,7 +8715,7 @@ impl ITraceDataProvider_Vtbl {
                         processes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8761,54 +8761,54 @@ impl core::ops::Deref for ITraceDataProviderCollection {
 windows_core::imp::interface_hierarchy!(ITraceDataProviderCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl ITraceDataProviderCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ITraceDataProvider> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<ITraceDataProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, pprovider: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, pprovider: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ITraceDataProvider>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), pprovider.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, vprovider: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, vprovider: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(vprovider)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, providers: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, providers: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ITraceDataProviderCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), providers.param().abi()).ok() }
     }
-    pub unsafe fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider> {
+    pub unsafe fn CreateTraceDataProvider(&self) -> Result<ITraceDataProvider, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTraceDataProvider)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTraceDataProviders)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server)).ok() }
     }
-    pub unsafe fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetTraceDataProvidersByProcess)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(server), pid).ok() }
     }
 }
@@ -8836,16 +8836,16 @@ pub struct ITraceDataProviderCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITraceDataProviderCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<ITraceDataProvider>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, pprovider: windows_core::Ref<'_, ITraceDataProvider>) -> windows_core::Result<()>;
-    fn Remove(&self, vprovider: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, providers: windows_core::Ref<'_, ITraceDataProviderCollection>) -> windows_core::Result<()>;
-    fn CreateTraceDataProvider(&self) -> windows_core::Result<ITraceDataProvider>;
-    fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> windows_core::Result<()>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<ITraceDataProvider, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Add(&self, pprovider: windows_core::Ref<'_, ITraceDataProvider>) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, vprovider: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, providers: windows_core::Ref<'_, ITraceDataProviderCollection>) -> Result<(), windows_result::HRESULT>;
+    fn CreateTraceDataProvider(&self) -> Result<ITraceDataProvider, windows_result::HRESULT>;
+    fn GetTraceDataProviders(&self, server: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetTraceDataProvidersByProcess(&self, server: &windows_core::BSTR, pid: u32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITraceDataProviderCollection_Vtbl {
@@ -8858,7 +8858,7 @@ impl ITraceDataProviderCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8870,7 +8870,7 @@ impl ITraceDataProviderCollection_Vtbl {
                         ppprovider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8882,7 +8882,7 @@ impl ITraceDataProviderCollection_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8918,7 +8918,7 @@ impl ITraceDataProviderCollection_Vtbl {
                         provider.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8967,72 +8967,72 @@ impl core::ops::Deref for IValueMap {
 windows_core::imp::interface_hierarchy!(IValueMap, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IValueMap {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IValueMapItem> {
+    pub unsafe fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IValueMapItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(index), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ValueMapType(&self) -> windows_core::Result<ValueMapType> {
+    pub unsafe fn ValueMapType(&self) -> Result<ValueMapType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueMapType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()> {
+    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValueMapType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Add(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddRange<P0>(&self, map: P0) -> windows_core::Result<()>
+    pub unsafe fn AddRange<P0>(&self, map: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IValueMap>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddRange)(windows_core::Interface::as_raw(self), map.param().abi()).ok() }
     }
-    pub unsafe fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem> {
+    pub unsafe fn CreateValueMapItem(&self) -> Result<IValueMapItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateValueMapItem)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9076,20 +9076,20 @@ pub struct IValueMap_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IValueMap_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: &super::Variant::VARIANT) -> windows_core::Result<IValueMapItem>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn ValueMapType(&self) -> windows_core::Result<ValueMapType>;
-    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()>;
-    fn Add(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Remove(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn AddRange(&self, map: windows_core::Ref<'_, IValueMap>) -> windows_core::Result<()>;
-    fn CreateValueMapItem(&self) -> windows_core::Result<IValueMapItem>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: &super::Variant::VARIANT) -> Result<IValueMapItem, windows_result::HRESULT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetValue(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn ValueMapType(&self) -> Result<ValueMapType, windows_result::HRESULT>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> Result<(), windows_result::HRESULT>;
+    fn Add(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Clear(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddRange(&self, map: windows_core::Ref<'_, IValueMap>) -> Result<(), windows_result::HRESULT>;
+    fn CreateValueMapItem(&self) -> Result<IValueMapItem, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IValueMap_Vtbl {
@@ -9102,7 +9102,7 @@ impl IValueMap_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9114,7 +9114,7 @@ impl IValueMap_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9126,7 +9126,7 @@ impl IValueMap_Vtbl {
                         retval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9138,7 +9138,7 @@ impl IValueMap_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9156,7 +9156,7 @@ impl IValueMap_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9174,7 +9174,7 @@ impl IValueMap_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9216,7 +9216,7 @@ impl IValueMap_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9257,51 +9257,51 @@ impl core::ops::Deref for IValueMapItem {
 windows_core::imp::interface_hierarchy!(IValueMapItem, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IValueMapItem {
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
-    pub unsafe fn Key(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Key(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Key)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetKey(&self, key: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetKey(&self, key: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetKey)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(key)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn ValueMapType(&self) -> windows_core::Result<ValueMapType> {
+    pub unsafe fn ValueMapType(&self) -> Result<ValueMapType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueMapType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()> {
+    pub unsafe fn SetValueMapType(&self, r#type: ValueMapType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValueMapType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
 }
@@ -9329,16 +9329,16 @@ pub struct IValueMapItem_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IValueMapItem_Impl: super::Com::IDispatch_Impl {
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Key(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetKey(&self, key: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SetValue(&self, value: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn ValueMapType(&self) -> windows_core::Result<ValueMapType>;
-    fn SetValueMapType(&self, r#type: ValueMapType) -> windows_core::Result<()>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Key(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetKey(&self, key: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetValue(&self, value: &super::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn ValueMapType(&self) -> Result<ValueMapType, windows_result::HRESULT>;
+    fn SetValueMapType(&self, r#type: ValueMapType) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IValueMapItem_Vtbl {
@@ -9351,7 +9351,7 @@ impl IValueMapItem_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9369,7 +9369,7 @@ impl IValueMapItem_Vtbl {
                         enabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9387,7 +9387,7 @@ impl IValueMapItem_Vtbl {
                         key.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9405,7 +9405,7 @@ impl IValueMapItem_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9423,7 +9423,7 @@ impl IValueMapItem_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10466,80 +10466,80 @@ pub struct WeekDays(pub i32);
 windows_core::imp::define_interface!(_ICounterItemUnion, _ICounterItemUnion_Vtbl, 0xde1a6b74_9182_4c41_8e2c_24c2cd30ee83);
 windows_core::imp::interface_hierarchy!(_ICounterItemUnion, windows_core::IUnknown);
 impl _ICounterItemUnion {
-    pub unsafe fn Value(&self) -> windows_core::Result<f64> {
+    pub unsafe fn Value(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn Color(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Color(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, iwidth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetWidth(&self, iwidth: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), iwidth).ok() }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Width(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLineStyle(&self, ilinestyle: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLineStyle)(windows_core::Interface::as_raw(self), ilinestyle).ok() }
     }
-    pub unsafe fn LineStyle(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LineStyle(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LineStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScaleFactor(&self, iscale: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetScaleFactor(&self, iscale: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetScaleFactor)(windows_core::Interface::as_raw(self), iscale).ok() }
     }
-    pub unsafe fn ScaleFactor(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ScaleFactor(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScaleFactor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetValue(&self, value: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), value as _, status as _).ok() }
     }
-    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetStatistics)(windows_core::Interface::as_raw(self), max as _, min as _, avg as _, status as _).ok() }
     }
-    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSelected)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Selected(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Selected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Visible(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> Result<super::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDataAt)(windows_core::Interface::as_raw(self), iindex, iwhich, &mut result__).map(|| core::mem::transmute(result__))
@@ -10573,23 +10573,23 @@ pub struct _ICounterItemUnion_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait _ICounterItemUnion_Impl: windows_core::IUnknownImpl {
-    fn Value(&self) -> windows_core::Result<f64>;
-    fn SetColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Color(&self) -> windows_core::Result<u32>;
-    fn SetWidth(&self, iwidth: i32) -> windows_core::Result<()>;
-    fn Width(&self) -> windows_core::Result<i32>;
-    fn SetLineStyle(&self, ilinestyle: i32) -> windows_core::Result<()>;
-    fn LineStyle(&self) -> windows_core::Result<i32>;
-    fn SetScaleFactor(&self, iscale: i32) -> windows_core::Result<()>;
-    fn ScaleFactor(&self) -> windows_core::Result<i32>;
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetValue(&self, value: *mut f64, status: *mut i32) -> windows_core::Result<()>;
-    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> windows_core::Result<()>;
-    fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Selected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> windows_core::Result<super::Variant::VARIANT>;
+    fn Value(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Color(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetWidth(&self, iwidth: i32) -> Result<(), windows_result::HRESULT>;
+    fn Width(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetLineStyle(&self, ilinestyle: i32) -> Result<(), windows_result::HRESULT>;
+    fn LineStyle(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetScaleFactor(&self, iscale: i32) -> Result<(), windows_result::HRESULT>;
+    fn ScaleFactor(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetValue(&self, value: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn GetStatistics(&self, max: *mut f64, min: *mut f64, avg: *mut f64, status: *mut i32) -> Result<(), windows_result::HRESULT>;
+    fn SetSelected(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Selected(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetVisible(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Visible(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn GetDataAt(&self, iindex: i32, iwhich: SysmonDataType) -> Result<super::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl _ICounterItemUnion_Vtbl {
@@ -10602,7 +10602,7 @@ impl _ICounterItemUnion_Vtbl {
                         pdblvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10620,7 +10620,7 @@ impl _ICounterItemUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10638,7 +10638,7 @@ impl _ICounterItemUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10656,7 +10656,7 @@ impl _ICounterItemUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10674,7 +10674,7 @@ impl _ICounterItemUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10686,7 +10686,7 @@ impl _ICounterItemUnion_Vtbl {
                         pstrvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10716,7 +10716,7 @@ impl _ICounterItemUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10734,7 +10734,7 @@ impl _ICounterItemUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10746,7 +10746,7 @@ impl _ICounterItemUnion_Vtbl {
                         pvariant.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10780,431 +10780,431 @@ impl windows_core::RuntimeName for _ICounterItemUnion {}
 windows_core::imp::define_interface!(_ISystemMonitorUnion, _ISystemMonitorUnion_Vtbl, 0xc8a77338_265f_4de5_aa25_c7da1ce5a8f4);
 windows_core::imp::interface_hierarchy!(_ISystemMonitorUnion, windows_core::IUnknown);
 impl _ISystemMonitorUnion {
-    pub unsafe fn Appearance(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Appearance(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Appearance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAppearance(&self, iappearance: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAppearance(&self, iappearance: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAppearance)(windows_core::Interface::as_raw(self), iappearance).ok() }
     }
-    pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn BorderStyle(&self) -> windows_core::Result<i32> {
+    pub unsafe fn BorderStyle(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BorderStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetBorderStyle(&self, iborderstyle: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBorderStyle)(windows_core::Interface::as_raw(self), iborderstyle).ok() }
     }
-    pub unsafe fn ForeColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn ForeColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ForeColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetForeColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetForeColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetForeColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp> {
+    pub unsafe fn Font(&self) -> Result<super::Ole::IFontDisp, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Font)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Font<P0>(&self, pfont: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::Ole::IFontDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), pfont.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Counters(&self) -> windows_core::Result<ICounters> {
+    pub unsafe fn Counters(&self) -> Result<ICounters, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Counters)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowVerticalGrid)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowVerticalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowVerticalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowHorizontalGrid)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowHorizontalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowHorizontalGrid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowLegend)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowLegend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowLegend)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowScaleLabels)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowScaleLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowScaleLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowValueBar)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowValueBar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowValueBar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaximumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMaximumScale)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn MaximumScale(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaximumScale(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMinimumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMinimumScale)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn MinimumScale(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MinimumScale(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MinimumScale)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetUpdateInterval(&self, fvalue: f32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUpdateInterval)(windows_core::Interface::as_raw(self), fvalue).ok() }
     }
-    pub unsafe fn UpdateInterval(&self) -> windows_core::Result<f32> {
+    pub unsafe fn UpdateInterval(&self) -> Result<f32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayType)(windows_core::Interface::as_raw(self), edisplaytype).ok() }
     }
-    pub unsafe fn DisplayType(&self) -> windows_core::Result<DisplayTypeConstants> {
+    pub unsafe fn DisplayType(&self) -> Result<DisplayTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetManualUpdate)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ManualUpdate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ManualUpdate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGraphTitle)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstitle)).ok() }
     }
-    pub unsafe fn GraphTitle(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GraphTitle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GraphTitle)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetYAxisLabel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstitle)).ok() }
     }
-    pub unsafe fn YAxisLabel(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn YAxisLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).YAxisLabel)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CollectSample(&self) -> windows_core::Result<()> {
+    pub unsafe fn CollectSample(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CollectSample)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn UpdateGraph(&self) -> windows_core::Result<()> {
+    pub unsafe fn UpdateGraph(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).UpdateGraph)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn BrowseCounters(&self) -> windows_core::Result<()> {
+    pub unsafe fn BrowseCounters(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BrowseCounters)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DisplayProperties(&self) -> windows_core::Result<()> {
+    pub unsafe fn DisplayProperties(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DisplayProperties)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem> {
+    pub unsafe fn Counter(&self, iindex: i32) -> Result<ICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Counter)(windows_core::Interface::as_raw(self), iindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem> {
+    pub unsafe fn AddCounter(&self, bspath: &windows_core::BSTR) -> Result<ICounterItem, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddCounter)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bspath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteCounter<P0>(&self, pctr: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteCounter<P0>(&self, pctr: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<ICounterItem>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteCounter)(windows_core::Interface::as_raw(self), pctr.param().abi()).ok() }
     }
-    pub unsafe fn BackColorCtl(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColorCtl(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColorCtl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColorCtl(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColorCtl)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogFileName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bsfilename)).ok() }
     }
-    pub unsafe fn LogFileName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LogFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFileName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLogViewStart(&self, starttime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewStart(&self, starttime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewStart)(windows_core::Interface::as_raw(self), starttime).ok() }
     }
-    pub unsafe fn LogViewStart(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogViewStart(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogViewStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewStop(&self, stoptime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewStop)(windows_core::Interface::as_raw(self), stoptime).ok() }
     }
-    pub unsafe fn LogViewStop(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogViewStop(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogViewStop)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GridColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GridColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GridColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGridColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetGridColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetGridColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn TimeBarColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn TimeBarColor(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TimeBarColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTimeBarColor(&self, color: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeBarColor(&self, color: u32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeBarColor)(windows_core::Interface::as_raw(self), color).ok() }
     }
-    pub unsafe fn Highlight(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Highlight(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Highlight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetHighlight)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowToolbar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowToolbar)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowToolbar)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn Paste(&self) -> windows_core::Result<()> {
+    pub unsafe fn Paste(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Paste)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Copy(&self) -> windows_core::Result<()> {
+    pub unsafe fn Copy(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Copy)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReadOnly)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportValueType)(windows_core::Interface::as_raw(self), ereportvaluetype).ok() }
     }
-    pub unsafe fn ReportValueType(&self) -> windows_core::Result<ReportValueTypeConstants> {
+    pub unsafe fn ReportValueType(&self) -> Result<ReportValueTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMonitorDuplicateInstances)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MonitorDuplicateInstances(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MonitorDuplicateInstances)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayFilter(&self, ivalue: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayFilter)(windows_core::Interface::as_raw(self), ivalue).ok() }
     }
-    pub unsafe fn DisplayFilter(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DisplayFilter(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LogFiles(&self) -> windows_core::Result<ILogFiles> {
+    pub unsafe fn LogFiles(&self) -> Result<ILogFiles, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogFiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDataSourceType)(windows_core::Interface::as_raw(self), edatasourcetype).ok() }
     }
-    pub unsafe fn DataSourceType(&self) -> windows_core::Result<DataSourceTypeConstants> {
+    pub unsafe fn DataSourceType(&self) -> Result<DataSourceTypeConstants, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataSourceType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSqlDsnName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bssqldsnname)).ok() }
     }
-    pub unsafe fn SqlDsnName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SqlDsnName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SqlDsnName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSqlLogSetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bssqllogsetname)).ok() }
     }
-    pub unsafe fn SqlLogSetName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SqlLogSetName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SqlLogSetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableDigitGrouping)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EnableDigitGrouping(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableDigitGrouping)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableToolTips)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EnableToolTips(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableToolTips)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetShowTimeAxisLabels)(windows_core::Interface::as_raw(self), bstate).ok() }
     }
-    pub unsafe fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ShowTimeAxisLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ShowTimeAxisLabels)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetChartScroll)(windows_core::Interface::as_raw(self), bscroll).ok() }
     }
-    pub unsafe fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ChartScroll(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChartScroll)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDataPointCount(&self, inewcount: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDataPointCount)(windows_core::Interface::as_raw(self), inewcount).ok() }
     }
-    pub unsafe fn DataPointCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DataPointCount(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataPointCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ScaleToFit)(windows_core::Interface::as_raw(self), bselectedcountersonly).ok() }
     }
-    pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()> {
+    pub unsafe fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SaveAs)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), esysmonfiletype).ok() }
     }
-    pub unsafe fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> windows_core::Result<()> {
+    pub unsafe fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Relog)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrfilename), esysmonfiletype, ifilter).ok() }
     }
-    pub unsafe fn ClearData(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearData(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearData)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn LogSourceStartTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogSourceStartTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogSourceStartTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LogSourceStopTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LogSourceStopTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogSourceStopTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogViewRange)(windows_core::Interface::as_raw(self), starttime, stoptime).ok() }
     }
-    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()> {
+    pub unsafe fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetLogViewRange)(windows_core::Interface::as_raw(self), starttime as _, stoptime as _).ok() }
     }
-    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()> {
+    pub unsafe fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).BatchingLock)(windows_core::Interface::as_raw(self), flock, ebatchreason).ok() }
     }
-    pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).LoadSettings)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrsettingfilename)).ok() }
     }
 }
@@ -11323,102 +11323,102 @@ pub struct _ISystemMonitorUnion_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub trait _ISystemMonitorUnion_Impl: windows_core::IUnknownImpl {
-    fn Appearance(&self) -> windows_core::Result<i32>;
-    fn SetAppearance(&self, iappearance: i32) -> windows_core::Result<()>;
-    fn BackColor(&self) -> windows_core::Result<u32>;
-    fn SetBackColor(&self, color: u32) -> windows_core::Result<()>;
-    fn BorderStyle(&self) -> windows_core::Result<i32>;
-    fn SetBorderStyle(&self, iborderstyle: i32) -> windows_core::Result<()>;
-    fn ForeColor(&self) -> windows_core::Result<u32>;
-    fn SetForeColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Font(&self) -> windows_core::Result<super::Ole::IFontDisp>;
-    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> windows_core::Result<()>;
-    fn Counters(&self) -> windows_core::Result<ICounters>;
-    fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowVerticalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowHorizontalGrid(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowLegend(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowScaleLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowValueBar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetMaximumScale(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn MaximumScale(&self) -> windows_core::Result<i32>;
-    fn SetMinimumScale(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn MinimumScale(&self) -> windows_core::Result<i32>;
-    fn SetUpdateInterval(&self, fvalue: f32) -> windows_core::Result<()>;
-    fn UpdateInterval(&self) -> windows_core::Result<f32>;
-    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> windows_core::Result<()>;
-    fn DisplayType(&self) -> windows_core::Result<DisplayTypeConstants>;
-    fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ManualUpdate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GraphTitle(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn YAxisLabel(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CollectSample(&self) -> windows_core::Result<()>;
-    fn UpdateGraph(&self) -> windows_core::Result<()>;
-    fn BrowseCounters(&self) -> windows_core::Result<()>;
-    fn DisplayProperties(&self) -> windows_core::Result<()>;
-    fn Counter(&self, iindex: i32) -> windows_core::Result<ICounterItem>;
-    fn AddCounter(&self, bspath: &windows_core::BSTR) -> windows_core::Result<ICounterItem>;
-    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> windows_core::Result<()>;
-    fn BackColorCtl(&self) -> windows_core::Result<u32>;
-    fn SetBackColorCtl(&self, color: u32) -> windows_core::Result<()>;
-    fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LogFileName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLogViewStart(&self, starttime: f64) -> windows_core::Result<()>;
-    fn LogViewStart(&self) -> windows_core::Result<f64>;
-    fn SetLogViewStop(&self, stoptime: f64) -> windows_core::Result<()>;
-    fn LogViewStop(&self) -> windows_core::Result<f64>;
-    fn GridColor(&self) -> windows_core::Result<u32>;
-    fn SetGridColor(&self, color: u32) -> windows_core::Result<()>;
-    fn TimeBarColor(&self) -> windows_core::Result<u32>;
-    fn SetTimeBarColor(&self, color: u32) -> windows_core::Result<()>;
-    fn Highlight(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowToolbar(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Paste(&self) -> windows_core::Result<()>;
-    fn Copy(&self) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ReadOnly(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> windows_core::Result<()>;
-    fn ReportValueType(&self) -> windows_core::Result<ReportValueTypeConstants>;
-    fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MonitorDuplicateInstances(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDisplayFilter(&self, ivalue: i32) -> windows_core::Result<()>;
-    fn DisplayFilter(&self) -> windows_core::Result<i32>;
-    fn LogFiles(&self) -> windows_core::Result<ILogFiles>;
-    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> windows_core::Result<()>;
-    fn DataSourceType(&self) -> windows_core::Result<DataSourceTypeConstants>;
-    fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SqlDsnName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SqlLogSetName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnableDigitGrouping(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnableToolTips(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ShowTimeAxisLabels(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ChartScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDataPointCount(&self, inewcount: i32) -> windows_core::Result<()>;
-    fn DataPointCount(&self) -> windows_core::Result<i32>;
-    fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> windows_core::Result<()>;
-    fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> windows_core::Result<()>;
-    fn ClearData(&self) -> windows_core::Result<()>;
-    fn LogSourceStartTime(&self) -> windows_core::Result<f64>;
-    fn LogSourceStopTime(&self) -> windows_core::Result<f64>;
-    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> windows_core::Result<()>;
-    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> windows_core::Result<()>;
-    fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> windows_core::Result<()>;
-    fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Appearance(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetAppearance(&self, iappearance: i32) -> Result<(), windows_result::HRESULT>;
+    fn BackColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBackColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn BorderStyle(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetBorderStyle(&self, iborderstyle: i32) -> Result<(), windows_result::HRESULT>;
+    fn ForeColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetForeColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Font(&self) -> Result<super::Ole::IFontDisp, windows_result::HRESULT>;
+    fn putref_Font(&self, pfont: windows_core::Ref<'_, super::Ole::IFontDisp>) -> Result<(), windows_result::HRESULT>;
+    fn Counters(&self) -> Result<ICounters, windows_result::HRESULT>;
+    fn SetShowVerticalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowVerticalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowHorizontalGrid(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowHorizontalGrid(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowLegend(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowLegend(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowScaleLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowScaleLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowValueBar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowValueBar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetMaximumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn MaximumScale(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetMinimumScale(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn MinimumScale(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetUpdateInterval(&self, fvalue: f32) -> Result<(), windows_result::HRESULT>;
+    fn UpdateInterval(&self) -> Result<f32, windows_result::HRESULT>;
+    fn SetDisplayType(&self, edisplaytype: DisplayTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn DisplayType(&self) -> Result<DisplayTypeConstants, windows_result::HRESULT>;
+    fn SetManualUpdate(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ManualUpdate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetGraphTitle(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GraphTitle(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetYAxisLabel(&self, bstitle: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn YAxisLabel(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn CollectSample(&self) -> Result<(), windows_result::HRESULT>;
+    fn UpdateGraph(&self) -> Result<(), windows_result::HRESULT>;
+    fn BrowseCounters(&self) -> Result<(), windows_result::HRESULT>;
+    fn DisplayProperties(&self) -> Result<(), windows_result::HRESULT>;
+    fn Counter(&self, iindex: i32) -> Result<ICounterItem, windows_result::HRESULT>;
+    fn AddCounter(&self, bspath: &windows_core::BSTR) -> Result<ICounterItem, windows_result::HRESULT>;
+    fn DeleteCounter(&self, pctr: windows_core::Ref<'_, ICounterItem>) -> Result<(), windows_result::HRESULT>;
+    fn BackColorCtl(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetBackColorCtl(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn SetLogFileName(&self, bsfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LogFileName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetLogViewStart(&self, starttime: f64) -> Result<(), windows_result::HRESULT>;
+    fn LogViewStart(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLogViewStop(&self, stoptime: f64) -> Result<(), windows_result::HRESULT>;
+    fn LogViewStop(&self) -> Result<f64, windows_result::HRESULT>;
+    fn GridColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetGridColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn TimeBarColor(&self) -> Result<u32, windows_result::HRESULT>;
+    fn SetTimeBarColor(&self, color: u32) -> Result<(), windows_result::HRESULT>;
+    fn Highlight(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetHighlight(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowToolbar(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowToolbar(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Paste(&self) -> Result<(), windows_result::HRESULT>;
+    fn Copy(&self) -> Result<(), windows_result::HRESULT>;
+    fn Reset(&self) -> Result<(), windows_result::HRESULT>;
+    fn SetReadOnly(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ReadOnly(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetReportValueType(&self, ereportvaluetype: ReportValueTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn ReportValueType(&self) -> Result<ReportValueTypeConstants, windows_result::HRESULT>;
+    fn SetMonitorDuplicateInstances(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn MonitorDuplicateInstances(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDisplayFilter(&self, ivalue: i32) -> Result<(), windows_result::HRESULT>;
+    fn DisplayFilter(&self) -> Result<i32, windows_result::HRESULT>;
+    fn LogFiles(&self) -> Result<ILogFiles, windows_result::HRESULT>;
+    fn SetDataSourceType(&self, edatasourcetype: DataSourceTypeConstants) -> Result<(), windows_result::HRESULT>;
+    fn DataSourceType(&self) -> Result<DataSourceTypeConstants, windows_result::HRESULT>;
+    fn SetSqlDsnName(&self, bssqldsnname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SqlDsnName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSqlLogSetName(&self, bssqllogsetname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SqlLogSetName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetEnableDigitGrouping(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnableDigitGrouping(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnableToolTips(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnableToolTips(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetShowTimeAxisLabels(&self, bstate: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ShowTimeAxisLabels(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetChartScroll(&self, bscroll: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ChartScroll(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDataPointCount(&self, inewcount: i32) -> Result<(), windows_result::HRESULT>;
+    fn DataPointCount(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ScaleToFit(&self, bselectedcountersonly: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn SaveAs(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType) -> Result<(), windows_result::HRESULT>;
+    fn Relog(&self, bstrfilename: &windows_core::BSTR, esysmonfiletype: SysmonFileType, ifilter: i32) -> Result<(), windows_result::HRESULT>;
+    fn ClearData(&self) -> Result<(), windows_result::HRESULT>;
+    fn LogSourceStartTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn LogSourceStopTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetLogViewRange(&self, starttime: f64, stoptime: f64) -> Result<(), windows_result::HRESULT>;
+    fn GetLogViewRange(&self, starttime: *mut f64, stoptime: *mut f64) -> Result<(), windows_result::HRESULT>;
+    fn BatchingLock(&self, flock: super::super::Foundation::VARIANT_BOOL, ebatchreason: SysmonBatchReason) -> Result<(), windows_result::HRESULT>;
+    fn LoadSettings(&self, bstrsettingfilename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl _ISystemMonitorUnion_Vtbl {
@@ -11431,7 +11431,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         iappearance.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11449,7 +11449,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11467,7 +11467,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         iborderstyle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11485,7 +11485,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11503,7 +11503,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         ppfont.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11521,7 +11521,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         ppicounters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11539,7 +11539,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11557,7 +11557,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11575,7 +11575,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11593,7 +11593,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11611,7 +11611,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11629,7 +11629,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11647,7 +11647,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11665,7 +11665,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pfvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11683,7 +11683,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pedisplaytype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11701,7 +11701,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11719,7 +11719,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstitle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11737,7 +11737,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstitle.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11773,7 +11773,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         ppicounter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11785,7 +11785,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         ppicounter.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11803,7 +11803,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11827,7 +11827,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         bsfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11845,7 +11845,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         starttime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11863,7 +11863,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         stoptime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11875,7 +11875,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11893,7 +11893,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pcolor.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11911,7 +11911,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11929,7 +11929,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11971,7 +11971,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -11989,7 +11989,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pereportvaluetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12007,7 +12007,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12025,7 +12025,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pivalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12037,7 +12037,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         ppilogfiles.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12055,7 +12055,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pedatasourcetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12073,7 +12073,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         bssqldsnname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12091,7 +12091,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         bssqllogsetname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12109,7 +12109,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12127,7 +12127,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12145,7 +12145,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbstate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12163,7 +12163,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pbscroll.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12181,7 +12181,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pidatapointcount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12217,7 +12217,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pdate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -12229,7 +12229,7 @@ impl _ISystemMonitorUnion_Vtbl {
                         pdate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

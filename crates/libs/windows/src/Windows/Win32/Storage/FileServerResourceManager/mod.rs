@@ -538,7 +538,7 @@ impl core::ops::Deref for IFsrmAccessDeniedRemediationClient {
 windows_core::imp::interface_hierarchy!(IFsrmAccessDeniedRemediationClient, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAccessDeniedRemediationClient {
-    pub unsafe fn Show(&self, parentwnd: usize, accesspath: &windows_core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &windows_core::BSTR, windowmessage: &windows_core::BSTR) -> windows_core::Result<i32> {
+    pub unsafe fn Show(&self, parentwnd: usize, accesspath: &windows_core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &windows_core::BSTR, windowmessage: &windows_core::BSTR) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), parentwnd, core::mem::transmute_copy(accesspath), errortype, flags, core::mem::transmute_copy(windowtitle), core::mem::transmute_copy(windowmessage), &mut result__).map(|| result__)
@@ -554,7 +554,7 @@ pub struct IFsrmAccessDeniedRemediationClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAccessDeniedRemediationClient_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Show(&self, parentwnd: usize, accesspath: &windows_core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &windows_core::BSTR, windowmessage: &windows_core::BSTR) -> windows_core::Result<i32>;
+    fn Show(&self, parentwnd: usize, accesspath: &windows_core::BSTR, errortype: AdrClientErrorType, flags: i32, windowtitle: &windows_core::BSTR, windowmessage: &windows_core::BSTR) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAccessDeniedRemediationClient_Vtbl {
@@ -567,7 +567,7 @@ impl IFsrmAccessDeniedRemediationClient_Vtbl {
                         result.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -592,28 +592,28 @@ impl core::ops::Deref for IFsrmAction {
 windows_core::imp::interface_hierarchy!(IFsrmAction, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAction {
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn Id(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ActionType(&self) -> windows_core::Result<FsrmActionType> {
+    pub unsafe fn ActionType(&self) -> Result<FsrmActionType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RunLimitInterval(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RunLimitInterval(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunLimitInterval)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRunLimitInterval(&self, minutes: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRunLimitInterval)(windows_core::Interface::as_raw(self), minutes).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -630,11 +630,11 @@ pub struct IFsrmAction_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAction_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<windows_core::GUID>;
-    fn ActionType(&self) -> windows_core::Result<FsrmActionType>;
-    fn RunLimitInterval(&self) -> windows_core::Result<i32>;
-    fn SetRunLimitInterval(&self, minutes: i32) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
+    fn Id(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn ActionType(&self) -> Result<FsrmActionType, windows_result::HRESULT>;
+    fn RunLimitInterval(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetRunLimitInterval(&self, minutes: i32) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAction_Vtbl {
@@ -647,7 +647,7 @@ impl IFsrmAction_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -659,7 +659,7 @@ impl IFsrmAction_Vtbl {
                         actiontype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -671,7 +671,7 @@ impl IFsrmAction_Vtbl {
                         minutes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -715,67 +715,67 @@ impl core::ops::Deref for IFsrmActionCommand {
 windows_core::imp::interface_hierarchy!(IFsrmActionCommand, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionCommand {
-    pub unsafe fn ExecutablePath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExecutablePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExecutablePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExecutablePath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(executablepath)).ok() }
     }
-    pub unsafe fn Arguments(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Arguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Arguments)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetArguments(&self, arguments: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetArguments(&self, arguments: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetArguments)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(arguments)).ok() }
     }
-    pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
+    pub unsafe fn Account(&self) -> Result<FsrmAccountType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Account)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> windows_core::Result<()> {
+    pub unsafe fn SetAccount(&self, account: FsrmAccountType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAccount)(windows_core::Interface::as_raw(self), account).ok() }
     }
-    pub unsafe fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn WorkingDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WorkingDirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetWorkingDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(workingdirectory)).ok() }
     }
-    pub unsafe fn MonitorCommand(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MonitorCommand(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MonitorCommand)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMonitorCommand(&self, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetMonitorCommand(&self, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMonitorCommand)(windows_core::Interface::as_raw(self), monitorcommand).ok() }
     }
-    pub unsafe fn KillTimeOut(&self) -> windows_core::Result<i32> {
+    pub unsafe fn KillTimeOut(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).KillTimeOut)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetKillTimeOut(&self, minutes: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetKillTimeOut(&self, minutes: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetKillTimeOut)(windows_core::Interface::as_raw(self), minutes).ok() }
     }
-    pub unsafe fn LogResult(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn LogResult(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LogResult)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogResult)(windows_core::Interface::as_raw(self), logresults).ok() }
     }
 }
@@ -801,20 +801,20 @@ pub struct IFsrmActionCommand_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionCommand_Impl: IFsrmAction_Impl {
-    fn ExecutablePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Arguments(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetArguments(&self, arguments: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Account(&self) -> windows_core::Result<FsrmAccountType>;
-    fn SetAccount(&self, account: FsrmAccountType) -> windows_core::Result<()>;
-    fn WorkingDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MonitorCommand(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetMonitorCommand(&self, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn KillTimeOut(&self) -> windows_core::Result<i32>;
-    fn SetKillTimeOut(&self, minutes: i32) -> windows_core::Result<()>;
-    fn LogResult(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ExecutablePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetExecutablePath(&self, executablepath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Arguments(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetArguments(&self, arguments: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Account(&self) -> Result<FsrmAccountType, windows_result::HRESULT>;
+    fn SetAccount(&self, account: FsrmAccountType) -> Result<(), windows_result::HRESULT>;
+    fn WorkingDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetWorkingDirectory(&self, workingdirectory: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MonitorCommand(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetMonitorCommand(&self, monitorcommand: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn KillTimeOut(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetKillTimeOut(&self, minutes: i32) -> Result<(), windows_result::HRESULT>;
+    fn LogResult(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetLogResult(&self, logresults: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionCommand_Vtbl {
@@ -827,7 +827,7 @@ impl IFsrmActionCommand_Vtbl {
                         executablepath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -845,7 +845,7 @@ impl IFsrmActionCommand_Vtbl {
                         arguments.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -863,7 +863,7 @@ impl IFsrmActionCommand_Vtbl {
                         account.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -881,7 +881,7 @@ impl IFsrmActionCommand_Vtbl {
                         workingdirectory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -899,7 +899,7 @@ impl IFsrmActionCommand_Vtbl {
                         monitorcommand.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -917,7 +917,7 @@ impl IFsrmActionCommand_Vtbl {
                         minutes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -935,7 +935,7 @@ impl IFsrmActionCommand_Vtbl {
                         logresults.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -982,67 +982,67 @@ impl core::ops::Deref for IFsrmActionEmail {
 windows_core::imp::interface_hierarchy!(IFsrmActionEmail, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEmail {
-    pub unsafe fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailFrom(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailFrom)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailfrom)).ok() }
     }
-    pub unsafe fn MailReplyTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailReplyTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailReplyTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailReplyTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailreplyto)).ok() }
     }
-    pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
-    pub unsafe fn MailCc(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailCc(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailCc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailCc)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailcc)).ok() }
     }
-    pub unsafe fn MailBcc(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailBcc(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailBcc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailBcc)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailbcc)).ok() }
     }
-    pub unsafe fn MailSubject(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailSubject(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailSubject)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailSubject)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailsubject)).ok() }
     }
-    pub unsafe fn MessageText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MessageText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MessageText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(messagetext)).ok() }
     }
 }
@@ -1068,20 +1068,20 @@ pub struct IFsrmActionEmail_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEmail_Impl: IFsrmAction_Impl {
-    fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailReplyTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailCc(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailBcc(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailSubject(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn MailFrom(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailReplyTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailReplyTo(&self, mailreplyto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailCc(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailCc(&self, mailcc: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailBcc(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailBcc(&self, mailbcc: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailSubject(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailSubject(&self, mailsubject: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MessageText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEmail_Vtbl {
@@ -1094,7 +1094,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailfrom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1112,7 +1112,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailreplyto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1130,7 +1130,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1148,7 +1148,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailcc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1166,7 +1166,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailbcc.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1184,7 +1184,7 @@ impl IFsrmActionEmail_Vtbl {
                         mailsubject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1202,7 +1202,7 @@ impl IFsrmActionEmail_Vtbl {
                         messagetext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1249,13 +1249,13 @@ impl core::ops::Deref for IFsrmActionEmail2 {
 windows_core::imp::interface_hierarchy!(IFsrmActionEmail2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction, IFsrmActionEmail);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEmail2 {
-    pub unsafe fn AttachmentFileListSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AttachmentFileListSize(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachmentFileListSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachmentFileListSize)(windows_core::Interface::as_raw(self), attachmentfilelistsize).ok() }
     }
 }
@@ -1269,8 +1269,8 @@ pub struct IFsrmActionEmail2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEmail2_Impl: IFsrmActionEmail_Impl {
-    fn AttachmentFileListSize(&self) -> windows_core::Result<i32>;
-    fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> windows_core::Result<()>;
+    fn AttachmentFileListSize(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetAttachmentFileListSize(&self, attachmentfilelistsize: i32) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEmail2_Vtbl {
@@ -1283,7 +1283,7 @@ impl IFsrmActionEmail2_Vtbl {
                         attachmentfilelistsize.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1318,22 +1318,22 @@ impl core::ops::Deref for IFsrmActionEventLog {
 windows_core::imp::interface_hierarchy!(IFsrmActionEventLog, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionEventLog {
-    pub unsafe fn EventType(&self) -> windows_core::Result<FsrmEventType> {
+    pub unsafe fn EventType(&self) -> Result<FsrmEventType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> windows_core::Result<()> {
+    pub unsafe fn SetEventType(&self, eventtype: FsrmEventType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEventType)(windows_core::Interface::as_raw(self), eventtype).ok() }
     }
-    pub unsafe fn MessageText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MessageText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MessageText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMessageText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(messagetext)).ok() }
     }
 }
@@ -1349,10 +1349,10 @@ pub struct IFsrmActionEventLog_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionEventLog_Impl: IFsrmAction_Impl {
-    fn EventType(&self) -> windows_core::Result<FsrmEventType>;
-    fn SetEventType(&self, eventtype: FsrmEventType) -> windows_core::Result<()>;
-    fn MessageText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn EventType(&self) -> Result<FsrmEventType, windows_result::HRESULT>;
+    fn SetEventType(&self, eventtype: FsrmEventType) -> Result<(), windows_result::HRESULT>;
+    fn MessageText(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMessageText(&self, messagetext: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionEventLog_Vtbl {
@@ -1365,7 +1365,7 @@ impl IFsrmActionEventLog_Vtbl {
                         eventtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1383,7 +1383,7 @@ impl IFsrmActionEventLog_Vtbl {
                         messagetext.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1420,22 +1420,22 @@ impl core::ops::Deref for IFsrmActionReport {
 windows_core::imp::interface_hierarchy!(IFsrmActionReport, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmAction);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmActionReport {
-    pub unsafe fn ReportTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ReportTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportTypes)(windows_core::Interface::as_raw(self), reporttypes).ok() }
     }
-    pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
 }
@@ -1451,10 +1451,10 @@ pub struct IFsrmActionReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmActionReport_Impl: IFsrmAction_Impl {
-    fn ReportTypes(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ReportTypes(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetReportTypes(&self, reporttypes: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmActionReport_Vtbl {
@@ -1467,7 +1467,7 @@ impl IFsrmActionReport_Vtbl {
                         reporttypes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1485,7 +1485,7 @@ impl IFsrmActionReport_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1522,16 +1522,16 @@ impl core::ops::Deref for IFsrmAutoApplyQuota {
 windows_core::imp::interface_hierarchy!(IFsrmAutoApplyQuota, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmAutoApplyQuota {
-    pub unsafe fn ExcludeFolders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ExcludeFolders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExcludeFolders)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExcludeFolders)(windows_core::Interface::as_raw(self), folders).ok() }
     }
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommitAndUpdateDerived)(windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1549,9 +1549,9 @@ pub struct IFsrmAutoApplyQuota_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmAutoApplyQuota_Impl: IFsrmQuotaObject_Impl {
-    fn ExcludeFolders(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
+    fn ExcludeFolders(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetExcludeFolders(&self, folders: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmAutoApplyQuota_Vtbl {
@@ -1564,7 +1564,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
                         folders.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1582,7 +1582,7 @@ impl IFsrmAutoApplyQuota_Vtbl {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1612,142 +1612,142 @@ impl core::ops::Deref for IFsrmClassificationManager {
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager {
-    pub unsafe fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ClassificationReportFormats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationReportFormats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportFormats)(windows_core::Interface::as_raw(self), formats).ok() }
     }
-    pub unsafe fn Logging(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Logging(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Logging)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogging(&self, logging: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLogging(&self, logging: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogging)(windows_core::Interface::as_raw(self), logging).ok() }
     }
-    pub unsafe fn ClassificationReportMailTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClassificationReportMailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationReportMailTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
-    pub unsafe fn ClassificationReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ClassificationReportEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationReportEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetClassificationReportEnabled)(windows_core::Interface::as_raw(self), reportenabled).ok() }
     }
-    pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClassificationLastReportPathWithoutExtension(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationLastReportPathWithoutExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClassificationLastError(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClassificationLastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationLastError)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClassificationRunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus> {
+    pub unsafe fn ClassificationRunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClassificationRunningStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumPropertyDefinitions)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreatePropertyDefinition(&self) -> windows_core::Result<IFsrmPropertyDefinition> {
+    pub unsafe fn CreatePropertyDefinition(&self) -> Result<IFsrmPropertyDefinition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyDefinition)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyDefinition> {
+    pub unsafe fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> Result<IFsrmPropertyDefinition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumRules)(windows_core::Interface::as_raw(self), ruletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule> {
+    pub unsafe fn CreateRule(&self, ruletype: FsrmRuleType) -> Result<IFsrmRule, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRule)(windows_core::Interface::as_raw(self), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule> {
+    pub unsafe fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: FsrmRuleType) -> Result<IFsrmRule, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRule)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(rulename), ruletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumModuleDefinitions)(windows_core::Interface::as_raw(self), moduletype, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> Result<IFsrmPipelineModuleDefinition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateModuleDefinition)(windows_core::Interface::as_raw(self), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition> {
+    pub unsafe fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: FsrmPipelineModuleType) -> Result<IFsrmPipelineModuleDefinition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetModuleDefinition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(modulename), moduletype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RunClassification)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(reserved)).ok() }
     }
-    pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WaitForClassificationCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForClassificationCompletion)(windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CancelClassification(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelClassification(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CancelClassification)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileProperties)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> Result<IFsrmProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(propertyname), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(propertyname), core::mem::transmute_copy(propertyvalue)).ok() }
     }
-    pub unsafe fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClearFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute_copy(property)).ok() }
     }
 }
@@ -1786,33 +1786,33 @@ pub struct IFsrmClassificationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ClassificationReportFormats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Logging(&self) -> windows_core::Result<i32>;
-    fn SetLogging(&self, logging: i32) -> windows_core::Result<()>;
-    fn ClassificationReportMailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClassificationReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ClassificationLastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClassificationLastError(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClassificationRunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus>;
-    fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
-    fn CreatePropertyDefinition(&self) -> windows_core::Result<IFsrmPropertyDefinition>;
-    fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyDefinition>;
-    fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
-    fn CreateRule(&self, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule>;
-    fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: FsrmRuleType) -> windows_core::Result<IFsrmRule>;
-    fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
-    fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>;
-    fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: FsrmPipelineModuleType) -> windows_core::Result<IFsrmPipelineModuleDefinition>;
-    fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn WaitForClassificationCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CancelClassification(&self) -> windows_core::Result<()>;
-    fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmCollection>;
-    fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> windows_core::Result<IFsrmProperty>;
-    fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ClassificationReportFormats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetClassificationReportFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Logging(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetLogging(&self, logging: i32) -> Result<(), windows_result::HRESULT>;
+    fn ClassificationReportMailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetClassificationReportMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClassificationReportEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetClassificationReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn ClassificationLastReportPathWithoutExtension(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ClassificationLastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ClassificationRunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT>;
+    fn EnumPropertyDefinitions(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreatePropertyDefinition(&self) -> Result<IFsrmPropertyDefinition, windows_result::HRESULT>;
+    fn GetPropertyDefinition(&self, propertyname: &windows_core::BSTR) -> Result<IFsrmPropertyDefinition, windows_result::HRESULT>;
+    fn EnumRules(&self, ruletype: FsrmRuleType, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreateRule(&self, ruletype: FsrmRuleType) -> Result<IFsrmRule, windows_result::HRESULT>;
+    fn GetRule(&self, rulename: &windows_core::BSTR, ruletype: FsrmRuleType) -> Result<IFsrmRule, windows_result::HRESULT>;
+    fn EnumModuleDefinitions(&self, moduletype: FsrmPipelineModuleType, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreateModuleDefinition(&self, moduletype: FsrmPipelineModuleType) -> Result<IFsrmPipelineModuleDefinition, windows_result::HRESULT>;
+    fn GetModuleDefinition(&self, modulename: &windows_core::BSTR, moduletype: FsrmPipelineModuleType) -> Result<IFsrmPipelineModuleDefinition, windows_result::HRESULT>;
+    fn RunClassification(&self, context: FsrmReportGenerationContext, reserved: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn WaitForClassificationCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn CancelClassification(&self) -> Result<(), windows_result::HRESULT>;
+    fn EnumFileProperties(&self, filepath: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn GetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, options: FsrmGetFilePropertyOptions) -> Result<IFsrmProperty, windows_result::HRESULT>;
+    fn SetFileProperty(&self, filepath: &windows_core::BSTR, propertyname: &windows_core::BSTR, propertyvalue: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ClearFileProperty(&self, filepath: &windows_core::BSTR, property: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationManager_Vtbl {
@@ -1825,7 +1825,7 @@ impl IFsrmClassificationManager_Vtbl {
                         formats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1843,7 +1843,7 @@ impl IFsrmClassificationManager_Vtbl {
                         logging.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1861,7 +1861,7 @@ impl IFsrmClassificationManager_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1879,7 +1879,7 @@ impl IFsrmClassificationManager_Vtbl {
                         reportenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1897,7 +1897,7 @@ impl IFsrmClassificationManager_Vtbl {
                         lastreportpath.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1909,7 +1909,7 @@ impl IFsrmClassificationManager_Vtbl {
                         lasterror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1921,7 +1921,7 @@ impl IFsrmClassificationManager_Vtbl {
                         runningstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1933,7 +1933,7 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1945,7 +1945,7 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1957,7 +1957,7 @@ impl IFsrmClassificationManager_Vtbl {
                         propertydefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1969,7 +1969,7 @@ impl IFsrmClassificationManager_Vtbl {
                         rules.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1981,7 +1981,7 @@ impl IFsrmClassificationManager_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1993,7 +1993,7 @@ impl IFsrmClassificationManager_Vtbl {
                         rule.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2005,7 +2005,7 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2017,7 +2017,7 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2029,7 +2029,7 @@ impl IFsrmClassificationManager_Vtbl {
                         moduledefinition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2047,7 +2047,7 @@ impl IFsrmClassificationManager_Vtbl {
                         completed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2065,7 +2065,7 @@ impl IFsrmClassificationManager_Vtbl {
                         fileproperties.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2077,7 +2077,7 @@ impl IFsrmClassificationManager_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2143,7 +2143,7 @@ impl core::ops::Deref for IFsrmClassificationManager2 {
 windows_core::imp::interface_hierarchy!(IFsrmClassificationManager2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmClassificationManager);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationManager2 {
-    pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::Result<()> {
+    pub unsafe fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ClassifyFiles)(windows_core::Interface::as_raw(self), filepaths, propertynames, propertyvalues, options).ok() }
     }
 }
@@ -2156,7 +2156,7 @@ pub struct IFsrmClassificationManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationManager2_Impl: IFsrmClassificationManager_Impl {
-    fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> windows_core::Result<()>;
+    fn ClassifyFiles(&self, filepaths: *const super::super::System::Com::SAFEARRAY, propertynames: *const super::super::System::Com::SAFEARRAY, propertyvalues: *const super::super::System::Com::SAFEARRAY, options: FsrmGetFilePropertyOptions) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationManager2_Vtbl {
@@ -2188,31 +2188,31 @@ impl core::ops::Deref for IFsrmClassificationRule {
 windows_core::imp::interface_hierarchy!(IFsrmClassificationRule, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmRule);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassificationRule {
-    pub unsafe fn ExecutionOption(&self) -> windows_core::Result<FsrmExecutionOption> {
+    pub unsafe fn ExecutionOption(&self) -> Result<FsrmExecutionOption, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExecutionOption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> windows_core::Result<()> {
+    pub unsafe fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExecutionOption)(windows_core::Interface::as_raw(self), executionoption).ok() }
     }
-    pub unsafe fn PropertyAffected(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PropertyAffected(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyAffected)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyAffected)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property)).ok() }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
 }
@@ -2230,12 +2230,12 @@ pub struct IFsrmClassificationRule_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassificationRule_Impl: IFsrmRule_Impl {
-    fn ExecutionOption(&self) -> windows_core::Result<FsrmExecutionOption>;
-    fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> windows_core::Result<()>;
-    fn PropertyAffected(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ExecutionOption(&self) -> Result<FsrmExecutionOption, windows_result::HRESULT>;
+    fn SetExecutionOption(&self, executionoption: FsrmExecutionOption) -> Result<(), windows_result::HRESULT>;
+    fn PropertyAffected(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetPropertyAffected(&self, property: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetValue(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassificationRule_Vtbl {
@@ -2248,7 +2248,7 @@ impl IFsrmClassificationRule_Vtbl {
                         executionoption.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2266,7 +2266,7 @@ impl IFsrmClassificationRule_Vtbl {
                         property.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2284,7 +2284,7 @@ impl IFsrmClassificationRule_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2323,31 +2323,31 @@ impl core::ops::Deref for IFsrmClassifierModuleDefinition {
 windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleDefinition, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleDefinition {
-    pub unsafe fn PropertiesAffected(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn PropertiesAffected(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertiesAffected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesAffected)(windows_core::Interface::as_raw(self), propertiesaffected).ok() }
     }
-    pub unsafe fn PropertiesUsed(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn PropertiesUsed(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertiesUsed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertiesUsed)(windows_core::Interface::as_raw(self), propertiesused).ok() }
     }
-    pub unsafe fn NeedsExplicitValue(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn NeedsExplicitValue(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsExplicitValue)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsExplicitValue)(windows_core::Interface::as_raw(self), needsexplicitvalue).ok() }
     }
 }
@@ -2365,12 +2365,12 @@ pub struct IFsrmClassifierModuleDefinition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassifierModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
-    fn PropertiesAffected(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn PropertiesUsed(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn NeedsExplicitValue(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn PropertiesAffected(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetPropertiesAffected(&self, propertiesaffected: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn PropertiesUsed(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetPropertiesUsed(&self, propertiesused: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn NeedsExplicitValue(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetNeedsExplicitValue(&self, needsexplicitvalue: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassifierModuleDefinition_Vtbl {
@@ -2383,7 +2383,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         propertiesaffected.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2401,7 +2401,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         propertiesused.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2419,7 +2419,7 @@ impl IFsrmClassifierModuleDefinition_Vtbl {
                         needsexplicitvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2459,32 +2459,32 @@ windows_core::imp::interface_hierarchy!(IFsrmClassifierModuleImplementation, win
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmClassifierModuleImplementation {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn LastModified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> windows_core::Result<()>
+    pub unsafe fn UseRulesAndDefinitions<P0, P1>(&self, rules: P0, propertydefinitions: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmCollection>,
         P1: windows_core::Param<IFsrmCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).UseRulesAndDefinitions)(windows_core::Interface::as_raw(self), rules.param().abi(), propertydefinitions.param().abi()).ok() }
     }
-    pub unsafe fn OnBeginFile<P0>(&self, propertybag: P0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>
+    pub unsafe fn OnBeginFile<P0>(&self, propertybag: P0, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmPropertyBag>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnBeginFile)(windows_core::Interface::as_raw(self), propertybag.param().abi(), arrayruleids).ok() }
     }
-    pub unsafe fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DoesPropertyValueApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute_copy(value), applyvalue as _, core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok() }
     }
-    pub unsafe fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: windows_core::GUID, idpropdef: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyValueToApply)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(property), core::mem::transmute(value), core::mem::transmute(idrule), core::mem::transmute(idpropdef)).ok() }
     }
-    pub unsafe fn OnEndFile(&self) -> windows_core::Result<()> {
+    pub unsafe fn OnEndFile(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnEndFile)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2505,12 +2505,12 @@ pub struct IFsrmClassifierModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmClassifierModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
-    fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<'_, IFsrmCollection>, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> windows_core::Result<()>;
-    fn OnBeginFile(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
-    fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> windows_core::Result<()>;
-    fn OnEndFile(&self) -> windows_core::Result<()>;
+    fn LastModified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn UseRulesAndDefinitions(&self, rules: windows_core::Ref<'_, IFsrmCollection>, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> Result<(), windows_result::HRESULT>;
+    fn OnBeginFile(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>, arrayruleids: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn DoesPropertyValueApply(&self, property: &windows_core::BSTR, value: &windows_core::BSTR, applyvalue: *mut super::super::Foundation::VARIANT_BOOL, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn GetPropertyValueToApply(&self, property: &windows_core::BSTR, value: *mut windows_core::BSTR, idrule: &windows_core::GUID, idpropdef: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn OnEndFile(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmClassifierModuleImplementation_Vtbl {
@@ -2523,7 +2523,7 @@ impl IFsrmClassifierModuleImplementation_Vtbl {
                         lastmodified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2586,42 +2586,42 @@ impl core::ops::Deref for IFsrmCollection {
 windows_core::imp::interface_hierarchy!(IFsrmCollection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmCollection {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<FsrmCollectionState> {
+    pub unsafe fn State(&self) -> Result<FsrmCollectionState, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetById(&self, id: windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetById(&self, id: windows_core::GUID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetById)(windows_core::Interface::as_raw(self), core::mem::transmute(id), &mut result__).map(|| core::mem::transmute(result__))
@@ -2649,13 +2649,13 @@ pub struct IFsrmCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmCollection_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn State(&self) -> windows_core::Result<FsrmCollectionState>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetById(&self, id: &windows_core::GUID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn _NewEnum(&self) -> Result<windows_core::IUnknown, windows_result::HRESULT>;
+    fn get_Item(&self, index: i32) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn State(&self) -> Result<FsrmCollectionState, windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
+    fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn GetById(&self, id: &windows_core::GUID) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmCollection_Vtbl {
@@ -2668,7 +2668,7 @@ impl IFsrmCollection_Vtbl {
                         unknown.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2680,7 +2680,7 @@ impl IFsrmCollection_Vtbl {
                         item.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2692,7 +2692,7 @@ impl IFsrmCollection_Vtbl {
                         count.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2704,7 +2704,7 @@ impl IFsrmCollection_Vtbl {
                         state.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2722,7 +2722,7 @@ impl IFsrmCollection_Vtbl {
                         completed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2734,7 +2734,7 @@ impl IFsrmCollection_Vtbl {
                         entry.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2768,7 +2768,7 @@ impl core::ops::Deref for IFsrmCommittableCollection {
 windows_core::imp::interface_hierarchy!(IFsrmCommittableCollection, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmCollection, IFsrmMutableCollection);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmCommittableCollection {
-    pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn Commit(&self, options: FsrmCommitOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2784,7 +2784,7 @@ pub struct IFsrmCommittableCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmCommittableCollection_Impl: IFsrmMutableCollection_Impl {
-    fn Commit(&self, options: FsrmCommitOptions) -> windows_core::Result<IFsrmCollection>;
+    fn Commit(&self, options: FsrmCommitOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmCommittableCollection_Vtbl {
@@ -2797,7 +2797,7 @@ impl IFsrmCommittableCollection_Vtbl {
                         results.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2822,13 +2822,13 @@ impl core::ops::Deref for IFsrmDerivedObjectsResult {
 windows_core::imp::interface_hierarchy!(IFsrmDerivedObjectsResult, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmDerivedObjectsResult {
-    pub unsafe fn DerivedObjects(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn DerivedObjects(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DerivedObjects)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Results(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn Results(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2845,8 +2845,8 @@ pub struct IFsrmDerivedObjectsResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmDerivedObjectsResult_Impl: super::super::System::Com::IDispatch_Impl {
-    fn DerivedObjects(&self) -> windows_core::Result<IFsrmCollection>;
-    fn Results(&self) -> windows_core::Result<IFsrmCollection>;
+    fn DerivedObjects(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn Results(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmDerivedObjectsResult_Vtbl {
@@ -2859,7 +2859,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                         derivedobjects.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2871,7 +2871,7 @@ impl IFsrmDerivedObjectsResult_Vtbl {
                         results.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -2901,33 +2901,33 @@ windows_core::imp::interface_hierarchy!(IFsrmExportImport, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmExportImport {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(filegroupnamessafearray), core::mem::transmute_copy(remotehost)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(filegroupnamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportFileScreenTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ExportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportQuotaTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filepath), core::mem::transmute(templatenamessafearray), core::mem::transmute_copy(remotehost), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2966,12 +2966,12 @@ pub struct IFsrmExportImport_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmExportImport_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ExportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImportFileGroups(&self, filepath: &windows_core::BSTR, filegroupnamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn ExportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImportFileScreenTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn ExportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ImportQuotaTemplates(&self, filepath: &windows_core::BSTR, templatenamessafearray: *const super::super::System::Variant::VARIANT, remotehost: &windows_core::BSTR) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmExportImport_Vtbl {
@@ -2990,7 +2990,7 @@ impl IFsrmExportImport_Vtbl {
                         filegroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3008,7 +3008,7 @@ impl IFsrmExportImport_Vtbl {
                         templates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3026,7 +3026,7 @@ impl IFsrmExportImport_Vtbl {
                         templates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3059,13 +3059,13 @@ impl core::ops::Deref for IFsrmFileCondition {
 windows_core::imp::interface_hierarchy!(IFsrmFileCondition, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileCondition {
-    pub unsafe fn Type(&self) -> windows_core::Result<FsrmFileConditionType> {
+    pub unsafe fn Type(&self) -> Result<FsrmFileConditionType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3079,8 +3079,8 @@ pub struct IFsrmFileCondition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileCondition_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Type(&self) -> windows_core::Result<FsrmFileConditionType>;
-    fn Delete(&self) -> windows_core::Result<()>;
+    fn Type(&self) -> Result<FsrmFileConditionType, windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileCondition_Vtbl {
@@ -3093,7 +3093,7 @@ impl IFsrmFileCondition_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3124,51 +3124,51 @@ impl core::ops::Deref for IFsrmFileConditionProperty {
 windows_core::imp::interface_hierarchy!(IFsrmFileConditionProperty, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmFileCondition);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileConditionProperty {
-    pub unsafe fn PropertyName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PropertyName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPropertyName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertyName(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
-    pub unsafe fn PropertyId(&self) -> windows_core::Result<FsrmFileSystemPropertyId> {
+    pub unsafe fn PropertyId(&self) -> Result<FsrmFileSystemPropertyId, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> windows_core::Result<()> {
+    pub unsafe fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPropertyId)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Operator(&self) -> windows_core::Result<FsrmPropertyConditionType> {
+    pub unsafe fn Operator(&self) -> Result<FsrmPropertyConditionType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Operator)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> windows_core::Result<()> {
+    pub unsafe fn SetOperator(&self, newval: FsrmPropertyConditionType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOperator)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn ValueType(&self) -> windows_core::Result<FsrmPropertyValueType> {
+    pub unsafe fn ValueType(&self) -> Result<FsrmPropertyValueType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> windows_core::Result<()> {
+    pub unsafe fn SetValueType(&self, newval: FsrmPropertyValueType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValueType)(windows_core::Interface::as_raw(self), newval).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetValue(&self, newval: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, newval: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
 }
@@ -3196,16 +3196,16 @@ pub struct IFsrmFileConditionProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileConditionProperty_Impl: IFsrmFileCondition_Impl {
-    fn PropertyName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPropertyName(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PropertyId(&self) -> windows_core::Result<FsrmFileSystemPropertyId>;
-    fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> windows_core::Result<()>;
-    fn Operator(&self) -> windows_core::Result<FsrmPropertyConditionType>;
-    fn SetOperator(&self, newval: FsrmPropertyConditionType) -> windows_core::Result<()>;
-    fn ValueType(&self) -> windows_core::Result<FsrmPropertyValueType>;
-    fn SetValueType(&self, newval: FsrmPropertyValueType) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetValue(&self, newval: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn PropertyName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetPropertyName(&self, newval: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn PropertyId(&self) -> Result<FsrmFileSystemPropertyId, windows_result::HRESULT>;
+    fn SetPropertyId(&self, newval: FsrmFileSystemPropertyId) -> Result<(), windows_result::HRESULT>;
+    fn Operator(&self) -> Result<FsrmPropertyConditionType, windows_result::HRESULT>;
+    fn SetOperator(&self, newval: FsrmPropertyConditionType) -> Result<(), windows_result::HRESULT>;
+    fn ValueType(&self) -> Result<FsrmPropertyValueType, windows_result::HRESULT>;
+    fn SetValueType(&self, newval: FsrmPropertyValueType) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetValue(&self, newval: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileConditionProperty_Vtbl {
@@ -3218,7 +3218,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3236,7 +3236,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3254,7 +3254,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3272,7 +3272,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3290,7 +3290,7 @@ impl IFsrmFileConditionProperty_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3333,34 +3333,34 @@ impl core::ops::Deref for IFsrmFileGroup {
 windows_core::imp::interface_hierarchy!(IFsrmFileGroup, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroup {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Members(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn Members(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Members)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetMembers<P0>(&self, members: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMembers<P0>(&self, members: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmMutableCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMembers)(windows_core::Interface::as_raw(self), members.param().abi()).ok() }
     }
-    pub unsafe fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn NonMembers(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NonMembers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> windows_core::Result<()>
+    pub unsafe fn SetNonMembers<P0>(&self, nonmembers: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmMutableCollection>,
     {
@@ -3381,12 +3381,12 @@ pub struct IFsrmFileGroup_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroup_Impl: IFsrmObject_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Members(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetMembers(&self, members: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
-    fn NonMembers(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetNonMembers(&self, nonmembers: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Members(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT>;
+    fn SetMembers(&self, members: windows_core::Ref<'_, IFsrmMutableCollection>) -> Result<(), windows_result::HRESULT>;
+    fn NonMembers(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT>;
+    fn SetNonMembers(&self, nonmembers: windows_core::Ref<'_, IFsrmMutableCollection>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroup_Vtbl {
@@ -3399,7 +3399,7 @@ impl IFsrmFileGroup_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3417,7 +3417,7 @@ impl IFsrmFileGroup_Vtbl {
                         members.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3435,7 +3435,7 @@ impl IFsrmFileGroup_Vtbl {
                         nonmembers.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3474,13 +3474,13 @@ impl core::ops::Deref for IFsrmFileGroupImported {
 windows_core::imp::interface_hierarchy!(IFsrmFileGroupImported, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileGroup);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroupImported {
-    pub unsafe fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OverwriteOnCommit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite).ok() }
     }
 }
@@ -3494,8 +3494,8 @@ pub struct IFsrmFileGroupImported_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroupImported_Impl: IFsrmFileGroup_Impl {
-    fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroupImported_Vtbl {
@@ -3508,7 +3508,7 @@ impl IFsrmFileGroupImported_Vtbl {
                         overwrite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3543,33 +3543,33 @@ impl core::ops::Deref for IFsrmFileGroupManager {
 windows_core::imp::interface_hierarchy!(IFsrmFileGroupManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileGroupManager {
-    pub unsafe fn CreateFileGroup(&self) -> windows_core::Result<IFsrmFileGroup> {
+    pub unsafe fn CreateFileGroup(&self) -> Result<IFsrmFileGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileGroup)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileGroup(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileGroup> {
+    pub unsafe fn GetFileGroup(&self, name: &windows_core::BSTR) -> Result<IFsrmFileGroup, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileGroups(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileGroups)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute(filegroupnamesarray), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportFileGroups)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serializedfilegroups), core::mem::transmute(filegroupnamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3595,11 +3595,11 @@ pub struct IFsrmFileGroupManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileGroupManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CreateFileGroup(&self) -> windows_core::Result<IFsrmFileGroup>;
-    fn GetFileGroup(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileGroup>;
-    fn EnumFileGroups(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn CreateFileGroup(&self) -> Result<IFsrmFileGroup, windows_result::HRESULT>;
+    fn GetFileGroup(&self, name: &windows_core::BSTR) -> Result<IFsrmFileGroup, windows_result::HRESULT>;
+    fn EnumFileGroups(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn ExportFileGroups(&self, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ImportFileGroups(&self, serializedfilegroups: &windows_core::BSTR, filegroupnamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileGroupManager_Vtbl {
@@ -3612,7 +3612,7 @@ impl IFsrmFileGroupManager_Vtbl {
                         filegroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3624,7 +3624,7 @@ impl IFsrmFileGroupManager_Vtbl {
                         filegroup.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3636,7 +3636,7 @@ impl IFsrmFileGroupManager_Vtbl {
                         filegroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3648,7 +3648,7 @@ impl IFsrmFileGroupManager_Vtbl {
                         serializedfilegroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3660,7 +3660,7 @@ impl IFsrmFileGroupManager_Vtbl {
                         filegroups.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -3692,232 +3692,232 @@ impl core::ops::Deref for IFsrmFileManagementJob {
 windows_core::imp::interface_hierarchy!(IFsrmFileManagementJob, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileManagementJob {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NamespaceRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceRoots)(windows_core::Interface::as_raw(self), namespaceroots).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
-    pub unsafe fn OperationType(&self) -> windows_core::Result<FsrmFileManagementType> {
+    pub unsafe fn OperationType(&self) -> Result<FsrmFileManagementType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OperationType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> windows_core::Result<()> {
+    pub unsafe fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOperationType)(windows_core::Interface::as_raw(self), operationtype).ok() }
     }
-    pub unsafe fn ExpirationDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExpirationDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpirationDirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetExpirationDirectory(&self, expirationdirectory: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetExpirationDirectory(&self, expirationdirectory: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetExpirationDirectory)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(expirationdirectory)).ok() }
     }
-    pub unsafe fn CustomAction(&self) -> windows_core::Result<IFsrmActionCommand> {
+    pub unsafe fn CustomAction(&self) -> Result<IFsrmActionCommand, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CustomAction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Notifications(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Notifications(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Notifications)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Logging(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Logging(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Logging)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLogging(&self, loggingflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLogging(&self, loggingflags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetLogging)(windows_core::Interface::as_raw(self), loggingflags).ok() }
     }
-    pub unsafe fn ReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ReportEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReportEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportEnabled)(windows_core::Interface::as_raw(self), reportenabled).ok() }
     }
-    pub unsafe fn Formats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Formats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Formats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormats)(windows_core::Interface::as_raw(self), formats).ok() }
     }
-    pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
-    pub unsafe fn DaysSinceFileCreated(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DaysSinceFileCreated(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DaysSinceFileCreated)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysSinceFileCreated)(windows_core::Interface::as_raw(self), dayssincecreation).ok() }
     }
-    pub unsafe fn DaysSinceFileLastAccessed(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DaysSinceFileLastAccessed(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DaysSinceFileLastAccessed)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysSinceFileLastAccessed)(windows_core::Interface::as_raw(self), dayssinceaccess).ok() }
     }
-    pub unsafe fn DaysSinceFileLastModified(&self) -> windows_core::Result<i32> {
+    pub unsafe fn DaysSinceFileLastModified(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DaysSinceFileLastModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDaysSinceFileLastModified)(windows_core::Interface::as_raw(self), dayssincemodify).ok() }
     }
-    pub unsafe fn PropertyConditions(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn PropertyConditions(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyConditions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FromDate(&self) -> windows_core::Result<f64> {
+    pub unsafe fn FromDate(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FromDate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFromDate(&self, fromdate: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetFromDate(&self, fromdate: f64) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFromDate)(windows_core::Interface::as_raw(self), fromdate).ok() }
     }
-    pub unsafe fn Task(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Task)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname)).ok() }
     }
-    pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters).ok() }
     }
-    pub unsafe fn RunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus> {
+    pub unsafe fn RunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunningStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastError(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastError)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn LastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LastReportPathWithoutExtension(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastReportPathWithoutExtension)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn LastRun(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LastRun(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastRun)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FileNamePattern(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FileNamePattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileNamePattern)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFileNamePattern(&self, filenamepattern: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFileNamePattern(&self, filenamepattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileNamePattern)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filenamepattern)).ok() }
     }
-    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> windows_core::Result<()> {
+    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), context).ok() }
     }
-    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddNotification(&self, days: i32) -> windows_core::Result<()> {
+    pub unsafe fn AddNotification(&self, days: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddNotification)(windows_core::Interface::as_raw(self), days).ok() }
     }
-    pub unsafe fn DeleteNotification(&self, days: i32) -> windows_core::Result<()> {
+    pub unsafe fn DeleteNotification(&self, days: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteNotification)(windows_core::Interface::as_raw(self), days).ok() }
     }
-    pub unsafe fn ModifyNotification(&self, days: i32, newdays: i32) -> windows_core::Result<()> {
+    pub unsafe fn ModifyNotification(&self, days: i32, newdays: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ModifyNotification)(windows_core::Interface::as_raw(self), days, newdays).ok() }
     }
-    pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction> {
+    pub unsafe fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateNotificationAction)(windows_core::Interface::as_raw(self), days, actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumNotificationActions(&self, days: i32) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumNotificationActions(&self, days: i32) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumNotificationActions)(windows_core::Interface::as_raw(self), days, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreatePropertyCondition(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyCondition> {
+    pub unsafe fn CreatePropertyCondition(&self, name: &windows_core::BSTR) -> Result<IFsrmPropertyCondition, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreatePropertyCondition)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateCustomAction(&self) -> windows_core::Result<IFsrmActionCommand> {
+    pub unsafe fn CreateCustomAction(&self) -> Result<IFsrmActionCommand, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateCustomAction)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3981,55 +3981,55 @@ pub struct IFsrmFileManagementJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileManagementJob_Impl: IFsrmObject_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn OperationType(&self) -> windows_core::Result<FsrmFileManagementType>;
-    fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> windows_core::Result<()>;
-    fn ExpirationDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetExpirationDirectory(&self, expirationdirectory: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CustomAction(&self) -> windows_core::Result<IFsrmActionCommand>;
-    fn Notifications(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn Logging(&self) -> windows_core::Result<i32>;
-    fn SetLogging(&self, loggingflags: i32) -> windows_core::Result<()>;
-    fn ReportEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Formats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DaysSinceFileCreated(&self) -> windows_core::Result<i32>;
-    fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> windows_core::Result<()>;
-    fn DaysSinceFileLastAccessed(&self) -> windows_core::Result<i32>;
-    fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> windows_core::Result<()>;
-    fn DaysSinceFileLastModified(&self) -> windows_core::Result<i32>;
-    fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> windows_core::Result<()>;
-    fn PropertyConditions(&self) -> windows_core::Result<IFsrmCollection>;
-    fn FromDate(&self) -> windows_core::Result<f64>;
-    fn SetFromDate(&self, fromdate: f64) -> windows_core::Result<()>;
-    fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus>;
-    fn LastError(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn LastReportPathWithoutExtension(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn LastRun(&self) -> windows_core::Result<f64>;
-    fn FileNamePattern(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFileNamePattern(&self, filenamepattern: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Run(&self, context: FsrmReportGenerationContext) -> windows_core::Result<()>;
-    fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn AddNotification(&self, days: i32) -> windows_core::Result<()>;
-    fn DeleteNotification(&self, days: i32) -> windows_core::Result<()>;
-    fn ModifyNotification(&self, days: i32, newdays: i32) -> windows_core::Result<()>;
-    fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
-    fn EnumNotificationActions(&self, days: i32) -> windows_core::Result<IFsrmCollection>;
-    fn CreatePropertyCondition(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmPropertyCondition>;
-    fn CreateCustomAction(&self) -> windows_core::Result<IFsrmActionCommand>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn OperationType(&self) -> Result<FsrmFileManagementType, windows_result::HRESULT>;
+    fn SetOperationType(&self, operationtype: FsrmFileManagementType) -> Result<(), windows_result::HRESULT>;
+    fn ExpirationDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetExpirationDirectory(&self, expirationdirectory: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CustomAction(&self) -> Result<IFsrmActionCommand, windows_result::HRESULT>;
+    fn Notifications(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn Logging(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetLogging(&self, loggingflags: i32) -> Result<(), windows_result::HRESULT>;
+    fn ReportEnabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetReportEnabled(&self, reportenabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Formats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DaysSinceFileCreated(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetDaysSinceFileCreated(&self, dayssincecreation: i32) -> Result<(), windows_result::HRESULT>;
+    fn DaysSinceFileLastAccessed(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetDaysSinceFileLastAccessed(&self, dayssinceaccess: i32) -> Result<(), windows_result::HRESULT>;
+    fn DaysSinceFileLastModified(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetDaysSinceFileLastModified(&self, dayssincemodify: i32) -> Result<(), windows_result::HRESULT>;
+    fn PropertyConditions(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn FromDate(&self) -> Result<f64, windows_result::HRESULT>;
+    fn SetFromDate(&self, fromdate: f64) -> Result<(), windows_result::HRESULT>;
+    fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn RunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT>;
+    fn LastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn LastReportPathWithoutExtension(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn LastRun(&self) -> Result<f64, windows_result::HRESULT>;
+    fn FileNamePattern(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetFileNamePattern(&self, filenamepattern: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Run(&self, context: FsrmReportGenerationContext) -> Result<(), windows_result::HRESULT>;
+    fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
+    fn AddNotification(&self, days: i32) -> Result<(), windows_result::HRESULT>;
+    fn DeleteNotification(&self, days: i32) -> Result<(), windows_result::HRESULT>;
+    fn ModifyNotification(&self, days: i32, newdays: i32) -> Result<(), windows_result::HRESULT>;
+    fn CreateNotificationAction(&self, days: i32, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT>;
+    fn EnumNotificationActions(&self, days: i32) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreatePropertyCondition(&self, name: &windows_core::BSTR) -> Result<IFsrmPropertyCondition, windows_result::HRESULT>;
+    fn CreateCustomAction(&self) -> Result<IFsrmActionCommand, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileManagementJob_Vtbl {
@@ -4042,7 +4042,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4060,7 +4060,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         namespaceroots.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4078,7 +4078,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         enabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4096,7 +4096,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         operationtype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4114,7 +4114,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         expirationdirectory.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4132,7 +4132,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         action.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4144,7 +4144,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         notifications.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4156,7 +4156,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         loggingflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4174,7 +4174,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         reportenabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4192,7 +4192,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         formats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4210,7 +4210,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4228,7 +4228,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         dayssincecreation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4246,7 +4246,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         dayssinceaccess.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4264,7 +4264,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         dayssincemodify.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4282,7 +4282,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         propertyconditions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4294,7 +4294,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         fromdate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4312,7 +4312,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         taskname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4330,7 +4330,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         parameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4348,7 +4348,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         runningstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4360,7 +4360,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         lasterror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4372,7 +4372,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4384,7 +4384,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         lastrun.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4396,7 +4396,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         filenamepattern.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4420,7 +4420,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         completed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4456,7 +4456,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         action.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4468,7 +4468,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         actions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4480,7 +4480,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         propertycondition.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4492,7 +4492,7 @@ impl IFsrmFileManagementJob_Vtbl {
                         customaction.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4568,31 +4568,31 @@ impl core::ops::Deref for IFsrmFileManagementJobManager {
 windows_core::imp::interface_hierarchy!(IFsrmFileManagementJobManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileManagementJobManager {
-    pub unsafe fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariables)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariableDescriptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileManagementJobs)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFileManagementJob(&self) -> windows_core::Result<IFsrmFileManagementJob> {
+    pub unsafe fn CreateFileManagementJob(&self) -> Result<IFsrmFileManagementJob, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileManagementJob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileManagementJob(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileManagementJob> {
+    pub unsafe fn GetFileManagementJob(&self, name: &windows_core::BSTR) -> Result<IFsrmFileManagementJob, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileManagementJob)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4612,11 +4612,11 @@ pub struct IFsrmFileManagementJobManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileManagementJobManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
-    fn CreateFileManagementJob(&self) -> windows_core::Result<IFsrmFileManagementJob>;
-    fn GetFileManagementJob(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileManagementJob>;
+    fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn EnumFileManagementJobs(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreateFileManagementJob(&self) -> Result<IFsrmFileManagementJob, windows_result::HRESULT>;
+    fn GetFileManagementJob(&self, name: &windows_core::BSTR) -> Result<IFsrmFileManagementJob, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileManagementJobManager_Vtbl {
@@ -4629,7 +4629,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                         variables.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4641,7 +4641,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                         descriptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4653,7 +4653,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                         filemanagementjobs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4665,7 +4665,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                         filemanagementjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4677,7 +4677,7 @@ impl IFsrmFileManagementJobManager_Vtbl {
                         filemanagementjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4709,37 +4709,37 @@ impl core::ops::Deref for IFsrmFileScreen {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreen, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreen {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SourceTemplateName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SourceTemplateName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SourceTemplateName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MatchesSourceTemplate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MatchesSourceTemplate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MatchesSourceTemplate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UserSid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserSid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserAccount)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ApplyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ApplyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filescreentemplatename)).ok() }
     }
 }
@@ -4757,12 +4757,12 @@ pub struct IFsrmFileScreen_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreen_Impl: IFsrmFileScreenBase_Impl {
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SourceTemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MatchesSourceTemplate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn UserSid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ApplyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SourceTemplateName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn MatchesSourceTemplate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn UserSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ApplyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreen_Vtbl {
@@ -4775,7 +4775,7 @@ impl IFsrmFileScreen_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4787,7 +4787,7 @@ impl IFsrmFileScreen_Vtbl {
                         filescreentemplatename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4799,7 +4799,7 @@ impl IFsrmFileScreen_Vtbl {
                         matches.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4811,7 +4811,7 @@ impl IFsrmFileScreen_Vtbl {
                         usersid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4823,7 +4823,7 @@ impl IFsrmFileScreen_Vtbl {
                         useraccount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4862,34 +4862,34 @@ impl core::ops::Deref for IFsrmFileScreenBase {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenBase, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenBase {
-    pub unsafe fn BlockedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn BlockedFileGroups(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BlockedFileGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> windows_core::Result<()>
+    pub unsafe fn SetBlockedFileGroups<P0>(&self, blocklist: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmMutableCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetBlockedFileGroups)(windows_core::Interface::as_raw(self), blocklist.param().abi()).ok() }
     }
-    pub unsafe fn FileScreenFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn FileScreenFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileScreenFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetFileScreenFlags(&self, filescreenflags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileScreenFlags)(windows_core::Interface::as_raw(self), filescreenflags).ok() }
     }
-    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction> {
+    pub unsafe fn CreateAction(&self, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateAction)(windows_core::Interface::as_raw(self), actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumActions(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumActions(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumActions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4910,12 +4910,12 @@ pub struct IFsrmFileScreenBase_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenBase_Impl: IFsrmObject_Impl {
-    fn BlockedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetBlockedFileGroups(&self, blocklist: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
-    fn FileScreenFlags(&self) -> windows_core::Result<i32>;
-    fn SetFileScreenFlags(&self, filescreenflags: i32) -> windows_core::Result<()>;
-    fn CreateAction(&self, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
-    fn EnumActions(&self) -> windows_core::Result<IFsrmCollection>;
+    fn BlockedFileGroups(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT>;
+    fn SetBlockedFileGroups(&self, blocklist: windows_core::Ref<'_, IFsrmMutableCollection>) -> Result<(), windows_result::HRESULT>;
+    fn FileScreenFlags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetFileScreenFlags(&self, filescreenflags: i32) -> Result<(), windows_result::HRESULT>;
+    fn CreateAction(&self, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT>;
+    fn EnumActions(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenBase_Vtbl {
@@ -4928,7 +4928,7 @@ impl IFsrmFileScreenBase_Vtbl {
                         blocklist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4946,7 +4946,7 @@ impl IFsrmFileScreenBase_Vtbl {
                         filescreenflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4964,7 +4964,7 @@ impl IFsrmFileScreenBase_Vtbl {
                         action.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -4976,7 +4976,7 @@ impl IFsrmFileScreenBase_Vtbl {
                         actions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5009,19 +5009,19 @@ impl core::ops::Deref for IFsrmFileScreenException {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenException, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenException {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AllowedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn AllowedFileGroups(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowedFileGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetAllowedFileGroups<P0>(&self, allowlist: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAllowedFileGroups<P0>(&self, allowlist: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmMutableCollection>,
     {
@@ -5039,9 +5039,9 @@ pub struct IFsrmFileScreenException_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenException_Impl: IFsrmObject_Impl {
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AllowedFileGroups(&self) -> windows_core::Result<IFsrmMutableCollection>;
-    fn SetAllowedFileGroups(&self, allowlist: windows_core::Ref<'_, IFsrmMutableCollection>) -> windows_core::Result<()>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn AllowedFileGroups(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT>;
+    fn SetAllowedFileGroups(&self, allowlist: windows_core::Ref<'_, IFsrmMutableCollection>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenException_Vtbl {
@@ -5054,7 +5054,7 @@ impl IFsrmFileScreenException_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5066,7 +5066,7 @@ impl IFsrmFileScreenException_Vtbl {
                         allowlist.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5102,55 +5102,55 @@ impl core::ops::Deref for IFsrmFileScreenManager {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenManager {
-    pub unsafe fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariables)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariableDescriptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateFileScreen(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreen> {
+    pub unsafe fn CreateFileScreen(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreen, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileScreen)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileScreen(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreen> {
+    pub unsafe fn GetFileScreen(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreen, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileScreen)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumFileScreens(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileScreens(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileScreens)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFileScreenException(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenException> {
+    pub unsafe fn CreateFileScreenException(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreenException, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileScreenException)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetFileScreenException(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenException> {
+    pub unsafe fn GetFileScreenException(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreenException, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileScreenException)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumFileScreenExceptions(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumFileScreenExceptions(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumFileScreenExceptions)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateFileScreenCollection(&self) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn CreateFileScreenCollection(&self) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateFileScreenCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5174,15 +5174,15 @@ pub struct IFsrmFileScreenManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CreateFileScreen(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreen>;
-    fn GetFileScreen(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreen>;
-    fn EnumFileScreens(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn CreateFileScreenException(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenException>;
-    fn GetFileScreenException(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenException>;
-    fn EnumFileScreenExceptions(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn CreateFileScreenCollection(&self) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CreateFileScreen(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreen, windows_result::HRESULT>;
+    fn GetFileScreen(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreen, windows_result::HRESULT>;
+    fn EnumFileScreens(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn CreateFileScreenException(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreenException, windows_result::HRESULT>;
+    fn GetFileScreenException(&self, path: &windows_core::BSTR) -> Result<IFsrmFileScreenException, windows_result::HRESULT>;
+    fn EnumFileScreenExceptions(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn CreateFileScreenCollection(&self) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenManager_Vtbl {
@@ -5195,7 +5195,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         variables.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5207,7 +5207,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         descriptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5219,7 +5219,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreen.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5231,7 +5231,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreen.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5243,7 +5243,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreens.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5255,7 +5255,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreenexception.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5267,7 +5267,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreenexception.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5279,7 +5279,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         filescreenexceptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5291,7 +5291,7 @@ impl IFsrmFileScreenManager_Vtbl {
                         collection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5327,19 +5327,19 @@ impl core::ops::Deref for IFsrmFileScreenTemplate {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplate, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplate {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn CopyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn CopyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(filescreentemplatename)).ok() }
     }
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommitAndUpdateDerived)(windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5358,10 +5358,10 @@ pub struct IFsrmFileScreenTemplate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplate_Impl: IFsrmFileScreenBase_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CopyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CopyTemplate(&self, filescreentemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplate_Vtbl {
@@ -5374,7 +5374,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5398,7 +5398,7 @@ impl IFsrmFileScreenTemplate_Vtbl {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5429,13 +5429,13 @@ impl core::ops::Deref for IFsrmFileScreenTemplateImported {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplateImported, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmFileScreenBase, IFsrmFileScreenTemplate);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplateImported {
-    pub unsafe fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OverwriteOnCommit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite).ok() }
     }
 }
@@ -5449,8 +5449,8 @@ pub struct IFsrmFileScreenTemplateImported_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplateImported_Impl: IFsrmFileScreenTemplate_Impl {
-    fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplateImported_Vtbl {
@@ -5463,7 +5463,7 @@ impl IFsrmFileScreenTemplateImported_Vtbl {
                         overwrite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5498,33 +5498,33 @@ impl core::ops::Deref for IFsrmFileScreenTemplateManager {
 windows_core::imp::interface_hierarchy!(IFsrmFileScreenTemplateManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmFileScreenTemplateManager {
-    pub unsafe fn CreateTemplate(&self) -> windows_core::Result<IFsrmFileScreenTemplate> {
+    pub unsafe fn CreateTemplate(&self) -> Result<IFsrmFileScreenTemplate, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTemplate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenTemplate> {
+    pub unsafe fn GetTemplate(&self, name: &windows_core::BSTR) -> Result<IFsrmFileScreenTemplate, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumTemplates)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute(filescreentemplatenamesarray), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serializedfilescreentemplates), core::mem::transmute(filescreentemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5550,11 +5550,11 @@ pub struct IFsrmFileScreenTemplateManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmFileScreenTemplateManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CreateTemplate(&self) -> windows_core::Result<IFsrmFileScreenTemplate>;
-    fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmFileScreenTemplate>;
-    fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn CreateTemplate(&self) -> Result<IFsrmFileScreenTemplate, windows_result::HRESULT>;
+    fn GetTemplate(&self, name: &windows_core::BSTR) -> Result<IFsrmFileScreenTemplate, windows_result::HRESULT>;
+    fn EnumTemplates(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn ExportTemplates(&self, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ImportTemplates(&self, serializedfilescreentemplates: &windows_core::BSTR, filescreentemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmFileScreenTemplateManager_Vtbl {
@@ -5567,7 +5567,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                         filescreentemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5579,7 +5579,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                         filescreentemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5591,7 +5591,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                         filescreentemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5603,7 +5603,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                         serializedfilescreentemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5615,7 +5615,7 @@ impl IFsrmFileScreenTemplateManager_Vtbl {
                         filescreentemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5648,16 +5648,16 @@ windows_core::imp::interface_hierarchy!(IFsrmMutableCollection, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmMutableCollection {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add(&self, item: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Add(&self, item: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(item)).ok() }
     }
-    pub unsafe fn Remove(&self, index: i32) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, index: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), index).ok() }
     }
-    pub unsafe fn RemoveById(&self, id: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn RemoveById(&self, id: windows_core::GUID) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RemoveById)(windows_core::Interface::as_raw(self), core::mem::transmute(id)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IFsrmMutableCollection> {
+    pub unsafe fn Clone(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -5679,10 +5679,10 @@ pub struct IFsrmMutableCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmMutableCollection_Impl: IFsrmCollection_Impl {
-    fn Add(&self, item: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Remove(&self, index: i32) -> windows_core::Result<()>;
-    fn RemoveById(&self, id: &windows_core::GUID) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IFsrmMutableCollection>;
+    fn Add(&self, item: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Remove(&self, index: i32) -> Result<(), windows_result::HRESULT>;
+    fn RemoveById(&self, id: &windows_core::GUID) -> Result<(), windows_result::HRESULT>;
+    fn Clone(&self) -> Result<IFsrmMutableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmMutableCollection_Vtbl {
@@ -5713,7 +5713,7 @@ impl IFsrmMutableCollection_Vtbl {
                         collection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5744,25 +5744,25 @@ impl core::ops::Deref for IFsrmObject {
 windows_core::imp::interface_hierarchy!(IFsrmObject, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmObject {
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn Id(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Commit(&self) -> windows_core::Result<()> {
+    pub unsafe fn Commit(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Commit)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -5779,11 +5779,11 @@ pub struct IFsrmObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmObject_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
-    fn Commit(&self) -> windows_core::Result<()>;
+    fn Id(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
+    fn Commit(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmObject_Vtbl {
@@ -5796,7 +5796,7 @@ impl IFsrmObject_Vtbl {
                         id.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5808,7 +5808,7 @@ impl IFsrmObject_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5858,7 +5858,7 @@ impl core::ops::Deref for IFsrmPathMapper {
 windows_core::imp::interface_hierarchy!(IFsrmPathMapper, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPathMapper {
-    pub unsafe fn GetSharePathsForLocalPath(&self, localpath: &windows_core::BSTR) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn GetSharePathsForLocalPath(&self, localpath: &windows_core::BSTR) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSharePathsForLocalPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(localpath), &mut result__).map(|| result__)
@@ -5874,7 +5874,7 @@ pub struct IFsrmPathMapper_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPathMapper_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetSharePathsForLocalPath(&self, localpath: &windows_core::BSTR) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn GetSharePathsForLocalPath(&self, localpath: &windows_core::BSTR) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPathMapper_Vtbl {
@@ -5887,7 +5887,7 @@ impl IFsrmPathMapper_Vtbl {
                         sharepaths.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5915,31 +5915,31 @@ impl core::ops::Deref for IFsrmPipelineModuleConnector {
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleConnector, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleConnector {
-    pub unsafe fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation> {
+    pub unsafe fn ModuleImplementation(&self) -> Result<IFsrmPipelineModuleImplementation, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleImplementation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ModuleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HostingUserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn HostingUserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HostingUserAccount)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn HostingProcessPid(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HostingProcessPid(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HostingProcessPid)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> windows_core::Result<()>
+    pub unsafe fn Bind<P0, P1>(&self, moduledefinition: P0, moduleimplementation: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
         P1: windows_core::Param<IFsrmPipelineModuleImplementation>,
@@ -5960,11 +5960,11 @@ pub struct IFsrmPipelineModuleConnector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleConnector_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ModuleImplementation(&self) -> windows_core::Result<IFsrmPipelineModuleImplementation>;
-    fn ModuleName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn HostingUserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn HostingProcessPid(&self) -> windows_core::Result<i32>;
-    fn Bind(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<'_, IFsrmPipelineModuleImplementation>) -> windows_core::Result<()>;
+    fn ModuleImplementation(&self) -> Result<IFsrmPipelineModuleImplementation, windows_result::HRESULT>;
+    fn ModuleName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn HostingUserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn HostingProcessPid(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Bind(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>, moduleimplementation: windows_core::Ref<'_, IFsrmPipelineModuleImplementation>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleConnector_Vtbl {
@@ -5977,7 +5977,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         pipelinemoduleimplementation.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -5989,7 +5989,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         username.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6001,7 +6001,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         useraccount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6013,7 +6013,7 @@ impl IFsrmPipelineModuleConnector_Vtbl {
                         pid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6051,91 +6051,91 @@ impl core::ops::Deref for IFsrmPipelineModuleDefinition {
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleDefinition, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleDefinition {
-    pub unsafe fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ModuleClsid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleClsid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetModuleClsid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(moduleclsid)).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Company(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Company(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Company)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCompany(&self, company: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCompany(&self, company: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCompany)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(company)).ok() }
     }
-    pub unsafe fn Version(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Version(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetVersion(&self, version: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetVersion(&self, version: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetVersion)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(version)).ok() }
     }
-    pub unsafe fn ModuleType(&self) -> windows_core::Result<FsrmPipelineModuleType> {
+    pub unsafe fn ModuleType(&self) -> Result<FsrmPipelineModuleType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
-    pub unsafe fn NeedsFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn NeedsFileContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NeedsFileContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNeedsFileContent)(windows_core::Interface::as_raw(self), needsfilecontent).ok() }
     }
-    pub unsafe fn Account(&self) -> windows_core::Result<FsrmAccountType> {
+    pub unsafe fn Account(&self) -> Result<FsrmAccountType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Account)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> windows_core::Result<()> {
+    pub unsafe fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAccount)(windows_core::Interface::as_raw(self), retrievalaccount).ok() }
     }
-    pub unsafe fn SupportedExtensions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn SupportedExtensions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedExtensions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportedExtensions)(windows_core::Interface::as_raw(self), supportedextensions).ok() }
     }
-    pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters).ok() }
     }
 }
@@ -6166,25 +6166,25 @@ pub struct IFsrmPipelineModuleDefinition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleDefinition_Impl: IFsrmObject_Impl {
-    fn ModuleClsid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Company(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCompany(&self, company: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Version(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetVersion(&self, version: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ModuleType(&self) -> windows_core::Result<FsrmPipelineModuleType>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn NeedsFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Account(&self) -> windows_core::Result<FsrmAccountType>;
-    fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> windows_core::Result<()>;
-    fn SupportedExtensions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn ModuleClsid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetModuleClsid(&self, moduleclsid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Company(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetCompany(&self, company: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Version(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetVersion(&self, version: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ModuleType(&self) -> Result<FsrmPipelineModuleType, windows_result::HRESULT>;
+    fn Enabled(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnabled(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn NeedsFileContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetNeedsFileContent(&self, needsfilecontent: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn Account(&self) -> Result<FsrmAccountType, windows_result::HRESULT>;
+    fn SetAccount(&self, retrievalaccount: FsrmAccountType) -> Result<(), windows_result::HRESULT>;
+    fn SupportedExtensions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetSupportedExtensions(&self, supportedextensions: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleDefinition_Vtbl {
@@ -6197,7 +6197,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         moduleclsid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6215,7 +6215,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6233,7 +6233,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         company.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6251,7 +6251,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         version.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6269,7 +6269,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         moduletype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6281,7 +6281,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         enabled.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6299,7 +6299,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         needsfilecontent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6317,7 +6317,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         retrievalaccount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6335,7 +6335,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         supportedextensions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6353,7 +6353,7 @@ impl IFsrmPipelineModuleDefinition_Vtbl {
                         parameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6405,7 +6405,7 @@ impl core::ops::Deref for IFsrmPipelineModuleImplementation {
 windows_core::imp::interface_hierarchy!(IFsrmPipelineModuleImplementation, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPipelineModuleImplementation {
-    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> windows_core::Result<IFsrmPipelineModuleConnector>
+    pub unsafe fn OnLoad<P0>(&self, moduledefinition: P0) -> Result<IFsrmPipelineModuleConnector, windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmPipelineModuleDefinition>,
     {
@@ -6414,7 +6414,7 @@ impl IFsrmPipelineModuleImplementation {
             (windows_core::Interface::vtable(self).OnLoad)(windows_core::Interface::as_raw(self), moduledefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OnUnload(&self) -> windows_core::Result<()> {
+    pub unsafe fn OnUnload(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).OnUnload)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6428,8 +6428,8 @@ pub struct IFsrmPipelineModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPipelineModuleImplementation_Impl: super::super::System::Com::IDispatch_Impl {
-    fn OnLoad(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>) -> windows_core::Result<IFsrmPipelineModuleConnector>;
-    fn OnUnload(&self) -> windows_core::Result<()>;
+    fn OnLoad(&self, moduledefinition: windows_core::Ref<'_, IFsrmPipelineModuleDefinition>) -> Result<IFsrmPipelineModuleConnector, windows_result::HRESULT>;
+    fn OnUnload(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPipelineModuleImplementation_Vtbl {
@@ -6442,7 +6442,7 @@ impl IFsrmPipelineModuleImplementation_Vtbl {
                         moduleconnector.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6477,25 +6477,25 @@ impl core::ops::Deref for IFsrmProperty {
 windows_core::imp::interface_hierarchy!(IFsrmProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmProperty {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Sources(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Sources(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Sources)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PropertyFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PropertyFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6514,10 +6514,10 @@ pub struct IFsrmProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmProperty_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Sources(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn PropertyFlags(&self) -> windows_core::Result<i32>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Sources(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn PropertyFlags(&self) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmProperty_Vtbl {
@@ -6530,7 +6530,7 @@ impl IFsrmProperty_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6542,7 +6542,7 @@ impl IFsrmProperty_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6554,7 +6554,7 @@ impl IFsrmProperty_Vtbl {
                         sources.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6566,7 +6566,7 @@ impl IFsrmProperty_Vtbl {
                         flags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6597,129 +6597,129 @@ impl core::ops::Deref for IFsrmPropertyBag {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyBag, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RelativePath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RelativePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RelativePath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RelativeNamespaceRoot(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RelativeNamespaceRoot(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RelativeNamespaceRoot)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn VolumeIndex(&self) -> windows_core::Result<u32> {
+    pub unsafe fn VolumeIndex(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VolumeIndex)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FileId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn FileId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FileId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ParentDirectoryId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn ParentDirectoryId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ParentDirectoryId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Size(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Size(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Size)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SizeAllocated(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SizeAllocated(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SizeAllocated)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn CreationTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastAccessTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn LastAccessTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastAccessTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastModificationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn LastModificationTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModificationTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Attributes(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Attributes(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Attributes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OwnerSid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn OwnerSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OwnerSid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn FilePropertyNames(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn FilePropertyNames(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FilePropertyNames)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Messages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Messages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Messages)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PropertyBagFlags(&self) -> windows_core::Result<u32> {
+    pub unsafe fn PropertyBagFlags(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyBagFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFileProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmProperty> {
+    pub unsafe fn GetFileProperty(&self, name: &windows_core::BSTR) -> Result<IFsrmProperty, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFileProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddMessage(&self, message: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(message)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFileStreamInterface)(windows_core::Interface::as_raw(self), accessmode, interfacetype, &mut result__).map(|| core::mem::transmute(result__))
@@ -6779,27 +6779,27 @@ pub struct IFsrmPropertyBag_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyBag_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RelativePath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RelativeNamespaceRoot(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn VolumeIndex(&self) -> windows_core::Result<u32>;
-    fn FileId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn ParentDirectoryId(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Size(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SizeAllocated(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn CreationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn LastAccessTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn LastModificationTime(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Attributes(&self) -> windows_core::Result<u32>;
-    fn OwnerSid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn FilePropertyNames(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn Messages(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn PropertyBagFlags(&self) -> windows_core::Result<u32>;
-    fn GetFileProperty(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmProperty>;
-    fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddMessage(&self, message: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RelativePath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn RelativeNamespaceRoot(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn VolumeIndex(&self) -> Result<u32, windows_result::HRESULT>;
+    fn FileId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn ParentDirectoryId(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Size(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SizeAllocated(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn CreationTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn LastAccessTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn LastModificationTime(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn Attributes(&self) -> Result<u32, windows_result::HRESULT>;
+    fn OwnerSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn FilePropertyNames(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn Messages(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn PropertyBagFlags(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetFileProperty(&self, name: &windows_core::BSTR) -> Result<IFsrmProperty, windows_result::HRESULT>;
+    fn SetFileProperty(&self, name: &windows_core::BSTR, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AddMessage(&self, message: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn GetFileStreamInterface(&self, accessmode: FsrmFileStreamingMode, interfacetype: FsrmFileStreamingInterfaceType) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyBag_Vtbl {
@@ -6812,7 +6812,7 @@ impl IFsrmPropertyBag_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6824,7 +6824,7 @@ impl IFsrmPropertyBag_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6836,7 +6836,7 @@ impl IFsrmPropertyBag_Vtbl {
                         volumename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6848,7 +6848,7 @@ impl IFsrmPropertyBag_Vtbl {
                         relativenamespaceroot.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6860,7 +6860,7 @@ impl IFsrmPropertyBag_Vtbl {
                         volumeid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6872,7 +6872,7 @@ impl IFsrmPropertyBag_Vtbl {
                         fileid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6884,7 +6884,7 @@ impl IFsrmPropertyBag_Vtbl {
                         parentdirectoryid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6896,7 +6896,7 @@ impl IFsrmPropertyBag_Vtbl {
                         size.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6908,7 +6908,7 @@ impl IFsrmPropertyBag_Vtbl {
                         sizeallocated.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6920,7 +6920,7 @@ impl IFsrmPropertyBag_Vtbl {
                         creationtime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6932,7 +6932,7 @@ impl IFsrmPropertyBag_Vtbl {
                         lastaccesstime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6944,7 +6944,7 @@ impl IFsrmPropertyBag_Vtbl {
                         lastmodificationtime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6956,7 +6956,7 @@ impl IFsrmPropertyBag_Vtbl {
                         attributes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6968,7 +6968,7 @@ impl IFsrmPropertyBag_Vtbl {
                         ownersid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6980,7 +6980,7 @@ impl IFsrmPropertyBag_Vtbl {
                         filepropertynames.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -6992,7 +6992,7 @@ impl IFsrmPropertyBag_Vtbl {
                         messages.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7004,7 +7004,7 @@ impl IFsrmPropertyBag_Vtbl {
                         flags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7016,7 +7016,7 @@ impl IFsrmPropertyBag_Vtbl {
                         fileproperty.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7040,7 +7040,7 @@ impl IFsrmPropertyBag_Vtbl {
                         pstreaminterface.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7089,13 +7089,13 @@ windows_core::imp::interface_hierarchy!(IFsrmPropertyBag2, windows_core::IUnknow
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyBag2 {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetFieldValue(&self, field: FsrmPropertyBagField) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFieldValue)(windows_core::Interface::as_raw(self), field, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetUntrustedInFileProperties(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn GetUntrustedInFileProperties(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUntrustedInFileProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7115,8 +7115,8 @@ pub struct IFsrmPropertyBag2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyBag2_Impl: IFsrmPropertyBag_Impl {
-    fn GetFieldValue(&self, field: FsrmPropertyBagField) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetUntrustedInFileProperties(&self) -> windows_core::Result<IFsrmCollection>;
+    fn GetFieldValue(&self, field: FsrmPropertyBagField) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn GetUntrustedInFileProperties(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyBag2_Vtbl {
@@ -7129,7 +7129,7 @@ impl IFsrmPropertyBag2_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7141,7 +7141,7 @@ impl IFsrmPropertyBag2_Vtbl {
                         props.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7170,34 +7170,34 @@ impl core::ops::Deref for IFsrmPropertyCondition {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyCondition, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyCondition {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<FsrmPropertyConditionType> {
+    pub unsafe fn Type(&self) -> Result<FsrmPropertyConditionType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> windows_core::Result<()> {
+    pub unsafe fn SetType(&self, r#type: FsrmPropertyConditionType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetValue(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(value)).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -7216,13 +7216,13 @@ pub struct IFsrmPropertyCondition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyCondition_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Type(&self) -> windows_core::Result<FsrmPropertyConditionType>;
-    fn SetType(&self, r#type: FsrmPropertyConditionType) -> windows_core::Result<()>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetValue(&self, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Type(&self) -> Result<FsrmPropertyConditionType, windows_result::HRESULT>;
+    fn SetType(&self, r#type: FsrmPropertyConditionType) -> Result<(), windows_result::HRESULT>;
+    fn Value(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetValue(&self, value: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyCondition_Vtbl {
@@ -7235,7 +7235,7 @@ impl IFsrmPropertyCondition_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7253,7 +7253,7 @@ impl IFsrmPropertyCondition_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7271,7 +7271,7 @@ impl IFsrmPropertyCondition_Vtbl {
                         value.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7317,49 +7317,49 @@ impl core::ops::Deref for IFsrmPropertyDefinition {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinition {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<FsrmPropertyDefinitionType> {
+    pub unsafe fn Type(&self) -> Result<FsrmPropertyDefinitionType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> windows_core::Result<()> {
+    pub unsafe fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetType)(windows_core::Interface::as_raw(self), r#type).ok() }
     }
-    pub unsafe fn PossibleValues(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn PossibleValues(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PossibleValues)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetPossibleValues)(windows_core::Interface::as_raw(self), possiblevalues).ok() }
     }
-    pub unsafe fn ValueDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ValueDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueDescriptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetValueDescriptions)(windows_core::Interface::as_raw(self), valuedescriptions).ok() }
     }
-    pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters).ok() }
     }
 }
@@ -7381,16 +7381,16 @@ pub struct IFsrmPropertyDefinition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinition_Impl: IFsrmObject_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Type(&self) -> windows_core::Result<FsrmPropertyDefinitionType>;
-    fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> windows_core::Result<()>;
-    fn PossibleValues(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn ValueDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Type(&self) -> Result<FsrmPropertyDefinitionType, windows_result::HRESULT>;
+    fn SetType(&self, r#type: FsrmPropertyDefinitionType) -> Result<(), windows_result::HRESULT>;
+    fn PossibleValues(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetPossibleValues(&self, possiblevalues: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn ValueDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetValueDescriptions(&self, valuedescriptions: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinition_Vtbl {
@@ -7403,7 +7403,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7421,7 +7421,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                         r#type.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7439,7 +7439,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                         possiblevalues.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7457,7 +7457,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                         valuedescriptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7475,7 +7475,7 @@ impl IFsrmPropertyDefinition_Vtbl {
                         parameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7518,28 +7518,28 @@ impl core::ops::Deref for IFsrmPropertyDefinition2 {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinition2, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPropertyDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinition2 {
-    pub unsafe fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PropertyDefinitionFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PropertyDefinitionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisplayName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn AppliesTo(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AppliesTo(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AppliesTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ValueDefinitions(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn ValueDefinitions(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ValueDefinitions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7559,11 +7559,11 @@ pub struct IFsrmPropertyDefinition2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinition2_Impl: IFsrmPropertyDefinition_Impl {
-    fn PropertyDefinitionFlags(&self) -> windows_core::Result<i32>;
-    fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDisplayName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AppliesTo(&self) -> windows_core::Result<i32>;
-    fn ValueDefinitions(&self) -> windows_core::Result<IFsrmCollection>;
+    fn PropertyDefinitionFlags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDisplayName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AppliesTo(&self) -> Result<i32, windows_result::HRESULT>;
+    fn ValueDefinitions(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinition2_Vtbl {
@@ -7576,7 +7576,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         propertydefinitionflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7588,7 +7588,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7606,7 +7606,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         appliesto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7618,7 +7618,7 @@ impl IFsrmPropertyDefinition2_Vtbl {
                         valuedefinitions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7650,25 +7650,25 @@ impl core::ops::Deref for IFsrmPropertyDefinitionValue {
 windows_core::imp::interface_hierarchy!(IFsrmPropertyDefinitionValue, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmPropertyDefinitionValue {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisplayName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UniqueID(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UniqueID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UniqueID)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -7687,10 +7687,10 @@ pub struct IFsrmPropertyDefinitionValue_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmPropertyDefinitionValue_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn DisplayName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UniqueID(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn DisplayName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UniqueID(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmPropertyDefinitionValue_Vtbl {
@@ -7703,7 +7703,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7715,7 +7715,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         displayname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7727,7 +7727,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7739,7 +7739,7 @@ impl IFsrmPropertyDefinitionValue_Vtbl {
                         uniqueid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7771,29 +7771,29 @@ windows_core::imp::interface_hierarchy!(IFsrmQuota, windows_core::IUnknown, supe
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuota {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn QuotaUsed(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn QuotaUsed(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaUsed)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn QuotaPeakUsage(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn QuotaPeakUsage(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaPeakUsage)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn QuotaPeakUsageTime(&self) -> windows_core::Result<f64> {
+    pub unsafe fn QuotaPeakUsageTime(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaPeakUsageTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ResetPeakUsage(&self) -> windows_core::Result<()> {
+    pub unsafe fn ResetPeakUsage(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ResetPeakUsage)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn RefreshUsageProperties(&self) -> windows_core::Result<()> {
+    pub unsafe fn RefreshUsageProperties(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).RefreshUsageProperties)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -7816,11 +7816,11 @@ pub struct IFsrmQuota_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuota_Impl: IFsrmQuotaObject_Impl {
-    fn QuotaUsed(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn QuotaPeakUsage(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn QuotaPeakUsageTime(&self) -> windows_core::Result<f64>;
-    fn ResetPeakUsage(&self) -> windows_core::Result<()>;
-    fn RefreshUsageProperties(&self) -> windows_core::Result<()>;
+    fn QuotaUsed(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn QuotaPeakUsage(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn QuotaPeakUsageTime(&self) -> Result<f64, windows_result::HRESULT>;
+    fn ResetPeakUsage(&self) -> Result<(), windows_result::HRESULT>;
+    fn RefreshUsageProperties(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuota_Vtbl {
@@ -7833,7 +7833,7 @@ impl IFsrmQuota_Vtbl {
                         used.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7845,7 +7845,7 @@ impl IFsrmQuota_Vtbl {
                         peakusage.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7857,7 +7857,7 @@ impl IFsrmQuota_Vtbl {
                         peakusagedatetime.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -7902,47 +7902,47 @@ windows_core::imp::interface_hierarchy!(IFsrmQuotaBase, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaBase {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn QuotaLimit(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn QuotaLimit(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetQuotaLimit(&self, quotalimit: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetQuotaLimit(&self, quotalimit: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaLimit)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(quotalimit)).ok() }
     }
-    pub unsafe fn QuotaFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn QuotaFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).QuotaFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetQuotaFlags(&self, quotaflags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetQuotaFlags)(windows_core::Interface::as_raw(self), quotaflags).ok() }
     }
-    pub unsafe fn Thresholds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Thresholds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Thresholds)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddThreshold(&self, threshold: i32) -> windows_core::Result<()> {
+    pub unsafe fn AddThreshold(&self, threshold: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).AddThreshold)(windows_core::Interface::as_raw(self), threshold).ok() }
     }
-    pub unsafe fn DeleteThreshold(&self, threshold: i32) -> windows_core::Result<()> {
+    pub unsafe fn DeleteThreshold(&self, threshold: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteThreshold)(windows_core::Interface::as_raw(self), threshold).ok() }
     }
-    pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> windows_core::Result<()> {
+    pub unsafe fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ModifyThreshold)(windows_core::Interface::as_raw(self), threshold, newthreshold).ok() }
     }
-    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction> {
+    pub unsafe fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateThresholdAction)(windows_core::Interface::as_raw(self), threshold, actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumThresholdActions(&self, threshold: i32) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumThresholdActions)(windows_core::Interface::as_raw(self), threshold, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7973,16 +7973,16 @@ pub struct IFsrmQuotaBase_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaBase_Impl: IFsrmObject_Impl {
-    fn QuotaLimit(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetQuotaLimit(&self, quotalimit: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn QuotaFlags(&self) -> windows_core::Result<i32>;
-    fn SetQuotaFlags(&self, quotaflags: i32) -> windows_core::Result<()>;
-    fn Thresholds(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn AddThreshold(&self, threshold: i32) -> windows_core::Result<()>;
-    fn DeleteThreshold(&self, threshold: i32) -> windows_core::Result<()>;
-    fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> windows_core::Result<()>;
-    fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> windows_core::Result<IFsrmAction>;
-    fn EnumThresholdActions(&self, threshold: i32) -> windows_core::Result<IFsrmCollection>;
+    fn QuotaLimit(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetQuotaLimit(&self, quotalimit: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn QuotaFlags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetQuotaFlags(&self, quotaflags: i32) -> Result<(), windows_result::HRESULT>;
+    fn Thresholds(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn AddThreshold(&self, threshold: i32) -> Result<(), windows_result::HRESULT>;
+    fn DeleteThreshold(&self, threshold: i32) -> Result<(), windows_result::HRESULT>;
+    fn ModifyThreshold(&self, threshold: i32, newthreshold: i32) -> Result<(), windows_result::HRESULT>;
+    fn CreateThresholdAction(&self, threshold: i32, actiontype: FsrmActionType) -> Result<IFsrmAction, windows_result::HRESULT>;
+    fn EnumThresholdActions(&self, threshold: i32) -> Result<IFsrmCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaBase_Vtbl {
@@ -7995,7 +7995,7 @@ impl IFsrmQuotaBase_Vtbl {
                         quotalimit.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8013,7 +8013,7 @@ impl IFsrmQuotaBase_Vtbl {
                         quotaflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8031,7 +8031,7 @@ impl IFsrmQuotaBase_Vtbl {
                         thresholds.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8061,7 +8061,7 @@ impl IFsrmQuotaBase_Vtbl {
                         action.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8073,7 +8073,7 @@ impl IFsrmQuotaBase_Vtbl {
                         actions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8110,70 +8110,70 @@ impl core::ops::Deref for IFsrmQuotaManager {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManager {
-    pub unsafe fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariables)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActionVariableDescriptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota> {
+    pub unsafe fn CreateQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateAutoApplyQuota(&self, quotatemplatename: &windows_core::BSTR, path: &windows_core::BSTR) -> windows_core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn CreateAutoApplyQuota(&self, quotatemplatename: &windows_core::BSTR, path: &windows_core::BSTR) -> Result<IFsrmAutoApplyQuota, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateAutoApplyQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(quotatemplatename), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota> {
+    pub unsafe fn GetQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetAutoApplyQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmAutoApplyQuota> {
+    pub unsafe fn GetAutoApplyQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmAutoApplyQuota, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAutoApplyQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRestrictiveQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota> {
+    pub unsafe fn GetRestrictiveQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRestrictiveQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumQuotas)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumAutoApplyQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumAutoApplyQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumAutoApplyQuotas)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumEffectiveQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumEffectiveQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumEffectiveQuotas)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Scan(&self, strpath: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Scan(&self, strpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Scan)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strpath)).ok() }
     }
-    pub unsafe fn CreateQuotaCollection(&self) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn CreateQuotaCollection(&self) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateQuotaCollection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8200,18 +8200,18 @@ pub struct IFsrmQuotaManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ActionVariables(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ActionVariableDescriptions(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn CreateQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota>;
-    fn CreateAutoApplyQuota(&self, quotatemplatename: &windows_core::BSTR, path: &windows_core::BSTR) -> windows_core::Result<IFsrmAutoApplyQuota>;
-    fn GetQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota>;
-    fn GetAutoApplyQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmAutoApplyQuota>;
-    fn GetRestrictiveQuota(&self, path: &windows_core::BSTR) -> windows_core::Result<IFsrmQuota>;
-    fn EnumQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn EnumAutoApplyQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn EnumEffectiveQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn Scan(&self, strpath: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CreateQuotaCollection(&self) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn ActionVariables(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn ActionVariableDescriptions(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn CreateQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT>;
+    fn CreateAutoApplyQuota(&self, quotatemplatename: &windows_core::BSTR, path: &windows_core::BSTR) -> Result<IFsrmAutoApplyQuota, windows_result::HRESULT>;
+    fn GetQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT>;
+    fn GetAutoApplyQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmAutoApplyQuota, windows_result::HRESULT>;
+    fn GetRestrictiveQuota(&self, path: &windows_core::BSTR) -> Result<IFsrmQuota, windows_result::HRESULT>;
+    fn EnumQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn EnumAutoApplyQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn EnumEffectiveQuotas(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn Scan(&self, strpath: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CreateQuotaCollection(&self) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaManager_Vtbl {
@@ -8224,7 +8224,7 @@ impl IFsrmQuotaManager_Vtbl {
                         variables.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8236,7 +8236,7 @@ impl IFsrmQuotaManager_Vtbl {
                         descriptions.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8248,7 +8248,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quota.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8260,7 +8260,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quota.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8272,7 +8272,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quota.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8284,7 +8284,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quota.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8296,7 +8296,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quota.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8308,7 +8308,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quotas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8320,7 +8320,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quotas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8332,7 +8332,7 @@ impl IFsrmQuotaManager_Vtbl {
                         quotas.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8350,7 +8350,7 @@ impl IFsrmQuotaManager_Vtbl {
                         collection.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8389,7 +8389,7 @@ impl core::ops::Deref for IFsrmQuotaManagerEx {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaManagerEx, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmQuotaManager);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaManagerEx {
-    pub unsafe fn IsAffectedByQuota(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsAffectedByQuota(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsAffectedByQuota)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(path), options, &mut result__).map(|| result__)
@@ -8405,7 +8405,7 @@ pub struct IFsrmQuotaManagerEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaManagerEx_Impl: IFsrmQuotaManager_Impl {
-    fn IsAffectedByQuota(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsAffectedByQuota(&self, path: &windows_core::BSTR, options: FsrmEnumOptions) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaManagerEx_Vtbl {
@@ -8418,7 +8418,7 @@ impl IFsrmQuotaManagerEx_Vtbl {
                         affected.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8443,37 +8443,37 @@ impl core::ops::Deref for IFsrmQuotaObject {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaObject, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaObject {
-    pub unsafe fn Path(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Path)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserSid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserSid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserAccount)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SourceTemplateName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SourceTemplateName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SourceTemplateName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MatchesSourceTemplate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MatchesSourceTemplate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MatchesSourceTemplate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ApplyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ApplyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ApplyTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(quotatemplatename)).ok() }
     }
 }
@@ -8491,12 +8491,12 @@ pub struct IFsrmQuotaObject_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaObject_Impl: IFsrmQuotaBase_Impl {
-    fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserSid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SourceTemplateName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MatchesSourceTemplate(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ApplyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Path(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UserSid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn UserAccount(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SourceTemplateName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn MatchesSourceTemplate(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn ApplyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaObject_Vtbl {
@@ -8509,7 +8509,7 @@ impl IFsrmQuotaObject_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8521,7 +8521,7 @@ impl IFsrmQuotaObject_Vtbl {
                         usersid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8533,7 +8533,7 @@ impl IFsrmQuotaObject_Vtbl {
                         useraccount.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8545,7 +8545,7 @@ impl IFsrmQuotaObject_Vtbl {
                         quotatemplatename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8557,7 +8557,7 @@ impl IFsrmQuotaObject_Vtbl {
                         matches.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8596,19 +8596,19 @@ impl core::ops::Deref for IFsrmQuotaTemplate {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplate, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplate {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn CopyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn CopyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CopyTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(quotatemplatename)).ok() }
     }
-    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult> {
+    pub unsafe fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommitAndUpdateDerived)(windows_core::Interface::as_raw(self), commitoptions, applyoptions, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8627,10 +8627,10 @@ pub struct IFsrmQuotaTemplate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplate_Impl: IFsrmQuotaBase_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CopyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> windows_core::Result<IFsrmDerivedObjectsResult>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CopyTemplate(&self, quotatemplatename: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn CommitAndUpdateDerived(&self, commitoptions: FsrmCommitOptions, applyoptions: FsrmTemplateApplyOptions) -> Result<IFsrmDerivedObjectsResult, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplate_Vtbl {
@@ -8643,7 +8643,7 @@ impl IFsrmQuotaTemplate_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8667,7 +8667,7 @@ impl IFsrmQuotaTemplate_Vtbl {
                         derivedobjectsresult.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8698,13 +8698,13 @@ impl core::ops::Deref for IFsrmQuotaTemplateImported {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplateImported, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmQuotaBase, IFsrmQuotaTemplate);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplateImported {
-    pub unsafe fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OverwriteOnCommit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOverwriteOnCommit)(windows_core::Interface::as_raw(self), overwrite).ok() }
     }
 }
@@ -8718,8 +8718,8 @@ pub struct IFsrmQuotaTemplateImported_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplateImported_Impl: IFsrmQuotaTemplate_Impl {
-    fn OverwriteOnCommit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn OverwriteOnCommit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetOverwriteOnCommit(&self, overwrite: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplateImported_Vtbl {
@@ -8732,7 +8732,7 @@ impl IFsrmQuotaTemplateImported_Vtbl {
                         overwrite.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8767,33 +8767,33 @@ impl core::ops::Deref for IFsrmQuotaTemplateManager {
 windows_core::imp::interface_hierarchy!(IFsrmQuotaTemplateManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmQuotaTemplateManager {
-    pub unsafe fn CreateTemplate(&self) -> windows_core::Result<IFsrmQuotaTemplate> {
+    pub unsafe fn CreateTemplate(&self) -> Result<IFsrmQuotaTemplate, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateTemplate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmQuotaTemplate> {
+    pub unsafe fn GetTemplate(&self, name: &windows_core::BSTR) -> Result<IFsrmQuotaTemplate, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTemplate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn EnumTemplates(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumTemplates)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute(quotatemplatenamesarray), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection> {
+    pub unsafe fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ImportTemplates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(serializedquotatemplates), core::mem::transmute(quotatemplatenamesarray), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8819,11 +8819,11 @@ pub struct IFsrmQuotaTemplateManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmQuotaTemplateManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn CreateTemplate(&self) -> windows_core::Result<IFsrmQuotaTemplate>;
-    fn GetTemplate(&self, name: &windows_core::BSTR) -> windows_core::Result<IFsrmQuotaTemplate>;
-    fn EnumTemplates(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCommittableCollection>;
-    fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BSTR>;
-    fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<IFsrmCommittableCollection>;
+    fn CreateTemplate(&self) -> Result<IFsrmQuotaTemplate, windows_result::HRESULT>;
+    fn GetTemplate(&self, name: &windows_core::BSTR) -> Result<IFsrmQuotaTemplate, windows_result::HRESULT>;
+    fn EnumTemplates(&self, options: FsrmEnumOptions) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
+    fn ExportTemplates(&self, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ImportTemplates(&self, serializedquotatemplates: &windows_core::BSTR, quotatemplatenamesarray: *const super::super::System::Variant::VARIANT) -> Result<IFsrmCommittableCollection, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmQuotaTemplateManager_Vtbl {
@@ -8836,7 +8836,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                         quotatemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8848,7 +8848,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                         quotatemplate.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8860,7 +8860,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                         quotatemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8872,7 +8872,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                         serializedquotatemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8884,7 +8884,7 @@ impl IFsrmQuotaTemplateManager_Vtbl {
                         quotatemplates.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -8916,48 +8916,48 @@ impl core::ops::Deref for IFsrmReport {
 windows_core::imp::interface_hierarchy!(IFsrmReport, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReport {
-    pub unsafe fn Type(&self) -> windows_core::Result<FsrmReportType> {
+    pub unsafe fn Type(&self) -> Result<FsrmReportType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(description)).ok() }
     }
-    pub unsafe fn LastGeneratedFileNamePrefix(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LastGeneratedFileNamePrefix(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastGeneratedFileNamePrefix)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetFilter(&self, filter: FsrmReportFilter) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFilter)(windows_core::Interface::as_raw(self), filter, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFilter)(windows_core::Interface::as_raw(self), filter, core::mem::transmute_copy(filtervalue)).ok() }
     }
-    pub unsafe fn Delete(&self) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -8984,15 +8984,15 @@ pub struct IFsrmReport_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReport_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Type(&self) -> windows_core::Result<FsrmReportType>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, description: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LastGeneratedFileNamePrefix(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetFilter(&self, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Delete(&self) -> windows_core::Result<()>;
+    fn Type(&self) -> Result<FsrmReportType, windows_result::HRESULT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn Description(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetDescription(&self, description: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn LastGeneratedFileNamePrefix(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn GetFilter(&self, filter: FsrmReportFilter) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetFilter(&self, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn Delete(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReport_Vtbl {
@@ -9005,7 +9005,7 @@ impl IFsrmReport_Vtbl {
                         reporttype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9017,7 +9017,7 @@ impl IFsrmReport_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9035,7 +9035,7 @@ impl IFsrmReport_Vtbl {
                         description.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9053,7 +9053,7 @@ impl IFsrmReport_Vtbl {
                         prefix.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9065,7 +9065,7 @@ impl IFsrmReport_Vtbl {
                         filtervalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9113,88 +9113,88 @@ impl core::ops::Deref for IFsrmReportJob {
 windows_core::imp::interface_hierarchy!(IFsrmReportJob, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportJob {
-    pub unsafe fn Task(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Task)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname)).ok() }
     }
-    pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NamespaceRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceRoots)(windows_core::Interface::as_raw(self), namespaceroots).ok() }
     }
-    pub unsafe fn Formats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Formats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Formats)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetFormats)(windows_core::Interface::as_raw(self), formats).ok() }
     }
-    pub unsafe fn MailTo(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailTo)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailTo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
-    pub unsafe fn RunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus> {
+    pub unsafe fn RunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RunningStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastRun(&self) -> windows_core::Result<f64> {
+    pub unsafe fn LastRun(&self) -> Result<f64, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastRun)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LastError(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastError)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn LastGeneratedInDirectory(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LastGeneratedInDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastGeneratedInDirectory)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EnumReports(&self) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumReports(&self) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumReports)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> windows_core::Result<IFsrmReport> {
+    pub unsafe fn CreateReport(&self, reporttype: FsrmReportType) -> Result<IFsrmReport, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateReport)(windows_core::Interface::as_raw(self), reporttype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> windows_core::Result<()> {
+    pub unsafe fn Run(&self, context: FsrmReportGenerationContext) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Run)(windows_core::Interface::as_raw(self), context).ok() }
     }
-    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WaitForCompletion)(windows_core::Interface::as_raw(self), waitseconds, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -9223,23 +9223,23 @@ pub struct IFsrmReportJob_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportJob_Impl: IFsrmObject_Impl {
-    fn Task(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn Formats(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn MailTo(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RunningStatus(&self) -> windows_core::Result<FsrmReportRunningStatus>;
-    fn LastRun(&self) -> windows_core::Result<f64>;
-    fn LastError(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn LastGeneratedInDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn EnumReports(&self) -> windows_core::Result<IFsrmCollection>;
-    fn CreateReport(&self, reporttype: FsrmReportType) -> windows_core::Result<IFsrmReport>;
-    fn Run(&self, context: FsrmReportGenerationContext) -> windows_core::Result<()>;
-    fn WaitForCompletion(&self, waitseconds: i32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Cancel(&self) -> windows_core::Result<()>;
+    fn Task(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn Formats(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetFormats(&self, formats: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn MailTo(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailTo(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RunningStatus(&self) -> Result<FsrmReportRunningStatus, windows_result::HRESULT>;
+    fn LastRun(&self) -> Result<f64, windows_result::HRESULT>;
+    fn LastError(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn LastGeneratedInDirectory(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn EnumReports(&self) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreateReport(&self, reporttype: FsrmReportType) -> Result<IFsrmReport, windows_result::HRESULT>;
+    fn Run(&self, context: FsrmReportGenerationContext) -> Result<(), windows_result::HRESULT>;
+    fn WaitForCompletion(&self, waitseconds: i32) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportJob_Vtbl {
@@ -9252,7 +9252,7 @@ impl IFsrmReportJob_Vtbl {
                         taskname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9270,7 +9270,7 @@ impl IFsrmReportJob_Vtbl {
                         namespaceroots.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9288,7 +9288,7 @@ impl IFsrmReportJob_Vtbl {
                         formats.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9306,7 +9306,7 @@ impl IFsrmReportJob_Vtbl {
                         mailto.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9324,7 +9324,7 @@ impl IFsrmReportJob_Vtbl {
                         runningstatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9336,7 +9336,7 @@ impl IFsrmReportJob_Vtbl {
                         lastrun.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9348,7 +9348,7 @@ impl IFsrmReportJob_Vtbl {
                         lasterror.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9360,7 +9360,7 @@ impl IFsrmReportJob_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9372,7 +9372,7 @@ impl IFsrmReportJob_Vtbl {
                         reports.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9384,7 +9384,7 @@ impl IFsrmReportJob_Vtbl {
                         report.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9402,7 +9402,7 @@ impl IFsrmReportJob_Vtbl {
                         completed.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9452,59 +9452,59 @@ impl core::ops::Deref for IFsrmReportManager {
 windows_core::imp::interface_hierarchy!(IFsrmReportManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportManager {
-    pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection> {
+    pub unsafe fn EnumReportJobs(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumReportJobs)(windows_core::Interface::as_raw(self), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateReportJob(&self) -> windows_core::Result<IFsrmReportJob> {
+    pub unsafe fn CreateReportJob(&self) -> Result<IFsrmReportJob, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateReportJob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetReportJob(&self, taskname: &windows_core::BSTR) -> windows_core::Result<IFsrmReportJob> {
+    pub unsafe fn GetReportJob(&self, taskname: &windows_core::BSTR) -> Result<IFsrmReportJob, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetReportJob)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOutputDirectory)(windows_core::Interface::as_raw(self), context, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetOutputDirectory(&self, context: FsrmReportGenerationContext, path: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetOutputDirectory(&self, context: FsrmReportGenerationContext, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetOutputDirectory)(windows_core::Interface::as_raw(self), context, core::mem::transmute_copy(path)).ok() }
     }
-    pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsFilterValidForReportType)(windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultFilter)(windows_core::Interface::as_raw(self), reporttype, filter, core::mem::transmute_copy(filtervalue)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetReportSizeLimit)(windows_core::Interface::as_raw(self), limit, core::mem::transmute_copy(limitvalue)).ok() }
     }
 }
@@ -9538,16 +9538,16 @@ pub struct IFsrmReportManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn EnumReportJobs(&self, options: FsrmEnumOptions) -> windows_core::Result<IFsrmCollection>;
-    fn CreateReportJob(&self) -> windows_core::Result<IFsrmReportJob>;
-    fn GetReportJob(&self, taskname: &windows_core::BSTR) -> windows_core::Result<IFsrmReportJob>;
-    fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> windows_core::Result<windows_core::BSTR>;
-    fn SetOutputDirectory(&self, context: FsrmReportGenerationContext, path: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnumReportJobs(&self, options: FsrmEnumOptions) -> Result<IFsrmCollection, windows_result::HRESULT>;
+    fn CreateReportJob(&self) -> Result<IFsrmReportJob, windows_result::HRESULT>;
+    fn GetReportJob(&self, taskname: &windows_core::BSTR) -> Result<IFsrmReportJob, windows_result::HRESULT>;
+    fn GetOutputDirectory(&self, context: FsrmReportGenerationContext) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetOutputDirectory(&self, context: FsrmReportGenerationContext, path: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn IsFilterValidForReportType(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn GetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetDefaultFilter(&self, reporttype: FsrmReportType, filter: FsrmReportFilter, filtervalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn GetReportSizeLimit(&self, limit: FsrmReportLimit) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
+    fn SetReportSizeLimit(&self, limit: FsrmReportLimit, limitvalue: &super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportManager_Vtbl {
@@ -9560,7 +9560,7 @@ impl IFsrmReportManager_Vtbl {
                         reportjobs.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9572,7 +9572,7 @@ impl IFsrmReportManager_Vtbl {
                         reportjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9584,7 +9584,7 @@ impl IFsrmReportManager_Vtbl {
                         reportjob.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9596,7 +9596,7 @@ impl IFsrmReportManager_Vtbl {
                         path.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9614,7 +9614,7 @@ impl IFsrmReportManager_Vtbl {
                         valid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9626,7 +9626,7 @@ impl IFsrmReportManager_Vtbl {
                         filtervalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9644,7 +9644,7 @@ impl IFsrmReportManager_Vtbl {
                         limitvalue.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9688,18 +9688,18 @@ windows_core::imp::interface_hierarchy!(IFsrmReportScheduler, windows_core::IUnk
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmReportScheduler {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).VerifyNamespaces)(windows_core::Interface::as_raw(self), core::mem::transmute(namespacessafearray)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).CreateScheduleTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname), core::mem::transmute(namespacessafearray), core::mem::transmute_copy(serializedtask)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).ModifyScheduleTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname), core::mem::transmute(namespacessafearray), core::mem::transmute_copy(serializedtask)).ok() }
     }
-    pub unsafe fn DeleteScheduleTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn DeleteScheduleTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).DeleteScheduleTask)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(taskname)).ok() }
     }
 }
@@ -9724,10 +9724,10 @@ pub struct IFsrmReportScheduler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmReportScheduler_Impl: super::super::System::Com::IDispatch_Impl {
-    fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DeleteScheduleTask(&self, taskname: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn VerifyNamespaces(&self, namespacessafearray: *const super::super::System::Variant::VARIANT) -> Result<(), windows_result::HRESULT>;
+    fn CreateScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn ModifyScheduleTask(&self, taskname: &windows_core::BSTR, namespacessafearray: *const super::super::System::Variant::VARIANT, serializedtask: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DeleteScheduleTask(&self, taskname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmReportScheduler_Vtbl {
@@ -9783,59 +9783,59 @@ impl core::ops::Deref for IFsrmRule {
 windows_core::imp::interface_hierarchy!(IFsrmRule, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmRule {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn RuleType(&self) -> windows_core::Result<FsrmRuleType> {
+    pub unsafe fn RuleType(&self) -> Result<FsrmRuleType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RuleType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ModuleDefinitionName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ModuleDefinitionName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ModuleDefinitionName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetModuleDefinitionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(moduledefinitionname)).ok() }
     }
-    pub unsafe fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NamespaceRoots)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetNamespaceRoots)(windows_core::Interface::as_raw(self), namespaceroots).ok() }
     }
-    pub unsafe fn RuleFlags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RuleFlags(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RuleFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRuleFlags(&self, ruleflags: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetRuleFlags)(windows_core::Interface::as_raw(self), ruleflags).ok() }
     }
-    pub unsafe fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY> {
+    pub unsafe fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Parameters)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetParameters)(windows_core::Interface::as_raw(self), parameters).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn LastModified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LastModified)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -9865,18 +9865,18 @@ pub struct IFsrmRule_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmRule_Impl: IFsrmObject_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RuleType(&self) -> windows_core::Result<FsrmRuleType>;
-    fn ModuleDefinitionName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn NamespaceRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RuleFlags(&self) -> windows_core::Result<i32>;
-    fn SetRuleFlags(&self, ruleflags: i32) -> windows_core::Result<()>;
-    fn Parameters(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn LastModified(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Name(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn RuleType(&self) -> Result<FsrmRuleType, windows_result::HRESULT>;
+    fn ModuleDefinitionName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetModuleDefinitionName(&self, moduledefinitionname: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn NamespaceRoots(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetNamespaceRoots(&self, namespaceroots: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn RuleFlags(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetRuleFlags(&self, ruleflags: i32) -> Result<(), windows_result::HRESULT>;
+    fn Parameters(&self) -> Result<*mut super::super::System::Com::SAFEARRAY, windows_result::HRESULT>;
+    fn SetParameters(&self, parameters: *const super::super::System::Com::SAFEARRAY) -> Result<(), windows_result::HRESULT>;
+    fn LastModified(&self) -> Result<super::super::System::Variant::VARIANT, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmRule_Vtbl {
@@ -9889,7 +9889,7 @@ impl IFsrmRule_Vtbl {
                         name.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9907,7 +9907,7 @@ impl IFsrmRule_Vtbl {
                         ruletype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9919,7 +9919,7 @@ impl IFsrmRule_Vtbl {
                         moduledefinitionname.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9937,7 +9937,7 @@ impl IFsrmRule_Vtbl {
                         namespaceroots.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9955,7 +9955,7 @@ impl IFsrmRule_Vtbl {
                         ruleflags.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9973,7 +9973,7 @@ impl IFsrmRule_Vtbl {
                         parameters.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -9991,7 +9991,7 @@ impl IFsrmRule_Vtbl {
                         lastmodified.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10030,58 +10030,58 @@ impl core::ops::Deref for IFsrmSetting {
 windows_core::imp::interface_hierarchy!(IFsrmSetting, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmSetting {
-    pub unsafe fn SmtpServer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SmtpServer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SmtpServer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetSmtpServer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(smtpserver)).ok() }
     }
-    pub unsafe fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MailFrom(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MailFrom)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetMailFrom)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailfrom)).ok() }
     }
-    pub unsafe fn AdminEmail(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn AdminEmail(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AdminEmail)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetAdminEmail)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(adminemail)).ok() }
     }
-    pub unsafe fn DisableCommandLine(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DisableCommandLine(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisableCommandLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisableCommandLine(&self, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDisableCommandLine(&self, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDisableCommandLine)(windows_core::Interface::as_raw(self), disablecommandline).ok() }
     }
-    pub unsafe fn EnableScreeningAudit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn EnableScreeningAudit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnableScreeningAudit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetEnableScreeningAudit)(windows_core::Interface::as_raw(self), enablescreeningaudit).ok() }
     }
-    pub unsafe fn EmailTest(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn EmailTest(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).EmailTest)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(mailto)).ok() }
     }
-    pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetActionRunLimitInterval)(windows_core::Interface::as_raw(self), actiontype, delaytimeminutes).ok() }
     }
-    pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> windows_core::Result<i32> {
+    pub unsafe fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetActionRunLimitInterval)(windows_core::Interface::as_raw(self), actiontype, &mut result__).map(|| result__)
@@ -10109,19 +10109,19 @@ pub struct IFsrmSetting_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmSetting_Impl: super::super::System::Com::IDispatch_Impl {
-    fn SmtpServer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MailFrom(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AdminEmail(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DisableCommandLine(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDisableCommandLine(&self, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnableScreeningAudit(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EmailTest(&self, mailto: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> windows_core::Result<()>;
-    fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> windows_core::Result<i32>;
+    fn SmtpServer(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetSmtpServer(&self, smtpserver: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn MailFrom(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetMailFrom(&self, mailfrom: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn AdminEmail(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn SetAdminEmail(&self, adminemail: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn DisableCommandLine(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetDisableCommandLine(&self, disablecommandline: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EnableScreeningAudit(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetEnableScreeningAudit(&self, enablescreeningaudit: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
+    fn EmailTest(&self, mailto: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
+    fn SetActionRunLimitInterval(&self, actiontype: FsrmActionType, delaytimeminutes: i32) -> Result<(), windows_result::HRESULT>;
+    fn GetActionRunLimitInterval(&self, actiontype: FsrmActionType) -> Result<i32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmSetting_Vtbl {
@@ -10134,7 +10134,7 @@ impl IFsrmSetting_Vtbl {
                         smtpserver.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10152,7 +10152,7 @@ impl IFsrmSetting_Vtbl {
                         mailfrom.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10170,7 +10170,7 @@ impl IFsrmSetting_Vtbl {
                         adminemail.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10188,7 +10188,7 @@ impl IFsrmSetting_Vtbl {
                         disablecommandline.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10206,7 +10206,7 @@ impl IFsrmSetting_Vtbl {
                         enablescreeningaudit.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10236,7 +10236,7 @@ impl IFsrmSetting_Vtbl {
                         delaytimeminutes.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10276,31 +10276,31 @@ impl core::ops::Deref for IFsrmStorageModuleDefinition {
 windows_core::imp::interface_hierarchy!(IFsrmStorageModuleDefinition, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmObject, IFsrmPipelineModuleDefinition);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmStorageModuleDefinition {
-    pub unsafe fn Capabilities(&self) -> windows_core::Result<FsrmStorageModuleCaps> {
+    pub unsafe fn Capabilities(&self) -> Result<FsrmStorageModuleCaps, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Capabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> windows_core::Result<()> {
+    pub unsafe fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetCapabilities)(windows_core::Interface::as_raw(self), capabilities).ok() }
     }
-    pub unsafe fn StorageType(&self) -> windows_core::Result<FsrmStorageModuleType> {
+    pub unsafe fn StorageType(&self) -> Result<FsrmStorageModuleType, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StorageType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> windows_core::Result<()> {
+    pub unsafe fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetStorageType)(windows_core::Interface::as_raw(self), storagetype).ok() }
     }
-    pub unsafe fn UpdatesFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn UpdatesFileContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdatesFileContent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetUpdatesFileContent)(windows_core::Interface::as_raw(self), updatesfilecontent).ok() }
     }
 }
@@ -10318,12 +10318,12 @@ pub struct IFsrmStorageModuleDefinition_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmStorageModuleDefinition_Impl: IFsrmPipelineModuleDefinition_Impl {
-    fn Capabilities(&self) -> windows_core::Result<FsrmStorageModuleCaps>;
-    fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> windows_core::Result<()>;
-    fn StorageType(&self) -> windows_core::Result<FsrmStorageModuleType>;
-    fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> windows_core::Result<()>;
-    fn UpdatesFileContent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Capabilities(&self) -> Result<FsrmStorageModuleCaps, windows_result::HRESULT>;
+    fn SetCapabilities(&self, capabilities: FsrmStorageModuleCaps) -> Result<(), windows_result::HRESULT>;
+    fn StorageType(&self) -> Result<FsrmStorageModuleType, windows_result::HRESULT>;
+    fn SetStorageType(&self, storagetype: FsrmStorageModuleType) -> Result<(), windows_result::HRESULT>;
+    fn UpdatesFileContent(&self) -> Result<super::super::Foundation::VARIANT_BOOL, windows_result::HRESULT>;
+    fn SetUpdatesFileContent(&self, updatesfilecontent: super::super::Foundation::VARIANT_BOOL) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmStorageModuleDefinition_Vtbl {
@@ -10336,7 +10336,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         capabilities.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10354,7 +10354,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         storagetype.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10372,7 +10372,7 @@ impl IFsrmStorageModuleDefinition_Vtbl {
                         updatesfilecontent.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -10411,19 +10411,19 @@ impl core::ops::Deref for IFsrmStorageModuleImplementation {
 windows_core::imp::interface_hierarchy!(IFsrmStorageModuleImplementation, windows_core::IUnknown, super::super::System::Com::IDispatch, IFsrmPipelineModuleImplementation);
 #[cfg(feature = "Win32_System_Com")]
 impl IFsrmStorageModuleImplementation {
-    pub unsafe fn UseDefinitions<P0>(&self, propertydefinitions: P0) -> windows_core::Result<()>
+    pub unsafe fn UseDefinitions<P0>(&self, propertydefinitions: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmCollection>,
     {
         unsafe { (windows_core::Interface::vtable(self).UseDefinitions)(windows_core::Interface::as_raw(self), propertydefinitions.param().abi()).ok() }
     }
-    pub unsafe fn LoadProperties<P0>(&self, propertybag: P0) -> windows_core::Result<()>
+    pub unsafe fn LoadProperties<P0>(&self, propertybag: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmPropertyBag>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadProperties)(windows_core::Interface::as_raw(self), propertybag.param().abi()).ok() }
     }
-    pub unsafe fn SaveProperties<P0>(&self, propertybag: P0) -> windows_core::Result<()>
+    pub unsafe fn SaveProperties<P0>(&self, propertybag: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<IFsrmPropertyBag>,
     {
@@ -10441,9 +10441,9 @@ pub struct IFsrmStorageModuleImplementation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFsrmStorageModuleImplementation_Impl: IFsrmPipelineModuleImplementation_Impl {
-    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> windows_core::Result<()>;
-    fn LoadProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> windows_core::Result<()>;
-    fn SaveProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> windows_core::Result<()>;
+    fn UseDefinitions(&self, propertydefinitions: windows_core::Ref<'_, IFsrmCollection>) -> Result<(), windows_result::HRESULT>;
+    fn LoadProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> Result<(), windows_result::HRESULT>;
+    fn SaveProperties(&self, propertybag: windows_core::Ref<'_, IFsrmPropertyBag>) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFsrmStorageModuleImplementation_Vtbl {

@@ -26,20 +26,20 @@ pub struct ISystemProtectionUnlockStatics_Vtbl {
 }
 pub struct SystemProtection;
 impl SystemProtection {
-    pub fn ScreenLocked() -> windows_core::Result<bool> {
+    pub fn ScreenLocked() -> Result<bool, windows_result::HRESULT> {
         Self::ISystemProtectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScreenLocked)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestScreenUnlock() -> windows_core::Result<()> {
+    pub fn RequestScreenUnlock() -> Result<(), windows_result::HRESULT> {
         Self::ISystemProtectionUnlockStatics(|this| unsafe { (windows_core::Interface::vtable(this).RequestScreenUnlock)(windows_core::Interface::as_raw(this)).ok() })
     }
-    fn ISystemProtectionStatics<R, F: FnOnce(&ISystemProtectionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemProtectionStatics<R, F: FnOnce(&ISystemProtectionStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemProtection, ISystemProtectionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISystemProtectionUnlockStatics<R, F: FnOnce(&ISystemProtectionUnlockStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemProtectionUnlockStatics<R, F: FnOnce(&ISystemProtectionUnlockStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemProtection, ISystemProtectionUnlockStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -2,19 +2,19 @@
 pub mod SystemManufacturers;
 pub struct AnalyticsInfo;
 impl AnalyticsInfo {
-    pub fn VersionInfo() -> windows_core::Result<AnalyticsVersionInfo> {
+    pub fn VersionInfo() -> Result<AnalyticsVersionInfo, windows_result::HRESULT> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VersionInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn DeviceForm() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceForm() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceForm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>>
+    pub fn GetSystemPropertiesAsync<P0>(attributenames: P0) -> Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -23,11 +23,11 @@ impl AnalyticsInfo {
             (windows_core::Interface::vtable(this).GetSystemPropertiesAsync)(windows_core::Interface::as_raw(this), attributenames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -40,21 +40,21 @@ impl windows_core::RuntimeName for AnalyticsInfo {
 pub struct AnalyticsVersionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AnalyticsVersionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AnalyticsVersionInfo {
-    pub fn DeviceFamily(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceFamily(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceFamily)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DeviceFamilyVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceFamilyVersion(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceFamilyVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ProductName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ProductName(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -76,7 +76,7 @@ unsafe impl Send for AnalyticsVersionInfo {}
 unsafe impl Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability;
 impl AppApplicability {
-    pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> windows_core::Result<windows_collections::IVectorView<UnsupportedAppRequirement>>
+    pub fn GetUnsupportedAppRequirements<P0>(capabilities: P0) -> Result<windows_collections::IVectorView<UnsupportedAppRequirement>, windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -85,7 +85,7 @@ impl AppApplicability {
             (windows_core::Interface::vtable(this).GetUnsupportedAppRequirements)(windows_core::Interface::as_raw(this), capabilities.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<AppApplicability, IAppApplicabilityStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -95,13 +95,13 @@ impl windows_core::RuntimeName for AppApplicability {
 }
 pub struct EducationSettings;
 impl EducationSettings {
-    pub fn IsEducationEnvironment() -> windows_core::Result<bool> {
+    pub fn IsEducationEnvironment() -> Result<bool, windows_result::HRESULT> {
         Self::IEducationSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEducationEnvironment)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<EducationSettings, IEducationSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -112,7 +112,7 @@ impl windows_core::RuntimeName for EducationSettings {
 pub struct HardwareIdentification;
 impl HardwareIdentification {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetPackageSpecificToken<P0>(nonce: P0) -> windows_core::Result<HardwareToken>
+    pub fn GetPackageSpecificToken<P0>(nonce: P0) -> Result<HardwareToken, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -121,7 +121,7 @@ impl HardwareIdentification {
             (windows_core::Interface::vtable(this).GetPackageSpecificToken)(windows_core::Interface::as_raw(this), nonce.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -135,7 +135,7 @@ pub struct HardwareToken(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HardwareToken, windows_core::IUnknown, windows_core::IInspectable);
 impl HardwareToken {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Id(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -143,7 +143,7 @@ impl HardwareToken {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Signature(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Signature(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,7 +151,7 @@ impl HardwareToken {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Certificate(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Certificate(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -429,139 +429,139 @@ pub struct IWindowsIntegrityPolicyStatics_Vtbl {
 }
 pub struct KnownRetailInfoProperties;
 impl KnownRetailInfoProperties {
-    pub fn RetailAccessCode() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RetailAccessCode() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RetailAccessCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ManufacturerName() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ManufacturerName() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManufacturerName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ModelName() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ModelName() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModelName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DisplayModelName() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayModelName() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayModelName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Price() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Price() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Price)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn IsFeatured() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IsFeatured() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFeatured)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FormFactor() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FormFactor() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FormFactor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ScreenSize() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ScreenSize() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScreenSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Weight() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Weight() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Weight)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DisplayDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BatteryLifeDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BatteryLifeDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryLifeDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ProcessorDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ProcessorDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessorDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Memory() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Memory() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Memory)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn StorageDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn StorageDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GraphicsDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GraphicsDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GraphicsDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FrontCameraDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FrontCameraDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FrontCameraDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RearCameraDescription() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RearCameraDescription() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RearCameraDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HasNfc() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HasNfc() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasNfc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HasSdSlot() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HasSdSlot() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasSdSlot)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HasOpticalDrive() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HasOpticalDrive() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasOpticalDrive)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn IsOfficeInstalled() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn IsOfficeInstalled() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsOfficeInstalled)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn WindowsEdition() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn WindowsEdition() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowsEdition)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<KnownRetailInfoProperties, IKnownRetailInfoPropertiesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -571,13 +571,13 @@ impl windows_core::RuntimeName for KnownRetailInfoProperties {
 }
 pub struct PlatformAutomaticAppSignInManager;
 impl PlatformAutomaticAppSignInManager {
-    pub fn Policy() -> windows_core::Result<PlatformAutomaticAppSignInPolicy> {
+    pub fn Policy() -> Result<PlatformAutomaticAppSignInPolicy, windows_result::HRESULT> {
         Self::IPlatformAutomaticAppSignInManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Policy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IPlatformAutomaticAppSignInManagerStatics<R, F: FnOnce(&IPlatformAutomaticAppSignInManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformAutomaticAppSignInManagerStatics<R, F: FnOnce(&IPlatformAutomaticAppSignInManagerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PlatformAutomaticAppSignInManager, IPlatformAutomaticAppSignInManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -616,13 +616,13 @@ impl windows_core::RuntimeType for PlatformDataCollectionLevel {
 }
 pub struct PlatformDiagnosticsAndUsageDataSettings;
 impl PlatformDiagnosticsAndUsageDataSettings {
-    pub fn CollectionLevel() -> windows_core::Result<PlatformDataCollectionLevel> {
+    pub fn CollectionLevel() -> Result<PlatformDataCollectionLevel, windows_result::HRESULT> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CollectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CollectionLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn CollectionLevelChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -631,16 +631,16 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (windows_core::Interface::vtable(this).CollectionLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveCollectionLevelChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCollectionLevelChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCollectionLevelChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> windows_core::Result<bool> {
+    pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> Result<bool, windows_result::HRESULT> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanCollectDiagnostics)(windows_core::Interface::as_raw(this), level, &mut result__).map(|| result__)
         })
     }
-    fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<PlatformDiagnosticsAndUsageDataSettings, IPlatformDiagnosticsAndUsageDataSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -650,19 +650,19 @@ impl windows_core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
 }
 pub struct RetailInfo;
 impl RetailInfo {
-    pub fn IsDemoModeEnabled() -> windows_core::Result<bool> {
+    pub fn IsDemoModeEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDemoModeEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Properties() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties() -> Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>, windows_result::HRESULT> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<RetailInfo, IRetailInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -672,23 +672,23 @@ impl windows_core::RuntimeName for RetailInfo {
 }
 pub struct SharedModeSettings;
 impl SharedModeSettings {
-    pub fn IsEnabled() -> windows_core::Result<bool> {
+    pub fn IsEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::ISharedModeSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ShouldAvoidLocalStorage() -> windows_core::Result<bool> {
+    pub fn ShouldAvoidLocalStorage() -> Result<bool, windows_result::HRESULT> {
         Self::ISharedModeSettingsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShouldAvoidLocalStorage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -698,13 +698,13 @@ impl windows_core::RuntimeName for SharedModeSettings {
 }
 pub struct SmartAppControlPolicy;
 impl SmartAppControlPolicy {
-    pub fn IsEnabled() -> windows_core::Result<bool> {
+    pub fn IsEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Changed<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -713,10 +713,10 @@ impl SmartAppControlPolicy {
             (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::ISmartAppControlPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISmartAppControlPolicyStatics<R, F: FnOnce(&ISmartAppControlPolicyStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SmartAppControlPolicy, ISmartAppControlPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -726,13 +726,13 @@ impl windows_core::RuntimeName for SmartAppControlPolicy {
 }
 pub struct SystemIdentification;
 impl SystemIdentification {
-    pub fn GetSystemIdForPublisher() -> windows_core::Result<SystemIdentificationInfo> {
+    pub fn GetSystemIdForPublisher() -> Result<SystemIdentificationInfo, windows_result::HRESULT> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSystemIdForPublisher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetSystemIdForUser<P0>(user: P0) -> windows_core::Result<SystemIdentificationInfo>
+    pub fn GetSystemIdForUser<P0>(user: P0) -> Result<SystemIdentificationInfo, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::User>,
     {
@@ -741,7 +741,7 @@ impl SystemIdentification {
             (windows_core::Interface::vtable(this).GetSystemIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemIdentification, ISystemIdentificationStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -755,14 +755,14 @@ pub struct SystemIdentificationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemIdentificationInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemIdentificationInfo {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Id(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Id(&self) -> Result<super::super::Storage::Streams::IBuffer, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Source(&self) -> windows_core::Result<SystemIdentificationSource> {
+    pub fn Source(&self) -> Result<SystemIdentificationSource, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -813,13 +813,13 @@ impl windows_core::RuntimeType for SystemOutOfBoxExperienceState {
 }
 pub struct SystemSetupInfo;
 impl SystemSetupInfo {
-    pub fn OutOfBoxExperienceState() -> windows_core::Result<SystemOutOfBoxExperienceState> {
+    pub fn OutOfBoxExperienceState() -> Result<SystemOutOfBoxExperienceState, windows_result::HRESULT> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OutOfBoxExperienceState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn OutOfBoxExperienceStateChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -828,10 +828,10 @@ impl SystemSetupInfo {
             (windows_core::Interface::vtable(this).OutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveOutOfBoxExperienceStateChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveOutOfBoxExperienceStateChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveOutOfBoxExperienceStateChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -844,14 +844,14 @@ impl windows_core::RuntimeName for SystemSetupInfo {
 pub struct UnsupportedAppRequirement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UnsupportedAppRequirement, windows_core::IUnknown, windows_core::IInspectable);
 impl UnsupportedAppRequirement {
-    pub fn Requirement(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Requirement(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Requirement)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Reasons(&self) -> windows_core::Result<UnsupportedAppRequirementReasons> {
+    pub fn Reasons(&self) -> Result<UnsupportedAppRequirementReasons, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -919,31 +919,31 @@ impl core::ops::Not for UnsupportedAppRequirementReasons {
 }
 pub struct WindowsIntegrityPolicy;
 impl WindowsIntegrityPolicy {
-    pub fn IsEnabled() -> windows_core::Result<bool> {
+    pub fn IsEnabled() -> Result<bool, windows_result::HRESULT> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsEnabledForTrial() -> windows_core::Result<bool> {
+    pub fn IsEnabledForTrial() -> Result<bool, windows_result::HRESULT> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabledForTrial)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CanDisable() -> windows_core::Result<bool> {
+    pub fn CanDisable() -> Result<bool, windows_result::HRESULT> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanDisable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsDisableSupported() -> windows_core::Result<bool> {
+    pub fn IsDisableSupported() -> Result<bool, windows_result::HRESULT> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDisableSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PolicyChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn PolicyChanged<P0>(handler: P0) -> Result<i64, windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -952,10 +952,10 @@ impl WindowsIntegrityPolicy {
             (windows_core::Interface::vtable(this).PolicyChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePolicyChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemovePolicyChanged(token: i64) -> Result<(), windows_result::HRESULT> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePolicyChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

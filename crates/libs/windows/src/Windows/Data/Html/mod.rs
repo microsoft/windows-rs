@@ -1,12 +1,12 @@
 pub struct HtmlUtilities;
 impl HtmlUtilities {
-    pub fn ConvertToText(html: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ConvertToText(html: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::IHtmlUtilities(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertToText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(html), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IHtmlUtilities<R, F: FnOnce(&IHtmlUtilities) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHtmlUtilities<R, F: FnOnce(&IHtmlUtilities) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<HtmlUtilities, IHtmlUtilities> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

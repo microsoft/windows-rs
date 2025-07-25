@@ -44,90 +44,90 @@ windows_core::imp::interface_hierarchy!(SceneLightingEffect, windows_core::IUnkn
 windows_core::imp::required_hierarchy!(SceneLightingEffect, super::super::super::Graphics::Effects::IGraphicsEffect, super::super::super::Graphics::Effects::IGraphicsEffectSource);
 #[cfg(feature = "Graphics_Effects")]
 impl SceneLightingEffect {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<SceneLightingEffect, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, name: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, name: &windows_core::HSTRING) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::super::Graphics::Effects::IGraphicsEffect>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name)).ok() }
     }
-    pub fn AmbientAmount(&self) -> windows_core::Result<f32> {
+    pub fn AmbientAmount(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AmbientAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAmbientAmount(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetAmbientAmount(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAmbientAmount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DiffuseAmount(&self) -> windows_core::Result<f32> {
+    pub fn DiffuseAmount(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DiffuseAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDiffuseAmount(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetDiffuseAmount(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDiffuseAmount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn NormalMapSource(&self) -> windows_core::Result<super::super::super::Graphics::Effects::IGraphicsEffectSource> {
+    pub fn NormalMapSource(&self) -> Result<super::super::super::Graphics::Effects::IGraphicsEffectSource, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NormalMapSource)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetNormalMapSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetNormalMapSource<P0>(&self, value: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<super::super::super::Graphics::Effects::IGraphicsEffectSource>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNormalMapSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SpecularAmount(&self) -> windows_core::Result<f32> {
+    pub fn SpecularAmount(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SpecularAmount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSpecularAmount(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetSpecularAmount(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSpecularAmount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SpecularShine(&self) -> windows_core::Result<f32> {
+    pub fn SpecularShine(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SpecularShine)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSpecularShine(&self, value: f32) -> windows_core::Result<()> {
+    pub fn SetSpecularShine(&self, value: f32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSpecularShine)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReflectanceModel(&self) -> windows_core::Result<SceneLightingEffectReflectanceModel> {
+    pub fn ReflectanceModel(&self) -> Result<SceneLightingEffectReflectanceModel, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReflectanceModel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> windows_core::Result<()> {
+    pub fn SetReflectanceModel(&self, value: SceneLightingEffectReflectanceModel) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ISceneLightingEffect2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetReflectanceModel)(windows_core::Interface::as_raw(this), value).ok() }
     }

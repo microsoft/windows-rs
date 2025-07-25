@@ -18,46 +18,46 @@ impl windows_core::RuntimeType for I2cBusSpeed {
 pub struct I2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cConnectionSettings {
-    pub fn SlaveAddress(&self) -> windows_core::Result<i32> {
+    pub fn SlaveAddress(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SlaveAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSlaveAddress(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetSlaveAddress(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSlaveAddress)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BusSpeed(&self) -> windows_core::Result<I2cBusSpeed> {
+    pub fn BusSpeed(&self) -> Result<I2cBusSpeed, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BusSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBusSpeed(&self, value: I2cBusSpeed) -> windows_core::Result<()> {
+    pub fn SetBusSpeed(&self, value: I2cBusSpeed) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBusSpeed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SharingMode(&self) -> windows_core::Result<I2cSharingMode> {
+    pub fn SharingMode(&self) -> Result<I2cSharingMode, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSharingMode(&self, value: I2cSharingMode) -> windows_core::Result<()> {
+    pub fn SetSharingMode(&self, value: I2cSharingMode) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSharingMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create(slaveaddress: i32) -> windows_core::Result<I2cConnectionSettings> {
+    pub fn Create(slaveaddress: i32) -> Result<I2cConnectionSettings, windows_result::HRESULT> {
         Self::II2cConnectionSettingsFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), slaveaddress, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cConnectionSettingsFactory<R, F: FnOnce(&II2cConnectionSettingsFactory) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<I2cConnectionSettings, II2cConnectionSettingsFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -79,7 +79,7 @@ unsafe impl Sync for I2cConnectionSettings {}
 pub struct I2cController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cController, windows_core::IUnknown, windows_core::IInspectable);
 impl I2cController {
-    pub fn GetDevice<P0>(&self, settings: P0) -> windows_core::Result<I2cDevice>
+    pub fn GetDevice<P0>(&self, settings: P0) -> Result<I2cDevice, windows_result::HRESULT>
     where
         P0: windows_core::Param<I2cConnectionSettings>,
     {
@@ -90,7 +90,7 @@ impl I2cController {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<I2cController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> Result<windows_future::IAsyncOperation<windows_collections::IVectorView<I2cController>>, windows_result::HRESULT>
     where
         P0: windows_core::Param<Provider::II2cProvider>,
     {
@@ -99,13 +99,13 @@ impl I2cController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<I2cController>> {
+    pub fn GetDefaultAsync() -> Result<windows_future::IAsyncOperation<I2cController>, windows_result::HRESULT> {
         Self::II2cControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cControllerStatics<R, F: FnOnce(&II2cControllerStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<I2cController, II2cControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -128,70 +128,70 @@ pub struct I2cDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(I2cDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(I2cDevice, super::super::Foundation::IClosable, II2cDeviceStatics);
 impl I2cDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ConnectionSettings(&self) -> windows_core::Result<I2cConnectionSettings> {
+    pub fn ConnectionSettings(&self) -> Result<I2cConnectionSettings, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionSettings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Write(&self, buffer: &[u8]) -> windows_core::Result<()> {
+    pub fn Write(&self, buffer: &[u8]) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Write)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr()).ok() }
     }
-    pub fn WritePartial(&self, buffer: &[u8]) -> windows_core::Result<I2cTransferResult> {
+    pub fn WritePartial(&self, buffer: &[u8]) -> Result<I2cTransferResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WritePartial)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn Read(&self, buffer: &mut [u8]) -> windows_core::Result<()> {
+    pub fn Read(&self, buffer: &mut [u8]) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_mut_ptr()).ok() }
     }
-    pub fn ReadPartial(&self, buffer: &mut [u8]) -> windows_core::Result<I2cTransferResult> {
+    pub fn ReadPartial(&self, buffer: &mut [u8]) -> Result<I2cTransferResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadPartial)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<()> {
+    pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).WriteRead)(windows_core::Interface::as_raw(this), writebuffer.len().try_into().unwrap(), writebuffer.as_ptr(), readbuffer.len().try_into().unwrap(), readbuffer.as_mut_ptr()).ok() }
     }
-    pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<I2cTransferResult> {
+    pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> Result<I2cTransferResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteReadPartial)(windows_core::Interface::as_raw(this), writebuffer.len().try_into().unwrap(), writebuffer.as_ptr(), readbuffer.len().try_into().unwrap(), readbuffer.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName(friendlyname: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         Self::II2cDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>
+    pub fn FromIdAsync<P1>(deviceid: &windows_core::HSTRING, settings: P1) -> Result<windows_future::IAsyncOperation<I2cDevice>, windows_result::HRESULT>
     where
         P1: windows_core::Param<I2cConnectionSettings>,
     {
@@ -200,7 +200,7 @@ impl I2cDevice {
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), settings.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn II2cDeviceStatics<R, F: FnOnce(&II2cDeviceStatics) -> Result<R, windows_result::HRESULT>>(callback: F) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<I2cDevice, II2cDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -330,21 +330,21 @@ impl windows_core::RuntimeType for II2cDeviceStatics {
 }
 windows_core::imp::interface_hierarchy!(II2cDeviceStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl II2cDeviceStatics {
-    pub fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromFriendlyName(&self, friendlyname: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(friendlyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FromIdAsync<P1>(&self, deviceid: &windows_core::HSTRING, settings: P1) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>
+    pub fn FromIdAsync<P1>(&self, deviceid: &windows_core::HSTRING, settings: P1) -> Result<windows_future::IAsyncOperation<I2cDevice>, windows_result::HRESULT>
     where
         P1: windows_core::Param<I2cConnectionSettings>,
     {
@@ -359,48 +359,48 @@ impl windows_core::RuntimeName for II2cDeviceStatics {
     const NAME: &'static str = "Windows.Devices.I2c.II2cDeviceStatics";
 }
 pub trait II2cDeviceStatics_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceSelector(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
-    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> windows_core::Result<windows_future::IAsyncOperation<I2cDevice>>;
+    fn GetDeviceSelector(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn GetDeviceSelectorFromFriendlyName(&self, friendlyName: &windows_core::HSTRING) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn FromIdAsync(&self, deviceId: &windows_core::HSTRING, settings: windows_core::Ref<'_, I2cConnectionSettings>) -> Result<windows_future::IAsyncOperation<I2cDevice>, windows_result::HRESULT>;
 }
 impl II2cDeviceStatics_Vtbl {
     pub const fn new<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>() -> Self {
-        unsafe extern "system" fn GetDeviceSelector<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelector<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match II2cDeviceStatics_Impl::GetDeviceSelector(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, friendlyname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn GetDeviceSelectorFromFriendlyName<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, friendlyname: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match II2cDeviceStatics_Impl::GetDeviceSelectorFromFriendlyName(this, core::mem::transmute(&friendlyname)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
-        unsafe extern "system" fn FromIdAsync<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+        unsafe extern "system" fn FromIdAsync<Identity: II2cDeviceStatics_Impl, const OFFSET: isize>(this: *mut core::ffi::c_void, deviceid: *mut core::ffi::c_void, settings: *mut core::ffi::c_void, result__: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match II2cDeviceStatics_Impl::FromIdAsync(this, core::mem::transmute(&deviceid), core::mem::transmute_copy(&settings)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn WscGetAntiMalwareUri() -> Result<windows_core::PWSTR, windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscGetAntiMalwareUri(ppszuri : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -7,28 +7,28 @@ pub unsafe fn WscGetAntiMalwareUri() -> windows_core::Result<windows_core::PWSTR
     }
 }
 #[inline]
-pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::Result<()> {
+pub unsafe fn WscGetSecurityProviderHealth(providers: u32, phealth: *mut WSC_SECURITY_PROVIDER_HEALTH) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscGetSecurityProviderHealth(providers : u32, phealth : *mut WSC_SECURITY_PROVIDER_HEALTH) -> windows_core::HRESULT);
     unsafe { WscGetSecurityProviderHealth(providers, phealth as _).ok() }
 }
 #[inline]
-pub unsafe fn WscQueryAntiMalwareUri() -> windows_core::Result<()> {
+pub unsafe fn WscQueryAntiMalwareUri() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscQueryAntiMalwareUri() -> windows_core::HRESULT);
     unsafe { WscQueryAntiMalwareUri().ok() }
 }
 #[cfg(feature = "Win32_System_Threading")]
 #[inline]
-pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn WscRegisterForChanges(reserved: *mut core::ffi::c_void, phcallbackregistration: *mut super::super::Foundation::HANDLE, lpcallbackaddress: super::Threading::LPTHREAD_START_ROUTINE, pcontext: *mut core::ffi::c_void) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscRegisterForChanges(reserved : *mut core::ffi::c_void, phcallbackregistration : *mut super::super::Foundation:: HANDLE, lpcallbackaddress : super::Threading:: LPTHREAD_START_ROUTINE, pcontext : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { WscRegisterForChanges(reserved as _, phcallbackregistration as _, lpcallbackaddress, pcontext as _).ok() }
 }
 #[inline]
-pub unsafe fn WscRegisterForUserNotifications() -> windows_core::Result<()> {
+pub unsafe fn WscRegisterForUserNotifications() -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscRegisterForUserNotifications() -> windows_core::HRESULT);
     unsafe { WscRegisterForUserNotifications().ok() }
 }
 #[inline]
-pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+pub unsafe fn WscUnRegisterChanges(hregistrationhandle: super::super::Foundation::HANDLE) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("wscapi.dll" "system" fn WscUnRegisterChanges(hregistrationhandle : super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe { WscUnRegisterChanges(hregistrationhandle).ok() }
 }
@@ -45,7 +45,7 @@ impl core::ops::Deref for IWSCDefaultProduct {
 windows_core::imp::interface_hierarchy!(IWSCDefaultProduct, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCDefaultProduct {
-    pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultProduct)(windows_core::Interface::as_raw(self), etype, core::mem::transmute_copy(pguid)).ok() }
     }
 }
@@ -58,7 +58,7 @@ pub struct IWSCDefaultProduct_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSCDefaultProduct_Impl: super::Com::IDispatch_Impl {
-    fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SetDefaultProduct(&self, etype: SECURITY_PRODUCT_TYPE, pguid: &windows_core::BSTR) -> Result<(), windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSCDefaultProduct_Vtbl {
@@ -90,16 +90,16 @@ impl core::ops::Deref for IWSCProductList {
 windows_core::imp::interface_hierarchy!(IWSCProductList, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSCProductList {
-    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self, provider: WSC_SECURITY_PROVIDER) -> Result<(), windows_result::HRESULT> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), provider.0 as _).ok() }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_Item(&self, index: u32) -> windows_core::Result<IWscProduct> {
+    pub unsafe fn get_Item(&self, index: u32) -> Result<IWscProduct, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -117,9 +117,9 @@ pub struct IWSCProductList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSCProductList_Impl: super::Com::IDispatch_Impl {
-    fn Initialize(&self, provider: &WSC_SECURITY_PROVIDER) -> windows_core::Result<()>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: u32) -> windows_core::Result<IWscProduct>;
+    fn Initialize(&self, provider: &WSC_SECURITY_PROVIDER) -> Result<(), windows_result::HRESULT>;
+    fn Count(&self) -> Result<i32, windows_result::HRESULT>;
+    fn get_Item(&self, index: u32) -> Result<IWscProduct, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSCProductList_Vtbl {
@@ -138,7 +138,7 @@ impl IWSCProductList_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -150,7 +150,7 @@ impl IWSCProductList_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -180,43 +180,43 @@ impl core::ops::Deref for IWscProduct {
 windows_core::imp::interface_hierarchy!(IWscProduct, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct {
-    pub unsafe fn ProductName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProductName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductState(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_STATE> {
+    pub unsafe fn ProductState(&self) -> Result<WSC_SECURITY_PRODUCT_STATE, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SignatureStatus(&self) -> windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS> {
+    pub unsafe fn SignatureStatus(&self) -> Result<WSC_SECURITY_SIGNATURE_STATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SignatureStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemediationPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RemediationPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemediationPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductStateTimestamp(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProductStateTimestamp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductStateTimestamp)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductGuid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProductGuid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductGuid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProductIsDefault(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn ProductIsDefault(&self) -> Result<windows_core::BOOL, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProductIsDefault)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -238,13 +238,13 @@ pub struct IWscProduct_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct_Impl: super::Com::IDispatch_Impl {
-    fn ProductName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductState(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_STATE>;
-    fn SignatureStatus(&self) -> windows_core::Result<WSC_SECURITY_SIGNATURE_STATUS>;
-    fn RemediationPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductStateTimestamp(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductGuid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProductIsDefault(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn ProductName(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductState(&self) -> Result<WSC_SECURITY_PRODUCT_STATE, windows_result::HRESULT>;
+    fn SignatureStatus(&self) -> Result<WSC_SECURITY_SIGNATURE_STATUS, windows_result::HRESULT>;
+    fn RemediationPath(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductStateTimestamp(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductGuid(&self) -> Result<windows_core::BSTR, windows_result::HRESULT>;
+    fn ProductIsDefault(&self) -> Result<windows_core::BOOL, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct_Vtbl {
@@ -257,7 +257,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -269,7 +269,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -281,7 +281,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -293,7 +293,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -305,7 +305,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -317,7 +317,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -329,7 +329,7 @@ impl IWscProduct_Vtbl {
                         pval.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -363,37 +363,37 @@ impl core::ops::Deref for IWscProduct2 {
 windows_core::imp::interface_hierarchy!(IWscProduct2, windows_core::IUnknown, super::Com::IDispatch, IWscProduct);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct2 {
-    pub unsafe fn AntivirusScanSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn AntivirusScanSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AntivirusScanSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AntivirusSettingsSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn AntivirusSettingsSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AntivirusSettingsSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn AntivirusProtectionUpdateSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AntivirusProtectionUpdateSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FirewallDomainProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn FirewallDomainProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirewallDomainProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn FirewallPrivateProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirewallPrivateProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn FirewallPublicProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS> {
+    pub unsafe fn FirewallPublicProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FirewallPublicProfileSubstatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -414,12 +414,12 @@ pub struct IWscProduct2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct2_Impl: IWscProduct_Impl {
-    fn AntivirusScanSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn AntivirusSettingsSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn AntivirusProtectionUpdateSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallDomainProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallPrivateProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
-    fn FirewallPublicProfileSubstatus(&self) -> windows_core::Result<WSC_SECURITY_PRODUCT_SUBSTATUS>;
+    fn AntivirusScanSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
+    fn AntivirusSettingsSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
+    fn AntivirusProtectionUpdateSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
+    fn FirewallDomainProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
+    fn FirewallPrivateProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
+    fn FirewallPublicProfileSubstatus(&self) -> Result<WSC_SECURITY_PRODUCT_SUBSTATUS, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct2_Vtbl {
@@ -432,7 +432,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -444,7 +444,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -456,7 +456,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -468,7 +468,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -480,7 +480,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -492,7 +492,7 @@ impl IWscProduct2_Vtbl {
                         pestatus.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -525,7 +525,7 @@ impl core::ops::Deref for IWscProduct3 {
 windows_core::imp::interface_hierarchy!(IWscProduct3, windows_core::IUnknown, super::Com::IDispatch, IWscProduct, IWscProduct2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWscProduct3 {
-    pub unsafe fn AntivirusDaysUntilExpired(&self) -> windows_core::Result<u32> {
+    pub unsafe fn AntivirusDaysUntilExpired(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AntivirusDaysUntilExpired)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -541,7 +541,7 @@ pub struct IWscProduct3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWscProduct3_Impl: IWscProduct2_Impl {
-    fn AntivirusDaysUntilExpired(&self) -> windows_core::Result<u32>;
+    fn AntivirusDaysUntilExpired(&self) -> Result<u32, windows_result::HRESULT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWscProduct3_Vtbl {
@@ -554,7 +554,7 @@ impl IWscProduct3_Vtbl {
                         pdwdays.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
