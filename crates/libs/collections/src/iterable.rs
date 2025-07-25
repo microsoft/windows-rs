@@ -15,7 +15,7 @@ where
     T: RuntimeType,
     T::Default: Clone,
 {
-    fn First(&self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>, HRESULT> {
         Ok(ComObject::new(StockIterator {
             owner: self.to_object(),
             current: 0.into(),
@@ -39,25 +39,25 @@ where
     T: RuntimeType,
     T::Default: Clone,
 {
-    fn Current(&self) -> Result<T> {
+    fn Current(&self) -> Result<T, HRESULT> {
         let owner: &StockIterable<T> = &self.owner;
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         if self.owner.values.len() > current {
             T::from_default(&owner.values[current])
         } else {
-            Err(Error::from(E_BOUNDS))
+            Err(E_BOUNDS)
         }
     }
 
-    fn HasCurrent(&self) -> Result<bool> {
+    fn HasCurrent(&self) -> Result<bool, HRESULT> {
         let owner: &StockIterable<T> = &self.owner;
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
         Ok(owner.values.len() > current)
     }
 
-    fn MoveNext(&self) -> Result<bool> {
+    fn MoveNext(&self) -> Result<bool, HRESULT> {
         let owner: &StockIterable<T> = &self.owner;
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
 
@@ -69,7 +69,7 @@ where
         Ok(owner.values.len() > current + 1)
     }
 
-    fn GetMany(&self, values: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, values: &mut [T::Default]) -> Result<u32, HRESULT> {
         let owner: &StockIterable<T> = &self.owner;
         let current = self.current.load(std::sync::atomic::Ordering::Relaxed);
         let actual = std::cmp::min(owner.values.len() - current, values.len());
