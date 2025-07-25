@@ -58,7 +58,7 @@ impl<'a> OpenOptions<'a> {
     }
 
     /// Opens a registry key with the options provided by `self`.
-    pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Key> {
+    pub fn open<T: AsRef<str>>(&self, path: T) -> Result<Key, HRESULT> {
         let mut handle = null_mut();
 
         let result = unsafe {

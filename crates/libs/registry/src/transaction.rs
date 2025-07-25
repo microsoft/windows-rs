@@ -7,11 +7,11 @@ pub struct Transaction(pub(crate) HANDLE);
 
 impl Transaction {
     /// Creates a new transaction.
-    pub fn new() -> Result<Self> {
+    pub fn new() -> Result<Self, HRESULT> {
         let handle = unsafe { CreateTransaction(null_mut(), null_mut(), 0, 0, 0, 0, null()) };
 
         if core::ptr::eq(handle, INVALID_HANDLE_VALUE) {
-            Err(Error::from_win32())
+            Err(HRESULT::from_thread())
         } else {
             Ok(Self(handle))
         }
@@ -20,11 +20,11 @@ impl Transaction {
     /// Commits the transaction.
     ///
     /// The transaction rolls back if it is dropped before `commit` is called.
-    pub fn commit(self) -> Result<()> {
+    pub fn commit(self) -> Result<(), HRESULT> {
         let result = unsafe { CommitTransaction(self.0) };
 
         if result == 0 {
-            Err(Error::from_win32())
+            Err(HRESULT::from_thread())
         } else {
             Ok(())
         }

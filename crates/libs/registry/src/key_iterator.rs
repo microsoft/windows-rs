@@ -8,7 +8,7 @@ pub struct KeyIterator<'a> {
 }
 
 impl<'a> KeyIterator<'a> {
-    pub(crate) fn new(key: &'a Key) -> Result<Self> {
+    pub(crate) fn new(key: &'a Key) -> Result<Self, HRESULT> {
         let mut count = 0;
         let mut max_len = 0;
 

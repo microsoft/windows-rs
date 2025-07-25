@@ -48,8 +48,8 @@ impl From<u32> for Value {
 }
 
 impl TryFrom<Value> for u32 {
-    type Error = Error;
-    fn try_from(from: Value) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: Value) -> Result<Self, HRESULT> {
         Ok(from_le_bytes(from.ty, &from)?.try_into()?)
     }
 }
@@ -64,15 +64,15 @@ impl From<u64> for Value {
 }
 
 impl TryFrom<Value> for u64 {
-    type Error = Error;
-    fn try_from(from: Value) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: Value) -> Result<Self, HRESULT> {
         from_le_bytes(from.ty, &from)
     }
 }
 
 impl TryFrom<Value> for String {
-    type Error = Error;
-    fn try_from(from: Value) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: Value) -> Result<Self, HRESULT> {
         match from.ty {
             Type::String | Type::ExpandString => Ok(Self::from_utf16(trim(from.data.as_wide()))?),
             _ => Err(invalid_data()),
@@ -90,8 +90,8 @@ impl From<&str> for Value {
 }
 
 impl TryFrom<Value> for Vec<String> {
-    type Error = Error;
-    fn try_from(from: Value) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: Value) -> Result<Self, HRESULT> {
         match from.ty {
             Type::MultiString => Ok(from
                 .data
@@ -105,8 +105,8 @@ impl TryFrom<Value> for Vec<String> {
 }
 
 impl TryFrom<Value> for HSTRING {
-    type Error = Error;
-    fn try_from(from: Value) -> Result<Self> {
+    type Error = HRESULT;
+    fn try_from(from: Value) -> Result<Self, HRESULT> {
         match from.ty {
             Type::String | Type::ExpandString => Ok(Self::from_wide(trim(from.data.as_wide()))),
             _ => Err(invalid_data()),
