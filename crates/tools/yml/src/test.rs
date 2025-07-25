@@ -62,7 +62,9 @@ jobs:
       - name: Install fmt, clippy
         run: rustup component add clippy rustfmt
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"#
+        uses: ./.github/actions/fix-environment
+        with:
+          target: ${{ matrix.target }}"#
     .to_string();
 
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners

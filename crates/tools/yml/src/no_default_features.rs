@@ -26,7 +26,9 @@ jobs:
       - name: Add toolchain target
         run: rustup target add x86_64-pc-windows-msvc
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc"
         .to_string();
 
     for package in helpers::crates("crates/libs") {
