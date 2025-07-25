@@ -11,10 +11,8 @@ readme = "readme.md"
 [dependencies]
 windows-core = { workspace = true }
 windows-link = { workspace = true }
-windows-threading = { workspace = true }
-
-[dev-dependencies]
 windows-result = { workspace = true }
+windows-threading = { workspace = true }
 
 [features]
 default = ["std"]

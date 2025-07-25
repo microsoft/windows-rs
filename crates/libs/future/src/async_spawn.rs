@@ -2,7 +2,7 @@ use super::*;
 use std::sync::Mutex;
 
 struct State<T: Async> {
-    result: Option<Result<T::Output>>,
+    result: Option<Result<T::Output, Error>>,
     completed: Option<T::CompletedHandler>,
     completed_assigned: bool,
 }
@@ -23,10 +23,13 @@ impl<T: Async> State<T> {
         }
     }
 
-    fn get_results(&self) -> Result<T::Output> {
+    fn get_results(&self) -> Result<T::Output, HRESULT> {
         match &self.result {
-            Some(result) => result.clone(),
-            None => Err(Error::from_hresult(HRESULT(0x8000000Eu32 as i32))), // E_ILLEGAL_METHOD_CALL
+            Some(result) => match result {
+                Ok(result) => Ok(result.clone()),
+                Err(error) => Err(error.into()),
+            },
+            None => Err(HRESULT(0x8000000Eu32 as i32)), // E_ILLEGAL_METHOD_CALL
         }
     }
 }
@@ -50,15 +53,19 @@ impl<T: Async> SyncState<T> {
         self.0.lock().unwrap().error_code()
     }
 
-    fn get_results(&self) -> Result<T::Output> {
+    fn get_results(&self) -> Result<T::Output, HRESULT> {
         self.0.lock().unwrap().get_results()
     }
 
-    fn set_completed(&self, sender: &T, handler: Ref<'_, T::CompletedHandler>) -> Result<()> {
+    fn set_completed(
+        &self,
+        sender: &T,
+        handler: Ref<'_, T::CompletedHandler>,
+    ) -> Result<(), HRESULT> {
         let mut guard = self.0.lock().unwrap();
 
         if guard.completed_assigned {
-            Err(Error::from_hresult(HRESULT(0x80000018u32 as i32))) // E_ILLEGAL_DELEGATE_ASSIGNMENT
+            Err(HRESULT(0x80000018u32 as i32)) // E_ILLEGAL_DELEGATE_ASSIGNMENT
         } else {
             guard.completed_assigned = true;
             let status = guard.status();
@@ -77,7 +84,7 @@ impl<T: Async> SyncState<T> {
 
     fn spawn<F>(&self, sender: &T, f: F)
     where
-        F: FnOnce() -> Result<T::Output> + Send + 'static,
+        F: FnOnce() -> Result<T::Output, Error> + Send + 'static,
     {
         let result = f();
         let mut guard = self.0.lock().unwrap();
@@ -116,97 +123,100 @@ where
     P: RuntimeType + 'static;
 
 impl IAsyncInfo_Impl for Action_Impl {
-    fn Id(&self) -> Result<u32> {
+    fn Id(&self) -> Result<u32, HRESULT> {
         Ok(1)
     }
-    fn Status(&self) -> Result<AsyncStatus> {
+    fn Status(&self) -> Result<AsyncStatus, HRESULT> {
         Ok(self.0.status())
     }
-    fn ErrorCode(&self) -> Result<HRESULT> {
+    fn ErrorCode(&self) -> Result<HRESULT, HRESULT> {
         Ok(self.0.error_code())
     }
-    fn Cancel(&self) -> Result<()> {
+    fn Cancel(&self) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 impl<T: RuntimeType> IAsyncInfo_Impl for Operation_Impl<T> {
-    fn Id(&self) -> Result<u32> {
+    fn Id(&self) -> Result<u32, HRESULT> {
         Ok(1)
     }
-    fn Status(&self) -> Result<AsyncStatus> {
+    fn Status(&self) -> Result<AsyncStatus, HRESULT> {
         Ok(self.0.status())
     }
-    fn ErrorCode(&self) -> Result<HRESULT> {
+    fn ErrorCode(&self) -> Result<HRESULT, HRESULT> {
         Ok(self.0.error_code())
     }
-    fn Cancel(&self) -> Result<()> {
+    fn Cancel(&self) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 impl<P: RuntimeType> IAsyncInfo_Impl for ActionWithProgress_Impl<P> {
-    fn Id(&self) -> Result<u32> {
+    fn Id(&self) -> Result<u32, HRESULT> {
         Ok(1)
     }
-    fn Status(&self) -> Result<AsyncStatus> {
+    fn Status(&self) -> Result<AsyncStatus, HRESULT> {
         Ok(self.0.status())
     }
-    fn ErrorCode(&self) -> Result<HRESULT> {
+    fn ErrorCode(&self) -> Result<HRESULT, HRESULT> {
         Ok(self.0.error_code())
     }
-    fn Cancel(&self) -> Result<()> {
+    fn Cancel(&self) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for OperationWithProgress_Impl<T, P> {
-    fn Id(&self) -> Result<u32> {
+    fn Id(&self) -> Result<u32, HRESULT> {
         Ok(1)
     }
-    fn Status(&self) -> Result<AsyncStatus> {
+    fn Status(&self) -> Result<AsyncStatus, HRESULT> {
         Ok(self.0.status())
     }
-    fn ErrorCode(&self) -> Result<HRESULT> {
+    fn ErrorCode(&self) -> Result<HRESULT, HRESULT> {
         Ok(self.0.error_code())
     }
-    fn Cancel(&self) -> Result<()> {
+    fn Cancel(&self) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 impl IAsyncAction_Impl for Action_Impl {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncActionCompletedHandler>) -> Result<()> {
+    fn SetCompleted(&self, handler: Ref<'_, AsyncActionCompletedHandler>) -> Result<(), HRESULT> {
         self.0.set_completed(&self.as_interface(), handler)
     }
-    fn Completed(&self) -> Result<AsyncActionCompletedHandler> {
-        Err(Error::empty())
+    fn Completed(&self) -> Result<AsyncActionCompletedHandler, HRESULT> {
+        Err(S_OK)
     }
-    fn GetResults(&self) -> Result<()> {
+    fn GetResults(&self) -> Result<(), HRESULT> {
         self.0.get_results()
     }
 }
 
 impl<T: RuntimeType> IAsyncOperation_Impl<T> for Operation_Impl<T> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationCompletedHandler<T>>) -> Result<()> {
+    fn SetCompleted(
+        &self,
+        handler: Ref<'_, AsyncOperationCompletedHandler<T>>,
+    ) -> Result<(), HRESULT> {
         self.0.set_completed(&self.as_interface(), handler)
     }
-    fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>> {
-        Err(Error::empty())
+    fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>, HRESULT> {
+        Err(S_OK)
     }
-    fn GetResults(&self) -> Result<T> {
+    fn GetResults(&self) -> Result<T, HRESULT> {
         self.0.get_results()
     }
 }
@@ -215,20 +225,20 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ActionWithProgress_Imp
     fn SetCompleted(
         &self,
         handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         self.0.set_completed(&self.as_interface(), handler)
     }
-    fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>> {
-        Err(Error::empty())
+    fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>, HRESULT> {
+        Err(S_OK)
     }
-    fn GetResults(&self) -> Result<()> {
+    fn GetResults(&self) -> Result<(), HRESULT> {
         self.0.get_results()
     }
-    fn SetProgress(&self, _: Ref<'_, AsyncActionProgressHandler<P>>) -> Result<()> {
+    fn SetProgress(&self, _: Ref<'_, AsyncActionProgressHandler<P>>) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Progress(&self) -> Result<AsyncActionProgressHandler<P>> {
-        Err(Error::empty())
+    fn Progress(&self) -> Result<AsyncActionProgressHandler<P>, HRESULT> {
+        Err(S_OK)
     }
 }
 
@@ -238,20 +248,20 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
     fn SetCompleted(
         &self,
         handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         self.0.set_completed(&self.as_interface(), handler)
     }
-    fn Completed(&self) -> Result<AsyncOperationWithProgressCompletedHandler<T, P>> {
-        Err(Error::empty())
+    fn Completed(&self) -> Result<AsyncOperationWithProgressCompletedHandler<T, P>, HRESULT> {
+        Err(S_OK)
     }
-    fn GetResults(&self) -> Result<T> {
+    fn GetResults(&self) -> Result<T, HRESULT> {
         self.0.get_results()
     }
-    fn SetProgress(&self, _: Ref<'_, AsyncOperationProgressHandler<T, P>>) -> Result<()> {
+    fn SetProgress(&self, _: Ref<'_, AsyncOperationProgressHandler<T, P>>) -> Result<(), HRESULT> {
         Ok(())
     }
-    fn Progress(&self) -> Result<AsyncOperationProgressHandler<T, P>> {
-        Err(Error::empty())
+    fn Progress(&self) -> Result<AsyncOperationProgressHandler<T, P>, HRESULT> {
+        Err(S_OK)
     }
 }
 
@@ -259,7 +269,7 @@ impl IAsyncAction {
     /// Creates an `IAsyncAction` that waits for the closure to execute on the Windows thread pool.
     pub fn spawn<F>(f: F) -> Self
     where
-        F: FnOnce() -> Result<()> + Send + 'static,
+        F: FnOnce() -> Result<(), Error> + Send + 'static,
     {
         let object = ComObject::new(Action(SyncState::new()));
         let interface = object.to_interface();
@@ -276,7 +286,7 @@ impl<T: RuntimeType> IAsyncOperation<T> {
     /// Creates an `IAsyncOperation<T>` that waits for the closure to execute on the Windows thread pool.
     pub fn spawn<F>(f: F) -> Self
     where
-        F: FnOnce() -> Result<T> + Send + 'static,
+        F: FnOnce() -> Result<T, Error> + Send + 'static,
     {
         let object = ComObject::new(Operation(SyncState::new()));
         let interface = object.to_interface();
@@ -293,7 +303,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress<P> {
     /// Creates an `IAsyncActionWithProgress<P>` that waits for the closure to execute on the Windows thread pool.
     pub fn spawn<F>(f: F) -> Self
     where
-        F: FnOnce() -> Result<()> + Send + 'static,
+        F: FnOnce() -> Result<(), Error> + Send + 'static,
     {
         let object = ComObject::new(ActionWithProgress(SyncState::new()));
         let interface = object.to_interface();
@@ -310,7 +320,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress<T, P> {
     /// Creates an `IAsyncOperationWithProgress<T, P>` that waits for the closure to execute on the Windows thread pool.
     pub fn spawn<F>(f: F) -> Self
     where
-        F: FnOnce() -> Result<T> + Send + 'static,
+        F: FnOnce() -> Result<T, Error> + Send + 'static,
     {
         let object = ComObject::new(OperationWithProgress(SyncState::new()));
         let interface = object.to_interface();

@@ -26,3 +26,6 @@ mod async_spawn;
 mod future;
 #[cfg(feature = "std")]
 use future::*;
+
+#[cfg(feature = "std")]
+const S_OK: windows_core::HRESULT = windows_core::HRESULT(0x0_u32 as _);
