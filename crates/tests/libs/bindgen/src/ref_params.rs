@@ -1037,7 +1037,7 @@ impl IModelObject_Vtbl {
                         object.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1056,7 +1056,7 @@ impl IModelObject_Vtbl {
                         runtimetypedobject.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1093,7 +1093,7 @@ impl IModelObject_Vtbl {
                         nummodels.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1286,7 +1286,7 @@ impl IModelObject_Vtbl {
                         context.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -1319,7 +1319,7 @@ impl IModelObject_Vtbl {
                         equal.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

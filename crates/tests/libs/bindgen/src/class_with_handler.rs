@@ -97,7 +97,7 @@ impl DeferralCompletedHandler {
 #[doc(hidden)]
 pub struct DeferralCompletedHandler_Vtbl {
     base__: windows_core::IUnknown_Vtbl,
-    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
+    Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_result::HRESULT,
 }
 #[repr(C)]
 struct DeferralCompletedHandlerBox<
@@ -122,11 +122,11 @@ impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>
         this: *mut core::ffi::c_void,
         iid: *const windows_core::GUID,
         interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
+    ) -> windows_result::HRESULT {
         unsafe {
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
+                return windows_result::HRESULT(-2147467261);
             }
             *interface = if *iid == <DeferralCompletedHandler as windows_core::Interface>::IID
                 || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
@@ -143,10 +143,10 @@ impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
+                windows_result::HRESULT(-2147467262)
             } else {
                 (*this).count.add_ref();
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
     }
@@ -166,7 +166,7 @@ impl<F: FnMut() -> Result<(), windows_result::HRESULT> + Send + 'static>
             remaining
         }
     }
-    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_core::HRESULT {
+    unsafe extern "system" fn Invoke(this: *mut core::ffi::c_void) -> windows_result::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)().into()
@@ -206,7 +206,7 @@ impl IClosable_Vtbl {
     pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);

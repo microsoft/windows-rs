@@ -43,7 +43,7 @@ pub mod Windows {
             pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
                 unsafe extern "system" fn Close<Identity: IClosable_Impl, const OFFSET: isize>(
                     this: *mut core::ffi::c_void,
-                ) -> windows_core::HRESULT {
+                ) -> windows_result::HRESULT {
                     unsafe {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -127,16 +127,16 @@ pub mod Windows {
                 >(
                     this: *mut core::ffi::c_void,
                     result__: *mut u32,
-                ) -> windows_core::HRESULT {
+                ) -> windows_result::HRESULT {
                     unsafe {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                         match IMemoryBufferReference_Impl::Capacity(this) {
                             Ok(ok__) => {
                                 result__.write(core::mem::transmute_copy(&ok__));
-                                windows_core::HRESULT(0)
+                                windows_result::HRESULT(0)
                             }
-                            Err(err) => err.into(),
+                            Err(err) => err,
                         }
                     }
                 }
@@ -146,7 +146,7 @@ pub mod Windows {
                 >(
                     this: *mut core::ffi::c_void,
                     cookie: i64,
-                ) -> windows_core::HRESULT {
+                ) -> windows_result::HRESULT {
                     unsafe {
                         let this: &Identity =
                             &*((this as *const *const ()).offset(OFFSET) as *const Identity);

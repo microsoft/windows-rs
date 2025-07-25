@@ -68,7 +68,7 @@ where
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
         args: windows_core::AbiType<T>,
-    ) -> windows_core::HRESULT,
+    ) -> windows_result::HRESULT,
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
@@ -110,11 +110,11 @@ impl<
         this: *mut core::ffi::c_void,
         iid: *const windows_core::GUID,
         interface: *mut *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT {
+    ) -> windows_result::HRESULT {
         unsafe {
             let this = this as *mut *mut core::ffi::c_void as *mut Self;
             if iid.is_null() || interface.is_null() {
-                return windows_core::HRESULT(-2147467261);
+                return windows_result::HRESULT(-2147467261);
             }
             *interface = if *iid == <EventHandler<T> as windows_core::Interface>::IID
                 || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
@@ -131,10 +131,10 @@ impl<
                 core::ptr::null_mut()
             };
             if (*interface).is_null() {
-                windows_core::HRESULT(-2147467262)
+                windows_result::HRESULT(-2147467262)
             } else {
                 (*this).count.add_ref();
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
     }
@@ -158,7 +158,7 @@ impl<
         this: *mut core::ffi::c_void,
         sender: *mut core::ffi::c_void,
         args: windows_core::AbiType<T>,
-    ) -> windows_core::HRESULT {
+    ) -> windows_result::HRESULT {
         unsafe {
             let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
             (this.invoke)(

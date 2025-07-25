@@ -50,7 +50,7 @@ impl IPersist_Vtbl {
                         pclassid.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -207,7 +207,7 @@ impl IPersistFile_Vtbl {
                         ppszfilename.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
