@@ -1,5 +1,14 @@
 name: Fix environment
 description: GitHub VMs aren't configured correctly
+inputs:
+  target:
+    description: Target triple (e.g., x86_64-pc-windows-gnu)
+    required: false
+    default: 'none'
+  update-packages:
+    description: Set to 'false' to skip update of MSYS2 packages
+    required: false
+    default: true
 runs:
   using: "composite"
   steps:
@@ -14,14 +23,14 @@ runs:
             linker = `"C:\\msys64\\mingw32\\bin\\i686-w64-mingw32-gcc.exe`"
             ar = `"C:\\msys64\\mingw32\\bin\\ar.exe`"
         "@
-      if: contains(matrix.target, 'windows-gnu')
+      if: contains(inputs.target, 'windows-gnu')
     - name: Configure environment
       shell: pwsh
       run: |
         $vs_root = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" `
           -latest -property installationPath -format value
 
-        switch -Wildcard ("${{ matrix.target }}")
+        switch -Wildcard ("${{ inputs.target }}")
         {
           "*-pc-windows-gnu"
           {
@@ -64,4 +73,4 @@ runs:
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-llvm
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-i686-gcc
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-gcc
-      if: ${{ !contains(matrix.runner, 'windows-11-arm') }}
+      if: ${{ inputs.update-packages == 'true' && !contains(inputs.target, 'aarch64') }}

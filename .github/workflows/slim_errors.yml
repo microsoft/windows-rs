@@ -39,6 +39,8 @@ jobs:
 
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+        with:
+          target: ${{ matrix.target }}
           
       - name: Test
         run: cargo test -p test_result
