@@ -402,7 +402,7 @@ impl Interface {
                     let upcall = method.write_upcall(call, true);
 
                     quote! {
-                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_core::HRESULT {
+                        unsafe extern "system" fn #name<#constraints Identity: #impl_name <#(#generics,)*>, const OFFSET: isize> (#signature) -> windows_result::HRESULT {
                             unsafe {
                                 let this: &Identity = &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                                 #upcall

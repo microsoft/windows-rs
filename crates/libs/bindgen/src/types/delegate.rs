@@ -111,7 +111,7 @@ impl Delegate {
             #[doc(hidden)]
             pub struct #vtbl_name<#generic_names> where #constraints {
                 base__: windows_core::IUnknown_Vtbl,
-                Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_core::HRESULT,
+                Invoke: unsafe extern "system" fn(#invoke_vtbl) -> windows_result::HRESULT,
                 #named_phantoms
             }
             #cfg
@@ -128,12 +128,12 @@ impl Delegate {
                     Invoke: Self::Invoke,
                     #named_phantoms
                 };
-                unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
+                unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_result::HRESULT {
                     unsafe {
                         let this = this as *mut *mut core::ffi::c_void as *mut Self;
 
                         if iid.is_null() || interface.is_null() {
-                            return windows_core::HRESULT(-2147467261); // E_POINTER
+                            return windows_result::HRESULT(-2147467261); // E_POINTER
                         }
 
                         *interface = if *iid == <#name as windows_core::Interface>::IID ||
@@ -148,10 +148,10 @@ impl Delegate {
                             };
 
                         if (*interface).is_null() {
-                            windows_core::HRESULT(-2147467262) // E_NOINTERFACE
+                            windows_result::HRESULT(-2147467262) // E_NOINTERFACE
                         } else {
                             (*this).count.add_ref();
-                            windows_core::HRESULT(0)
+                            windows_result::HRESULT(0)
                         }
                     }
                 }
@@ -173,7 +173,7 @@ impl Delegate {
                         remaining
                     }
                 }
-                unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_core::HRESULT {
+                unsafe extern "system" fn Invoke(#invoke_vtbl) -> windows_result::HRESULT {
                     unsafe {
                         let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
                         #invoke_upcall
