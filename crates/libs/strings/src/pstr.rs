@@ -43,7 +43,7 @@ impl PSTR {
     /// # Safety
     ///
     /// See the safety information for `PSTR::as_bytes`.
-    pub unsafe fn to_string(&self) -> core::result::Result<String, alloc::string::FromUtf8Error> {
+    pub unsafe fn to_string(&self) -> Result<String, alloc::string::FromUtf8Error> {
         unsafe { String::from_utf8(self.as_bytes().into()) }
     }
 

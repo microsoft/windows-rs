@@ -4,7 +4,7 @@ pub struct Decode<F>(pub F);
 impl<F, R, E> core::fmt::Display for Decode<F>
 where
     F: Clone + FnOnce() -> R,
-    R: IntoIterator<Item = core::result::Result<char, E>>,
+    R: IntoIterator<Item = Result<char, E>>,
 {
     fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
         use core::fmt::Write;
@@ -19,7 +19,7 @@ where
 /// Mirror of `std::char::decode_utf16` for utf-8.
 pub fn decode_utf8(
     mut buffer: &[u8],
-) -> impl Iterator<Item = core::result::Result<char, core::str::Utf8Error>> + '_ {
+) -> impl Iterator<Item = Result<char, core::str::Utf8Error>> + '_ {
     let mut current = "".chars();
     let mut previous_error = None;
     core::iter::from_fn(move || {
