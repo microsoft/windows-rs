@@ -3,7 +3,7 @@ use windows::{
     Win32::System::IO::*,
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let mut filename = std::env::current_dir().unwrap();
         filename.push("message.txt");
@@ -36,7 +36,7 @@ fn main() -> Result<()> {
         let mut buffer: [u8; 12] = Default::default();
 
         if let Err(error) = ReadFile(*file, Some(&mut buffer), None, Some(&mut overlapped)) {
-            assert_eq!(error.code(), ERROR_IO_PENDING.into());
+            assert_eq!(error, ERROR_IO_PENDING.into());
         }
 
         WaitForSingleObject(overlapped.hEvent, 2000);

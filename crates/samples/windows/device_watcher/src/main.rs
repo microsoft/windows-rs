@@ -1,6 +1,6 @@
 use windows::{core::*, Devices::Enumeration::*, Foundation::*};
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let watcher = DeviceInformation::CreateWatcher()?;
 
     watcher.Added(&TypedEventHandler::<DeviceWatcher, DeviceInformation>::new(

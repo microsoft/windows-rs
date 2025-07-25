@@ -1,6 +1,6 @@
 use windows::{core::*, Win32::System::Com::*, Win32::System::Variant::*, Win32::System::Wmi::*};
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 

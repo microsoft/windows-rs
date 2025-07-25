@@ -19,7 +19,7 @@ const CARD_HEIGHT: f32 = 210.0;
 const WINDOW_WIDTH: f32 = CARD_COLUMNS as f32 * (CARD_WIDTH + CARD_MARGIN) + CARD_MARGIN;
 const WINDOW_HEIGHT: f32 = CARD_ROWS as f32 * (CARD_HEIGHT + CARD_MARGIN) + CARD_MARGIN;
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
         SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2)?;
@@ -58,7 +58,7 @@ struct Window {
 }
 
 impl Window {
-    fn new() -> Result<Self> {
+    fn new() -> Result<Self, HRESULT> {
         unsafe {
             let manager: IUIAnimationManager2 =
                 CoCreateInstance(&UIAnimationManager2, None, CLSCTX_INPROC_SERVER)?;
@@ -119,7 +119,7 @@ impl Window {
         }
     }
 
-    fn create_device_resources(&mut self) -> Result<()> {
+    fn create_device_resources(&mut self) -> Result<(), HRESULT> {
         unsafe {
             debug_assert!(self.device.is_none());
             let device_3d = create_device_3d()?;
@@ -207,7 +207,7 @@ impl Window {
         }
     }
 
-    fn effective_window_size(&self) -> Result<(i32, i32)> {
+    fn effective_window_size(&self) -> Result<(i32, i32), HRESULT> {
         unsafe {
             let mut rect = RECT {
                 left: 0,
@@ -226,7 +226,7 @@ impl Window {
         }
     }
 
-    fn click_handler(&mut self, lparam: LPARAM) -> Result<()> {
+    fn click_handler(&mut self, lparam: LPARAM) -> Result<(), HRESULT> {
         unsafe {
             let x = lparam.0 as u16 as f32;
             let y = (lparam.0 >> 16) as f32;
@@ -318,7 +318,7 @@ impl Window {
         }
     }
 
-    fn paint_handler(&mut self) -> Result<()> {
+    fn paint_handler(&mut self) -> Result<(), HRESULT> {
         unsafe {
             if let Some(device) = &self.device {
                 if cfg!(debug_assertions) {
@@ -336,7 +336,7 @@ impl Window {
         }
     }
 
-    fn dpi_changed_handler(&mut self, wparam: WPARAM, lparam: LPARAM) -> Result<()> {
+    fn dpi_changed_handler(&mut self, wparam: WPARAM, lparam: LPARAM) -> Result<(), HRESULT> {
         unsafe {
             self.dpi = (wparam.0 as u16 as f32, (wparam.0 >> 16) as f32);
 
@@ -362,7 +362,7 @@ impl Window {
         }
     }
 
-    fn create_handler(&mut self) -> Result<()> {
+    fn create_handler(&mut self) -> Result<(), HRESULT> {
         unsafe {
             let monitor = MonitorFromWindow(self.handle, MONITOR_DEFAULTTONEAREST);
             let mut dpi = (0, 0);
@@ -415,7 +415,7 @@ impl Window {
         LRESULT(0)
     }
 
-    fn run(&mut self) -> Result<()> {
+    fn run(&mut self) -> Result<(), HRESULT> {
         unsafe {
             let instance = GetModuleHandleA(None)?;
             let window_class = s!("window");
@@ -486,7 +486,7 @@ impl Window {
     }
 }
 
-fn create_text_format() -> Result<IDWriteTextFormat> {
+fn create_text_format() -> Result<IDWriteTextFormat, HRESULT> {
     unsafe {
         let factory: IDWriteFactory2 = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED)?;
 
@@ -506,7 +506,7 @@ fn create_text_format() -> Result<IDWriteTextFormat> {
     }
 }
 
-fn create_image() -> Result<IWICFormatConverter> {
+fn create_image() -> Result<IWICFormatConverter, HRESULT> {
     unsafe {
         let factory: IWICImagingFactory2 =
             CoCreateInstance(&CLSID_WICImagingFactory, None, CLSCTX_INPROC_SERVER)?;
@@ -541,7 +541,7 @@ fn create_image() -> Result<IWICFormatConverter> {
     }
 }
 
-fn create_device_3d() -> Result<ID3D11Device> {
+fn create_device_3d() -> Result<ID3D11Device, HRESULT> {
     let mut device = None;
 
     unsafe {
@@ -560,12 +560,12 @@ fn create_device_3d() -> Result<ID3D11Device> {
     }
 }
 
-fn create_device_2d(device_3d: &ID3D11Device) -> Result<ID2D1Device> {
+fn create_device_2d(device_3d: &ID3D11Device) -> Result<ID2D1Device, HRESULT> {
     let dxgi: IDXGIDevice3 = device_3d.cast()?;
     unsafe { D2D1CreateDevice(&dxgi, None) }
 }
 
-fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2> {
+fn create_visual(device: &IDCompositionDesktopDevice) -> Result<IDCompositionVisual2, HRESULT> {
     unsafe {
         let visual = device.CreateVisual()?;
         visual.SetBackFaceVisibility(DCOMPOSITION_BACKFACE_VISIBILITY_HIDDEN)?;
@@ -577,7 +577,7 @@ fn create_surface(
     device: &IDCompositionDesktopDevice,
     width: f32,
     height: f32,
-) -> Result<IDCompositionSurface> {
+) -> Result<IDCompositionSurface, HRESULT> {
     unsafe {
         device.CreateSurface(
             width as u32,
@@ -592,7 +592,7 @@ fn add_show_transition(
     library: &IUIAnimationTransitionLibrary2,
     storyboard: &IUIAnimationStoryboard2,
     card: &Card,
-) -> Result<UI_ANIMATION_KEYFRAME> {
+) -> Result<UI_ANIMATION_KEYFRAME, HRESULT> {
     unsafe {
         let duration = (180.0 - card.variable.GetValue()?) / 180.0;
         let transition = create_transition(library, duration, 180.0)?;
@@ -607,14 +607,14 @@ fn add_hide_transition(
     key_frame: UI_ANIMATION_KEYFRAME,
     final_value: f64,
     card: &Card,
-) -> Result<()> {
+) -> Result<(), HRESULT> {
     unsafe {
         let transition = create_transition(library, 1.0, final_value)?;
         storyboard.AddTransitionAtKeyframe(&card.variable, &transition, key_frame)
     }
 }
 
-fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<()> {
+fn update_animation(device: &IDCompositionDesktopDevice, card: &Card) -> Result<(), HRESULT> {
     unsafe {
         let animation = device.CreateAnimation()?;
         card.variable.GetCurve(&animation)?;
@@ -630,7 +630,7 @@ fn create_transition(
     library: &IUIAnimationTransitionLibrary2,
     duration: f64,
     final_value: f64,
-) -> Result<IUIAnimationTransition2> {
+) -> Result<IUIAnimationTransition2, HRESULT> {
     unsafe { library.CreateAccelerateDecelerateTransition(duration, final_value, 0.2, 0.8) }
 }
 
@@ -640,7 +640,7 @@ fn create_effect(
     rotation: &IDCompositionRotateTransform3D,
     front: bool,
     dpi: (f32, f32),
-) -> Result<()> {
+) -> Result<(), HRESULT> {
     unsafe {
         let width = logical_to_physical(CARD_WIDTH, dpi.0);
         let height = logical_to_physical(CARD_HEIGHT, dpi.1);
@@ -673,7 +673,7 @@ fn draw_card_front(
     format: &IDWriteTextFormat,
     brush: &ID2D1SolidColorBrush,
     dpi: (f32, f32),
-) -> Result<()> {
+) -> Result<(), HRESULT> {
     unsafe {
         let mut offset = Default::default();
         let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut offset)?;
@@ -714,7 +714,7 @@ fn draw_card_back(
     bitmap: &ID2D1Bitmap1,
     offset: (f32, f32),
     dpi: (f32, f32),
-) -> Result<()> {
+) -> Result<(), HRESULT> {
     unsafe {
         let mut dc_offset = Default::default();
         let dc: ID2D1DeviceContext = surface.BeginDraw(None, &mut dc_offset)?;

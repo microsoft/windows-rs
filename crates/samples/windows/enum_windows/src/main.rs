@@ -1,6 +1,6 @@
 use windows::{core::*, Win32::Foundation::*, Win32::UI::WindowsAndMessaging::*};
 
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe { EnumWindows(Some(enum_window), LPARAM(0)) }
 }
 

@@ -6,11 +6,11 @@ use windows::{
 };
 
 trait DXSample {
-    fn new(command_line: &SampleCommandLine) -> Result<Self>
+    fn new(command_line: &SampleCommandLine) -> Result<Self, HRESULT>
     where
         Self: Sized;
 
-    fn bind_to_window(&mut self, hwnd: &HWND) -> Result<()>;
+    fn bind_to_window(&mut self, hwnd: &HWND) -> Result<(), HRESULT>;
 
     fn update(&mut self) {}
     fn render(&mut self) {}
@@ -43,7 +43,7 @@ fn build_command_line() -> SampleCommandLine {
     SampleCommandLine { use_warp_device }
 }
 
-fn run_sample<S>() -> Result<()>
+fn run_sample<S>() -> Result<(), HRESULT>
 where
     S: DXSample,
 {
@@ -173,7 +173,7 @@ extern "system" fn wndproc<S: DXSample>(
     }
 }
 
-fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1> {
+fn get_hardware_adapter(factory: &IDXGIFactory4) -> Result<IDXGIAdapter1, HRESULT> {
     for i in 0.. {
         let adapter = unsafe { factory.EnumAdapters1(i)? };
         let desc = unsafe { adapter.GetDesc1()? };
@@ -241,7 +241,7 @@ mod d3d12_hello_triangle {
     }
 
     impl DXSample for Sample {
-        fn new(command_line: &SampleCommandLine) -> Result<Self> {
+        fn new(command_line: &SampleCommandLine) -> Result<Self, HRESULT> {
             let (dxgi_factory, device) = create_device(command_line)?;
 
             Ok(Sample {
@@ -251,7 +251,7 @@ mod d3d12_hello_triangle {
             })
         }
 
-        fn bind_to_window(&mut self, hwnd: &HWND) -> Result<()> {
+        fn bind_to_window(&mut self, hwnd: &HWND) -> Result<(), HRESULT> {
             let command_queue: ID3D12CommandQueue = unsafe {
                 self.device.CreateCommandQueue(&D3D12_COMMAND_QUEUE_DESC {
                     Type: D3D12_COMMAND_LIST_TYPE_DIRECT,
@@ -310,7 +310,7 @@ mod d3d12_hello_triangle {
             let rtv_handle = unsafe { rtv_heap.GetCPUDescriptorHandleForHeapStart() };
 
             let render_targets: [ID3D12Resource; FRAME_COUNT as usize] =
-                array_init::try_array_init(|i: usize| -> Result<ID3D12Resource> {
+                array_init::try_array_init(|i: usize| -> Result<ID3D12Resource, HRESULT> {
                     let render_target: ID3D12Resource = unsafe { swap_chain.GetBuffer(i as u32) }?;
                     unsafe {
                         self.device.CreateRenderTargetView(
@@ -419,7 +419,7 @@ mod d3d12_hello_triangle {
         }
     }
 
-    fn populate_command_list(resources: &Resources) -> Result<()> {
+    fn populate_command_list(resources: &Resources) -> Result<(), HRESULT> {
         // Command list allocators can only be reset when the associated
         // command lists have finished execution on the GPU; apps should use
         // fences to determine GPU execution progress.
@@ -499,7 +499,9 @@ mod d3d12_hello_triangle {
         }
     }
 
-    fn create_device(command_line: &SampleCommandLine) -> Result<(IDXGIFactory4, ID3D12Device)> {
+    fn create_device(
+        command_line: &SampleCommandLine,
+    ) -> Result<(IDXGIFactory4, ID3D12Device), HRESULT> {
         if cfg!(debug_assertions) {
             unsafe {
                 let mut debug: Option<ID3D12Debug> = None;
@@ -528,7 +530,7 @@ mod d3d12_hello_triangle {
         Ok((dxgi_factory, device.unwrap()))
     }
 
-    fn create_root_signature(device: &ID3D12Device) -> Result<ID3D12RootSignature> {
+    fn create_root_signature(device: &ID3D12Device) -> Result<ID3D12RootSignature, HRESULT> {
         let desc = D3D12_ROOT_SIGNATURE_DESC {
             Flags: D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT,
             ..Default::default()
@@ -555,7 +557,7 @@ mod d3d12_hello_triangle {
     fn create_pipeline_state(
         device: &ID3D12Device,
         root_signature: &ID3D12RootSignature,
-    ) -> Result<ID3D12PipelineState> {
+    ) -> Result<ID3D12PipelineState, HRESULT> {
         let compile_flags = if cfg!(debug_assertions) {
             D3DCOMPILE_DEBUG | D3DCOMPILE_SKIP_OPTIMIZATION
         } else {
@@ -683,7 +685,7 @@ mod d3d12_hello_triangle {
     fn create_vertex_buffer(
         device: &ID3D12Device,
         aspect_ratio: f32,
-    ) -> Result<(ID3D12Resource, D3D12_VERTEX_BUFFER_VIEW)> {
+    ) -> Result<(ID3D12Resource, D3D12_VERTEX_BUFFER_VIEW), HRESULT> {
         let vertices = [
             Vertex {
                 position: [0.0, 0.25 * aspect_ratio, 0.0],
@@ -787,7 +789,7 @@ mod d3d12_hello_triangle {
     }
 }
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     run_sample::<d3d12_hello_triangle::Sample>()?;
 
     Ok(())

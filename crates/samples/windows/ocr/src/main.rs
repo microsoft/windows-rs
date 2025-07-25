@@ -5,7 +5,7 @@ use windows::{
     Storage::{FileAccessMode, StorageFile},
 };
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     let mut message = std::env::current_dir().unwrap();
     message.push("message.png");
 

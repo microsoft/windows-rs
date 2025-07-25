@@ -1,9 +1,9 @@
 use windows::{
-    core::Owned,
+    core::{Owned, HRESULT},
     Win32::System::Threading::{CreateEventW, SetEvent, WaitForSingleObject},
 };
 
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let event = Owned::new(CreateEventW(None, true, false, None)?);
         SetEvent(*event)?;

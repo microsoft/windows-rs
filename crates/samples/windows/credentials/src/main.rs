@@ -1,8 +1,10 @@
+use windows::core::HRESULT;
+
 use windows::Win32::Security::Credentials::{
     CredEnumerateW, CredFree, CREDENTIALW, CRED_ENUMERATE_ALL_CREDENTIALS,
 };
 
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<(), HRESULT> {
     let mut count = 0;
     let mut credentials_ptr = std::ptr::null_mut();
     unsafe {

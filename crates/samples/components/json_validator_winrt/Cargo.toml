@@ -13,6 +13,7 @@ jsonschema = { version = "0.23", default-features = false }
 serde_json = { workspace = true }
 windows = { workspace = true, features = ["Win32_System_WinRT"] }
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }

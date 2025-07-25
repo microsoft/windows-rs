@@ -24,7 +24,7 @@ pub trait IJsonValidator_Impl: windows_core::IUnknownImpl {
     fn Validate(
         &self,
         value: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING>;
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
 }
 impl IJsonValidator_Vtbl {
     pub const fn new<Identity: IJsonValidator_Impl, const OFFSET: isize>() -> Self {
@@ -32,7 +32,7 @@ impl IJsonValidator_Vtbl {
             this: *mut core::ffi::c_void,
             value: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -40,9 +40,9 @@ impl IJsonValidator_Vtbl {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -78,8 +78,10 @@ impl windows_core::RuntimeName for IJsonValidatorFactory {
     const NAME: &'static str = "Sample.IJsonValidatorFactory";
 }
 pub trait IJsonValidatorFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateInstance(&self, schema: &windows_core::HSTRING)
-        -> windows_core::Result<JsonValidator>;
+    fn CreateInstance(
+        &self,
+        schema: &windows_core::HSTRING,
+    ) -> Result<JsonValidator, windows_result::HRESULT>;
 }
 impl IJsonValidatorFactory_Vtbl {
     pub const fn new<Identity: IJsonValidatorFactory_Impl, const OFFSET: isize>() -> Self {
@@ -90,7 +92,7 @@ impl IJsonValidatorFactory_Vtbl {
             this: *mut core::ffi::c_void,
             schema: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -101,9 +103,9 @@ impl IJsonValidatorFactory_Vtbl {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -139,7 +141,7 @@ impl JsonValidator {
     pub fn Validate(
         &self,
         value: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -151,7 +153,9 @@ impl JsonValidator {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(schema: &windows_core::HSTRING) -> windows_core::Result<JsonValidator> {
+    pub fn CreateInstance(
+        schema: &windows_core::HSTRING,
+    ) -> Result<JsonValidator, windows_result::HRESULT> {
         Self::IJsonValidatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -162,9 +166,12 @@ impl JsonValidator {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IJsonValidatorFactory<R, F: FnOnce(&IJsonValidatorFactory) -> windows_core::Result<R>>(
+    fn IJsonValidatorFactory<
+        R,
+        F: FnOnce(&IJsonValidatorFactory) -> Result<R, windows_result::HRESULT>,
+    >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<JsonValidator, IJsonValidatorFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

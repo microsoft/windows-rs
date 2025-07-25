@@ -15,7 +15,7 @@ struct CoreApp();
 
 #[allow(non_snake_case)]
 impl IFrameworkViewSource_Impl for CoreApp_Impl {
-    fn CreateView(&self) -> Result<IFrameworkView> {
+    fn CreateView(&self) -> Result<IFrameworkView, HRESULT> {
         Ok(CoreAppView().into())
     }
 }
@@ -25,19 +25,19 @@ struct CoreAppView();
 
 #[allow(non_snake_case)]
 impl IFrameworkView_Impl for CoreAppView_Impl {
-    fn Initialize(&self, _: Ref<CoreApplicationView>) -> Result<()> {
+    fn Initialize(&self, _: Ref<CoreApplicationView>) -> Result<(), HRESULT> {
         Ok(())
     }
 
-    fn Load(&self, _: &HSTRING) -> Result<()> {
+    fn Load(&self, _: &HSTRING) -> Result<(), HRESULT> {
         Ok(())
     }
 
-    fn Uninitialize(&self) -> Result<()> {
+    fn Uninitialize(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 
-    fn Run(&self) -> Result<()> {
+    fn Run(&self) -> Result<(), HRESULT> {
         let window = CoreWindow::GetForCurrentThread()?;
         window.Activate()?;
 
@@ -47,12 +47,12 @@ impl IFrameworkView_Impl for CoreAppView_Impl {
         Ok(())
     }
 
-    fn SetWindow(&self, _: Ref<CoreWindow>) -> Result<()> {
+    fn SetWindow(&self, _: Ref<CoreWindow>) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 

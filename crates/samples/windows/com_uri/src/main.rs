@@ -1,7 +1,7 @@
 use windows::core::*;
 use windows::Win32::System::Com::*;
 
-fn main() -> windows::core::Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 

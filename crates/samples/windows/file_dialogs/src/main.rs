@@ -1,6 +1,6 @@
 use windows::{core::*, Win32::System::Com::*, Win32::UI::Shell::Common::*, Win32::UI::Shell::*};
 
-fn main() -> Result<()> {
+fn main() -> Result<(), HRESULT> {
     unsafe {
         CoIncrementMTAUsage()?;
 
