@@ -4,7 +4,7 @@ mod bindings;
 pub use bindings::*;
 pub use windows_core::*;
 
-pub fn make_cpp() -> Result<ITest> {
+pub fn make_cpp() -> Result<ITest, HRESULT> {
     extern "system" {
         fn make_cpp(test: *mut *mut std::ffi::c_void) -> HRESULT;
     }

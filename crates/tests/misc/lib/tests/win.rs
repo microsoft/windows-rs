@@ -4,7 +4,7 @@ use windows::{
 };
 
 #[test]
-fn linker() -> Result<()> {
+fn linker() -> Result<(), HRESULT> {
     unsafe {
         D3DCreateLinker()?;
         Ok(())
@@ -33,12 +33,12 @@ fn gdi() {
 #[test]
 fn wait_on_address() {
     unsafe {
-        WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, None).unwrap_err();
+        _ = WaitOnAddress(std::ptr::null(), std::ptr::null(), 0, None).unwrap_err();
     }
 }
 
 #[test]
-fn clr() -> Result<()> {
+fn clr() -> Result<(), HRESULT> {
     unsafe {
         let mut version = vec![0; 20];
         let mut len = 0;

@@ -26,7 +26,7 @@ impl ClassFactory {
 }
 
 impl bindings::IClassStatics_Impl for ClassFactory_Impl {
-    fn StaticSignal(&self, value: i32) -> Result<i32> {
+    fn StaticSignal(&self, value: i32) -> Result<i32, HRESULT> {
         let mut counter = 0;
         self.0.call(|delegate| {
             counter += 1;
@@ -35,18 +35,18 @@ impl bindings::IClassStatics_Impl for ClassFactory_Impl {
         Ok(counter)
     }
 
-    fn StaticEvent(&self, handler: Ref<EventHandler<i32>>) -> Result<i64> {
+    fn StaticEvent(&self, handler: Ref<EventHandler<i32>>) -> Result<i64, HRESULT> {
         self.0.add(handler.unwrap())
     }
 
-    fn RemoveStaticEvent(&self, token: i64) -> Result<()> {
+    fn RemoveStaticEvent(&self, token: i64) -> Result<(), HRESULT> {
         self.0.remove(token);
         Ok(())
     }
 }
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
         Ok(Class::new().into())
     }
 }
@@ -55,7 +55,7 @@ impl IActivationFactory_Impl for ClassFactory_Impl {
 struct Class(Event<TypedEventHandler<bindings::Class, i32>>);
 
 impl bindings::IClass_Impl for Class_Impl {
-    fn Signal(&self, value: i32) -> Result<i32> {
+    fn Signal(&self, value: i32) -> Result<i32, HRESULT> {
         let mut counter = 0;
         self.0.call(|delegate| {
             counter += 1;
@@ -64,14 +64,11 @@ impl bindings::IClass_Impl for Class_Impl {
         Ok(counter)
     }
 
-    fn Event(
-        &self,
-        handler: Ref<TypedEventHandler<bindings::Class, i32>>,
-    ) -> windows_core::Result<i64> {
+    fn Event(&self, handler: Ref<TypedEventHandler<bindings::Class, i32>>) -> Result<i64, HRESULT> {
         self.0.add(handler.unwrap())
     }
 
-    fn RemoveEvent(&self, token: i64) -> windows_core::Result<()> {
+    fn RemoveEvent(&self, token: i64) -> Result<(), HRESULT> {
         self.0.remove(token);
         Ok(())
     }

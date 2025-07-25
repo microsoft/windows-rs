@@ -1,8 +1,8 @@
-use windows::core::Result;
+use windows_result::*;
 use windows_strings::*;
 
 #[test]
-fn literals() -> Result<()> {
+fn literals() -> Result<(), HRESULT> {
     const A: PCSTR = s!("ansi");
     assert_eq!(unsafe { A.to_string()? }, "ansi");
 

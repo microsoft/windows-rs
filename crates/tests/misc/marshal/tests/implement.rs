@@ -9,7 +9,7 @@ impl IClassFactory_Impl for Factory_Impl {
         outer: Ref<IUnknown>,
         iid: *const GUID,
         interface: *mut *mut core::ffi::c_void,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         unsafe {
             assert!(outer.is_null(), "aggregation not supported");
             let unknown: IUnknown = Stringable.into();
@@ -17,7 +17,7 @@ impl IClassFactory_Impl for Factory_Impl {
         }
     }
 
-    fn LockServer(&self, lock: BOOL) -> Result<()> {
+    fn LockServer(&self, lock: BOOL) -> Result<(), HRESULT> {
         assert!(lock.as_bool());
         Ok(())
     }
@@ -27,7 +27,7 @@ impl IClassFactory_Impl for Factory_Impl {
 struct Stringable;
 
 impl IStringable_Impl for Stringable_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("Stringable".into())
     }
 }

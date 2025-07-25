@@ -1,5 +1,5 @@
 use windows::{
-    core::{Interface, Result, HSTRING},
+    core::{Interface, HRESULT, HSTRING},
     Foundation::Collections::StringMap,
     Win32::System::Com::{CoInitializeEx, COINIT_MULTITHREADED},
     Win32::System::WinRT::RoActivateInstance,
@@ -10,7 +10,7 @@ use windows::{
 // crate. Calling RoActivateInstance in production code is discouraged. Instead, let the Windows crate
 // activate WinRT types directly as it can do so far more efficiently.
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe { CoInitializeEx(None, COINIT_MULTITHREADED).ok()? };
 
     let instance: HSTRING = "Windows.Foundation.Collections.StringMap".into();

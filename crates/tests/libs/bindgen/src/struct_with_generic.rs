@@ -59,7 +59,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IPropertyValue {
-    pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
+    pub fn IsNumericScalar(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,7 +70,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetUInt8(&self) -> windows_core::Result<u8> {
+    pub fn GetUInt8(&self) -> Result<u8, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -81,7 +81,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetInt16(&self) -> windows_core::Result<i16> {
+    pub fn GetInt16(&self) -> Result<i16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -92,7 +92,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetUInt16(&self) -> windows_core::Result<u16> {
+    pub fn GetUInt16(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -103,7 +103,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetInt32(&self) -> windows_core::Result<i32> {
+    pub fn GetInt32(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -114,7 +114,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetUInt32(&self) -> windows_core::Result<u32> {
+    pub fn GetUInt32(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -125,7 +125,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetInt64(&self) -> windows_core::Result<i64> {
+    pub fn GetInt64(&self) -> Result<i64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -136,7 +136,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetUInt64(&self) -> windows_core::Result<u64> {
+    pub fn GetUInt64(&self) -> Result<u64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -147,7 +147,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetSingle(&self) -> windows_core::Result<f32> {
+    pub fn GetSingle(&self) -> Result<f32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -158,7 +158,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetDouble(&self) -> windows_core::Result<f64> {
+    pub fn GetDouble(&self) -> Result<f64, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -169,7 +169,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetChar16(&self) -> windows_core::Result<u16> {
+    pub fn GetChar16(&self) -> Result<u16, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -180,7 +180,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -191,7 +191,7 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -202,7 +202,7 @@ impl IPropertyValue {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn GetGuid(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -213,7 +213,10 @@ impl IPropertyValue {
             .map(|| result__)
         }
     }
-    pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+    pub fn GetUInt8Array(
+        &self,
+        value: &mut windows_core::Array<u8>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt8Array)(
@@ -224,7 +227,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()> {
+    pub fn GetInt16Array(
+        &self,
+        value: &mut windows_core::Array<i16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt16Array)(
@@ -235,7 +241,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
+    pub fn GetUInt16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt16Array)(
@@ -246,7 +255,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()> {
+    pub fn GetInt32Array(
+        &self,
+        value: &mut windows_core::Array<i32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt32Array)(
@@ -257,7 +269,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()> {
+    pub fn GetUInt32Array(
+        &self,
+        value: &mut windows_core::Array<u32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt32Array)(
@@ -268,7 +283,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()> {
+    pub fn GetInt64Array(
+        &self,
+        value: &mut windows_core::Array<i64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt64Array)(
@@ -279,7 +297,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()> {
+    pub fn GetUInt64Array(
+        &self,
+        value: &mut windows_core::Array<u64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt64Array)(
@@ -290,7 +311,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()> {
+    pub fn GetSingleArray(
+        &self,
+        value: &mut windows_core::Array<f32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetSingleArray)(
@@ -301,7 +325,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()> {
+    pub fn GetDoubleArray(
+        &self,
+        value: &mut windows_core::Array<f64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetDoubleArray)(
@@ -312,7 +339,10 @@ impl IPropertyValue {
             .ok()
         }
     }
-    pub fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
+    pub fn GetChar16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetChar16Array)(
@@ -326,7 +356,7 @@ impl IPropertyValue {
     pub fn GetBooleanArray(
         &self,
         value: &mut windows_core::Array<bool>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetBooleanArray)(
@@ -340,7 +370,7 @@ impl IPropertyValue {
     pub fn GetStringArray(
         &self,
         value: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetStringArray)(
@@ -354,7 +384,7 @@ impl IPropertyValue {
     pub fn GetInspectableArray(
         &self,
         value: &mut windows_core::Array<windows_core::IInspectable>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetInspectableArray)(
@@ -368,7 +398,7 @@ impl IPropertyValue {
     pub fn GetGuidArray(
         &self,
         value: &mut windows_core::Array<windows_core::GUID>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).GetGuidArray)(
@@ -384,43 +414,76 @@ impl windows_core::RuntimeName for IPropertyValue {
     const NAME: &'static str = "Windows.Foundation.IPropertyValue";
 }
 pub trait IPropertyValue_Impl: windows_core::IUnknownImpl {
-    fn IsNumericScalar(&self) -> windows_core::Result<bool>;
-    fn GetUInt8(&self) -> windows_core::Result<u8>;
-    fn GetInt16(&self) -> windows_core::Result<i16>;
-    fn GetUInt16(&self) -> windows_core::Result<u16>;
-    fn GetInt32(&self) -> windows_core::Result<i32>;
-    fn GetUInt32(&self) -> windows_core::Result<u32>;
-    fn GetInt64(&self) -> windows_core::Result<i64>;
-    fn GetUInt64(&self) -> windows_core::Result<u64>;
-    fn GetSingle(&self) -> windows_core::Result<f32>;
-    fn GetDouble(&self) -> windows_core::Result<f64>;
-    fn GetChar16(&self) -> windows_core::Result<u16>;
-    fn GetBoolean(&self) -> windows_core::Result<bool>;
-    fn GetString(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn GetGuid(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()>;
-    fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()>;
-    fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
-    fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()>;
-    fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()>;
-    fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()>;
-    fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()>;
-    fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()>;
-    fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()>;
-    fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()>;
-    fn GetBooleanArray(&self, value: &mut windows_core::Array<bool>) -> windows_core::Result<()>;
+    fn IsNumericScalar(&self) -> Result<bool, windows_result::HRESULT>;
+    fn GetUInt8(&self) -> Result<u8, windows_result::HRESULT>;
+    fn GetInt16(&self) -> Result<i16, windows_result::HRESULT>;
+    fn GetUInt16(&self) -> Result<u16, windows_result::HRESULT>;
+    fn GetInt32(&self) -> Result<i32, windows_result::HRESULT>;
+    fn GetUInt32(&self) -> Result<u32, windows_result::HRESULT>;
+    fn GetInt64(&self) -> Result<i64, windows_result::HRESULT>;
+    fn GetUInt64(&self) -> Result<u64, windows_result::HRESULT>;
+    fn GetSingle(&self) -> Result<f32, windows_result::HRESULT>;
+    fn GetDouble(&self) -> Result<f64, windows_result::HRESULT>;
+    fn GetChar16(&self) -> Result<u16, windows_result::HRESULT>;
+    fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT>;
+    fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT>;
+    fn GetGuid(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
+    fn GetUInt8Array(
+        &self,
+        value: &mut windows_core::Array<u8>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetInt16Array(
+        &self,
+        value: &mut windows_core::Array<i16>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetUInt16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetInt32Array(
+        &self,
+        value: &mut windows_core::Array<i32>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetUInt32Array(
+        &self,
+        value: &mut windows_core::Array<u32>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetInt64Array(
+        &self,
+        value: &mut windows_core::Array<i64>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetUInt64Array(
+        &self,
+        value: &mut windows_core::Array<u64>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetSingleArray(
+        &self,
+        value: &mut windows_core::Array<f32>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetDoubleArray(
+        &self,
+        value: &mut windows_core::Array<f64>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetChar16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT>;
+    fn GetBooleanArray(
+        &self,
+        value: &mut windows_core::Array<bool>,
+    ) -> Result<(), windows_result::HRESULT>;
     fn GetStringArray(
         &self,
         value: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
     fn GetInspectableArray(
         &self,
         value: &mut windows_core::Array<windows_core::IInspectable>,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
     fn GetGuidArray(
         &self,
         value: &mut windows_core::Array<windows_core::GUID>,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
 }
 impl IPropertyValue_Vtbl {
     pub const fn new<Identity: IPropertyValue_Impl, const OFFSET: isize>() -> Self {
@@ -1156,7 +1219,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IPropert
     const QUERY: bool = true;
 }
 impl<T: windows_core::RuntimeType + 'static> IReference<T> {
-    pub fn Value(&self) -> windows_core::Result<T> {
+    pub fn Value(&self) -> Result<T, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1167,7 +1230,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsNumericScalar(&self) -> windows_core::Result<bool> {
+    pub fn IsNumericScalar(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1178,7 +1241,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetUInt8(&self) -> windows_core::Result<u8> {
+    pub fn GetUInt8(&self) -> Result<u8, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1189,7 +1252,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetInt16(&self) -> windows_core::Result<i16> {
+    pub fn GetInt16(&self) -> Result<i16, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1200,7 +1263,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetUInt16(&self) -> windows_core::Result<u16> {
+    pub fn GetUInt16(&self) -> Result<u16, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1211,7 +1274,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetInt32(&self) -> windows_core::Result<i32> {
+    pub fn GetInt32(&self) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1222,7 +1285,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetUInt32(&self) -> windows_core::Result<u32> {
+    pub fn GetUInt32(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1233,7 +1296,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetInt64(&self) -> windows_core::Result<i64> {
+    pub fn GetInt64(&self) -> Result<i64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1244,7 +1307,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetUInt64(&self) -> windows_core::Result<u64> {
+    pub fn GetUInt64(&self) -> Result<u64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1255,7 +1318,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetSingle(&self) -> windows_core::Result<f32> {
+    pub fn GetSingle(&self) -> Result<f32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1266,7 +1329,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetDouble(&self) -> windows_core::Result<f64> {
+    pub fn GetDouble(&self) -> Result<f64, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1277,7 +1340,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetChar16(&self) -> windows_core::Result<u16> {
+    pub fn GetChar16(&self) -> Result<u16, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1288,7 +1351,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetBoolean(&self) -> windows_core::Result<bool> {
+    pub fn GetBoolean(&self) -> Result<bool, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,7 +1362,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1310,7 +1373,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetGuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn GetGuid(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1321,7 +1384,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .map(|| result__)
         }
     }
-    pub fn GetUInt8Array(&self, value: &mut windows_core::Array<u8>) -> windows_core::Result<()> {
+    pub fn GetUInt8Array(
+        &self,
+        value: &mut windows_core::Array<u8>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt8Array)(
@@ -1332,7 +1398,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetInt16Array(&self, value: &mut windows_core::Array<i16>) -> windows_core::Result<()> {
+    pub fn GetInt16Array(
+        &self,
+        value: &mut windows_core::Array<i16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt16Array)(
@@ -1343,7 +1412,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetUInt16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
+    pub fn GetUInt16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt16Array)(
@@ -1354,7 +1426,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetInt32Array(&self, value: &mut windows_core::Array<i32>) -> windows_core::Result<()> {
+    pub fn GetInt32Array(
+        &self,
+        value: &mut windows_core::Array<i32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt32Array)(
@@ -1365,7 +1440,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetUInt32Array(&self, value: &mut windows_core::Array<u32>) -> windows_core::Result<()> {
+    pub fn GetUInt32Array(
+        &self,
+        value: &mut windows_core::Array<u32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt32Array)(
@@ -1376,7 +1454,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetInt64Array(&self, value: &mut windows_core::Array<i64>) -> windows_core::Result<()> {
+    pub fn GetInt64Array(
+        &self,
+        value: &mut windows_core::Array<i64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetInt64Array)(
@@ -1387,7 +1468,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetUInt64Array(&self, value: &mut windows_core::Array<u64>) -> windows_core::Result<()> {
+    pub fn GetUInt64Array(
+        &self,
+        value: &mut windows_core::Array<u64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetUInt64Array)(
@@ -1398,7 +1482,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetSingleArray(&self, value: &mut windows_core::Array<f32>) -> windows_core::Result<()> {
+    pub fn GetSingleArray(
+        &self,
+        value: &mut windows_core::Array<f32>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetSingleArray)(
@@ -1409,7 +1496,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetDoubleArray(&self, value: &mut windows_core::Array<f64>) -> windows_core::Result<()> {
+    pub fn GetDoubleArray(
+        &self,
+        value: &mut windows_core::Array<f64>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetDoubleArray)(
@@ -1420,7 +1510,10 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
             .ok()
         }
     }
-    pub fn GetChar16Array(&self, value: &mut windows_core::Array<u16>) -> windows_core::Result<()> {
+    pub fn GetChar16Array(
+        &self,
+        value: &mut windows_core::Array<u16>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetChar16Array)(
@@ -1434,7 +1527,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn GetBooleanArray(
         &self,
         value: &mut windows_core::Array<bool>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetBooleanArray)(
@@ -1448,7 +1541,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn GetStringArray(
         &self,
         value: &mut windows_core::Array<windows_core::HSTRING>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetStringArray)(
@@ -1462,7 +1555,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn GetInspectableArray(
         &self,
         value: &mut windows_core::Array<windows_core::IInspectable>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetInspectableArray)(
@@ -1476,7 +1569,7 @@ impl<T: windows_core::RuntimeType + 'static> IReference<T> {
     pub fn GetGuidArray(
         &self,
         value: &mut windows_core::Array<windows_core::GUID>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IPropertyValue>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).GetGuidArray)(
@@ -1495,7 +1588,7 @@ pub trait IReference_Impl<T>: IPropertyValue_Impl
 where
     T: windows_core::RuntimeType + 'static,
 {
-    fn Value(&self) -> windows_core::Result<T>;
+    fn Value(&self) -> Result<T, windows_result::HRESULT>;
 }
 impl<T: windows_core::RuntimeType + 'static> IReference_Vtbl<T> {
     pub const fn new<Identity: IReference_Impl<T>, const OFFSET: isize>() -> Self {

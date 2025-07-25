@@ -3,7 +3,7 @@ use windows_registry::*;
 use windows_strings::*;
 
 #[test]
-fn string() -> Result<()> {
+fn string() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\string";
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;

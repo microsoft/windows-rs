@@ -14,6 +14,9 @@ workspace = true
 [dependencies.windows-numerics]
 workspace = true
 
+[dependencies.windows-result]
+workspace = true
+
 [dependencies.windows-collections]
 workspace = true
 

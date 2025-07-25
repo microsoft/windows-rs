@@ -13,3 +13,6 @@ workspace = true
 
 [dependencies.windows-link]
 workspace = true
+
+[dependencies.windows-result]
+workspace = true

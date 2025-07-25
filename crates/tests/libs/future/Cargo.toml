@@ -20,5 +20,8 @@ features = [
 workspace = true
 features = ["std"]
 
+[dev-dependencies.windows-link]
+workspace = true
+
 [dev-dependencies]
 futures = "0.3"

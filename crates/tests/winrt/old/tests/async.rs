@@ -1,7 +1,7 @@
-#[test]
-fn async_get() -> windows::core::Result<()> {
-    use windows::Storage::Streams::*;
+use windows::{core::HRESULT, Storage::Streams::*};
 
+#[test]
+fn async_get() -> Result<(), HRESULT> {
     let stream = &InMemoryRandomAccessStream::new()?;
 
     let writer = DataWriter::CreateDataWriter(stream)?;

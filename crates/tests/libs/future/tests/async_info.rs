@@ -5,7 +5,7 @@ use windows::core::*;
 use windows_future::*;
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let a = IAsyncAction::ready(Ok(()));
     a.get()?;
     async_info(&a.cast()?)?;
@@ -41,7 +41,7 @@ fn test() -> Result<()> {
     Ok(())
 }
 
-fn async_info(info: &IAsyncInfo) -> Result<()> {
+fn async_info(info: &IAsyncInfo) -> Result<(), HRESULT> {
     // Stock implementations  return 1
     assert_eq!(info.Id()?, 1);
 

@@ -1,7 +1,7 @@
 use windows_registry::*;
 
 #[test]
-fn string() -> Result<()> {
+fn string() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\rename";
     _ = CURRENT_USER.remove_tree(test_key);
     let test_key = CURRENT_USER.create(test_key)?;

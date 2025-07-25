@@ -6,7 +6,7 @@ use windows::{
 struct Reflection;
 
 impl ID3D12FunctionParameterReflection_Impl for Reflection {
-    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> Result<()> {
+    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> Result<(), HRESULT> {
         unsafe {
             *pdesc = D3D12_PARAMETER_DESC {
                 Name: s!("test"),
@@ -26,10 +26,10 @@ impl Default for Variable {
 }
 
 impl ID3D10EffectBlendVariable_Impl for Variable {
-    fn GetBlendState(&self, _: u32) -> Result<ID3D10BlendState> {
+    fn GetBlendState(&self, _: u32) -> Result<ID3D10BlendState, HRESULT> {
         unimplemented!();
     }
-    fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<()> {
+    fn GetBackingStore(&self, _: u32, _: *mut D3D10_BLEND_DESC) -> Result<(), HRESULT> {
         unimplemented!();
     }
 }
@@ -42,7 +42,7 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn GetType(&self) -> core::option::Option<ID3D10EffectType> {
         unimplemented!();
     }
-    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> windows::core::Result<()> {
+    fn GetDesc(&self, _: *mut D3D10_EFFECT_VARIABLE_DESC) -> Result<(), HRESULT> {
         unimplemented!();
     }
     fn GetAnnotationByIndex(&self, _: u32) -> core::option::Option<ID3D10EffectVariable> {
@@ -114,15 +114,10 @@ impl ID3D10EffectVariable_Impl for Variable {
     fn AsSampler(&self) -> core::option::Option<ID3D10EffectSamplerVariable> {
         unimplemented!();
     }
-    fn SetRawValue(
-        &self,
-        _: *const core::ffi::c_void,
-        _: u32,
-        _: u32,
-    ) -> windows::core::Result<()> {
+    fn SetRawValue(&self, _: *const core::ffi::c_void, _: u32, _: u32) -> Result<(), HRESULT> {
         unimplemented!();
     }
-    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> windows::core::Result<()> {
+    fn GetRawValue(&self, _: *mut core::ffi::c_void, _: u32, _: u32) -> Result<(), HRESULT> {
         unimplemented!();
     }
 }
@@ -152,7 +147,7 @@ impl IXAudio2VoiceCallback_Impl for Callback {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         CoInitializeEx(None, COINIT_MULTITHREADED).ok()?;
 

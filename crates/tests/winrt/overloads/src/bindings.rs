@@ -11,20 +11,20 @@
 pub struct A(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(A, windows_core::IUnknown, windows_core::IInspectable);
 impl A {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<A, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -35,7 +35,7 @@ impl A {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -66,20 +66,20 @@ unsafe impl Sync for A {}
 pub struct B(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(B, windows_core::IUnknown, windows_core::IInspectable);
 impl B {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<B, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MethodOne(&self) -> windows_core::Result<i32> {
+    pub fn MethodOne(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,7 +90,7 @@ impl B {
             .map(|| result__)
         }
     }
-    pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn MethodTwo(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -121,20 +121,20 @@ unsafe impl Sync for B {}
 pub struct C(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(C, windows_core::IUnknown, windows_core::IInspectable);
 impl C {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<C, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -145,7 +145,7 @@ impl C {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -176,20 +176,20 @@ unsafe impl Sync for C {}
 pub struct D(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(D, windows_core::IUnknown, windows_core::IInspectable);
 impl D {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<D, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -200,7 +200,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -212,7 +212,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method3(&self, a: i32, b: i32) -> windows_core::Result<i32> {
+    pub fn Method3(&self, a: i32, b: i32) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ID2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -225,7 +225,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method4(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32> {
+    pub fn Method4(&self, a: i32, b: i32, c: i32) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ID2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -258,20 +258,20 @@ unsafe impl Sync for D {}
 pub struct E(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(E, windows_core::IUnknown, windows_core::IInspectable);
 impl E {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<E, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MethodOne(&self) -> windows_core::Result<i32> {
+    pub fn MethodOne(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -282,7 +282,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn MethodTwo(&self, a: i32) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -294,7 +294,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodThree(&self, a: i32, b: i32) -> windows_core::Result<i32> {
+    pub fn MethodThree(&self, a: i32, b: i32) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IE2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -307,7 +307,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodFour(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32> {
+    pub fn MethodFour(&self, a: i32, b: i32, c: i32) -> Result<i32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IE2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -344,24 +344,24 @@ impl windows_core::RuntimeName for IA {
     const NAME: &'static str = "test_overloads.IA";
 }
 pub trait IA_Impl: windows_core::IUnknownImpl {
-    fn Method(&self) -> windows_core::Result<i32>;
-    fn Method2(&self, a: i32) -> windows_core::Result<i32>;
+    fn Method(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IA_Vtbl {
     pub const fn new<Identity: IA_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Method<Identity: IA_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IA_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -369,16 +369,16 @@ impl IA_Vtbl {
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IA_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -410,24 +410,24 @@ impl windows_core::RuntimeName for IB {
     const NAME: &'static str = "test_overloads.IB";
 }
 pub trait IB_Impl: windows_core::IUnknownImpl {
-    fn MethodOne(&self) -> windows_core::Result<i32>;
-    fn MethodTwo(&self, a: i32) -> windows_core::Result<i32>;
+    fn MethodOne(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MethodTwo(&self, a: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IB_Vtbl {
     pub const fn new<Identity: IB_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MethodOne<Identity: IB_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IB_Impl::MethodOne(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -435,16 +435,16 @@ impl IB_Vtbl {
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IB_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -476,24 +476,24 @@ impl windows_core::RuntimeName for IC {
     const NAME: &'static str = "test_overloads.IC";
 }
 pub trait IC_Impl: windows_core::IUnknownImpl {
-    fn Method(&self) -> windows_core::Result<i32>;
-    fn Method2(&self, a: i32) -> windows_core::Result<i32>;
+    fn Method(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IC_Vtbl {
     pub const fn new<Identity: IC_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Method<Identity: IC_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IC_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -501,16 +501,16 @@ impl IC_Vtbl {
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IC_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -542,24 +542,24 @@ impl windows_core::RuntimeName for ID {
     const NAME: &'static str = "test_overloads.ID";
 }
 pub trait ID_Impl: windows_core::IUnknownImpl {
-    fn Method(&self) -> windows_core::Result<i32>;
-    fn Method2(&self, a: i32) -> windows_core::Result<i32>;
+    fn Method(&self) -> Result<i32, windows_result::HRESULT>;
+    fn Method2(&self, a: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl ID_Vtbl {
     pub const fn new<Identity: ID_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Method<Identity: ID_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID_Impl::Method(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -567,16 +567,16 @@ impl ID_Vtbl {
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID_Impl::Method2(this, a) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -608,8 +608,8 @@ impl windows_core::RuntimeName for ID2 {
     const NAME: &'static str = "test_overloads.ID2";
 }
 pub trait ID2_Impl: windows_core::IUnknownImpl {
-    fn Method(&self, a: i32, b: i32) -> windows_core::Result<i32>;
-    fn Method2(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32>;
+    fn Method(&self, a: i32, b: i32) -> Result<i32, windows_result::HRESULT>;
+    fn Method2(&self, a: i32, b: i32, c: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl ID2_Vtbl {
     pub const fn new<Identity: ID2_Impl, const OFFSET: isize>() -> Self {
@@ -618,16 +618,16 @@ impl ID2_Vtbl {
             a: i32,
             b: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2_Impl::Method(this, a, b) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -637,16 +637,16 @@ impl ID2_Vtbl {
             b: i32,
             c: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ID2_Impl::Method2(this, a, b, c) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -687,24 +687,24 @@ impl windows_core::RuntimeName for IE {
     const NAME: &'static str = "test_overloads.IE";
 }
 pub trait IE_Impl: windows_core::IUnknownImpl {
-    fn MethodOne(&self) -> windows_core::Result<i32>;
-    fn MethodTwo(&self, a: i32) -> windows_core::Result<i32>;
+    fn MethodOne(&self) -> Result<i32, windows_result::HRESULT>;
+    fn MethodTwo(&self, a: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IE_Vtbl {
     pub const fn new<Identity: IE_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn MethodOne<Identity: IE_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE_Impl::MethodOne(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -712,16 +712,16 @@ impl IE_Vtbl {
             this: *mut core::ffi::c_void,
             a: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE_Impl::MethodTwo(this, a) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -753,8 +753,8 @@ impl windows_core::RuntimeName for IE2 {
     const NAME: &'static str = "test_overloads.IE2";
 }
 pub trait IE2_Impl: windows_core::IUnknownImpl {
-    fn MethodThree(&self, a: i32, b: i32) -> windows_core::Result<i32>;
-    fn MethodFour(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32>;
+    fn MethodThree(&self, a: i32, b: i32) -> Result<i32, windows_result::HRESULT>;
+    fn MethodFour(&self, a: i32, b: i32, c: i32) -> Result<i32, windows_result::HRESULT>;
 }
 impl IE2_Vtbl {
     pub const fn new<Identity: IE2_Impl, const OFFSET: isize>() -> Self {
@@ -763,16 +763,16 @@ impl IE2_Vtbl {
             a: i32,
             b: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE2_Impl::MethodThree(this, a, b) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -782,16 +782,16 @@ impl IE2_Vtbl {
             b: i32,
             c: i32,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match IE2_Impl::MethodFour(this, a, b, c) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

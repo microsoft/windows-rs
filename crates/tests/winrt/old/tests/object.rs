@@ -1,8 +1,8 @@
-use windows::core::Interface;
+use windows::core::*;
 use windows::Foundation::{IStringable, PropertyValue, Uri};
 
 #[test]
-fn class() -> windows::core::Result<()> {
+fn class() -> Result<(), HRESULT> {
     let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
 
     // All WinRT classes are convertible to windows::core::IInspectable.
@@ -14,7 +14,7 @@ fn class() -> windows::core::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::core::Result<()> {
+fn interface() -> Result<(), HRESULT> {
     let uri = Uri::CreateUri(&windows::core::HSTRING::from("http://kennykerr.ca"))?;
     let stringable: IStringable = uri.cast()?;
 
@@ -27,7 +27,7 @@ fn interface() -> windows::core::Result<()> {
 }
 
 #[test]
-fn boxing() -> windows::core::Result<()> {
+fn boxing() -> Result<(), HRESULT> {
     let object = PropertyValue::CreateString(&windows::core::HSTRING::from("hello"))?;
 
     assert!(object.GetRuntimeClassName()? == "Windows.Foundation.IReference`1<String>");

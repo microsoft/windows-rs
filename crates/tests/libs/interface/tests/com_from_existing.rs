@@ -13,7 +13,7 @@ unsafe trait ITestPersistMemory: IPersist {
 struct Test;
 
 impl IPersist_Impl for Test_Impl {
-    fn GetClassID(&self) -> Result<GUID> {
+    fn GetClassID(&self) -> Result<GUID, HRESULT> {
         "CEE1D356-0860-4262-90D4-C77423F0E352".try_into()
     }
 }
@@ -25,7 +25,7 @@ impl ITestPersistMemory_Impl for Test_Impl {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let p: IPersist = Test.into();
         assert_eq!(

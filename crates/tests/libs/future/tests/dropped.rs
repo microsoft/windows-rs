@@ -6,7 +6,7 @@ use windows::core::*;
 use windows_future::*;
 
 #[test]
-fn action() -> Result<()> {
+fn action() -> Result<(), HRESULT> {
     let (spawn_start_send, spawn_start_recv) = channel();
 
     let a = IAsyncAction::spawn(move || {
@@ -21,7 +21,7 @@ fn action() -> Result<()> {
 }
 
 #[test]
-fn operation() -> Result<()> {
+fn operation() -> Result<(), HRESULT> {
     let (spawn_start_send, spawn_start_recv) = channel();
 
     let a = IAsyncOperation::spawn(move || {
@@ -36,7 +36,7 @@ fn operation() -> Result<()> {
 }
 
 #[test]
-fn action_with_progress() -> Result<()> {
+fn action_with_progress() -> Result<(), HRESULT> {
     let (spawn_start_send, spawn_start_recv) = channel();
 
     let a = IAsyncActionWithProgress::<i32>::spawn(move || {
@@ -51,7 +51,7 @@ fn action_with_progress() -> Result<()> {
 }
 
 #[test]
-fn operation_with_progress() -> Result<()> {
+fn operation_with_progress() -> Result<(), HRESULT> {
     let (spawn_start_send, spawn_start_recv) = channel();
 
     let a = IAsyncOperationWithProgress::<i32, i32>::spawn(move || {

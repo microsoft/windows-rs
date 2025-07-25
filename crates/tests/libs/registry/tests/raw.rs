@@ -1,9 +1,8 @@
 use windows_registry::*;
-use windows_result::*;
 use windows_strings::*;
 
 #[test]
-fn raw() -> Result<()> {
+fn raw() -> Result<(), HRESULT> {
     let test_key = "software\\windows-rs\\tests\\raw";
     _ = CURRENT_USER.remove_tree(test_key);
     let key = CURRENT_USER.create(test_key)?;
@@ -27,7 +26,7 @@ fn raw() -> Result<()> {
 
         let mut bytes = [0; 2];
         let err = key.raw_get_bytes(w!("raw"), &mut bytes).unwrap_err();
-        assert_eq!(err.code(), HRESULT(0x800700EAu32 as i32)); // HRESULT_FROM_WIN32(ERROR_INVALID_DATA)
+        assert_eq!(err, HRESULT(0x800700EAu32 as i32)); // HRESULT_FROM_WIN32(ERROR_INVALID_DATA)
         assert_eq!(err.message(), "More data is available.");
     }
 

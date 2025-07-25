@@ -6,7 +6,7 @@ use windows::Win32::System::Variant::*;
 use windows_core::*;
 
 #[test]
-fn test_variant() -> Result<()> {
+fn test_variant() -> Result<(), HRESULT> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
     let empty: VARIANT = VARIANT::default();
@@ -80,11 +80,9 @@ fn test_variant() -> Result<()> {
     let v = VARIANT::from(unknown);
     let unknown = IUnknown::try_from(&v)?;
     assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
-    assert_eq!(i32::try_from(&v).unwrap_err().code(), TYPE_E_TYPEMISMATCH);
+    assert_eq!(i32::try_from(&v).unwrap_err(), TYPE_E_TYPEMISMATCH);
     assert_eq!(
-        IUnknown::try_from(&VARIANT::from(3.5f64))
-            .unwrap_err()
-            .code(),
+        IUnknown::try_from(&VARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -93,11 +91,9 @@ fn test_variant() -> Result<()> {
     let v = VARIANT::from(dispatch);
     let dispatch = Com::IDispatch::try_from(&v)?;
     dispatch.cast::<Com::Events::IEventSystem>()?;
-    assert_eq!(i32::try_from(&v).unwrap_err().code(), E_INVALIDARG);
+    assert_eq!(i32::try_from(&v).unwrap_err(), E_INVALIDARG);
     assert_eq!(
-        Com::IDispatch::try_from(&VARIANT::from(3.5f64))
-            .unwrap_err()
-            .code(),
+        Com::IDispatch::try_from(&VARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -132,7 +128,7 @@ fn test_variant() -> Result<()> {
 }
 
 #[test]
-fn test_propvariant() -> Result<()> {
+fn test_propvariant() -> Result<(), HRESULT> {
     unsafe { Com::CoIncrementMTAUsage()? };
 
     let empty: PROPVARIANT = PROPVARIANT::default();
@@ -212,11 +208,9 @@ fn test_propvariant() -> Result<()> {
     let v = PROPVARIANT::from(unknown);
     let unknown = IUnknown::try_from(&v)?;
     assert_eq!(unknown.cast::<Uri>()?.Domain()?, "github.com");
-    assert_eq!(i32::try_from(&v).unwrap_err().code(), TYPE_E_TYPEMISMATCH);
+    assert_eq!(i32::try_from(&v).unwrap_err(), TYPE_E_TYPEMISMATCH);
     assert_eq!(
-        IUnknown::try_from(&PROPVARIANT::from(3.5f64))
-            .unwrap_err()
-            .code(),
+        IUnknown::try_from(&PROPVARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 
@@ -225,11 +219,9 @@ fn test_propvariant() -> Result<()> {
     let v = PROPVARIANT::from(dispatch);
     let dispatch = Com::IDispatch::try_from(&v)?;
     dispatch.cast::<Com::Events::IEventSystem>()?;
-    assert_eq!(i32::try_from(&v).unwrap_err().code(), E_INVALIDARG);
+    assert_eq!(i32::try_from(&v).unwrap_err(), E_INVALIDARG);
     assert_eq!(
-        Com::IDispatch::try_from(&PROPVARIANT::from(3.5f64))
-            .unwrap_err()
-            .code(),
+        Com::IDispatch::try_from(&PROPVARIANT::from(3.5f64)).unwrap_err(),
         TYPE_E_TYPEMISMATCH
     );
 

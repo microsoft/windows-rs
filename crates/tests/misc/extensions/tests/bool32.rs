@@ -19,7 +19,7 @@ fn test() {
     let result = status.ok();
     assert!(!result.is_ok());
     let error = result.unwrap_err();
-    assert_eq!(error.code(), E_ACCESSDENIED);
+    assert_eq!(error, E_ACCESSDENIED);
 }
 
 #[test]

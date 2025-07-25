@@ -1,4 +1,4 @@
-use windows::{core::Result, Win32::Foundation::*};
+use windows::{core::HRESULT, Win32::Foundation::*};
 use windows_strings::*;
 
 #[test]
@@ -52,7 +52,7 @@ fn clone() {
 }
 
 #[test]
-fn interop() -> Result<()> {
+fn interop() -> Result<(), HRESULT> {
     unsafe {
         let b: BSTR = "hello".into();
         SysAddRefString(&b)?;

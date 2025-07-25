@@ -5,7 +5,7 @@ use bindings::*;
 use windows::{core::*, Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     // The static just simplifies testing identity in closures.
     let class: &'static Class = Box::leak(Box::new(Class::new()?));
 
@@ -47,7 +47,7 @@ fn test() -> Result<()> {
 }
 
 #[test]
-fn test_static() -> Result<()> {
+fn test_static() -> Result<(), HRESULT> {
     assert_eq!(0, Class::StaticSignal(1)?);
 
     let token = Class::StaticEvent(&EventHandler::new(move |_, args| {

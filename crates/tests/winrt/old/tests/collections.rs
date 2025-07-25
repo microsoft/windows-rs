@@ -1,11 +1,15 @@
 use core::convert::*;
 
-use windows::{core::Interface, Foundation::Collections::PropertySet, Foundation::*};
+use windows::{
+    core::{Interface, HRESULT},
+    Foundation::Collections::PropertySet,
+    Foundation::*,
+};
 
 use windows_collections::*;
 
 #[test]
-fn uri() -> windows::core::Result<()> {
+fn uri() -> Result<(), HRESULT> {
     let uri = Uri::CreateUri(&windows::core::HSTRING::from(
         "http://kennykerr.ca?A=1&B=2&C=3",
     ))?;
@@ -63,7 +67,7 @@ fn uri() -> windows::core::Result<()> {
 }
 
 #[test]
-fn property_set() -> windows::core::Result<()> {
+fn property_set() -> Result<(), HRESULT> {
     // The PropertySet class implements IIterable<IKeyValuePair<HSTRING, IInspectable>> so the following
     // for loop will exercise the IIterator<T> iterator implicitly.
 

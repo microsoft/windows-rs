@@ -13,28 +13,28 @@ use windows::{
 struct Object(std::sync::RwLock<PROPVARIANT>);
 
 impl IInitializeWithStream_Impl for Object_Impl {
-    fn Initialize(&self, _: Ref<IStream>, _: u32) -> Result<()> {
+    fn Initialize(&self, _: Ref<IStream>, _: u32) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 impl IPropertyStore_Impl for Object_Impl {
-    fn GetCount(&self) -> Result<u32> {
+    fn GetCount(&self) -> Result<u32, HRESULT> {
         Ok(123)
     }
-    fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<()> {
+    fn GetAt(&self, _: u32, _: *mut PROPERTYKEY) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT> {
+    fn GetValue(&self, _: *const PROPERTYKEY) -> Result<PROPVARIANT, HRESULT> {
         let reader = self.0.read().unwrap();
         Ok(reader.clone())
     }
-    fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> Result<()> {
+    fn SetValue(&self, _: *const PROPERTYKEY, value: *const PROPVARIANT) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         *writer = unsafe { (*value).clone() };
         Ok(())
     }
-    fn Commit(&self) -> Result<()> {
+    fn Commit(&self) -> Result<(), HRESULT> {
         unimplemented!()
     }
 }
@@ -46,7 +46,7 @@ impl IPropertyStoreCapabilities_Impl for Object_Impl {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let a: IInitializeWithStream = Object(std::sync::RwLock::new(Default::default())).into();
         a.Initialize(None, 0)?;

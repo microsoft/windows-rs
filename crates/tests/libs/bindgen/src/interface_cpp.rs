@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetClassID(&self) -> Result<windows_core::GUID, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClassID)(
@@ -34,7 +34,7 @@ pub struct IPersist_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait IPersist_Impl: windows_core::IUnknownImpl {
-    fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetClassID(&self) -> Result<windows_core::GUID, windows_result::HRESULT>;
 }
 impl IPersist_Vtbl {
     pub const fn new<Identity: IPersist_Impl, const OFFSET: isize>() -> Self {

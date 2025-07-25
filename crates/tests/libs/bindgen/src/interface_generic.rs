@@ -21,7 +21,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IAsyncInfo {
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -32,7 +32,7 @@ impl IAsyncInfo {
             .map(|| result__)
         }
     }
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ErrorCode(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -43,14 +43,14 @@ impl IAsyncInfo {
             .map(|| result__)
         }
     }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
+    pub fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
@@ -62,10 +62,10 @@ impl windows_core::RuntimeName for IAsyncInfo {
     const NAME: &'static str = "Windows.Foundation.IAsyncInfo";
 }
 pub trait IAsyncInfo_Impl: windows_core::IUnknownImpl {
-    fn Id(&self) -> windows_core::Result<u32>;
-    fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn Id(&self) -> Result<u32, windows_result::HRESULT>;
+    fn ErrorCode(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT>;
+    fn Cancel(&self) -> Result<(), windows_result::HRESULT>;
+    fn Close(&self) -> Result<(), windows_result::HRESULT>;
 }
 impl IAsyncInfo_Vtbl {
     pub const fn new<Identity: IAsyncInfo_Impl, const OFFSET: isize>() -> Self {
@@ -180,7 +180,7 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::imp::CanInto<IA
     const QUERY: bool = true;
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
-    pub fn GetResults(&self) -> windows_core::Result<TResult> {
+    pub fn GetResults(&self) -> Result<TResult, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -191,7 +191,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> Result<u32, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -202,7 +202,7 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
             .map(|| result__)
         }
     }
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ErrorCode(&self) -> Result<windows_core::HRESULT, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -213,14 +213,14 @@ impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation<TResult> {
             .map(|| result__)
         }
     }
-    pub fn Cancel(&self) -> windows_core::Result<()> {
+    pub fn Cancel(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IAsyncInfo>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this))
@@ -239,7 +239,7 @@ pub trait IAsyncOperation_Impl<TResult>: IAsyncInfo_Impl
 where
     TResult: windows_core::RuntimeType + 'static,
 {
-    fn GetResults(&self) -> windows_core::Result<TResult>;
+    fn GetResults(&self) -> Result<TResult, windows_result::HRESULT>;
 }
 impl<TResult: windows_core::RuntimeType + 'static> IAsyncOperation_Vtbl<TResult> {
     pub const fn new<Identity: IAsyncOperation_Impl<TResult>, const OFFSET: isize>() -> Self {

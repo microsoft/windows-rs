@@ -6,20 +6,20 @@ use windows::{core::*, Foundation::*};
 struct Test;
 
 impl IStringable_Impl for Test_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         todo!()
     }
 }
 
 impl IClosable_Impl for Test_Impl {
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         todo!()
     }
 }
 
 // This tests that the interface_hierarchy macro correctly implement From<T> and From<&T> for interfaces.
 #[test]
-fn identity_from() -> Result<()> {
+fn identity_from() -> Result<(), HRESULT> {
     {
         let inspectable: IInspectable = Test.into();
         assert_eq!(

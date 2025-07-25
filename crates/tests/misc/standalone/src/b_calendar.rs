@@ -15,22 +15,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Calendar {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             Calendar,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Clone(&self) -> windows_core::Result<Calendar> {
+    pub fn Clone(&self) -> Result<Calendar, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -41,21 +41,21 @@ impl Calendar {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetToMin(&self) -> windows_core::Result<()> {
+    pub fn SetToMin(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetToMin)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn SetToMax(&self) -> windows_core::Result<()> {
+    pub fn SetToMax(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetToMax)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn NumeralSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NumeralSystem(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -66,7 +66,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNumeralSystem(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNumeralSystem(
+        &self,
+        value: &windows_core::HSTRING,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetNumeralSystem)(
@@ -76,7 +79,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn GetCalendarSystem(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetCalendarSystem(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -87,7 +90,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChangeCalendarSystem(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ChangeCalendarSystem(
+        &self,
+        value: &windows_core::HSTRING,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).ChangeCalendarSystem)(
@@ -97,7 +103,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn GetClock(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetClock(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -108,7 +114,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChangeClock(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ChangeClock(
+        &self,
+        value: &windows_core::HSTRING,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).ChangeClock)(
@@ -118,14 +127,14 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn SetToNow(&self) -> windows_core::Result<()> {
+    pub fn SetToNow(&self) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetToNow)(windows_core::Interface::as_raw(this))
                 .ok()
         }
     }
-    pub fn FirstEra(&self) -> windows_core::Result<i32> {
+    pub fn FirstEra(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -136,7 +145,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastEra(&self) -> windows_core::Result<i32> {
+    pub fn LastEra(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -147,7 +156,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfEras(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfEras(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -158,7 +167,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Era(&self) -> windows_core::Result<i32> {
+    pub fn Era(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -169,7 +178,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetEra(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetEra(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetEra)(
@@ -179,7 +188,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddEras(&self, eras: i32) -> windows_core::Result<()> {
+    pub fn AddEras(&self, eras: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddEras)(
@@ -189,7 +198,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn EraAsFullString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EraAsFullString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -200,7 +209,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn EraAsString(&self, ideallength: i32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EraAsString(
+        &self,
+        ideallength: i32,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -212,7 +224,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FirstYearInThisEra(&self) -> windows_core::Result<i32> {
+    pub fn FirstYearInThisEra(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -223,7 +235,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastYearInThisEra(&self) -> windows_core::Result<i32> {
+    pub fn LastYearInThisEra(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -234,7 +246,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfYearsInThisEra(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfYearsInThisEra(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -245,7 +257,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Year(&self) -> windows_core::Result<i32> {
+    pub fn Year(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -256,7 +268,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetYear(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetYear(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetYear)(
@@ -266,7 +278,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddYears(&self, years: i32) -> windows_core::Result<()> {
+    pub fn AddYears(&self, years: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddYears)(
@@ -276,7 +288,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn YearAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn YearAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -290,7 +302,7 @@ impl Calendar {
     pub fn YearAsTruncatedString(
         &self,
         remainingdigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -305,7 +317,7 @@ impl Calendar {
     pub fn YearAsPaddedString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -317,7 +329,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FirstMonthInThisYear(&self) -> windows_core::Result<i32> {
+    pub fn FirstMonthInThisYear(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -328,7 +340,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastMonthInThisYear(&self) -> windows_core::Result<i32> {
+    pub fn LastMonthInThisYear(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -339,7 +351,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfMonthsInThisYear(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfMonthsInThisYear(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -350,7 +362,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Month(&self) -> windows_core::Result<i32> {
+    pub fn Month(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -361,7 +373,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetMonth(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetMonth(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetMonth)(
@@ -371,7 +383,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddMonths(&self, months: i32) -> windows_core::Result<()> {
+    pub fn AddMonths(&self, months: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddMonths)(
@@ -381,7 +393,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn MonthAsFullString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MonthAsFullString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -392,7 +404,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MonthAsString(&self, ideallength: i32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MonthAsString(
+        &self,
+        ideallength: i32,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -404,7 +419,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MonthAsFullSoloString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MonthAsFullSoloString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -418,7 +433,7 @@ impl Calendar {
     pub fn MonthAsSoloString(
         &self,
         ideallength: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -430,7 +445,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MonthAsNumericString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MonthAsNumericString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -444,7 +459,7 @@ impl Calendar {
     pub fn MonthAsPaddedNumericString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -456,7 +471,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AddWeeks(&self, weeks: i32) -> windows_core::Result<()> {
+    pub fn AddWeeks(&self, weeks: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddWeeks)(
@@ -466,7 +481,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn FirstDayInThisMonth(&self) -> windows_core::Result<i32> {
+    pub fn FirstDayInThisMonth(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -477,7 +492,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastDayInThisMonth(&self) -> windows_core::Result<i32> {
+    pub fn LastDayInThisMonth(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -488,7 +503,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfDaysInThisMonth(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfDaysInThisMonth(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -499,7 +514,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Day(&self) -> windows_core::Result<i32> {
+    pub fn Day(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -510,7 +525,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetDay(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetDay(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetDay)(
@@ -520,7 +535,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddDays(&self, days: i32) -> windows_core::Result<()> {
+    pub fn AddDays(&self, days: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddDays)(
@@ -530,7 +545,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn DayAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DayAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -541,7 +556,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DayAsPaddedString(&self, mindigits: i32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DayAsPaddedString(
+        &self,
+        mindigits: i32,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -553,7 +571,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DayOfWeekAsFullString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DayOfWeekAsFullString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -567,7 +585,7 @@ impl Calendar {
     pub fn DayOfWeekAsString(
         &self,
         ideallength: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -579,7 +597,9 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DayOfWeekAsFullSoloString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DayOfWeekAsFullSoloString(
+        &self,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -593,7 +613,7 @@ impl Calendar {
     pub fn DayOfWeekAsSoloString(
         &self,
         ideallength: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -605,7 +625,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FirstPeriodInThisDay(&self) -> windows_core::Result<i32> {
+    pub fn FirstPeriodInThisDay(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -616,7 +636,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastPeriodInThisDay(&self) -> windows_core::Result<i32> {
+    pub fn LastPeriodInThisDay(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -627,7 +647,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfPeriodsInThisDay(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfPeriodsInThisDay(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -638,7 +658,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Period(&self) -> windows_core::Result<i32> {
+    pub fn Period(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -649,7 +669,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetPeriod(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetPeriod(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetPeriod)(
@@ -659,7 +679,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddPeriods(&self, periods: i32) -> windows_core::Result<()> {
+    pub fn AddPeriods(&self, periods: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddPeriods)(
@@ -669,7 +689,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn PeriodAsFullString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PeriodAsFullString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -680,7 +700,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PeriodAsString(&self, ideallength: i32) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PeriodAsString(
+        &self,
+        ideallength: i32,
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -692,7 +715,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FirstHourInThisPeriod(&self) -> windows_core::Result<i32> {
+    pub fn FirstHourInThisPeriod(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -703,7 +726,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastHourInThisPeriod(&self) -> windows_core::Result<i32> {
+    pub fn LastHourInThisPeriod(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -714,7 +737,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfHoursInThisPeriod(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfHoursInThisPeriod(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -725,7 +748,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn Hour(&self) -> windows_core::Result<i32> {
+    pub fn Hour(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -736,7 +759,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetHour(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetHour(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetHour)(
@@ -746,7 +769,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddHours(&self, hours: i32) -> windows_core::Result<()> {
+    pub fn AddHours(&self, hours: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddHours)(
@@ -756,7 +779,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn HourAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HourAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -770,7 +793,7 @@ impl Calendar {
     pub fn HourAsPaddedString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -782,7 +805,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Minute(&self) -> windows_core::Result<i32> {
+    pub fn Minute(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -793,7 +816,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetMinute(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetMinute(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetMinute)(
@@ -803,7 +826,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddMinutes(&self, minutes: i32) -> windows_core::Result<()> {
+    pub fn AddMinutes(&self, minutes: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddMinutes)(
@@ -813,7 +836,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn MinuteAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MinuteAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,7 +850,7 @@ impl Calendar {
     pub fn MinuteAsPaddedString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -839,7 +862,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Second(&self) -> windows_core::Result<i32> {
+    pub fn Second(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -850,7 +873,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetSecond(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetSecond(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetSecond)(
@@ -860,7 +883,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddSeconds(&self, seconds: i32) -> windows_core::Result<()> {
+    pub fn AddSeconds(&self, seconds: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddSeconds)(
@@ -870,7 +893,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn SecondAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecondAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -884,7 +907,7 @@ impl Calendar {
     pub fn SecondAsPaddedString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -896,7 +919,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Nanosecond(&self) -> windows_core::Result<i32> {
+    pub fn Nanosecond(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -907,7 +930,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn SetNanosecond(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetNanosecond(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetNanosecond)(
@@ -917,7 +940,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn AddNanoseconds(&self, nanoseconds: i32) -> windows_core::Result<()> {
+    pub fn AddNanoseconds(&self, nanoseconds: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).AddNanoseconds)(
@@ -927,7 +950,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn NanosecondAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NanosecondAsString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -941,7 +964,7 @@ impl Calendar {
     pub fn NanosecondAsPaddedString(
         &self,
         mindigits: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -953,7 +976,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Compare<P0>(&self, other: P0) -> windows_core::Result<i32>
+    pub fn Compare<P0>(&self, other: P0) -> Result<i32, windows_result::HRESULT>
     where
         P0: windows_core::Param<Calendar>,
     {
@@ -968,7 +991,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn CopyTo<P0>(&self, other: P0) -> windows_core::Result<()>
+    pub fn CopyTo<P0>(&self, other: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<Calendar>,
     {
@@ -981,7 +1004,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn FirstMinuteInThisHour(&self) -> windows_core::Result<i32> {
+    pub fn FirstMinuteInThisHour(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -992,7 +1015,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastMinuteInThisHour(&self) -> windows_core::Result<i32> {
+    pub fn LastMinuteInThisHour(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1003,7 +1026,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfMinutesInThisHour(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfMinutesInThisHour(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1014,7 +1037,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn FirstSecondInThisMinute(&self) -> windows_core::Result<i32> {
+    pub fn FirstSecondInThisMinute(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1025,7 +1048,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn LastSecondInThisMinute(&self) -> windows_core::Result<i32> {
+    pub fn LastSecondInThisMinute(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1036,7 +1059,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn NumberOfSecondsInThisMinute(&self) -> windows_core::Result<i32> {
+    pub fn NumberOfSecondsInThisMinute(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1047,7 +1070,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn ResolvedLanguage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResolvedLanguage(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1058,7 +1081,7 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsDaylightSavingTime(&self) -> windows_core::Result<bool> {
+    pub fn IsDaylightSavingTime(&self) -> Result<bool, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1069,7 +1092,7 @@ impl Calendar {
             .map(|| result__)
         }
     }
-    pub fn GetTimeZone(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetTimeZone(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1080,7 +1103,10 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChangeTimeZone(&self, timezoneid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ChangeTimeZone(
+        &self,
+        timezoneid: &windows_core::HSTRING,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
             (windows_core::Interface::vtable(this).ChangeTimeZone)(
@@ -1090,7 +1116,7 @@ impl Calendar {
             .ok()
         }
     }
-    pub fn TimeZoneAsFullString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TimeZoneAsFullString(&self) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1104,7 +1130,7 @@ impl Calendar {
     pub fn TimeZoneAsString(
         &self,
         ideallength: i32,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> Result<windows_core::HSTRING, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<ITimeZoneOnCalendar>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1116,16 +1142,16 @@ impl Calendar {
             .map(|| core::mem::transmute(result__))
         }
     }
-    fn ICalendarFactory<R, F: FnOnce(&ICalendarFactory) -> windows_core::Result<R>>(
+    fn ICalendarFactory<R, F: FnOnce(&ICalendarFactory) -> Result<R, windows_result::HRESULT>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Calendar, ICalendarFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ICalendarFactory2<R, F: FnOnce(&ICalendarFactory2) -> windows_core::Result<R>>(
+    fn ICalendarFactory2<R, F: FnOnce(&ICalendarFactory2) -> Result<R, windows_result::HRESULT>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<Calendar, ICalendarFactory2> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

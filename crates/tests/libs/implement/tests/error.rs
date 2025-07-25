@@ -4,8 +4,8 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*};
 struct Test;
 
 impl IStringable_Impl for Test_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
-        Err(Error::new(E_INVALIDARG, "Test message"))
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
+        Err(Error::new(E_INVALIDARG, "Test message").into())
     }
 }
 
@@ -13,7 +13,7 @@ impl IStringable_Impl for Test_Impl {
 fn test() {
     let test: IStringable = Test.into();
     let result = test.ToString();
-    let error = result.unwrap_err();
+    let error: Error = result.unwrap_err().into();
     assert_eq!(error.code(), E_INVALIDARG);
     assert_eq!(error.message(), "Test message");
 }

@@ -5,7 +5,7 @@ use windows::{
 
 /// Tests a few APIs that have reserved parameters to ensure they can be called with `None`.
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         assert_eq!(InSendMessageEx(None), ISMEX_NOSEND);
         assert!(CreateThreadpool(None).is_ok());

@@ -16,7 +16,7 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
 {
-    fn Current(&self) -> Result<T> {
+    fn Current(&self) -> Result<T, HRESULT> {
         unsafe {
             let this = self.0.get();
             let owner = (*this).0.as_impl();
@@ -24,12 +24,12 @@ where
             if owner.0.len() > (*this).1 {
                 Ok(owner.0[(*this).1].clone())
             } else {
-                Err(Error::new(E_BOUNDS, ""))
+                Err(E_BOUNDS)
             }
         }
     }
 
-    fn HasCurrent(&self) -> Result<bool> {
+    fn HasCurrent(&self) -> Result<bool, HRESULT> {
         unsafe {
             let this = self.0.get();
             let owner = (*this).0.as_impl();
@@ -37,7 +37,7 @@ where
         }
     }
 
-    fn MoveNext(&self) -> Result<bool> {
+    fn MoveNext(&self) -> Result<bool, HRESULT> {
         unsafe {
             let this = self.0.get();
             let owner = (*this).0.as_impl();
@@ -46,7 +46,7 @@ where
         }
     }
 
-    fn GetMany(&self, _items: &mut [T::Default]) -> Result<u32> {
+    fn GetMany(&self, _items: &mut [T::Default]) -> Result<u32, HRESULT> {
         panic!(); // TODO: arrays still need some work.
     }
 }
@@ -65,13 +65,13 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq,
 {
-    fn First(&self) -> Result<IIterator<T>> {
+    fn First(&self) -> Result<IIterator<T>, HRESULT> {
         Ok(Iterator::<T>((self.to_interface::<IIterable<T>>(), 0).into()).into())
     }
 }
 
 #[test]
-fn test_collect() -> Result<()> {
+fn test_collect() -> Result<(), HRESULT> {
     let source: IIterable<i32> = Iterable(vec![10, 20, 30]).into();
 
     // TODO: not sure why this won't compile.
@@ -89,7 +89,7 @@ fn test_collect() -> Result<()> {
 }
 
 #[test]
-fn test_explicit() -> Result<()> {
+fn test_explicit() -> Result<(), HRESULT> {
     let iterable: IIterable<i32> = Iterable(vec![10, 20, 30]).into();
     let it1 = iterable.First()?;
 

@@ -22,19 +22,19 @@ impl Drop for Test {
 }
 
 impl IStringable_Impl for Test_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok(self.0.as_str().into())
     }
 }
 
 impl IClosable_Impl for Test_Impl {
-    fn Close(&self) -> Result<()> {
+    fn Close(&self) -> Result<(), HRESULT> {
         Ok(())
     }
 }
 
 #[test]
-fn identity() -> Result<()> {
+fn identity() -> Result<(), HRESULT> {
     assert_eq!(COUNTER.load(Ordering::Acquire), 0);
     {
         let a: IStringable = Test::new("test").into();

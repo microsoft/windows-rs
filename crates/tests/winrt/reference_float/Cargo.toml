@@ -15,6 +15,9 @@ workspace = true
 [dependencies.windows-core]
 workspace = true
 
+[dependencies.windows-result]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [

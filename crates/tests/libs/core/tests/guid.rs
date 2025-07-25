@@ -39,21 +39,20 @@ fn parsing() {
 
     // Validate invalid length and expected error information.
     let e = GUID::try_from("wrong length").unwrap_err();
-    assert_eq!(e.code(), E_INVALIDARG);
-    assert!(e.as_ptr().is_null());
+    assert_eq!(e, E_INVALIDARG);
 
     // Validate delimiter
-    GUID::try_from("00000000?0000-0000-0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000?0000-0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000-0000?0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000-0000-0000?000000000000").unwrap_err();
+    _ = GUID::try_from("00000000?0000-0000-0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000?0000-0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000-0000?0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000-0000-0000?000000000000").unwrap_err();
 
     // Validate invalid digits
-    GUID::try_from("z0000000-0000-0000-0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-z000-0000-0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000-z000-0000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000-0000-z000-000000000000").unwrap_err();
-    GUID::try_from("00000000-0000-0000-0000-z00000000000").unwrap_err();
+    _ = GUID::try_from("z0000000-0000-0000-0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-z000-0000-0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000-z000-0000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000-0000-z000-000000000000").unwrap_err();
+    _ = GUID::try_from("00000000-0000-0000-0000-z00000000000").unwrap_err();
 
     // Validate case insensitivity
     let value = GUID::from_u128(0x1fd63fef_c0d2_42fe_823a_53a4052b8c8f);

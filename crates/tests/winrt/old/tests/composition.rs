@@ -1,5 +1,5 @@
 use windows::{
-    core::{Interface, HSTRING},
+    core::*,
     System::DispatcherQueueController,
     Win32::System::WinRT::{
         CreateDispatcherQueueController, DispatcherQueueOptions, DQTAT_COM_NONE,
@@ -21,7 +21,7 @@ fn create_dispatcher() -> DispatcherQueueController {
 }
 
 #[test]
-fn class_hierarchy_conversion() -> windows::core::Result<()> {
+fn class_hierarchy_conversion() -> Result<(), HRESULT> {
     use windows::UI::Composition::{Compositor, SpriteVisual, Visual};
 
     let _dispatcher = create_dispatcher();
@@ -61,7 +61,7 @@ fn class_hierarchy_conversion() -> windows::core::Result<()> {
 }
 
 #[test]
-fn composition() -> windows::core::Result<()> {
+fn composition() -> Result<(), HRESULT> {
     use windows::core::Interface;
     use windows::UI::Composition::{CompositionColorBrush, Compositor};
     use windows::UI::{Color, Colors};

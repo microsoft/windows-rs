@@ -28,7 +28,7 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
         F: FnMut(
                 windows_core::Ref<'_, windows_core::IInspectable>,
                 windows_core::Ref<'_, T>,
-            ) -> windows_core::Result<()>
+            ) -> Result<(), windows_result::HRESULT>
             + Send
             + 'static,
     >(
@@ -41,7 +41,7 @@ impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
         };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, args: P1) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
         P1: windows_core::Param<T>,
@@ -77,7 +77,7 @@ struct EventHandlerBox<
     F: FnMut(
             windows_core::Ref<'_, windows_core::IInspectable>,
             windows_core::Ref<'_, T>,
-        ) -> windows_core::Result<()>
+        ) -> Result<(), windows_result::HRESULT>
         + Send
         + 'static,
 > where
@@ -92,7 +92,7 @@ impl<
         F: FnMut(
                 windows_core::Ref<'_, windows_core::IInspectable>,
                 windows_core::Ref<'_, T>,
-            ) -> windows_core::Result<()>
+            ) -> Result<(), windows_result::HRESULT>
             + Send
             + 'static,
     > EventHandlerBox<T, F>

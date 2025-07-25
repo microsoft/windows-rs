@@ -6,7 +6,7 @@ use bindings::*;
 use windows_core::*;
 
 #[test]
-fn a() -> Result<()> {
+fn a() -> Result<(), HRESULT> {
     let test = A::new()?;
 
     assert_eq!(test.Method()?, 1);
@@ -16,7 +16,7 @@ fn a() -> Result<()> {
 }
 
 #[test]
-fn b() -> Result<()> {
+fn b() -> Result<(), HRESULT> {
     let test = B::new()?;
 
     assert_eq!(test.MethodOne()?, 3);
@@ -26,7 +26,7 @@ fn b() -> Result<()> {
 }
 
 #[test]
-fn c() -> Result<()> {
+fn c() -> Result<(), HRESULT> {
     let test = C::new()?;
 
     assert_eq!(test.Method()?, 5);
@@ -36,7 +36,7 @@ fn c() -> Result<()> {
 }
 
 #[test]
-fn d() -> Result<()> {
+fn d() -> Result<(), HRESULT> {
     let test = D::new()?;
 
     assert_eq!(test.Method()?, 7);
@@ -48,7 +48,7 @@ fn d() -> Result<()> {
 }
 
 #[test]
-fn e() -> Result<()> {
+fn e() -> Result<(), HRESULT> {
     let test = E::new()?;
 
     assert_eq!(test.MethodOne()?, 11);

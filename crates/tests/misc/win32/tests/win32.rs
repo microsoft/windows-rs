@@ -114,7 +114,7 @@ fn constant() {
 }
 
 #[test]
-fn function() -> windows::core::Result<()> {
+fn function() -> Result<(), HRESULT> {
     unsafe {
         let event = CreateEventW(None, true, false, None)?;
         SetEvent(event)?;
@@ -132,14 +132,14 @@ fn bool_as_error() {
         helpers::set_thread_ui_language();
         let error = SetEvent(HANDLE(0 as _)).unwrap_err();
 
-        assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
+        assert_eq!(error, windows::core::HRESULT(-2147024890));
         let message: String = error.message().try_into().unwrap();
         assert_eq!(message, "The handle is invalid.");
     }
 }
 
 #[test]
-fn com() -> windows::core::Result<()> {
+fn com() -> Result<(), HRESULT> {
     unsafe {
         let stream = CreateStreamOnHGlobal(Default::default(), true)?;
         let values = [1u8, 2u8, 3u8, 4u8];
@@ -194,7 +194,6 @@ fn com_inheritance() {
             factory
                 .RegisterAdaptersChangedEvent(HANDLE::default())
                 .unwrap_err()
-                .code()
                 == DXGI_ERROR_INVALID_CALL
         );
     }
@@ -202,7 +201,7 @@ fn com_inheritance() {
 
 // Tests for https://github.com/microsoft/windows-rs/issues/463
 #[test]
-fn onecore_imports() -> windows::core::Result<()> {
+fn onecore_imports() -> Result<(), HRESULT> {
     unsafe {
         _ = HasExpandedResources()?;
 
@@ -211,7 +210,7 @@ fn onecore_imports() -> windows::core::Result<()> {
         let port = uri.GetPort()?;
         assert!(port == 80);
 
-        MiniDumpWriteDump(
+        _ = MiniDumpWriteDump(
             Default::default(),
             0,
             Default::default(),
@@ -229,7 +228,7 @@ fn onecore_imports() -> windows::core::Result<()> {
 }
 
 #[test]
-fn interface() -> windows::core::Result<()> {
+fn interface() -> Result<(), HRESULT> {
     unsafe {
         let uri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;
 

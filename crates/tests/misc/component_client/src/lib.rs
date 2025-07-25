@@ -8,13 +8,13 @@ use windows::{core::*, Foundation::*};
 struct Stringable;
 
 impl IStringable_Impl for Stringable_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok("client".into())
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let class = Class::new()?;
     class.SetProperty(123)?;
     assert_eq!(class.Property()?, 123);

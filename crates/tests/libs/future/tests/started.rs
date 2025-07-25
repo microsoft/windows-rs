@@ -6,7 +6,7 @@ use windows::{core::*, Win32::Foundation::*};
 use windows_future::*;
 
 #[test]
-fn action() -> Result<()> {
+fn action() -> Result<(), HRESULT> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
 
     let a = IAsyncAction::spawn(move || {
@@ -15,7 +15,7 @@ fn action() -> Result<()> {
     });
 
     assert_eq!(a.Status()?, AsyncStatus::Started);
-    assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+    assert_eq!(a.GetResults().unwrap_err(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
     a.get()?;
 
@@ -23,7 +23,7 @@ fn action() -> Result<()> {
 }
 
 #[test]
-fn operation() -> Result<()> {
+fn operation() -> Result<(), HRESULT> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
 
     let a = IAsyncOperation::spawn(move || {
@@ -32,7 +32,7 @@ fn operation() -> Result<()> {
     });
 
     assert_eq!(a.Status()?, AsyncStatus::Started);
-    assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+    assert_eq!(a.GetResults().unwrap_err(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
     assert_eq!(a.get()?, 123);
 
@@ -40,7 +40,7 @@ fn operation() -> Result<()> {
 }
 
 #[test]
-fn action_with_progress() -> Result<()> {
+fn action_with_progress() -> Result<(), HRESULT> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
 
     let a = IAsyncActionWithProgress::<i32>::spawn(move || {
@@ -49,7 +49,7 @@ fn action_with_progress() -> Result<()> {
     });
 
     assert_eq!(a.Status()?, AsyncStatus::Started);
-    assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+    assert_eq!(a.GetResults().unwrap_err(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
     a.get()?;
 
@@ -57,7 +57,7 @@ fn action_with_progress() -> Result<()> {
 }
 
 #[test]
-fn operation_with_progress() -> Result<()> {
+fn operation_with_progress() -> Result<(), HRESULT> {
     let (send, recv) = std::sync::mpsc::channel::<()>();
 
     let a = IAsyncOperationWithProgress::<i32, i32>::spawn(move || {
@@ -66,7 +66,7 @@ fn operation_with_progress() -> Result<()> {
     });
 
     assert_eq!(a.Status()?, AsyncStatus::Started);
-    assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
+    assert_eq!(a.GetResults().unwrap_err(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
     assert_eq!(a.get()?, 123);
 

@@ -10,6 +10,8 @@ const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
 const STATUS_NOT_FOUND: i32 = -1073741275;
 const E_STATUS_NOT_FOUND: HRESULT = HRESULT::from_nt(STATUS_NOT_FOUND);
 
+windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
+
 #[test]
 fn is_ok() {
     assert!(S_OK.is_ok());
@@ -29,22 +31,28 @@ fn ok() {
     assert!(S_OK.ok().is_ok());
     assert!(S_FALSE.ok().is_ok());
     assert!(E_INVALIDARG.ok().is_err());
+
+    let result: Result<(), HRESULT> = E_INVALIDARG.ok();
+    assert_eq!(result.unwrap_err(), E_INVALIDARG);
 }
 
 #[test]
 fn map() {
     assert_eq!(123, S_OK.map(|| 123).unwrap());
-    assert_eq!(E_INVALIDARG, E_INVALIDARG.map(|| 123).unwrap_err().code());
+    assert_eq!(E_INVALIDARG, E_INVALIDARG.map(|| 123).unwrap_err());
+
+    let result: Result<i32, HRESULT> = E_INVALIDARG.map(|| 123);
+    assert_eq!(result.unwrap_err(), E_INVALIDARG);
 }
 
 #[test]
 fn and_then() {
     assert_eq!(123, S_OK.and_then(|| Ok(123)).unwrap());
 
-    assert_eq!(
-        E_INVALIDARG,
-        E_INVALIDARG.and_then(|| Ok(123)).unwrap_err().code()
-    );
+    assert_eq!(E_INVALIDARG, E_INVALIDARG.and_then(|| Ok(123)).unwrap_err());
+
+    let result: Result<i32, HRESULT> = E_INVALIDARG.and_then(|| Ok(123));
+    assert_eq!(result.unwrap_err(), E_INVALIDARG);
 }
 
 #[test]
@@ -69,6 +77,19 @@ fn from_win32() {
 }
 
 #[test]
+fn from_thread() {
+    unsafe { SetLastError(0) };
+
+    let e = HRESULT::from_thread();
+    assert_eq!(e, S_OK);
+
+    unsafe { SetLastError(ERROR_CANCELLED) };
+
+    let e = HRESULT::from_thread();
+    assert_eq!(e, E_CANCELLED);
+}
+
+#[test]
 fn from_nt() {
     assert_eq!(E_STATUS_NOT_FOUND, HRESULT::from_nt(STATUS_NOT_FOUND));
     assert_eq!(S_OK, HRESULT::from_nt(0));
@@ -77,8 +98,8 @@ fn from_nt() {
 
 #[test]
 fn from_result() {
-    let result: Result<()> = Err(Error::new(E_INVALIDARG, "test message"));
-    let err = HRESULT::from(result).ok().unwrap_err();
+    let result: Result<(), Error> = Err(Error::new(E_INVALIDARG, "test message"));
+    let err = result.unwrap_err();
     assert_eq!(err.code(), E_INVALIDARG);
 
     if cfg!(windows_slim_errors) {

@@ -123,7 +123,7 @@ impl ICustomPersistMemory_Impl for Persist_Impl {
 }
 
 #[test]
-fn test_custom_interface() -> windows::core::Result<()> {
+fn test_custom_interface() -> Result<(), HRESULT> {
     unsafe {
         // Use the OS implementation of Uri through the custom `ICustomUri` interface
         let a: IUri = CreateUri(w!("http://kennykerr.ca"), URI_CREATE_FLAGS::default(), None)?;

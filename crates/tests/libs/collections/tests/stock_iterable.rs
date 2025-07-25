@@ -4,7 +4,7 @@ use windows::{core::*, Foundation::*, Win32::Foundation::E_BOUNDS};
 use windows_collections::*;
 
 #[test]
-fn calendar() -> Result<()> {
+fn calendar() -> Result<(), HRESULT> {
     use windows::Globalization::*;
 
     let languages = IIterable::from(vec![HSTRING::from("he-IL"), HSTRING::from("ja-JP")]);
@@ -23,12 +23,12 @@ fn calendar() -> Result<()> {
 }
 
 #[test]
-fn primitive() -> Result<()> {
+fn primitive() -> Result<(), HRESULT> {
     let able = IIterable::<i32>::from(vec![]);
     let iter = able.First()?;
 
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
 
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
@@ -61,8 +61,8 @@ fn primitive() -> Result<()> {
 
     assert!(!iter.MoveNext()?);
     assert!(!iter.MoveNext()?);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
 
@@ -85,12 +85,12 @@ fn primitive() -> Result<()> {
 }
 
 #[test]
-fn hstring() -> Result<()> {
+fn hstring() -> Result<(), HRESULT> {
     let able = IIterable::<HSTRING>::from(vec![]);
     let iter = able.First()?;
 
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
 
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
@@ -129,8 +129,8 @@ fn hstring() -> Result<()> {
 
     assert!(!iter.MoveNext()?);
     assert!(!iter.MoveNext()?);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
 
@@ -168,7 +168,7 @@ fn hstring() -> Result<()> {
 struct Stringable(HSTRING);
 
 impl IStringable_Impl for Stringable_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         Ok(self.0.clone())
     }
 }
@@ -178,12 +178,12 @@ fn stringable(value: &str) -> IStringable {
 }
 
 #[test]
-fn defaulted() -> Result<()> {
+fn defaulted() -> Result<(), HRESULT> {
     let able = IIterable::<IStringable>::from(vec![]);
     let iter = able.First()?;
 
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
 
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
@@ -222,8 +222,8 @@ fn defaulted() -> Result<()> {
 
     assert!(!iter.MoveNext()?);
     assert!(!iter.MoveNext()?);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
-    assert_eq!(iter.Current().unwrap_err().code(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
+    assert_eq!(iter.Current().unwrap_err(), E_BOUNDS);
     assert!(!iter.HasCurrent()?);
     assert!(!iter.HasCurrent()?);
 

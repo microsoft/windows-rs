@@ -1,7 +1,7 @@
 use windows_registry::*;
 
 #[test]
-fn sys_interop() -> Result<()> {
+fn sys_interop() -> Result<(), HRESULT> {
     use windows_sys::Win32::System::Registry::*;
 
     let test_key = "software\\windows-rs\\tests\\sys_interop";
@@ -40,7 +40,7 @@ fn sys_interop() -> Result<()> {
 }
 
 #[test]
-fn windows_interop() -> Result<()> {
+fn windows_interop() -> Result<(), HRESULT> {
     use windows::Win32::System::Registry::*;
 
     let test_key = "software\\windows-rs\\tests\\windows_interop";

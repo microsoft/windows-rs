@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for ITest {
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
-    pub fn Input<P0>(&self, input: P0) -> windows_core::Result<i32>
+    pub fn Input<P0>(&self, input: P0) -> Result<i32, windows_result::HRESULT>
     where
         P0: windows_core::Param<ITest>,
     {
@@ -28,7 +28,11 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn Output(&self, value: i32, output: &mut Option<ITest>) -> windows_core::Result<()> {
+    pub fn Output(
+        &self,
+        value: i32,
+        output: &mut Option<ITest>,
+    ) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Output)(
@@ -39,7 +43,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Current(&self) -> windows_core::Result<i32> {
+    pub fn Current(&self) -> Result<i32, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -50,7 +54,7 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn SetCurrent(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetCurrent(&self, value: i32) -> Result<(), windows_result::HRESULT> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetCurrent)(
@@ -65,14 +69,14 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn Input(&self, input: windows_core::Ref<'_, ITest>) -> windows_core::Result<i32>;
+    fn Input(&self, input: windows_core::Ref<'_, ITest>) -> Result<i32, windows_result::HRESULT>;
     fn Output(
         &self,
         value: i32,
         output: windows_core::OutRef<'_, ITest>,
-    ) -> windows_core::Result<()>;
-    fn Current(&self) -> windows_core::Result<i32>;
-    fn SetCurrent(&self, value: i32) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
+    fn Current(&self) -> Result<i32, windows_result::HRESULT>;
+    fn SetCurrent(&self, value: i32) -> Result<(), windows_result::HRESULT>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
@@ -80,16 +84,16 @@ impl ITest_Vtbl {
             this: *mut core::ffi::c_void,
             input: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITest_Impl::Input(this, core::mem::transmute_copy(&input)) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -97,7 +101,7 @@ impl ITest_Vtbl {
             this: *mut core::ffi::c_void,
             value: i32,
             output: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -107,23 +111,23 @@ impl ITest_Vtbl {
         unsafe extern "system" fn Current<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 match ITest_Impl::Current(this) {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
         unsafe extern "system" fn SetCurrent<Identity: ITest_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             value: i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);

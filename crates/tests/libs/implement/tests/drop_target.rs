@@ -7,10 +7,10 @@ use windows::{
 struct DataObject();
 
 impl IDataObject_Impl for DataObject_Impl {
-    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM> {
+    fn GetData(&self, _: *const FORMATETC) -> Result<STGMEDIUM, HRESULT> {
         unimplemented!()
     }
-    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<()> {
+    fn GetDataHere(&self, _: *const FORMATETC, _: *mut STGMEDIUM) -> Result<(), HRESULT> {
         unimplemented!()
     }
     fn QueryGetData(&self, _: *const FORMATETC) -> HRESULT {
@@ -19,22 +19,27 @@ impl IDataObject_Impl for DataObject_Impl {
     fn GetCanonicalFormatEtc(&self, _: *const FORMATETC, _: *mut FORMATETC) -> HRESULT {
         unimplemented!()
     }
-    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<()> {
+    fn SetData(&self, _: *const FORMATETC, _: *const STGMEDIUM, _: BOOL) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC> {
+    fn EnumFormatEtc(&self, _: u32) -> Result<IEnumFORMATETC, HRESULT> {
         unimplemented!()
     }
-    fn DAdvise(&self, format: *const FORMATETC, value: u32, sink: Ref<IAdviseSink>) -> Result<u32> {
+    fn DAdvise(
+        &self,
+        format: *const FORMATETC,
+        value: u32,
+        sink: Ref<IAdviseSink>,
+    ) -> Result<u32, HRESULT> {
         assert!(!format.is_null());
         assert_eq!(value, 789);
         assert!(sink.is_null());
         Ok(123)
     }
-    fn DUnadvise(&self, _: u32) -> Result<()> {
+    fn DUnadvise(&self, _: u32) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA> {
+    fn EnumDAdvise(&self) -> Result<IEnumSTATDATA, HRESULT> {
         unimplemented!()
     }
 }
@@ -49,7 +54,7 @@ impl IDropTarget_Impl for DropTarget_Impl {
         state: MODIFIERKEYS_FLAGS,
         point: &POINTL,
         effect: *mut DROPEFFECT,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         unsafe {
             assert_eq!(
                 object.unwrap().DAdvise(&FORMATETC::default(), 789, None)?,
@@ -62,10 +67,15 @@ impl IDropTarget_Impl for DropTarget_Impl {
             Ok(())
         }
     }
-    fn DragOver(&self, _: MODIFIERKEYS_FLAGS, _: &POINTL, _: *mut DROPEFFECT) -> Result<()> {
+    fn DragOver(
+        &self,
+        _: MODIFIERKEYS_FLAGS,
+        _: &POINTL,
+        _: *mut DROPEFFECT,
+    ) -> Result<(), HRESULT> {
         unimplemented!()
     }
-    fn DragLeave(&self) -> Result<()> {
+    fn DragLeave(&self) -> Result<(), HRESULT> {
         Ok(())
     }
     fn Drop(
@@ -74,13 +84,13 @@ impl IDropTarget_Impl for DropTarget_Impl {
         _: MODIFIERKEYS_FLAGS,
         _: &POINTL,
         _: *mut DROPEFFECT,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         unimplemented!()
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let object: IDataObject = DataObject().into();
 

@@ -1,7 +1,7 @@
 use windows::{core::*, Foundation::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let a = Uri::CreateUri(&HSTRING::from("http://kennykerr.ca"))?;
 
     let w = a.downgrade()?;

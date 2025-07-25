@@ -17,10 +17,22 @@ unsafe trait ITest: IUnknown {
     unsafe fn required_input(&self, input: Ref<ITest>, output: OutRef<ITest>) -> HRESULT;
     unsafe fn optional_output(&self, input: Ref<ITest>, output: OutRef<ITest>) -> HRESULT;
 
-    unsafe fn result_usize(&self, input: usize, output: OutRef<usize>) -> Result<()>;
-    unsafe fn result_hstring(&self, input: Ref<HSTRING>, output: OutRef<HSTRING>) -> Result<()>;
-    unsafe fn result_interface(&self, input: Ref<ITest>, output: OutRef<ITest>) -> Result<()>;
-    unsafe fn result_required_input(&self, input: Ref<ITest>, output: OutRef<ITest>) -> Result<()>;
+    unsafe fn result_usize(&self, input: usize, output: OutRef<usize>) -> Result<(), HRESULT>;
+    unsafe fn result_hstring(
+        &self,
+        input: Ref<HSTRING>,
+        output: OutRef<HSTRING>,
+    ) -> Result<(), HRESULT>;
+    unsafe fn result_interface(
+        &self,
+        input: Ref<ITest>,
+        output: OutRef<ITest>,
+    ) -> Result<(), HRESULT>;
+    unsafe fn result_required_input(
+        &self,
+        input: Ref<ITest>,
+        output: OutRef<ITest>,
+    ) -> Result<(), HRESULT>;
 }
 
 #[implement(ITest)]
@@ -52,16 +64,28 @@ impl ITest_Impl for Test_Impl {
         }
     }
 
-    unsafe fn result_usize(&self, input: usize, output: OutRef<usize>) -> Result<()> {
+    unsafe fn result_usize(&self, input: usize, output: OutRef<usize>) -> Result<(), HRESULT> {
         output.write(input)
     }
-    unsafe fn result_hstring(&self, input: Ref<HSTRING>, output: OutRef<HSTRING>) -> Result<()> {
+    unsafe fn result_hstring(
+        &self,
+        input: Ref<HSTRING>,
+        output: OutRef<HSTRING>,
+    ) -> Result<(), HRESULT> {
         output.write(input.clone())
     }
-    unsafe fn result_interface(&self, input: Ref<ITest>, output: OutRef<ITest>) -> Result<()> {
+    unsafe fn result_interface(
+        &self,
+        input: Ref<ITest>,
+        output: OutRef<ITest>,
+    ) -> Result<(), HRESULT> {
         output.write(input.clone())
     }
-    unsafe fn result_required_input(&self, input: Ref<ITest>, output: OutRef<ITest>) -> Result<()> {
+    unsafe fn result_required_input(
+        &self,
+        input: Ref<ITest>,
+        output: OutRef<ITest>,
+    ) -> Result<(), HRESULT> {
         if input.is_none() {
             E_INVALIDARG.ok()
         } else {

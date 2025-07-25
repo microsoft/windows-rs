@@ -6,19 +6,24 @@ use windows::{core::*, Foundation::*, Win32::Foundation::*, Win32::System::WinRT
 struct Class(RwLock<i32>);
 
 impl bindings::IClass_Impl for Class_Impl {
-    fn Property(&self) -> Result<i32> {
+    fn Property(&self) -> Result<i32, HRESULT> {
         let reader = self.0.read().unwrap();
         Ok(*reader)
     }
-    fn SetProperty(&self, value: i32) -> Result<()> {
+    fn SetProperty(&self, value: i32) -> Result<(), HRESULT> {
         let mut writer = self.0.write().unwrap();
         *writer = value;
         Ok(())
     }
-    fn Flags(&self) -> Result<bindings::Flags> {
+    fn Flags(&self) -> Result<bindings::Flags, HRESULT> {
         Ok(bindings::Flags::Ok)
     }
-    fn Int32Array(&self, a: &[i32], b: &mut [i32], c: &mut Array<i32>) -> Result<Array<i32>> {
+    fn Int32Array(
+        &self,
+        a: &[i32],
+        b: &mut [i32],
+        c: &mut Array<i32>,
+    ) -> Result<Array<i32>, HRESULT> {
         assert_eq!(a.len(), b.len());
         assert!(c.is_empty());
         b.copy_from_slice(a);
@@ -30,7 +35,7 @@ impl bindings::IClass_Impl for Class_Impl {
         a: &[HSTRING],
         b: &mut [HSTRING],
         c: &mut Array<HSTRING>,
-    ) -> Result<Array<HSTRING>> {
+    ) -> Result<Array<HSTRING>, HRESULT> {
         assert_eq!(a.len(), b.len());
         assert!(c.is_empty());
         b.clone_from_slice(a);
@@ -43,7 +48,7 @@ impl bindings::IClass_Impl for Class_Impl {
         b: Ref<bindings::Class>,
         c: Ref<IStringable>,
         d: Ref<bindings::Callback>,
-    ) -> Result<()> {
+    ) -> Result<(), HRESULT> {
         let a = a.ok()?;
         let b = b.ok()?;
         let c = c.ok()?;
@@ -63,7 +68,7 @@ impl bindings::IClass_Impl for Class_Impl {
 struct ClassFactory;
 
 impl IActivationFactory_Impl for ClassFactory_Impl {
-    fn ActivateInstance(&self) -> Result<IInspectable> {
+    fn ActivateInstance(&self) -> Result<IInspectable, HRESULT> {
         Ok(Class(RwLock::new(0)).into())
     }
 }

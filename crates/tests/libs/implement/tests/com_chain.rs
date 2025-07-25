@@ -8,7 +8,7 @@ use windows::Win32::System::Com::*;
 struct Test();
 
 impl IPersist_Impl for Test_Impl {
-    fn GetClassID(&self) -> Result<GUID> {
+    fn GetClassID(&self) -> Result<GUID, HRESULT> {
         Ok(GUID::zeroed())
     }
 }
@@ -18,21 +18,21 @@ impl IPersistStream_Impl for Test_Impl {
         S_OK
     }
 
-    fn Load(&self, _: Ref<IStream>) -> Result<()> {
+    fn Load(&self, _: Ref<IStream>) -> Result<(), HRESULT> {
         Ok(())
     }
 
-    fn Save(&self, _: Ref<IStream>, _: BOOL) -> Result<()> {
+    fn Save(&self, _: Ref<IStream>, _: BOOL) -> Result<(), HRESULT> {
         Ok(())
     }
 
-    fn GetSizeMax(&self) -> Result<u64> {
+    fn GetSizeMax(&self) -> Result<u64, HRESULT> {
         Ok(0)
     }
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let stream: IPersistStream = Test().into();
         stream.GetClassID()?; // IPersist

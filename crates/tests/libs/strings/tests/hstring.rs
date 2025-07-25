@@ -1,4 +1,4 @@
-use windows::core::Result;
+use windows_result::*;
 use windows_strings::*;
 
 #[test]
@@ -222,7 +222,7 @@ fn hstring_osstring_equality_combinations() {
 }
 
 #[test]
-fn hstring_compat() -> Result<()> {
+fn hstring_compat() -> Result<(), HRESULT> {
     unsafe {
         use windows::Win32::System::WinRT::*;
         let hey = HSTRING::from("Hey");

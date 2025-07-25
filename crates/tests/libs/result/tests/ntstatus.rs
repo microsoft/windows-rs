@@ -1,6 +1,5 @@
 use windows::Win32::Foundation::{NTSTATUS, STATUS_INVALID_ACL, STATUS_SUCCESS, S_OK};
-use windows_result::Result as WindowsResult;
-use windows_result::HRESULT;
+use windows_result::*;
 
 #[test]
 fn test() {
@@ -11,7 +10,7 @@ fn test() {
     assert!(STATUS_INVALID_ACL.is_err());
 
     STATUS_SUCCESS.unwrap();
-    let result: WindowsResult<()> = STATUS_SUCCESS.ok();
+    let result: Result<(), NTSTATUS> = STATUS_SUCCESS.ok();
     assert!(result.is_ok());
 
     assert_eq!(STATUS_SUCCESS.to_hresult(), S_OK);
@@ -27,8 +26,8 @@ fn test_panic() {
     STATUS_INVALID_ACL.unwrap();
 }
 
-fn a() -> WindowsResult<()> {
-    fn a() -> WindowsResult<()> {
+fn a() -> Result<(), Error> {
+    fn a() -> Result<(), Error> {
         Ok(())
     }
 
@@ -48,7 +47,7 @@ fn a() -> WindowsResult<()> {
 }
 
 fn b() -> Result<(), HRESULT> {
-    fn a() -> WindowsResult<()> {
+    fn a() -> Result<(), Error> {
         Ok(())
     }
 

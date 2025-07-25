@@ -163,7 +163,7 @@ fn test() {
 }
 
 #[test]
-fn uri() -> windows_core::Result<()> {
+fn uri() -> Result<(), windows_result::HRESULT> {
     use b_uri::*;
     let uri = Uri::CreateUri(windows_core::h!("https://kennykerr.ca/"))?;
     assert_eq!(uri.Domain()?, "kennykerr.ca");
@@ -171,7 +171,7 @@ fn uri() -> windows_core::Result<()> {
 }
 
 #[test]
-fn calendar() -> windows_core::Result<()> {
+fn calendar() -> Result<(), windows_result::HRESULT> {
     use b_calendar::*;
     let calendar = Calendar::new()?;
     let year = calendar.Year()?;

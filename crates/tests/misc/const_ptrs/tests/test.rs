@@ -12,7 +12,7 @@ fn path() {
 }
 
 #[test]
-fn variant() -> Result<()> {
+fn variant() -> Result<(), HRESULT> {
     unsafe {
         let variant = InitPropVariantFromStringVector(Some(&[w!("first"), w!("second")]))?;
         let result = PropVariantToBSTR(&variant)?;

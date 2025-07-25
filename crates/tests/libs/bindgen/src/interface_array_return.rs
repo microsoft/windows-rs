@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IDispatch, windows_core::IUnknown);
 impl IDispatch {
-    pub unsafe fn GetTypeInfoCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetTypeInfoCount(&self) -> Result<u32, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTypeInfoCount)(
@@ -30,7 +30,7 @@ impl IDispatch {
         cnames: u32,
         lcid: u32,
         rgdispid: *mut i32,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         unsafe {
             (windows_core::Interface::vtable(self).GetIDsOfNames)(
                 windows_core::Interface::as_raw(self),
@@ -62,7 +62,7 @@ pub struct IDispatch_Vtbl {
     Invoke: usize,
 }
 pub trait IDispatch_Impl: windows_core::IUnknownImpl {
-    fn GetTypeInfoCount(&self) -> windows_core::Result<u32>;
+    fn GetTypeInfoCount(&self) -> Result<u32, windows_result::HRESULT>;
     fn GetIDsOfNames(
         &self,
         riid: *const windows_core::GUID,
@@ -70,7 +70,7 @@ pub trait IDispatch_Impl: windows_core::IUnknownImpl {
         cnames: u32,
         lcid: u32,
         rgdispid: *mut i32,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
 }
 impl IDispatch_Vtbl {
     pub const fn new<Identity: IDispatch_Impl, const OFFSET: isize>() -> Self {

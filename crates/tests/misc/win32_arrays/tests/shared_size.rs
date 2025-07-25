@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Graphics::Gdi::*, Win32::UI::ColorSystem::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe {
         let mut results: [u8; 2] = [255; 2];
         let dc = GetDC(None);

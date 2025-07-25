@@ -1,5 +1,5 @@
 use std::thread;
-use windows::core::{Interface, HRESULT, HSTRING};
+use windows::core::*;
 use windows::Foundation::*;
 use windows::Storage::Streams::*;
 use windows_future::*;
@@ -7,7 +7,7 @@ use windows_future::*;
 // Simple test to validate that types with MarshalingType.Agile are marked Send and Sync
 // (if this compiles it worked)
 #[test]
-fn send_sync() -> windows::core::Result<()> {
+fn send_sync() -> Result<(), HRESULT> {
     let url = Uri::CreateUri(&HSTRING::from("http://kennykerr.ca"))?;
 
     thread::spawn(move || {
@@ -89,7 +89,7 @@ fn send_async_no_class() {
 fn send_sync_err() {
     helpers::set_thread_ui_language();
 
-    let err = Uri::CreateUri(&HSTRING::from("BADURI")).unwrap_err();
+    let err: Error = Uri::CreateUri(&HSTRING::from("BADURI")).unwrap_err().into();
     let code = err.code();
 
     let wait = thread::spawn(move || {

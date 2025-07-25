@@ -1,7 +1,7 @@
 use windows::{core::*, Foundation::*, Media::Control::*};
 
 #[test]
-fn agile_send() -> Result<()> {
+fn agile_send() -> Result<(), HRESULT> {
     let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.get()?;
     let reference = AgileReference::new(&manager)?;
 
@@ -15,7 +15,7 @@ fn agile_send() -> Result<()> {
 }
 
 #[test]
-fn agile_debug() -> Result<()> {
+fn agile_debug() -> Result<(), HRESULT> {
     let uri = Uri::CreateUri(h!("http://kennykerr.ca"))?;
     assert!(format!("{uri:?}").starts_with("Uri(IUnknown(0x"));
 

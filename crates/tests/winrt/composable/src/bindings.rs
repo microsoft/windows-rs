@@ -15,22 +15,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Compositor {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> Result<Self, windows_result::HRESULT> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> Result<R, windows_result::HRESULT>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> Result<R, windows_result::HRESULT> {
         static SHARED: windows_core::imp::FactoryCache<
             Compositor,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual> {
+    pub fn CreateSpriteVisual(&self, brush: i32) -> Result<SpriteVisual, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,7 +42,10 @@ impl Compositor {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual> {
+    pub fn CreateContainerVisual(
+        &self,
+        children: i32,
+    ) -> Result<ContainerVisual, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,7 +93,7 @@ impl ContainerVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -128,8 +131,11 @@ impl windows_core::RuntimeName for ICompositor {
     const NAME: &'static str = "test_composable.ICompositor";
 }
 pub trait ICompositor_Impl: windows_core::IUnknownImpl {
-    fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual>;
-    fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual>;
+    fn CreateSpriteVisual(&self, brush: i32) -> Result<SpriteVisual, windows_result::HRESULT>;
+    fn CreateContainerVisual(
+        &self,
+        children: i32,
+    ) -> Result<ContainerVisual, windows_result::HRESULT>;
 }
 impl ICompositor_Vtbl {
     pub const fn new<Identity: ICompositor_Impl, const OFFSET: isize>() -> Self {
@@ -140,7 +146,7 @@ impl ICompositor_Vtbl {
             this: *mut core::ffi::c_void,
             brush: i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -148,9 +154,9 @@ impl ICompositor_Vtbl {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -161,7 +167,7 @@ impl ICompositor_Vtbl {
             this: *mut core::ffi::c_void,
             children: i32,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -169,9 +175,9 @@ impl ICompositor_Vtbl {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -220,13 +226,13 @@ impl IContainerVisual_Vtbl {
         unsafe extern "system" fn Children<Identity: IContainerVisual_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let ok__ = IContainerVisual_Impl::Children(this);
                 result__.write(core::mem::transmute_copy(&ok__));
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
         Self {
@@ -294,13 +300,13 @@ impl ISpriteVisual_Vtbl {
         unsafe extern "system" fn Brush<Identity: ISpriteVisual_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut i32,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 let ok__ = ISpriteVisual_Impl::Brush(this);
                 result__.write(core::mem::transmute_copy(&ok__));
-                windows_core::HRESULT(0)
+                windows_result::HRESULT(0)
             }
         }
         Self {
@@ -331,14 +337,14 @@ impl windows_core::RuntimeName for IVisual {
     const NAME: &'static str = "test_composable.IVisual";
 }
 pub trait IVisual_Impl: windows_core::IUnknownImpl {
-    fn Compositor(&self) -> windows_core::Result<Compositor>;
+    fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT>;
 }
 impl IVisual_Vtbl {
     pub const fn new<Identity: IVisual_Impl, const OFFSET: isize>() -> Self {
         unsafe extern "system" fn Compositor<Identity: IVisual_Impl, const OFFSET: isize>(
             this: *mut core::ffi::c_void,
             result__: *mut *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
+        ) -> windows_result::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
@@ -346,9 +352,9 @@ impl IVisual_Vtbl {
                     Ok(ok__) => {
                         result__.write(core::mem::transmute_copy(&ok__));
                         core::mem::forget(ok__);
-                        windows_core::HRESULT(0)
+                        windows_result::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }
@@ -432,7 +438,7 @@ impl SpriteVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -462,7 +468,7 @@ unsafe impl Sync for SpriteVisual {}
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 impl Visual {
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> Result<Compositor, windows_result::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

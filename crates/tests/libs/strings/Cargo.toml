@@ -15,6 +15,9 @@ features = ["std"]
 [dependencies.windows-link]
 workspace = true
 
+[dependencies.windows-result]
+workspace = true
+
 [dependencies.windows]
 workspace = true
 features = [

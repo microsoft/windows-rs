@@ -1,7 +1,7 @@
 use windows::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     let status = NTSTATUS::default();
     assert_eq!(status.0, 0);
     assert!(status.is_ok());
@@ -15,7 +15,8 @@ fn test() -> Result<()> {
     assert!(!status.ok().is_ok());
 
     let error = status.ok().unwrap_err();
-    assert_eq!(error.code(), HRESULT(-805305819));
+    assert_eq!(error, STATUS_NOT_FOUND);
+    assert_eq!(error.to_hresult(), HRESULT(-805305819));
 
     unsafe {
         let mut provider = BCRYPT_ALG_HANDLE::default();
@@ -45,14 +46,14 @@ fn test() -> Result<()> {
 // in a reasonable manner with the help of `Into`.
 
 #[allow(non_snake_case)]
-fn BCryptVerifySignature(status: NTSTATUS) -> Result<()> {
+fn BCryptVerifySignature(status: NTSTATUS) -> Result<(), NTSTATUS> {
     status.ok()
 }
 
-fn is_valid(status: NTSTATUS) -> Result<bool> {
+fn is_valid(status: NTSTATUS) -> Result<bool, NTSTATUS> {
     match BCryptVerifySignature(status) {
         Err(e) => {
-            if e.code() == STATUS_INVALID_SIGNATURE.into() {
+            if e == STATUS_INVALID_SIGNATURE {
                 Ok(false)
             } else {
                 Err(e)
@@ -63,7 +64,7 @@ fn is_valid(status: NTSTATUS) -> Result<bool> {
 }
 
 #[test]
-fn test_verify() -> Result<()> {
+fn test_verify() -> Result<(), NTSTATUS> {
     assert!(is_valid(STATUS_SUCCESS)?);
     assert!(!(is_valid(STATUS_INVALID_SIGNATURE)?));
     assert!(is_valid(STATUS_NOT_FOUND).is_err());

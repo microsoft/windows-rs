@@ -10,7 +10,7 @@ pub const E_INVALIDARG: HRESULT = HRESULT(0x80070057_u32 as _);
 unsafe trait ITest: IUnknown {
     unsafe fn Void(&self);
     unsafe fn Code(&self, code: HRESULT) -> HRESULT;
-    unsafe fn Result(&self, code: HRESULT) -> Result<()>;
+    unsafe fn Result(&self, code: HRESULT) -> Result<(), HRESULT>;
 }
 
 #[implement(ITest)]
@@ -21,7 +21,7 @@ impl ITest_Impl for Test_Impl {
     unsafe fn Code(&self, code: HRESULT) -> HRESULT {
         code
     }
-    unsafe fn Result(&self, code: HRESULT) -> Result<()> {
+    unsafe fn Result(&self, code: HRESULT) -> Result<(), HRESULT> {
         code.ok()
     }
 }

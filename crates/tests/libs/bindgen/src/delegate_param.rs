@@ -10,7 +10,7 @@
 pub unsafe fn SetConsoleCtrlHandler(
     handlerroutine: PHANDLER_ROUTINE,
     add: bool,
-) -> windows_core::Result<()> {
+) -> Result<(), windows_result::HRESULT> {
     windows_link::link!("kernel32.dll" "system" fn SetConsoleCtrlHandler(handlerroutine : PHANDLER_ROUTINE, add : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetConsoleCtrlHandler(handlerroutine, add.into()).ok() }
 }

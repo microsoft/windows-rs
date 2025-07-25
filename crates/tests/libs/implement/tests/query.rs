@@ -7,7 +7,7 @@ use windows::{
 struct Stringable;
 
 impl IStringable_Impl for Stringable_Impl {
-    fn ToString(&self) -> Result<HSTRING> {
+    fn ToString(&self) -> Result<HSTRING, HRESULT> {
         todo!()
     }
 }

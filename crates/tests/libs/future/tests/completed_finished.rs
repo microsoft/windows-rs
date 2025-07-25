@@ -7,7 +7,7 @@ use windows::core::*;
 use windows_future::*;
 
 #[test]
-fn action() -> Result<()> {
+fn action() -> Result<(), HRESULT> {
     let (spawn_finish_send, spawn_finish_recv) = channel();
     let (completed_send, completed_recv) = channel();
 
@@ -50,7 +50,7 @@ fn action() -> Result<()> {
 }
 
 #[test]
-fn operation() -> Result<()> {
+fn operation() -> Result<(), HRESULT> {
     let (spawn_finish_send, spawn_finish_recv) = channel();
     let (completed_send, completed_recv) = channel();
 
@@ -95,7 +95,7 @@ fn operation() -> Result<()> {
 }
 
 #[test]
-fn action_with_progress() -> Result<()> {
+fn action_with_progress() -> Result<(), HRESULT> {
     let (spawn_finish_send, spawn_finish_recv) = channel();
     let (completed_send, completed_recv) = channel();
 
@@ -140,7 +140,7 @@ fn action_with_progress() -> Result<()> {
 }
 
 #[test]
-fn operation_with_progress() -> Result<()> {
+fn operation_with_progress() -> Result<(), HRESULT> {
     let (spawn_finish_send, spawn_finish_recv) = channel();
     let (completed_send, completed_recv) = channel();
 

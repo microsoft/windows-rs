@@ -12,10 +12,12 @@ doctest = false
 workspace = true
 features = [
     "Win32_Foundation",
+    "Win32_System_Rpc",
 ]
 
 [dependencies.windows-result]
 workspace = true
+features = [ "std" ]
 
 [dependencies.windows-link]
 workspace = true

@@ -10,7 +10,7 @@ extern "system" {
 }
 
 #[test]
-fn test() -> Result<()> {
+fn test() -> Result<(), HRESULT> {
     unsafe { interop().ok()? };
 
     let compositor = Compositor::new()?;

@@ -24,7 +24,10 @@ impl core::ops::Deref for ID3D12DeviceChild {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceChild, windows_core::IUnknown, ID3D12Object);
 impl ID3D12DeviceChild {
-    pub unsafe fn GetDevice<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetDevice<T>(
+        &self,
+        result__: *mut Option<T>,
+    ) -> Result<(), windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -55,7 +58,7 @@ pub trait ID3D12DeviceChild_Impl: ID3D12Object_Impl {
         &self,
         riid: *const windows_core::GUID,
         ppvdevice: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
 }
 impl ID3D12DeviceChild_Vtbl {
     pub const fn new<Identity: ID3D12DeviceChild_Impl, const OFFSET: isize>() -> Self {
@@ -101,7 +104,7 @@ impl ID3D12Object {
         guid: *const windows_core::GUID,
         pdatasize: *mut u32,
         pdata: Option<*mut core::ffi::c_void>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         unsafe {
             (windows_core::Interface::vtable(self).GetPrivateData)(
                 windows_core::Interface::as_raw(self),
@@ -117,7 +120,7 @@ impl ID3D12Object {
         guid: *const windows_core::GUID,
         datasize: u32,
         pdata: Option<*const core::ffi::c_void>,
-    ) -> windows_core::Result<()> {
+    ) -> Result<(), windows_result::HRESULT> {
         unsafe {
             (windows_core::Interface::vtable(self).SetPrivateData)(
                 windows_core::Interface::as_raw(self),
@@ -132,7 +135,7 @@ impl ID3D12Object {
         &self,
         guid: *const windows_core::GUID,
         pdata: P1,
-    ) -> windows_core::Result<()>
+    ) -> Result<(), windows_result::HRESULT>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
@@ -145,7 +148,7 @@ impl ID3D12Object {
             .ok()
         }
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> Result<(), windows_result::HRESULT>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -192,19 +195,19 @@ pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
         guid: *const windows_core::GUID,
         pdatasize: *mut u32,
         pdata: *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
     fn SetPrivateData(
         &self,
         guid: *const windows_core::GUID,
         datasize: u32,
         pdata: *const core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
     fn SetPrivateDataInterface(
         &self,
         guid: *const windows_core::GUID,
         pdata: windows_core::Ref<'_, windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
-    fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
+    fn SetName(&self, name: &windows_core::PCWSTR) -> Result<(), windows_result::HRESULT>;
 }
 impl ID3D12Object_Vtbl {
     pub const fn new<Identity: ID3D12Object_Impl, const OFFSET: isize>() -> Self {
