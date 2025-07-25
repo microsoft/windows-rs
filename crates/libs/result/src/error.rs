@@ -96,7 +96,11 @@ impl Error {
                 Self::from_hresult(code)
             } else {
                 ErrorInfo::originate_error(code, message);
-                code.into()
+
+                Self {
+                    code: nonzero_hresult(code),
+                    info: ErrorInfo::from_thread(),
+                }
             }
         }
         #[cfg(not(windows))]
@@ -111,19 +115,6 @@ impl Error {
         Self {
             code: nonzero_hresult(code),
             info: ErrorInfo::empty(),
-        }
-    }
-
-    /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
-    pub fn from_win32() -> Self {
-        #[cfg(windows)]
-        {
-            let error = unsafe { GetLastError() };
-            Self::from_hresult(HRESULT::from_win32(error))
-        }
-        #[cfg(not(windows))]
-        {
-            unimplemented!()
         }
     }
 
@@ -156,11 +147,17 @@ impl Error {
 #[cfg(feature = "std")]
 impl std::error::Error for Error {}
 
+impl From<&Error> for HRESULT {
+    fn from(error: &Error) -> Self {
+        let code = error.code();
+        error.info.to_thread();
+        code
+    }
+}
+
 impl From<Error> for HRESULT {
     fn from(error: Error) -> Self {
-        let code = error.code();
-        error.info.into_thread();
-        code
+        (&error).into()
     }
 }
 
@@ -169,6 +166,15 @@ impl From<HRESULT> for Error {
         Self {
             code: nonzero_hresult(code),
             info: ErrorInfo::from_thread(),
+        }
+    }
+}
+
+impl From<Result<(), Error>> for HRESULT {
+    fn from(result: Result<(), Error>) -> Self {
+        match result {
+            Ok(()) => Self(0),
+            Err(error) => error.into(),
         }
     }
 }
@@ -289,8 +295,8 @@ mod error_info {
             }
         }
 
-        pub(crate) fn into_thread(self) {
-            if let Some(ptr) = self.ptr {
+        pub(crate) fn to_thread(&self) {
+            if let Some(ptr) = &self.ptr {
                 unsafe {
                     crate::bindings::SetErrorInfo(0, ptr.as_raw());
                 }
@@ -379,7 +385,7 @@ mod error_info {
             Self
         }
 
-        pub(crate) fn into_thread(self) {}
+        pub(crate) fn to_thread(&self) {}
 
         #[cfg(windows)]
         pub(crate) fn originate_error(_code: HRESULT, _message: &str) {}

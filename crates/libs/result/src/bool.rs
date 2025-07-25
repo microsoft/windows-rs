@@ -15,11 +15,11 @@ impl BOOL {
 
     /// Converts the [`BOOL`] to [`Result<()>`][Result<_>].
     #[inline]
-    pub fn ok(self) -> Result<()> {
+    pub fn ok(self) -> Result<(), HRESULT> {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(Error::from_win32())
+            Err(HRESULT::from_thread())
         }
     }
 

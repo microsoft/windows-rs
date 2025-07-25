@@ -2,6 +2,13 @@
 #![debugger_visualizer(natvis_file = "../windows-result.natvis")]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
 #![cfg_attr(not(windows), allow(unused_imports))]
+#![allow(
+    dead_code,
+    non_upper_case_globals,
+    non_snake_case,
+    non_camel_case_types,
+    clippy::upper_case_acronyms
+)]
 
 extern crate alloc;
 
@@ -30,6 +37,3 @@ pub use hresult::HRESULT;
 
 mod bool;
 pub use bool::BOOL;
-
-/// A specialized [`Result`] type that provides Windows error information.
-pub type Result<T> = core::result::Result<T, Error>;

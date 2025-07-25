@@ -32,18 +32,18 @@ impl HRESULT {
 
     /// Converts the [`HRESULT`] to [`Result<()>`][Result<_>].
     #[inline]
-    pub fn ok(self) -> Result<()> {
+    pub fn ok(self) -> Result<(), Self> {
         if self.is_ok() {
             Ok(())
         } else {
-            Err(self.into())
+            Err(self)
         }
     }
 
     /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
     /// converted to [`Result<T>`].
     #[inline]
-    pub fn map<F, T>(self, op: F) -> Result<T>
+    pub fn map<F, T>(self, op: F) -> Result<T, Self>
     where
         F: FnOnce() -> T,
     {
@@ -54,9 +54,9 @@ impl HRESULT {
     /// Calls `op` if `self` is a success code, otherwise returns [`HRESULT`]
     /// converted to [`Result<T>`].
     #[inline]
-    pub fn and_then<F, T>(self, op: F) -> Result<T>
+    pub fn and_then<F, T>(self, op: F) -> Result<T, Self>
     where
-        F: FnOnce() -> Result<T>,
+        F: FnOnce() -> Result<T, Self>,
     {
         self.ok()?;
         op()
@@ -113,6 +113,19 @@ impl HRESULT {
         }
     }
 
+    /// Creates a new `HRESULT` from the Win32 error code returned by `GetLastError()`.
+    pub fn from_thread() -> Self {
+        #[cfg(windows)]
+        {
+            let error = unsafe { GetLastError() };
+            Self::from_win32(error)
+        }
+        #[cfg(not(windows))]
+        {
+            unimplemented!()
+        }
+    }
+
     /// Maps a Win32 error code to an HRESULT value.
     pub const fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {
@@ -132,12 +145,50 @@ impl HRESULT {
     }
 }
 
-impl<T> From<Result<T>> for HRESULT {
-    fn from(result: Result<T>) -> Self {
-        if let Err(error) = result {
-            return error.into();
+impl From<Result<(), HRESULT>> for HRESULT {
+    fn from(result: Result<(), HRESULT>) -> Self {
+        match result {
+            Ok(()) => Self(0),
+            Err(error) => error,
         }
-        HRESULT(0)
+    }
+}
+
+#[cfg(feature = "std")]
+impl std::error::Error for HRESULT {}
+
+#[cfg(feature = "std")]
+impl From<HRESULT> for std::io::Error {
+    fn from(from: HRESULT) -> Self {
+        Self::from_raw_os_error(from.0)
+    }
+}
+
+#[cfg(feature = "std")]
+impl From<std::io::Error> for HRESULT {
+    fn from(from: std::io::Error) -> Self {
+        match from.raw_os_error() {
+            Some(status) => Self::from_win32(status as u32),
+            None => Self(E_UNEXPECTED),
+        }
+    }
+}
+
+impl From<alloc::string::FromUtf16Error> for HRESULT {
+    fn from(_: alloc::string::FromUtf16Error) -> Self {
+        Self::from_win32(ERROR_NO_UNICODE_TRANSLATION)
+    }
+}
+
+impl From<alloc::string::FromUtf8Error> for HRESULT {
+    fn from(_: alloc::string::FromUtf8Error) -> Self {
+        Self::from_win32(ERROR_NO_UNICODE_TRANSLATION)
+    }
+}
+
+impl From<core::num::TryFromIntError> for HRESULT {
+    fn from(_: core::num::TryFromIntError) -> Self {
+        Self::from_win32(ERROR_INVALID_DATA)
     }
 }
 
