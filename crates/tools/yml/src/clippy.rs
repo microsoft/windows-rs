@@ -35,11 +35,12 @@ jobs:
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
 
-    for package in helpers::crates("crates/libs")
-        .iter()
-        .chain(helpers::crates("crates/tools").iter())
-    {
+    for package in helpers::crates("crates") {
         let name = &package.name;
+
+        if name.starts_with("test") {
+            continue;
+        }
 
         write!(
             &mut yml,
