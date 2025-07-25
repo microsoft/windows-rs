@@ -73,4 +73,4 @@ runs:
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-llvm
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-i686-gcc
         C:\msys64\usr\bin\pacman.exe --sync --refresh --noconfirm mingw-w64-x86_64-gcc
-      if: ${{ inputs.update-packages == 'true' && !contains(runner.os, 'windows-11-arm') }}
+      if: ${{ inputs.update-packages == 'true' && !contains(inputs.target, 'aarch64') }}
