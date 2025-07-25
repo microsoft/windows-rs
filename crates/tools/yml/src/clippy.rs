@@ -28,7 +28,9 @@ jobs:
       - name: Install clippy
         run: rustup component add clippy
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc"
         .to_string();
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
