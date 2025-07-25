@@ -17,7 +17,7 @@ interface_hierarchy!(IInspectable, IUnknown);
 impl IInspectable {
     /// Returns the canonical type name for the underlying object.
     #[cfg(windows)]
-    pub fn GetRuntimeClassName(&self) -> Result<HSTRING> {
+    pub fn GetRuntimeClassName(&self) -> Result<HSTRING, windows_result::HRESULT> {
         unsafe {
             let mut abi = null_mut();
             (self.vtable().GetRuntimeClassName)(core::mem::transmute_copy(self), &mut abi).ok()?;
@@ -26,7 +26,7 @@ impl IInspectable {
     }
 
     /// Gets the trust level of the current object.
-    pub fn GetTrustLevel(&self) -> Result<i32> {
+    pub fn GetTrustLevel(&self) -> Result<i32, windows_result::HRESULT> {
         unsafe {
             let mut value = 0;
             (self.vtable().GetTrustLevel)(core::mem::transmute_copy(self), &mut value).ok()?;

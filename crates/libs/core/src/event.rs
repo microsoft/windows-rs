@@ -28,7 +28,7 @@ impl<T: Interface> Event<T> {
     }
 
     /// Registers a delegate with the event object.
-    pub fn add(&self, delegate: &T) -> Result<i64> {
+    pub fn add(&self, delegate: &T) -> Result<i64, windows_result::HRESULT> {
         let new_delegate = Delegate::new(delegate)?;
         let token = new_delegate.to_token();
         let new_iter = once(new_delegate);
@@ -80,7 +80,7 @@ impl<T: Interface> Event<T> {
     }
 
     /// Invokes all of the event object's registered delegates with the provided callback.
-    pub fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) {
+    pub fn call<F: FnMut(&T) -> Result<(), windows_result::HRESULT>>(&self, mut callback: F) {
         let delegates = {
             let guard = self.delegates.read().unwrap();
             if let Some(delegates) = guard.as_ref() {
@@ -96,7 +96,7 @@ impl<T: Interface> Event<T> {
             if let Err(error) = delegate.call(&mut callback) {
                 const RPC_E_SERVER_UNAVAILABLE: HRESULT = HRESULT(-2147023174); // HRESULT_FROM_WIN32(RPC_S_SERVER_UNAVAILABLE)
                 if matches!(
-                    error.code(),
+                    error,
                     imp::RPC_E_DISCONNECTED | imp::JSCRIPT_E_CANTEXECUTE | RPC_E_SERVER_UNAVAILABLE
                 ) {
                     self.remove(delegate.to_token());
@@ -116,7 +116,7 @@ enum Delegate<T> {
 
 impl<T: Interface> Delegate<T> {
     /// Creates a new `Delegate<T>`, containing a suitable reference to the specified delegate.
-    fn new(delegate: &T) -> Result<Self> {
+    fn new(delegate: &T) -> Result<Self, windows_result::HRESULT> {
         if delegate.cast::<imp::IAgileObject>().is_ok() {
             Ok(Self::Direct(delegate.clone()))
         } else {
@@ -135,7 +135,7 @@ impl<T: Interface> Delegate<T> {
     }
 
     /// Invokes the delegates with the provided callback.
-    fn call<F: FnMut(&T) -> Result<()>>(&self, mut callback: F) -> Result<()> {
+    fn call<F: FnMut(&T) -> Result<(), windows_result::HRESULT>>(&self, mut callback: F) -> Result<(), windows_result::HRESULT> {
         match self {
             Self::Direct(delegate) => callback(delegate),
             Self::Indirect(delegate) => callback(&delegate.resolve()?),

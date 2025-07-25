@@ -1,17 +1,9 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[inline]
 pub unsafe fn RoGetAgileReference<P2>(
     options: AgileReferenceOptions,
     riid: *const windows_core::GUID,
     punk: P2,
-) -> windows_core::Result<IAgileReference>
+) -> Result<IAgileReference, windows_result::HRESULT>
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
@@ -60,7 +52,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IAgileReference, windows_core::IUnknown);
 impl IAgileReference {
-    pub unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn Resolve<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -90,7 +82,7 @@ pub trait IAgileReference_Impl: windows_core::IUnknownImpl {
         &self,
         riid: *const windows_core::GUID,
         ppvobjectreference: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
 }
 impl IAgileReference_Vtbl {
     pub const fn new<Identity: IAgileReference_Impl, const OFFSET: isize>() -> Self {
@@ -127,7 +119,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWeakReference, windows_core::IUnknown);
 impl IWeakReference {
-    pub unsafe fn Resolve<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn Resolve<T>(&self) -> Result<T, windows_result::HRESULT>
     where
         T: windows_core::Interface,
     {
@@ -157,7 +149,7 @@ pub trait IWeakReference_Impl: windows_core::IUnknownImpl {
         &self,
         riid: *const windows_core::GUID,
         objectreference: *mut *mut core::ffi::c_void,
-    ) -> windows_core::Result<()>;
+    ) -> Result<(), windows_result::HRESULT>;
 }
 impl IWeakReference_Vtbl {
     pub const fn new<Identity: IWeakReference_Impl, const OFFSET: isize>() -> Self {
@@ -194,7 +186,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IWeakReferenceSource, windows_core::IUnknown);
 impl IWeakReferenceSource {
-    pub unsafe fn GetWeakReference(&self) -> windows_core::Result<IWeakReference> {
+    pub unsafe fn GetWeakReference(&self) -> Result<IWeakReference, windows_result::HRESULT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetWeakReference)(
@@ -215,7 +207,7 @@ pub struct IWeakReferenceSource_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait IWeakReferenceSource_Impl: windows_core::IUnknownImpl {
-    fn GetWeakReference(&self) -> windows_core::Result<IWeakReference>;
+    fn GetWeakReference(&self) -> Result<IWeakReference, windows_result::HRESULT>;
 }
 impl IWeakReferenceSource_Vtbl {
     pub const fn new<Identity: IWeakReferenceSource_Impl, const OFFSET: isize>() -> Self {
@@ -234,7 +226,7 @@ impl IWeakReferenceSource_Vtbl {
                         weakreference.write(core::mem::transmute(ok__));
                         windows_core::HRESULT(0)
                     }
-                    Err(err) => err.into(),
+                    Err(err) => err,
                 }
             }
         }

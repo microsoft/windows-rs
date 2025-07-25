@@ -1,5 +1,7 @@
 use super::*;
 
+// TODO: `Type` collides with other public types like windows-registry's Type but it should be hidden or in `windows_core::imp`
+
 #[doc(hidden)]
 pub trait TypeKind {
     type TypeKind;
@@ -21,8 +23,8 @@ pub trait Type<T: TypeKind, C = <T as TypeKind>::TypeKind>: TypeKind + Sized + C
 
     fn is_null(abi: &Self::Abi) -> bool;
     unsafe fn assume_init_ref(abi: &Self::Abi) -> &Self;
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self>;
-    fn from_default(default: &Self::Default) -> Result<Self>;
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT>;
+    fn from_default(default: &Self::Default) -> Result<Self, windows_result::HRESULT>;
 }
 
 impl<T> Type<T, InterfaceType> for T
@@ -40,18 +42,18 @@ where
         unsafe { core::mem::transmute::<&*mut core::ffi::c_void, &T>(abi) }
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT> {
         unsafe {
             if !abi.is_null() {
                 Ok(core::mem::transmute_copy(&abi))
             } else {
-                Err(Error::empty())
+                Err(imp::S_OK)
             }
         }
     }
 
-    fn from_default(default: &Self::Default) -> Result<Self> {
-        default.as_ref().cloned().ok_or(Error::empty())
+    fn from_default(default: &Self::Default) -> Result<Self, windows_result::HRESULT> {
+        default.as_ref().cloned().ok_or(imp::S_OK)
     }
 }
 
@@ -70,11 +72,11 @@ where
         unsafe { abi.assume_init_ref() }
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT> {
         unsafe { Ok(abi.assume_init()) }
     }
 
-    fn from_default(default: &Self::Default) -> Result<Self> {
+    fn from_default(default: &Self::Default) -> Result<Self, windows_result::HRESULT> {
         Ok(default.clone())
     }
 }
@@ -94,11 +96,11 @@ where
         abi
     }
 
-    unsafe fn from_abi(abi: Self::Abi) -> Result<Self> {
+    unsafe fn from_abi(abi: Self::Abi) -> Result<Self, windows_result::HRESULT> {
         Ok(abi)
     }
 
-    fn from_default(default: &Self) -> Result<Self> {
+    fn from_default(default: &Self) -> Result<Self, windows_result::HRESULT> {
         Ok(default.clone())
     }
 }
