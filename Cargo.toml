@@ -47,7 +47,7 @@ windows-metadata = { version = "0.59.0", path = "crates/libs/metadata", default-
 windows-numerics = { version = "0.2.0", path = "crates/libs/numerics", default-features = false }
 windows-registry = { version = "0.5.3", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.3.4", path = "crates/libs/result", default-features = false }
-windows-services = { version = "0.24.0", path = "crates/libs/services", default-features = false }
+windows-services = { version = "0.25.0", path = "crates/libs/services", default-features = false }
 windows-strings = { version = "0.4.2", path = "crates/libs/strings", default-features = false }
 windows-sys = { version = "0.60.2", path = "crates/libs/sys", default-features = false }
 windows-targets = { version = "0.53.3", path = "crates/libs/targets", default-features = false }
