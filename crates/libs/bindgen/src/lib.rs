@@ -57,16 +57,14 @@ use method_names::*;
 /// The conventional way of calling the `bindgen` function is as follows:
 ///
 /// ```rust,no_run
-/// fn main() {
-///     let args = [
-///         "--out",
-///         "src/bindings.rs",
-///         "--filter",
-///         "GetTickCount",
-///     ];
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "GetTickCount",
+/// ];
 ///
-///     windows_bindgen::bindgen(args).unwrap();
-/// }
+/// windows_bindgen::bindgen(args).unwrap();
 /// ```
 ///
 /// Here is a list of supported arguments.
