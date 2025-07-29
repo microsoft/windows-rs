@@ -10,8 +10,8 @@ doctest = false
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
+test_reference = { path = "../reference" }
 
 [dependencies]
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
-test_reference = { path = "../reference" }

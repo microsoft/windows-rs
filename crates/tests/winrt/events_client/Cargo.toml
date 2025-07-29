@@ -10,8 +10,8 @@ doctest = false
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
+test_events = { path = "../events" }
 
 [dependencies]
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
-test_events = { path = "../events" }

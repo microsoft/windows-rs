@@ -8,10 +8,10 @@ publish = false
 doc = false
 doctest = false
 
-[build-dependencies.windows-bindgen]
-workspace = true
+[build-dependencies]
+windows-bindgen = { workspace = true }
+test_component = { path = "../component" }
 
 [dependencies]
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
-test_component = { path = "../component" }

@@ -10,6 +10,4 @@ windows = { workspace = true, features = ["Win32_Foundation"] }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
-
-[dependencies]
 sample_json_validator_winrt = { path = "../json_validator_winrt" }
