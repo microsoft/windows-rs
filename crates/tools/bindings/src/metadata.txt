@@ -1,6 +1,5 @@
---in default
 --out crates/libs/bindgen/src/winmd/bindings.rs
---flat --sys --no-comment
+--flat --sys --no-comment --no-allow
 
 --filter
     ELEMENT_TYPE_ARRAY

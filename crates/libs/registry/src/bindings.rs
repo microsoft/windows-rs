@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> BOOL);
 windows_link::link!("ktmw32.dll" "system" fn CommitTransaction(transactionhandle : HANDLE) -> BOOL);
 windows_link::link!("ktmw32.dll" "system" fn CreateTransaction(lptransactionattributes : *mut SECURITY_ATTRIBUTES, uow : *mut GUID, createoptions : u32, isolationlevel : u32, isolationflags : u32, timeout : u32, description : PCWSTR) -> HANDLE);
