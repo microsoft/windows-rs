@@ -1,6 +1,5 @@
 --out crates/libs/collections/src/bindings.rs
---flat
---no-comment
+--flat --no-comment --no-allow
 
 --filter
     Windows.Foundation.Collections.IIterable

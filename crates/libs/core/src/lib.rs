@@ -3,6 +3,7 @@
 #![allow(non_snake_case)]
 #![debugger_visualizer(natvis_file = "../windows-core.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
+#![allow(non_camel_case_types, clippy::missing_transmute_annotations)]
 
 #[cfg(windows)]
 include!("windows.rs");

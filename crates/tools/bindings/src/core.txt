@@ -1,8 +1,5 @@
-// These will use `windows-sys` style bindings.
-
---in default
 --out crates/libs/core/src/imp/bindings.rs
---flat --sys --no-comment --no-deps
+--flat --sys --no-comment --no-deps --no-allow
 
 --filter
     CoIncrementMTAUsage

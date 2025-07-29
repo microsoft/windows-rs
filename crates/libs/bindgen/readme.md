@@ -19,18 +19,16 @@ version = "0.62"
 Generate Rust bindings in a build script as follows:
 
 ```rust,no_run
-fn main() {
-    let args = [
-        "--out",
-        "src/bindings.rs",
-        "--flat",
-        "--sys",
-        "--filter",
-        "GetTickCount",
-    ];
+let args = [
+    "--out",
+    "src/bindings.rs",
+    "--flat",
+    "--sys",
+    "--filter",
+    "GetTickCount",
+];
 
-    windows_bindgen::bindgen(args).unwrap();
-}
+windows_bindgen::bindgen(args).unwrap();
 ```
 
 And then use the bindings as follows:
@@ -38,9 +36,7 @@ And then use the bindings as follows:
 ```rust,ignore
 mod bindings;
 
-fn main() {
-    unsafe {
-        println!("{}", bindings::GetTickCount());
-    }
+unsafe {
+    println!("{}", bindings::GetTickCount());
 }
 ```

@@ -1,6 +1,5 @@
---in default
 --out crates/libs/registry/src/bindings.rs
---flat --sys --no-deps --no-comment
+--flat --sys --no-deps --no-comment --no-allow
 
 --filter
     CloseHandle

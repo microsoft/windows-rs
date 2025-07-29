@@ -1,8 +1,5 @@
-// These will use `windows` style bindings and include COM APIs.
-
---in default
 --out crates/libs/core/src/imp/com_bindings.rs
---flat --no-comment --no-deps
+--flat --no-comment --no-deps --no-allow
 
 --filter
     AGILEREFERENCE_DEFAULT
