@@ -43,14 +43,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Install Rustup
-        shell: pwsh
-        run: |
-          Invoke-WebRequest -Uri "https://win.rustup.rs/aarch64" -OutFile "$env:TEMP\rustup-init.exe"
-           & "$env:TEMP\rustup-init.exe" --default-toolchain none --profile=minimal -y
-          "$env:USERPROFILE\.cargo\bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
-          "CARGO_HOME=$env:USERPROFILE\.cargo" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
-        if: ${{ matrix.runner == 'windows-11-arm' }}
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
