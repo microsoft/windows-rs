@@ -1,8 +1,5 @@
 --out crates/libs/threading/src/bindings.rs
---flat
---no-comment
---sys
---no-deps
+--flat --no-comment --sys --no-deps --no-allow
 
 --filter
     CreateThreadpool

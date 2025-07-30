@@ -1,4 +1,3 @@
---in default
 --out crates/libs/sys
 --package --sys --no-comment --no-allow
 --link windows_targets

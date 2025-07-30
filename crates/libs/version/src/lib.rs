@@ -1,6 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![cfg_attr(not(test), no_std)]
+#![allow(non_snake_case, clippy::upper_case_acronyms)]
 
 mod bindings;
 use bindings::*;
