@@ -11,10 +11,7 @@ fn symbol() {
     unsafe {
         use windows::Win32::Security::Authentication::Identity::RtlGenRandom;
         let mut buffer = [0u8; 8];
-        assert_eq!(
-            RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as u32),
-            true
-        );
+        assert!(RtlGenRandom(buffer.as_mut_ptr() as _, buffer.len() as u32),);
         assert_ne!(&buffer, &[0u8; 8]);
     }
 }

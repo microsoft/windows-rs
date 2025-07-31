@@ -1,6 +1,7 @@
 use windows::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]
+#[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 fn test() -> Result<()> {
     let status = NTSTATUS::default();
     assert_eq!(status.0, 0);
