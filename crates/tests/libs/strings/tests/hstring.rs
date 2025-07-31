@@ -2,6 +2,7 @@ use windows::core::Result;
 use windows_strings::*;
 
 #[test]
+#[allow(clippy::cmp_owned)] // intentionally testing how operations work
 fn hstring_works() {
     assert_eq!(std::mem::size_of::<HSTRING>(), std::mem::size_of::<usize>());
     let empty = HSTRING::new();
@@ -321,6 +322,7 @@ extern "C" {
     pub fn wcslen(s: *const u16) -> usize;
 }
 
+#[allow(clippy::upper_case_acronyms)]
 mod sys {
     windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsCreateStringReference(sourcestring: PCWSTR, length: u32, hstringheader: *mut HSTRING_HEADER, string: *mut HSTRING) -> HRESULT);
     windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsDeleteString(string: HSTRING) -> HRESULT);

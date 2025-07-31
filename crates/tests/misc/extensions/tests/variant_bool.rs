@@ -1,6 +1,7 @@
 use windows::Win32::Foundation::*;
 
 #[test]
+#[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 fn test() {
     let status = VARIANT_BOOL::default();
     assert_eq!(status, VARIANT_FALSE);

@@ -1,6 +1,7 @@
 use test_bindgen::deps::*;
 
 #[test]
+#[allow(clippy::manual_c_str_literals)] // false positive
 fn test() {
     unsafe {
         let library = LoadLibraryExA(
@@ -11,7 +12,10 @@ fn test() {
 
         assert!(!library.is_null());
         let address = GetProcAddress(library, "GetTickCount\0".as_ptr()).unwrap();
-        let fp = core::mem::transmute::<_, extern "system" fn() -> u32>(address);
+        let fp = core::mem::transmute::<
+            unsafe extern "system" fn() -> isize,
+            extern "system" fn() -> u32,
+        >(address);
         assert_ne!(fp(), 0);
         FreeLibrary(library);
     }

@@ -45,6 +45,7 @@ fn stream_async() -> Result<()> {
 }
 
 #[test]
+#[allow(clippy::async_yields_async)] // don't want to disturb concurrency testing
 fn switch_context() -> Result<()> {
     use futures::{executor::LocalPool, future, task::SpawnExt};
     use std::future::IntoFuture;

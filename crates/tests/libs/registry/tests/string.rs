@@ -3,6 +3,7 @@ use windows_registry::*;
 use windows_strings::*;
 
 #[test]
+#[allow(clippy::unnecessary_to_owned)] // intentionally testing convertible types
 fn string() -> Result<()> {
     let test_key = "software\\windows-rs\\tests\\string";
     _ = CURRENT_USER.remove_tree(test_key);

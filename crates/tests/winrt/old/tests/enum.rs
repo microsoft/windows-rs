@@ -3,24 +3,24 @@ use windows_future::*;
 
 #[test]
 fn signed_enum() {
-    assert!(AsyncStatus::default().0 == 0);
-    assert!(AsyncStatus::Canceled.0 == 2);
-    assert!(AsyncStatus::Completed.0 == 1);
-    assert!(AsyncStatus::Error.0 == 3);
-    assert!(AsyncStatus::Started.0 == 0);
+    assert_eq!(AsyncStatus::default().0, 0);
+    assert_eq!(AsyncStatus::Canceled.0, 2);
+    assert_eq!(AsyncStatus::Completed.0, 1);
+    assert_eq!(AsyncStatus::Error.0, 3);
+    assert_eq!(AsyncStatus::Started.0, 0);
 }
 
 #[test]
 fn unsigned_enum() {
-    assert!(AppointmentDaysOfWeek::default().0 == 0);
-    assert!(AppointmentDaysOfWeek::None.0 == 0);
-    assert!(AppointmentDaysOfWeek::Sunday.0 == 0x1);
-    assert!(AppointmentDaysOfWeek::Monday.0 == 0x2);
-    assert!(AppointmentDaysOfWeek::Tuesday.0 == 0x4);
-    assert!(AppointmentDaysOfWeek::Wednesday.0 == 0x8);
-    assert!(AppointmentDaysOfWeek::Thursday.0 == 0x10);
-    assert!(AppointmentDaysOfWeek::Friday.0 == 0x20);
-    assert!(AppointmentDaysOfWeek::Saturday.0 == 0x40);
+    assert_eq!(AppointmentDaysOfWeek::default().0, 0);
+    assert_eq!(AppointmentDaysOfWeek::None.0, 0);
+    assert_eq!(AppointmentDaysOfWeek::Sunday.0, 0x1);
+    assert_eq!(AppointmentDaysOfWeek::Monday.0, 0x2);
+    assert_eq!(AppointmentDaysOfWeek::Tuesday.0, 0x4);
+    assert_eq!(AppointmentDaysOfWeek::Wednesday.0, 0x8);
+    assert_eq!(AppointmentDaysOfWeek::Thursday.0, 0x10);
+    assert_eq!(AppointmentDaysOfWeek::Friday.0, 0x20);
+    assert_eq!(AppointmentDaysOfWeek::Saturday.0, 0x40);
 
     // Use as bitflags
     let weekend = AppointmentDaysOfWeek::Sunday | AppointmentDaysOfWeek::Saturday;
