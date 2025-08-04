@@ -207,8 +207,6 @@ jobs:
         run:  cargo test -p test_core --target ${{ matrix.target }}
       - name: Test test_debug
         run:  cargo test -p test_debug --target ${{ matrix.target }}
-      - name: Test test_debugger_visualizer
-        run:  cargo test -p test_debugger_visualizer --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
       - name: Test test_dispatch
@@ -257,10 +255,10 @@ jobs:
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
@@ -359,10 +357,10 @@ jobs:
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml

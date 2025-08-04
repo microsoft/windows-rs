@@ -38,15 +38,11 @@ jobs:
     for package in helpers::crates("crates") {
         let name = &package.name;
 
-        if name.starts_with("test") {
-            continue;
-        }
-
         write!(
             &mut yml,
             r"
       - name: Check {name}
-        run:  cargo clippy -p {name}"
+        run:  cargo clippy -p {name} --tests"
         )
         .unwrap();
     }
