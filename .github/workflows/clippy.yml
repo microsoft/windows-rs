@@ -178,8 +178,6 @@ jobs:
         run:  cargo clippy -p test_core --tests
       - name: Check test_debug
         run:  cargo clippy -p test_debug --tests
-      - name: Check test_debugger_visualizer
-        run:  cargo clippy -p test_debugger_visualizer --tests
       - name: Check test_deprecated
         run:  cargo clippy -p test_deprecated --tests
       - name: Check test_dispatch
