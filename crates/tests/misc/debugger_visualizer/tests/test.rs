@@ -1,4 +1,6 @@
 #![cfg(target_env = "msvc")]
+// https://github.com/microsoft/rust_debugger_test/issues/14
+#![allow(unsupported_calling_conventions)]
 
 use debugger_test::*;
 use windows::core::*;
