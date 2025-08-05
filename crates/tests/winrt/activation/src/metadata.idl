@@ -1,0 +1,32 @@
+namespace test_activation
+{
+    namespace One
+    {
+        runtimeclass Instance
+        {
+            Instance();
+            Int32 Property { get; };
+        }
+
+        runtimeclass Missing
+        {
+            Missing();
+            void Method();
+        }
+
+        namespace Two
+        {
+            namespace Three
+            {
+                namespace Four
+                {
+                    runtimeclass Static
+                    {
+                        static Int32 Property { get; };
+                    }
+                }
+            }
+        }
+    }
+
+}

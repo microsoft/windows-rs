@@ -130,6 +130,10 @@ jobs:
         run:  cargo clippy -p sample_wmi --tests
       - name: Check sample_xml
         run:  cargo clippy -p sample_xml --tests
+      - name: Check test_activation
+        run:  cargo clippy -p test_activation --tests
+      - name: Check test_activation_client
+        run:  cargo clippy -p test_activation_client --tests
       - name: Check test_agile
         run:  cargo clippy -p test_agile --tests
       - name: Check test_agile_reference
