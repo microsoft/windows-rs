@@ -159,6 +159,10 @@ jobs:
         run:  cargo clean
       - name: Test sample_xml
         run:  cargo test -p sample_xml --target ${{ matrix.target }}
+      - name: Test test_activation
+        run:  cargo test -p test_activation --target ${{ matrix.target }}
+      - name: Test test_activation_client
+        run:  cargo test -p test_activation_client --target ${{ matrix.target }}
       - name: Test test_agile
         run:  cargo test -p test_agile --target ${{ matrix.target }}
       - name: Test test_agile_reference
@@ -253,12 +257,12 @@ jobs:
         run:  cargo test -p test_match --target ${{ matrix.target }}
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_no_use
         run:  cargo test -p test_no_use --target ${{ matrix.target }}
       - name: Test test_noexcept
@@ -355,12 +359,12 @@ jobs:
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_workspace
         run:  cargo test -p tool_workspace --target ${{ matrix.target }}
       - name: Test tool_yml

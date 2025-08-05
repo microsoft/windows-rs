@@ -102,10 +102,6 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         return Ok(factory);
     }
 
-    // If not, first capture the error information from the failure above so that we
-    // can ultimately return this error information if all else fails.
-    let original: crate::Error = code.into();
-
     // Reg-free activation should only be attempted if the class is not registered.
     // It should not be attempted if the class is registered but fails to activate.
     if code == REGDB_E_CLASSNOTREG {
@@ -117,7 +113,7 @@ pub fn load_factory<C: crate::RuntimeName, I: Interface>() -> crate::Result<I> {
         }
     }
 
-    Err(original)
+    Err(crate::Error::from_hresult(code))
 }
 
 // Remove the suffix until a match is found appending `.dll\0` at the end
