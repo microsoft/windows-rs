@@ -627,11 +627,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetUInt8Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -649,11 +648,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetInt16Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -671,11 +669,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetUInt16Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -693,11 +690,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetInt32Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -715,11 +711,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetUInt32Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -737,11 +732,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetInt64Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -759,11 +753,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetUInt64Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -781,11 +774,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetSingleArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -803,11 +795,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetDoubleArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -825,11 +816,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetChar16Array(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -847,11 +837,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetBooleanArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -869,11 +858,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetStringArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -891,11 +879,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetInspectableArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
@@ -913,11 +900,10 @@ impl IPropertyValue_Vtbl {
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 IPropertyValue_Impl::GetGuidArray(
                     this,
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&value),
                         value_array_size,
-                    )
-                    .as_array(),
+                    ),
                 )
                 .into()
             }
