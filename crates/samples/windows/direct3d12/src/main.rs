@@ -50,7 +50,7 @@ where
     let instance = unsafe { GetModuleHandleA(None)? };
 
     let wc = WNDCLASSEXA {
-        cbSize: std::mem::size_of::<WNDCLASSEXA>() as u32,
+        cbSize: size_of::<WNDCLASSEXA>() as u32,
         style: CS_HREDRAW | CS_VREDRAW,
         lpfnWndProc: Some(wndproc::<S>),
         hInstance: instance.into(),
@@ -742,7 +742,7 @@ mod d3d12_hello_triangle {
 
         let vbv = D3D12_VERTEX_BUFFER_VIEW {
             BufferLocation: unsafe { vertex_buffer.GetGPUVirtualAddress() },
-            StrideInBytes: std::mem::size_of::<Vertex>() as u32,
+            StrideInBytes: size_of::<Vertex>() as u32,
             SizeInBytes: std::mem::size_of_val(&vertices) as u32,
         };
 
