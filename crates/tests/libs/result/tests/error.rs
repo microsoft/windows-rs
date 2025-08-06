@@ -43,16 +43,16 @@ fn from_hresult() {
 }
 
 #[test]
-fn from_win32() {
+fn from_thread() {
     unsafe { SetLastError(0) };
 
-    let e = Error::from_win32();
+    let e = Error::from_thread();
     assert_eq!(e.code(), S_OK);
     assert!(e.as_ptr().is_null());
 
     unsafe { SetLastError(ERROR_CANCELLED) };
 
-    let e = Error::from_win32();
+    let e = Error::from_thread();
     assert!(e.as_ptr().is_null());
     assert_eq!(e.code(), E_CANCELLED);
 }
