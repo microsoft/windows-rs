@@ -6,7 +6,7 @@ where
 {
     windows_link::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
     let result__ = unsafe { CreateSecurityPage(psi.param().abi()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND, psi: P1) -> windows_core::Result<()>

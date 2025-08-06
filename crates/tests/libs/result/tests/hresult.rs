@@ -1,7 +1,5 @@
 use windows_result::*;
 
-windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
-
 const S_OK: HRESULT = HRESULT(0);
 const S_FALSE: HRESULT = HRESULT(1);
 const E_INVALIDARG: HRESULT = HRESULT(-2147024809i32);
@@ -61,19 +59,6 @@ fn message() {
 
     assert_eq!(E_STATUS_NOT_FOUND.message(), "The object was not found.");
     assert_eq!(HRESULT(-1).message(), "");
-}
-
-#[test]
-fn from_thread() {
-    unsafe { SetLastError(0) };
-
-    let e = HRESULT::from_thread();
-    assert_eq!(e, S_OK);
-
-    unsafe { SetLastError(ERROR_CANCELLED) };
-
-    let e = HRESULT::from_thread();
-    assert_eq!(e, E_CANCELLED);
 }
 
 #[test]

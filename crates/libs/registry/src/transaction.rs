@@ -11,7 +11,7 @@ impl Transaction {
         let handle = unsafe { CreateTransaction(null_mut(), null_mut(), 0, 0, 0, 0, null()) };
 
         if core::ptr::eq(handle, INVALID_HANDLE_VALUE) {
-            Err(Error::from_thread())
+            Err(Error::from_win32())
         } else {
             Ok(Self(handle))
         }
@@ -24,7 +24,7 @@ impl Transaction {
         let result = unsafe { CommitTransaction(self.0) };
 
         if result == 0 {
-            Err(Error::from_thread())
+            Err(Error::from_win32())
         } else {
             Ok(())
         }

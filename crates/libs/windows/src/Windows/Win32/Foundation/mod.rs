@@ -32,7 +32,7 @@ pub unsafe fn GetLastError() -> WIN32_ERROR {
 pub unsafe fn GlobalFree(hmem: Option<HGLOBAL>) -> windows_core::Result<HGLOBAL> {
     windows_link::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
     let result__ = unsafe { GlobalFree(hmem.unwrap_or(core::mem::zeroed()) as _) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
 }
 #[inline]
 pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {

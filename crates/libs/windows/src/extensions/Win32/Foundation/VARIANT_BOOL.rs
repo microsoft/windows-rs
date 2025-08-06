@@ -10,7 +10,7 @@ impl VARIANT_BOOL {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(windows_core::Error::from_thread())
+            Err(windows_core::Error::from_win32())
         }
     }
     #[inline]
