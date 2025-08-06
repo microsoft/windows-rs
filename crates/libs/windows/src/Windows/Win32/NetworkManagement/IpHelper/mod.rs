@@ -753,7 +753,7 @@ pub unsafe fn GetUnicastIpAddressTable(family: super::super::Networking::WinSock
 pub unsafe fn Icmp6CreateFile() -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_link::link!("iphlpapi.dll" "system" fn Icmp6CreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { Icmp6CreateFile() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn Icmp6ParseReplies(replybuffer: *mut core::ffi::c_void, replysize: u32) -> u32 {
@@ -775,7 +775,7 @@ pub unsafe fn IcmpCloseHandle(icmphandle: super::super::Foundation::HANDLE) -> w
 pub unsafe fn IcmpCreateFile() -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_link::link!("iphlpapi.dll" "system" fn IcmpCreateFile() -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { IcmpCreateFile() };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn IcmpParseReplies(replybuffer: *mut core::ffi::c_void, replysize: u32) -> u32 {

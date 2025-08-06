@@ -113,6 +113,19 @@ impl HRESULT {
         }
     }
 
+    /// Creates a new `HRESULT` from the Win32 error code returned by `GetLastError()`.
+    pub fn from_thread() -> Self {
+        #[cfg(windows)]
+        {
+            let error = unsafe { GetLastError() };
+            Self::from_win32(error)
+        }
+        #[cfg(not(windows))]
+        {
+            unimplemented!()
+        }
+    }
+
     /// Maps a Win32 error code to an HRESULT value.
     pub const fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {

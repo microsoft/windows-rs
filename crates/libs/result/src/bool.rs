@@ -19,7 +19,7 @@ impl BOOL {
         if self.as_bool() {
             Ok(())
         } else {
-            Err(Error::from_win32())
+            Err(Error::from_thread())
         }
     }
 
