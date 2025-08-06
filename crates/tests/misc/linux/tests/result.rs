@@ -23,9 +23,9 @@ fn error_message_is_not_supported() {
 
 #[test]
 #[should_panic]
-fn from_win32_panics() {
-    // from_win32() is not implemented on non-Windows platforms.
-    let _e = Error::from_win32();
+fn from_thread_panics() {
+    // from_thread() is not implemented on non-Windows platforms.
+    let _e = Error::from_thread();
 }
 
 #[test]
