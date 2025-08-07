@@ -29,10 +29,8 @@ fn test() -> Result<()> {
         .ok()?;
 
         let mut random = GUID::zeroed();
-        let bytes = std::slice::from_raw_parts_mut(
-            &mut random as *mut _ as *mut u8,
-            std::mem::size_of::<GUID>(),
-        );
+        let bytes =
+            std::slice::from_raw_parts_mut(&mut random as *mut _ as *mut u8, size_of::<GUID>());
 
         BCryptGenRandom(Some(provider), bytes, Default::default()).ok()?;
 

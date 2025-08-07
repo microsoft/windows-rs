@@ -28,10 +28,10 @@ impl File {
             return None;
         }
 
-        let file_offset = dos.e_lfanew as usize + std::mem::size_of::<u32>();
+        let file_offset = dos.e_lfanew as usize + size_of::<u32>();
         let file = result.bytes.view_as::<IMAGE_FILE_HEADER>(file_offset)?;
 
-        let optional_offset = file_offset + std::mem::size_of::<IMAGE_FILE_HEADER>();
+        let optional_offset = file_offset + size_of::<IMAGE_FILE_HEADER>();
 
         let (com_virtual_address, sections) = match result.bytes.copy_as::<u16>(optional_offset)? {
             IMAGE_NT_OPTIONAL_HDR32_MAGIC => {
@@ -42,7 +42,7 @@ impl File {
                     optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
                         .VirtualAddress,
                     result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                        optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER32>(),
+                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER32>(),
                         file.NumberOfSections as usize,
                     )?,
                 )
@@ -55,7 +55,7 @@ impl File {
                     optional.DataDirectory[IMAGE_DIRECTORY_ENTRY_COM_DESCRIPTOR as usize]
                         .VirtualAddress,
                     result.bytes.view_as_slice_of::<IMAGE_SECTION_HEADER>(
-                        optional_offset + std::mem::size_of::<IMAGE_OPTIONAL_HEADER64>(),
+                        optional_offset + size_of::<IMAGE_OPTIONAL_HEADER64>(),
                         file.NumberOfSections as usize,
                     )?,
                 )
@@ -68,7 +68,7 @@ impl File {
             com_virtual_address,
         ))?;
 
-        if clr.cb != std::mem::size_of::<IMAGE_COR20_HEADER>() as u32 {
+        if clr.cb != size_of::<IMAGE_COR20_HEADER>() as u32 {
             return None;
         }
 
@@ -676,7 +676,7 @@ impl View for [u8] {
             core::ptr::copy_nonoverlapping(
                 self[offset..].as_ptr(),
                 &mut data as *mut T as *mut u8,
-                std::mem::size_of::<T>(),
+                size_of::<T>(),
             );
             Some(data)
         }
@@ -689,7 +689,7 @@ impl View for [u8] {
     }
 
     fn is_proper_length<T>(&self, offset: usize) -> Option<()> {
-        if offset + std::mem::size_of::<T>() <= self.len() {
+        if offset + size_of::<T>() <= self.len() {
             Some(())
         } else {
             None
@@ -700,7 +700,7 @@ impl View for [u8] {
         self.is_proper_length::<T>(offset * count)?;
         let ptr = &self[offset] as *const u8 as *const T;
 
-        if ptr.align_offset(std::mem::align_of::<T>()) == 0 {
+        if ptr.align_offset(align_of::<T>()) == 0 {
             Some(ptr)
         } else {
             None

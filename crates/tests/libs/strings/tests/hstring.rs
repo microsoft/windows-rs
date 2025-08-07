@@ -4,7 +4,7 @@ use windows_strings::*;
 #[test]
 #[allow(clippy::cmp_owned)] // intentionally testing how operations work
 fn hstring_works() {
-    assert_eq!(std::mem::size_of::<HSTRING>(), std::mem::size_of::<usize>());
+    assert_eq!(size_of::<HSTRING>(), size_of::<usize>());
     let empty = HSTRING::new();
     assert!(empty.is_empty());
     assert!(empty.is_empty());
