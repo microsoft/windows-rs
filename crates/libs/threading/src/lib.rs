@@ -35,11 +35,11 @@ where
     F: Fn(T) + Sync,
     T: Send,
 {
-    let pool = Pool::new();
-
-    for item in i {
-        pool.submit(|| f(item));
-    }
+    Pool::with_scope(|pool| {
+        for item in i {
+            pool.submit(|| f(item));
+        }
+    });
 }
 
 /// The thread identifier of the calling thread.
