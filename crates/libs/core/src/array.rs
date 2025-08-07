@@ -2,8 +2,8 @@ use super::*;
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: Type<T>> {
-    data: *mut T::Default,
-    len: u32,
+    pub(crate) data: *mut T::Default,
+    pub(crate) len: u32,
 }
 
 impl<T: Type<T>> Default for Array<T> {
@@ -152,35 +152,5 @@ impl<T: Type<T>> core::ops::DerefMut for Array<T> {
 impl<T: Type<T>> Drop for Array<T> {
     fn drop(&mut self) {
         self.clear();
-    }
-}
-
-#[doc(hidden)]
-pub struct ArrayProxy<T: Type<T>> {
-    data: *mut *mut T::Default,
-    len: *mut u32,
-    temp: core::mem::ManuallyDrop<Array<T>>,
-}
-
-impl<T: Type<T>> ArrayProxy<T> {
-    pub fn from_raw_parts(data: *mut *mut T::Default, len: *mut u32) -> Self {
-        Self {
-            data,
-            len,
-            temp: core::mem::ManuallyDrop::new(Array::new()),
-        }
-    }
-
-    pub fn as_array(&mut self) -> &mut Array<T> {
-        &mut self.temp
-    }
-}
-
-impl<T: Type<T>> Drop for ArrayProxy<T> {
-    fn drop(&mut self) {
-        unsafe {
-            *self.data = self.temp.data;
-            *self.len = self.temp.len;
-        }
     }
 }

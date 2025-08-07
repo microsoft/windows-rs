@@ -404,11 +404,10 @@ impl IClass_Vtbl {
                         core::mem::transmute_copy(&b),
                         b_array_size as usize,
                     ),
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&c),
                         c_array_size,
-                    )
-                    .as_array(),
+                    ),
                 ) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -444,11 +443,10 @@ impl IClass_Vtbl {
                         core::mem::transmute_copy(&b),
                         b_array_size as usize,
                     ),
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&c),
                         c_array_size,
-                    )
-                    .as_array(),
+                    ),
                 ) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
