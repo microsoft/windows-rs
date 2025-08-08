@@ -7101,7 +7101,7 @@ impl windows_core::RuntimeType for MediaCaptureFailedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MediaCaptureFailedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MediaCaptureFailedEventHandlerBox { vtable: &MediaCaptureFailedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -7121,12 +7121,12 @@ pub struct MediaCaptureFailedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, erroreventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MediaCaptureFailedEventHandlerBox<F: FnMut(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct MediaCaptureFailedEventHandlerBox<F: Fn(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MediaCaptureFailedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> MediaCaptureFailedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, MediaCapture>, windows_core::Ref<'_, MediaCaptureFailedEventArgs>) -> windows_core::Result<()> + Send + 'static> MediaCaptureFailedEventHandlerBox<F> {
     const VTABLE: MediaCaptureFailedEventHandler_Vtbl = MediaCaptureFailedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -8052,7 +8052,7 @@ impl windows_core::RuntimeType for RecordLimitationExceededEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RecordLimitationExceededEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = RecordLimitationExceededEventHandlerBox { vtable: &RecordLimitationExceededEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -8071,12 +8071,12 @@ pub struct RecordLimitationExceededEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct RecordLimitationExceededEventHandlerBox<F: FnMut(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static> {
+struct RecordLimitationExceededEventHandlerBox<F: Fn(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const RecordLimitationExceededEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static> RecordLimitationExceededEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, MediaCapture>) -> windows_core::Result<()> + Send + 'static> RecordLimitationExceededEventHandlerBox<F> {
     const VTABLE: RecordLimitationExceededEventHandler_Vtbl = RecordLimitationExceededEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

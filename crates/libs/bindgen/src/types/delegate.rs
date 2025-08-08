@@ -85,7 +85,7 @@ impl Delegate {
         let fn_constraint = {
             let signature = method.write_impl_signature(config, false, false);
 
-            quote! { F: FnMut #signature + Send + 'static }
+            quote! { F: Fn #signature + Send + 'static }
         };
 
         let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false);
