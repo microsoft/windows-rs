@@ -17,7 +17,7 @@ fn action() -> Result<()> {
     assert_eq!(a.Status()?, AsyncStatus::Started);
     assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
-    a.get()?;
+    a.join()?;
 
     Ok(())
 }
@@ -34,7 +34,7 @@ fn operation() -> Result<()> {
     assert_eq!(a.Status()?, AsyncStatus::Started);
     assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
 
     Ok(())
 }
@@ -51,7 +51,7 @@ fn action_with_progress() -> Result<()> {
     assert_eq!(a.Status()?, AsyncStatus::Started);
     assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
-    a.get()?;
+    a.join()?;
 
     Ok(())
 }
@@ -68,7 +68,7 @@ fn operation_with_progress() -> Result<()> {
     assert_eq!(a.Status()?, AsyncStatus::Started);
     assert_eq!(a.GetResults().unwrap_err().code(), E_ILLEGAL_METHOD_CALL);
     send.send(()).unwrap();
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
 
     Ok(())
 }
