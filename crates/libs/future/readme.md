@@ -20,12 +20,12 @@ use windows_future::*;
 
 // This result will be available immediately.
 let ready = IAsyncOperation::ready(Ok(123));
-assert_eq!(ready.get().unwrap(), 123);
+assert_eq!(ready.join().unwrap(), 123);
 
 let ready = IAsyncOperation::spawn(|| {
     // Some lengthy operation goes here...
     Ok(456)
 });
 
-assert_eq!(ready.get().unwrap(), 456);
+assert_eq!(ready.join().unwrap(), 456);
 ```

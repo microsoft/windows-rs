@@ -13,7 +13,7 @@ fn main() -> Result<()> {
         let operation: IAsyncOperation<UserConsentVerificationResult> =
             interop.RequestVerificationForWindowAsync(window, h!("Hello from Rust"))?;
 
-        let result: UserConsentVerificationResult = operation.get()?;
+        let result: UserConsentVerificationResult = operation.join()?;
 
         println!("{result:?}");
 

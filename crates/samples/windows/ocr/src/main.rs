@@ -10,14 +10,14 @@ fn main() -> Result<()> {
     message.push("message.png");
 
     let file =
-        StorageFile::GetFileFromPathAsync(&HSTRING::from(message.to_str().unwrap()))?.get()?;
-    let stream = file.OpenAsync(FileAccessMode::Read)?.get()?;
+        StorageFile::GetFileFromPathAsync(&HSTRING::from(message.to_str().unwrap()))?.join()?;
+    let stream = file.OpenAsync(FileAccessMode::Read)?.join()?;
 
-    let decode = BitmapDecoder::CreateAsync(&stream)?.get()?;
-    let bitmap = decode.GetSoftwareBitmapAsync()?.get()?;
+    let decode = BitmapDecoder::CreateAsync(&stream)?.join()?;
+    let bitmap = decode.GetSoftwareBitmapAsync()?.join()?;
 
     let engine = OcrEngine::TryCreateFromUserProfileLanguages()?;
-    let result = engine.RecognizeAsync(&bitmap)?.get()?;
+    let result = engine.RecognizeAsync(&bitmap)?.join()?;
 
     println!("{}", result.Text()?);
     Ok(())
