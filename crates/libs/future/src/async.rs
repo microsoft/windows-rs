@@ -49,6 +49,8 @@ pub trait Async: Interface {
         F: FnOnce(Result<Self::Output>) + Send + 'static,
     {
         if self.status()? == AsyncStatus::Started {
+            // The `set_completed` closure is guaranteed to only be called once, like `FnOnce`, by the async pattern,
+            // but Rust doesn't know that so `RefCell` is used to pass `op` in to the closure.
             let op = core::cell::RefCell::new(Some(op));
             self.set_completed(move |sender| {
                 if let Some(op) = op.take() {
