@@ -157,7 +157,7 @@ impl windows_core::RuntimeType for TimerDestroyedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl TimerDestroyedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerDestroyedHandlerBox { vtable: &TimerDestroyedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -176,12 +176,12 @@ pub struct TimerDestroyedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct TimerDestroyedHandlerBox<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
+struct TimerDestroyedHandlerBox<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const TimerDestroyedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerDestroyedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerDestroyedHandlerBox<F> {
     const VTABLE: TimerDestroyedHandler_Vtbl = TimerDestroyedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -233,7 +233,7 @@ impl windows_core::RuntimeType for TimerElapsedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl TimerElapsedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TimerElapsedHandlerBox { vtable: &TimerElapsedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -252,12 +252,12 @@ pub struct TimerElapsedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, timer: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct TimerElapsedHandlerBox<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
+struct TimerElapsedHandlerBox<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const TimerElapsedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerElapsedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, ThreadPoolTimer>) -> windows_core::Result<()> + Send + 'static> TimerElapsedHandlerBox<F> {
     const VTABLE: TimerElapsedHandler_Vtbl = TimerElapsedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -309,7 +309,7 @@ impl windows_core::RuntimeType for WorkItemHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl WorkItemHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = WorkItemHandlerBox { vtable: &WorkItemHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -328,12 +328,12 @@ pub struct WorkItemHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct WorkItemHandlerBox<F: FnMut(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> {
+struct WorkItemHandlerBox<F: Fn(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const WorkItemHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> WorkItemHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, windows_future::IAsyncAction>) -> windows_core::Result<()> + Send + 'static> WorkItemHandlerBox<F> {
     const VTABLE: WorkItemHandler_Vtbl = WorkItemHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
