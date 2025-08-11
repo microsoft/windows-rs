@@ -17,7 +17,7 @@ on:
 
 jobs:
   check:
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@v4"
