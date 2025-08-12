@@ -20,7 +20,7 @@ jobs:
     runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4"
+        uses: actions/checkout@v5"
         .to_string();
 
     for package in helpers::crates("crates/libs") {
