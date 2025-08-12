@@ -7,10 +7,10 @@ use windows_services::*;
 fn main() {
     let mut log = std::fs::File::create("D:\\service.txt").unwrap();
 
-    Service::new()
+    ServiceBuilder::new()
         .can_stop()
         .can_accept(SERVICE_ACCEPT_TIMECHANGE)
-        .run(|_service, command| {
+        .run(move |_service, command| {
             writeln!(log, "Command: {command:?}").unwrap();
 
             if let Command::Extended(command) = command {

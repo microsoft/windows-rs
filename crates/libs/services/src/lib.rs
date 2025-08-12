@@ -12,10 +12,10 @@ mod bindings;
 use bindings::*;
 use std::boxed::Box;
 use std::ffi::c_void;
-use std::sync::RwLock;
+use std::sync::{Mutex, OnceLock, RwLock};
 
-/// The commands are sent by the service control manager to the service through the closure or callback
-/// passed to the service `run` method.
+/// The commands are sent by the service control manager to the [`Service`] through the closure or callback
+/// passed to the [`ServiceBuilder::run`] method.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Command {
     /// The start command is sent when the service first starts.
@@ -23,27 +23,27 @@ pub enum Command {
 
     /// The stop command is sent when the service is stopping just prior to process termination.
     ///
-    /// This command will only be sent if the `can_stop` method is called as part of construction.
+    /// This command will only be sent if the [`ServiceBuilder::can_stop`] method is called as part of construction.
     Stop,
 
     /// The pause command is sent when the service is being paused but not stopping.
     ///
-    /// This command will only be sent if the `can_pause` method is called as part of construction.
+    /// This command will only be sent if the [`ServiceBuilder::can_pause`] method is called as part of construction.
     Pause,
 
     /// The resume command is sent when the service is being resumed following a pause.
     ///
-    /// This command will only be sent if the `can_pause` method is called as part of construction.
+    /// This command will only be sent if the [`ServiceBuilder::can_pause`] method is called as part of construction.
     Resume,
 
     /// An extended command.
     ///
-    /// Specific commands will only be received if the `can_accept` methods is called to specify those
+    /// Specific commands will only be received if the [`ServiceBuilder::can_accept`] methods is called to specify those
     /// commands the service accepts.
     Extended(ExtendedCommand),
 }
 
-/// A command not specifically covered by the `Command` enum.
+/// A command not specifically covered by the [`Command`] enum.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub struct ExtendedCommand {
     /// The control code for the command.
@@ -61,8 +61,8 @@ unsafe impl Sync for ExtendedCommand {}
 
 /// Possible service states including transitional states.
 ///
-/// This can be useful to query the current state with the `state` function or set the state with
-/// the `set_state` function.
+/// This can be useful to query the current state with the [`Service::state`] function or set the state with
+/// the [`Service::set_state`] function.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum State {
     ContinuePending,
@@ -74,34 +74,21 @@ pub enum State {
     StopPending,
 }
 
-/// A service builder, providing control over what commands the service supports before the service begins to run.
-pub struct Service<'a> {
-    accept: u32,
-    fallback: Option<Box<dyn FnOnce(&Service) + 'a>>,
+/// A struct that holds service api specific state and methods. This is a singleton.
+pub struct Service {
     handle: RwLock<SERVICE_STATUS_HANDLE>,
-    callback: RwLock<Option<Box<dyn FnMut(&Service, Command) + Send + Sync + 'a>>>,
     status: RwLock<SERVICE_STATUS>,
+    callback: Mutex<Option<Box<dyn FnMut(&'static Service, Command) + Send + Sync + 'static>>>,
 }
 
-impl Default for Service<'_> {
-    fn default() -> Self {
-        Self::new()
-    }
-}
+unsafe impl Send for Service {}
+unsafe impl Sync for Service {}
 
-unsafe impl Send for Service<'_> {}
-unsafe impl Sync for Service<'_> {}
-
-impl<'a> Service<'a> {
-    /// Creates a new `Service` object.
-    ///
-    /// By default, the service does not accept any service commands other than start.
-    pub fn new() -> Self {
+impl Service {
+    fn new() -> Self {
         Self {
-            accept: 0,
-            fallback: None,
             handle: RwLock::new(std::ptr::null_mut()),
-            callback: RwLock::new(None),
+            callback: Mutex::new(None),
             status: RwLock::new(SERVICE_STATUS {
                 dwServiceType: SERVICE_WIN32_OWN_PROCESS,
                 dwCurrentState: SERVICE_STOPPED,
@@ -112,81 +99,6 @@ impl<'a> Service<'a> {
                 dwWaitHint: 0,
             }),
         }
-    }
-
-    /// The service accepts stop and shutdown commands.
-    pub fn can_stop(&mut self) -> &mut Self {
-        self.accept |= SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN;
-        self
-    }
-
-    /// The service accepts pause and resume commands.
-    pub fn can_pause(&mut self) -> &mut Self {
-        self.accept |= SERVICE_ACCEPT_PAUSE_CONTINUE;
-        self
-    }
-
-    /// The service accepts other specified commands.
-    pub fn can_accept(&mut self, accept: u32) -> &mut Self {
-        self.accept |= accept;
-        self
-    }
-
-    /// Runs the fallback closure if the service is not started by the Service Control Manager.
-    pub fn can_fallback<F: FnOnce(&Service) + Send + 'a>(&mut self, f: F) -> &mut Self {
-        self.fallback = Some(Box::new(f));
-        self
-    }
-
-    /// Runs the service with the given callback closure to receive commands sent by the service
-    /// control manager.
-    ///
-    /// This method will block for the life of the service. It will never return and immediately
-    /// terminate the current process after indicating to the service control manager that the
-    /// service has stopped.
-    pub fn run<F: FnMut(&Service, Command) + Send + Sync + 'a>(
-        &mut self,
-        callback: F,
-    ) -> Result<(), &'static str> {
-        debug_assert!(self.status.read().unwrap().dwCurrentState == SERVICE_STOPPED);
-        self.status.write().unwrap().dwControlsAccepted = self.accept;
-
-        {
-            let mut write = self.callback.write().unwrap();
-
-            if write.is_some() {
-                panic!("`run` was already called")
-            }
-
-            *write = Some(Box::new(callback));
-        }
-
-        let table = [
-            SERVICE_TABLE_ENTRYW {
-                lpServiceName: &mut 0,
-                lpServiceProc: Some(service_main),
-            },
-            SERVICE_TABLE_ENTRYW::default(),
-        ];
-
-        SERVICE_CONTEXT.write().unwrap().0 = self as *const _ as _;
-
-        let fallback = unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) == 0 };
-
-        if fallback {
-            if let Some(fallback) = self.fallback.take() {
-                self.set_state(State::StartPending);
-                self.command(Command::Start);
-                self.set_state(State::Running);
-                fallback(self);
-                self.set_state(State::StopPending);
-                self.command(Command::Stop);
-            } else {
-                return Err("Use service control manager to start service");
-            }
-        }
-
-        Ok(())
     }
 
     /// Sets the current state of the service.
@@ -235,9 +147,9 @@ impl<'a> Service<'a> {
     }
 
     /// Sends the command to the service callback.
-    pub fn command(&self, command: Command) {
-        let mut write = self.callback.write().unwrap();
-        (write.as_deref_mut().unwrap())(self, command);
+    pub fn command(&'static self, command: Command) {
+        let mut lock = self.callback.lock().unwrap();
+        (lock.as_deref_mut().unwrap())(self, command);
     }
 
     /// Low-level dispatcher to send control commands directly to the service.
@@ -251,8 +163,97 @@ impl<'a> Service<'a> {
     }
 }
 
+/// [`ServiceBuilder::run`] errors.
+#[derive(Debug)]
+pub enum Error {
+    /// The [`Service`] Singleton was already constructed and is currently running.
+    Running,
+
+    /// The application was invoked as a console application and thus cannot continue as a service.
+    NotAService,
+}
+
+impl std::fmt::Display for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        match self {
+            Error::Running => f.write_str("Another ServiceBuilder has already been run()."),
+            Error::NotAService => f.write_str("Service was invoked as a console application."),
+        }
+    }
+}
+
+impl std::error::Error for Error {}
+
+/// Builder that is used to configure and run the [`Service`] global.
+#[derive(Default)]
+pub struct ServiceBuilder {
+    accept: u32,
+}
+
+impl ServiceBuilder {
+    /// Builder for a global [`Service`]
+    ///
+    /// By default, the service does not accept any service commands other than start.
+    pub fn new() -> Self {
+        Self::default()
+    }
+
+    /// The service accepts stop and shutdown commands.
+    pub fn can_stop(&mut self) -> &mut Self {
+        self.accept |= SERVICE_ACCEPT_STOP | SERVICE_ACCEPT_SHUTDOWN;
+        self
+    }
+
+    /// The service accepts pause and resume commands.
+    pub fn can_pause(&mut self) -> &mut Self {
+        self.accept |= SERVICE_ACCEPT_PAUSE_CONTINUE;
+        self
+    }
+
+    /// The service accepts other specified commands.
+    pub fn can_accept(&mut self, accept: u32) -> &mut Self {
+        self.accept |= accept;
+        self
+    }
+
+    /// Creates a [`Service`] singleton and starts it with the given callback closure.
+    /// The closure will receive commands sent by the service control manager.
+    ///
+    /// This method will block for the life of the service. It will never return and immediately
+    /// terminate the current process after indicating to the service control manager that the
+    /// service has stopped.
+    ///
+    /// This call will fail if it was called by another instance of a builder or if this is a
+    /// console application.
+    pub fn run<F: FnMut(&'static Service, Command) + Send + Sync + 'static>(
+        &mut self,
+        callback: F,
+    ) -> Result<(), Error> {
+        if SERVICE_CONTEXT.get().is_some() {
+            return Err(Error::Running);
+        }
+        let ctx = SERVICE_CONTEXT.get_or_init(Service::new);
+        ctx.status.write().unwrap().dwControlsAccepted = self.accept;
+        *ctx.callback.lock().unwrap() = Some(Box::new(callback));
+
+        let table = [
+            SERVICE_TABLE_ENTRYW {
+                lpServiceName: &mut 0,
+                lpServiceProc: Some(service_main),
+            },
+            SERVICE_TABLE_ENTRYW::default(),
+        ];
+
+        if unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) != 0 } {
+            Err(Error::NotAService)
+        } else {
+            Ok(())
+        }
+    }
+}
+
 extern "system" fn service_main(_len: u32, _args: *mut PWSTR) {
-    let service: &Service = unsafe { &*(SERVICE_CONTEXT.read().unwrap().0 as *const Service) };
+    let service: &Service = SERVICE_CONTEXT.get().unwrap();
 
     *service.handle.write().unwrap() = unsafe {
         RegisterServiceCtrlHandlerExW(std::ptr::null(), Some(handler), service as *const _ as _)
@@ -288,10 +289,4 @@ extern "system" fn handler(control: u32, ty: u32, data: *mut c_void, context: *m
     NO_ERROR
 }
 
-// Unlike `RegisterServiceCtrlHandlerExW`, `StartServiceCtrlDispatcherW` has no user-defined "context" parameter.
-// This lock allows us to safely retrieve the service instance from the service callback.
-#[derive(Debug)]
-struct ServiceContext(*const c_void);
-static SERVICE_CONTEXT: RwLock<ServiceContext> = RwLock::new(ServiceContext(std::ptr::null()));
-unsafe impl Send for ServiceContext {}
-unsafe impl Sync for ServiceContext {}
+static SERVICE_CONTEXT: OnceLock<Service> = OnceLock::new();
