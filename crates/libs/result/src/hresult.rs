@@ -79,7 +79,7 @@ impl HRESULT {
                     flags |= FORMAT_MESSAGE_FROM_HMODULE;
 
                     module = LoadLibraryExA(
-                        b"ntdll.dll\0".as_ptr(),
+                        c"ntdll.dll".as_ptr() as _,
                         core::ptr::null_mut(),
                         LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
                     );
