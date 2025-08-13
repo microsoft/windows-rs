@@ -1,7 +1,6 @@
 [package]
 name = "windows-strings"
 version = "0.4.2"
-authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"

@@ -2,7 +2,6 @@
 [package]
 name = "windows"
 version = "0.61.3"
-authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"

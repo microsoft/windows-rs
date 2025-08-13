@@ -1,12 +1,13 @@
 [package]
 name = "windows-interface"
 version = "0.59.1"
-authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
 description = "The interface macro for the windows crate"
 repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [dependencies]
 proc-macro2 = { workspace = true }
