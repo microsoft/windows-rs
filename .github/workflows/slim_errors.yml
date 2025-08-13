@@ -16,7 +16,7 @@ env:
   RUSTFLAGS: --cfg windows_slim_errors
 
 jobs:
-  check:
+  slim_errors:
     strategy:
       matrix:
         include:
