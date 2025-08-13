@@ -6,6 +6,7 @@ fn test() {
         assert_eq!(package.authors, None);
 
         if package.publish == Some(false) {
+            // The `version` field is no longer required - remove once MSRV can support it.
             assert_eq!(package.version, "0.0.0");
             assert_eq!(package.license, None);
             assert_eq!(package.repository, None);
