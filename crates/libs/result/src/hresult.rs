@@ -4,7 +4,6 @@ use super::*;
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[must_use]
-#[allow(non_camel_case_types)]
 pub struct HRESULT(pub i32);
 
 impl HRESULT {
@@ -80,7 +79,7 @@ impl HRESULT {
                     flags |= FORMAT_MESSAGE_FROM_HMODULE;
 
                     module = LoadLibraryExA(
-                        b"ntdll.dll\0".as_ptr(),
+                        c"ntdll.dll".as_ptr() as _,
                         core::ptr::null_mut(),
                         LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
                     );

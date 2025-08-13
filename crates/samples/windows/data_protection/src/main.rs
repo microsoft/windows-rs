@@ -22,7 +22,7 @@ fn main() -> std::io::Result<()> {
     Ok(())
 }
 
-#[allow(clippy::mut_from_ref)]
+#[expect(clippy::mut_from_ref)]
 unsafe fn as_mut_bytes(buffer: &IBuffer) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IBufferByteAccess>()?;
 

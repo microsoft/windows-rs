@@ -13,7 +13,6 @@ pub struct IUnknown(NonNull<c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
-#[allow(non_camel_case_types)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(
         this: *mut c_void,

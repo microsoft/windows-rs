@@ -1,6 +1,6 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
-#![allow(
+#![expect(
     non_camel_case_types,
     non_snake_case,
     clippy::needless_doctest_main,

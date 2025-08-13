@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use windows_core::*;
 
 pub const S_OK: HRESULT = HRESULT(0);

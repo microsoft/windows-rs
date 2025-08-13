@@ -107,7 +107,7 @@ struct TearOff {
 }
 
 impl TearOff {
-    #[allow(clippy::new_ret_no_self)]
+    #[expect(clippy::new_ret_no_self)]
     unsafe fn new(object: *mut c_void, strong_count: u32) -> IWeakReferenceSource {
         unsafe {
             transmute(Box::new(Self {

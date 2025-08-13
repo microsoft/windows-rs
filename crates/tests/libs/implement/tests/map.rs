@@ -6,7 +6,6 @@ use windows_collections::*;
 )]
 struct KeyValuePair();
 
-#[allow(non_snake_case)]
 impl IKeyValuePair_Impl<i32, f32> for KeyValuePair_Impl {
     fn Key(&self) -> Result<i32> {
         Ok(0)
@@ -21,7 +20,6 @@ impl IKeyValuePair_Impl<i32, f32> for KeyValuePair_Impl {
 )]
 struct Iterator();
 
-#[allow(non_snake_case)]
 impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
     fn GetMany(&self, _items: &mut [Option<IKeyValuePair<i32, f32>>]) -> Result<u32> {
         Ok(0)
@@ -43,7 +41,6 @@ impl IIterator_Impl<IKeyValuePair<i32, f32>> for Iterator_Impl {
 )]
 struct MapView();
 
-#[allow(non_snake_case)]
 impl IMapView_Impl<i32, f32> for MapView_Impl {
     // TODO: shouldn't require `Ref` for primitive
     fn HasKey(&self, _key: Ref<i32>) -> Result<bool> {
@@ -64,7 +61,6 @@ impl IMapView_Impl<i32, f32> for MapView_Impl {
     }
 }
 
-#[allow(non_snake_case)]
 impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView_Impl {
     fn First(&self) -> Result<IIterator<IKeyValuePair<i32, f32>>> {
         Ok(Iterator().into())
@@ -77,7 +73,6 @@ impl IIterable_Impl<IKeyValuePair<i32, f32>> for MapView_Impl {
 )]
 struct Map();
 
-#[allow(non_snake_case)]
 impl IMap_Impl<i32, f32> for Map_Impl {
     fn Clear(&self) -> Result<()> {
         Ok(())
