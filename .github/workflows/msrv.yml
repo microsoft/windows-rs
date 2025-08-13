@@ -23,7 +23,7 @@ jobs:
       - name: Check cppwinrt
         run:  cargo check -p cppwinrt --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.74 && rustup default 1.74
+        run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows
         run:  cargo check -p windows --features Globalization,Win32_Graphics_Direct2D
       - name: Rust version
