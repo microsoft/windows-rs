@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use windows::{core::*, Win32::Foundation::E_BOUNDS};
 use windows_collections::*;
 

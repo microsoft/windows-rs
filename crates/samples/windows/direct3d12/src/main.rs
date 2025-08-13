@@ -231,7 +231,7 @@ mod d3d12_hello_triangle {
 
         // we need to keep this around to keep the reference alive, even though
         // nothing reads from it
-        #[allow(dead_code)]
+        #[expect(dead_code)]
         vertex_buffer: ID3D12Resource,
 
         vbv: D3D12_VERTEX_BUFFER_VIEW,

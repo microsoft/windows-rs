@@ -53,7 +53,7 @@ fn hfont() {
 }
 
 #[test]
-#[allow(clippy::assertions_on_constants)] // intentionally testing constant
+#[expect(clippy::assertions_on_constants)] // intentionally testing constant
 fn const_pattern() {
     match HKEY_CLASSES_ROOT {
         HKEY_CLASSES_ROOT => assert!(true),
