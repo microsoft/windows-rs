@@ -6,12 +6,12 @@ fn test() {
         assert_eq!(package.authors, None);
 
         if package.publish == Some(false) {
-            assert_eq!(package.version, None);
+            assert_eq!(package.version, "0.0.0");
             assert_eq!(package.license, None);
             assert_eq!(package.repository, None);
             assert_eq!(package.readme, None);
             assert_eq!(package.categories, None);
-            assert!(package.description.is_none());
+            assert_eq!(package.description, None);
         } else {
             assert_eq!(package.license, Some("MIT OR Apache-2.0".to_string()));
             assert_eq!(

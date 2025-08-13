@@ -9,7 +9,7 @@ pub struct Crate {
 #[derive(Deserialize, Ord, PartialOrd, Eq, PartialEq)]
 pub struct Package {
     pub name: String,
-    pub version: Option<String>,
+    pub version: String,
     pub edition: String,
     pub publish: Option<bool>,
     #[serde(rename = "rust-version")]

@@ -1,5 +1,6 @@
 [package]
 name = "sample_service_thread"
+version = "0.0.0"
 edition = "2021"
 publish = false
 
