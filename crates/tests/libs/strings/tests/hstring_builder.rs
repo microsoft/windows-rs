@@ -49,3 +49,11 @@ fn hstring_builder() {
     let b = HStringBuilder::new(5);
     assert_eq!(*b, [0, 0, 0, 0, 0]);
 }
+
+#[test]
+fn debug() {
+    const HELLO: [u16; 5] = [0x48, 0x65, 0x6C, 0x6C, 0x6F];
+    let mut b = HStringBuilder::new(5);
+    b.copy_from_slice(&HELLO);
+    assert_eq!(format!("{b:?}"), "\"Hello\"");
+}
