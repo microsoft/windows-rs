@@ -722,7 +722,7 @@ impl syn::parse::Parse for InterfaceMethod {
             .collect::<Result<Vec<InterfaceMethodArg>, syn::Error>>()?;
 
         let ret = sig.output;
-        Ok(InterfaceMethod {
+        Ok(Self {
             name: sig.ident,
             visibility,
             args,

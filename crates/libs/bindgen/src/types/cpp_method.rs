@@ -42,9 +42,9 @@ impl From<&Param> for ParamHint {
                     for (_, value) in attribute.args() {
                         match value {
                             Value::I16(value) => {
-                                return ParamHint::ArrayRelativeLen(value as usize)
+                                return Self::ArrayRelativeLen(value as usize)
                             }
-                            Value::I32(value) => return ParamHint::ArrayFixed(value as usize),
+                            Value::I32(value) => return Self::ArrayFixed(value as usize),
                             _ => {}
                         }
                     }
@@ -52,14 +52,14 @@ impl From<&Param> for ParamHint {
                 "MemorySizeAttribute" => {
                     for (_, value) in attribute.args() {
                         if let Value::I16(value) = value {
-                            return ParamHint::ArrayRelativeByteLen(value as usize);
+                            return Self::ArrayRelativeByteLen(value as usize);
                         }
                     }
                 }
                 _ => {}
             }
         }
-        ParamHint::None
+        Self::None
     }
 }
 

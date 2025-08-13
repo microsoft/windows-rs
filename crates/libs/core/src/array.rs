@@ -8,7 +8,7 @@ pub struct Array<T: Type<T>> {
 
 impl<T: Type<T>> Default for Array<T> {
     fn default() -> Self {
-        Array {
+        Self {
             data: core::ptr::null_mut(),
             len: 0,
         }

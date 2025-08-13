@@ -59,7 +59,7 @@ impl PartialEq for IUnknown {
         // pointer values. This works since `QueryInterface` is required to return
         // the same pointer value for queries for `IUnknown`.
         core::ptr::eq(self.as_raw(), other.as_raw())
-            || self.cast::<IUnknown>().unwrap().0 == other.cast::<IUnknown>().unwrap().0
+            || self.cast::<Self>().unwrap().0 == other.cast::<Self>().unwrap().0
     }
 }
 

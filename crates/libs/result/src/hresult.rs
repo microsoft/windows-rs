@@ -150,7 +150,7 @@ impl<T> From<Result<T>> for HRESULT {
         if let Err(error) = result {
             return error.into();
         }
-        HRESULT(0)
+        Self(0)
     }
 }
 

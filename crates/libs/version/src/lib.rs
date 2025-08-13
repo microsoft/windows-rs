@@ -42,7 +42,7 @@ impl OsVersion {
             RtlGetVersion(&mut info as *mut _ as *mut _);
         }
 
-        OsVersion {
+        Self {
             major: info.dwMajorVersion,
             minor: info.dwMinorVersion,
             pack: info.wServicePackMajor as u32,
