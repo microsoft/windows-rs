@@ -1,6 +1,5 @@
 [package]
 name = "test_const_ptrs"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

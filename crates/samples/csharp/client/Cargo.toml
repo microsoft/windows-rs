@@ -1,6 +1,5 @@
 [package]
 name = "csharp_client"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

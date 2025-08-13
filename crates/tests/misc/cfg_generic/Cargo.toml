@@ -1,6 +1,5 @@
 [package]
 name = "test_cfg_generic"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

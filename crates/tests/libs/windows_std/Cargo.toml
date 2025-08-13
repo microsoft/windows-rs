@@ -1,6 +1,5 @@
 [package]
 name = "test_windows_std"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

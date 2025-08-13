@@ -1,6 +1,5 @@
 [package]
 name = "test_alternate_success_code"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

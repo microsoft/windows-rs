@@ -1,6 +1,5 @@
 [package]
 name = "sample_overlapped"
-version = "0.0.0"
 edition = "2021"
 publish = false
 

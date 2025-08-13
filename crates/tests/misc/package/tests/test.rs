@@ -6,7 +6,7 @@ fn test() {
         assert_eq!(package.authors, None);
 
         if package.publish == Some(false) {
-            assert_eq!(package.version, "0.0.0");
+            assert_eq!(package.version, None);
             assert_eq!(package.license, None);
             assert_eq!(package.repository, None);
             assert_eq!(package.readme, None);

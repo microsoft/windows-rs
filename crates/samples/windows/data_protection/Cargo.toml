@@ -1,6 +1,5 @@
 [package]
 name = "sample_data_protection"
-version = "0.0.0"
 edition = "2021"
 publish = false
 
