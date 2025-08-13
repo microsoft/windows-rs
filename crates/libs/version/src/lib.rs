@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![cfg_attr(not(test), no_std)]
-#![expect(non_snake_case, clippy::upper_case_acronyms)]
+#![allow(non_snake_case, clippy::upper_case_acronyms)]
 
 mod bindings;
 use bindings::*;
@@ -78,7 +78,7 @@ impl OSVERSIONINFOEXW {
 }
 
 #[cfg(test)]
-#[expect(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
+#[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 mod test {
     use super::OsVersion;
     use std::sync::RwLock;
