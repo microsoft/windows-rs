@@ -9,7 +9,6 @@ use windows_collections::*;
 )]
 struct Thing();
 
-#[allow(non_snake_case)]
 impl IVectorView_Impl<i32> for Thing_Impl {
     fn GetAt(&self, index: u32) -> Result<i32> {
         Ok(index as i32)

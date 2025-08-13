@@ -1,7 +1,7 @@
 use super::*;
 use core::num::NonZeroI32;
 
-#[allow(unused_imports)]
+#[expect(unused_imports)]
 use core::mem::size_of;
 
 /// An error object consists of both an error code and optional detailed error information for debugging.

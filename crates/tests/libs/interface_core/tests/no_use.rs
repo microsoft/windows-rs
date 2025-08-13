@@ -1,4 +1,4 @@
-#![allow(non_snake_case)]
+#![expect(non_snake_case)]
 
 // This tests uses `windows_core` explicitly to test that the interface/implement macros support this mode
 // as opposed to asterisk_use.rs which tests the opposite.

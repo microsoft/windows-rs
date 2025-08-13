@@ -13,7 +13,7 @@ on:
       - master
 
 jobs:
-  check:
+  gen:
     name: tool_${{ matrix.tool }}
     runs-on: ubuntu-22.04
     strategy:

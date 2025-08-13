@@ -16,7 +16,7 @@ on:
       - master
 
 jobs:
-  check:
+  no-default-features:
     runs-on: windows-2025
     steps:
       - name: Checkout
