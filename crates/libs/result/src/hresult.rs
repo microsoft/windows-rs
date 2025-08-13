@@ -4,7 +4,6 @@ use super::*;
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[must_use]
-#[allow(non_camel_case_types)]
 pub struct HRESULT(pub i32);
 
 impl HRESULT {

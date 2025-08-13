@@ -243,7 +243,7 @@ fn interface() -> windows::core::Result<()> {
 }
 
 #[test]
-#[allow(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
+#[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);
