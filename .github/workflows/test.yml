@@ -13,7 +13,7 @@ on:
       - master
 
 jobs:
-  check:
+  test:
     strategy:
       matrix:
         include:
@@ -275,6 +275,8 @@ jobs:
         run:  cargo test -p test_overloads --target ${{ matrix.target }}
       - name: Test test_overloads_client
         run:  cargo test -p test_overloads_client --target ${{ matrix.target }}
+      - name: Test test_package
+        run:  cargo test -p test_package --target ${{ matrix.target }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }}
       - name: Test test_readme
@@ -357,10 +359,10 @@ jobs:
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
-      - name: Test tool_msvc
-        run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test tool_msvc
+        run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
       - name: Test tool_test_all

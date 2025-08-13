@@ -17,7 +17,7 @@ on:
       - master
 
 jobs:
-  check:
+  test:
     strategy:
       matrix:
         include:

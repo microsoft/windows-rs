@@ -13,7 +13,7 @@ on:
       - master
 
 jobs:
-  check:
+  clippy:
     runs-on: windows-2025
     steps:
       - name: Checkout
@@ -244,6 +244,8 @@ jobs:
         run:  cargo clippy -p test_overloads --tests
       - name: Check test_overloads_client
         run:  cargo clippy -p test_overloads_client --tests
+      - name: Check test_package
+        run:  cargo clippy -p test_package --tests
       - name: Check test_query_signature
         run:  cargo clippy -p test_query_signature --tests
       - name: Check test_readme

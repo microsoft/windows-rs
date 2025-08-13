@@ -27,7 +27,7 @@ fn nested() {
 }
 
 #[test]
-#[allow(clippy::assertions_on_constants)] // intentionally testing constant
+#[expect(clippy::assertions_on_constants)] // intentionally testing constant
 fn const_pattern() {
     match InputStreamOptions::ReadAhead {
         InputStreamOptions::ReadAhead => assert!(true),

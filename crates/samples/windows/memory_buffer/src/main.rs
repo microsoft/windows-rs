@@ -5,7 +5,7 @@ use windows::{core::*, Foundation::*, Win32::System::WinRT::IMemoryBufferByteAcc
 // this function does not perform borrow/lifetime checking. The caller must ensure that the
 // IMemoryBufferReference remains alive and that that buffer is not shared across threads.
 
-#[allow(clippy::mut_from_ref)]
+#[expect(clippy::mut_from_ref)]
 unsafe fn as_mut_slice(buffer: &IMemoryBufferReference) -> Result<&mut [u8]> {
     let interop = buffer.cast::<IMemoryBufferByteAccess>()?;
     let mut data = std::ptr::null_mut();

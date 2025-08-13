@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use windows::core::*;
 use windows::Foundation::*;
 use windows::Win32::System::Com::*;

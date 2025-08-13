@@ -7,7 +7,6 @@ use windows_collections::*;
 )]
 struct Thing(Vec<IStringable>);
 
-#[allow(non_snake_case)]
 impl IVectorView_Impl<IStringable> for Thing_Impl {
     fn GetAt(&self, index: u32) -> Result<IStringable> {
         self.0.get(index as usize).cloned().ok_or_else(|| panic!())
