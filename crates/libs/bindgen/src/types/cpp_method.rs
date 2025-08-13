@@ -41,9 +41,7 @@ impl From<&Param> for ParamHint {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in attribute.args() {
                         match value {
-                            Value::I16(value) => {
-                                return Self::ArrayRelativeLen(value as usize)
-                            }
+                            Value::I16(value) => return Self::ArrayRelativeLen(value as usize),
                             Value::I32(value) => return Self::ArrayFixed(value as usize),
                             _ => {}
                         }
