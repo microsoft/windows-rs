@@ -7,7 +7,7 @@ rust-version = "1.71"
 license = "MIT OR Apache-2.0"
 description = "Linking for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
+
 categories = ["os::windows-apis"]
 
 [lints]
