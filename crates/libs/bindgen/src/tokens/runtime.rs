@@ -158,6 +158,7 @@ impl<T> RepInterp<T> {
     // a name is bound multiple times, as the previous binding will shadow the
     // original `Iterator` object. This allows us to avoid advancing the
     // iterator multiple times per iteration.
+    #[expect(clippy::unnecessary_wraps)]
     pub fn next(self) -> Option<T> {
         Some(self.0)
     }
