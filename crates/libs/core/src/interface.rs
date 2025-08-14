@@ -237,7 +237,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<imp::IWeakReferenceSource>()
-            .and_then(|source| Weak::downgrade(&source))
+            .map(|source| Weak::downgrade(&source))
     }
 
     /// Call `QueryInterface` on this interface
