@@ -26,9 +26,6 @@ missing_docs = "warn"
 unsafe_op_in_unsafe_fn = "warn"
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
 
-[workspace.lints.clippy]
-use_self = "warn"
-
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }
 proc-macro2 = { version = "1.0", default-features = false }
