@@ -61,10 +61,7 @@ changes can sneak in undetected.
     std::fs::create_dir_all(format!("crates/targets/{platform}/lib")).unwrap();
     std::fs::rename(
         output.join("windows.lib"),
-        format!(
-            "crates/targets/{platform}/lib/windows.{}.lib",
-            std::env!("CARGO_PKG_VERSION")
-        ),
+        format!("crates/targets/{platform}/lib/windows.0.53.0.lib",),
     )
     .unwrap();
 }
