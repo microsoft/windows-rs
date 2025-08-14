@@ -110,7 +110,7 @@ impl TearOff {
     #[expect(clippy::new_ret_no_self)]
     unsafe fn new(object: *mut c_void, strong_count: u32) -> IWeakReferenceSource {
         unsafe {
-            transmute(Box::new(TearOff {
+            transmute(Box::new(Self {
                 strong_vtable: &Self::STRONG_VTABLE,
                 weak_vtable: &Self::WEAK_VTABLE,
                 object,
@@ -122,7 +122,7 @@ impl TearOff {
 
     unsafe fn from_encoding(encoding: isize) -> *mut c_void {
         unsafe {
-            let tear_off = TearOff::decode(encoding);
+            let tear_off = Self::decode(encoding);
             tear_off.strong_count.add_ref();
             tear_off as *mut _ as *mut _
         }

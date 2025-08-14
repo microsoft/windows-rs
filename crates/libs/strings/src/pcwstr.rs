@@ -90,7 +90,7 @@ impl Default for PCWSTR {
     }
 }
 
-impl AsRef<PCWSTR> for PCWSTR {
+impl AsRef<Self> for PCWSTR {
     fn as_ref(&self) -> &Self {
         self
     }

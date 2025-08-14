@@ -97,7 +97,7 @@ impl TryFrom<&BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(value: &BSTR) -> core::result::Result<Self, Self::Error> {
-        String::from_utf16(value)
+        Self::from_utf16(value)
     }
 }
 
@@ -105,7 +105,7 @@ impl TryFrom<BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(value: BSTR) -> core::result::Result<Self, Self::Error> {
-        String::try_from(&value)
+        Self::try_from(&value)
     }
 }
 

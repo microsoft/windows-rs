@@ -175,7 +175,7 @@ impl Type {
 
             TypeName("Windows.Foundation", "EventRegistrationToken")
             | TypeName("Windows.Win32.System.WinRT", "EventRegistrationToken") => {
-                Remap::Type(Type::I64)
+                Remap::Type(Self::I64)
             }
 
             TypeName("Windows.Win32.Graphics.Direct2D.Common", "D2D_MATRIX_3X2_F") => {
@@ -242,7 +242,7 @@ impl Type {
 
         if let Some(outer) = enclosing {
             if code_name.namespace().is_empty() {
-                return Type::CppStruct(outer.nested[code_name.name()].clone());
+                return Self::CppStruct(outer.nested[code_name.name()].clone());
             }
         }
 
@@ -609,7 +609,7 @@ impl Type {
         }
     }
 
-    pub fn split_generic(&self) -> (Type, Vec<Type>) {
+    pub fn split_generic(&self) -> (Self, Vec<Self>) {
         match self {
             Self::Interface(ty) if !ty.generics.is_empty() => {
                 let base = ty
@@ -631,13 +631,13 @@ impl Type {
 
     pub fn decay(&self) -> &Self {
         match self {
-            Type::PtrMut(ty, _) => ty,
-            Type::PtrConst(ty, _) => ty,
-            Type::ArrayFixed(ty, _) => ty.decay(),
-            Type::Array(ty) => ty,
-            Type::ArrayRef(ty) => ty,
-            Type::ConstRef(ty) => ty,
-            Type::PrimitiveOrEnum(_, ty) => ty,
+            Self::PtrMut(ty, _) => ty,
+            Self::PtrConst(ty, _) => ty,
+            Self::ArrayFixed(ty, _) => ty.decay(),
+            Self::Array(ty) => ty,
+            Self::ArrayRef(ty) => ty,
+            Self::ConstRef(ty) => ty,
+            Self::PrimitiveOrEnum(_, ty) => ty,
             _ => self,
         }
     }
@@ -759,20 +759,20 @@ impl Type {
 
     pub fn is_void(&self) -> bool {
         match self {
-            Type::PtrConst(ty, _) | Type::PtrMut(ty, _) => ty.is_void(),
-            Type::Void => true,
+            Self::PtrConst(ty, _) | Self::PtrMut(ty, _) => ty.is_void(),
+            Self::Void => true,
             _ => false,
         }
     }
 
     pub fn size(&self) -> usize {
         match self {
-            Type::I8 | Type::U8 => 1,
-            Type::I16 | Type::U16 => 2,
-            Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::GUID => 16,
-            Type::ArrayFixed(ty, len) => ty.size() * len,
-            Type::PrimitiveOrEnum(ty, _) => ty.size(),
+            Self::I8 | Self::U8 => 1,
+            Self::I16 | Self::U16 => 2,
+            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::GUID => 16,
+            Self::ArrayFixed(ty, len) => ty.size() * len,
+            Self::PrimitiveOrEnum(ty, _) => ty.size(),
             Self::CppStruct(ty) => ty.size(),
             Self::Struct(ty) => ty.size(),
             Self::CppEnum(ty) => ty.size(),
@@ -782,10 +782,10 @@ impl Type {
 
     pub fn align(&self) -> usize {
         match self {
-            Type::I8 | Type::U8 => 1,
-            Type::I16 | Type::U16 => 2,
-            Type::I64 | Type::U64 | Type::F64 => 8,
-            Type::ArrayFixed(ty, len) => ty.align() * len,
+            Self::I8 | Self::U8 => 1,
+            Self::I16 | Self::U16 => 2,
+            Self::I64 | Self::U64 | Self::F64 => 8,
+            Self::ArrayFixed(ty, len) => ty.align() * len,
             Self::CppStruct(ty) => ty.align(),
             Self::Struct(ty) => ty.align(),
             Self::CppEnum(ty) => ty.align(),
@@ -799,8 +799,8 @@ impl Type {
             Self::CppEnum(ty) => ty.def.underlying_type(),
             Self::Enum(ty) => ty.def.underlying_type(),
             Self::CppStruct(ty) => ty.def.underlying_type(),
-            Self::HRESULT => Type::I32,
-            Self::BOOL => Type::I32,
+            Self::HRESULT => Self::I32,
+            Self::BOOL => Self::I32,
             _ => self.clone(),
         }
     }
@@ -879,7 +879,7 @@ impl Type {
         }
     }
 
-    pub fn set_generics(&mut self, generics: Vec<Type>) {
+    pub fn set_generics(&mut self, generics: Vec<Self>) {
         match self {
             Self::Interface(ty) => ty.generics = generics,
             Self::Delegate(ty) => ty.generics = generics,

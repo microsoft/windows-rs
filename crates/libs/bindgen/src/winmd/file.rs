@@ -44,7 +44,7 @@ unsafe impl Sync for File {}
 
 impl File {
     pub fn new(bytes: Vec<u8>) -> Option<Self> {
-        let mut result = File {
+        let mut result = Self {
             bytes,
             reader: std::ptr::null(),
             strings: 0,
