@@ -14,8 +14,7 @@ use std::boxed::Box;
 use std::ffi::c_void;
 use std::sync::{Mutex, OnceLock, RwLock};
 
-/// The commands are sent by the service control manager to the [`Service`] through the closure or callback
-/// passed to the [`ServiceBuilder::run`] method.
+/// The commands that are sent by the service control manager to the Builder's [`run`][`ServiceBuilder::run`] closure through the closure or callback
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum Command {
     /// The start command is sent when the service first starts.
@@ -23,22 +22,22 @@ pub enum Command {
 
     /// The stop command is sent when the service is stopping just prior to process termination.
     ///
-    /// This command will only be sent if the [`ServiceBuilder::can_stop`] method is called as part of construction.
+    /// This command will only be sent if the [`can_stop`][`ServiceBuilder::can_stop`] method is called as part of construction.
     Stop,
 
     /// The pause command is sent when the service is being paused but not stopping.
     ///
-    /// This command will only be sent if the [`ServiceBuilder::can_pause`] method is called as part of construction.
+    /// This command will only be sent if the [`can_pause`][`ServiceBuilder::can_pause`] method is called as part of construction.
     Pause,
 
     /// The resume command is sent when the service is being resumed following a pause.
     ///
-    /// This command will only be sent if the [`ServiceBuilder::can_pause`] method is called as part of construction.
+    /// This command will only be sent if the [`can_pause`][`ServiceBuilder::can_pause`](`can_pause`) method is called as part of construction.
     Resume,
 
     /// An extended command.
     ///
-    /// Specific commands will only be received if the [`ServiceBuilder::can_accept`] methods is called to specify those
+    /// Specific commands will only be received if the [`can_accept`][`ServiceBuilder::can_accept`] methods is called to specify those
     /// commands the service accepts.
     Extended(ExtendedCommand),
 }
@@ -61,8 +60,8 @@ unsafe impl Sync for ExtendedCommand {}
 
 /// Possible service states including transitional states.
 ///
-/// This can be useful to query the current state with the [`Service::state`] function or set the state with
-/// the [`Service::set_state`] function.
+/// This can be useful to query the current state with the [`state`][`Service::state`] function or set the state with
+/// the [`set_state`][`Service::set_state`] function.
 #[derive(Debug, Copy, Clone, PartialEq, Eq)]
 pub enum State {
     ContinuePending,
@@ -163,13 +162,14 @@ impl Service {
     }
 }
 
-/// [`ServiceBuilder::run`] errors.
-#[derive(Debug)]
+/// Service [`run`][`ServiceBuilder::run`] error.
 pub enum Error {
     /// The [`Service`] Singleton was already constructed and is currently running.
     Running,
 
-    /// The application was invoked as a console application and thus cannot continue as a service.
+    /// The application was invoked as a console application.
+    /// No [`fallback`][`ServiceBuilder::can_fallback`] callback was given
+    /// and thus cannot continue as a service.
     NotAService,
 }
 
@@ -177,17 +177,26 @@ impl std::fmt::Display for Error {
     fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
         match self {
             Error::Running => f.write_str("Another ServiceBuilder has already been run()."),
-            Error::NotAService => f.write_str("Service was invoked as a console application."),
+            Error::NotAService => f.write_str(
+                "Service was invoked as a console application without a fallback callback.",
+            ),
         }
+    }
+}
+
+impl std::fmt::Debug for Error {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "{}", self)
     }
 }
 
 impl std::error::Error for Error {}
 
-/// Builder that is used to configure and run the [`Service`] global.
+/// Builder that is used to configure and run the `Service` global.
 #[derive(Default)]
 pub struct ServiceBuilder {
     accept: u32,
+    fallback: Option<Box<dyn FnOnce(&Service)>>,
 }
 
 impl ServiceBuilder {
@@ -215,6 +224,11 @@ impl ServiceBuilder {
         self.accept |= accept;
         self
     }
+    /// Runs the fallback closure if the service is not started by the Service Control Manager.
+    pub fn can_fallback<F: FnOnce(&Service) + Send + 'static>(&mut self, f: F) -> &mut Self {
+        self.fallback = Some(Box::new(f));
+        self
+    }
 
     /// Creates a [`Service`] singleton and starts it with the given callback closure.
     /// The closure will receive commands sent by the service control manager.
@@ -225,6 +239,8 @@ impl ServiceBuilder {
     ///
     /// This call will fail if it was called by another instance of a builder or if this is a
     /// console application.
+    ///
+    /// Note: the closure and its contents are not [`Drop`][`std::ops::Drop`]ped.
     pub fn run<F: FnMut(&'static Service, Command) + Send + Sync + 'static>(
         &mut self,
         callback: F,
@@ -244,11 +260,21 @@ impl ServiceBuilder {
             SERVICE_TABLE_ENTRYW::default(),
         ];
 
-        if unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) != 0 } {
-            Err(Error::NotAService)
-        } else {
-            Ok(())
+        let fallback = unsafe { StartServiceCtrlDispatcherW(table.as_ptr()) == 0 };
+        if fallback {
+            if let Some(fallback) = self.fallback.take() {
+                ctx.set_state(State::StartPending);
+                ctx.command(Command::Start);
+                ctx.set_state(State::Running);
+                fallback(ctx);
+                ctx.set_state(State::StopPending);
+                ctx.command(Command::Stop);
+            } else {
+                return Err(Error::NotAService);
+            }
         }
+
+        Ok(())
     }
 }
 
