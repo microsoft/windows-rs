@@ -45,8 +45,18 @@ macro_rules! h {
             if OUTPUT_LEN == 1 {
                 unsafe { ::core::mem::transmute(::core::ptr::null::<u16>()) }
             } else {
+                #[repr(C)]
+                struct HSTRING_HEADER {
+                    flags: u32,
+                    len: u32,
+                    padding1: u32,
+                    padding2: u32,
+                    ptr: *const u16,
+                    padding3: i32,
+                    padding4: u16,
+                }
                 const OUTPUT: $crate::PCWSTR = $crate::w!($s);
-                const HEADER: $crate::HSTRING_HEADER = $crate::HSTRING_HEADER {
+                const HEADER: HSTRING_HEADER = HSTRING_HEADER {
                     flags: 0x11,
                     len: (OUTPUT_LEN - 1) as u32,
                     padding1: 0,
@@ -56,9 +66,7 @@ macro_rules! h {
                     padding4: 0,
                 };
                 // SAFETY: an `HSTRING` is exactly equivalent to a pointer to an `HSTRING_HEADER`
-                unsafe {
-                    ::core::mem::transmute::<&$crate::HSTRING_HEADER, $crate::HSTRING>(&HEADER)
-                }
+                unsafe { ::core::mem::transmute::<&HSTRING_HEADER, $crate::HSTRING>(&HEADER) }
             }
         };
         &RESULT
@@ -128,18 +136,6 @@ pub const fn decode_utf8_char(bytes: &[u8], mut pos: usize) -> Option<(u32, usiz
         return Some((result, pos));
     }
     None
-}
-
-#[doc(hidden)]
-#[repr(C)]
-pub struct HSTRING_HEADER {
-    pub flags: u32,
-    pub len: u32,
-    pub padding1: u32,
-    pub padding2: u32,
-    pub ptr: *const u16,
-    pub padding3: i32,
-    pub padding4: u16,
 }
 
 #[doc(hidden)]
