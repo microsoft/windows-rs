@@ -11,7 +11,7 @@ fn action_ready() -> Result<()> {
         E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
         "async",
     )));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -26,7 +26,7 @@ fn action_with_progress_ready() -> Result<()> {
         E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
         "async",
     )));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -41,7 +41,7 @@ fn operation_ready() -> Result<()> {
         E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
         "async",
     )));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -56,7 +56,7 @@ fn operation_with_progress_ready() -> Result<()> {
         E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED,
         "async",
     )));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -69,7 +69,7 @@ fn operation_with_progress_ready() -> Result<()> {
 fn action_spawn() -> Result<()> {
     let error_clone = Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async");
     let a = IAsyncAction::spawn(move || Err(error_clone));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -82,7 +82,7 @@ fn action_spawn() -> Result<()> {
 fn operation_spawn() -> Result<()> {
     let error_clone = Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async");
     let a = IAsyncOperation::<i32>::spawn(move || Err(error_clone));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -95,7 +95,7 @@ fn operation_spawn() -> Result<()> {
 fn action_with_progress_spawn() -> Result<()> {
     let error_clone = Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async");
     let a = IAsyncActionWithProgress::<i32>::spawn(move || Err(error_clone));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
@@ -108,7 +108,7 @@ fn action_with_progress_spawn() -> Result<()> {
 fn operation_with_progress_spawn() -> Result<()> {
     let error_clone = Error::new(E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED, "async");
     let a = IAsyncOperationWithProgress::<i32, i32>::spawn(move || Err(error_clone));
-    let e = a.get().unwrap_err();
+    let e = a.join().unwrap_err();
     assert_eq!(e.message(), "async");
     assert_eq!(e.code(), E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);
     assert_eq!(a.ErrorCode()?, E_PROTOCOL_EXTENSIONS_NOT_SUPPORTED);

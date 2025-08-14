@@ -8,13 +8,16 @@
 #![doc = include_str!("../readme.md")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
+mod r#async;
 mod bindings;
 mod bindings_impl;
-mod get;
+mod join;
 mod waiter;
+mod when;
 
 pub use bindings::*;
 use bindings_impl::*;
+use r#async::*;
 use waiter::*;
 use windows_core::*;
 
@@ -24,5 +27,3 @@ mod async_ready;
 mod async_spawn;
 #[cfg(feature = "std")]
 mod future;
-#[cfg(feature = "std")]
-use future::*;

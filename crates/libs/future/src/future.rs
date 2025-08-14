@@ -4,32 +4,6 @@ use std::pin::Pin;
 use std::sync::{Arc, Mutex};
 use std::task::{Context, Poll, Waker};
 
-// An `Async` represents a WinRT async execution object or type. There are precisely four such types:
-// - IAsyncAction
-// - IAsyncActionWithProgress
-// - IAsyncOperation
-// - IAsyncOperationWithProgress
-//
-// All four implementations are provided here and there is thus no need to implement this trait.
-// This trait provides an abstraction over the relevant differences so that the `AsyncFuture`
-// implementation below can be reused for all of them.
-pub trait Async: Interface {
-    // The type of value produced on completion.
-    type Output: Clone;
-
-    // The type of the delegate use for completion notification.
-    type CompletedHandler: Interface;
-
-    // Sets the handler or callback to invoke when execution completes. This handler can only be set once.
-    fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()>;
-
-    // Calls the given handler with the current object and status.
-    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus);
-
-    // Returns the value produced on completion. This should only be called when execution completes.
-    fn get_results(&self) -> Result<Self::Output>;
-}
-
 // The `AsyncFuture` is needed to store some extra state needed to keep async execution up to date with possible changes
 // to Rust execution context. Each async type implements `IntoFuture` rather than implementing `Future` directly so that
 // this adapter may be used.
@@ -97,100 +71,12 @@ impl<A: Async> Future for AsyncFuture<A> {
             // Note that the handler can only be set once, which is why we need a shared waker in the first
             // place. On the other hand, the handler will get called even if async execution has already
             // completed, so we can just return `Pending` after setting the Completed handler.
-            self.inner.set_completed(move || {
+            self.inner.set_completed(move |_| {
                 shared_waker.lock().unwrap().wake_by_ref();
             })?;
         };
 
         Poll::Pending
-    }
-}
-
-//
-// The four `Async` trait implementations.
-//
-
-impl Async for IAsyncAction {
-    type Output = ();
-    type CompletedHandler = AsyncActionCompletedHandler;
-
-    fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncActionCompletedHandler::new(move |_, _| {
-            handler();
-            Ok(())
-        }))
-    }
-
-    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
-        _ = handler.Invoke(self, status);
-    }
-
-    fn get_results(&self) -> Result<Self::Output> {
-        self.GetResults()
-    }
-}
-
-impl<T: RuntimeType> Async for IAsyncOperation<T> {
-    type Output = T;
-    type CompletedHandler = AsyncOperationCompletedHandler<T>;
-
-    fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncOperationCompletedHandler::new(move |_, _| {
-            handler();
-            Ok(())
-        }))
-    }
-
-    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
-        _ = handler.Invoke(self, status);
-    }
-
-    fn get_results(&self) -> Result<Self::Output> {
-        self.GetResults()
-    }
-}
-
-impl<P: RuntimeType> Async for IAsyncActionWithProgress<P> {
-    type Output = ();
-    type CompletedHandler = AsyncActionWithProgressCompletedHandler<P>;
-
-    fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncActionWithProgressCompletedHandler::new(
-            move |_, _| {
-                handler();
-                Ok(())
-            },
-        ))
-    }
-
-    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
-        _ = handler.Invoke(self, status);
-    }
-
-    fn get_results(&self) -> Result<Self::Output> {
-        self.GetResults()
-    }
-}
-
-impl<T: RuntimeType, P: RuntimeType> Async for IAsyncOperationWithProgress<T, P> {
-    type Output = T;
-    type CompletedHandler = AsyncOperationWithProgressCompletedHandler<T, P>;
-
-    fn set_completed<F: Fn() + Send + 'static>(&self, handler: F) -> Result<()> {
-        self.SetCompleted(&AsyncOperationWithProgressCompletedHandler::new(
-            move |_, _| {
-                handler();
-                Ok(())
-            },
-        ))
-    }
-
-    fn invoke_completed(&self, handler: &Self::CompletedHandler, status: AsyncStatus) {
-        _ = handler.Invoke(self, status);
-    }
-
-    fn get_results(&self) -> Result<Self::Output> {
-        self.GetResults()
     }
 }
 
