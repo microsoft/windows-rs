@@ -6,7 +6,6 @@ rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Code generator for Windows metadata"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [dependencies]
