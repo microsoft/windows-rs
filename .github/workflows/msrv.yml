@@ -79,7 +79,7 @@ jobs:
       - name: Check windows-strings
         run:  cargo check -p windows-strings --all-features
       - name: Rust version
-        run: rustup update --no-self-update 1.60 && rustup default 1.60
+        run: rustup update --no-self-update 1.71 && rustup default 1.71
       - name: Check windows-sys
         run:  cargo check -p windows-sys --all-features
       - name: Rust version
