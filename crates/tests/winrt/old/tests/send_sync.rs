@@ -28,14 +28,14 @@ fn send_async() {
     let store_async = writer.StoreAsync().unwrap();
 
     let wait = thread::spawn(move || {
-        store_async.get().unwrap();
+        store_async.join().unwrap();
 
         stream.Seek(0).unwrap();
         let reader = DataReader::CreateDataReader(&stream).unwrap();
         let load_async = reader.LoadAsync(3).unwrap();
 
         let wait = thread::spawn(move || {
-            load_async.get().unwrap();
+            load_async.join().unwrap();
 
             let mut bytes: [u8; 3] = [0; 3];
             reader.ReadBytes(&mut bytes).unwrap();
@@ -62,14 +62,14 @@ fn send_async_no_class() {
     let store_async: IAsyncOperation<u32> = writer.StoreAsync().unwrap().cast().unwrap();
 
     let wait = thread::spawn(move || {
-        store_async.get().unwrap();
+        store_async.join().unwrap();
 
         stream.Seek(0).unwrap();
         let reader = DataReader::CreateDataReader(&stream).unwrap();
         let load_async: IAsyncOperation<u32> = reader.LoadAsync(3).unwrap().cast().unwrap();
 
         let wait = thread::spawn(move || {
-            load_async.get().unwrap();
+            load_async.join().unwrap();
 
             let mut bytes: [u8; 3] = [0; 3];
             reader.ReadBytes(&mut bytes).unwrap();

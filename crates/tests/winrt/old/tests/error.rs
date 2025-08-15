@@ -7,7 +7,7 @@ fn from_hresult() {
     let error: windows::core::Error = windows::core::HRESULT(-2147467260).into();
 
     assert_eq!(error.code(), windows::core::HRESULT(-2147467260));
-    let message: String = error.message().try_into().unwrap();
+    let message: String = error.message();
     assert_eq!(message, "Operation aborted");
 }
 

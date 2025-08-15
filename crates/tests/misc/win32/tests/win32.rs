@@ -99,10 +99,13 @@ fn size32() {
 
 #[test]
 fn constant() {
-    assert!(WM_KEYUP == 257u32);
-    assert!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA == 1f32);
-    assert!(UIA_ScrollPatternNoScroll == -1f64);
-    assert!(CLSID_D2D1Shadow == GUID::try_from("C67EA361-1863-4e69-89DB-695D3E9A5B6B").unwrap());
+    assert_eq!(WM_KEYUP, 257u32);
+    assert_eq!(D3D12_DEFAULT_BLEND_FACTOR_ALPHA, 1f32);
+    assert_eq!(UIA_ScrollPatternNoScroll, -1f64);
+    assert_eq!(
+        CLSID_D2D1Shadow,
+        GUID::try_from("C67EA361-1863-4e69-89DB-695D3E9A5B6B").unwrap()
+    );
 
     let b: PCSTR = D3DCOMPILER_DLL_A;
     let c: PCWSTR = D3DCOMPILER_DLL_W;
@@ -133,7 +136,7 @@ fn bool_as_error() {
         let error = SetEvent(HANDLE(0 as _)).unwrap_err();
 
         assert_eq!(error.code(), windows::core::HRESULT(-2147024890));
-        let message: String = error.message().try_into().unwrap();
+        let message: String = error.message();
         assert_eq!(message, "The handle is invalid.");
     }
 }
@@ -240,6 +243,7 @@ fn interface() -> windows::core::Result<()> {
 }
 
 #[test]
+#[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn callback() {
     unsafe {
         let a: PROPENUMPROCA = Some(callback_a);

@@ -218,7 +218,7 @@ impl<'a> Blob<'a> {
     pub fn read_utf16(&mut self) -> String {
         let slice = self.slice;
 
-        let value = if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+        let value = if slice.as_ptr().align_offset(align_of::<u16>()) > 0 {
             let slice = slice
                 .chunks_exact(2)
                 .take(slice.len() / 2)

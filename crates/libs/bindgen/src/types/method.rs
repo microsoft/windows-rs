@@ -53,7 +53,7 @@ impl Method {
             } else if param.is_winrt_array() {
                 quote! { core::slice::from_raw_parts_mut(core::mem::transmute_copy(&#name), #abi_size_name as usize) }
             } else if param.is_winrt_array_ref() {
-                quote! { windows_core::ArrayProxy::from_raw_parts(core::mem::transmute_copy(&#name), #abi_size_name).as_array() }
+                quote! { &mut windows_core::imp::array_proxy(core::mem::transmute_copy(&#name), #abi_size_name) }
             } else {
                 quote! { core::mem::transmute_copy(&#name) }
             }

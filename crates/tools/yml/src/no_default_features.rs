@@ -16,11 +16,11 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  no-default-features:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target

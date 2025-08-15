@@ -7,6 +7,6 @@ impl From<core::time::Duration> for TimeSpan {
 }
 impl From<TimeSpan> for core::time::Duration {
     fn from(value: TimeSpan) -> Self {
-        core::time::Duration::from_nanos((value.Duration * 100) as u64)
+        Self::from_nanos((value.Duration * 100) as u64)
     }
 }

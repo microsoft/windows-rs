@@ -1,7 +1,7 @@
 use super::*;
 use core::num::NonZeroI32;
 
-#[allow(unused_imports)]
+#[expect(unused_imports)]
 use core::mem::size_of;
 
 /// An error object consists of both an error code and optional detailed error information for debugging.
@@ -115,16 +115,8 @@ impl Error {
     }
 
     /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
-    pub fn from_win32() -> Self {
-        #[cfg(windows)]
-        {
-            let error = unsafe { GetLastError() };
-            Self::from_hresult(HRESULT::from_win32(error))
-        }
-        #[cfg(not(windows))]
-        {
-            unimplemented!()
-        }
+    pub fn from_thread() -> Self {
+        Self::from_hresult(HRESULT::from_thread())
     }
 
     /// The error code describing the error.

@@ -98,15 +98,15 @@ impl Matrix3x2 {
     }
 }
 
-impl core::ops::Add<Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn add(self, rhs: Matrix3x2) -> Matrix3x2 {
+impl core::ops::Add<Self> for Matrix3x2 {
+    type Output = Self;
+    fn add(self, rhs: Self) -> Self {
         self.impl_add(&rhs)
     }
 }
-impl core::ops::Add<&Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn add(self, rhs: &Matrix3x2) -> Matrix3x2 {
+impl core::ops::Add<&Self> for Matrix3x2 {
+    type Output = Self;
+    fn add(self, rhs: &Self) -> Self {
         self.impl_add(rhs)
     }
 }
@@ -122,15 +122,15 @@ impl core::ops::Add<&Matrix3x2> for &Matrix3x2 {
         self.impl_add(rhs)
     }
 }
-impl core::ops::Sub<Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn sub(self, rhs: Matrix3x2) -> Matrix3x2 {
+impl core::ops::Sub<Self> for Matrix3x2 {
+    type Output = Self;
+    fn sub(self, rhs: Self) -> Self {
         self.impl_sub(&rhs)
     }
 }
-impl core::ops::Sub<&Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn sub(self, rhs: &Matrix3x2) -> Matrix3x2 {
+impl core::ops::Sub<&Self> for Matrix3x2 {
+    type Output = Self;
+    fn sub(self, rhs: &Self) -> Self {
         self.impl_sub(rhs)
     }
 }
@@ -146,15 +146,15 @@ impl core::ops::Sub<&Matrix3x2> for &Matrix3x2 {
         self.impl_sub(rhs)
     }
 }
-impl core::ops::Mul<Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn mul(self, rhs: Matrix3x2) -> Matrix3x2 {
+impl core::ops::Mul<Self> for Matrix3x2 {
+    type Output = Self;
+    fn mul(self, rhs: Self) -> Self {
         self.impl_mul(&rhs)
     }
 }
-impl core::ops::Mul<&Matrix3x2> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn mul(self, rhs: &Matrix3x2) -> Matrix3x2 {
+impl core::ops::Mul<&Self> for Matrix3x2 {
+    type Output = Self;
+    fn mul(self, rhs: &Self) -> Self {
         self.impl_mul(rhs)
     }
 }
@@ -171,8 +171,8 @@ impl core::ops::Mul<&Matrix3x2> for &Matrix3x2 {
     }
 }
 impl core::ops::Mul<f32> for Matrix3x2 {
-    type Output = Matrix3x2;
-    fn mul(self, rhs: f32) -> Matrix3x2 {
+    type Output = Self;
+    fn mul(self, rhs: f32) -> Self {
         self.impl_mul_f32(rhs)
     }
 }

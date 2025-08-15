@@ -13,26 +13,26 @@ on:
       - master
 
 jobs:
-  check:
+  test:
     strategy:
       matrix:
         include:
           - version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
-            runner: windows-2022
+            runner: windows-2025
           - version: nightly
             host: x86_64-pc-windows-msvc
             target: i686-pc-windows-msvc
-            runner: windows-2022
+            runner: windows-2025
           - version: nightly
             host: x86_64-pc-windows-gnu
             target: x86_64-pc-windows-gnu
-            runner: windows-2022
+            runner: windows-2025
           - version: stable
             host: x86_64-pc-windows-gnu
             target: i686-pc-windows-gnu
-            runner: windows-2022
+            runner: windows-2025
           - version: stable
             host: aarch64-pc-windows-msvc
             target: aarch64-pc-windows-msvc
@@ -42,15 +42,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install Rustup
-        shell: pwsh
-        run: |
-          Invoke-WebRequest -Uri "https://win.rustup.rs/aarch64" -OutFile "$env:TEMP\rustup-init.exe"
-           & "$env:TEMP\rustup-init.exe" --default-toolchain none --profile=minimal -y
-          "$env:USERPROFILE\.cargo\bin" | Out-File -Append -Encoding ascii $env:GITHUB_PATH
-          "CARGO_HOME=$env:USERPROFILE\.cargo" | Out-File -Append -Encoding ascii $env:GITHUB_ENV
-        if: ${{ matrix.runner == 'windows-11-arm' }}
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update ${{ matrix.version }} && rustup default ${{ matrix.version }}-${{ matrix.host }}
       - name: Add toolchain target
@@ -167,6 +159,10 @@ jobs:
         run:  cargo clean
       - name: Test sample_xml
         run:  cargo test -p sample_xml --target ${{ matrix.target }}
+      - name: Test test_activation
+        run:  cargo test -p test_activation --target ${{ matrix.target }}
+      - name: Test test_activation_client
+        run:  cargo test -p test_activation_client --target ${{ matrix.target }}
       - name: Test test_agile
         run:  cargo test -p test_agile --target ${{ matrix.target }}
       - name: Test test_agile_reference
@@ -215,8 +211,6 @@ jobs:
         run:  cargo test -p test_core --target ${{ matrix.target }}
       - name: Test test_debug
         run:  cargo test -p test_debug --target ${{ matrix.target }}
-      - name: Test test_debugger_visualizer
-        run:  cargo test -p test_debugger_visualizer --target ${{ matrix.target }}
       - name: Test test_deprecated
         run:  cargo test -p test_deprecated --target ${{ matrix.target }}
       - name: Test test_dispatch
@@ -263,10 +257,10 @@ jobs:
         run:  cargo test -p test_match --target ${{ matrix.target }}
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
-      - name: Test test_msrv
-        run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_msrv
+        run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
@@ -281,6 +275,8 @@ jobs:
         run:  cargo test -p test_overloads --target ${{ matrix.target }}
       - name: Test test_overloads_client
         run:  cargo test -p test_overloads_client --target ${{ matrix.target }}
+      - name: Test test_package
+        run:  cargo test -p test_package --target ${{ matrix.target }}
       - name: Test test_query_signature
         run:  cargo test -p test_query_signature --target ${{ matrix.target }}
       - name: Test test_readme
@@ -363,12 +359,12 @@ jobs:
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_standalone
         run:  cargo test -p tool_standalone --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_test_all
         run:  cargo test -p tool_test_all --target ${{ matrix.target }}
       - name: Test tool_workspace

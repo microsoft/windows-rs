@@ -4,6 +4,7 @@ use windows::core::imp::WeakRefCount;
 
 const TARGET: u32 = 100_000;
 const CONCURRENCY: usize = 8;
+#[expect(clippy::declare_interior_mutable_const)] // don't want to disturb concurrency testing
 const ATOMIC_U32_ZERO: AtomicU32 = AtomicU32::new(0);
 static PROGRESS: [AtomicU32; CONCURRENCY] = [ATOMIC_U32_ZERO; CONCURRENCY];
 
@@ -16,6 +17,7 @@ fn run_increment(ref_count: Arc<WeakRefCount>, progress: &AtomicU32) {
 }
 
 #[test]
+#[expect(clippy::needless_range_loop)] // don't want to disturb concurrency testing
 fn test_race() {
     let ref_count = Arc::new(WeakRefCount::new());
     let mut threads = Vec::with_capacity(CONCURRENCY);

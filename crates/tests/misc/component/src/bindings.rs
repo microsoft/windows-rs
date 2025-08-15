@@ -16,7 +16,7 @@ impl windows_core::RuntimeType for Callback {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl Callback {
-    pub fn new<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static>(invoke: F) -> Self {
         let com = CallbackBox {
             vtable: &CallbackBox::<F>::VTABLE,
             count: windows_core::imp::RefCount::new(1),
@@ -48,12 +48,12 @@ pub struct Callback_Vtbl {
     ) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct CallbackBox<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> {
+struct CallbackBox<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> {
     vtable: *const Callback_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
+impl<F: Fn(i32) -> windows_core::Result<i32> + Send + 'static> CallbackBox<F> {
     const VTABLE: Callback_Vtbl = Callback_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: Self::QueryInterface,
@@ -404,11 +404,10 @@ impl IClass_Vtbl {
                         core::mem::transmute_copy(&b),
                         b_array_size as usize,
                     ),
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&c),
                         c_array_size,
-                    )
-                    .as_array(),
+                    ),
                 ) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();
@@ -444,11 +443,10 @@ impl IClass_Vtbl {
                         core::mem::transmute_copy(&b),
                         b_array_size as usize,
                     ),
-                    windows_core::ArrayProxy::from_raw_parts(
+                    &mut windows_core::imp::array_proxy(
                         core::mem::transmute_copy(&c),
                         c_array_size,
-                    )
-                    .as_array(),
+                    ),
                 ) {
                     Ok(ok__) => {
                         let (ok_data__, ok_data_len__) = ok__.into_abi();

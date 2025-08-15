@@ -2,13 +2,13 @@
 [package]
 name = "windows-targets"
 version = "0.53.3"
-authors = ["Microsoft"]
 edition = "2021"
 rust-version = "1.60"
 license = "MIT OR Apache-2.0"
 description = "Import libs for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
+
+categories = ["os::windows-apis"]
 
 [lints]
 workspace = true

@@ -20,8 +20,7 @@ macro_rules! link {
 macro_rules! link {
     ($library:literal $abi:literal $($link_name:literal)? fn $($function:tt)*) => (
         #[link(name = $library, kind = "raw-dylib", modifiers = "+verbatim")]
-        // TODO: remove hardcoded "C" before next major update - https://github.com/microsoft/windows-rs/pull/3669
-        extern "C" {
+        extern $abi {
             $(#[link_name=$link_name])?
             pub fn $($function)*;
         }

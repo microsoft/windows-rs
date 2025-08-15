@@ -35,11 +35,11 @@ impl<T: Async> ReadyState<T> {
 
     // The `From` implementation is not used here since we don't want to transfer any error object to the calling thread.
     // That happens when `GetResults` is called.
-    fn error_code(&self) -> Result<HRESULT> {
-        Ok(match &self.result {
+    fn error_code(&self) -> HRESULT {
+        match &self.result {
             Ok(_) => HRESULT(0),
             Err(error) => error.code(),
-        })
+        }
     }
 }
 
@@ -70,7 +70,7 @@ impl IAsyncInfo_Impl for ReadyAction_Impl {
         Ok(self.0.status())
     }
     fn ErrorCode(&self) -> Result<HRESULT> {
-        self.0.error_code()
+        Ok(self.0.error_code())
     }
     fn Cancel(&self) -> Result<()> {
         Ok(())
@@ -88,7 +88,7 @@ impl<T: RuntimeType> IAsyncInfo_Impl for ReadyOperation_Impl<T> {
         Ok(self.0.status())
     }
     fn ErrorCode(&self) -> Result<HRESULT> {
-        self.0.error_code()
+        Ok(self.0.error_code())
     }
     fn Cancel(&self) -> Result<()> {
         Ok(())
@@ -106,7 +106,7 @@ impl<P: RuntimeType> IAsyncInfo_Impl for ReadyActionWithProgress_Impl<P> {
         Ok(self.0.status())
     }
     fn ErrorCode(&self) -> Result<HRESULT> {
-        self.0.error_code()
+        Ok(self.0.error_code())
     }
     fn Cancel(&self) -> Result<()> {
         Ok(())
@@ -124,7 +124,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgr
         Ok(self.0.status())
     }
     fn ErrorCode(&self) -> Result<HRESULT> {
-        self.0.error_code()
+        Ok(self.0.error_code())
     }
     fn Cancel(&self) -> Result<()> {
         Ok(())

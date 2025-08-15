@@ -2,7 +2,7 @@ use windows::{core::*, Foundation::*, Media::Control::*};
 
 #[test]
 fn agile_send() -> Result<()> {
-    let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.get()?;
+    let manager = GlobalSystemMediaTransportControlsSessionManager::RequestAsync()?.join()?;
     let reference = AgileReference::new(&manager)?;
 
     let handle = std::thread::spawn(move || {

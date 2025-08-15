@@ -4,17 +4,17 @@ use core::ops::BitOr;
 pub struct HasIterator; // True
 pub struct ThereIsNoIteratorInRepetition; // False
 
-impl BitOr<ThereIsNoIteratorInRepetition> for ThereIsNoIteratorInRepetition {
-    type Output = ThereIsNoIteratorInRepetition;
-    fn bitor(self, _rhs: ThereIsNoIteratorInRepetition) -> ThereIsNoIteratorInRepetition {
-        ThereIsNoIteratorInRepetition
+impl BitOr<Self> for ThereIsNoIteratorInRepetition {
+    type Output = Self;
+    fn bitor(self, _rhs: Self) -> Self {
+        Self
     }
 }
 
 impl BitOr<ThereIsNoIteratorInRepetition> for HasIterator {
-    type Output = HasIterator;
-    fn bitor(self, _rhs: ThereIsNoIteratorInRepetition) -> HasIterator {
-        HasIterator
+    type Output = Self;
+    fn bitor(self, _rhs: ThereIsNoIteratorInRepetition) -> Self {
+        Self
     }
 }
 
@@ -25,10 +25,10 @@ impl BitOr<HasIterator> for ThereIsNoIteratorInRepetition {
     }
 }
 
-impl BitOr<HasIterator> for HasIterator {
-    type Output = HasIterator;
-    fn bitor(self, _rhs: HasIterator) -> HasIterator {
-        HasIterator
+impl BitOr<Self> for HasIterator {
+    type Output = Self;
+    fn bitor(self, _rhs: Self) -> Self {
+        Self
     }
 }
 
@@ -158,6 +158,7 @@ impl<T> RepInterp<T> {
     // a name is bound multiple times, as the previous binding will shadow the
     // original `Iterator` object. This allows us to avoid advancing the
     // iterator multiple times per iteration.
+    #[expect(clippy::unnecessary_wraps)]
     pub fn next(self) -> Option<T> {
         Some(self.0)
     }

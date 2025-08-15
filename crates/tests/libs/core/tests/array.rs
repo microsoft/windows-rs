@@ -16,3 +16,19 @@ fn with_len() {
     assert!(empty[1] == 0);
     assert!(empty[2] == 0);
 }
+
+#[test]
+fn debug() {
+    let array = Array::<i32>::from_slice(&[1, 2, 3]);
+    assert_eq!(format!("{array:?}"), "[1, 2, 3]");
+    assert_eq!(
+        format!("\n{array:#?}\n"),
+        r#"
+[
+    1,
+    2,
+    3,
+]
+"#
+    );
+}

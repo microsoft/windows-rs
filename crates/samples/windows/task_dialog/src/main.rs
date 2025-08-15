@@ -3,7 +3,7 @@ use windows::{core::*, Win32::Foundation::*, Win32::UI::Controls::*};
 fn main() -> Result<()> {
     unsafe {
         let mut config = TASKDIALOGCONFIG {
-            cbSize: std::mem::size_of::<TASKDIALOGCONFIG>() as _,
+            cbSize: size_of::<TASKDIALOGCONFIG>() as _,
             ..Default::default()
         };
 

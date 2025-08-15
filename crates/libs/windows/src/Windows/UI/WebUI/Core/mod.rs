@@ -189,7 +189,7 @@ impl windows_core::RuntimeType for MenuClosedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MenuClosedEventHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuClosedEventHandlerBox { vtable: &MenuClosedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -205,12 +205,12 @@ pub struct MenuClosedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MenuClosedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct MenuClosedEventHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MenuClosedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHandlerBox<F> {
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> MenuClosedEventHandlerBox<F> {
     const VTABLE: MenuClosedEventHandler_Vtbl = MenuClosedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -262,7 +262,7 @@ impl windows_core::RuntimeType for MenuOpenedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MenuOpenedEventHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MenuOpenedEventHandlerBox { vtable: &MenuOpenedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -278,12 +278,12 @@ pub struct MenuOpenedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MenuOpenedEventHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct MenuOpenedEventHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static> {
     vtable: *const MenuOpenedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHandlerBox<F> {
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> MenuOpenedEventHandlerBox<F> {
     const VTABLE: MenuOpenedEventHandler_Vtbl = MenuOpenedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -335,7 +335,7 @@ impl windows_core::RuntimeType for SizeChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl SizeChangedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = SizeChangedEventHandlerBox { vtable: &SizeChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -354,12 +354,12 @@ pub struct SizeChangedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, eventargs: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct SizeChangedEventHandlerBox<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct SizeChangedEventHandlerBox<F: Fn(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const SizeChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> SizeChangedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, WebUICommandBarSizeChangedEventArgs>) -> windows_core::Result<()> + Send + 'static> SizeChangedEventHandlerBox<F> {
     const VTABLE: SizeChangedEventHandler_Vtbl = SizeChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

@@ -1,8 +1,8 @@
 #![doc = include_str!("../readme.md")]
 #![debugger_visualizer(natvis_file = "../windows-result.natvis")]
 #![cfg_attr(all(not(feature = "std"), not(test)), no_std)]
-#![cfg_attr(not(windows), allow(unused_imports))]
-#![allow(
+#![cfg_attr(not(windows), expect(unused_imports))]
+#![expect(
     dead_code,
     non_upper_case_globals,
     non_snake_case,
@@ -12,7 +12,6 @@
 
 extern crate alloc;
 
-#[allow(unused_imports)]
 use alloc::{string::String, vec::Vec};
 
 mod bindings;

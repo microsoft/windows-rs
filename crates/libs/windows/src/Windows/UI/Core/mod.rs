@@ -2203,7 +2203,7 @@ impl windows_core::RuntimeType for DispatchedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DispatchedHandler {
-    pub fn new<F: FnMut() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DispatchedHandlerBox { vtable: &DispatchedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2219,12 +2219,12 @@ pub struct DispatchedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DispatchedHandlerBox<F: FnMut() -> windows_core::Result<()> + Send + 'static> {
+struct DispatchedHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static> {
     vtable: *const DispatchedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<F> {
+impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DispatchedHandlerBox<F> {
     const VTABLE: DispatchedHandler_Vtbl = DispatchedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -4902,7 +4902,7 @@ impl windows_core::RuntimeType for IdleDispatchedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl IdleDispatchedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = IdleDispatchedHandlerBox { vtable: &IdleDispatchedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -4921,12 +4921,12 @@ pub struct IdleDispatchedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, e: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct IdleDispatchedHandlerBox<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct IdleDispatchedHandlerBox<F: Fn(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const IdleDispatchedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> IdleDispatchedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<'_, IdleDispatchedHandlerArgs>) -> windows_core::Result<()> + Send + 'static> IdleDispatchedHandlerBox<F> {
     const VTABLE: IdleDispatchedHandler_Vtbl = IdleDispatchedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

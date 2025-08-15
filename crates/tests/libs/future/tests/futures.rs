@@ -6,7 +6,7 @@ use windows::{core::*, Storage::Streams::*, System::Threading::*};
 // A simple example of blocking synchronously with the `get` method.
 #[test]
 fn simple_sync() -> Result<()> {
-    ThreadPool::RunAsync(&WorkItemHandler::new(|_| Ok(())))?.get()
+    ThreadPool::RunAsync(&WorkItemHandler::new(|_| Ok(())))?.join()
 }
 
 // A simple example of awaiting with an async function.
@@ -45,6 +45,7 @@ fn stream_async() -> Result<()> {
 }
 
 #[test]
+#[expect(clippy::async_yields_async)] // don't want to disturb concurrency testing
 fn switch_context() -> Result<()> {
     use futures::{executor::LocalPool, future, task::SpawnExt};
     use std::future::IntoFuture;

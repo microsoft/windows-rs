@@ -1,6 +1,7 @@
 use windows::{core::*, Win32::Foundation::*, Win32::Security::Cryptography::*};
 
 #[test]
+#[expect(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 fn test() -> Result<()> {
     let status = NTSTATUS::default();
     assert_eq!(status.0, 0);
@@ -28,10 +29,8 @@ fn test() -> Result<()> {
         .ok()?;
 
         let mut random = GUID::zeroed();
-        let bytes = std::slice::from_raw_parts_mut(
-            &mut random as *mut _ as *mut u8,
-            std::mem::size_of::<GUID>(),
-        );
+        let bytes =
+            std::slice::from_raw_parts_mut(&mut random as *mut _ as *mut u8, size_of::<GUID>());
 
         BCryptGenRandom(Some(provider), bytes, Default::default()).ok()?;
 
@@ -44,7 +43,7 @@ fn test() -> Result<()> {
 // A test version of BCryptVerifySignature to ensure that we can handle alternative status codes
 // in a reasonable manner with the help of `Into`.
 
-#[allow(non_snake_case)]
+#[expect(non_snake_case)]
 fn BCryptVerifySignature(status: NTSTATUS) -> Result<()> {
     status.ok()
 }

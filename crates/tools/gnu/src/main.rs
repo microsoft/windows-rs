@@ -175,7 +175,7 @@ fn build_mri(
     let mut mri = std::fs::File::create(&mri_path).unwrap();
     println!("Generating {}", mri_path.to_string_lossy());
 
-    mri.write_all(format!("CREATE libwindows.{}.a\n", std::env!("CARGO_PKG_VERSION")).as_bytes())
+    mri.write_all("CREATE libwindows.0.53.0.a\n".as_bytes())
         .unwrap();
 
     for library in libraries.keys() {

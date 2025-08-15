@@ -1,4 +1,4 @@
-#![allow(non_snake_case)]
+#![expect(non_snake_case)]
 
 use std::sync::*;
 use windows::{core::*, ApplicationModel::Background::*, Win32::Foundation::*};

@@ -20,5 +20,11 @@ features = [
 workspace = true
 features = ["std"]
 
+[dev-dependencies.windows-result]
+workspace = true
+
+[dev-dependencies.windows-threading]
+workspace = true
+
 [dev-dependencies]
 futures = "0.3"

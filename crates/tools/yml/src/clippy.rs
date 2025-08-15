@@ -16,11 +16,11 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  clippy:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
@@ -38,15 +38,11 @@ jobs:
     for package in helpers::crates("crates") {
         let name = &package.name;
 
-        if name.starts_with("test") {
-            continue;
-        }
-
         write!(
             &mut yml,
             r"
       - name: Check {name}
-        run:  cargo clippy -p {name}"
+        run:  cargo clippy -p {name} --tests"
         )
         .unwrap();
     }

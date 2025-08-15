@@ -13,11 +13,11 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  lib:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Fix environment
         uses: ./.github/actions/fix-environment

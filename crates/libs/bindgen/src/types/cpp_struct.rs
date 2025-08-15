@@ -301,7 +301,7 @@ impl CppStruct {
     // Returns all possible struct field types including arch-specific overloads.
     // This avoids skipping arch-specific definitions of structs that may have
     // different layout or packing requirements.
-    fn multi_struct_fields(&self) -> impl Iterator<Item = CppStruct> + '_ {
+    fn multi_struct_fields(&self) -> impl Iterator<Item = Self> + '_ {
         self.def
             .fields()
             .map(|field| field.ty(Some(self)))

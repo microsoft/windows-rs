@@ -6,3 +6,6 @@ pub use generic_factory::*;
 
 mod marshaler;
 pub use marshaler::*;
+
+mod array_proxy;
+pub use array_proxy::*;

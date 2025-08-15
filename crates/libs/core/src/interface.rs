@@ -237,7 +237,7 @@ pub unsafe trait Interface: Sized + Clone {
     /// Attempts to create a [`Weak`] reference to this object.
     fn downgrade(&self) -> Result<Weak<Self>> {
         self.cast::<imp::IWeakReferenceSource>()
-            .and_then(|source| Weak::downgrade(&source))
+            .map(|source| Weak::downgrade(&source))
     }
 
     /// Call `QueryInterface` on this interface
@@ -318,7 +318,7 @@ impl<I: Interface> InterfaceRef<'_, I> {
 
 impl<'a, 'i: 'a, I: Interface> From<&'i I> for InterfaceRef<'a, I> {
     #[inline(always)]
-    fn from(interface: &'a I) -> InterfaceRef<'a, I> {
+    fn from(interface: &'a I) -> Self {
         InterfaceRef::from_interface(interface)
     }
 }
