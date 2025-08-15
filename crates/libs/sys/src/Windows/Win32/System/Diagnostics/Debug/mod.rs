@@ -1,429 +1,429 @@
 #[cfg(feature = "Win32_System_Diagnostics_Debug_Extensions")]
 pub mod Extensions;
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn AddVectoredContinueHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
-windows_targets::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn BindImage(imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn AddVectoredExceptionHandler(first : u32, handler : PVECTORED_EXCEPTION_HANDLER) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn Beep(dwfreq : u32, dwduration : u32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn BindImage(imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn BindImageEx(flags : u32, imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, statusroutine : PIMAGEHLP_STATUS_ROUTINE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn CheckRemoteDebuggerPresent(hprocess : super::super::super::Foundation:: HANDLE, pbdebuggerpresent : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
+windows_link::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS32);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
-windows_targets::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
-windows_targets::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn CheckSumMappedFile(baseaddress : *const core::ffi::c_void, filelength : u32, headersum : *mut u32, checksum : *mut u32) -> *mut IMAGE_NT_HEADERS64);
+windows_link::link!("advapi32.dll" "system" fn CloseThreadWaitChainSession(wcthandle : *const core::ffi::c_void));
+windows_link::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_sys::core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_sys::core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DebugBreak());
-windows_targets::link!("kernel32.dll" "system" fn DebugBreakProcess(process : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DebugSetProcessKillOnExit(killonexit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_targets::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_targets::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_targets::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn CopyContext(destination : *mut CONTEXT, contextflags : CONTEXT_FLAGS, source : *const CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDump(filename : windows_sys::core::PCSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn DbgHelpCreateUserDumpW(filename : windows_sys::core::PCWSTR, callback : PDBGHELP_CREATE_USER_DUMP_CALLBACK, userdata : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DebugActiveProcess(dwprocessid : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DebugActiveProcessStop(dwprocessid : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DebugBreak());
+windows_link::link!("kernel32.dll" "system" fn DebugBreakProcess(process : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DebugSetProcessKillOnExit(killonexit : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn DecodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn DecodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, decodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn DecodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn EncodePointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("api-ms-win-core-util-l1-1-1.dll" "system" fn EncodeRemotePointer(processhandle : super::super::super::Foundation:: HANDLE, ptr : *const core::ffi::c_void, encodedptr : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+windows_link::link!("kernel32.dll" "system" fn EncodeSystemPointer(ptr : *const core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn EnumDirTree(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR, cb : PENUMDIRTREE_CALLBACK, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumDirTreeW(hprocess : super::super::super::Foundation:: HANDLE, rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR, cb : PENUMDIRTREE_CALLBACKW, data : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn FatalAppExitA(uaction : u32, lpmessagetext : windows_sys::core::PCSTR));
-windows_targets::link!("kernel32.dll" "system" fn FatalAppExitW(uaction : u32, lpmessagetext : windows_sys::core::PCWSTR));
-windows_targets::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
-windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
-windows_targets::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModules64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesEx(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesExW(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn EnumerateLoadedModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enumloadedmodulescallback : PENUMLOADED_MODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn FatalAppExitA(uaction : u32, lpmessagetext : windows_sys::core::PCSTR));
+windows_link::link!("kernel32.dll" "system" fn FatalAppExitW(uaction : u32, lpmessagetext : windows_sys::core::PCWSTR));
+windows_link::link!("kernel32.dll" "system" fn FatalExit(exitcode : i32) -> !);
+windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFile(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindDebugInfoFileExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindExecutableImage(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageEx(filename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindExecutableImageExW(filename : windows_sys::core::PCWSTR, symbolpath : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn FindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn FindFileInSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, one : u32, two : u32, three : u32, filepath : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn FlushInstructionCache(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, dwsize : usize) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn FormatMessageA(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PSTR, nsize : u32, arguments : *const *const i8) -> u32);
+windows_link::link!("kernel32.dll" "system" fn FormatMessageW(dwflags : FORMAT_MESSAGE_OPTIONS, lpsource : *const core::ffi::c_void, dwmessageid : u32, dwlanguageid : u32, lpbuffer : windows_sys::core::PWSTR, nsize : u32, arguments : *const *const i8) -> u32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-windows_targets::link!("kernel32.dll" "system" fn GetEnabledXStateFeatures() -> u64);
-windows_targets::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetEnabledXStateFeatures() -> u64);
+windows_link::link!("kernel32.dll" "system" fn GetErrorMode() -> u32);
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn GetImageConfigInformation(loadedimage : *const LOADED_IMAGE, imageconfiginformation : *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
+windows_link::link!("imagehlp.dll" "system" fn GetImageUnusedHeaderBytes(loadedimage : *const LOADED_IMAGE, sizeunusedheaderbytes : *mut u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn GetSymLoadError() -> u32);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
-windows_targets::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> windows_sys::core::BOOL);
-windows_targets::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
-#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Security_WinTrust")]
-windows_targets::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-windows_targets::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Security_WinTrust")]
-windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_Security_WinTrust")]
-windows_targets::link!("imagehlp.dll" "system" fn ImageGetCertificateHeader(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn ImageLoad(dllname : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR) -> *mut LOADED_IMAGE);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
-windows_targets::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> windows_sys::core::BOOL);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
-#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> *mut API_VERSION);
-windows_targets::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
-#[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> windows_sys::core::BOOL);
-#[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetThreadErrorMode() -> u32);
+windows_link::link!("kernel32.dll" "system" fn GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut LDT_ENTRY) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn GetThreadWaitChain(wcthandle : *const core::ffi::c_void, context : usize, flags : WAIT_CHAIN_THREAD_OPTIONS, threadid : u32, nodecount : *mut u32, nodeinfoarray : *mut WAITCHAIN_NODE_INFO, iscycle : *mut windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn GetTimestampForLoadedLibrary(module : super::super::super::Foundation:: HMODULE) -> u32);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn GetXStateFeaturesMask(context : *const CONTEXT, featuremask : *mut u64) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security_WinTrust")]
+windows_link::link!("imagehlp.dll" "system" fn ImageAddCertificate(filehandle : super::super::super::Foundation:: HANDLE, certificate : *const super::super::super::Security::WinTrust:: WIN_CERTIFICATE, index : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToData(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn ImageDirectoryEntryToDataEx(base : *const core::ffi::c_void, mappedasimage : bool, directoryentry : IMAGE_DIRECTORY_ENTRY, size : *mut u32, foundheader : *mut *mut IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+windows_link::link!("imagehlp.dll" "system" fn ImageEnumerateCertificates(filehandle : super::super::super::Foundation:: HANDLE, typefilter : u16, certificatecount : *mut u32, indices : *mut u32, indexcount : u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security_WinTrust")]
+windows_link::link!("imagehlp.dll" "system" fn ImageGetCertificateData(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificate : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE, requiredlength : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_Security_WinTrust")]
+windows_link::link!("imagehlp.dll" "system" fn ImageGetCertificateHeader(filehandle : super::super::super::Foundation:: HANDLE, certificateindex : u32, certificateheader : *mut super::super::super::Security::WinTrust:: WIN_CERTIFICATE) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn ImageGetDigestStream(filehandle : super::super::super::Foundation:: HANDLE, digestlevel : u32, digestfunction : DIGEST_FUNCTION, digesthandle : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn MapAndLoad(imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, loadedimage : *mut LOADED_IMAGE, dotdll : windows_sys::core::BOOL, readonly : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumA(filename : windows_sys::core::PCSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
-windows_targets::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : windows_sys::core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
+windows_link::link!("imagehlp.dll" "system" fn ImageLoad(dllname : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR) -> *mut LOADED_IMAGE);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageNtHeader(base : *const core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64);
+windows_link::link!("imagehlp.dll" "system" fn ImageRemoveCertificate(filehandle : super::super::super::Foundation:: HANDLE, index : u32) -> windows_sys::core::BOOL);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToSection(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32) -> *mut IMAGE_SECTION_HEADER);
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS32, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+#[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_SystemInformation")]
+windows_link::link!("dbghelp.dll" "system" fn ImageRvaToVa(ntheaders : *const IMAGE_NT_HEADERS64, base : *const core::ffi::c_void, rva : u32, lastrvasection : *const *const IMAGE_SECTION_HEADER) -> *mut core::ffi::c_void);
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+windows_link::link!("imagehlp.dll" "system" fn ImageUnload(loadedimage : *mut LOADED_IMAGE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn ImagehlpApiVersion() -> *mut API_VERSION);
+windows_link::link!("dbghelp.dll" "system" fn ImagehlpApiVersionEx(appversion : *const API_VERSION) -> *mut API_VERSION);
+#[cfg(feature = "Win32_System_Kernel")]
+windows_link::link!("kernel32.dll" "system" fn InitializeContext(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32) -> windows_sys::core::BOOL);
+#[cfg(feature = "Win32_System_Kernel")]
+windows_link::link!("kernel32.dll" "system" fn InitializeContext2(buffer : *mut core::ffi::c_void, contextflags : CONTEXT_FLAGS, context : *mut *mut CONTEXT, contextlength : *mut u32, xstatecompactionmask : u64) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn IsDebuggerPresent() -> windows_sys::core::BOOL);
+#[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Kernel")]
+windows_link::link!("kernel32.dll" "system" fn LocateXStateFeature(context : *const CONTEXT, featureid : u32, length : *mut u32) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn MakeSureDirectoryPathExists(dirpath : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+#[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
+windows_link::link!("imagehlp.dll" "system" fn MapAndLoad(imagename : windows_sys::core::PCSTR, dllpath : windows_sys::core::PCSTR, loadedimage : *mut LOADED_IMAGE, dotdll : windows_sys::core::BOOL, readonly : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn MapFileAndCheckSumA(filename : windows_sys::core::PCSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
+windows_link::link!("imagehlp.dll" "system" fn MapFileAndCheckSumW(filename : windows_sys::core::PCWSTR, headersum : *mut u32, checksum : *mut u32) -> u32);
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
-windows_targets::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("user32.dll" "system" fn MessageBeep(utype : super::super::super::UI::WindowsAndMessaging:: MESSAGEBOX_STYLE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn MiniDumpReadDumpStream(baseofdump : *const core::ffi::c_void, streamnumber : u32, dir : *mut *mut MINIDUMP_DIRECTORY, streampointer : *mut *mut core::ffi::c_void, streamsize : *mut u32) -> windows_sys::core::BOOL);
 #[cfg(all(feature = "Win32_Storage_FileSystem", feature = "Win32_System_Kernel", feature = "Win32_System_Memory"))]
-windows_targets::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> windows_sys::core::BOOL);
-windows_targets::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
-windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringA(lpoutputstring : windows_sys::core::PCSTR));
-windows_targets::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_sys::core::PCWSTR));
-windows_targets::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
+windows_link::link!("dbghelp.dll" "system" fn MiniDumpWriteDump(hprocess : super::super::super::Foundation:: HANDLE, processid : u32, hfile : super::super::super::Foundation:: HANDLE, dumptype : MINIDUMP_TYPE, exceptionparam : *const MINIDUMP_EXCEPTION_INFORMATION, userstreamparam : *const MINIDUMP_USER_STREAM_INFORMATION, callbackparam : *const MINIDUMP_CALLBACK_INFORMATION) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn OpenThreadWaitChainSession(flags : OPEN_THREAD_WAIT_CHAIN_SESSION_FLAGS, callback : PWAITCHAINCALLBACK) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn OutputDebugStringA(lpoutputstring : windows_sys::core::PCSTR));
+windows_link::link!("kernel32.dll" "system" fn OutputDebugStringW(lpoutputstring : windows_sys::core::PCWSTR));
+windows_link::link!("kernel32.dll" "system" fn RaiseException(dwexceptioncode : u32, dwexceptionflags : u32, nnumberofarguments : u32, lparguments : *const usize));
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_sys::core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : *const core::ffi::c_void));
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage(currentimagename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, frebase : windows_sys::core::BOOL, frebasesysfileok : windows_sys::core::BOOL, fgoingdown : windows_sys::core::BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut usize, newimagesize : *mut u32, newimagebase : *mut usize, timestamp : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("imagehlp.dll" "system" fn ReBaseImage64(currentimagename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, frebase : windows_sys::core::BOOL, frebasesysfileok : windows_sys::core::BOOL, fgoingdown : windows_sys::core::BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut u64, newimagesize : *mut u32, newimagebase : *mut u64, timestamp : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
-windows_targets::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
-windows_targets::link!("dbghelp.dll" "system" fn RemoveInvalidModuleList(hprocess : super::super::super::Foundation:: HANDLE));
-windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
-windows_targets::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation:: HANDLE, ploadmodule : windows_sys::core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn RaiseFailFastException(pexceptionrecord : *const EXCEPTION_RECORD, pcontextrecord : *const CONTEXT, dwflags : u32));
+windows_link::link!("dbghelp.dll" "system" fn RangeMapAddPeImageSections(rmaphandle : *const core::ffi::c_void, imagename : windows_sys::core::PCWSTR, mappedimage : *const core::ffi::c_void, mappingbytes : u32, imagebase : u64, usertag : u64, mappingflags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn RangeMapCreate() -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn RangeMapFree(rmaphandle : *const core::ffi::c_void));
+windows_link::link!("dbghelp.dll" "system" fn RangeMapRead(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *mut core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn RangeMapRemove(rmaphandle : *const core::ffi::c_void, usertag : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn RangeMapWrite(rmaphandle : *const core::ffi::c_void, offset : u64, buffer : *const core::ffi::c_void, requestbytes : u32, flags : u32, donebytes : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn ReBaseImage(currentimagename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, frebase : windows_sys::core::BOOL, frebasesysfileok : windows_sys::core::BOOL, fgoingdown : windows_sys::core::BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut usize, newimagesize : *mut u32, newimagebase : *mut usize, timestamp : u32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn ReBaseImage64(currentimagename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, frebase : windows_sys::core::BOOL, frebasesysfileok : windows_sys::core::BOOL, fgoingdown : windows_sys::core::BOOL, checkimagesize : u32, oldimagesize : *mut u32, oldimagebase : *mut u64, newimagesize : *mut u32, newimagebase : *mut u64, timestamp : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn ReadProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *mut core::ffi::c_void, nsize : usize, lpnumberofbytesread : *mut usize) -> windows_sys::core::BOOL);
+windows_link::link!("advapi32.dll" "system" fn RegisterWaitChainCOMCallback(callstatecallback : PCOGETCALLSTATE, activationstatecallback : PCOGETACTIVATIONSTATE));
+windows_link::link!("dbghelp.dll" "system" fn RemoveInvalidModuleList(hprocess : super::super::super::Foundation:: HANDLE));
+windows_link::link!("kernel32.dll" "system" fn RemoveVectoredContinueHandler(handle : *const core::ffi::c_void) -> u32);
+windows_link::link!("kernel32.dll" "system" fn RemoveVectoredExceptionHandler(handle : *const core::ffi::c_void) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn ReportSymbolLoadSummary(hprocess : super::super::super::Foundation:: HANDLE, ploadmodule : windows_sys::core::PCWSTR, psymboldata : *const DBGHELP_DATA_REPORT_STRUCT) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : u64) -> bool);
 #[cfg(target_arch = "aarch64")]
-windows_targets::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlAddFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, baseaddress : usize) -> bool);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+windows_link::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
 #[cfg(target_arch = "aarch64")]
-windows_targets::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
+windows_link::link!("ntdll.dll" "system" fn RtlAddGrowableFunctionTable(dynamictable : *mut *mut core::ffi::c_void, functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount : u32, maximumentrycount : u32, rangebase : usize, rangeend : usize) -> u32);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
+windows_link::link!("kernel32.dll" "system" fn RtlCaptureContext(contextrecord : *mut CONTEXT));
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
-windows_targets::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
+windows_link::link!("kernel32.dll" "system" fn RtlCaptureContext2(contextrecord : *mut CONTEXT));
+windows_link::link!("kernel32.dll" "system" fn RtlCaptureStackBackTrace(framestoskip : u32, framestocapture : u32, backtrace : *mut *mut core::ffi::c_void, backtracehash : *mut u32) -> u16);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> bool);
 #[cfg(target_arch = "aarch64")]
-windows_targets::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlDeleteFunctionTable(functiontable : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> bool);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
+windows_link::link!("ntdll.dll" "system" fn RtlDeleteGrowableFunctionTable(dynamictable : *const core::ffi::c_void));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
+windows_link::link!("ntdll.dll" "system" fn RtlGrowFunctionTable(dynamictable : *mut core::ffi::c_void, newentrycount : u32));
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
 #[cfg(target_arch = "aarch64")]
-windows_targets::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
+windows_link::link!("kernel32.dll" "system" fn RtlInstallFunctionTableCallback(tableidentifier : u64, baseaddress : u64, length : u32, callback : PGET_RUNTIME_FUNCTION_CALLBACK, context : *const core::ffi::c_void, outofprocesscallbackdll : windows_sys::core::PCWSTR) -> bool);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
-windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
+windows_link::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : u64, imagebase : *mut u64, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY);
 #[cfg(target_arch = "aarch64")]
-windows_targets::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut usize, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY);
-windows_targets::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
-windows_targets::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
+windows_link::link!("kernel32.dll" "system" fn RtlLookupFunctionEntry(controlpc : usize, imagebase : *mut usize, historytable : *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY);
+windows_link::link!("kernel32.dll" "system" fn RtlPcToFileHeader(pcvalue : *const core::ffi::c_void, baseofimage : *mut *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+windows_link::link!("kernel32.dll" "system" fn RtlRaiseException(exceptionrecord : *const EXCEPTION_RECORD));
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
-windows_targets::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
+windows_link::link!("kernel32.dll" "C" fn RtlRestoreContext(contextrecord : *const CONTEXT, exceptionrecord : *const EXCEPTION_RECORD));
+windows_link::link!("kernel32.dll" "system" fn RtlUnwind(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void));
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
+windows_link::link!("kernel32.dll" "system" fn RtlUnwindEx(targetframe : *const core::ffi::c_void, targetip : *const core::ffi::c_void, exceptionrecord : *const EXCEPTION_RECORD, returnvalue : *const core::ffi::c_void, contextrecord : *const CONTEXT, historytable : *const UNWIND_HISTORY_TABLE));
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+windows_link::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : u64, controlpc : u64, functionentry : *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut u64, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
 #[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
-windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
-windows_targets::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
+windows_link::link!("kernel32.dll" "system" fn RtlVirtualUnwind(handlertype : RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase : usize, controlpc : usize, functionentry : *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord : *mut CONTEXT, handlerdata : *mut *mut core::ffi::c_void, establisherframe : *mut usize, contextpointers : *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel:: EXCEPTION_ROUTINE);
+windows_link::link!("dbghelp.dll" "system" fn SearchTreeForFile(rootpath : windows_sys::core::PCSTR, inputpathname : windows_sys::core::PCSTR, outputpathbuffer : windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SearchTreeForFileW(rootpath : windows_sys::core::PCWSTR, inputpathname : windows_sys::core::PCWSTR, outputpathbuffer : windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SetCheckUserInterruptShared(lpstartaddress : LPCALL_BACK_USER_INTERRUPT_ROUTINE));
+windows_link::link!("kernel32.dll" "system" fn SetErrorMode(umode : THREAD_ERROR_MODE) -> THREAD_ERROR_MODE);
 #[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> windows_sys::core::BOOL);
 #[cfg(any(target_arch = "aarch64", target_arch = "arm64ec", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
+windows_link::link!("imagehlp.dll" "system" fn SetImageConfigInformation(loadedimage : *mut LOADED_IMAGE, imageconfiginformation : *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SetSymLoadError(error : u32));
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetThreadErrorMode(dwnewmode : THREAD_ERROR_MODE, lpoldmode : *mut THREAD_ERROR_MODE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
+windows_link::link!("kernel32.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
 #[cfg(any(target_arch = "arm64ec", target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn SetXStateFeaturesMask(context : *mut CONTEXT, featuremask : u64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymCleanup(hprocess : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::super::super::Foundation:: HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_sys::core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_sys::core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn StackWalk(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE, translateaddress : PTRANSLATE_ADDRESS_ROUTINE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn StackWalk2(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, gettargetattributevalue : PGET_TARGET_ATTRIBUTE_VALUE64, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn StackWalk64(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME64, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn StackWalkEx(machinetype : u32, hprocess : super::super::super::Foundation:: HANDLE, hthread : super::super::super::Foundation:: HANDLE, stackframe : *mut STACKFRAME_EX, contextrecord : *mut core::ffi::c_void, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, functiontableaccessroutine : PFUNCTION_TABLE_ACCESS_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64, translateaddress : PTRANSLATE_ADDRESS_ROUTINE64, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStream(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamA(hprocess : super::super::super::Foundation:: HANDLE, base : u64, streamfile : windows_sys::core::PCSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddSourceStreamW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, buffer : *const u8, size : usize) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, size : u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymAddrIncludeInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymCleanup(hprocess : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymCompareInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, address1 : u64, inlinecontext1 : u32, retaddress1 : u64, address2 : u64, retaddress2 : u64) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbol(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymDeleteSymbolW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, address : u64, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumProcesses(enumprocessescallback : PSYM_ENUMPROCESSES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFileTokens(hprocess : super::super::super::Foundation:: HANDLE, base : u64, callback : PENUMSOURCEFILETOKENSCALLBACK) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFiles(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_sys::core::PCSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceFilesW(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, mask : windows_sys::core::PCWSTR, cbsrcfiles : PSYM_ENUMSOURCEFILES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLines(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSourceLinesW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, obj : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, line : u32, flags : u32, enumlinescallback : PSYM_ENUMLINES_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSym(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsEx(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsExW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsForAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypes(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesByNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, mask : windows_sys::core::PCWSTR, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumTypesW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModules64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateModulesW64(hprocess : super::super::super::Foundation:: HANDLE, enummodulescallback : PSYM_ENUMMODULES_CALLBACKW64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbols64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_sys::core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_sys::core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymEnumerateSymbolsW64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, enumsymbolscallback : PSYM_ENUMSYMBOLS_CALLBACK64W, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFile(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, callback : PFIND_DEBUG_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn SymFindDebugInfoFileW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCWSTR, debugfilepath : windows_sys::core::PWSTR, callback : PFIND_DEBUG_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImage(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCSTR, imagefilepath : windows_sys::core::PSTR, callback : PFIND_EXE_FILE_CALLBACK, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn SymFindExecutableImageW(hprocess : super::super::super::Foundation:: HANDLE, filename : windows_sys::core::PCWSTR, imagefilepath : windows_sys::core::PWSTR, callback : PFIND_EXE_FILE_CALLBACKW, callerdata : *const core::ffi::c_void) -> super::super::super::Foundation:: HANDLE);
+windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_sys::core::PSTR, callback : PFINDFILEINPATHCALLBACK, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFindFileInPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, id : *const core::ffi::c_void, two : u32, three : u32, flags : SYM_FIND_ID_OPTION, foundfile : windows_sys::core::PWSTR, callback : PFINDFILEINPATHCALLBACKW, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromAddrW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromIndexW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32, displacement : *mut u64, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromNameW(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, token : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, buffer : *mut u64, bufferlines : u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_sys::core::PSTR, size : usize) -> windows_sys::core::PSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_sys::core::PWSTR, size : usize) -> windows_sys::core::PWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u32) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn SymFunctionTableAccess64AccessRoutines(hprocess : super::super::super::Foundation:: HANDLE, addrbase : u64, readmemoryroutine : PREAD_PROCESS_MEMORY_ROUTINE64, getmodulebaseroutine : PGET_MODULE_BASE_ROUTINE64) -> *mut core::ffi::c_void);
+windows_link::link!("dbghelp.dll" "system" fn SymGetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetFileLineOffsets64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, buffer : *mut u64, bufferlines : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectory(r#type : u32, dir : windows_sys::core::PSTR, size : usize) -> windows_sys::core::PSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymGetHomeDirectoryW(r#type : u32, dir : windows_sys::core::PWSTR, size : usize) -> windows_sys::core::PWSTR);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromAddrW64(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line64 : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromInlineContextW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u64, inlinecontext : u32, qwmodulebaseaddress : u64, pdwdisplacement : *mut u32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromName64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCSTR, filename : windows_sys::core::PCSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineFromNameW64(hprocess : super::super::super::Foundation:: HANDLE, modulename : windows_sys::core::PCWSTR, filename : windows_sys::core::PCWSTR, dwlinenumber : u32, pldisplacement : *mut i32, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineNext(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineNext64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLineNextW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrev(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrev64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetLinePrevW64(hprocess : super::super::super::Foundation:: HANDLE, line : *mut IMAGEHLP_LINEW64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64) -> u64);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleBase64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64) -> u64);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULE) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULE64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfo64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULE64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULEW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PWSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_sys::core::PCSTR, filespec : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCSTR, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCWSTR, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, tokenname : windows_sys::core::PCSTR, tokenparameters : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, tokenname : windows_sys::core::PCWSTR, tokenparameters : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_sys::core::PCWSTR, filespec : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, varname : windows_sys::core::PCSTR, value : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, varname : windows_sys::core::PCWSTR, value : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, moduleinfo : *mut IMAGEHLP_MODULEW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetModuleInfoW64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, moduleinfo : *mut IMAGEHLP_MODULEW64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetOmaps(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, omapto : *mut *mut OMAP, comapto : *mut u64, omapfrom : *mut *mut OMAP, comapfrom : *mut u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetOptions() -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymGetScope(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetScopeW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PWSTR, searchpathlength : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFile(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_sys::core::PCSTR, filespec : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksum(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileChecksumW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, pchecksumtype : *mut u32, pchecksum : *mut u8, checksumsize : u32, pactualbyteswritten : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCSTR, params : windows_sys::core::PCSTR, filepath : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, tokenname : windows_sys::core::PCWSTR, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileToken(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenName(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCSTR, tokenname : windows_sys::core::PCSTR, tokenparameters : windows_sys::core::PCSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenByTokenNameW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, tokenname : windows_sys::core::PCWSTR, tokenparameters : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileTokenW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, filespec : windows_sys::core::PCWSTR, token : *mut *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceFileW(hprocess : super::super::super::Foundation:: HANDLE, base : u64, params : windows_sys::core::PCWSTR, filespec : windows_sys::core::PCWSTR, filepath : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromToken(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCSTR, varname : windows_sys::core::PCSTR, value : windows_sys::core::PSTR, size : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSourceVarFromTokenW(hprocess : super::super::super::Foundation:: HANDLE, token : *const core::ffi::c_void, params : windows_sys::core::PCWSTR, varname : windows_sys::core::PCWSTR, value : windows_sys::core::PWSTR, size : u32) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u64, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr(hprocess : super::super::super::Foundation:: HANDLE, dwaddr : u32, pdwdisplacement : *mut u32, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromAddr64(hprocess : super::super::super::Foundation:: HANDLE, qwaddr : u64, pdwdisplacement : *mut u64, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromName(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymFromName64(hprocess : super::super::super::Foundation:: HANDLE, name : windows_sys::core::PCSTR, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymNext(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymNext64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, imagefile : windows_sys::core::PCSTR, r#type : u32, symbolfile : windows_sys::core::PSTR, csymbolfile : usize, dbgfile : windows_sys::core::PSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, imagefile : windows_sys::core::PCWSTR, r#type : u32, symbolfile : windows_sys::core::PWSTR, csymbolfile : usize, dbgfile : windows_sys::core::PWSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::super::super::Foundation:: HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymInitialize(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_sys::core::PCSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymInitializeW(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_sys::core::PCWSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymPrev(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymPrev64(hprocess : super::super::super::Foundation:: HANDLE, symbol : *mut IMAGEHLP_SYMBOL64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFile(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, imagefile : windows_sys::core::PCSTR, r#type : u32, symbolfile : windows_sys::core::PSTR, csymbolfile : usize, dbgfile : windows_sys::core::PSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetSymbolFileW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, imagefile : windows_sys::core::PCWSTR, r#type : u32, symbolfile : windows_sys::core::PWSTR, csymbolfile : usize, dbgfile : windows_sys::core::PWSTR, cdbgfile : usize) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromName(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCSTR, symbol : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeFromNameW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, name : windows_sys::core::PCWSTR, symbol : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfo(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, typeid : u32, gettype : IMAGEHLP_SYMBOL_TYPE_INFO, pinfo : *mut core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetTypeInfoEx(hprocess : super::super::super::Foundation:: HANDLE, modbase : u64, params : *mut IMAGEHLP_GET_TYPE_INFO_PARAMS) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymGetUnwindInfo(hprocess : super::super::super::Foundation:: HANDLE, address : u64, buffer : *mut core::ffi::c_void, size : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymInitialize(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_sys::core::PCSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymInitializeW(hprocess : super::super::super::Foundation:: HANDLE, usersearchpath : windows_sys::core::PCWSTR, finvadeprocess : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
-windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-windows_targets::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCWSTR, modulename : windows_sys::core::PCWSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
-windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileName(filename : windows_sys::core::PCSTR, r#match : windows_sys::core::PCSTR, filenamestop : *mut windows_sys::core::PSTR, matchstop : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymMatchFileNameW(filename : windows_sys::core::PCWSTR, r#match : windows_sys::core::PCWSTR, filenamestop : *mut windows_sys::core::PWSTR, matchstop : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymMatchString(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringA(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymMatchStringW(string : windows_sys::core::PCWSTR, expression : windows_sys::core::PCWSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : *mut u32, curframeindex : *mut u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymRefreshModuleList(hprocess : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModule(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u32, sizeofdll : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModule64(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, sizeofdll : u32) -> u64);
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleEx(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCSTR, modulename : windows_sys::core::PCSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
+windows_link::link!("dbghelp.dll" "system" fn SymLoadModuleExW(hprocess : super::super::super::Foundation:: HANDLE, hfile : super::super::super::Foundation:: HANDLE, imagename : windows_sys::core::PCWSTR, modulename : windows_sys::core::PCWSTR, baseofdll : u64, dllsize : u32, data : *const MODLOAD_DATA, flags : SYM_LOAD_FLAGS) -> u64);
+windows_link::link!("dbghelp.dll" "system" fn SymMatchFileName(filename : windows_sys::core::PCSTR, r#match : windows_sys::core::PCSTR, filenamestop : *mut windows_sys::core::PSTR, matchstop : *mut windows_sys::core::PSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymMatchFileNameW(filename : windows_sys::core::PCWSTR, r#match : windows_sys::core::PCWSTR, filenamestop : *mut windows_sys::core::PWSTR, matchstop : *mut windows_sys::core::PWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymMatchString(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymMatchStringA(string : windows_sys::core::PCSTR, expression : windows_sys::core::PCSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymMatchStringW(string : windows_sys::core::PCWSTR, expression : windows_sys::core::PCWSTR, fcase : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymNext(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymNextW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymPrev(hprocess : super::super::super::Foundation:: HANDLE, si : *mut SYMBOL_INFO) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymPrevW(hprocess : super::super::super::Foundation:: HANDLE, siw : *mut SYMBOL_INFOW) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymQueryInlineTrace(hprocess : super::super::super::Foundation:: HANDLE, startaddress : u64, startcontext : u32, startretaddress : u64, curaddress : u64, curcontext : *mut u32, curframeindex : *mut u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymRefreshModuleList(hprocess : super::super::super::Foundation:: HANDLE) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterCallbackW64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_REGISTERED_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::super::super::Foundation:: HANDLE, stackframe : *const IMAGEHLP_STACK_FRAME, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectory(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetHomeDirectoryW(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetParentWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaName(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, r#type : windows_sys::core::PCSTR, file1 : windows_sys::core::PCSTR, file2 : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvDeltaNameW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, r#type : windows_sys::core::PCWSTR, file1 : windows_sys::core::PCWSTR, file2 : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_sys::core::PCSTR, info : *mut SYMSRV_INDEX_INFO, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_sys::core::PCWSTR, info : *mut SYMSRV_INDEX_INFOW, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, index : windows_sys::core::PSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, index : windows_sys::core::PWSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_sys::core::PCSTR, id : *mut windows_sys::core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_sys::core::PCWSTR, id : *mut windows_sys::core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplement(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvGetSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStore(hprocess : super::super::super::Foundation:: HANDLE, path : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvIsStoreW(hprocess : super::super::super::Foundation:: HANDLE, path : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_sys::core::PCSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_sys::core::PCWSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::PCSTR);
-windows_targets::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::PCWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK, usercontext : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymRegisterFunctionEntryCallback64(hprocess : super::super::super::Foundation:: HANDLE, callbackfunction : PSYMBOL_FUNCENTRY_CALLBACK64, usercontext : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSearch(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACK, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSearchW(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32, symtag : u32, mask : windows_sys::core::PCWSTR, address : u64, enumsymbolscallback : PSYM_ENUMERATESYMBOLS_CALLBACKW, usercontext : *const core::ffi::c_void, options : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetContext(hprocess : super::super::super::Foundation:: HANDLE, stackframe : *const IMAGEHLP_STACK_FRAME, context : *const core::ffi::c_void) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetExtendedOption(option : IMAGEHLP_EXTENDED_OPTIONS, value : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetHomeDirectory(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_sys::core::PCSTR) -> windows_sys::core::PSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSetHomeDirectoryW(hprocess : super::super::super::Foundation:: HANDLE, dir : windows_sys::core::PCWSTR) -> windows_sys::core::PWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSetOptions(symoptions : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymSetParentWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromAddr(hprocess : super::super::super::Foundation:: HANDLE, address : u64) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromIndex(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64, index : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetScopeFromInlineContext(hprocess : super::super::super::Foundation:: HANDLE, address : u64, inlinecontext : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPath(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSetSearchPathW(hprocess : super::super::super::Foundation:: HANDLE, searchpatha : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvDeltaName(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, r#type : windows_sys::core::PCSTR, file1 : windows_sys::core::PCSTR, file2 : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvDeltaNameW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, r#type : windows_sys::core::PCWSTR, file1 : windows_sys::core::PCWSTR, file2 : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfo(file : windows_sys::core::PCSTR, info : *mut SYMSRV_INDEX_INFO, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexInfoW(file : windows_sys::core::PCWSTR, info : *mut SYMSRV_INDEX_INFOW, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexString(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, index : windows_sys::core::PSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexStringW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, index : windows_sys::core::PWSTR, size : usize, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexes(file : windows_sys::core::PCSTR, id : *mut windows_sys::core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetFileIndexesW(file : windows_sys::core::PCWSTR, id : *mut windows_sys::core::GUID, val1 : *mut u32, val2 : *mut u32, flags : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetSupplement(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR) -> windows_sys::core::PCSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvGetSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR) -> windows_sys::core::PCWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvIsStore(hprocess : super::super::super::Foundation:: HANDLE, path : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvIsStoreW(hprocess : super::super::super::Foundation:: HANDLE, path : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFile(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_sys::core::PCSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreFileW(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : SYM_SRV_STORE_FILE_FLAGS) -> windows_sys::core::PCWSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplement(hprocess : super::super::super::Foundation:: HANDLE, srvpath : windows_sys::core::PCSTR, node : windows_sys::core::PCSTR, file : windows_sys::core::PCSTR, flags : u32) -> windows_sys::core::PCSTR);
+windows_link::link!("dbghelp.dll" "system" fn SymSrvStoreSupplementW(hprocess : super::super::super::Foundation:: HANDLE, sympath : windows_sys::core::PCWSTR, node : windows_sys::core::PCWSTR, file : windows_sys::core::PCWSTR, flags : u32) -> windows_sys::core::PCWSTR);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymUnDName(sym : *const IMAGEHLP_SYMBOL, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymUnDName64(sym : *const IMAGEHLP_SYMBOL64, undecname : windows_sys::core::PSTR, undecnamelength : u32) -> windows_sys::core::BOOL);
 #[cfg(target_arch = "x86")]
-windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64) -> windows_sys::core::BOOL);
-windows_targets::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));
-windows_targets::link!("imagehlp.dll" "system" fn TouchFileTimes(filehandle : super::super::super::Foundation:: HANDLE, psystemtime : *const super::super::super::Foundation:: SYSTEMTIME) -> windows_sys::core::BOOL);
-windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_sys::core::PCSTR, outputstring : windows_sys::core::PSTR, maxstringlength : u32, flags : u32) -> u32);
-windows_targets::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_sys::core::PCWSTR, outputstring : windows_sys::core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u32) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn SymUnloadModule64(hprocess : super::super::super::Foundation:: HANDLE, baseofdll : u64) -> windows_sys::core::BOOL);
+windows_link::link!("api-ms-win-core-errorhandling-l1-1-3.dll" "system" fn TerminateProcessOnMemoryExhaustion(failedallocationsize : usize));
+windows_link::link!("imagehlp.dll" "system" fn TouchFileTimes(filehandle : super::super::super::Foundation:: HANDLE, psystemtime : *const super::super::super::Foundation:: SYSTEMTIME) -> windows_sys::core::BOOL);
+windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolName(name : windows_sys::core::PCSTR, outputstring : windows_sys::core::PSTR, maxstringlength : u32, flags : u32) -> u32);
+windows_link::link!("dbghelp.dll" "system" fn UnDecorateSymbolNameW(name : windows_sys::core::PCWSTR, outputstring : windows_sys::core::PWSTR, maxstringlength : u32, flags : u32) -> u32);
 #[cfg(all(feature = "Win32_System_Kernel", feature = "Win32_System_SystemInformation"))]
-windows_targets::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn UnMapAndLoad(loadedimage : *mut LOADED_IMAGE) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Kernel")]
-windows_targets::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
+windows_link::link!("kernel32.dll" "system" fn UnhandledExceptionFilter(exceptioninfo : *const EXCEPTION_POINTERS) -> i32);
 #[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn UpdateDebugInfoFile(imagefilename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_SystemInformation")]
-windows_targets::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> windows_sys::core::BOOL);
+windows_link::link!("imagehlp.dll" "system" fn UpdateDebugInfoFileEx(imagefilename : windows_sys::core::PCSTR, symbolpath : windows_sys::core::PCSTR, debugfilepath : windows_sys::core::PSTR, ntheaders : *const IMAGE_NT_HEADERS32, oldchecksum : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Threading")]
-windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WaitForDebugEvent(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> windows_sys::core::BOOL);
 #[cfg(feature = "Win32_System_Threading")]
-windows_targets::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut WOW64_CONTEXT) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> windows_sys::core::BOOL);
-windows_targets::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WaitForDebugEventEx(lpdebugevent : *mut DEBUG_EVENT, dwmilliseconds : u32) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Wow64GetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *mut WOW64_CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Wow64GetThreadSelectorEntry(hthread : super::super::super::Foundation:: HANDLE, dwselector : u32, lpselectorentry : *mut WOW64_LDT_ENTRY) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn Wow64SetThreadContext(hthread : super::super::super::Foundation:: HANDLE, lpcontext : *const WOW64_CONTEXT) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn WriteProcessMemory(hprocess : super::super::super::Foundation:: HANDLE, lpbaseaddress : *const core::ffi::c_void, lpbuffer : *const core::ffi::c_void, nsize : usize, lpnumberofbyteswritten : *mut usize) -> windows_sys::core::BOOL);
 pub const ABNORMAL_RESET_DETECTED: BUGCHECK_ERROR = 327u32;
 pub const ACPI_BIOS_ERROR: BUGCHECK_ERROR = 165u32;
 pub const ACPI_BIOS_FATAL_ERROR: BUGCHECK_ERROR = 224u32;
