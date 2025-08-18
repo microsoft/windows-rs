@@ -408,6 +408,7 @@ impl CoreInputViewKind {
     pub const Symbols: Self = Self(4i32);
     pub const Clipboard: Self = Self(5i32);
     pub const Dictation: Self = Self(6i32);
+    pub const Gamepad: Self = Self(7i32);
 }
 impl windows_core::TypeKind for CoreInputViewKind {
     type TypeKind = windows_core::CopyType;

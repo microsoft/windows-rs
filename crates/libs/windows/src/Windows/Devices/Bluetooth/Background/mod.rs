@@ -172,6 +172,14 @@ impl GattServiceProviderConnection {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    pub fn UpdateAdvertisingParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::GenericAttributeProfile::GattServiceProviderAdvertisingParameters>,
+    {
+        let this = &windows_core::Interface::cast::<IGattServiceProviderConnection2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+    }
     pub fn AllServices() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, GattServiceProviderConnection>> {
         Self::IGattServiceProviderConnectionStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -305,6 +313,19 @@ pub struct IGattServiceProviderConnection_Vtbl {
     #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
     Service: usize,
     pub Start: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IGattServiceProviderConnection2, IGattServiceProviderConnection2_Vtbl, 0x90d12be0_ebc0_484f_ae0a_7eb8b6266bac);
+impl windows_core::RuntimeType for IGattServiceProviderConnection2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGattServiceProviderConnection2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Bluetooth_GenericAttributeProfile")]
+    pub UpdateAdvertisingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_GenericAttributeProfile"))]
+    UpdateAdvertisingParameters: usize,
 }
 windows_core::imp::define_interface!(IGattServiceProviderConnectionStatics, IGattServiceProviderConnectionStatics_Vtbl, 0x3d509f4b_0b0e_4466_b8cd_6ebdda1fa17d);
 impl windows_core::RuntimeType for IGattServiceProviderConnectionStatics {

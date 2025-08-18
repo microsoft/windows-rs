@@ -183,6 +183,20 @@ pub struct IIppPrintDevice4_Vtbl {
     pub RefreshPrintDeviceCapabilities: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetMaxSupportedPdlVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IIppPrintDevice5, IIppPrintDevice5_Vtbl, 0xea927fca_e073_5db4_9aee_13df714e853a);
+impl windows_core::RuntimeType for IIppPrintDevice5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppPrintDevice5_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetDeviceProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetDeviceProperties: usize,
+    pub ReplaceDeviceProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
 impl windows_core::RuntimeType for IIppPrintDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -337,6 +351,91 @@ pub struct IPrintSchema_Vtbl {
     pub MergeAndValidateWithDefaultPrintTicketAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     MergeAndValidateWithDefaultPrintTicketAsync: usize,
+}
+windows_core::imp::define_interface!(IReplaceDevicePropertiesResult, IReplaceDevicePropertiesResult_Vtbl, 0x12feca4b_d973_57e1_826b_f75b9518a9f1);
+impl windows_core::RuntimeType for IReplaceDevicePropertiesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IReplaceDevicePropertiesResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut ReplaceDevicePropertiesStatus) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IVirtualPrinterInstallationParameters, IVirtualPrinterInstallationParameters_Vtbl, 0xbbc159b3_12f3_584c_8d26_b22c0dc83241);
+impl windows_core::RuntimeType for IVirtualPrinterInstallationParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVirtualPrinterInstallationParameters_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OutputFileExtensions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SupportedInputFormats: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrintDeviceCapabilitiesPackageRelativeFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPrintDeviceCapabilitiesPackageRelativeFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PrintDeviceResourcesPackageRelativeFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPrintDeviceResourcesPackageRelativeFilePath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PreferredInputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VirtualPrinterPreferredInputFormat) -> windows_core::HRESULT,
+    pub SetPreferredInputFormat: unsafe extern "system" fn(*mut core::ffi::c_void, VirtualPrinterPreferredInputFormat) -> windows_core::HRESULT,
+    pub PrinterUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetPrinterUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub EntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetEntryPoint: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IVirtualPrinterInstallationResult, IVirtualPrinterInstallationResult_Vtbl, 0x82defd78_1601_5657_85df_75eb691604bd);
+impl windows_core::RuntimeType for IVirtualPrinterInstallationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVirtualPrinterInstallationResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut VirtualPrinterInstallationStatus) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IVirtualPrinterManagerStatics, IVirtualPrinterManagerStatics_Vtbl, 0x141084b6_6702_5b5f_83da_c75891657554);
+impl windows_core::RuntimeType for IVirtualPrinterManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVirtualPrinterManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InstallVirtualPrinterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InstallVirtualPrinterAsync2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InstallVirtualPrinterForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InstallVirtualPrinterForAllUsersAsync2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAllVirtualPrinters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FindAllVirtualPrinters2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveVirtualPrinterAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RemoveVirtualPrinterForAllUsersAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IVirtualPrinterSupportedFormat, IVirtualPrinterSupportedFormat_Vtbl, 0x3801fa17_22b5_5dab_ad38_39e47d6071af);
+impl windows_core::RuntimeType for IVirtualPrinterSupportedFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVirtualPrinterSupportedFormat_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetContentType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MaxSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetMaxSupportedVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IVirtualPrinterSupportedFormatFactory, IVirtualPrinterSupportedFormatFactory_Vtbl, 0x6daaed44_97a6_57f4_be8b_9dbabc587f2d);
+impl windows_core::RuntimeType for IVirtualPrinterSupportedFormatFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IVirtualPrinterSupportedFormatFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -1071,6 +1170,24 @@ impl IppPrintDevice {
             (windows_core::Interface::vtable(this).GetMaxSupportedPdlVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(pdlcontenttype), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetDeviceProperties(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetDeviceProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ReplaceDeviceProperties<P0>(&self, deviceproperties: P0) -> windows_core::Result<ReplaceDevicePropertiesResult>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>,
+    {
+        let this = &windows_core::Interface::cast::<IIppPrintDevice5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ReplaceDeviceProperties)(windows_core::Interface::as_raw(this), deviceproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IIppPrintDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1502,3 +1619,337 @@ impl windows_core::RuntimeName for PrintSchema {
 }
 unsafe impl Send for PrintSchema {}
 unsafe impl Sync for PrintSchema {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct ReplaceDevicePropertiesResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(ReplaceDevicePropertiesResult, windows_core::IUnknown, windows_core::IInspectable);
+impl ReplaceDevicePropertiesResult {
+    pub fn Status(&self) -> windows_core::Result<ReplaceDevicePropertiesStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for ReplaceDevicePropertiesResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IReplaceDevicePropertiesResult>();
+}
+unsafe impl windows_core::Interface for ReplaceDevicePropertiesResult {
+    type Vtable = <IReplaceDevicePropertiesResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IReplaceDevicePropertiesResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for ReplaceDevicePropertiesResult {
+    const NAME: &'static str = "Windows.Devices.Printers.ReplaceDevicePropertiesResult";
+}
+unsafe impl Send for ReplaceDevicePropertiesResult {}
+unsafe impl Sync for ReplaceDevicePropertiesResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct ReplaceDevicePropertiesStatus(pub i32);
+impl ReplaceDevicePropertiesStatus {
+    pub const Succeeded: Self = Self(0i32);
+    pub const AccessDenied: Self = Self(1i32);
+    pub const OtherFailure: Self = Self(2i32);
+}
+impl windows_core::TypeKind for ReplaceDevicePropertiesStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for ReplaceDevicePropertiesStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.ReplaceDevicePropertiesStatus;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VirtualPrinterInstallationParameters(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VirtualPrinterInstallationParameters, windows_core::IUnknown, windows_core::IInspectable);
+impl VirtualPrinterInstallationParameters {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VirtualPrinterInstallationParameters, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn PrinterName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrinterName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPrinterName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn OutputFileExtensions(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OutputFileExtensions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SupportedInputFormats(&self) -> windows_core::Result<windows_collections::IVector<VirtualPrinterSupportedFormat>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SupportedInputFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PrintDeviceCapabilitiesPackageRelativeFilePath(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesPackageRelativeFilePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPrintDeviceCapabilitiesPackageRelativeFilePath(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesPackageRelativeFilePath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn PrintDeviceResourcesPackageRelativeFilePath(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrintDeviceResourcesPackageRelativeFilePath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetPrintDeviceResourcesPackageRelativeFilePath(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPrintDeviceResourcesPackageRelativeFilePath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn PreferredInputFormat(&self) -> windows_core::Result<VirtualPrinterPreferredInputFormat> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreferredInputFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPreferredInputFormat(&self, value: VirtualPrinterPreferredInputFormat) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPreferredInputFormat)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PrinterUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrinterUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetPrinterUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPrinterUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
+    pub fn EntryPoint(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).EntryPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetEntryPoint(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetEntryPoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+}
+impl windows_core::RuntimeType for VirtualPrinterInstallationParameters {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVirtualPrinterInstallationParameters>();
+}
+unsafe impl windows_core::Interface for VirtualPrinterInstallationParameters {
+    type Vtable = <IVirtualPrinterInstallationParameters as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVirtualPrinterInstallationParameters as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VirtualPrinterInstallationParameters {
+    const NAME: &'static str = "Windows.Devices.Printers.VirtualPrinterInstallationParameters";
+}
+unsafe impl Send for VirtualPrinterInstallationParameters {}
+unsafe impl Sync for VirtualPrinterInstallationParameters {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VirtualPrinterInstallationResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VirtualPrinterInstallationResult, windows_core::IUnknown, windows_core::IInspectable);
+impl VirtualPrinterInstallationResult {
+    pub fn Status(&self) -> windows_core::Result<VirtualPrinterInstallationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for VirtualPrinterInstallationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVirtualPrinterInstallationResult>();
+}
+unsafe impl windows_core::Interface for VirtualPrinterInstallationResult {
+    type Vtable = <IVirtualPrinterInstallationResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVirtualPrinterInstallationResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VirtualPrinterInstallationResult {
+    const NAME: &'static str = "Windows.Devices.Printers.VirtualPrinterInstallationResult";
+}
+unsafe impl Send for VirtualPrinterInstallationResult {}
+unsafe impl Sync for VirtualPrinterInstallationResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VirtualPrinterInstallationStatus(pub i32);
+impl VirtualPrinterInstallationStatus {
+    pub const InstallationSucceeded: Self = Self(0i32);
+    pub const PrinterAlreadyInstalled: Self = Self(1i32);
+    pub const PrinterInstallationAccessDenied: Self = Self(2i32);
+    pub const PrinterInstallationFailed: Self = Self(3i32);
+}
+impl windows_core::TypeKind for VirtualPrinterInstallationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for VirtualPrinterInstallationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.VirtualPrinterInstallationStatus;i4)");
+}
+pub struct VirtualPrinterManager;
+impl VirtualPrinterManager {
+    pub fn InstallVirtualPrinterAsync<P0>(parameters: P0) -> windows_core::Result<windows_future::IAsyncOperation<VirtualPrinterInstallationResult>>
+    where
+        P0: windows_core::Param<VirtualPrinterInstallationParameters>,
+    {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallVirtualPrinterAsync)(windows_core::Interface::as_raw(this), parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn InstallVirtualPrinterAsync2<P0>(parameters: P0, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VirtualPrinterInstallationResult>>
+    where
+        P0: windows_core::Param<VirtualPrinterInstallationParameters>,
+    {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallVirtualPrinterAsync2)(windows_core::Interface::as_raw(this), parameters.param().abi(), core::mem::transmute_copy(apppackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn InstallVirtualPrinterForAllUsersAsync<P0>(parameters: P0) -> windows_core::Result<windows_future::IAsyncOperation<VirtualPrinterInstallationResult>>
+    where
+        P0: windows_core::Param<VirtualPrinterInstallationParameters>,
+    {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallVirtualPrinterForAllUsersAsync)(windows_core::Interface::as_raw(this), parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn InstallVirtualPrinterForAllUsersAsync2<P0>(parameters: P0, apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<VirtualPrinterInstallationResult>>
+    where
+        P0: windows_core::Param<VirtualPrinterInstallationParameters>,
+    {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallVirtualPrinterForAllUsersAsync2)(windows_core::Interface::as_raw(this), parameters.param().abi(), core::mem::transmute_copy(apppackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FindAllVirtualPrinters() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllVirtualPrinters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FindAllVirtualPrinters2(apppackagefamilyname: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FindAllVirtualPrinters2)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(apppackagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RemoveVirtualPrinterAsync(printername: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoveVirtualPrinterAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn RemoveVirtualPrinterForAllUsersAsync(printername: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+        Self::IVirtualPrinterManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RemoveVirtualPrinterForAllUsersAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVirtualPrinterManagerStatics<R, F: FnOnce(&IVirtualPrinterManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VirtualPrinterManager, IVirtualPrinterManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for VirtualPrinterManager {
+    const NAME: &'static str = "Windows.Devices.Printers.VirtualPrinterManager";
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct VirtualPrinterPreferredInputFormat(pub i32);
+impl VirtualPrinterPreferredInputFormat {
+    pub const OpenXps: Self = Self(0i32);
+    pub const PostScript: Self = Self(1i32);
+}
+impl windows_core::TypeKind for VirtualPrinterPreferredInputFormat {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for VirtualPrinterPreferredInputFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.VirtualPrinterPreferredInputFormat;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct VirtualPrinterSupportedFormat(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(VirtualPrinterSupportedFormat, windows_core::IUnknown, windows_core::IInspectable);
+impl VirtualPrinterSupportedFormat {
+    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetContentType(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetContentType)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn MaxSupportedVersion(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MaxSupportedVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn SetMaxSupportedVersion(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetMaxSupportedVersion)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
+    }
+    pub fn CreateInstance(contenttype: &windows_core::HSTRING, maxsupportedversion: &windows_core::HSTRING) -> windows_core::Result<VirtualPrinterSupportedFormat> {
+        Self::IVirtualPrinterSupportedFormatFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contenttype), core::mem::transmute_copy(maxsupportedversion), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IVirtualPrinterSupportedFormatFactory<R, F: FnOnce(&IVirtualPrinterSupportedFormatFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<VirtualPrinterSupportedFormat, IVirtualPrinterSupportedFormatFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for VirtualPrinterSupportedFormat {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVirtualPrinterSupportedFormat>();
+}
+unsafe impl windows_core::Interface for VirtualPrinterSupportedFormat {
+    type Vtable = <IVirtualPrinterSupportedFormat as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IVirtualPrinterSupportedFormat as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for VirtualPrinterSupportedFormat {
+    const NAME: &'static str = "Windows.Devices.Printers.VirtualPrinterSupportedFormat";
+}
+unsafe impl Send for VirtualPrinterSupportedFormat {}
+unsafe impl Sync for VirtualPrinterSupportedFormat {}

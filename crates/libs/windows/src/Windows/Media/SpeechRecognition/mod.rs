@@ -480,32 +480,6 @@ pub struct ISpeechRecognizerUIOptions_Vtbl {
     pub ShowConfirmation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetShowConfirmation: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IVoiceCommandManager, IVoiceCommandManager_Vtbl, 0xaa3a8dd5_b6e7_4ee2_baa9_dd6baced0a2b);
-impl windows_core::RuntimeType for IVoiceCommandManager {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IVoiceCommandManager_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    #[cfg(feature = "Storage_Streams")]
-    pub InstallCommandSetsFromStorageFileAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    #[cfg(not(feature = "Storage_Streams"))]
-    InstallCommandSetsFromStorageFileAsync: usize,
-    pub InstalledCommandSets: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IVoiceCommandSet, IVoiceCommandSet_Vtbl, 0x0bedda75_46e6_4b11_a088_5c68632899b5);
-impl windows_core::RuntimeType for IVoiceCommandSet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IVoiceCommandSet_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub Language: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Name: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetPhraseListAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct SpeechContinuousRecognitionCompletedEventArgs(windows_core::IUnknown);
@@ -1655,71 +1629,3 @@ impl windows_core::RuntimeName for SpeechRecognizerUIOptions {
 }
 unsafe impl Send for SpeechRecognizerUIOptions {}
 unsafe impl Sync for SpeechRecognizerUIOptions {}
-pub struct VoiceCommandManager;
-impl VoiceCommandManager {
-    #[cfg(feature = "Storage_Streams")]
-    pub fn InstallCommandSetsFromStorageFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncAction>
-    where
-        P0: windows_core::Param<super::super::Storage::StorageFile>,
-    {
-        Self::IVoiceCommandManager(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstallCommandSetsFromStorageFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    pub fn InstalledCommandSets() -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, VoiceCommandSet>> {
-        Self::IVoiceCommandManager(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).InstalledCommandSets)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IVoiceCommandManager<R, F: FnOnce(&IVoiceCommandManager) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<VoiceCommandManager, IVoiceCommandManager> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for VoiceCommandManager {
-    const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandManager";
-}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct VoiceCommandSet(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(VoiceCommandSet, windows_core::IUnknown, windows_core::IInspectable);
-impl VoiceCommandSet {
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetPhraseListAsync<P1>(&self, phraselistname: &windows_core::HSTRING, phraselist: P1) -> windows_core::Result<windows_future::IAsyncAction>
-    where
-        P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).SetPhraseListAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(phraselistname), phraselist.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for VoiceCommandSet {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IVoiceCommandSet>();
-}
-unsafe impl windows_core::Interface for VoiceCommandSet {
-    type Vtable = <IVoiceCommandSet as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IVoiceCommandSet as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for VoiceCommandSet {
-    const NAME: &'static str = "Windows.Media.SpeechRecognition.VoiceCommandSet";
-}
-unsafe impl Send for VoiceCommandSet {}
-unsafe impl Sync for VoiceCommandSet {}
