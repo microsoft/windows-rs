@@ -28,7 +28,7 @@ impl CppInterface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, config: &Config<'_>) -> Vec<CppMethodOrName> {
+    pub fn get_methods(&self, config: &Config) -> Vec<CppMethodOrName> {
         let namespace = self.def.namespace();
 
         self.def
@@ -47,7 +47,7 @@ impl CppInterface {
             .collect()
     }
 
-    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
         if !config.package {
             return (Cfg::default(), quote! {});
         }
@@ -57,7 +57,7 @@ impl CppInterface {
         (cfg, tokens)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let methods = self.get_methods(config);
 
         let base_interfaces = self.base_interfaces();
@@ -231,11 +231,7 @@ impl CppInterface {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if config.package {
-                fn combine(
-                    interface: &CppInterface,
-                    dependencies: &mut TypeMap,
-                    config: &Config<'_>,
-                ) {
+                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, config: &Config) {
                     for method in interface.get_methods(config).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);
@@ -412,17 +408,17 @@ impl CppInterface {
         }
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 
-    fn write_vtbl_name(&self, config: &Config<'_>) -> TokenStream {
+    fn write_vtbl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }
     }
 
-    pub fn write_impl_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = config.write_namespace(self.def.type_name());
         quote! { #namespace #name }

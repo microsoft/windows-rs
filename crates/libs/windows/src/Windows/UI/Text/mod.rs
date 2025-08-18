@@ -707,9 +707,9 @@ pub trait ITextCharacterFormat_Impl: windows_core::IUnknownImpl {
     fn SetUnderline(&self, value: UnderlineType) -> windows_core::Result<()>;
     fn Weight(&self) -> windows_core::Result<i32>;
     fn SetWeight(&self, value: i32) -> windows_core::Result<()>;
-    fn SetClone(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetClone(&self, value: windows_core::Ref<ITextCharacterFormat>) -> windows_core::Result<()>;
     fn GetClone(&self) -> windows_core::Result<ITextCharacterFormat>;
-    fn IsEqual(&self, format: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, format: windows_core::Ref<ITextCharacterFormat>) -> windows_core::Result<bool>;
 }
 impl ITextCharacterFormat_Vtbl {
     pub const fn new<Identity: ITextCharacterFormat_Impl, const OFFSET: isize>() -> Self {
@@ -1499,11 +1499,11 @@ pub trait ITextDocument_Impl: windows_core::IUnknownImpl {
     fn GetRange(&self, startPosition: i32, endPosition: i32) -> windows_core::Result<ITextRange>;
     fn GetRangeFromPoint(&self, point: &super::super::Foundation::Point, options: PointOptions) -> windows_core::Result<ITextRange>;
     fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()>;
-    fn LoadFromStream(&self, options: TextSetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn LoadFromStream(&self, options: TextSetOptions, value: windows_core::Ref<super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn Redo(&self) -> windows_core::Result<()>;
-    fn SaveToStream(&self, options: TextGetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn SetDefaultCharacterFormat(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
-    fn SetDefaultParagraphFormat(&self, value: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn SaveToStream(&self, options: TextGetOptions, value: windows_core::Ref<super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetDefaultCharacterFormat(&self, value: windows_core::Ref<ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetDefaultParagraphFormat(&self, value: windows_core::Ref<ITextParagraphFormat>) -> windows_core::Result<()>;
     fn SetText(&self, options: TextSetOptions, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Undo(&self) -> windows_core::Result<()>;
 }
@@ -2194,8 +2194,8 @@ pub trait ITextParagraphFormat_Impl: windows_core::IUnknownImpl {
     fn DeleteTab(&self, position: f32) -> windows_core::Result<()>;
     fn GetClone(&self) -> windows_core::Result<ITextParagraphFormat>;
     fn GetTab(&self, index: i32, position: &mut f32, align: &mut TabAlignment, leader: &mut TabLeader) -> windows_core::Result<()>;
-    fn IsEqual(&self, format: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<bool>;
-    fn SetClone(&self, format: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn IsEqual(&self, format: windows_core::Ref<ITextParagraphFormat>) -> windows_core::Result<bool>;
+    fn SetClone(&self, format: windows_core::Ref<ITextParagraphFormat>) -> windows_core::Result<()>;
     fn SetIndents(&self, start: f32, left: f32, right: f32) -> windows_core::Result<()>;
     fn SetLineSpacing(&self, rule: LineSpacingRule, spacing: f32) -> windows_core::Result<()>;
 }
@@ -3072,9 +3072,9 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn Character(&self) -> windows_core::Result<u16>;
     fn SetCharacter(&self, value: u16) -> windows_core::Result<()>;
     fn CharacterFormat(&self) -> windows_core::Result<ITextCharacterFormat>;
-    fn SetCharacterFormat(&self, value: windows_core::Ref<'_, ITextCharacterFormat>) -> windows_core::Result<()>;
+    fn SetCharacterFormat(&self, value: windows_core::Ref<ITextCharacterFormat>) -> windows_core::Result<()>;
     fn FormattedText(&self) -> windows_core::Result<ITextRange>;
-    fn SetFormattedText(&self, value: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<()>;
+    fn SetFormattedText(&self, value: windows_core::Ref<ITextRange>) -> windows_core::Result<()>;
     fn EndPosition(&self) -> windows_core::Result<i32>;
     fn SetEndPosition(&self, value: i32) -> windows_core::Result<()>;
     fn Gravity(&self) -> windows_core::Result<RangeGravity>;
@@ -3083,7 +3083,7 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn Link(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetLink(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ParagraphFormat(&self) -> windows_core::Result<ITextParagraphFormat>;
-    fn SetParagraphFormat(&self, value: windows_core::Ref<'_, ITextParagraphFormat>) -> windows_core::Result<()>;
+    fn SetParagraphFormat(&self, value: windows_core::Ref<ITextParagraphFormat>) -> windows_core::Result<()>;
     fn StartPosition(&self) -> windows_core::Result<i32>;
     fn SetStartPosition(&self, value: i32) -> windows_core::Result<()>;
     fn StoryLength(&self) -> windows_core::Result<i32>;
@@ -3104,11 +3104,11 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn GetPoint(&self, horizontalAlign: HorizontalCharacterAlignment, verticalAlign: VerticalCharacterAlignment, options: PointOptions, point: &mut super::super::Foundation::Point) -> windows_core::Result<()>;
     fn GetRect(&self, options: PointOptions, rect: &mut super::super::Foundation::Rect, hit: &mut i32) -> windows_core::Result<()>;
     fn GetText(&self, options: TextGetOptions, value: &mut windows_core::HSTRING) -> windows_core::Result<()>;
-    fn GetTextViaStream(&self, options: TextGetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn InRange(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
-    fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: &windows_core::HSTRING, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
-    fn InStory(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
-    fn IsEqual(&self, range: windows_core::Ref<'_, ITextRange>) -> windows_core::Result<bool>;
+    fn GetTextViaStream(&self, options: TextGetOptions, value: windows_core::Ref<super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn InRange(&self, range: windows_core::Ref<ITextRange>) -> windows_core::Result<bool>;
+    fn InsertImage(&self, width: i32, height: i32, ascent: i32, verticalAlign: VerticalCharacterAlignment, alternateText: &windows_core::HSTRING, value: windows_core::Ref<super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn InStory(&self, range: windows_core::Ref<ITextRange>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, range: windows_core::Ref<ITextRange>) -> windows_core::Result<bool>;
     fn Move(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEnd(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveStart(&self, unit: TextRangeUnit, count: i32) -> windows_core::Result<i32>;
@@ -3119,7 +3119,7 @@ pub trait ITextRange_Impl: windows_core::IUnknownImpl {
     fn SetPoint(&self, point: &super::super::Foundation::Point, options: PointOptions, extend: bool) -> windows_core::Result<()>;
     fn SetRange(&self, startPosition: i32, endPosition: i32) -> windows_core::Result<()>;
     fn SetText2(&self, options: TextSetOptions, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn SetTextViaStream(&self, options: TextSetOptions, value: windows_core::Ref<'_, super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
+    fn SetTextViaStream(&self, options: TextSetOptions, value: windows_core::Ref<super::super::Storage::Streams::IRandomAccessStream>) -> windows_core::Result<()>;
     fn StartOf(&self, unit: TextRangeUnit, extend: bool) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "Storage_Streams")]

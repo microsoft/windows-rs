@@ -48,7 +48,7 @@ impl windows_core::RuntimeName for ISpiControllerProvider {
     const NAME: &'static str = "Windows.Devices.Spi.Provider.ISpiControllerProvider";
 }
 pub trait ISpiControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: windows_core::Ref<'_, ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderSpiConnectionSettings>) -> windows_core::Result<ISpiDeviceProvider>;
 }
 impl ISpiControllerProvider_Vtbl {
     pub const fn new<Identity: ISpiControllerProvider_Impl, const OFFSET: isize>() -> Self {

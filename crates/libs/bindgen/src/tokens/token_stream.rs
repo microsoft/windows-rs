@@ -174,7 +174,7 @@ impl Literal {
 }
 
 impl core::fmt::Display for TokenStream {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{}", self.as_str())
     }
 }

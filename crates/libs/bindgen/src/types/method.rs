@@ -20,7 +20,7 @@ impl Method {
         }
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -136,7 +136,7 @@ impl Method {
 
     pub fn write_impl_signature(
         &self,
-        config: &Config<'_>,
+        config: &Config,
         named_params: bool,
         has_this: bool,
     ) -> TokenStream {
@@ -152,7 +152,7 @@ impl Method {
                     quote! { #default_type }
                 } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.write_name(config);
-                    quote! { windows_core::Ref<'_, #type_name> }
+                    quote! { windows_core::Ref<#type_name> }
                 } else {
                     quote! { &#default_type }
                 }
@@ -163,7 +163,7 @@ impl Method {
                 quote! { &mut windows_core::Array<#kind> }
             } else if p.is_interface() {
                 let type_name = p.write_name(config);
-                quote! { windows_core::OutRef<'_, #type_name> }
+                quote! { windows_core::OutRef<#type_name> }
             } else {
                 quote! { &mut #default_type }
             };
@@ -211,7 +211,7 @@ impl Method {
         }
     }
 
-    pub fn write_abi(&self, config: &Config<'_>, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, config: &Config, named_params: bool) -> TokenStream {
         let args = self.signature.params.iter().map(|param| {
             let name = param.write_ident();
             let abi = param.write_abi(config);
@@ -287,7 +287,7 @@ impl Method {
 
     pub fn write(
         &self,
-        config: &Config<'_>,
+        config: &Config,
         interface: Option<&Interface>,
         kind: InterfaceKind,
         method_names: &mut MethodNames,

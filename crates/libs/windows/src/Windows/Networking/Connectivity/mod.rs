@@ -1768,7 +1768,7 @@ impl windows_core::RuntimeType for NetworkStatusChangedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl NetworkStatusChangedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = NetworkStatusChangedEventHandlerBox { vtable: &NetworkStatusChangedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1787,12 +1787,12 @@ pub struct NetworkStatusChangedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct NetworkStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
+struct NetworkStatusChangedEventHandlerBox<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const NetworkStatusChangedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()> + Send + 'static> NetworkStatusChangedEventHandlerBox<F> {
     const VTABLE: NetworkStatusChangedEventHandler_Vtbl = NetworkStatusChangedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

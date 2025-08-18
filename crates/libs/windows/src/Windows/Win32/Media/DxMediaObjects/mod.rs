@@ -578,7 +578,7 @@ pub trait IMediaObject_Impl: windows_core::IUnknownImpl {
     fn AllocateStreamingResources(&self) -> windows_core::Result<()>;
     fn FreeStreamingResources(&self) -> windows_core::Result<()>;
     fn GetInputStatus(&self, dwinputstreamindex: u32) -> windows_core::Result<u32>;
-    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: windows_core::Ref<'_, IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> windows_core::Result<()>;
+    fn ProcessInput(&self, dwinputstreamindex: u32, pbuffer: windows_core::Ref<IMediaBuffer>, dwflags: u32, rttimestamp: i64, rttimelength: i64) -> windows_core::Result<()>;
     fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputbuffers: *mut DMO_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> windows_core::Result<()>;
     fn Lock(&self, block: i32) -> windows_core::Result<()>;
 }

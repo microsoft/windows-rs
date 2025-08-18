@@ -488,10 +488,10 @@ impl windows_core::RuntimeName for ICoreDropOperationTarget {
     const NAME: &'static str = "Windows.ApplicationModel.DataTransfer.DragDrop.Core.ICoreDropOperationTarget";
 }
 pub trait ICoreDropOperationTarget_Impl: windows_core::IUnknownImpl {
-    fn EnterAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>, dragUIOverride: windows_core::Ref<'_, CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn OverAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>, dragUIOverride: windows_core::Ref<'_, CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
-    fn LeaveAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn DropAsync(&self, dragInfo: windows_core::Ref<'_, CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn EnterAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>, dragUIOverride: windows_core::Ref<CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn OverAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>, dragUIOverride: windows_core::Ref<CoreDragUIOverride>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
+    fn LeaveAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn DropAsync(&self, dragInfo: windows_core::Ref<CoreDragInfo>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::DataPackageOperation>>;
 }
 impl ICoreDropOperationTarget_Vtbl {
     pub const fn new<Identity: ICoreDropOperationTarget_Impl, const OFFSET: isize>() -> Self {

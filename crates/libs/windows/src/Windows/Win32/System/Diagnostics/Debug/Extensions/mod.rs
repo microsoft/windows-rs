@@ -2594,8 +2594,8 @@ pub const EXTDLL_DATA_QUERY_BUILD_WOW64BINDIR_SYMSRV: u32 = 14u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR: u32 = 3u32;
 pub const EXTDLL_DATA_QUERY_BUILD_WOW64SYMDIR_SYMSRV: u32 = 13u32;
 pub type EXTDLL_ITERATERTLBALANCEDNODES = Option<unsafe extern "system" fn(rootnode: u64, entryoffset: u32, callback: ENTRY_CALLBACK, callbackcontext: *mut core::ffi::c_void)>;
-pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_core::HRESULT>;
-pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAG = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32) -> windows_core::HRESULT>;
+pub type EXTDLL_QUERYDATABYTAGEX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, dwdatatag: u32, pqueryinfo: *const core::ffi::c_void, pdata: *mut u8, cbdata: u32, pdataex: *mut u8, cbdataex: u32) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXTSTACKTRACE {
@@ -2637,8 +2637,8 @@ impl Default for EXTSTACKTRACE64 {
 }
 pub type EXTS_JOB_PROCESS_CALLBACK = Option<unsafe extern "system" fn(job: u64, process: u64, context: *mut core::ffi::c_void) -> bool>;
 pub type EXTS_TABLE_ENTRY_CALLBACK = Option<unsafe extern "system" fn(entry: u64, context: *mut core::ffi::c_void) -> bool>;
-pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: windows_core::Ref<'_, IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
-pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, bucketsuffix: windows_core::PSTR, cbbucketsuffix: u32, debugtext: windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: windows_core::Ref<'_, IDebugFailureAnalysis>) -> windows_core::HRESULT>;
+pub type EXT_ANALYSIS_PLUGIN = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, callphase: FA_EXTENSION_PLUGIN_PHASE, panalysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
+pub type EXT_ANALYZER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, bucketsuffix: windows_core::PSTR, cbbucketsuffix: u32, debugtext: windows_core::PSTR, cbdebugtext: u32, flags: *const u32, panalysis: windows_core::Ref<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
 pub const EXT_ANALYZER_FLAG_ID: u32 = 2u32;
 pub const EXT_ANALYZER_FLAG_MOD: u32 = 1u32;
 #[repr(C)]
@@ -2698,11 +2698,11 @@ impl Default for EXT_FIND_FILE {
     }
 }
 pub const EXT_FIND_FILE_ALLOW_GIVEN_PATH: u32 = 1u32;
-pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, flags: u32, classid: windows_core::GUID, ppanalysis: windows_core::OutRef<'_, IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
+pub type EXT_GET_DEBUG_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, flags: u32, classid: windows_core::GUID, ppanalysis: windows_core::OutRef<IDebugFailureAnalysis2>) -> windows_core::HRESULT>;
 pub type EXT_GET_ENVIRONMENT_VARIABLE = Option<unsafe extern "system" fn(peb: u64, variable: windows_core::PCSTR, buffer: windows_core::PCSTR, buffersize: u32) -> windows_core::HRESULT>;
-pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, flags: u32, ppanalysis: windows_core::OutRef<'_, IDebugFailureAnalysis>) -> windows_core::HRESULT>;
-pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_core::HRESULT>;
-pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_core::HRESULT>;
+pub type EXT_GET_FAILURE_ANALYSIS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, flags: u32, ppanalysis: windows_core::OutRef<IDebugFailureAnalysis>) -> windows_core::HRESULT>;
+pub type EXT_GET_FA_ENTRIES_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, count: *mut u32, entries: *mut *mut FA_ENTRY) -> windows_core::HRESULT>;
+pub type EXT_GET_HANDLE_TRACE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, tracetype: u32, startindex: u32, handlevalue: *mut u64, stackfunctions: *mut u64, stacktracesize: u32) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct EXT_MATCH_PATTERN_A {
@@ -2710,8 +2710,8 @@ pub struct EXT_MATCH_PATTERN_A {
     pub Pattern: windows_core::PCSTR,
     pub CaseSensitive: u32,
 }
-pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>) -> windows_core::HRESULT>;
-pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
+pub type EXT_RELOAD_TRIAGER = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>) -> windows_core::HRESULT>;
+pub type EXT_TARGET_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, ptargetinfo: *mut TARGET_DEBUG_INFO) -> windows_core::HRESULT>;
 pub const EXT_TDF_PHYSICAL_CACHED: u32 = 4u32;
 pub const EXT_TDF_PHYSICAL_DEFAULT: u32 = 2u32;
 pub const EXT_TDF_PHYSICAL_MEMORY: u32 = 14u32;
@@ -2740,7 +2740,7 @@ pub const EXT_TDOP_SET_FROM_EXPR: EXT_TDOP = EXT_TDOP(2i32);
 pub const EXT_TDOP_SET_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(17i32);
 pub const EXT_TDOP_SET_FROM_U64_EXPR: EXT_TDOP = EXT_TDOP(3i32);
 pub const EXT_TDOP_SET_PTR_FROM_TYPE_ID_AND_U64: EXT_TDOP = EXT_TDOP(18i32);
-pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, symbolname: windows_core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
+pub type EXT_TRIAGE_FOLLOWUP = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, symbolname: windows_core::PCSTR, ownerinfo: *mut DEBUG_TRIAGE_FOLLOWUP_INFO) -> u32>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXT_TYPED_DATA {
@@ -2767,7 +2767,7 @@ impl Default for EXT_TYPED_DATA {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_core::HRESULT>;
+pub type EXT_XML_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient4>, pxmpdata: *mut EXT_CAB_XML_DATA) -> windows_core::HRESULT>;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct ErrorClass(pub i32);
@@ -2951,7 +2951,7 @@ pub struct ICodeAddressConcept_Vtbl {
     pub GetContainingSymbol: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICodeAddressConcept_Impl: windows_core::IUnknownImpl {
-    fn GetContainingSymbol(&self, pcontextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IDebugHostSymbol>;
+    fn GetContainingSymbol(&self, pcontextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IDebugHostSymbol>;
 }
 impl ICodeAddressConcept_Vtbl {
     pub const fn new<Identity: ICodeAddressConcept_Impl, const OFFSET: isize>() -> Self {
@@ -2995,7 +2995,7 @@ pub struct IComparableConcept_Vtbl {
     pub CompareObjects: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IComparableConcept_Impl: windows_core::IUnknownImpl {
-    fn CompareObjects(&self, contextobject: windows_core::Ref<'_, IModelObject>, otherobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<i32>;
+    fn CompareObjects(&self, contextobject: windows_core::Ref<IModelObject>, otherobject: windows_core::Ref<IModelObject>) -> windows_core::Result<i32>;
 }
 impl IComparableConcept_Vtbl {
     pub const fn new<Identity: IComparableConcept_Impl, const OFFSET: isize>() -> Self {
@@ -3044,7 +3044,7 @@ pub struct IDataModelConcept_Vtbl {
     pub GetName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDataModelConcept_Impl: windows_core::IUnknownImpl {
-    fn InitializeObject(&self, modelobject: windows_core::Ref<'_, IModelObject>, matchingtypesignature: windows_core::Ref<'_, IDebugHostTypeSignature>, wildcardmatches: windows_core::Ref<'_, IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
+    fn InitializeObject(&self, modelobject: windows_core::Ref<IModelObject>, matchingtypesignature: windows_core::Ref<IDebugHostTypeSignature>, wildcardmatches: windows_core::Ref<IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IDataModelConcept_Vtbl {
@@ -3271,21 +3271,21 @@ pub trait IDataModelManager_Impl: windows_core::IUnknownImpl {
     fn Close(&self) -> windows_core::Result<()>;
     fn CreateNoValue(&self) -> windows_core::Result<IModelObject>;
     fn CreateErrorObject(&self, hrerror: windows_core::HRESULT, pwszmessage: &windows_core::PCWSTR) -> windows_core::Result<IModelObject>;
-    fn CreateTypedObject(&self, context: windows_core::Ref<'_, IDebugHostContext>, objectlocation: &Location, objecttype: windows_core::Ref<'_, IDebugHostType>) -> windows_core::Result<IModelObject>;
-    fn CreateTypedObjectReference(&self, context: windows_core::Ref<'_, IDebugHostContext>, objectlocation: &Location, objecttype: windows_core::Ref<'_, IDebugHostType>) -> windows_core::Result<IModelObject>;
-    fn CreateSyntheticObject(&self, context: windows_core::Ref<'_, IDebugHostContext>) -> windows_core::Result<IModelObject>;
-    fn CreateDataModelObject(&self, datamodel: windows_core::Ref<'_, IDataModelConcept>) -> windows_core::Result<IModelObject>;
+    fn CreateTypedObject(&self, context: windows_core::Ref<IDebugHostContext>, objectlocation: &Location, objecttype: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn CreateTypedObjectReference(&self, context: windows_core::Ref<IDebugHostContext>, objectlocation: &Location, objecttype: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn CreateSyntheticObject(&self, context: windows_core::Ref<IDebugHostContext>) -> windows_core::Result<IModelObject>;
+    fn CreateDataModelObject(&self, datamodel: windows_core::Ref<IDataModelConcept>) -> windows_core::Result<IModelObject>;
     fn CreateIntrinsicObject(&self, objectkind: ModelObjectKind, intrinsicdata: *const super::super::super::Variant::VARIANT) -> windows_core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<'_, IDebugHostType>) -> windows_core::Result<IModelObject>;
-    fn GetModelForTypeSignature(&self, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>) -> windows_core::Result<IModelObject>;
-    fn GetModelForType(&self, r#type: windows_core::Ref<'_, IDebugHostType>, datamodel: windows_core::OutRef<'_, IModelObject>, typesignature: windows_core::OutRef<'_, IDebugHostTypeSignature>, wildcardmatches: windows_core::OutRef<'_, IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
-    fn RegisterModelForTypeSignature(&self, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>, datamodel: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
-    fn UnregisterModelForTypeSignature(&self, datamodel: windows_core::Ref<'_, IModelObject>, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>) -> windows_core::Result<()>;
-    fn RegisterExtensionForTypeSignature(&self, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>, datamodel: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
-    fn UnregisterExtensionForTypeSignature(&self, datamodel: windows_core::Ref<'_, IModelObject>, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>) -> windows_core::Result<()>;
-    fn CreateMetadataStore(&self, parentstore: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<IKeyStore>;
+    fn CreateTypedIntrinsicObject(&self, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn GetModelForTypeSignature(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>) -> windows_core::Result<IModelObject>;
+    fn GetModelForType(&self, r#type: windows_core::Ref<IDebugHostType>, datamodel: windows_core::OutRef<IModelObject>, typesignature: windows_core::OutRef<IDebugHostTypeSignature>, wildcardmatches: windows_core::OutRef<IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
+    fn RegisterModelForTypeSignature(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>, datamodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
+    fn UnregisterModelForTypeSignature(&self, datamodel: windows_core::Ref<IModelObject>, typesignature: windows_core::Ref<IDebugHostTypeSignature>) -> windows_core::Result<()>;
+    fn RegisterExtensionForTypeSignature(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>, datamodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
+    fn UnregisterExtensionForTypeSignature(&self, datamodel: windows_core::Ref<IModelObject>, typesignature: windows_core::Ref<IDebugHostTypeSignature>) -> windows_core::Result<()>;
+    fn CreateMetadataStore(&self, parentstore: windows_core::Ref<IKeyStore>) -> windows_core::Result<IKeyStore>;
     fn GetRootNamespace(&self) -> windows_core::Result<IModelObject>;
-    fn RegisterNamedModel(&self, modelname: &windows_core::PCWSTR, modeobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn RegisterNamedModel(&self, modelname: &windows_core::PCWSTR, modeobject: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn UnregisterNamedModel(&self, modelname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn AcquireNamedModel(&self, modelname: &windows_core::PCWSTR) -> windows_core::Result<IModelObject>;
 }
@@ -3559,8 +3559,8 @@ pub struct IDataModelManager2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IDataModelManager2_Impl: IDataModelManager_Impl {
-    fn AcquireSubNamespace(&self, modelname: &windows_core::PCWSTR, subnamespacemodelname: &windows_core::PCWSTR, accessname: &windows_core::PCWSTR, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<IModelObject>;
-    fn CreateTypedIntrinsicObjectEx(&self, context: windows_core::Ref<'_, IDebugHostContext>, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<'_, IDebugHostType>) -> windows_core::Result<IModelObject>;
+    fn AcquireSubNamespace(&self, modelname: &windows_core::PCWSTR, subnamespacemodelname: &windows_core::PCWSTR, accessname: &windows_core::PCWSTR, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<IModelObject>;
+    fn CreateTypedIntrinsicObjectEx(&self, context: windows_core::Ref<IDebugHostContext>, intrinsicdata: *const super::super::super::Variant::VARIANT, r#type: windows_core::Ref<IDebugHostType>) -> windows_core::Result<IModelObject>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IDataModelManager2_Vtbl {
@@ -3647,10 +3647,10 @@ pub struct IDataModelNameBinder_Vtbl {
     pub EnumerateReferences: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDataModelNameBinder_Impl: windows_core::IUnknownImpl {
-    fn BindValue(&self, contextobject: windows_core::Ref<'_, IModelObject>, name: &windows_core::PCWSTR, value: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn BindReference(&self, contextobject: windows_core::Ref<'_, IModelObject>, name: &windows_core::PCWSTR, reference: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn EnumerateValues(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IKeyEnumerator>;
-    fn EnumerateReferences(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IKeyEnumerator>;
+    fn BindValue(&self, contextobject: windows_core::Ref<IModelObject>, name: &windows_core::PCWSTR, value: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn BindReference(&self, contextobject: windows_core::Ref<IModelObject>, name: &windows_core::PCWSTR, reference: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn EnumerateValues(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IKeyEnumerator>;
+    fn EnumerateReferences(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IKeyEnumerator>;
 }
 impl IDataModelNameBinder_Vtbl {
     pub const fn new<Identity: IDataModelNameBinder_Impl, const OFFSET: isize>() -> Self {
@@ -3766,11 +3766,11 @@ pub struct IDataModelScript_Vtbl {
 pub trait IDataModelScript_Impl: windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Rename(&self, scriptname: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Populate(&self, contentstream: windows_core::Ref<'_, super::super::super::Com::IStream>) -> windows_core::Result<()>;
-    fn Execute(&self, client: windows_core::Ref<'_, IDataModelScriptClient>) -> windows_core::Result<()>;
+    fn Populate(&self, contentstream: windows_core::Ref<super::super::super::Com::IStream>) -> windows_core::Result<()>;
+    fn Execute(&self, client: windows_core::Ref<IDataModelScriptClient>) -> windows_core::Result<()>;
     fn Unlink(&self) -> windows_core::Result<()>;
     fn IsInvocable(&self) -> windows_core::Result<bool>;
-    fn InvokeMain(&self, client: windows_core::Ref<'_, IDataModelScriptClient>) -> windows_core::Result<()>;
+    fn InvokeMain(&self, client: windows_core::Ref<IDataModelScriptClient>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDataModelScript_Vtbl {
@@ -3959,8 +3959,8 @@ pub trait IDataModelScriptDebug_Impl: windows_core::IUnknownImpl {
     fn EnumerateBreakpoints(&self) -> windows_core::Result<IDataModelScriptDebugBreakpointEnumerator>;
     fn GetEventFilter(&self, eventfilter: ScriptDebugEventFilter) -> windows_core::Result<bool>;
     fn SetEventFilter(&self, eventfilter: ScriptDebugEventFilter, isbreakenabled: u8) -> windows_core::Result<()>;
-    fn StartDebugging(&self, debugclient: windows_core::Ref<'_, IDataModelScriptDebugClient>) -> windows_core::Result<()>;
-    fn StopDebugging(&self, debugclient: windows_core::Ref<'_, IDataModelScriptDebugClient>) -> windows_core::Result<()>;
+    fn StartDebugging(&self, debugclient: windows_core::Ref<IDataModelScriptDebugClient>) -> windows_core::Result<()>;
+    fn StopDebugging(&self, debugclient: windows_core::Ref<IDataModelScriptDebugClient>) -> windows_core::Result<()>;
 }
 impl IDataModelScriptDebug_Vtbl {
     pub const fn new<Identity: IDataModelScriptDebug_Impl, const OFFSET: isize>() -> Self {
@@ -4285,7 +4285,7 @@ pub struct IDataModelScriptDebugClient_Vtbl {
     pub NotifyDebugEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *const ScriptDebugEventInformation, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut ScriptExecutionKind) -> windows_core::HRESULT,
 }
 pub trait IDataModelScriptDebugClient_Impl: windows_core::IUnknownImpl {
-    fn NotifyDebugEvent(&self, peventinfo: *const ScriptDebugEventInformation, pscript: windows_core::Ref<'_, IDataModelScript>, peventdataobject: windows_core::Ref<'_, IModelObject>, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::Result<()>;
+    fn NotifyDebugEvent(&self, peventinfo: *const ScriptDebugEventInformation, pscript: windows_core::Ref<IDataModelScript>, peventdataobject: windows_core::Ref<IModelObject>, resumeeventkind: *mut ScriptExecutionKind) -> windows_core::Result<()>;
 }
 impl IDataModelScriptDebugClient_Vtbl {
     pub const fn new<Identity: IDataModelScriptDebugClient_Impl, const OFFSET: isize>() -> Self {
@@ -4416,7 +4416,7 @@ pub trait IDataModelScriptDebugStackFrame_Impl: windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetPosition(&self, position: *mut ScriptDebugPosition, positionspanend: *mut ScriptDebugPosition, linetext: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn IsTransitionPoint(&self) -> windows_core::Result<bool>;
-    fn GetTransition(&self, transitionscript: windows_core::OutRef<'_, IDataModelScript>, istransitioncontiguous: *mut bool) -> windows_core::Result<()>;
+    fn GetTransition(&self, transitionscript: windows_core::OutRef<IDataModelScript>, istransitioncontiguous: *mut bool) -> windows_core::Result<()>;
     fn Evaluate(&self, pwszexpression: &windows_core::PCWSTR) -> windows_core::Result<IModelObject>;
     fn EnumerateLocals(&self) -> windows_core::Result<IDataModelScriptDebugVariableSetEnumerator>;
     fn EnumerateArguments(&self) -> windows_core::Result<IDataModelScriptDebugVariableSetEnumerator>;
@@ -4530,7 +4530,7 @@ pub struct IDataModelScriptDebugVariableSetEnumerator_Vtbl {
 }
 pub trait IDataModelScriptDebugVariableSetEnumerator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, variablename: *mut windows_core::BSTR, variablevalue: windows_core::OutRef<'_, IModelObject>, variablemetadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetNext(&self, variablename: *mut windows_core::BSTR, variablevalue: windows_core::OutRef<IModelObject>, variablemetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IDataModelScriptDebugVariableSetEnumerator_Vtbl {
     pub const fn new<Identity: IDataModelScriptDebugVariableSetEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -4577,7 +4577,7 @@ pub struct IDataModelScriptHostContext_Vtbl {
     pub GetNamespaceObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDataModelScriptHostContext_Impl: windows_core::IUnknownImpl {
-    fn NotifyScriptChange(&self, script: windows_core::Ref<'_, IDataModelScript>, changekind: ScriptChangeKind) -> windows_core::Result<()>;
+    fn NotifyScriptChange(&self, script: windows_core::Ref<IDataModelScript>, changekind: ScriptChangeKind) -> windows_core::Result<()>;
     fn GetNamespaceObject(&self) -> windows_core::Result<IModelObject>;
 }
 impl IDataModelScriptHostContext_Vtbl {
@@ -4670,8 +4670,8 @@ pub struct IDataModelScriptManager_Vtbl {
 }
 pub trait IDataModelScriptManager_Impl: windows_core::IUnknownImpl {
     fn GetDefaultNameBinder(&self) -> windows_core::Result<IDataModelNameBinder>;
-    fn RegisterScriptProvider(&self, provider: windows_core::Ref<'_, IDataModelScriptProvider>) -> windows_core::Result<()>;
-    fn UnregisterScriptProvider(&self, provider: windows_core::Ref<'_, IDataModelScriptProvider>) -> windows_core::Result<()>;
+    fn RegisterScriptProvider(&self, provider: windows_core::Ref<IDataModelScriptProvider>) -> windows_core::Result<()>;
+    fn UnregisterScriptProvider(&self, provider: windows_core::Ref<IDataModelScriptProvider>) -> windows_core::Result<()>;
     fn FindProviderForScriptType(&self, scripttype: &windows_core::PCWSTR) -> windows_core::Result<IDataModelScriptProvider>;
     fn FindProviderForScriptExtension(&self, scriptextension: &windows_core::PCWSTR) -> windows_core::Result<IDataModelScriptProvider>;
     fn EnumerateScriptProviders(&self) -> windows_core::Result<IDataModelScriptProviderEnumerator>;
@@ -7030,16 +7030,16 @@ pub trait IDebugClient_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -7047,7 +7047,7 @@ pub trait IDebugClient_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
 }
 impl IDebugClient_Vtbl {
@@ -7801,16 +7801,16 @@ pub trait IDebugClient2_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -7818,7 +7818,7 @@ pub trait IDebugClient2_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -8678,16 +8678,16 @@ pub trait IDebugClient3_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -8695,7 +8695,7 @@ pub trait IDebugClient3_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -9630,16 +9630,16 @@ pub trait IDebugClient4_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -9647,7 +9647,7 @@ pub trait IDebugClient4_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -10838,16 +10838,16 @@ pub trait IDebugClient5_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -10855,7 +10855,7 @@ pub trait IDebugClient5_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -10883,13 +10883,13 @@ pub trait IDebugClient5_Impl: windows_core::IUnknownImpl {
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
     fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide>;
-    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
+    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
     fn GetOutputLinePrefixWide(&self, buffer: windows_core::PWSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
     fn SetOutputLinePrefixWide(&self, prefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetIdentityWide(&self, buffer: windows_core::PWSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
-    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacksWide>) -> windows_core::Result<()>;
+    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
     fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
@@ -12333,16 +12333,16 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -12350,7 +12350,7 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -12378,13 +12378,13 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
     fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide>;
-    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
+    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
     fn GetOutputLinePrefixWide(&self, buffer: windows_core::PWSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
     fn SetOutputLinePrefixWide(&self, prefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetIdentityWide(&self, buffer: windows_core::PWSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
-    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacksWide>) -> windows_core::Result<()>;
+    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
     fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
@@ -12399,7 +12399,7 @@ pub trait IDebugClient6_Impl: windows_core::IUnknownImpl {
     fn SetQuitLockString(&self, string: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetQuitLockStringWide(&self, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn SetQuitLockStringWide(&self, string: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventContextCallbacks>) -> windows_core::Result<()>;
+    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<IDebugEventContextCallbacks>) -> windows_core::Result<()>;
 }
 impl IDebugClient6_Vtbl {
     pub const fn new<Identity: IDebugClient6_Impl, const OFFSET: isize>() -> Self {
@@ -13840,16 +13840,16 @@ pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -13857,7 +13857,7 @@ pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -13885,13 +13885,13 @@ pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
     fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide>;
-    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
+    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
     fn GetOutputLinePrefixWide(&self, buffer: windows_core::PWSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
     fn SetOutputLinePrefixWide(&self, prefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetIdentityWide(&self, buffer: windows_core::PWSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
-    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacksWide>) -> windows_core::Result<()>;
+    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
     fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
@@ -13906,7 +13906,7 @@ pub trait IDebugClient7_Impl: windows_core::IUnknownImpl {
     fn SetQuitLockString(&self, string: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetQuitLockStringWide(&self, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn SetQuitLockStringWide(&self, string: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventContextCallbacks>) -> windows_core::Result<()>;
+    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<IDebugEventContextCallbacks>) -> windows_core::Result<()>;
     fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
 }
 impl IDebugClient7_Vtbl {
@@ -15362,16 +15362,16 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn EndSession(&self, flags: u32) -> windows_core::Result<()>;
     fn GetExitCode(&self) -> windows_core::Result<u32>;
     fn DispatchCallbacks(&self, timeout: u32) -> windows_core::Result<()>;
-    fn ExitDispatch(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<()>;
+    fn ExitDispatch(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<()>;
     fn CreateClient(&self) -> windows_core::Result<IDebugClient>;
     fn GetInputCallbacks(&self) -> windows_core::Result<IDebugInputCallbacks>;
-    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugInputCallbacks>) -> windows_core::Result<()>;
+    fn SetInputCallbacks(&self, callbacks: windows_core::Ref<IDebugInputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputCallbacks(&self) -> windows_core::Result<IDebugOutputCallbacks>;
-    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacks>) -> windows_core::Result<()>;
+    fn SetOutputCallbacks(&self, callbacks: windows_core::Ref<IDebugOutputCallbacks>) -> windows_core::Result<()>;
     fn GetOutputMask(&self) -> windows_core::Result<u32>;
     fn SetOutputMask(&self, mask: u32) -> windows_core::Result<()>;
-    fn GetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>) -> windows_core::Result<u32>;
-    fn SetOtherOutputMask(&self, client: windows_core::Ref<'_, IDebugClient>, mask: u32) -> windows_core::Result<()>;
+    fn GetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>) -> windows_core::Result<u32>;
+    fn SetOtherOutputMask(&self, client: windows_core::Ref<IDebugClient>, mask: u32) -> windows_core::Result<()>;
     fn GetOutputWidth(&self) -> windows_core::Result<u32>;
     fn SetOutputWidth(&self, columns: u32) -> windows_core::Result<()>;
     fn GetOutputLinePrefix(&self, buffer: windows_core::PSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
@@ -15379,7 +15379,7 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn GetIdentity(&self, buffer: windows_core::PSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentity(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetEventCallbacks(&self) -> windows_core::Result<IDebugEventCallbacks>;
-    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacks>) -> windows_core::Result<()>;
+    fn SetEventCallbacks(&self, callbacks: windows_core::Ref<IDebugEventCallbacks>) -> windows_core::Result<()>;
     fn FlushCallbacks(&self) -> windows_core::Result<()>;
     fn WriteDumpFile2(&self, dumpfile: &windows_core::PCSTR, qualifier: u32, formatflags: u32, comment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn AddDumpInformationFile(&self, infofile: &windows_core::PCSTR, r#type: u32) -> windows_core::Result<()>;
@@ -15407,13 +15407,13 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn StartServerWide(&self, options: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn OutputServersWide(&self, outputcontrol: u32, machine: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<()>;
     fn GetOutputCallbacksWide(&self) -> windows_core::Result<IDebugOutputCallbacksWide>;
-    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
+    fn SetOutputCallbacksWide(&self, callbacks: windows_core::Ref<IDebugOutputCallbacksWide>) -> windows_core::Result<()>;
     fn GetOutputLinePrefixWide(&self, buffer: windows_core::PWSTR, buffersize: u32, prefixsize: *mut u32) -> windows_core::Result<()>;
     fn SetOutputLinePrefixWide(&self, prefix: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetIdentityWide(&self, buffer: windows_core::PWSTR, buffersize: u32, identitysize: *mut u32) -> windows_core::Result<()>;
     fn OutputIdentityWide(&self, outputcontrol: u32, flags: u32, format: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetEventCallbacksWide(&self) -> windows_core::Result<IDebugEventCallbacksWide>;
-    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<'_, IDebugEventCallbacksWide>) -> windows_core::Result<()>;
+    fn SetEventCallbacksWide(&self, callbacks: windows_core::Ref<IDebugEventCallbacksWide>) -> windows_core::Result<()>;
     fn CreateProcess2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn CreateProcess2Wide(&self, server: u64, commandline: &windows_core::PCWSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCWSTR, environment: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CreateProcessAndAttach2(&self, server: u64, commandline: &windows_core::PCSTR, optionsbuffer: *const core::ffi::c_void, optionsbuffersize: u32, initialdirectory: &windows_core::PCSTR, environment: &windows_core::PCSTR, processid: u32, attachflags: u32) -> windows_core::Result<()>;
@@ -15428,7 +15428,7 @@ pub trait IDebugClient8_Impl: windows_core::IUnknownImpl {
     fn SetQuitLockString(&self, string: &windows_core::PCSTR) -> windows_core::Result<()>;
     fn GetQuitLockStringWide(&self, buffer: windows_core::PWSTR, buffersize: u32, stringsize: *mut u32) -> windows_core::Result<()>;
     fn SetQuitLockStringWide(&self, string: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<'_, IDebugEventContextCallbacks>) -> windows_core::Result<()>;
+    fn SetEventContextCallbacks(&self, callbacks: windows_core::Ref<IDebugEventContextCallbacks>) -> windows_core::Result<()>;
     fn SetClientContext(&self, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn OpenDumpFileWide2(&self, filename: &windows_core::PCWSTR, filehandle: u64, alternatearch: u32) -> windows_core::Result<()>;
 }
@@ -16860,7 +16860,7 @@ pub trait IDebugControl_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -18386,7 +18386,7 @@ pub trait IDebugControl2_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -20088,7 +20088,7 @@ pub trait IDebugControl3_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -22283,7 +22283,7 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -22348,7 +22348,7 @@ pub trait IDebugControl4_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2>;
-    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -24967,7 +24967,7 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -25032,7 +25032,7 @@ pub trait IDebugControl5_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2>;
-    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -27708,7 +27708,7 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -27773,7 +27773,7 @@ pub trait IDebugControl6_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2>;
-    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -30475,7 +30475,7 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointById(&self, id: u32) -> windows_core::Result<IDebugBreakpoint>;
     fn GetBreakpointParameters(&self, count: u32, ids: *const u32, start: u32, params: *mut DEBUG_BREAKPOINT_PARAMETERS) -> windows_core::Result<()>;
     fn AddBreakpoint(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint>;
-    fn RemoveBreakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn AddExtension(&self, path: &windows_core::PCSTR, flags: u32) -> windows_core::Result<u64>;
     fn RemoveExtension(&self, handle: u64) -> windows_core::Result<()>;
     fn GetExtensionByPath(&self, path: &windows_core::PCSTR) -> windows_core::Result<u64>;
@@ -30540,7 +30540,7 @@ pub trait IDebugControl7_Impl: windows_core::IUnknownImpl {
     fn GetBreakpointByIndex2(&self, index: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn GetBreakpointById2(&self, id: u32) -> windows_core::Result<IDebugBreakpoint2>;
     fn AddBreakpoint2(&self, r#type: u32, desiredid: u32) -> windows_core::Result<IDebugBreakpoint2>;
-    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>) -> windows_core::Result<()>;
+    fn RemoveBreakpoint2(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn AddExtensionWide(&self, path: &windows_core::PCWSTR, flags: u32) -> windows_core::Result<u64>;
     fn GetExtensionByPathWide(&self, path: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn CallExtensionWide(&self, handle: u64, function: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -33833,7 +33833,7 @@ pub struct IDebugEventCallbacks_Vtbl {
 }
 pub trait IDebugEventCallbacks_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
-    fn Breakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint>) -> windows_core::Result<()>;
+    fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint>) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
     fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
     fn ExitThread(&self, exitcode: u32) -> windows_core::Result<()>;
@@ -34046,7 +34046,7 @@ pub struct IDebugEventCallbacksWide_Vtbl {
 }
 pub trait IDebugEventCallbacksWide_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
-    fn Breakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>) -> windows_core::Result<()>;
+    fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32) -> windows_core::Result<()>;
     fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64) -> windows_core::Result<()>;
     fn ExitThread(&self, exitcode: u32) -> windows_core::Result<()>;
@@ -34259,7 +34259,7 @@ pub struct IDebugEventContextCallbacks_Vtbl {
 }
 pub trait IDebugEventContextCallbacks_Impl: windows_core::IUnknownImpl {
     fn GetInterestMask(&self) -> windows_core::Result<u32>;
-    fn Breakpoint(&self, bp: windows_core::Ref<'_, IDebugBreakpoint2>, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
+    fn Breakpoint(&self, bp: windows_core::Ref<IDebugBreakpoint2>, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn Exception(&self, exception: *const super::EXCEPTION_RECORD64, firstchance: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn CreateThread(&self, handle: u64, dataoffset: u64, startoffset: u64, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
     fn ExitThread(&self, exitcode: u32, context: *const core::ffi::c_void, contextsize: u32) -> windows_core::Result<()>;
@@ -34817,7 +34817,7 @@ pub trait IDebugFailureAnalysis2_Impl: windows_core::IUnknownImpl {
     fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags>;
     fn GetAnalysisXml(&self) -> windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
-    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<'_, IDebugFailureAnalysis2>) -> windows_core::Result<()>;
+    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com"))]
 impl IDebugFailureAnalysis2_Vtbl {
@@ -35255,22 +35255,22 @@ pub trait IDebugFailureAnalysis3_Impl: windows_core::IUnknownImpl {
     fn AddBuffer(&self, tag: DEBUG_FLR_PARAM_TYPE, entrytype: FA_ENTRY_TYPE, buf: *const core::ffi::c_void, size: u32) -> *mut FA_ENTRY;
     fn GetDebugFATagControl(&self) -> windows_core::Result<IDebugFAEntryTags>;
     fn GetAnalysisXml(&self) -> windows_core::Result<super::super::super::super::Data::Xml::MsXml::IXMLDOMElement>;
-    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<'_, IDebugFailureAnalysis2>) -> windows_core::Result<()>;
-    fn AddThreads(&self, pdebugfailurethreadenum: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn AddStructuredAnalysisData(&self, tag: DEBUG_FLR_PARAM_TYPE, analysis: windows_core::Ref<IDebugFailureAnalysis2>) -> windows_core::Result<()>;
+    fn AddThreads(&self, pdebugfailurethreadenum: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn AttributeGet(&self, nindex: u32) -> windows_core::Result<super::super::super::Variant::VARIANT>;
     fn AttributeGetName(&self, nindex: u32) -> windows_core::Result<windows_core::BSTR>;
     fn AttributeSet(&self, nindex: u32, value: &super::super::super::Variant::VARIANT) -> windows_core::Result<()>;
     fn BlameApplication(&self, postfix: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BlameProcess(&self, postfix: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn BlameThread(&self, pthread: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn BlameStitch(&self, pthread: windows_core::Ref<'_, windows_core::IUnknown>, stitch: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn BlameThread(&self, pthread: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BlameStitch(&self, pthread: windows_core::Ref<windows_core::IUnknown>, stitch: &windows_core::BSTR) -> windows_core::Result<()>;
     fn BlameTEB(&self, address: u64) -> windows_core::Result<()>;
     fn BlameETHREAD(&self, address: u64) -> windows_core::Result<()>;
     fn ProblemClassIsSet(&self, nindex: u32) -> windows_core::Result<super::super::super::super::Foundation::VARIANT_BOOL>;
     fn ProblemClassDelete(&self, nindex: u32) -> windows_core::Result<()>;
     fn ProblemClassSet(&self, nindex: u32) -> windows_core::Result<()>;
     fn ProblemClassSetBSTR(&self, nindex: u32, value: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetAdditionalXML(&self, key: &windows_core::BSTR, pxmldomelement: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAdditionalXML(&self, key: &windows_core::BSTR, pxmldomelement: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetAdditionalXML(&self, key: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn DeleteAdditionalXML(&self, key: &windows_core::BSTR) -> windows_core::Result<()>;
 }
@@ -35807,7 +35807,7 @@ pub struct IDebugHostContext_Vtbl {
     pub IsEqualTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 pub trait IDebugHostContext_Impl: windows_core::IUnknownImpl {
-    fn IsEqualTo(&self, pcontext: windows_core::Ref<'_, IDebugHostContext>) -> windows_core::Result<bool>;
+    fn IsEqualTo(&self, pcontext: windows_core::Ref<IDebugHostContext>) -> windows_core::Result<bool>;
 }
 impl IDebugHostContext_Vtbl {
     pub const fn new<Identity: IDebugHostContext_Impl, const OFFSET: isize>() -> Self {
@@ -35990,8 +35990,8 @@ pub struct IDebugHostEvaluator_Vtbl {
     pub EvaluateExtendedExpression: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugHostEvaluator_Impl: windows_core::IUnknownImpl {
-    fn EvaluateExpression(&self, context: windows_core::Ref<'_, IDebugHostContext>, expression: &windows_core::PCWSTR, bindingcontext: windows_core::Ref<'_, IModelObject>, result: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn EvaluateExtendedExpression(&self, context: windows_core::Ref<'_, IDebugHostContext>, expression: &windows_core::PCWSTR, bindingcontext: windows_core::Ref<'_, IModelObject>, result: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn EvaluateExpression(&self, context: windows_core::Ref<IDebugHostContext>, expression: &windows_core::PCWSTR, bindingcontext: windows_core::Ref<IModelObject>, result: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn EvaluateExtendedExpression(&self, context: windows_core::Ref<IDebugHostContext>, expression: &windows_core::PCWSTR, bindingcontext: windows_core::Ref<IModelObject>, result: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IDebugHostEvaluator_Vtbl {
     pub const fn new<Identity: IDebugHostEvaluator_Impl, const OFFSET: isize>() -> Self {
@@ -36042,7 +36042,7 @@ pub struct IDebugHostEvaluator2_Vtbl {
     pub AssignTo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugHostEvaluator2_Impl: IDebugHostEvaluator_Impl {
-    fn AssignTo(&self, assignmentreference: windows_core::Ref<'_, IModelObject>, assignmentvalue: windows_core::Ref<'_, IModelObject>, assignmentresult: windows_core::OutRef<'_, IModelObject>, assignmentmetadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn AssignTo(&self, assignmentreference: windows_core::Ref<IModelObject>, assignmentvalue: windows_core::Ref<IModelObject>, assignmentresult: windows_core::OutRef<IModelObject>, assignmentmetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IDebugHostEvaluator2_Vtbl {
     pub const fn new<Identity: IDebugHostEvaluator2_Impl, const OFFSET: isize>() -> Self {
@@ -36084,7 +36084,7 @@ pub struct IDebugHostExtensibility_Vtbl {
     pub DestroyFunctionAlias: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IDebugHostExtensibility_Impl: windows_core::IUnknownImpl {
-    fn CreateFunctionAlias(&self, aliasname: &windows_core::PCWSTR, functionobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn CreateFunctionAlias(&self, aliasname: &windows_core::PCWSTR, functionobject: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn DestroyFunctionAlias(&self, aliasname: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDebugHostExtensibility_Vtbl {
@@ -36279,11 +36279,11 @@ pub struct IDebugHostMemory_Vtbl {
     pub GetDisplayStringForLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugHostMemory_Impl: windows_core::IUnknownImpl {
-    fn ReadBytes(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> windows_core::Result<()>;
-    fn WriteBytes(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location, buffer: *const core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::Result<()>;
-    fn ReadPointers(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location, count: u64, pointers: *mut u64) -> windows_core::Result<()>;
-    fn WritePointers(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location, count: u64, pointers: *const u64) -> windows_core::Result<()>;
-    fn GetDisplayStringForLocation(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location, verbose: u8) -> windows_core::Result<windows_core::BSTR>;
+    fn ReadBytes(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, buffer: *mut core::ffi::c_void, buffersize: u64, bytesread: *mut u64) -> windows_core::Result<()>;
+    fn WriteBytes(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, buffer: *const core::ffi::c_void, buffersize: u64, byteswritten: *mut u64) -> windows_core::Result<()>;
+    fn ReadPointers(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, count: u64, pointers: *mut u64) -> windows_core::Result<()>;
+    fn WritePointers(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, count: u64, pointers: *const u64) -> windows_core::Result<()>;
+    fn GetDisplayStringForLocation(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location, verbose: u8) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IDebugHostMemory_Vtbl {
     pub const fn new<Identity: IDebugHostMemory_Impl, const OFFSET: isize>() -> Self {
@@ -36363,7 +36363,7 @@ pub struct IDebugHostMemory2_Vtbl {
     pub LinearizeLocation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, Location, *mut Location) -> windows_core::HRESULT,
 }
 pub trait IDebugHostMemory2_Impl: IDebugHostMemory_Impl {
-    fn LinearizeLocation(&self, context: windows_core::Ref<'_, IDebugHostContext>, location: &Location) -> windows_core::Result<Location>;
+    fn LinearizeLocation(&self, context: windows_core::Ref<IDebugHostContext>, location: &Location) -> windows_core::Result<Location>;
 }
 impl IDebugHostMemory2_Vtbl {
     pub const fn new<Identity: IDebugHostMemory2_Impl, const OFFSET: isize>() -> Self {
@@ -36557,7 +36557,7 @@ pub struct IDebugHostModule2_Vtbl {
     pub FindContainingSymbolByRVA: unsafe extern "system" fn(*mut core::ffi::c_void, u64, *mut *mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
 }
 pub trait IDebugHostModule2_Impl: IDebugHostModule_Impl {
-    fn FindContainingSymbolByRVA(&self, rva: u64, symbol: windows_core::OutRef<'_, IDebugHostSymbol>, offset: *mut u64) -> windows_core::Result<()>;
+    fn FindContainingSymbolByRVA(&self, rva: u64, symbol: windows_core::OutRef<IDebugHostSymbol>, offset: *mut u64) -> windows_core::Result<()>;
 }
 impl IDebugHostModule2_Vtbl {
     pub const fn new<Identity: IDebugHostModule2_Impl, const OFFSET: isize>() -> Self {
@@ -36594,7 +36594,7 @@ pub struct IDebugHostModuleSignature_Vtbl {
     pub IsMatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 pub trait IDebugHostModuleSignature_Impl: windows_core::IUnknownImpl {
-    fn IsMatch(&self, pmodule: windows_core::Ref<'_, IDebugHostModule>) -> windows_core::Result<bool>;
+    fn IsMatch(&self, pmodule: windows_core::Ref<IDebugHostModule>) -> windows_core::Result<bool>;
 }
 impl IDebugHostModuleSignature_Vtbl {
     pub const fn new<Identity: IDebugHostModuleSignature_Impl, const OFFSET: isize>() -> Self {
@@ -36707,7 +36707,7 @@ pub struct IDebugHostScriptHost_Vtbl {
     pub CreateContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDebugHostScriptHost_Impl: windows_core::IUnknownImpl {
-    fn CreateContext(&self, script: windows_core::Ref<'_, IDataModelScript>) -> windows_core::Result<IDataModelScriptHostContext>;
+    fn CreateContext(&self, script: windows_core::Ref<IDataModelScript>) -> windows_core::Result<IDataModelScriptHostContext>;
 }
 impl IDebugHostScriptHost_Vtbl {
     pub const fn new<Identity: IDebugHostScriptHost_Impl, const OFFSET: isize>() -> Self {
@@ -36841,7 +36841,7 @@ pub trait IDebugHostSymbol_Impl: windows_core::IUnknownImpl {
     fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetType(&self) -> windows_core::Result<IDebugHostType>;
     fn GetContainingModule(&self) -> windows_core::Result<IDebugHostModule>;
-    fn CompareAgainst(&self, pcomparisonsymbol: windows_core::Ref<'_, IDebugHostSymbol>, comparisonflags: u32) -> windows_core::Result<bool>;
+    fn CompareAgainst(&self, pcomparisonsymbol: windows_core::Ref<IDebugHostSymbol>, comparisonflags: u32) -> windows_core::Result<bool>;
 }
 impl IDebugHostSymbol_Vtbl {
     pub const fn new<Identity: IDebugHostSymbol_Impl, const OFFSET: isize>() -> Self {
@@ -37128,12 +37128,12 @@ pub struct IDebugHostSymbols_Vtbl {
 }
 pub trait IDebugHostSymbols_Impl: windows_core::IUnknownImpl {
     fn CreateModuleSignature(&self, pwszmodulename: &windows_core::PCWSTR, pwszminversion: &windows_core::PCWSTR, pwszmaxversion: &windows_core::PCWSTR) -> windows_core::Result<IDebugHostModuleSignature>;
-    fn CreateTypeSignature(&self, signaturespecification: &windows_core::PCWSTR, module: windows_core::Ref<'_, IDebugHostModule>) -> windows_core::Result<IDebugHostTypeSignature>;
+    fn CreateTypeSignature(&self, signaturespecification: &windows_core::PCWSTR, module: windows_core::Ref<IDebugHostModule>) -> windows_core::Result<IDebugHostTypeSignature>;
     fn CreateTypeSignatureForModuleRange(&self, signaturespecification: &windows_core::PCWSTR, modulename: &windows_core::PCWSTR, minversion: &windows_core::PCWSTR, maxversion: &windows_core::PCWSTR) -> windows_core::Result<IDebugHostTypeSignature>;
-    fn EnumerateModules(&self, context: windows_core::Ref<'_, IDebugHostContext>) -> windows_core::Result<IDebugHostSymbolEnumerator>;
-    fn FindModuleByName(&self, context: windows_core::Ref<'_, IDebugHostContext>, modulename: &windows_core::PCWSTR) -> windows_core::Result<IDebugHostModule>;
-    fn FindModuleByLocation(&self, context: windows_core::Ref<'_, IDebugHostContext>, modulelocation: &Location) -> windows_core::Result<IDebugHostModule>;
-    fn GetMostDerivedObject(&self, pcontext: windows_core::Ref<'_, IDebugHostContext>, location: &Location, objecttype: windows_core::Ref<'_, IDebugHostType>, derivedlocation: *mut Location, derivedtype: windows_core::OutRef<'_, IDebugHostType>) -> windows_core::Result<()>;
+    fn EnumerateModules(&self, context: windows_core::Ref<IDebugHostContext>) -> windows_core::Result<IDebugHostSymbolEnumerator>;
+    fn FindModuleByName(&self, context: windows_core::Ref<IDebugHostContext>, modulename: &windows_core::PCWSTR) -> windows_core::Result<IDebugHostModule>;
+    fn FindModuleByLocation(&self, context: windows_core::Ref<IDebugHostContext>, modulelocation: &Location) -> windows_core::Result<IDebugHostModule>;
+    fn GetMostDerivedObject(&self, pcontext: windows_core::Ref<IDebugHostContext>, location: &Location, objecttype: windows_core::Ref<IDebugHostType>, derivedlocation: *mut Location, derivedtype: windows_core::OutRef<IDebugHostType>) -> windows_core::Result<()>;
 }
 impl IDebugHostSymbols_Vtbl {
     pub const fn new<Identity: IDebugHostSymbols_Impl, const OFFSET: isize>() -> Self {
@@ -37799,8 +37799,8 @@ pub struct IDebugHostTypeSignature_Vtbl {
 }
 pub trait IDebugHostTypeSignature_Impl: windows_core::IUnknownImpl {
     fn GetHashCode(&self) -> windows_core::Result<u32>;
-    fn IsMatch(&self, r#type: windows_core::Ref<'_, IDebugHostType>, ismatch: *mut bool, wildcardmatches: windows_core::OutRef<'_, IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
-    fn CompareAgainst(&self, typesignature: windows_core::Ref<'_, IDebugHostTypeSignature>) -> windows_core::Result<SignatureComparison>;
+    fn IsMatch(&self, r#type: windows_core::Ref<IDebugHostType>, ismatch: *mut bool, wildcardmatches: windows_core::OutRef<IDebugHostSymbolEnumerator>) -> windows_core::Result<()>;
+    fn CompareAgainst(&self, typesignature: windows_core::Ref<IDebugHostTypeSignature>) -> windows_core::Result<SignatureComparison>;
 }
 impl IDebugHostTypeSignature_Vtbl {
     pub const fn new<Identity: IDebugHostTypeSignature_Impl, const OFFSET: isize>() -> Self {
@@ -38254,8 +38254,8 @@ pub struct IDebugPlmClient3_Vtbl {
 pub trait IDebugPlmClient3_Impl: windows_core::IUnknownImpl {
     fn LaunchPlmPackageForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, appname: &windows_core::PCWSTR, arguments: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
     fn LaunchPlmBgTaskForDebugWide(&self, server: u64, timeout: u32, packagefullname: &windows_core::PCWSTR, backgroundtaskid: &windows_core::PCWSTR, processid: *mut u32, threadid: *mut u32) -> windows_core::Result<()>;
-    fn QueryPlmPackageWide(&self, server: u64, packagefullname: &windows_core::PCWSTR, stream: windows_core::Ref<'_, IDebugOutputStream>) -> windows_core::Result<()>;
-    fn QueryPlmPackageList(&self, server: u64, stream: windows_core::Ref<'_, IDebugOutputStream>) -> windows_core::Result<()>;
+    fn QueryPlmPackageWide(&self, server: u64, packagefullname: &windows_core::PCWSTR, stream: windows_core::Ref<IDebugOutputStream>) -> windows_core::Result<()>;
+    fn QueryPlmPackageList(&self, server: u64, stream: windows_core::Ref<IDebugOutputStream>) -> windows_core::Result<()>;
     fn EnablePlmPackageDebugWide(&self, server: u64, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DisablePlmPackageDebugWide(&self, server: u64, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SuspendPlmPackageWide(&self, server: u64, packagefullname: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -39869,7 +39869,7 @@ pub trait IDebugSymbols_Impl: windows_core::IUnknownImpl {
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
+    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
     fn StartSymbolMatch(&self, pattern: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatch(&self, handle: u64, buffer: windows_core::PSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -40700,7 +40700,7 @@ pub trait IDebugSymbols2_Impl: windows_core::IUnknownImpl {
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
+    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
     fn StartSymbolMatch(&self, pattern: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatch(&self, handle: u64, buffer: windows_core::PSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -41993,7 +41993,7 @@ pub trait IDebugSymbols3_Impl: windows_core::IUnknownImpl {
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
+    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
     fn StartSymbolMatch(&self, pattern: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatch(&self, handle: u64, buffer: windows_core::PSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -42030,7 +42030,7 @@ pub trait IDebugSymbols3_Impl: windows_core::IUnknownImpl {
     fn GetTypeIdWide(&self, module: u64, name: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetFieldOffsetWide(&self, module: u64, typeid: u32, field: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetSymbolTypeIdWide(&self, symbol: &windows_core::PCWSTR, typeid: *mut u32, module: *mut u64) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
+    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
     fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2>;
     fn StartSymbolMatchWide(&self, pattern: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatchWide(&self, handle: u64, buffer: windows_core::PWSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -43908,7 +43908,7 @@ pub trait IDebugSymbols4_Impl: windows_core::IUnknownImpl {
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
+    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
     fn StartSymbolMatch(&self, pattern: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatch(&self, handle: u64, buffer: windows_core::PSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -43945,7 +43945,7 @@ pub trait IDebugSymbols4_Impl: windows_core::IUnknownImpl {
     fn GetTypeIdWide(&self, module: u64, name: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetFieldOffsetWide(&self, module: u64, typeid: u32, field: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetSymbolTypeIdWide(&self, symbol: &windows_core::PCWSTR, typeid: *mut u32, module: *mut u64) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
+    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
     fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2>;
     fn StartSymbolMatchWide(&self, pattern: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatchWide(&self, handle: u64, buffer: windows_core::PWSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -45890,7 +45890,7 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
     fn GetScope(&self, instructionoffset: *mut u64, scopeframe: *mut DEBUG_STACK_FRAME, scopecontext: *mut core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn SetScope(&self, instructionoffset: u64, scopeframe: *const DEBUG_STACK_FRAME, scopecontext: *const core::ffi::c_void, scopecontextsize: u32) -> windows_core::Result<()>;
     fn ResetScope(&self) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
+    fn GetScopeSymbolGroup(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup>) -> windows_core::Result<IDebugSymbolGroup>;
     fn CreateSymbolGroup(&self) -> windows_core::Result<IDebugSymbolGroup>;
     fn StartSymbolMatch(&self, pattern: &windows_core::PCSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatch(&self, handle: u64, buffer: windows_core::PSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -45927,7 +45927,7 @@ pub trait IDebugSymbols5_Impl: windows_core::IUnknownImpl {
     fn GetTypeIdWide(&self, module: u64, name: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetFieldOffsetWide(&self, module: u64, typeid: u32, field: &windows_core::PCWSTR) -> windows_core::Result<u32>;
     fn GetSymbolTypeIdWide(&self, symbol: &windows_core::PCWSTR, typeid: *mut u32, module: *mut u64) -> windows_core::Result<()>;
-    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<'_, IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
+    fn GetScopeSymbolGroup2(&self, flags: u32, update: windows_core::Ref<IDebugSymbolGroup2>) -> windows_core::Result<IDebugSymbolGroup2>;
     fn CreateSymbolGroup2(&self) -> windows_core::Result<IDebugSymbolGroup2>;
     fn StartSymbolMatchWide(&self, pattern: &windows_core::PCWSTR) -> windows_core::Result<u64>;
     fn GetNextSymbolMatchWide(&self, handle: u64, buffer: windows_core::PWSTR, buffersize: u32, matchsize: *mut u32, offset: *mut u64) -> windows_core::Result<()>;
@@ -50028,10 +50028,10 @@ pub struct IDynamicConceptProviderConcept_Vtbl {
     pub NotifyDestruct: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
-    fn GetConcept(&self, contextobject: windows_core::Ref<'_, IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<'_, windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<'_, IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>;
-    fn SetConcept(&self, contextobject: windows_core::Ref<'_, IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<'_, windows_core::IUnknown>, conceptmetadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn NotifyParent(&self, parentmodel: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
-    fn NotifyParentChange(&self, parentmodel: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>, hasconcept: *mut bool) -> windows_core::Result<()>;
+    fn SetConcept(&self, contextobject: windows_core::Ref<IModelObject>, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn NotifyParent(&self, parentmodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
+    fn NotifyParentChange(&self, parentmodel: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn NotifyDestruct(&self) -> windows_core::Result<()>;
 }
 impl IDynamicConceptProviderConcept_Vtbl {
@@ -50118,9 +50118,9 @@ pub struct IDynamicKeyProviderConcept_Vtbl {
     pub EnumerateKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDynamicKeyProviderConcept_Impl: windows_core::IUnknownImpl {
-    fn GetKey(&self, contextobject: windows_core::Ref<'_, IModelObject>, key: &windows_core::PCWSTR, keyvalue: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>, haskey: *mut bool) -> windows_core::Result<()>;
-    fn SetKey(&self, contextobject: windows_core::Ref<'_, IModelObject>, key: &windows_core::PCWSTR, keyvalue: windows_core::Ref<'_, IModelObject>, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn EnumerateKeys(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IKeyEnumerator>;
+    fn GetKey(&self, contextobject: windows_core::Ref<IModelObject>, key: &windows_core::PCWSTR, keyvalue: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>, haskey: *mut bool) -> windows_core::Result<()>;
+    fn SetKey(&self, contextobject: windows_core::Ref<IModelObject>, key: &windows_core::PCWSTR, keyvalue: windows_core::Ref<IModelObject>, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn EnumerateKeys(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IKeyEnumerator>;
 }
 impl IDynamicKeyProviderConcept_Vtbl {
     pub const fn new<Identity: IDynamicKeyProviderConcept_Impl, const OFFSET: isize>() -> Self {
@@ -50181,7 +50181,7 @@ pub struct IEquatableConcept_Vtbl {
     pub AreObjectsEqual: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 pub trait IEquatableConcept_Impl: windows_core::IUnknownImpl {
-    fn AreObjectsEqual(&self, contextobject: windows_core::Ref<'_, IModelObject>, otherobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<bool>;
+    fn AreObjectsEqual(&self, contextobject: windows_core::Ref<IModelObject>, otherobject: windows_core::Ref<IModelObject>) -> windows_core::Result<bool>;
 }
 impl IEquatableConcept_Vtbl {
     pub const fn new<Identity: IEquatableConcept_Impl, const OFFSET: isize>() -> Self {
@@ -50268,7 +50268,7 @@ pub struct IHostDataModelAccess_Vtbl {
     pub GetDataModel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IHostDataModelAccess_Impl: windows_core::IUnknownImpl {
-    fn GetDataModel(&self, manager: windows_core::OutRef<'_, IDataModelManager>, host: windows_core::OutRef<'_, IDebugHost>) -> windows_core::Result<()>;
+    fn GetDataModel(&self, manager: windows_core::OutRef<IDataModelManager>, host: windows_core::OutRef<IDebugHost>) -> windows_core::Result<()>;
 }
 impl IHostDataModelAccess_Vtbl {
     pub const fn new<Identity: IHostDataModelAccess_Impl, const OFFSET: isize>() -> Self {
@@ -50320,9 +50320,9 @@ pub struct IIndexableConcept_Vtbl {
     pub SetAt: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IIndexableConcept_Impl: windows_core::IUnknownImpl {
-    fn GetDimensionality(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<u64>;
-    fn GetAt(&self, contextobject: windows_core::Ref<'_, IModelObject>, indexercount: u64, indexers: *const Option<IModelObject>, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetAt(&self, contextobject: windows_core::Ref<'_, IModelObject>, indexercount: u64, indexers: *const Option<IModelObject>, value: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetDimensionality(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<u64>;
+    fn GetAt(&self, contextobject: windows_core::Ref<IModelObject>, indexercount: u64, indexers: *const Option<IModelObject>, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetAt(&self, contextobject: windows_core::Ref<IModelObject>, indexercount: u64, indexers: *const Option<IModelObject>, value: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
 }
 impl IIndexableConcept_Vtbl {
     pub const fn new<Identity: IIndexableConcept_Impl, const OFFSET: isize>() -> Self {
@@ -50392,8 +50392,8 @@ pub struct IIterableConcept_Vtbl {
     pub GetIterator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IIterableConcept_Impl: windows_core::IUnknownImpl {
-    fn GetDefaultIndexDimensionality(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<u64>;
-    fn GetIterator(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IModelIterator>;
+    fn GetDefaultIndexDimensionality(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<u64>;
+    fn GetIterator(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IModelIterator>;
 }
 impl IIterableConcept_Vtbl {
     pub const fn new<Identity: IIterableConcept_Impl, const OFFSET: isize>() -> Self {
@@ -50451,7 +50451,7 @@ pub struct IKeyEnumerator_Vtbl {
 }
 pub trait IKeyEnumerator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, key: *mut windows_core::BSTR, value: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetNext(&self, key: *mut windows_core::BSTR, value: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IKeyEnumerator_Vtbl {
     pub const fn new<Identity: IKeyEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -50519,10 +50519,10 @@ pub struct IKeyStore_Vtbl {
     pub ClearKeys: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
-    fn GetKey(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKey(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<'_, IModelObject>, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn GetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetKey(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKey(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<IModelObject>, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn GetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
 }
 impl IKeyStore_Vtbl {
@@ -50590,7 +50590,7 @@ pub struct IModelIterator_Vtbl {
 }
 pub trait IModelIterator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, object: windows_core::OutRef<'_, IModelObject>, dimensions: u64, indexers: *mut Option<IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetNext(&self, object: windows_core::OutRef<IModelObject>, dimensions: u64, indexers: *mut Option<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IModelIterator_Vtbl {
     pub const fn new<Identity: IModelIterator_Impl, const OFFSET: isize>() -> Self {
@@ -50670,10 +50670,10 @@ pub trait IModelKeyReference_Impl: windows_core::IUnknownImpl {
     fn GetKeyName(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetOriginalObject(&self) -> windows_core::Result<IModelObject>;
     fn GetContextObject(&self) -> windows_core::Result<IModelObject>;
-    fn GetKey(&self, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn GetKeyValue(&self, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKey(&self, object: windows_core::Ref<'_, IModelObject>, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKeyValue(&self, object: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetKey(&self, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn GetKeyValue(&self, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKey(&self, object: windows_core::Ref<IModelObject>, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKeyValue(&self, object: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
 }
 impl IModelKeyReference_Vtbl {
     pub const fn new<Identity: IModelKeyReference_Impl, const OFFSET: isize>() -> Self {
@@ -50776,7 +50776,7 @@ pub struct IModelKeyReference2_Vtbl {
     pub OverrideContextObject: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IModelKeyReference2_Impl: IModelKeyReference_Impl {
-    fn OverrideContextObject(&self, newcontextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn OverrideContextObject(&self, newcontextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
 }
 impl IModelKeyReference2_Vtbl {
     pub const fn new<Identity: IModelKeyReference2_Impl, const OFFSET: isize>() -> Self {
@@ -50810,7 +50810,7 @@ pub struct IModelMethod_Vtbl {
     pub Call: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u64, *const *mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IModelMethod_Impl: windows_core::IUnknownImpl {
-    fn Call(&self, pcontextobject: windows_core::Ref<'_, IModelObject>, argcount: u64, pparguments: *const Option<IModelObject>, ppresult: windows_core::OutRef<'_, IModelObject>, ppmetadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn Call(&self, pcontextobject: windows_core::Ref<IModelObject>, argcount: u64, pparguments: *const Option<IModelObject>, ppresult: windows_core::OutRef<IModelObject>, ppmetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
 }
 impl IModelMethod_Vtbl {
     pub const fn new<Identity: IModelMethod_Impl, const OFFSET: isize>() -> Self {
@@ -51084,35 +51084,35 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
     fn GetKind(&self) -> windows_core::Result<ModelObjectKind>;
     fn GetIntrinsicValue(&self) -> windows_core::Result<super::super::super::Variant::VARIANT>;
     fn GetIntrinsicValueAs(&self, vt: super::super::super::Variant::VARENUM) -> windows_core::Result<super::super::super::Variant::VARIANT>;
-    fn GetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKeyValue(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
     fn EnumerateKeyValues(&self) -> windows_core::Result<IKeyEnumerator>;
     fn GetRawValue(&self, kind: SymbolKind, name: &windows_core::PCWSTR, searchflags: u32) -> windows_core::Result<IModelObject>;
     fn EnumerateRawValues(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator>;
     fn Dereference(&self) -> windows_core::Result<IModelObject>;
     fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject>;
-    fn GetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<'_, windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::OutRef<windows_core::IUnknown>, conceptmetadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
     fn GetLocation(&self) -> windows_core::Result<Location>;
     fn GetTypeInfo(&self) -> windows_core::Result<IDebugHostType>;
-    fn GetTargetInfo(&self, location: *mut Location, r#type: windows_core::OutRef<'_, IDebugHostType>) -> windows_core::Result<()>;
+    fn GetTargetInfo(&self, location: *mut Location, r#type: windows_core::OutRef<IDebugHostType>) -> windows_core::Result<()>;
     fn GetNumberOfParentModels(&self) -> windows_core::Result<u64>;
-    fn GetParentModel(&self, i: u64, model: windows_core::OutRef<'_, IModelObject>, contextobject: windows_core::OutRef<'_, IModelObject>) -> windows_core::Result<()>;
-    fn AddParentModel(&self, model: windows_core::Ref<'_, IModelObject>, contextobject: windows_core::Ref<'_, IModelObject>, r#override: u8) -> windows_core::Result<()>;
-    fn RemoveParentModel(&self, model: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
-    fn GetKey(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn GetKeyReference(&self, key: &windows_core::PCWSTR, objectreference: windows_core::OutRef<'_, IModelObject>, metadata: windows_core::OutRef<'_, IKeyStore>) -> windows_core::Result<()>;
-    fn SetKey(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<'_, IModelObject>, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn GetParentModel(&self, i: u64, model: windows_core::OutRef<IModelObject>, contextobject: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
+    fn AddParentModel(&self, model: windows_core::Ref<IModelObject>, contextobject: windows_core::Ref<IModelObject>, r#override: u8) -> windows_core::Result<()>;
+    fn RemoveParentModel(&self, model: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
+    fn GetKey(&self, key: &windows_core::PCWSTR, object: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn GetKeyReference(&self, key: &windows_core::PCWSTR, objectreference: windows_core::OutRef<IModelObject>, metadata: windows_core::OutRef<IKeyStore>) -> windows_core::Result<()>;
+    fn SetKey(&self, key: &windows_core::PCWSTR, object: windows_core::Ref<IModelObject>, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
     fn ClearKeys(&self) -> windows_core::Result<()>;
     fn EnumerateKeys(&self) -> windows_core::Result<IKeyEnumerator>;
     fn EnumerateKeyReferences(&self) -> windows_core::Result<IKeyEnumerator>;
-    fn SetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<'_, windows_core::IUnknown>, conceptmetadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<()>;
+    fn SetConcept(&self, conceptid: *const windows_core::GUID, conceptinterface: windows_core::Ref<windows_core::IUnknown>, conceptmetadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<()>;
     fn ClearConcepts(&self) -> windows_core::Result<()>;
     fn GetRawReference(&self, kind: SymbolKind, name: &windows_core::PCWSTR, searchflags: u32) -> windows_core::Result<IModelObject>;
     fn EnumerateRawReferences(&self, kind: SymbolKind, searchflags: u32) -> windows_core::Result<IRawEnumerator>;
-    fn SetContextForDataModel(&self, datamodelobject: windows_core::Ref<'_, IModelObject>, context: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn GetContextForDataModel(&self, datamodelobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<windows_core::IUnknown>;
-    fn Compare(&self, other: windows_core::Ref<'_, IModelObject>, ppresult: windows_core::OutRef<'_, IModelObject>) -> windows_core::Result<()>;
-    fn IsEqualTo(&self, other: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<bool>;
+    fn SetContextForDataModel(&self, datamodelobject: windows_core::Ref<IModelObject>, context: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetContextForDataModel(&self, datamodelobject: windows_core::Ref<IModelObject>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Compare(&self, other: windows_core::Ref<IModelObject>, ppresult: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
+    fn IsEqualTo(&self, other: windows_core::Ref<IModelObject>) -> windows_core::Result<bool>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IModelObject_Vtbl {
@@ -51496,8 +51496,8 @@ pub struct IModelPropertyAccessor_Vtbl {
     pub SetValue: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IModelPropertyAccessor_Impl: windows_core::IUnknownImpl {
-    fn GetValue(&self, key: &windows_core::PCWSTR, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IModelObject>;
-    fn SetValue(&self, key: &windows_core::PCWSTR, contextobject: windows_core::Ref<'_, IModelObject>, value: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetValue(&self, key: &windows_core::PCWSTR, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IModelObject>;
+    fn SetValue(&self, key: &windows_core::PCWSTR, contextobject: windows_core::Ref<IModelObject>, value: windows_core::Ref<IModelObject>) -> windows_core::Result<()>;
 }
 impl IModelPropertyAccessor_Vtbl {
     pub const fn new<Identity: IModelPropertyAccessor_Impl, const OFFSET: isize>() -> Self {
@@ -51617,7 +51617,7 @@ pub struct IPreferredRuntimeTypeConcept_Vtbl {
     pub CastToPreferredRuntimeType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPreferredRuntimeTypeConcept_Impl: windows_core::IUnknownImpl {
-    fn CastToPreferredRuntimeType(&self, contextobject: windows_core::Ref<'_, IModelObject>) -> windows_core::Result<IModelObject>;
+    fn CastToPreferredRuntimeType(&self, contextobject: windows_core::Ref<IModelObject>) -> windows_core::Result<IModelObject>;
 }
 impl IPreferredRuntimeTypeConcept_Vtbl {
     pub const fn new<Identity: IPreferredRuntimeTypeConcept_Impl, const OFFSET: isize>() -> Self {
@@ -51659,7 +51659,7 @@ pub struct IRawEnumerator_Vtbl {
 }
 pub trait IRawEnumerator_Impl: windows_core::IUnknownImpl {
     fn Reset(&self) -> windows_core::Result<()>;
-    fn GetNext(&self, name: *mut windows_core::BSTR, kind: *mut SymbolKind, value: windows_core::OutRef<'_, IModelObject>) -> windows_core::Result<()>;
+    fn GetNext(&self, name: *mut windows_core::BSTR, kind: *mut SymbolKind, value: windows_core::OutRef<IModelObject>) -> windows_core::Result<()>;
 }
 impl IRawEnumerator_Vtbl {
     pub const fn new<Identity: IRawEnumerator_Impl, const OFFSET: isize>() -> Self {
@@ -51703,7 +51703,7 @@ pub struct IStringDisplayableConcept_Vtbl {
     pub ToDisplayString: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IStringDisplayableConcept_Impl: windows_core::IUnknownImpl {
-    fn ToDisplayString(&self, contextobject: windows_core::Ref<'_, IModelObject>, metadata: windows_core::Ref<'_, IKeyStore>) -> windows_core::Result<windows_core::BSTR>;
+    fn ToDisplayString(&self, contextobject: windows_core::Ref<IModelObject>, metadata: windows_core::Ref<IKeyStore>) -> windows_core::Result<windows_core::BSTR>;
 }
 impl IStringDisplayableConcept_Vtbl {
     pub const fn new<Identity: IStringDisplayableConcept_Impl, const OFFSET: isize>() -> Self {
@@ -52180,39 +52180,39 @@ pub const ObjectPropertyAccessor: ModelObjectKind = ModelObjectKind(0i32);
 pub const ObjectSynthetic: ModelObjectKind = ModelObjectKind(4i32);
 pub const ObjectTargetObject: ModelObjectKind = ModelObjectKind(2i32);
 pub const ObjectTargetObjectReference: ModelObjectKind = ModelObjectKind(3i32);
-pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, args: windows_core::PCSTR) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_CALL = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCSTR) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_CANUNLOAD = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_INITIALIZE = Option<unsafe extern "system" fn(version: *mut u32, flags: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_KNOWN_STRUCT = Option<unsafe extern "system" fn(flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
-pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_KNOWN_STRUCT_EX = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, offset: u64, typename: windows_core::PCSTR, buffer: windows_core::PSTR, bufferchars: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_NOTIFY = Option<unsafe extern "system" fn(notify: u32, argument: u64)>;
-pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, flags: u32, name: windows_core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_core::HRESULT>;
-pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_PROVIDE_VALUE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, name: windows_core::PCWSTR, value: *mut u64, typemodbase: *mut u64, typeid: *mut u32, typeflags: *mut u32) -> windows_core::HRESULT>;
+pub type PDEBUG_EXTENSION_QUERY_VALUE_NAMES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, buffer: windows_core::PWSTR, bufferchars: u32, bufferneeded: *mut u32) -> windows_core::HRESULT>;
 pub type PDEBUG_EXTENSION_UNINITIALIZE = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_EXTENSION_UNLOAD = Option<unsafe extern "system" fn()>;
 pub type PDEBUG_STACK_PROVIDER_BEGINTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn(streamtype: u32, minidumpstreambuffer: *const core::ffi::c_void, buffersize: u32) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_ENDTHREADSTACKRECONSTRUCTION = Option<unsafe extern "system" fn() -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_FREESTACKSYMFRAMES = Option<unsafe extern "system" fn(stacksymframes: *const STACK_SYM_FRAME_INFO) -> windows_core::HRESULT>;
 pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = Option<unsafe extern "system" fn(systemthreadid: u32, nativeframes: *const DEBUG_STACK_FRAME_EX, countnativeframes: u32, stacksymframes: *mut *mut STACK_SYM_FRAME_INFO, stacksymframesfilled: *mut u32) -> windows_core::HRESULT>;
-pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_core::HRESULT>;
-pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
-pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_core::HRESULT>;
-pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_core::HRESULT>;
-pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_core::HRESULT>;
-pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_core::HRESULT>;
-pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_core::HRESULT>;
-pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, process: u64, fullimagename: *mut windows_core::PSTR) -> windows_core::HRESULT>;
-pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_core::HRESULT>;
-pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_core::HRESULT>;
-pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_core::HRESULT>;
-pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_core::HRESULT>;
+pub type PENUMERATE_HANDLES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, handletodump: u64, flags: u32, callback: KDEXT_DUMP_HANDLE_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_HASH_TABLE = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, hashtable: u64, callback: EXTS_TABLE_ENTRY_CALLBACK, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_JOB_PROCESSES = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, job: u64, callback: EXTS_JOB_PROCESS_CALLBACK, context: *const core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PENUMERATE_SYSTEM_LOCKS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, flags: u32, callback: KDEXTS_LOCK_CALLBACKROUTINE, context: *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type PFIND_FILELOCK_OWNERINFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pfilelockowner: *mut KDEXT_FILELOCK_OWNER) -> windows_core::HRESULT>;
+pub type PFIND_MATCHING_PROCESS = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, processinfo: *const KDEXT_PROCESS_FIND_PARAMS, process: *mut u64) -> windows_core::HRESULT>;
+pub type PFIND_MATCHING_THREAD = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, threadinfo: *mut KDEXT_THREAD_FIND_PARAMS) -> windows_core::HRESULT>;
+pub type PGET_CPU_MICROCODE_VERSION = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpumicrocodeversion: *mut DEBUG_CPU_MICROCODE_VERSION) -> windows_core::HRESULT>;
+pub type PGET_CPU_PSPEED_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pcpuspeedinfo: *mut DEBUG_CPU_SPEED_INFO) -> windows_core::HRESULT>;
+pub type PGET_DEVICE_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, deviceobject: u64, pdevobjinfo: *mut DEBUG_DEVICE_OBJECT_INFO) -> windows_core::HRESULT>;
+pub type PGET_DRIVER_OBJECT_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, driverobject: u64, pdrvobjinfo: *mut DEBUG_DRIVER_OBJECT_INFO) -> windows_core::HRESULT>;
+pub type PGET_FULL_IMAGE_NAME = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, process: u64, fullimagename: *mut windows_core::PSTR) -> windows_core::HRESULT>;
+pub type PGET_IRP_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, irp: u64, irpinfo: *mut DEBUG_IRP_INFO) -> windows_core::HRESULT>;
+pub type PGET_PNP_TRIAGE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, ppnptriageinfo: *mut DEBUG_PNP_TRIAGE_INFO) -> windows_core::HRESULT>;
+pub type PGET_POOL_DATA = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pool: u64, pooldata: *mut DEBUG_POOL_DATA) -> windows_core::HRESULT>;
+pub type PGET_POOL_REGION = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, pool: u64, poolregion: *mut DEBUG_POOL_REGION) -> windows_core::HRESULT>;
 pub type PGET_POOL_TAG_DESCRIPTION = Option<unsafe extern "system" fn(pooltag: u32, pdescription: *mut DEBUG_POOLTAG_DESCRIPTION) -> windows_core::HRESULT>;
-pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_core::HRESULT>;
-pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_core::HRESULT>;
+pub type PGET_PROCESS_COMMIT = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, totalcommitcharge: *mut u64, numberofprocesses: *mut u32, commitdata: *mut *mut PROCESS_COMMIT_USAGE) -> windows_core::HRESULT>;
+pub type PGET_SMBIOS_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, psmbiosinfo: *mut DEBUG_SMBIOS_INFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PHYSICAL {
@@ -52249,7 +52249,7 @@ pub const PHYS_FLAG_CACHED: u32 = 1u32;
 pub const PHYS_FLAG_DEFAULT: u32 = 0u32;
 pub const PHYS_FLAG_UNCACHED: u32 = 2u32;
 pub const PHYS_FLAG_WRITE_COMBINED: u32 = 3u32;
-pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_core::HRESULT>;
+pub type PKDEXTS_GET_PTE_INFO = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, r#virtual: u64, pteinfo: *mut KDEXTS_PTE_INFO) -> windows_core::HRESULT>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct POINTER_SEARCH_PHYSICAL {
@@ -52853,4 +52853,4 @@ impl Default for XML_DRIVER_NODE_INFO {
     }
 }
 pub const _EXTSAPI_VER_: u32 = 10u32;
-pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: windows_core::Ref<'_, IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
+pub type fnDebugFailureAnalysisCreateInstance = Option<unsafe extern "system" fn(client: windows_core::Ref<IDebugClient>, args: windows_core::PCWSTR, flags: u32, rclsid: *const windows_core::GUID, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;

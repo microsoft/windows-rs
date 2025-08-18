@@ -606,8 +606,8 @@ impl windows_core::RuntimeName for IBasicAudioEffect {
 pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessAudioFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessAudioFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -773,8 +773,8 @@ pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
     fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -995,8 +995,8 @@ impl windows_core::RuntimeName for IVideoCompositor {
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: super::IMediaExtension_Impl {
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn CompositeFrame(&self, context: windows_core::Ref<'_, CompositeVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn CompositeFrame(&self, context: windows_core::Ref<CompositeVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }

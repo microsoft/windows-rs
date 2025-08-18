@@ -295,10 +295,10 @@ impl windows_core::RuntimeName for IStorageItemAccessList {
 }
 #[cfg(all(feature = "Storage_Search", feature = "Storage_Streams"))]
 pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
-    fn AddOverloadDefaultMetadata(&self, file: windows_core::Ref<'_, super::IStorageItem>) -> windows_core::Result<windows_core::HSTRING>;
-    fn Add(&self, file: windows_core::Ref<'_, super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
-    fn AddOrReplaceOverloadDefaultMetadata(&self, token: &windows_core::HSTRING, file: windows_core::Ref<'_, super::IStorageItem>) -> windows_core::Result<()>;
-    fn AddOrReplace(&self, token: &windows_core::HSTRING, file: windows_core::Ref<'_, super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<()>;
+    fn AddOverloadDefaultMetadata(&self, file: windows_core::Ref<super::IStorageItem>) -> windows_core::Result<windows_core::HSTRING>;
+    fn Add(&self, file: windows_core::Ref<super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>;
+    fn AddOrReplaceOverloadDefaultMetadata(&self, token: &windows_core::HSTRING, file: windows_core::Ref<super::IStorageItem>) -> windows_core::Result<()>;
+    fn AddOrReplace(&self, token: &windows_core::HSTRING, file: windows_core::Ref<super::IStorageItem>, metadata: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn GetItemAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::IStorageItem>>;
     fn GetFileAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFile>>;
     fn GetFolderAsync(&self, token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::StorageFolder>>;
@@ -308,7 +308,7 @@ pub trait IStorageItemAccessList_Impl: windows_core::IUnknownImpl {
     fn Remove(&self, token: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn ContainsItem(&self, token: &windows_core::HSTRING) -> windows_core::Result<bool>;
     fn Clear(&self) -> windows_core::Result<()>;
-    fn CheckAccess(&self, file: windows_core::Ref<'_, super::IStorageItem>) -> windows_core::Result<bool>;
+    fn CheckAccess(&self, file: windows_core::Ref<super::IStorageItem>) -> windows_core::Result<bool>;
     fn Entries(&self) -> windows_core::Result<AccessListEntryView>;
     fn MaximumItemsAllowed(&self) -> windows_core::Result<u32>;
 }

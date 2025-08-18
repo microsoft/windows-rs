@@ -26,8 +26,8 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
     pub fn new<
         F: Fn(
-                windows_core::Ref<'_, windows_core::IInspectable>,
-                windows_core::Ref<'_, T>,
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<T>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -75,8 +75,8 @@ where
 struct EventHandlerBox<
     T,
     F: Fn(
-            windows_core::Ref<'_, windows_core::IInspectable>,
-            windows_core::Ref<'_, T>,
+            windows_core::Ref<windows_core::IInspectable>,
+            windows_core::Ref<T>,
         ) -> windows_core::Result<()>
         + Send
         + 'static,
@@ -90,8 +90,8 @@ struct EventHandlerBox<
 impl<
         T: windows_core::RuntimeType + 'static,
         F: Fn(
-                windows_core::Ref<'_, windows_core::IInspectable>,
-                windows_core::Ref<'_, T>,
+                windows_core::Ref<windows_core::IInspectable>,
+                windows_core::Ref<T>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,

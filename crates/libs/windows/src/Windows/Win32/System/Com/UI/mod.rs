@@ -69,8 +69,8 @@ pub struct IThumbnailExtractor_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 pub trait IThumbnailExtractor_Impl: windows_core::IUnknownImpl {
-    fn ExtractThumbnail(&self, pstg: windows_core::Ref<'_, super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
-    fn OnFileUpdated(&self, pstg: windows_core::Ref<'_, super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
+    fn ExtractThumbnail(&self, pstg: windows_core::Ref<super::StructuredStorage::IStorage>, ullength: u32, ulheight: u32, puloutputlength: *mut u32, puloutputheight: *mut u32, phoutputbitmap: *mut super::super::super::Graphics::Gdi::HBITMAP) -> windows_core::Result<()>;
+    fn OnFileUpdated(&self, pstg: windows_core::Ref<super::StructuredStorage::IStorage>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com_StructuredStorage"))]
 impl IThumbnailExtractor_Vtbl {

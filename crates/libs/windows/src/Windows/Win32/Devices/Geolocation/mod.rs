@@ -1175,7 +1175,7 @@ pub struct IDefaultLocation_Vtbl {
     pub GetReport: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDefaultLocation_Impl: windows_core::IUnknownImpl {
-    fn SetReport(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<'_, ILocationReport>) -> windows_core::Result<()>;
+    fn SetReport(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
 }
 impl IDefaultLocation_Vtbl {
@@ -1835,7 +1835,7 @@ pub struct ILocation_Vtbl {
 }
 #[cfg(feature = "Win32_Devices_Sensors")]
 pub trait ILocation_Impl: windows_core::IUnknownImpl {
-    fn RegisterForReport(&self, pevents: windows_core::Ref<'_, ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
+    fn RegisterForReport(&self, pevents: windows_core::Ref<ILocationEvents>, reporttype: *const windows_core::GUID, dwrequestedreportinterval: u32) -> windows_core::Result<()>;
     fn UnregisterForReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetReport(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<ILocationReport>;
     fn GetReportStatus(&self, reporttype: *const windows_core::GUID) -> windows_core::Result<LOCATION_REPORT_STATUS>;
@@ -1966,7 +1966,7 @@ pub struct ILocationEvents_Vtbl {
     pub OnStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, LOCATION_REPORT_STATUS) -> windows_core::HRESULT,
 }
 pub trait ILocationEvents_Impl: windows_core::IUnknownImpl {
-    fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<'_, ILocationReport>) -> windows_core::Result<()>;
+    fn OnLocationChanged(&self, reporttype: *const windows_core::GUID, plocationreport: windows_core::Ref<ILocationReport>) -> windows_core::Result<()>;
     fn OnStatusChanged(&self, reporttype: *const windows_core::GUID, newstatus: LOCATION_REPORT_STATUS) -> windows_core::Result<()>;
 }
 impl ILocationEvents_Vtbl {

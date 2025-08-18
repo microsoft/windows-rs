@@ -406,7 +406,7 @@ pub struct IApoAuxiliaryInputConfiguration_Vtbl {
 pub trait IApoAuxiliaryInputConfiguration_Impl: windows_core::IUnknownImpl {
     fn AddAuxiliaryInput(&self, dwinputid: u32, cbdatasize: u32, pbydata: *const u8, pinputconnection: *const APO_CONNECTION_DESCRIPTOR) -> windows_core::Result<()>;
     fn RemoveAuxiliaryInput(&self, dwinputid: u32) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&self, prequestedinputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
 }
 impl IApoAuxiliaryInputConfiguration_Vtbl {
     pub const fn new<Identity: IApoAuxiliaryInputConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -494,7 +494,7 @@ pub struct IAudioDeviceModulesClient_Vtbl {
     pub SetAudioDeviceModulesManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAudioDeviceModulesClient_Impl: windows_core::IUnknownImpl {
-    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetAudioDeviceModulesManager(&self, paudiodevicemodulesmanager: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IAudioDeviceModulesClient_Vtbl {
     pub const fn new<Identity: IAudioDeviceModulesClient_Impl, const OFFSET: isize>() -> Self {
@@ -547,7 +547,7 @@ pub struct IAudioMediaType_Vtbl {
 }
 pub trait IAudioMediaType_Impl: windows_core::IUnknownImpl {
     fn IsCompressedFormat(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn IsEqual(&self, piaudiotype: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<u32>;
+    fn IsEqual(&self, piaudiotype: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<u32>;
     fn GetAudioFormat(&self) -> *mut super::WAVEFORMATEX;
     fn GetUncompressedAudioFormat(&self, puncompressedaudioformat: *mut UNCOMPRESSEDAUDIOFORMAT) -> windows_core::Result<()>;
 }
@@ -667,8 +667,8 @@ pub trait IAudioProcessingObject_Impl: windows_core::IUnknownImpl {
     fn GetLatency(&self) -> windows_core::Result<i64>;
     fn GetRegistrationProperties(&self) -> windows_core::Result<*mut APO_REG_PROPERTIES>;
     fn Initialize(&self, cbdatasize: u32, pbydata: *const u8) -> windows_core::Result<()>;
-    fn IsInputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedinputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
-    fn IsOutputFormatSupported(&self, poppositeformat: windows_core::Ref<'_, IAudioMediaType>, prequestedoutputformat: windows_core::Ref<'_, IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsInputFormatSupported(&self, poppositeformat: windows_core::Ref<IAudioMediaType>, prequestedinputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
+    fn IsOutputFormatSupported(&self, poppositeformat: windows_core::Ref<IAudioMediaType>, prequestedoutputformat: windows_core::Ref<IAudioMediaType>) -> windows_core::Result<IAudioMediaType>;
     fn GetInputChannelCount(&self) -> windows_core::Result<u32>;
 }
 impl IAudioProcessingObject_Vtbl {

@@ -714,9 +714,9 @@ impl windows_core::RuntimeName for ITest {
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn Numerics(&self, n: &Vector2) -> windows_core::Result<()>;
-    fn Collections(&self, c: windows_core::Ref<'_, IVector<i32>>) -> windows_core::Result<()>;
+    fn Collections(&self, c: windows_core::Ref<IVector<i32>>) -> windows_core::Result<()>;
     fn Async(&self) -> windows_core::Result<IAsyncAction>;
-    fn Windows(&self, s: windows_core::Ref<'_, IStringable>) -> windows_core::Result<()>;
+    fn Windows(&self, s: windows_core::Ref<IStringable>) -> windows_core::Result<()>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {
@@ -1002,15 +1002,11 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(
-        &self,
-        value: windows_core::Ref<'_, T>,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
+    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn SetAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
+    fn Append(&self, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(

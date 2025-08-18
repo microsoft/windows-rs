@@ -344,7 +344,7 @@ impl windows_core::RuntimeName for ICoreAutomationRemoteOperationExtensionProvid
     const NAME: &'static str = "Windows.UI.UIAutomation.Core.ICoreAutomationRemoteOperationExtensionProvider";
 }
 pub trait ICoreAutomationRemoteOperationExtensionProvider_Impl: windows_core::IUnknownImpl {
-    fn CallExtension(&self, extensionId: &windows_core::GUID, context: windows_core::Ref<'_, CoreAutomationRemoteOperationContext>, operandIds: &[AutomationRemoteOperationOperandId]) -> windows_core::Result<()>;
+    fn CallExtension(&self, extensionId: &windows_core::GUID, context: windows_core::Ref<CoreAutomationRemoteOperationContext>, operandIds: &[AutomationRemoteOperationOperandId]) -> windows_core::Result<()>;
     fn IsExtensionSupported(&self, extensionId: &windows_core::GUID) -> windows_core::Result<bool>;
 }
 impl ICoreAutomationRemoteOperationExtensionProvider_Vtbl {

@@ -2248,7 +2248,7 @@ pub struct ICameraUIControl_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ICameraUIControl_Impl: windows_core::IUnknownImpl {
-    fn Show(&self, pwindow: windows_core::Ref<'_, windows_core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: windows_core::BOOL, peventcallback: windows_core::Ref<'_, ICameraUIControlEventCallback>) -> windows_core::Result<()>;
+    fn Show(&self, pwindow: windows_core::Ref<windows_core::IUnknown>, mode: CameraUIControlMode, selectionmode: CameraUIControlLinearSelectionMode, capturemode: CameraUIControlCaptureMode, photoformat: CameraUIControlPhotoFormat, videoformat: CameraUIControlVideoFormat, bhasclosebutton: windows_core::BOOL, peventcallback: windows_core::Ref<ICameraUIControlEventCallback>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn Suspend(&self) -> windows_core::Result<windows_core::BOOL>;
     fn Resume(&self) -> windows_core::Result<()>;
@@ -3229,7 +3229,7 @@ pub type PWINSTATIONQUERYINFORMATIONW = Option<unsafe extern "system" fn(param0:
 pub type PWLDP_CANEXECUTEBUFFER_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, buffer: *const u8, buffersize: u32, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;
 pub type PWLDP_CANEXECUTEFILE_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, filehandle: super::super::Foundation::HANDLE, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;
 #[cfg(feature = "Win32_System_Com")]
-pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: windows_core::Ref<'_, super::Com::IStream>, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;
+pub type PWLDP_CANEXECUTESTREAM_API = Option<unsafe extern "system" fn(host: *const windows_core::GUID, options: WLDP_EXECUTION_EVALUATION_OPTIONS, stream: windows_core::Ref<super::Com::IStream>, auditinfo: windows_core::PCWSTR, result: *mut WLDP_EXECUTION_POLICY) -> windows_core::HRESULT>;
 pub type PWLDP_ISAPPAPPROVEDBYPOLICY_API = Option<unsafe extern "system" fn(packagefamilyname: windows_core::PCWSTR, packageversion: u64) -> windows_core::HRESULT>;
 pub type PWLDP_ISDYNAMICCODEPOLICYENABLED_API = Option<unsafe extern "system" fn(pbenabled: *mut windows_core::BOOL) -> windows_core::HRESULT>;
 pub type PWLDP_ISPRODUCTIONCONFIGURATION_API = Option<unsafe extern "system" fn(isproductionconfiguration: *mut windows_core::BOOL) -> windows_core::HRESULT>;

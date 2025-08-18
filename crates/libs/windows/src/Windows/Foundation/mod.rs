@@ -143,7 +143,7 @@ impl<T: windows_core::RuntimeType + 'static> windows_core::RuntimeType for Event
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c535-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(T::SIGNATURE).push_slice(b")");
 }
 impl<T: windows_core::RuntimeType + 'static> EventHandler<T> {
-    pub fn new<F: Fn(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = EventHandlerBox { vtable: &EventHandlerBox::<T, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -167,7 +167,7 @@ where
     T: core::marker::PhantomData<T>,
 }
 #[repr(C)]
-struct EventHandlerBox<T, F: Fn(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static>
+struct EventHandlerBox<T, F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static>
 where
     T: windows_core::RuntimeType + 'static,
 {
@@ -175,7 +175,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<'_, windows_core::IInspectable>, windows_core::Ref<'_, T>) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
+impl<T: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<windows_core::IInspectable>, windows_core::Ref<T>) -> windows_core::Result<()> + Send + 'static> EventHandlerBox<T, F> {
     const VTABLE: EventHandler_Vtbl<T> = EventHandler_Vtbl::<T> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,
@@ -473,7 +473,7 @@ impl windows_core::RuntimeName for IMemoryBufferReference {
 }
 pub trait IMemoryBufferReference_Impl: IClosable_Impl {
     fn Capacity(&self) -> windows_core::Result<u32>;
-    fn Closed(&self, handler: windows_core::Ref<'_, TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn Closed(&self, handler: windows_core::Ref<TypedEventHandler<IMemoryBufferReference, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveClosed(&self, cookie: i64) -> windows_core::Result<()>;
 }
 impl IMemoryBufferReference_Vtbl {
@@ -2464,7 +2464,7 @@ impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::Runtim
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::new().push_slice(b"pinterface({9de1c534-6ae1-11e0-84e1-18a905bcc53f}").push_slice(b";").push_other(TSender::SIGNATURE).push_slice(b";").push_other(TResult::SIGNATURE).push_slice(b")");
 }
 impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static> TypedEventHandler<TSender, TResult> {
-    pub fn new<F: Fn(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = TypedEventHandlerBox { vtable: &TypedEventHandlerBox::<TSender, TResult, F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -2490,7 +2490,7 @@ where
     TResult: core::marker::PhantomData<TResult>,
 }
 #[repr(C)]
-struct TypedEventHandlerBox<TSender, TResult, F: Fn(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static>
+struct TypedEventHandlerBox<TSender, TResult, F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static>
 where
     TSender: windows_core::RuntimeType + 'static,
     TResult: windows_core::RuntimeType + 'static,
@@ -2499,7 +2499,7 @@ where
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<'_, TSender>, windows_core::Ref<'_, TResult>) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
+impl<TSender: windows_core::RuntimeType + 'static, TResult: windows_core::RuntimeType + 'static, F: Fn(windows_core::Ref<TSender>, windows_core::Ref<TResult>) -> windows_core::Result<()> + Send + 'static> TypedEventHandlerBox<TSender, TResult, F> {
     const VTABLE: TypedEventHandler_Vtbl<TSender, TResult> = TypedEventHandler_Vtbl::<TSender, TResult> {
         base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release },
         Invoke: Self::Invoke,

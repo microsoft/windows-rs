@@ -33,7 +33,7 @@ fn main() {
         .unwrap();
 }
 
-fn service_thread(service: Arc<RwLock<Service<'_>>>) {
+fn service_thread(service: Arc<RwLock<Service>>) {
     for i in 0..10 {
         log(&format!("Thread:{}... iteration:{i}\n", thread_id()));
 

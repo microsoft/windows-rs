@@ -311,7 +311,7 @@ impl windows_core::RuntimeName for IMediaEnginePlaybackSource {
 }
 pub trait IMediaEnginePlaybackSource_Impl: windows_core::IUnknownImpl {
     fn CurrentItem(&self) -> windows_core::Result<MediaPlaybackItem>;
-    fn SetPlaybackSource(&self, source: windows_core::Ref<'_, IMediaPlaybackSource>) -> windows_core::Result<()>;
+    fn SetPlaybackSource(&self, source: windows_core::Ref<IMediaPlaybackSource>) -> windows_core::Result<()>;
 }
 impl IMediaEnginePlaybackSource_Vtbl {
     pub const fn new<Identity: IMediaEnginePlaybackSource_Impl, const OFFSET: isize>() -> Self {

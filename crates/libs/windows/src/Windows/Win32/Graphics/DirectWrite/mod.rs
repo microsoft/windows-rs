@@ -1705,7 +1705,7 @@ unsafe impl Send for IDWriteBitmapRenderTarget {}
 unsafe impl Sync for IDWriteBitmapRenderTarget {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteBitmapRenderTarget_Impl: windows_core::IUnknownImpl {
-    fn DrawGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
     fn GetMemoryDC(&self) -> super::Gdi::HDC;
     fn GetPixelsPerDip(&self) -> f32;
     fn SetPixelsPerDip(&self, pixelsperdip: f32) -> windows_core::Result<()>;
@@ -1933,7 +1933,7 @@ unsafe impl Sync for IDWriteBitmapRenderTarget3 {}
 pub trait IDWriteBitmapRenderTarget3_Impl: IDWriteBitmapRenderTarget2_Impl {
     fn GetPaintFeatureLevel(&self) -> DWRITE_PAINT_FEATURE_LEVEL;
     fn DrawPaintGlyphRun(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphimageformat: DWRITE_GLYPH_IMAGE_FORMATS, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
+    fn DrawGlyphRunWithColorSupport(&self, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, renderingparams: windows_core::Ref<IDWriteRenderingParams>, textcolor: super::super::Foundation::COLORREF, colorpaletteindex: u32, blackboxrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDWriteBitmapRenderTarget3_Vtbl {
@@ -2270,24 +2270,24 @@ unsafe impl Send for IDWriteFactory {}
 unsafe impl Sync for IDWriteFactory {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory_Impl: windows_core::IUnknownImpl {
-    fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CreateCustomFontCollection(&self, collectionloader: windows_core::Ref<'_, IDWriteFontCollectionLoader>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontCollection>;
-    fn RegisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<'_, IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
-    fn UnregisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<'_, IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
+    fn GetSystemFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateCustomFontCollection(&self, collectionloader: windows_core::Ref<IDWriteFontCollectionLoader>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontCollection>;
+    fn RegisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
+    fn UnregisterFontCollectionLoader(&self, fontcollectionloader: windows_core::Ref<IDWriteFontCollectionLoader>) -> windows_core::Result<()>;
     fn CreateFontFileReference(&self, filepath: &windows_core::PCWSTR, lastwritetime: *const super::super::Foundation::FILETIME) -> windows_core::Result<IDWriteFontFile>;
-    fn CreateCustomFontFileReference(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: windows_core::Ref<'_, IDWriteFontFileLoader>) -> windows_core::Result<IDWriteFontFile>;
+    fn CreateCustomFontFileReference(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<IDWriteFontFile>;
     fn CreateFontFace(&self, fontfacetype: DWRITE_FONT_FACE_TYPE, numberoffiles: u32, fontfiles: *const Option<IDWriteFontFile>, faceindex: u32, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace>;
     fn CreateRenderingParams(&self) -> windows_core::Result<IDWriteRenderingParams>;
     fn CreateMonitorRenderingParams(&self, monitor: super::Gdi::HMONITOR) -> windows_core::Result<IDWriteRenderingParams>;
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE) -> windows_core::Result<IDWriteRenderingParams>;
-    fn RegisterFontFileLoader(&self, fontfileloader: windows_core::Ref<'_, IDWriteFontFileLoader>) -> windows_core::Result<()>;
-    fn UnregisterFontFileLoader(&self, fontfileloader: windows_core::Ref<'_, IDWriteFontFileLoader>) -> windows_core::Result<()>;
-    fn CreateTextFormat(&self, fontfamilyname: &windows_core::PCWSTR, fontcollection: windows_core::Ref<'_, IDWriteFontCollection>, fontweight: DWRITE_FONT_WEIGHT, fontstyle: DWRITE_FONT_STYLE, fontstretch: DWRITE_FONT_STRETCH, fontsize: f32, localename: &windows_core::PCWSTR) -> windows_core::Result<IDWriteTextFormat>;
+    fn RegisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<()>;
+    fn UnregisterFontFileLoader(&self, fontfileloader: windows_core::Ref<IDWriteFontFileLoader>) -> windows_core::Result<()>;
+    fn CreateTextFormat(&self, fontfamilyname: &windows_core::PCWSTR, fontcollection: windows_core::Ref<IDWriteFontCollection>, fontweight: DWRITE_FONT_WEIGHT, fontstyle: DWRITE_FONT_STYLE, fontstretch: DWRITE_FONT_STRETCH, fontsize: f32, localename: &windows_core::PCWSTR) -> windows_core::Result<IDWriteTextFormat>;
     fn CreateTypography(&self) -> windows_core::Result<IDWriteTypography>;
     fn GetGdiInterop(&self) -> windows_core::Result<IDWriteGdiInterop>;
-    fn CreateTextLayout(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: windows_core::Ref<'_, IDWriteTextFormat>, maxwidth: f32, maxheight: f32) -> windows_core::Result<IDWriteTextLayout>;
-    fn CreateGdiCompatibleTextLayout(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: windows_core::Ref<'_, IDWriteTextFormat>, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL) -> windows_core::Result<IDWriteTextLayout>;
-    fn CreateEllipsisTrimmingSign(&self, textformat: windows_core::Ref<'_, IDWriteTextFormat>) -> windows_core::Result<IDWriteInlineObject>;
+    fn CreateTextLayout(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: windows_core::Ref<IDWriteTextFormat>, maxwidth: f32, maxheight: f32) -> windows_core::Result<IDWriteTextLayout>;
+    fn CreateGdiCompatibleTextLayout(&self, string: &windows_core::PCWSTR, stringlength: u32, textformat: windows_core::Ref<IDWriteTextFormat>, layoutwidth: f32, layoutheight: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL) -> windows_core::Result<IDWriteTextLayout>;
+    fn CreateEllipsisTrimmingSign(&self, textformat: windows_core::Ref<IDWriteTextFormat>) -> windows_core::Result<IDWriteInlineObject>;
     fn CreateTextAnalyzer(&self) -> windows_core::Result<IDWriteTextAnalyzer>;
     fn CreateNumberSubstitution(&self, substitutionmethod: DWRITE_NUMBER_SUBSTITUTION_METHOD, localename: &windows_core::PCWSTR, ignoreuseroverride: windows_core::BOOL) -> windows_core::Result<IDWriteNumberSubstitution>;
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, pixelsperdip: f32, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE, measuringmode: DWRITE_MEASURING_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
@@ -2578,7 +2578,7 @@ unsafe impl Send for IDWriteFactory1 {}
 unsafe impl Sync for IDWriteFactory1 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory1_Impl: IDWriteFactory_Impl {
-    fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetEudcFontCollection(&self, fontcollection: windows_core::OutRef<IDWriteFontCollection>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, enhancedcontrastgrayscale: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE) -> windows_core::Result<IDWriteRenderingParams1>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -2842,12 +2842,12 @@ unsafe impl Sync for IDWriteFactory3 {}
 pub trait IDWriteFactory3_Impl: IDWriteFactory2_Impl {
     fn CreateGlyphRunAnalysis(&self, glyphrun: *const DWRITE_GLYPH_RUN, transform: *const DWRITE_MATRIX, renderingmode: DWRITE_RENDERING_MODE1, measuringmode: DWRITE_MEASURING_MODE, gridfitmode: DWRITE_GRID_FIT_MODE, antialiasmode: DWRITE_TEXT_ANTIALIAS_MODE, baselineoriginx: f32, baselineoriginy: f32) -> windows_core::Result<IDWriteGlyphRunAnalysis>;
     fn CreateCustomRenderingParams(&self, gamma: f32, enhancedcontrast: f32, grayscaleenhancedcontrast: f32, cleartypelevel: f32, pixelgeometry: DWRITE_PIXEL_GEOMETRY, renderingmode: DWRITE_RENDERING_MODE1, gridfitmode: DWRITE_GRID_FIT_MODE) -> windows_core::Result<IDWriteRenderingParams3>;
-    fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<'_, IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFaceReference>;
+    fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFaceReference>;
     fn CreateFontFaceReference2(&self, filepath: &windows_core::PCWSTR, lastwritetime: *const super::super::Foundation::FILETIME, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFaceReference>;
     fn GetSystemFontSet(&self) -> windows_core::Result<IDWriteFontSet>;
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder>;
-    fn CreateFontCollectionFromFontSet(&self, fontset: windows_core::Ref<'_, IDWriteFontSet>) -> windows_core::Result<IDWriteFontCollection1>;
-    fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection1>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
+    fn CreateFontCollectionFromFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<IDWriteFontCollection1>;
+    fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontcollection: windows_core::OutRef<IDWriteFontCollection1>, checkforupdates: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetFontDownloadQueue(&self) -> windows_core::Result<IDWriteFontDownloadQueue>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -3285,13 +3285,13 @@ unsafe impl Send for IDWriteFactory6 {}
 unsafe impl Sync for IDWriteFactory6 {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteFactory6_Impl: IDWriteFactory5_Impl {
-    fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<'_, IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFaceReference1>;
-    fn CreateFontResource(&self, fontfile: windows_core::Ref<'_, IDWriteFontFile>, faceindex: u32) -> windows_core::Result<IDWriteFontResource>;
+    fn CreateFontFaceReference(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFaceReference1>;
+    fn CreateFontResource(&self, fontfile: windows_core::Ref<IDWriteFontFile>, faceindex: u32) -> windows_core::Result<IDWriteFontResource>;
     fn GetSystemFontSet(&self, includedownloadablefonts: windows_core::BOOL) -> windows_core::Result<IDWriteFontSet1>;
     fn GetSystemFontCollection(&self, includedownloadablefonts: windows_core::BOOL, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteFontCollection2>;
-    fn CreateFontCollectionFromFontSet(&self, fontset: windows_core::Ref<'_, IDWriteFontSet>, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteFontCollection2>;
+    fn CreateFontCollectionFromFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>, fontfamilymodel: DWRITE_FONT_FAMILY_MODEL) -> windows_core::Result<IDWriteFontCollection2>;
     fn CreateFontSetBuilder(&self) -> windows_core::Result<IDWriteFontSetBuilder2>;
-    fn CreateTextFormat(&self, fontfamilyname: &windows_core::PCWSTR, fontcollection: windows_core::Ref<'_, IDWriteFontCollection>, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontsize: f32, localename: &windows_core::PCWSTR) -> windows_core::Result<IDWriteTextFormat3>;
+    fn CreateTextFormat(&self, fontfamilyname: &windows_core::PCWSTR, fontcollection: windows_core::Ref<IDWriteFontCollection>, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontsize: f32, localename: &windows_core::PCWSTR) -> windows_core::Result<IDWriteTextFormat3>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IDWriteFactory6_Vtbl {
@@ -3597,7 +3597,7 @@ pub trait IDWriteFont_Impl: windows_core::IUnknownImpl {
     fn GetStyle(&self) -> DWRITE_FONT_STYLE;
     fn IsSymbolFont(&self) -> windows_core::BOOL;
     fn GetFaceNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
-    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<'_, IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
     fn GetMetrics(&self, fontmetrics: *mut DWRITE_FONT_METRICS);
     fn HasCharacter(&self, unicodevalue: u32) -> windows_core::Result<windows_core::BOOL>;
@@ -3884,7 +3884,7 @@ unsafe impl Send for IDWriteFont3 {}
 unsafe impl Sync for IDWriteFont3 {}
 pub trait IDWriteFont3_Impl: IDWriteFont2_Impl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3>;
-    fn Equals(&self, font: windows_core::Ref<'_, IDWriteFont>) -> windows_core::BOOL;
+    fn Equals(&self, font: windows_core::Ref<IDWriteFont>) -> windows_core::BOOL;
     fn GetFontFaceReference(&self) -> windows_core::Result<IDWriteFontFaceReference>;
     fn HasCharacter(&self, unicodevalue: u32) -> windows_core::BOOL;
     fn GetLocality(&self) -> DWRITE_LOCALITY;
@@ -3990,7 +3990,7 @@ pub trait IDWriteFontCollection_Impl: windows_core::IUnknownImpl {
     fn GetFontFamilyCount(&self) -> u32;
     fn GetFontFamily(&self, index: u32) -> windows_core::Result<IDWriteFontFamily>;
     fn FindFamilyName(&self, familyname: &windows_core::PCWSTR, index: *mut u32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn GetFontFromFontFace(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>) -> windows_core::Result<IDWriteFont>;
+    fn GetFontFromFontFace(&self, fontface: windows_core::Ref<IDWriteFontFace>) -> windows_core::Result<IDWriteFont>;
 }
 impl IDWriteFontCollection_Vtbl {
     pub const fn new<Identity: IDWriteFontCollection_Impl, const OFFSET: isize>() -> Self {
@@ -4284,7 +4284,7 @@ pub struct IDWriteFontCollectionLoader_Vtbl {
 unsafe impl Send for IDWriteFontCollectionLoader {}
 unsafe impl Sync for IDWriteFontCollectionLoader {}
 pub trait IDWriteFontCollectionLoader_Impl: windows_core::IUnknownImpl {
-    fn CreateEnumeratorFromKey(&self, factory: windows_core::Ref<'_, IDWriteFactory>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontFileEnumerator>;
+    fn CreateEnumeratorFromKey(&self, factory: windows_core::Ref<IDWriteFactory>, collectionkey: *const core::ffi::c_void, collectionkeysize: u32) -> windows_core::Result<IDWriteFontFileEnumerator>;
 }
 impl IDWriteFontCollectionLoader_Vtbl {
     pub const fn new<Identity: IDWriteFontCollectionLoader_Impl, const OFFSET: isize>() -> Self {
@@ -4327,7 +4327,7 @@ pub struct IDWriteFontDownloadListener_Vtbl {
 unsafe impl Send for IDWriteFontDownloadListener {}
 unsafe impl Sync for IDWriteFontDownloadListener {}
 pub trait IDWriteFontDownloadListener_Impl: windows_core::IUnknownImpl {
-    fn DownloadCompleted(&self, downloadqueue: windows_core::Ref<'_, IDWriteFontDownloadQueue>, context: windows_core::Ref<'_, windows_core::IUnknown>, downloadresult: windows_core::HRESULT);
+    fn DownloadCompleted(&self, downloadqueue: windows_core::Ref<IDWriteFontDownloadQueue>, context: windows_core::Ref<windows_core::IUnknown>, downloadresult: windows_core::HRESULT);
 }
 impl IDWriteFontDownloadListener_Vtbl {
     pub const fn new<Identity: IDWriteFontDownloadListener_Impl, const OFFSET: isize>() -> Self {
@@ -4389,10 +4389,10 @@ pub struct IDWriteFontDownloadQueue_Vtbl {
 unsafe impl Send for IDWriteFontDownloadQueue {}
 unsafe impl Sync for IDWriteFontDownloadQueue {}
 pub trait IDWriteFontDownloadQueue_Impl: windows_core::IUnknownImpl {
-    fn AddListener(&self, listener: windows_core::Ref<'_, IDWriteFontDownloadListener>) -> windows_core::Result<u32>;
+    fn AddListener(&self, listener: windows_core::Ref<IDWriteFontDownloadListener>) -> windows_core::Result<u32>;
     fn RemoveListener(&self, token: u32) -> windows_core::Result<()>;
     fn IsEmpty(&self) -> windows_core::BOOL;
-    fn BeginDownload(&self, context: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn BeginDownload(&self, context: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn CancelDownload(&self) -> windows_core::Result<()>;
     fn GetGenerationCount(&self) -> u64;
 }
@@ -4542,7 +4542,7 @@ unsafe impl Sync for IDWriteFontFace {}
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetType(&self) -> DWRITE_FONT_FACE_TYPE;
-    fn GetFiles(&self, numberoffiles: *mut u32, fontfiles: windows_core::OutRef<'_, IDWriteFontFile>) -> windows_core::Result<()>;
+    fn GetFiles(&self, numberoffiles: *mut u32, fontfiles: windows_core::OutRef<IDWriteFontFile>) -> windows_core::Result<()>;
     fn GetIndex(&self) -> u32;
     fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
     fn IsSymbolFont(&self) -> windows_core::BOOL;
@@ -4552,8 +4552,8 @@ pub trait IDWriteFontFace_Impl: windows_core::IUnknownImpl {
     fn GetGlyphIndices(&self, codepoints: *const u32, codepointcount: u32, glyphindices: *mut u16) -> windows_core::Result<()>;
     fn TryGetFontTable(&self, opentypetabletag: u32, tabledata: *mut *mut core::ffi::c_void, tablesize: *mut u32, tablecontext: *mut *mut core::ffi::c_void, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn ReleaseFontTable(&self, tablecontext: *const core::ffi::c_void);
-    fn GetGlyphRunOutline(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, geometrysink: windows_core::Ref<'_, super::Direct2D::Common::ID2D1SimplifiedGeometrySink>) -> windows_core::Result<()>;
-    fn GetRecommendedRenderingMode(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>) -> windows_core::Result<DWRITE_RENDERING_MODE>;
+    fn GetGlyphRunOutline(&self, emsize: f32, glyphindices: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphcount: u32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, geometrysink: windows_core::Ref<super::Direct2D::Common::ID2D1SimplifiedGeometrySink>) -> windows_core::Result<()>;
+    fn GetRecommendedRenderingMode(&self, emsize: f32, pixelsperdip: f32, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>) -> windows_core::Result<DWRITE_RENDERING_MODE>;
     fn GetGdiCompatibleMetrics(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, fontfacemetrics: *mut DWRITE_FONT_METRICS) -> windows_core::Result<()>;
     fn GetGdiCompatibleGlyphMetrics(&self, emsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, glyphindices: *const u16, glyphcount: u32, glyphmetrics: *mut DWRITE_GLYPH_METRICS, issideways: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -4917,7 +4917,7 @@ pub trait IDWriteFontFace2_Impl: IDWriteFontFace1_Impl {
     fn GetColorPaletteCount(&self) -> u32;
     fn GetPaletteEntryCount(&self) -> u32;
     fn GetPaletteEntries(&self, colorpaletteindex: u32, firstentryindex: u32, entrycount: u32, paletteentries: *mut DWRITE_COLOR_F) -> windows_core::Result<()>;
-    fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
+    fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDWriteFontFace2_Vtbl {
@@ -5071,9 +5071,9 @@ pub trait IDWriteFontFace3_Impl: IDWriteFontFace2_Impl {
     fn GetStyle(&self) -> DWRITE_FONT_STYLE;
     fn GetFamilyNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetFaceNames(&self) -> windows_core::Result<IDWriteLocalizedStrings>;
-    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<'_, IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn GetInformationalStrings(&self, informationalstringid: DWRITE_INFORMATIONAL_STRING_ID, informationalstrings: windows_core::OutRef<IDWriteLocalizedStrings>, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn HasCharacter(&self, unicodevalue: u32) -> windows_core::BOOL;
-    fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
+    fn GetRecommendedRenderingMode(&self, fontemsize: f32, dpix: f32, dpiy: f32, transform: *const DWRITE_MATRIX, issideways: windows_core::BOOL, outlinethreshold: DWRITE_OUTLINE_THRESHOLD, measuringmode: DWRITE_MEASURING_MODE, renderingparams: windows_core::Ref<IDWriteRenderingParams>, renderingmode: *mut DWRITE_RENDERING_MODE1, gridfitmode: *mut DWRITE_GRID_FIT_MODE) -> windows_core::Result<()>;
     fn IsCharacterLocal(&self, unicodevalue: u32) -> windows_core::BOOL;
     fn IsGlyphLocal(&self, glyphid: u16) -> windows_core::BOOL;
     fn AreCharactersLocal(&self, characters: &windows_core::PCWSTR, charactercount: u32, enqueueifnotlocal: windows_core::BOOL) -> windows_core::Result<windows_core::BOOL>;
@@ -5363,7 +5363,7 @@ pub trait IDWriteFontFace5_Impl: IDWriteFontFace4_Impl {
     fn GetFontAxisValues(&self, fontaxisvalues: *mut DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<()>;
     fn HasVariations(&self) -> windows_core::BOOL;
     fn GetFontResource(&self) -> windows_core::Result<IDWriteFontResource>;
-    fn Equals(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>) -> windows_core::BOOL;
+    fn Equals(&self, fontface: windows_core::Ref<IDWriteFontFace>) -> windows_core::BOOL;
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 impl IDWriteFontFace5_Vtbl {
@@ -5645,7 +5645,7 @@ unsafe impl Sync for IDWriteFontFaceReference {}
 pub trait IDWriteFontFaceReference_Impl: windows_core::IUnknownImpl {
     fn CreateFontFace(&self) -> windows_core::Result<IDWriteFontFace3>;
     fn CreateFontFaceWithSimulations(&self, fontfacesimulationflags: DWRITE_FONT_SIMULATIONS) -> windows_core::Result<IDWriteFontFace3>;
-    fn Equals(&self, fontfacereference: windows_core::Ref<'_, IDWriteFontFaceReference>) -> windows_core::BOOL;
+    fn Equals(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>) -> windows_core::BOOL;
     fn GetFontFaceIndex(&self) -> u32;
     fn GetSimulations(&self) -> DWRITE_FONT_SIMULATIONS;
     fn GetFontFile(&self) -> windows_core::Result<IDWriteFontFile>;
@@ -5887,7 +5887,7 @@ pub struct IDWriteFontFallback_Vtbl {
 unsafe impl Send for IDWriteFontFallback {}
 unsafe impl Sync for IDWriteFontFallback {}
 pub trait IDWriteFontFallback_Impl: windows_core::IUnknownImpl {
-    fn MapCharacters(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<'_, IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: windows_core::OutRef<'_, IDWriteFont>, scale: *mut f32) -> windows_core::Result<()>;
+    fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, baseweight: DWRITE_FONT_WEIGHT, basestyle: DWRITE_FONT_STYLE, basestretch: DWRITE_FONT_STRETCH, mappedlength: *mut u32, mappedfont: windows_core::OutRef<IDWriteFont>, scale: *mut f32) -> windows_core::Result<()>;
 }
 impl IDWriteFontFallback_Vtbl {
     pub const fn new<Identity: IDWriteFontFallback_Impl, const OFFSET: isize>() -> Self {
@@ -5931,7 +5931,7 @@ pub struct IDWriteFontFallback1_Vtbl {
 unsafe impl Send for IDWriteFontFallback1 {}
 unsafe impl Sync for IDWriteFontFallback1 {}
 pub trait IDWriteFontFallback1_Impl: IDWriteFontFallback_Impl {
-    fn MapCharacters(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<'_, IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, mappedlength: *mut u32, scale: *mut f32, mappedfontface: windows_core::OutRef<'_, IDWriteFontFace5>) -> windows_core::Result<()>;
+    fn MapCharacters(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, basefontcollection: windows_core::Ref<IDWriteFontCollection>, basefamilyname: &windows_core::PCWSTR, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, mappedlength: *mut u32, scale: *mut f32, mappedfontface: windows_core::OutRef<IDWriteFontFace5>) -> windows_core::Result<()>;
 }
 impl IDWriteFontFallback1_Vtbl {
     pub const fn new<Identity: IDWriteFontFallback1_Impl, const OFFSET: isize>() -> Self {
@@ -5983,8 +5983,8 @@ pub struct IDWriteFontFallbackBuilder_Vtbl {
 unsafe impl Send for IDWriteFontFallbackBuilder {}
 unsafe impl Sync for IDWriteFontFallbackBuilder {}
 pub trait IDWriteFontFallbackBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddMapping(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: windows_core::Ref<'_, IDWriteFontCollection>, localename: &windows_core::PCWSTR, basefamilyname: &windows_core::PCWSTR, scale: f32) -> windows_core::Result<()>;
-    fn AddMappings(&self, fontfallback: windows_core::Ref<'_, IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn AddMapping(&self, ranges: *const DWRITE_UNICODE_RANGE, rangescount: u32, targetfamilynames: *const *const u16, targetfamilynamescount: u32, fontcollection: windows_core::Ref<IDWriteFontCollection>, localename: &windows_core::PCWSTR, basefamilyname: &windows_core::PCWSTR, scale: f32) -> windows_core::Result<()>;
+    fn AddMappings(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
     fn CreateFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
 }
 impl IDWriteFontFallbackBuilder_Vtbl {
@@ -6831,7 +6831,7 @@ pub trait IDWriteFontResource_Impl: windows_core::IUnknownImpl {
     fn GetFontAxisAttributes(&self, axisindex: u32) -> DWRITE_FONT_AXIS_ATTRIBUTES;
     fn GetAxisNames(&self, axisindex: u32) -> windows_core::Result<IDWriteLocalizedStrings>;
     fn GetAxisValueNameCount(&self, axisindex: u32) -> u32;
-    fn GetAxisValueNames(&self, axisindex: u32, axisvalueindex: u32, fontaxisrange: *mut DWRITE_FONT_AXIS_RANGE, names: windows_core::OutRef<'_, IDWriteLocalizedStrings>) -> windows_core::Result<()>;
+    fn GetAxisValueNames(&self, axisindex: u32, axisvalueindex: u32, fontaxisrange: *mut DWRITE_FONT_AXIS_RANGE, names: windows_core::OutRef<IDWriteLocalizedStrings>) -> windows_core::Result<()>;
     fn HasVariations(&self) -> windows_core::BOOL;
     fn CreateFontFace(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFace5>;
     fn CreateFontFaceReference(&self, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32) -> windows_core::Result<IDWriteFontFaceReference1>;
@@ -7039,11 +7039,11 @@ unsafe impl Sync for IDWriteFontSet {}
 pub trait IDWriteFontSet_Impl: windows_core::IUnknownImpl {
     fn GetFontCount(&self) -> u32;
     fn GetFontFaceReference(&self, listindex: u32) -> windows_core::Result<IDWriteFontFaceReference>;
-    fn FindFontFaceReference(&self, fontfacereference: windows_core::Ref<'_, IDWriteFontFaceReference>, listindex: *mut u32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn FindFontFace(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, listindex: *mut u32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn FindFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, listindex: *mut u32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn FindFontFace(&self, fontface: windows_core::Ref<IDWriteFontFace>, listindex: *mut u32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPropertyValues(&self, propertyid: DWRITE_FONT_PROPERTY_ID) -> windows_core::Result<IDWriteStringList>;
     fn GetPropertyValues2(&self, propertyid: DWRITE_FONT_PROPERTY_ID, preferredlocalenames: &windows_core::PCWSTR) -> windows_core::Result<IDWriteStringList>;
-    fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut windows_core::BOOL, values: windows_core::OutRef<'_, IDWriteLocalizedStrings>) -> windows_core::Result<()>;
+    fn GetPropertyValues3(&self, listindex: u32, propertyid: DWRITE_FONT_PROPERTY_ID, exists: *mut windows_core::BOOL, values: windows_core::OutRef<IDWriteLocalizedStrings>) -> windows_core::Result<()>;
     fn GetPropertyOccurrenceCount(&self, property: *const DWRITE_FONT_PROPERTY) -> windows_core::Result<u32>;
     fn GetMatchingFonts(&self, familyname: &windows_core::PCWSTR, fontweight: DWRITE_FONT_WEIGHT, fontstretch: DWRITE_FONT_STRETCH, fontstyle: DWRITE_FONT_STYLE) -> windows_core::Result<IDWriteFontSet>;
     fn GetMatchingFonts2(&self, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<IDWriteFontSet>;
@@ -7634,9 +7634,9 @@ pub struct IDWriteFontSetBuilder_Vtbl {
 unsafe impl Send for IDWriteFontSetBuilder {}
 unsafe impl Sync for IDWriteFontSetBuilder {}
 pub trait IDWriteFontSetBuilder_Impl: windows_core::IUnknownImpl {
-    fn AddFontFaceReference(&self, fontfacereference: windows_core::Ref<'_, IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
-    fn AddFontFaceReference2(&self, fontfacereference: windows_core::Ref<'_, IDWriteFontFaceReference>) -> windows_core::Result<()>;
-    fn AddFontSet(&self, fontset: windows_core::Ref<'_, IDWriteFontSet>) -> windows_core::Result<()>;
+    fn AddFontFaceReference(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
+    fn AddFontFaceReference2(&self, fontfacereference: windows_core::Ref<IDWriteFontFaceReference>) -> windows_core::Result<()>;
+    fn AddFontSet(&self, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<()>;
     fn CreateFontSet(&self) -> windows_core::Result<IDWriteFontSet>;
 }
 impl IDWriteFontSetBuilder_Vtbl {
@@ -7709,7 +7709,7 @@ pub struct IDWriteFontSetBuilder1_Vtbl {
 unsafe impl Send for IDWriteFontSetBuilder1 {}
 unsafe impl Sync for IDWriteFontSetBuilder1 {}
 pub trait IDWriteFontSetBuilder1_Impl: IDWriteFontSetBuilder_Impl {
-    fn AddFontFile(&self, fontfile: windows_core::Ref<'_, IDWriteFontFile>) -> windows_core::Result<()>;
+    fn AddFontFile(&self, fontfile: windows_core::Ref<IDWriteFontFile>) -> windows_core::Result<()>;
 }
 impl IDWriteFontSetBuilder1_Vtbl {
     pub const fn new<Identity: IDWriteFontSetBuilder1_Impl, const OFFSET: isize>() -> Self {
@@ -7758,7 +7758,7 @@ pub struct IDWriteFontSetBuilder2_Vtbl {
 unsafe impl Send for IDWriteFontSetBuilder2 {}
 unsafe impl Sync for IDWriteFontSetBuilder2 {}
 pub trait IDWriteFontSetBuilder2_Impl: IDWriteFontSetBuilder1_Impl {
-    fn AddFont(&self, fontfile: windows_core::Ref<'_, IDWriteFontFile>, fontfaceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
+    fn AddFont(&self, fontfile: windows_core::Ref<IDWriteFontFile>, fontfaceindex: u32, fontsimulations: DWRITE_FONT_SIMULATIONS, fontaxisvalues: *const DWRITE_FONT_AXIS_VALUE, fontaxisvaluecount: u32, fontaxisranges: *const DWRITE_FONT_AXIS_RANGE, fontaxisrangecount: u32, properties: *const DWRITE_FONT_PROPERTY, propertycount: u32) -> windows_core::Result<()>;
     fn AddFontFile(&self, filepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IDWriteFontSetBuilder2_Vtbl {
@@ -7855,8 +7855,8 @@ unsafe impl Sync for IDWriteGdiInterop {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IDWriteGdiInterop_Impl: windows_core::IUnknownImpl {
     fn CreateFontFromLOGFONT(&self, logfont: *const super::Gdi::LOGFONTW) -> windows_core::Result<IDWriteFont>;
-    fn ConvertFontToLOGFONT(&self, font: windows_core::Ref<'_, IDWriteFont>, logfont: *mut super::Gdi::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn ConvertFontFaceToLOGFONT(&self, font: windows_core::Ref<'_, IDWriteFontFace>, logfont: *mut super::Gdi::LOGFONTW) -> windows_core::Result<()>;
+    fn ConvertFontToLOGFONT(&self, font: windows_core::Ref<IDWriteFont>, logfont: *mut super::Gdi::LOGFONTW, issystemfont: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn ConvertFontFaceToLOGFONT(&self, font: windows_core::Ref<IDWriteFontFace>, logfont: *mut super::Gdi::LOGFONTW) -> windows_core::Result<()>;
     fn CreateFontFaceFromHdc(&self, hdc: super::Gdi::HDC) -> windows_core::Result<IDWriteFontFace>;
     fn CreateBitmapRenderTarget(&self, hdc: super::Gdi::HDC, width: u32, height: u32) -> windows_core::Result<IDWriteBitmapRenderTarget>;
 }
@@ -7995,10 +7995,10 @@ unsafe impl Send for IDWriteGdiInterop1 {}
 unsafe impl Sync for IDWriteGdiInterop1 {}
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub trait IDWriteGdiInterop1_Impl: IDWriteGdiInterop_Impl {
-    fn CreateFontFromLOGFONT(&self, logfont: *const super::Gdi::LOGFONTW, fontcollection: windows_core::Ref<'_, IDWriteFontCollection>) -> windows_core::Result<IDWriteFont>;
-    fn GetFontSignature(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> windows_core::Result<()>;
-    fn GetFontSignature2(&self, font: windows_core::Ref<'_, IDWriteFont>, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> windows_core::Result<()>;
-    fn GetMatchingFontsByLOGFONT(&self, logfont: *const super::Gdi::LOGFONTA, fontset: windows_core::Ref<'_, IDWriteFontSet>) -> windows_core::Result<IDWriteFontSet>;
+    fn CreateFontFromLOGFONT(&self, logfont: *const super::Gdi::LOGFONTW, fontcollection: windows_core::Ref<IDWriteFontCollection>) -> windows_core::Result<IDWriteFont>;
+    fn GetFontSignature(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> windows_core::Result<()>;
+    fn GetFontSignature2(&self, font: windows_core::Ref<IDWriteFont>, fontsignature: *mut super::super::Globalization::FONTSIGNATURE) -> windows_core::Result<()>;
+    fn GetMatchingFontsByLOGFONT(&self, logfont: *const super::Gdi::LOGFONTA, fontset: windows_core::Ref<IDWriteFontSet>) -> windows_core::Result<IDWriteFontSet>;
 }
 #[cfg(all(feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl IDWriteGdiInterop1_Vtbl {
@@ -8085,7 +8085,7 @@ unsafe impl Sync for IDWriteGlyphRunAnalysis {}
 pub trait IDWriteGlyphRunAnalysis_Impl: windows_core::IUnknownImpl {
     fn GetAlphaTextureBounds(&self, texturetype: DWRITE_TEXTURE_TYPE) -> windows_core::Result<super::super::Foundation::RECT>;
     fn CreateAlphaTexture(&self, texturetype: DWRITE_TEXTURE_TYPE, texturebounds: *const super::super::Foundation::RECT, alphavalues: *mut u8, buffersize: u32) -> windows_core::Result<()>;
-    fn GetAlphaBlendParams(&self, renderingparams: windows_core::Ref<'_, IDWriteRenderingParams>, blendgamma: *mut f32, blendenhancedcontrast: *mut f32, blendcleartypelevel: *mut f32) -> windows_core::Result<()>;
+    fn GetAlphaBlendParams(&self, renderingparams: windows_core::Ref<IDWriteRenderingParams>, blendgamma: *mut f32, blendenhancedcontrast: *mut f32, blendcleartypelevel: *mut f32) -> windows_core::Result<()>;
 }
 impl IDWriteGlyphRunAnalysis_Vtbl {
     pub const fn new<Identity: IDWriteGlyphRunAnalysis_Impl, const OFFSET: isize>() -> Self {
@@ -8158,7 +8158,7 @@ pub struct IDWriteInMemoryFontFileLoader_Vtbl {
 unsafe impl Send for IDWriteInMemoryFontFileLoader {}
 unsafe impl Sync for IDWriteInMemoryFontFileLoader {}
 pub trait IDWriteInMemoryFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
-    fn CreateInMemoryFontFileReference(&self, factory: windows_core::Ref<'_, IDWriteFactory>, fontdata: *const core::ffi::c_void, fontdatasize: u32, ownerobject: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<IDWriteFontFile>;
+    fn CreateInMemoryFontFileReference(&self, factory: windows_core::Ref<IDWriteFactory>, fontdata: *const core::ffi::c_void, fontdatasize: u32, ownerobject: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<IDWriteFontFile>;
     fn GetFileCount(&self) -> u32;
 }
 impl IDWriteInMemoryFontFileLoader_Vtbl {
@@ -8230,7 +8230,7 @@ pub struct IDWriteInlineObject_Vtbl {
 unsafe impl Send for IDWriteInlineObject {}
 unsafe impl Sync for IDWriteInlineObject {}
 pub trait IDWriteInlineObject_Impl: windows_core::IUnknownImpl {
-    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<'_, IDWriteTextRenderer>, originx: f32, originy: f32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: f32, originy: f32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetMetrics(&self) -> windows_core::Result<DWRITE_INLINE_OBJECT_METRICS>;
     fn GetOverhangMetrics(&self) -> windows_core::Result<DWRITE_OVERHANG_METRICS>;
     fn GetBreakConditions(&self, breakconditionbefore: *mut DWRITE_BREAK_CONDITION, breakconditionafter: *mut DWRITE_BREAK_CONDITION) -> windows_core::Result<()>;
@@ -8781,7 +8781,7 @@ unsafe impl Sync for IDWriteRemoteFontFileLoader {}
 pub trait IDWriteRemoteFontFileLoader_Impl: IDWriteFontFileLoader_Impl {
     fn CreateRemoteStreamFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<IDWriteRemoteFontFileStream>;
     fn GetLocalityFromKey(&self, fontfilereferencekey: *const core::ffi::c_void, fontfilereferencekeysize: u32) -> windows_core::Result<DWRITE_LOCALITY>;
-    fn CreateFontFileReferenceFromUrl(&self, factory: windows_core::Ref<'_, IDWriteFactory>, baseurl: &windows_core::PCWSTR, fontfileurl: &windows_core::PCWSTR) -> windows_core::Result<IDWriteFontFile>;
+    fn CreateFontFileReferenceFromUrl(&self, factory: windows_core::Ref<IDWriteFactory>, baseurl: &windows_core::PCWSTR, fontfileurl: &windows_core::PCWSTR) -> windows_core::Result<IDWriteFontFile>;
 }
 impl IDWriteRemoteFontFileLoader_Vtbl {
     pub const fn new<Identity: IDWriteRemoteFontFileLoader_Impl, const OFFSET: isize>() -> Self {
@@ -9266,7 +9266,7 @@ pub trait IDWriteTextAnalysisSink_Impl: windows_core::IUnknownImpl {
     fn SetScriptAnalysis(&self, textposition: u32, textlength: u32, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS) -> windows_core::Result<()>;
     fn SetLineBreakpoints(&self, textposition: u32, textlength: u32, linebreakpoints: *const DWRITE_LINE_BREAKPOINT) -> windows_core::Result<()>;
     fn SetBidiLevel(&self, textposition: u32, textlength: u32, explicitlevel: u8, resolvedlevel: u8) -> windows_core::Result<()>;
-    fn SetNumberSubstitution(&self, textposition: u32, textlength: u32, numbersubstitution: windows_core::Ref<'_, IDWriteNumberSubstitution>) -> windows_core::Result<()>;
+    fn SetNumberSubstitution(&self, textposition: u32, textlength: u32, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>) -> windows_core::Result<()>;
 }
 impl IDWriteTextAnalysisSink_Vtbl {
     pub const fn new<Identity: IDWriteTextAnalysisSink_Impl, const OFFSET: isize>() -> Self {
@@ -9382,7 +9382,7 @@ pub trait IDWriteTextAnalysisSource_Impl: windows_core::IUnknownImpl {
     fn GetTextBeforePosition(&self, textposition: u32, textstring: *mut *mut u16, textlength: *mut u32) -> windows_core::Result<()>;
     fn GetParagraphReadingDirection(&self) -> DWRITE_READING_DIRECTION;
     fn GetLocaleName(&self, textposition: u32, textlength: *mut u32, localename: *mut *mut u16) -> windows_core::Result<()>;
-    fn GetNumberSubstitution(&self, textposition: u32, textlength: *mut u32, numbersubstitution: windows_core::OutRef<'_, IDWriteNumberSubstitution>) -> windows_core::Result<()>;
+    fn GetNumberSubstitution(&self, textposition: u32, textlength: *mut u32, numbersubstitution: windows_core::OutRef<IDWriteNumberSubstitution>) -> windows_core::Result<()>;
 }
 impl IDWriteTextAnalysisSource_Vtbl {
     pub const fn new<Identity: IDWriteTextAnalysisSource_Impl, const OFFSET: isize>() -> Self {
@@ -9567,13 +9567,13 @@ pub struct IDWriteTextAnalyzer_Vtbl {
 unsafe impl Send for IDWriteTextAnalyzer {}
 unsafe impl Sync for IDWriteTextAnalyzer {}
 pub trait IDWriteTextAnalyzer_Impl: windows_core::IUnknownImpl {
-    fn AnalyzeScript(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<'_, IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeBidi(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<'_, IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeNumberSubstitution(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<'_, IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn AnalyzeLineBreakpoints(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<'_, IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
-    fn GetGlyphs(&self, textstring: &windows_core::PCWSTR, textlength: u32, fontface: windows_core::Ref<'_, IDWriteFontFace>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, numbersubstitution: windows_core::Ref<'_, IDWriteNumberSubstitution>, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, maxglyphcount: u32, clustermap: *mut u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut u16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32) -> windows_core::Result<()>;
-    fn GetGlyphPlacements(&self, textstring: &windows_core::PCWSTR, clustermap: *const u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: windows_core::Ref<'_, IDWriteFontFace>, fontemsize: f32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
-    fn GetGdiCompatibleGlyphPlacements(&self, textstring: &windows_core::PCWSTR, clustermap: *const u16, textprops: *const DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: windows_core::Ref<'_, IDWriteFontFace>, fontemsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
+    fn AnalyzeScript(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
+    fn AnalyzeBidi(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
+    fn AnalyzeNumberSubstitution(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
+    fn AnalyzeLineBreakpoints(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink>) -> windows_core::Result<()>;
+    fn GetGlyphs(&self, textstring: &windows_core::PCWSTR, textlength: u32, fontface: windows_core::Ref<IDWriteFontFace>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, numbersubstitution: windows_core::Ref<IDWriteNumberSubstitution>, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, maxglyphcount: u32, clustermap: *mut u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, glyphindices: *mut u16, glyphprops: *mut DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32) -> windows_core::Result<()>;
+    fn GetGlyphPlacements(&self, textstring: &windows_core::PCWSTR, clustermap: *const u16, textprops: *mut DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: f32, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
+    fn GetGdiCompatibleGlyphPlacements(&self, textstring: &windows_core::PCWSTR, clustermap: *const u16, textprops: *const DWRITE_SHAPING_TEXT_PROPERTIES, textlength: u32, glyphindices: *const u16, glyphprops: *const DWRITE_SHAPING_GLYPH_PROPERTIES, glyphcount: u32, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: f32, pixelsperdip: f32, transform: *const DWRITE_MATRIX, usegdinatural: windows_core::BOOL, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, scriptanalysis: *const DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, features: *const *const DWRITE_TYPOGRAPHIC_FEATURES, featurerangelengths: *const u32, featureranges: u32, glyphadvances: *mut f32, glyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
 }
 impl IDWriteTextAnalyzer_Vtbl {
     pub const fn new<Identity: IDWriteTextAnalyzer_Impl, const OFFSET: isize>() -> Self {
@@ -9797,14 +9797,14 @@ unsafe impl Send for IDWriteTextAnalyzer1 {}
 unsafe impl Sync for IDWriteTextAnalyzer1 {}
 pub trait IDWriteTextAnalyzer1_Impl: IDWriteTextAnalyzer_Impl {
     fn ApplyCharacterSpacing(&self, leadingspacing: f32, trailingspacing: f32, minimumadvancewidth: f32, textlength: u32, glyphcount: u32, clustermap: *const u16, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
-    fn GetBaseline(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, baseline: DWRITE_BASELINE, isvertical: windows_core::BOOL, issimulationallowed: windows_core::BOOL, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, baselinecoordinate: *mut i32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn AnalyzeVerticalGlyphOrientation(&self, analysissource: windows_core::Ref<'_, IDWriteTextAnalysisSource1>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<'_, IDWriteTextAnalysisSink1>) -> windows_core::Result<()>;
+    fn GetBaseline(&self, fontface: windows_core::Ref<IDWriteFontFace>, baseline: DWRITE_BASELINE, isvertical: windows_core::BOOL, issimulationallowed: windows_core::BOOL, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, baselinecoordinate: *mut i32, exists: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn AnalyzeVerticalGlyphOrientation(&self, analysissource: windows_core::Ref<IDWriteTextAnalysisSource1>, textposition: u32, textlength: u32, analysissink: windows_core::Ref<IDWriteTextAnalysisSink1>) -> windows_core::Result<()>;
     fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
     fn GetScriptProperties(&self, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, scriptproperties: *mut DWRITE_SCRIPT_PROPERTIES) -> windows_core::Result<()>;
-    fn GetTextComplexity(&self, textstring: &windows_core::PCWSTR, textlength: u32, fontface: windows_core::Ref<'_, IDWriteFontFace>, istextsimple: *mut windows_core::BOOL, textlengthread: *mut u32, glyphindices: *mut u16) -> windows_core::Result<()>;
-    fn GetJustificationOpportunities(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, fontemsize: f32, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, textstring: &windows_core::PCWSTR, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> windows_core::Result<()>;
+    fn GetTextComplexity(&self, textstring: &windows_core::PCWSTR, textlength: u32, fontface: windows_core::Ref<IDWriteFontFace>, istextsimple: *mut windows_core::BOOL, textlengthread: *mut u32, glyphindices: *mut u16) -> windows_core::Result<()>;
+    fn GetJustificationOpportunities(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: f32, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, textstring: &windows_core::PCWSTR, clustermap: *const u16, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, justificationopportunities: *mut DWRITE_JUSTIFICATION_OPPORTUNITY) -> windows_core::Result<()>;
     fn JustifyGlyphAdvances(&self, linewidth: f32, glyphcount: u32, justificationopportunities: *const DWRITE_JUSTIFICATION_OPPORTUNITY, glyphadvances: *const f32, glyphoffsets: *const DWRITE_GLYPH_OFFSET, justifiedglyphadvances: *mut f32, justifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
-    fn GetJustifiedGlyphs(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, fontemsize: f32, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
+    fn GetJustifiedGlyphs(&self, fontface: windows_core::Ref<IDWriteFontFace>, fontemsize: f32, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, textlength: u32, glyphcount: u32, maxglyphcount: u32, clustermap: *const u16, glyphindices: *const u16, glyphadvances: *const f32, justifiedglyphadvances: *const f32, justifiedglyphoffsets: *const DWRITE_GLYPH_OFFSET, glyphproperties: *const DWRITE_SHAPING_GLYPH_PROPERTIES, actualglyphcount: *mut u32, modifiedclustermap: *mut u16, modifiedglyphindices: *mut u16, modifiedglyphadvances: *mut f32, modifiedglyphoffsets: *mut DWRITE_GLYPH_OFFSET) -> windows_core::Result<()>;
 }
 impl IDWriteTextAnalyzer1_Vtbl {
     pub const fn new<Identity: IDWriteTextAnalyzer1_Impl, const OFFSET: isize>() -> Self {
@@ -9953,8 +9953,8 @@ unsafe impl Send for IDWriteTextAnalyzer2 {}
 unsafe impl Sync for IDWriteTextAnalyzer2 {}
 pub trait IDWriteTextAnalyzer2_Impl: IDWriteTextAnalyzer1_Impl {
     fn GetGlyphOrientationTransform(&self, glyphorientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, issideways: windows_core::BOOL, originx: f32, originy: f32, transform: *mut DWRITE_MATRIX) -> windows_core::Result<()>;
-    fn GetTypographicFeatures(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, maxtagcount: u32, actualtagcount: *mut u32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::Result<()>;
-    fn CheckTypographicFeature(&self, fontface: windows_core::Ref<'_, IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, featuretag: DWRITE_FONT_FEATURE_TAG, glyphcount: u32, glyphindices: *const u16, featureapplies: *mut u8) -> windows_core::Result<()>;
+    fn GetTypographicFeatures(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, maxtagcount: u32, actualtagcount: *mut u32, tags: *mut DWRITE_FONT_FEATURE_TAG) -> windows_core::Result<()>;
+    fn CheckTypographicFeature(&self, fontface: windows_core::Ref<IDWriteFontFace>, scriptanalysis: &DWRITE_SCRIPT_ANALYSIS, localename: &windows_core::PCWSTR, featuretag: DWRITE_FONT_FEATURE_TAG, glyphcount: u32, glyphindices: *const u16, featureapplies: *mut u8) -> windows_core::Result<()>;
 }
 impl IDWriteTextAnalyzer2_Vtbl {
     pub const fn new<Identity: IDWriteTextAnalyzer2_Impl, const OFFSET: isize>() -> Self {
@@ -10112,7 +10112,7 @@ pub trait IDWriteTextFormat_Impl: windows_core::IUnknownImpl {
     fn SetReadingDirection(&self, readingdirection: DWRITE_READING_DIRECTION) -> windows_core::Result<()>;
     fn SetFlowDirection(&self, flowdirection: DWRITE_FLOW_DIRECTION) -> windows_core::Result<()>;
     fn SetIncrementalTabStop(&self, incrementaltabstop: f32) -> windows_core::Result<()>;
-    fn SetTrimming(&self, trimmingoptions: *const DWRITE_TRIMMING, trimmingsign: windows_core::Ref<'_, IDWriteInlineObject>) -> windows_core::Result<()>;
+    fn SetTrimming(&self, trimmingoptions: *const DWRITE_TRIMMING, trimmingsign: windows_core::Ref<IDWriteInlineObject>) -> windows_core::Result<()>;
     fn SetLineSpacing(&self, linespacingmethod: DWRITE_LINE_SPACING_METHOD, linespacing: f32, baseline: f32) -> windows_core::Result<()>;
     fn GetTextAlignment(&self) -> DWRITE_TEXT_ALIGNMENT;
     fn GetParagraphAlignment(&self) -> DWRITE_PARAGRAPH_ALIGNMENT;
@@ -10120,7 +10120,7 @@ pub trait IDWriteTextFormat_Impl: windows_core::IUnknownImpl {
     fn GetReadingDirection(&self) -> DWRITE_READING_DIRECTION;
     fn GetFlowDirection(&self) -> DWRITE_FLOW_DIRECTION;
     fn GetIncrementalTabStop(&self) -> f32;
-    fn GetTrimming(&self, trimmingoptions: *mut DWRITE_TRIMMING, trimmingsign: windows_core::OutRef<'_, IDWriteInlineObject>) -> windows_core::Result<()>;
+    fn GetTrimming(&self, trimmingoptions: *mut DWRITE_TRIMMING, trimmingsign: windows_core::OutRef<IDWriteInlineObject>) -> windows_core::Result<()>;
     fn GetLineSpacing(&self, linespacingmethod: *mut DWRITE_LINE_SPACING_METHOD, linespacing: *mut f32, baseline: *mut f32) -> windows_core::Result<()>;
     fn GetFontCollection(&self) -> windows_core::Result<IDWriteFontCollection>;
     fn GetFontFamilyNameLength(&self) -> u32;
@@ -10386,7 +10386,7 @@ pub trait IDWriteTextFormat1_Impl: IDWriteTextFormat_Impl {
     fn GetLastLineWrapping(&self) -> windows_core::BOOL;
     fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::Result<()>;
     fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
-    fn SetFontFallback(&self, fontfallback: windows_core::Ref<'_, IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
     fn GetFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
 }
 impl IDWriteTextFormat1_Vtbl {
@@ -10809,7 +10809,7 @@ unsafe impl Sync for IDWriteTextLayout {}
 pub trait IDWriteTextLayout_Impl: IDWriteTextFormat_Impl {
     fn SetMaxWidth(&self, maxwidth: f32) -> windows_core::Result<()>;
     fn SetMaxHeight(&self, maxheight: f32) -> windows_core::Result<()>;
-    fn SetFontCollection(&self, fontcollection: windows_core::Ref<'_, IDWriteFontCollection>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetFontCollection(&self, fontcollection: windows_core::Ref<IDWriteFontCollection>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetFontFamilyName(&self, fontfamilyname: &windows_core::PCWSTR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetFontWeight(&self, fontweight: DWRITE_FONT_WEIGHT, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetFontStyle(&self, fontstyle: DWRITE_FONT_STYLE, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
@@ -10817,13 +10817,13 @@ pub trait IDWriteTextLayout_Impl: IDWriteTextFormat_Impl {
     fn SetFontSize(&self, fontsize: f32, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetUnderline(&self, hasunderline: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetStrikethrough(&self, hasstrikethrough: windows_core::BOOL, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetDrawingEffect(&self, drawingeffect: windows_core::Ref<'_, windows_core::IUnknown>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetInlineObject(&self, inlineobject: windows_core::Ref<'_, IDWriteInlineObject>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn SetTypography(&self, typography: windows_core::Ref<'_, IDWriteTypography>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetDrawingEffect(&self, drawingeffect: windows_core::Ref<windows_core::IUnknown>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetInlineObject(&self, inlineobject: windows_core::Ref<IDWriteInlineObject>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn SetTypography(&self, typography: windows_core::Ref<IDWriteTypography>, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn SetLocaleName(&self, localename: &windows_core::PCWSTR, textrange: &DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetMaxWidth(&self) -> f32;
     fn GetMaxHeight(&self) -> f32;
-    fn GetFontCollection(&self, currentposition: u32, fontcollection: windows_core::OutRef<'_, IDWriteFontCollection>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn GetFontCollection(&self, currentposition: u32, fontcollection: windows_core::OutRef<IDWriteFontCollection>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetFontFamilyNameLength(&self, currentposition: u32, namelength: *mut u32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetFontFamilyName(&self, currentposition: u32, fontfamilyname: windows_core::PWSTR, namesize: u32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetFontWeight(&self, currentposition: u32, fontweight: *mut DWRITE_FONT_WEIGHT, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
@@ -10832,12 +10832,12 @@ pub trait IDWriteTextLayout_Impl: IDWriteTextFormat_Impl {
     fn GetFontSize(&self, currentposition: u32, fontsize: *mut f32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetUnderline(&self, currentposition: u32, hasunderline: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetStrikethrough(&self, currentposition: u32, hasstrikethrough: *mut windows_core::BOOL, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetDrawingEffect(&self, currentposition: u32, drawingeffect: windows_core::OutRef<'_, windows_core::IUnknown>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetInlineObject(&self, currentposition: u32, inlineobject: windows_core::OutRef<'_, IDWriteInlineObject>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn GetTypography(&self, currentposition: u32, typography: windows_core::OutRef<'_, IDWriteTypography>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn GetDrawingEffect(&self, currentposition: u32, drawingeffect: windows_core::OutRef<windows_core::IUnknown>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn GetInlineObject(&self, currentposition: u32, inlineobject: windows_core::OutRef<IDWriteInlineObject>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
+    fn GetTypography(&self, currentposition: u32, typography: windows_core::OutRef<IDWriteTypography>, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetLocaleNameLength(&self, currentposition: u32, namelength: *mut u32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
     fn GetLocaleName(&self, currentposition: u32, localename: windows_core::PWSTR, namesize: u32, textrange: *mut DWRITE_TEXT_RANGE) -> windows_core::Result<()>;
-    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<'_, IDWriteTextRenderer>, originx: f32, originy: f32) -> windows_core::Result<()>;
+    fn Draw(&self, clientdrawingcontext: *const core::ffi::c_void, renderer: windows_core::Ref<IDWriteTextRenderer>, originx: f32, originy: f32) -> windows_core::Result<()>;
     fn GetLineMetrics(&self, linemetrics: *mut DWRITE_LINE_METRICS, maxlinecount: u32, actuallinecount: *mut u32) -> windows_core::Result<()>;
     fn GetMetrics(&self, textmetrics: *mut DWRITE_TEXT_METRICS) -> windows_core::Result<()>;
     fn GetOverhangMetrics(&self) -> windows_core::Result<DWRITE_OVERHANG_METRICS>;
@@ -11288,7 +11288,7 @@ pub trait IDWriteTextLayout2_Impl: IDWriteTextLayout1_Impl {
     fn GetLastLineWrapping(&self) -> windows_core::BOOL;
     fn SetOpticalAlignment(&self, opticalalignment: DWRITE_OPTICAL_ALIGNMENT) -> windows_core::Result<()>;
     fn GetOpticalAlignment(&self) -> DWRITE_OPTICAL_ALIGNMENT;
-    fn SetFontFallback(&self, fontfallback: windows_core::Ref<'_, IDWriteFontFallback>) -> windows_core::Result<()>;
+    fn SetFontFallback(&self, fontfallback: windows_core::Ref<IDWriteFontFallback>) -> windows_core::Result<()>;
     fn GetFontFallback(&self) -> windows_core::Result<IDWriteFontFallback>;
 }
 impl IDWriteTextLayout2_Vtbl {
@@ -11586,10 +11586,10 @@ pub struct IDWriteTextRenderer_Vtbl {
 unsafe impl Send for IDWriteTextRenderer {}
 unsafe impl Sync for IDWriteTextRenderer {}
 pub trait IDWriteTextRenderer_Impl: IDWritePixelSnapping_Impl {
-    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, inlineobject: windows_core::Ref<'_, IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IDWriteTextRenderer_Vtbl {
     pub const fn new<Identity: IDWriteTextRenderer_Impl, const OFFSET: isize>() -> Self {
@@ -11677,10 +11677,10 @@ pub struct IDWriteTextRenderer1_Vtbl {
 unsafe impl Send for IDWriteTextRenderer1 {}
 unsafe impl Sync for IDWriteTextRenderer1 {}
 pub trait IDWriteTextRenderer1_Impl: IDWriteTextRenderer_Impl {
-    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: windows_core::Ref<'_, IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawGlyphRun(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, measuringmode: DWRITE_MEASURING_MODE, glyphrun: *const DWRITE_GLYPH_RUN, glyphrundescription: *const DWRITE_GLYPH_RUN_DESCRIPTION, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawUnderline(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, underline: *const DWRITE_UNDERLINE, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawStrikethrough(&self, clientdrawingcontext: *const core::ffi::c_void, baselineoriginx: f32, baselineoriginy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, strikethrough: *const DWRITE_STRIKETHROUGH, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn DrawInlineObject(&self, clientdrawingcontext: *const core::ffi::c_void, originx: f32, originy: f32, orientationangle: DWRITE_GLYPH_ORIENTATION_ANGLE, inlineobject: windows_core::Ref<IDWriteInlineObject>, issideways: windows_core::BOOL, isrighttoleft: windows_core::BOOL, clientdrawingeffect: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IDWriteTextRenderer1_Vtbl {
     pub const fn new<Identity: IDWriteTextRenderer1_Impl, const OFFSET: isize>() -> Self {

@@ -577,7 +577,7 @@ impl windows_core::RuntimeName for IStorageProviderKnownFolderSyncInfoSource {
 }
 pub trait IStorageProviderKnownFolderSyncInfoSource_Impl: windows_core::IUnknownImpl {
     fn GetKnownFolderSyncInfo(&self) -> windows_core::Result<StorageProviderKnownFolderSyncInfo>;
-    fn KnownFolderSyncInfoChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn KnownFolderSyncInfoChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageProviderKnownFolderSyncInfoSource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveKnownFolderSyncInfoChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IStorageProviderKnownFolderSyncInfoSource_Vtbl {
@@ -822,9 +822,9 @@ impl windows_core::RuntimeName for IStorageProviderShareLinkSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderShareLinkSource";
 }
 pub trait IStorageProviderShareLinkSource_Impl: windows_core::IUnknownImpl {
-    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>>;
-    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>;
-    fn GetState(&self, storageItemList: windows_core::Ref<'_, windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<StorageProviderShareLinkState>>;
+    fn CreateLinkAsync(&self, storageItemList: windows_core::Ref<windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>>;
+    fn GetDefaultAccessControlStringAsync(&self, storageItemList: windows_core::Ref<windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>;
+    fn GetState(&self, storageItemList: windows_core::Ref<windows_collections::IVectorView<super::IStorageItem>>) -> windows_core::Result<windows_future::IAsyncOperation<StorageProviderShareLinkState>>;
 }
 impl IStorageProviderShareLinkSource_Vtbl {
     pub const fn new<Identity: IStorageProviderShareLinkSource_Impl, const OFFSET: isize>() -> Self {
@@ -944,7 +944,7 @@ impl windows_core::RuntimeName for IStorageProviderStatusUISource {
 }
 pub trait IStorageProviderStatusUISource_Impl: windows_core::IUnknownImpl {
     fn GetStatusUI(&self) -> windows_core::Result<StorageProviderStatusUI>;
-    fn StatusUIChanged(&self, handler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn StatusUIChanged(&self, handler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageProviderStatusUISource, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveStatusUIChanged(&self, token: i64) -> windows_core::Result<()>;
 }
 impl IStorageProviderStatusUISource_Vtbl {
@@ -1296,8 +1296,8 @@ impl windows_core::RuntimeName for IStorageProviderUriSource {
     const NAME: &'static str = "Windows.Storage.Provider.IStorageProviderUriSource";
 }
 pub trait IStorageProviderUriSource_Impl: windows_core::IUnknownImpl {
-    fn GetPathForContentUri(&self, contentUri: &windows_core::HSTRING, result: windows_core::Ref<'_, StorageProviderGetPathForContentUriResult>) -> windows_core::Result<()>;
-    fn GetContentInfoForPath(&self, path: &windows_core::HSTRING, result: windows_core::Ref<'_, StorageProviderGetContentInfoForPathResult>) -> windows_core::Result<()>;
+    fn GetPathForContentUri(&self, contentUri: &windows_core::HSTRING, result: windows_core::Ref<StorageProviderGetPathForContentUriResult>) -> windows_core::Result<()>;
+    fn GetContentInfoForPath(&self, path: &windows_core::HSTRING, result: windows_core::Ref<StorageProviderGetContentInfoForPathResult>) -> windows_core::Result<()>;
 }
 impl IStorageProviderUriSource_Vtbl {
     pub const fn new<Identity: IStorageProviderUriSource_Impl, const OFFSET: isize>() -> Self {
@@ -1923,7 +1923,7 @@ impl windows_core::RuntimeType for StorageProviderKnownFolderSyncRequestedHandle
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl StorageProviderKnownFolderSyncRequestedHandler {
-    pub fn new<F: Fn(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StorageProviderKnownFolderSyncRequestedHandlerBox { vtable: &StorageProviderKnownFolderSyncRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -1942,12 +1942,12 @@ pub struct StorageProviderKnownFolderSyncRequestedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: Fn(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct StorageProviderKnownFolderSyncRequestedHandlerBox<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const StorageProviderKnownFolderSyncRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<'_, StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<StorageProviderKnownFolderSyncRequestArgs>) -> windows_core::Result<()> + Send + 'static> StorageProviderKnownFolderSyncRequestedHandlerBox<F> {
     const VTABLE: StorageProviderKnownFolderSyncRequestedHandler_Vtbl = StorageProviderKnownFolderSyncRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

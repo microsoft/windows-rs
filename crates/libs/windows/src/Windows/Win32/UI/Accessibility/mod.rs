@@ -1466,17 +1466,17 @@ pub struct IAccPropServices_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IAccPropServices_Impl: windows_core::IUnknownImpl {
     fn SetPropValue(&self, pidstring: *const u8, dwidstringlen: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetPropServer(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearProps(&self, pidstring: *const u8, dwidstringlen: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn SetHwndProp(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHwndPropStr(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetHwndPropServer(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHwndProps(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHwndIdentityString(&self, hwnd: super::super::Foundation::HWND, idobject: u32, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHwndIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phwnd: *mut super::super::Foundation::HWND, pidobject: *mut u32, pidchild: *mut u32) -> windows_core::Result<()>;
     fn SetHmenuProp(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn SetHmenuPropStr(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, idprop: &windows_core::GUID, str: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<'_, IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
+    fn SetHmenuPropServer(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32, pserver: windows_core::Ref<IAccPropServer>, annoscope: AnnoScope) -> windows_core::Result<()>;
     fn ClearHmenuProps(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, paprops: *const windows_core::GUID, cprops: i32) -> windows_core::Result<()>;
     fn ComposeHmenuIdentityString(&self, hmenu: super::WindowsAndMessaging::HMENU, idchild: u32, ppidstring: *mut *mut u8, pdwidstringlen: *mut u32) -> windows_core::Result<()>;
     fn DecomposeHmenuIdentityString(&self, pidstring: *const u8, dwidstringlen: u32, phmenu: *mut super::WindowsAndMessaging::HMENU, pidchild: *mut u32) -> windows_core::Result<()>;
@@ -2155,9 +2155,9 @@ pub struct IAccessibleEx_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleEx_Impl: windows_core::IUnknownImpl {
     fn GetObjectForChild(&self, idchild: i32) -> windows_core::Result<IAccessibleEx>;
-    fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<'_, IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
+    fn GetIAccessiblePair(&self, ppacc: windows_core::OutRef<IAccessible>, pidchild: *mut i32) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn ConvertReturnedElement(&self, pin: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
+    fn ConvertReturnedElement(&self, pin: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<IAccessibleEx>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleEx_Vtbl {
@@ -2298,7 +2298,7 @@ pub struct IAccessibleHostingElementProviders_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleHostingElementProviders_Impl: windows_core::IUnknownImpl {
     fn GetEmbeddedFragmentRoots(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<i32>;
+    fn GetObjectIdForProvider(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<i32>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAccessibleHostingElementProviders_Vtbl {
@@ -2392,9 +2392,9 @@ pub struct IAccessibleWindowlessSite_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAccessibleWindowlessSite_Impl: windows_core::IUnknownImpl {
-    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<i32>;
-    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<()>;
-    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<'_, IAccessibleHandler>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
+    fn AcquireObjectIdRange(&self, rangesize: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<i32>;
+    fn ReleaseObjectIdRange(&self, rangebase: i32, prangeowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<()>;
+    fn QueryObjectIdRanges(&self, prangesowner: windows_core::Ref<IAccessibleHandler>) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetParentAccessible(&self) -> windows_core::Result<IAccessible>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3203,7 +3203,7 @@ pub struct IItemContainerProvider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IItemContainerProvider_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
+    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IRawElementProviderSimple>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IRawElementProviderSimple>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IItemContainerProvider_Vtbl {
@@ -3692,7 +3692,7 @@ pub struct IProxyProviderWinEventHandler_Vtbl {
     pub RespondToWinEvent: unsafe extern "system" fn(*mut core::ffi::c_void, u32, super::super::Foundation::HWND, i32, i32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IProxyProviderWinEventHandler_Impl: windows_core::IUnknownImpl {
-    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: windows_core::Ref<'_, IProxyProviderWinEventSink>) -> windows_core::Result<()>;
+    fn RespondToWinEvent(&self, idwinevent: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32, psink: windows_core::Ref<IProxyProviderWinEventSink>) -> windows_core::Result<()>;
 }
 impl IProxyProviderWinEventHandler_Vtbl {
     pub const fn new<Identity: IProxyProviderWinEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -3749,9 +3749,9 @@ pub struct IProxyProviderWinEventSink_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProxyProviderWinEventSink_Impl: windows_core::IUnknownImpl {
-    fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn AddAutomationEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
-    fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<'_, IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn AddAutomationPropertyChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn AddAutomationEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, id: UIA_EVENT_ID) -> windows_core::Result<()>;
+    fn AddStructureChangedEvent(&self, pprovider: windows_core::Ref<IRawElementProviderSimple>, structurechangetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProxyProviderWinEventSink_Vtbl {
@@ -4648,7 +4648,7 @@ pub struct IRicheditWindowlessAccessibility_Vtbl {
     pub CreateProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRicheditWindowlessAccessibility_Impl: windows_core::IUnknownImpl {
-    fn CreateProvider(&self, psite: windows_core::Ref<'_, IRawElementProviderWindowlessSite>) -> windows_core::Result<IRawElementProviderSimple>;
+    fn CreateProvider(&self, psite: windows_core::Ref<IRawElementProviderWindowlessSite>) -> windows_core::Result<IRawElementProviderSimple>;
 }
 impl IRicheditWindowlessAccessibility_Vtbl {
     pub const fn new<Identity: IRicheditWindowlessAccessibility_Impl, const OFFSET: isize>() -> Self {
@@ -5909,7 +5909,7 @@ pub struct ITextProvider_Vtbl {
 pub trait ITextProvider_Impl: windows_core::IUnknownImpl {
     fn GetSelection(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn GetVisibleRanges(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn RangeFromChild(&self, childelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
+    fn RangeFromChild(&self, childelement: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
     fn RangeFromPoint(&self, point: &UiaPoint) -> windows_core::Result<ITextRangeProvider>;
     fn DocumentRange(&self) -> windows_core::Result<ITextRangeProvider>;
     fn SupportedTextSelection(&self) -> windows_core::Result<SupportedTextSelection>;
@@ -6039,7 +6039,7 @@ pub struct ITextProvider2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextProvider2_Impl: ITextProvider_Impl {
-    fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<'_, IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
+    fn RangeFromAnnotation(&self, annotationelement: windows_core::Ref<IRawElementProviderSimple>) -> windows_core::Result<ITextRangeProvider>;
     fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -6226,8 +6226,8 @@ pub struct ITextRangeProvider_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<ITextRangeProvider>;
-    fn Compare(&self, range: windows_core::Ref<'_, ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
+    fn Compare(&self, range: windows_core::Ref<ITextRangeProvider>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareEndpoints(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, unit: TextUnit) -> windows_core::Result<()>;
     fn FindAttribute(&self, attributeid: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
     fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<ITextRangeProvider>;
@@ -6237,7 +6237,7 @@ pub trait ITextRangeProvider_Impl: windows_core::IUnknownImpl {
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<'_, ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
+    fn MoveEndpointByRange(&self, endpoint: TextPatternRangeEndpoint, targetrange: windows_core::Ref<ITextRangeProvider>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
@@ -7312,17 +7312,17 @@ pub struct IUIAutomation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
-    fn CompareElements(&self, el1: windows_core::Ref<'_, IUIAutomationElement>, el2: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareElements(&self, el1: windows_core::Ref<IUIAutomationElement>, el2: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<windows_core::BOOL>;
     fn CompareRuntimeIds(&self, runtimeid1: *const super::super::System::Com::SAFEARRAY, runtimeid2: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<windows_core::BOOL>;
     fn GetRootElement(&self) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromHandle(&self, hwnd: super::super::Foundation::HWND) -> windows_core::Result<IUIAutomationElement>;
     fn ElementFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationElement>;
     fn GetFocusedElement(&self) -> windows_core::Result<IUIAutomationElement>;
-    fn GetRootElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFocusedElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn CreateTreeWalker(&self, pcondition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationTreeWalker>;
+    fn GetRootElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromHandleBuildCache(&self, hwnd: super::super::Foundation::HWND, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromPointBuildCache(&self, pt: &super::super::Foundation::POINT, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFocusedElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn CreateTreeWalker(&self, pcondition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn ControlViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn ContentViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
     fn RawViewWalker(&self) -> windows_core::Result<IUIAutomationTreeWalker>;
@@ -7334,39 +7334,39 @@ pub trait IUIAutomation_Impl: windows_core::IUnknownImpl {
     fn CreateFalseCondition(&self) -> windows_core::Result<IUIAutomationCondition>;
     fn CreatePropertyCondition(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationCondition>;
     fn CreatePropertyConditionEx(&self, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT, flags: PropertyConditionFlags) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateAndCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreateAndCondition(&self, condition1: windows_core::Ref<IUIAutomationCondition>, condition2: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateAndConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateOrCondition(&self, condition1: windows_core::Ref<'_, IUIAutomationCondition>, condition2: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn CreateOrCondition(&self, condition1: windows_core::Ref<IUIAutomationCondition>, condition2: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateOrConditionFromArray(&self, conditions: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<IUIAutomationCondition>;
     fn CreateOrConditionFromNativeArray(&self, conditions: *const Option<IUIAutomationCondition>, conditioncount: i32) -> windows_core::Result<IUIAutomationCondition>;
-    fn CreateNotCondition(&self, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandlerNativeArray(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn RemovePropertyChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveStructureChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddFocusChangedEventHandler(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveFocusChangedEventHandler(&self, handler: windows_core::Ref<'_, IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
+    fn CreateNotCondition(&self, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationCondition>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn RemoveAutomationEventHandler(&self, eventid: UIA_EVENT_ID, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandlerNativeArray(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn RemovePropertyChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddStructureChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveStructureChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddFocusChangedEventHandler(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveFocusChangedEventHandler(&self, handler: windows_core::Ref<IUIAutomationFocusChangedEventHandler>) -> windows_core::Result<()>;
     fn RemoveAllEventHandlers(&self) -> windows_core::Result<()>;
     fn IntNativeArrayToSafeArray(&self, array: *const i32, arraycount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
     fn IntSafeArrayToNativeArray(&self, intarray: *const super::super::System::Com::SAFEARRAY, array: *mut *mut i32) -> windows_core::Result<i32>;
     fn RectToVariant(&self, rc: &super::super::Foundation::RECT) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn VariantToRect(&self, var: &super::super::System::Variant::VARIANT) -> windows_core::Result<super::super::Foundation::RECT>;
     fn SafeArrayToRectNativeArray(&self, rects: *const super::super::System::Com::SAFEARRAY, rectarray: *mut *mut super::super::Foundation::RECT) -> windows_core::Result<i32>;
-    fn CreateProxyFactoryEntry(&self, factory: windows_core::Ref<'_, IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
+    fn CreateProxyFactoryEntry(&self, factory: windows_core::Ref<IUIAutomationProxyFactory>) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn ProxyFactoryMapping(&self) -> windows_core::Result<IUIAutomationProxyFactoryMapping>;
     fn GetPropertyProgrammaticName(&self, property: UIA_PROPERTY_ID) -> windows_core::Result<windows_core::BSTR>;
     fn GetPatternProgrammaticName(&self, pattern: UIA_PATTERN_ID) -> windows_core::Result<windows_core::BSTR>;
-    fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<'_, IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn PollForPotentialSupportedPatterns(&self, pelement: windows_core::Ref<IUIAutomationElement>, patternids: *mut *mut super::super::System::Com::SAFEARRAY, patternnames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn PollForPotentialSupportedProperties(&self, pelement: windows_core::Ref<IUIAutomationElement>, propertyids: *mut *mut super::super::System::Com::SAFEARRAY, propertynames: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn CheckNotSupported(&self, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<windows_core::BOOL>;
     fn ReservedNotSupportedValue(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn ReservedMixedAttributeValue(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn ElementFromIAccessible(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
-    fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<'_, IAccessible>, childid: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromIAccessible(&self, accessible: windows_core::Ref<IAccessible>, childid: i32) -> windows_core::Result<IUIAutomationElement>;
+    fn ElementFromIAccessibleBuildCache(&self, accessible: windows_core::Ref<IAccessible>, childid: i32, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation_Vtbl {
@@ -8188,8 +8188,8 @@ pub struct IUIAutomation3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation3_Impl: IUIAutomation2_Impl {
-    fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveTextEditTextChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation3_Vtbl {
@@ -8252,8 +8252,8 @@ pub struct IUIAutomation4_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation4_Impl: IUIAutomation3_Impl {
-    fn AddChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn RemoveChangesEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn AddChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, changetypes: *const i32, changescount: i32, pcacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn RemoveChangesEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation4_Vtbl {
@@ -8316,8 +8316,8 @@ pub struct IUIAutomation5_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation5_Impl: IUIAutomation4_Impl {
-    fn AddNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn AddNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn RemoveNotificationEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation5_Vtbl {
@@ -8426,14 +8426,14 @@ pub struct IUIAutomation6_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomation6_Impl: IUIAutomation5_Impl {
     fn CreateEventHandlerGroup(&self) -> windows_core::Result<IUIAutomationEventHandlerGroup>;
-    fn AddEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
-    fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handlergroup: windows_core::Ref<'_, IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
+    fn AddEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
+    fn RemoveEventHandlerGroup(&self, element: windows_core::Ref<IUIAutomationElement>, handlergroup: windows_core::Ref<IUIAutomationEventHandlerGroup>) -> windows_core::Result<()>;
     fn ConnectionRecoveryBehavior(&self) -> windows_core::Result<ConnectionRecoveryBehaviorOptions>;
     fn SetConnectionRecoveryBehavior(&self, connectionrecoverybehavioroptions: ConnectionRecoveryBehaviorOptions) -> windows_core::Result<()>;
     fn CoalesceEvents(&self) -> windows_core::Result<CoalesceEventsOptions>;
     fn SetCoalesceEvents(&self, coalesceeventsoptions: CoalesceEventsOptions) -> windows_core::Result<()>;
-    fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<'_, IUIAutomationElement>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn RemoveActiveTextPositionChangedEventHandler(&self, element: windows_core::Ref<IUIAutomationElement>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomation6_Vtbl {
@@ -8547,7 +8547,7 @@ pub struct IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub HandleActiveTextPositionChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationActiveTextPositionChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleActiveTextPositionChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> windows_core::Result<()>;
+    fn HandleActiveTextPositionChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<()>;
 }
 impl IUIAutomationActiveTextPositionChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationActiveTextPositionChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -9001,7 +9001,7 @@ pub trait IUIAutomationCacheRequest_Impl: windows_core::IUnknownImpl {
     fn TreeScope(&self) -> windows_core::Result<TreeScope>;
     fn SetTreeScope(&self, scope: TreeScope) -> windows_core::Result<()>;
     fn TreeFilter(&self) -> windows_core::Result<IUIAutomationCondition>;
-    fn SetTreeFilter(&self, filter: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<()>;
+    fn SetTreeFilter(&self, filter: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<()>;
     fn AutomationElementMode(&self) -> windows_core::Result<AutomationElementMode>;
     fn SetAutomationElementMode(&self, mode: AutomationElementMode) -> windows_core::Result<()>;
 }
@@ -9125,7 +9125,7 @@ pub struct IUIAutomationChangesEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationChangesEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleChangesEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
+    fn HandleChangesEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, uiachanges: *const UiaChangeInfo, changescount: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationChangesEventHandler_Vtbl {
@@ -10218,11 +10218,11 @@ pub struct IUIAutomationElement_Vtbl {
 pub trait IUIAutomationElement_Impl: windows_core::IUnknownImpl {
     fn SetFocus(&self) -> windows_core::Result<()>;
     fn GetRuntimeId(&self) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
-    fn FindFirst(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAll(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindFirst(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAll(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn BuildUpdatedCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn GetCurrentPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCurrentPropertyValueEx(&self, propertyid: UIA_PROPERTY_ID, ignoredefaultvalue: windows_core::BOOL) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn GetCachedPropertyValue(&self, propertyid: UIA_PROPERTY_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
@@ -12113,10 +12113,10 @@ pub struct IUIAutomationElement7_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationElement7_Impl: IUIAutomationElement6_Impl {
-    fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
-    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<'_, IUIAutomationCondition>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllWithOptions(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn FindFirstWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn FindAllWithOptionsBuildCache(&self, scope: TreeScope, condition: windows_core::Ref<IUIAutomationCondition>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, traversaloptions: TreeTraversalOptions, root: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetCurrentMetadataValue(&self, targetid: i32, metadataid: UIA_METADATA_ID) -> windows_core::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -12420,7 +12420,7 @@ pub struct IUIAutomationEventHandler_Vtbl {
     pub HandleAutomationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, UIA_EVENT_ID) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleAutomationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, eventid: UIA_EVENT_ID) -> windows_core::Result<()>;
+    fn HandleAutomationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, eventid: UIA_EVENT_ID) -> windows_core::Result<()>;
 }
 impl IUIAutomationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -12503,13 +12503,13 @@ pub struct IUIAutomationEventHandlerGroup_Vtbl {
     pub AddTextEditTextChangedEventHandler: unsafe extern "system" fn(*mut core::ffi::c_void, TreeScope, TextEditChangeType, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationEventHandlerGroup_Impl: windows_core::IUnknownImpl {
-    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationEventHandler>) -> windows_core::Result<()>;
-    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
-    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
-    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
-    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
-    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>, handler: windows_core::Ref<'_, IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddActiveTextPositionChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationActiveTextPositionChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddAutomationEventHandler(&self, eventid: UIA_EVENT_ID, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationEventHandler>) -> windows_core::Result<()>;
+    fn AddChangesEventHandler(&self, scope: TreeScope, changetypes: *const i32, changescount: i32, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationChangesEventHandler>) -> windows_core::Result<()>;
+    fn AddNotificationEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationNotificationEventHandler>) -> windows_core::Result<()>;
+    fn AddPropertyChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationPropertyChangedEventHandler>, propertyarray: *const UIA_PROPERTY_ID, propertycount: i32) -> windows_core::Result<()>;
+    fn AddStructureChangedEventHandler(&self, scope: TreeScope, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationStructureChangedEventHandler>) -> windows_core::Result<()>;
+    fn AddTextEditTextChangedEventHandler(&self, scope: TreeScope, texteditchangetype: TextEditChangeType, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>, handler: windows_core::Ref<IUIAutomationTextEditTextChangedEventHandler>) -> windows_core::Result<()>;
 }
 impl IUIAutomationEventHandlerGroup_Vtbl {
     pub const fn new<Identity: IUIAutomationEventHandlerGroup_Impl, const OFFSET: isize>() -> Self {
@@ -12676,7 +12676,7 @@ pub struct IUIAutomationFocusChangedEventHandler_Vtbl {
     pub HandleFocusChangedEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationFocusChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleFocusChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<()>;
+    fn HandleFocusChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<()>;
 }
 impl IUIAutomationFocusChangedEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationFocusChangedEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -13108,7 +13108,7 @@ pub struct IUIAutomationItemContainerPattern_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationItemContainerPattern_Impl: windows_core::IUnknownImpl {
-    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
+    fn FindItemByProperty(&self, pstartafter: windows_core::Ref<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, value: &super::super::System::Variant::VARIANT) -> windows_core::Result<IUIAutomationElement>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationItemContainerPattern_Vtbl {
@@ -13855,7 +13855,7 @@ pub struct IUIAutomationNotificationEventHandler_Vtbl {
     pub HandleNotificationEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, NotificationKind, NotificationProcessing, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationNotificationEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleNotificationEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn HandleNotificationEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, notificationkind: NotificationKind, notificationprocessing: NotificationProcessing, displaystring: &windows_core::BSTR, activityid: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 impl IUIAutomationNotificationEventHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationNotificationEventHandler_Impl, const OFFSET: isize>() -> Self {
@@ -14028,8 +14028,8 @@ pub struct IUIAutomationPatternHandler_Vtbl {
     pub Dispatch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const UIAutomationParameter, u32) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationPatternHandler_Impl: windows_core::IUnknownImpl {
-    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<'_, IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
-    fn Dispatch(&self, ptarget: windows_core::Ref<'_, windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
+    fn CreateClientWrapper(&self, ppatterninstance: windows_core::Ref<IUIAutomationPatternInstance>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Dispatch(&self, ptarget: windows_core::Ref<windows_core::IUnknown>, index: u32, pparams: *const UIAutomationParameter, cparams: u32) -> windows_core::Result<()>;
 }
 impl IUIAutomationPatternHandler_Vtbl {
     pub const fn new<Identity: IUIAutomationPatternHandler_Impl, const OFFSET: isize>() -> Self {
@@ -14130,7 +14130,7 @@ pub struct IUIAutomationPropertyChangedEventHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationPropertyChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn HandlePropertyChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, propertyid: UIA_PROPERTY_ID, newvalue: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IUIAutomationPropertyChangedEventHandler_Vtbl {
@@ -14645,7 +14645,7 @@ pub trait IUIAutomationProxyFactoryMapping_Impl: windows_core::IUnknownImpl {
     fn GetEntry(&self, index: u32) -> windows_core::Result<IUIAutomationProxyFactoryEntry>;
     fn SetTable(&self, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
     fn InsertEntries(&self, before: u32, factorylist: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn InsertEntry(&self, before: u32, factory: windows_core::Ref<'_, IUIAutomationProxyFactoryEntry>) -> windows_core::Result<()>;
+    fn InsertEntry(&self, before: u32, factory: windows_core::Ref<IUIAutomationProxyFactoryEntry>) -> windows_core::Result<()>;
     fn RemoveEntry(&self, index: u32) -> windows_core::Result<()>;
     fn ClearTable(&self) -> windows_core::Result<()>;
     fn RestoreDefaultTable(&self) -> windows_core::Result<()>;
@@ -16142,7 +16142,7 @@ pub struct IUIAutomationStructureChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationStructureChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleStructureChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, changetype: StructureChangeType, runtimeid: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationStructureChangedEventHandler_Vtbl {
@@ -16957,7 +16957,7 @@ pub struct IUIAutomationTextEditTextChangedEventHandler_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIAutomationTextEditTextChangedEventHandler_Impl: windows_core::IUnknownImpl {
-    fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<'_, IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn HandleTextEditTextChangedEvent(&self, sender: windows_core::Ref<IUIAutomationElement>, texteditchangetype: TextEditChangeType, eventstrings: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIAutomationTextEditTextChangedEventHandler_Vtbl {
@@ -17035,7 +17035,7 @@ pub struct IUIAutomationTextPattern_Vtbl {
 }
 pub trait IUIAutomationTextPattern_Impl: windows_core::IUnknownImpl {
     fn RangeFromPoint(&self, pt: &super::super::Foundation::POINT) -> windows_core::Result<IUIAutomationTextRange>;
-    fn RangeFromChild(&self, child: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
+    fn RangeFromChild(&self, child: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetSelection(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
     fn GetVisibleRanges(&self) -> windows_core::Result<IUIAutomationTextRangeArray>;
     fn DocumentRange(&self) -> windows_core::Result<IUIAutomationTextRange>;
@@ -17163,7 +17163,7 @@ pub struct IUIAutomationTextPattern2_Vtbl {
     pub GetCaretRange: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTextPattern2_Impl: IUIAutomationTextPattern_Impl {
-    fn RangeFromAnnotation(&self, annotation: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
+    fn RangeFromAnnotation(&self, annotation: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationTextRange>;
     fn GetCaretRange(&self, isactive: *mut windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
 }
 impl IUIAutomationTextPattern2_Vtbl {
@@ -17344,8 +17344,8 @@ pub struct IUIAutomationTextRange_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn Clone(&self) -> windows_core::Result<IUIAutomationTextRange>;
-    fn Compare(&self, range: windows_core::Ref<'_, IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
-    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
+    fn Compare(&self, range: windows_core::Ref<IUIAutomationTextRange>) -> windows_core::Result<windows_core::BOOL>;
+    fn CompareEndpoints(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<i32>;
     fn ExpandToEnclosingUnit(&self, textunit: TextUnit) -> windows_core::Result<()>;
     fn FindAttribute(&self, attr: UIA_TEXTATTRIBUTE_ID, val: &super::super::System::Variant::VARIANT, backward: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
     fn FindText(&self, text: &windows_core::BSTR, backward: windows_core::BOOL, ignorecase: windows_core::BOOL) -> windows_core::Result<IUIAutomationTextRange>;
@@ -17355,7 +17355,7 @@ pub trait IUIAutomationTextRange_Impl: windows_core::IUnknownImpl {
     fn GetText(&self, maxlength: i32) -> windows_core::Result<windows_core::BSTR>;
     fn Move(&self, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
     fn MoveEndpointByUnit(&self, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32) -> windows_core::Result<i32>;
-    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<'_, IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
+    fn MoveEndpointByRange(&self, srcendpoint: TextPatternRangeEndpoint, range: windows_core::Ref<IUIAutomationTextRange>, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()>;
     fn Select(&self) -> windows_core::Result<()>;
     fn AddToSelection(&self) -> windows_core::Result<()>;
     fn RemoveFromSelection(&self) -> windows_core::Result<()>;
@@ -17661,8 +17661,8 @@ pub struct IUIAutomationTextRange3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IUIAutomationTextRange3_Impl: IUIAutomationTextRange2_Impl {
-    fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
+    fn GetEnclosingElementBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetChildrenBuildCache(&self, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElementArray>;
     fn GetAttributeValues(&self, attributeids: *const UIA_TEXTATTRIBUTE_ID, attributeidcount: i32) -> windows_core::Result<*mut super::super::System::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -18400,18 +18400,18 @@ pub struct IUIAutomationTreeWalker_Vtbl {
     pub Condition: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIAutomationTreeWalker_Impl: windows_core::IUnknownImpl {
-    fn GetParentElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElement(&self, element: windows_core::Ref<'_, IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetParentElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetFirstChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetLastChildElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetNextSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn GetPreviousSiblingElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
-    fn NormalizeElementBuildCache(&self, element: windows_core::Ref<'_, IUIAutomationElement>, cacherequest: windows_core::Ref<'_, IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetParentElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFirstChildElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetLastChildElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetNextSiblingElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetPreviousSiblingElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn NormalizeElement(&self, element: windows_core::Ref<IUIAutomationElement>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetParentElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetFirstChildElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetLastChildElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetNextSiblingElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn GetPreviousSiblingElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
+    fn NormalizeElementBuildCache(&self, element: windows_core::Ref<IUIAutomationElement>, cacherequest: windows_core::Ref<IUIAutomationCacheRequest>) -> windows_core::Result<IUIAutomationElement>;
     fn Condition(&self) -> windows_core::Result<IUIAutomationCondition>;
 }
 impl IUIAutomationTreeWalker_Vtbl {
@@ -19422,12 +19422,12 @@ pub const ItemStatus_Property_GUID: windows_core::GUID = windows_core::GUID::fro
 pub const ItemType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xcdda434d_6222_413b_a68a_325dd1d40f39);
 pub const LIBID_Accessibility: windows_core::GUID = windows_core::GUID::from_u128(0x1ea4dbf0_3c3b_11cf_810c_00aa00389b71);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: windows_core::Ref<'_, IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_core::HRESULT>;
+pub type LPFNACCESSIBLECHILDREN = Option<unsafe extern "system" fn(pacccontainer: windows_core::Ref<IAccessible>, ichildstart: i32, cchildren: i32, rgvarchildren: *mut super::super::System::Variant::VARIANT, pcobtained: *mut i32) -> windows_core::HRESULT>;
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: windows_core::OutRef<'_, IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT>;
+pub type LPFNACCESSIBLEOBJECTFROMPOINT = Option<unsafe extern "system" fn(ptscreen: super::super::Foundation::POINT, ppacc: windows_core::OutRef<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::HRESULT>;
 pub type LPFNACCESSIBLEOBJECTFROMWINDOW = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub type LPFNCREATESTDACCESSIBLEOBJECT = Option<unsafe extern "system" fn(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
-pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> super::super::Foundation::LRESULT>;
+pub type LPFNLRESULTFROMOBJECT = Option<unsafe extern "system" fn(riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, punk: windows_core::Ref<windows_core::IUnknown>) -> super::super::Foundation::LRESULT>;
 pub type LPFNOBJECTFROMLRESULT = Option<unsafe extern "system" fn(lresult: super::super::Foundation::LRESULT, riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::HRESULT>;
 pub const LabeledBy_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0xe5b8924b_fc8a_4a35_8031_cf78ac43e55e);
 pub const LandmarkType_Property_GUID: windows_core::GUID = windows_core::GUID::from_u128(0x454045f2_6f61_49f7_a4f8_b5f0cf82da1e);
@@ -20874,7 +20874,7 @@ pub struct UiaEventArgs {
     pub EventId: i32,
 }
 #[cfg(feature = "Win32_System_Com")]
-pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_core::Ref<'_, windows_core::BSTR>)>;
+pub type UiaEventCallback = Option<unsafe extern "system" fn(pargs: *mut UiaEventArgs, prequesteddata: *mut super::super::System::Com::SAFEARRAY, ptreestructure: windows_core::Ref<windows_core::BSTR>)>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct UiaFindParams {

@@ -1,7 +1,7 @@
 use super::*;
 
 impl std::fmt::Debug for Attribute<'_> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("Attribute")
             .field(&self.ctor().parent().name())
             .finish()

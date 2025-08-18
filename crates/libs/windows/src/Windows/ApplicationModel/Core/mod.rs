@@ -637,7 +637,7 @@ impl windows_core::RuntimeName for ICoreApplicationUnhandledError {
     const NAME: &'static str = "Windows.ApplicationModel.Core.ICoreApplicationUnhandledError";
 }
 pub trait ICoreApplicationUnhandledError_Impl: windows_core::IUnknownImpl {
-    fn UnhandledErrorDetected(&self, handler: windows_core::Ref<'_, super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
+    fn UnhandledErrorDetected(&self, handler: windows_core::Ref<super::super::Foundation::EventHandler<UnhandledErrorDetectedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveUnhandledErrorDetected(&self, token: i64) -> windows_core::Result<()>;
 }
 impl ICoreApplicationUnhandledError_Vtbl {
@@ -851,8 +851,8 @@ impl windows_core::RuntimeName for IFrameworkView {
 }
 #[cfg(feature = "UI_Core")]
 pub trait IFrameworkView_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, applicationView: windows_core::Ref<'_, CoreApplicationView>) -> windows_core::Result<()>;
-    fn SetWindow(&self, window: windows_core::Ref<'_, super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
+    fn Initialize(&self, applicationView: windows_core::Ref<CoreApplicationView>) -> windows_core::Result<()>;
+    fn SetWindow(&self, window: windows_core::Ref<super::super::UI::Core::CoreWindow>) -> windows_core::Result<()>;
     fn Load(&self, entryPoint: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Run(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;

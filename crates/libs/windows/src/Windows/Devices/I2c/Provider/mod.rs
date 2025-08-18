@@ -19,7 +19,7 @@ impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
 pub trait II2cControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: windows_core::Ref<'_, ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
 }
 impl II2cControllerProvider_Vtbl {
     pub const fn new<Identity: II2cControllerProvider_Impl, const OFFSET: isize>() -> Self {

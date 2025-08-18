@@ -201,7 +201,7 @@ impl From<core::num::TryFromIntError> for Error {
 }
 
 impl core::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
         debug
             .field("code", &self.code())
@@ -211,7 +211,7 @@ impl core::fmt::Debug for Error {
 }
 
 impl core::fmt::Display for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::fmt::Result {
         let message = self.message();
         if message.is_empty() {
             core::write!(fmt, "{}", self.code())

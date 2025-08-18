@@ -434,8 +434,8 @@ pub struct ISdoCollection_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ISdoCollection_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, bstrname: &windows_core::BSTR, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn Remove(&self, pitem: windows_core::Ref<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Add(&self, bstrname: &windows_core::BSTR, ppitem: windows_core::OutRef<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Remove(&self, pitem: windows_core::Ref<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
     fn RemoveAll(&self) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
     fn IsNameUnique(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
@@ -954,8 +954,8 @@ pub struct ISdoMachine2_Vtbl {
 pub trait ISdoMachine2_Impl: ISdoMachine_Impl {
     fn GetTemplatesSDO(&self, bstrservicename: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
     fn EnableTemplates(&self) -> windows_core::Result<()>;
-    fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: windows_core::OutRef<'_, windows_core::IUnknown>, pptemplatesroot: windows_core::OutRef<'_, windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ImportRemoteTemplates(&self, plocaltemplatesroot: windows_core::Ref<'_, windows_core::IUnknown>, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn SyncConfigAgainstTemplates(&self, bstrservicename: &windows_core::BSTR, ppconfigroot: windows_core::OutRef<windows_core::IUnknown>, pptemplatesroot: windows_core::OutRef<windows_core::IUnknown>, bforcedsync: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ImportRemoteTemplates(&self, plocaltemplatesroot: windows_core::Ref<windows_core::IUnknown>, bstrremotemachinename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1148,9 +1148,9 @@ pub struct ITemplateSdo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait ITemplateSdo_Impl: ISdo_Impl {
-    fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: windows_core::Ref<'_, super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: windows_core::Ref<'_, super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<'_, super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
-    fn AddToSdoAsProperty(&self, psdotarget: windows_core::Ref<'_, super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
+    fn AddToCollection(&self, bstrname: &windows_core::BSTR, pcollection: windows_core::Ref<super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddToSdo(&self, bstrname: &windows_core::BSTR, psdotarget: windows_core::Ref<super::super::System::Com::IDispatch>, ppitem: windows_core::OutRef<super::super::System::Com::IDispatch>) -> windows_core::Result<()>;
+    fn AddToSdoAsProperty(&self, psdotarget: windows_core::Ref<super::super::System::Com::IDispatch>, id: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITemplateSdo_Vtbl {

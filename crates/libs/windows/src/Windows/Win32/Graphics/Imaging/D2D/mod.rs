@@ -45,9 +45,9 @@ pub struct IWICImageEncoder_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait IWICImageEncoder_Impl: windows_core::IUnknownImpl {
-    fn WriteFrame(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
-    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<'_, super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
-    fn WriteThumbnail(&self, pimage: windows_core::Ref<'_, super::super::Direct2D::ID2D1Image>, pencoder: windows_core::Ref<'_, super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
+    fn WriteFrame(&self, pimage: windows_core::Ref<super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
+    fn WriteFrameThumbnail(&self, pimage: windows_core::Ref<super::super::Direct2D::ID2D1Image>, pframeencode: windows_core::Ref<super::IWICBitmapFrameEncode>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
+    fn WriteThumbnail(&self, pimage: windows_core::Ref<super::super::Direct2D::ID2D1Image>, pencoder: windows_core::Ref<super::IWICBitmapEncoder>, pimageparameters: *const super::WICImageParameters) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi_Common"))]
 impl IWICImageEncoder_Vtbl {
@@ -114,7 +114,7 @@ pub struct IWICImagingFactory2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 pub trait IWICImagingFactory2_Impl: super::IWICImagingFactory_Impl {
-    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<'_, super::super::Direct2D::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
+    fn CreateImageEncoder(&self, pd2ddevice: windows_core::Ref<super::super::Direct2D::ID2D1Device>) -> windows_core::Result<IWICImageEncoder>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_UI_WindowsAndMessaging"))]
 impl IWICImagingFactory2_Vtbl {

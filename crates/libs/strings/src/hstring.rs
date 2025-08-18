@@ -111,7 +111,7 @@ unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
 impl core::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(
             f,
             "{}",
@@ -121,7 +121,7 @@ impl core::fmt::Display for HSTRING {
 }
 
 impl core::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "\"{self}\"")
     }
 }

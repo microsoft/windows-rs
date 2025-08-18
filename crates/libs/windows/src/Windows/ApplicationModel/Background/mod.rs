@@ -582,7 +582,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCanceledEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -601,12 +601,12 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -710,7 +710,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCompletedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -730,12 +730,12 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -841,7 +841,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskProgressEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -861,12 +861,12 @@ pub struct BackgroundTaskProgressEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2272,7 +2272,7 @@ impl windows_core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
 pub trait IBackgroundTask_Impl: windows_core::IUnknownImpl {
-    fn Run(&self, taskInstance: windows_core::Ref<'_, IBackgroundTaskInstance>) -> windows_core::Result<()>;
+    fn Run(&self, taskInstance: windows_core::Ref<IBackgroundTaskInstance>) -> windows_core::Result<()>;
 }
 impl IBackgroundTask_Vtbl {
     pub const fn new<Identity: IBackgroundTask_Impl, const OFFSET: isize>() -> Self {
@@ -2473,7 +2473,7 @@ pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn Progress(&self) -> windows_core::Result<u32>;
     fn SetProgress(&self, value: u32) -> windows_core::Result<()>;
     fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn Canceled(&self, cancelHandler: windows_core::Ref<'_, BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
+    fn Canceled(&self, cancelHandler: windows_core::Ref<BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()>;
     fn SuspendedCount(&self) -> windows_core::Result<u32>;
     fn GetDeferral(&self) -> windows_core::Result<BackgroundTaskDeferral>;
@@ -2905,9 +2905,9 @@ impl windows_core::RuntimeName for IBackgroundTaskRegistration {
 pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
     fn TaskId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Progress(&self, handler: windows_core::Ref<'_, BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
+    fn Progress(&self, handler: windows_core::Ref<BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
     fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()>;
-    fn Completed(&self, handler: windows_core::Ref<'_, BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
+    fn Completed(&self, handler: windows_core::Ref<BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()>;
     fn Unregister(&self, cancelTask: bool) -> windows_core::Result<()>;
 }

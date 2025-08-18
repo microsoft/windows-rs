@@ -42,7 +42,7 @@ where
         Ok(self.values.len().try_into()?)
     }
 
-    fn IndexOf(&self, value: Ref<'_, T>, result: &mut u32) -> Result<bool> {
+    fn IndexOf(&self, value: Ref<T>, result: &mut u32) -> Result<bool> {
         match self.values.iter().position(|element| element == &*value) {
             Some(index) => {
                 *result = index as u32;
