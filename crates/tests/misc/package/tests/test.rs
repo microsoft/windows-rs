@@ -5,9 +5,7 @@ fn test() {
         println!("package: {}", package.name);
 
         assert!(
-            toml.lints
-                .map(|lints| lints.workspace)
-                .unwrap_or(false),
+            toml.lints.map(|lints| lints.workspace).unwrap_or(false),
             "`{}` missing workspace lints",
             package.name
         );
