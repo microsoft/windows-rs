@@ -41,6 +41,6 @@ pub use pstr::*;
 mod pwstr;
 pub use pwstr::*;
 
-extern "C" {
+unsafe extern "C" {
     fn strlen(s: PCSTR) -> usize;
 }

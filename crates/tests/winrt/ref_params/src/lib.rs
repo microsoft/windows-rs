@@ -5,7 +5,7 @@ pub use bindings::*;
 pub use windows_core::*;
 
 pub fn consume(test: &ITest) -> Result<()> {
-    extern "system" {
+    unsafe extern "system" {
         fn consume(test: Ref<ITest>) -> HRESULT;
     }
 
@@ -13,7 +13,7 @@ pub fn consume(test: &ITest) -> Result<()> {
 }
 
 pub fn produce() -> Result<ITest> {
-    extern "system" {
+    unsafe extern "system" {
         fn produce(test: *mut *mut std::ffi::c_void) -> HRESULT;
     }
 

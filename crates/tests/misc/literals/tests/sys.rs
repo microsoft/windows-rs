@@ -39,7 +39,7 @@ fn assert_utf16(left: PCWSTR, right: &[u16]) {
     assert_eq!(left, right);
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn strlen(s: PCSTR) -> usize;
     pub fn wcslen(s: PCWSTR) -> usize;
 }

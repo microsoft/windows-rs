@@ -32,7 +32,7 @@ impl PCWSTR {
     ///
     /// The `PCWSTR`'s pointer needs to be valid for reads up until and including the next `\0`.
     pub unsafe fn len(&self) -> usize {
-        extern "C" {
+        unsafe extern "C" {
             fn wcslen(s: *const u16) -> usize;
         }
         unsafe { wcslen(self.0) }

@@ -65,6 +65,6 @@ impl IBackgroundCopyCallback_Impl for Callback_Impl {
     }
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn getchar() -> i32;
 }
