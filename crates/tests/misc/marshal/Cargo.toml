@@ -17,3 +17,6 @@ features = [
     "Foundation",
     "Win32_System_Com_Marshal",
 ]
+
+[lints]
+workspace = true

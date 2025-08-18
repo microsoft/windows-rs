@@ -10,3 +10,6 @@ features = [
     "Foundation",
     "Win32_System_WinRT",
 ]
+
+[lints]
+workspace = true

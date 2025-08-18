@@ -9,3 +9,6 @@ workspace = true
 features = [
     "Win32_System_Performance",
 ]
+
+[lints]
+workspace = true

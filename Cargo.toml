@@ -21,9 +21,6 @@ exclude = [
 opt-level = 2
 
 [workspace.lints.rust]
-rust_2018_idioms = { level = "warn", priority = -1 }
-missing_docs = "warn"
-unsafe_op_in_unsafe_fn = "warn"
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
 
 [workspace.dependencies]

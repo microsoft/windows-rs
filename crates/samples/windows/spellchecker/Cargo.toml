@@ -10,3 +10,6 @@ features = [
     "Win32_System_Com",
     "Win32_Globalization",
 ]
+
+[lints]
+workspace = true

@@ -11,3 +11,6 @@ crate-type = ["cdylib"]
 jsonschema = { version = "0.23", default-features = false }
 serde_json = { workspace = true }
 windows = { workspace = true, features = ["Win32_System_Com"] }
+
+[lints]
+workspace = true

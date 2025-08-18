@@ -15,3 +15,6 @@ windows-bindgen = { workspace = true }
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
 test_events = { path = "../events" }
+
+[lints]
+workspace = true

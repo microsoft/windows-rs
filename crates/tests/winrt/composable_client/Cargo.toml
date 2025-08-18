@@ -17,3 +17,6 @@ cppwinrt = { workspace = true }
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
 test_composable = { path = "../composable" }
+
+[lints]
+workspace = true

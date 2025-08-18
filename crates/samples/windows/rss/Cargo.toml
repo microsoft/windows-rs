@@ -9,3 +9,6 @@ workspace = true
 features = [
     "Web_Syndication",
 ]
+
+[lints]
+workspace = true

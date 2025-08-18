@@ -17,3 +17,6 @@ features = [
     "Win32_Networking_WinSock",
     "Win32_System_Threading",
 ]
+
+[lints]
+workspace = true

@@ -9,3 +9,6 @@ workspace = true
 features = [
     "Data_Xml_Dom",
 ]
+
+[lints]
+workspace = true

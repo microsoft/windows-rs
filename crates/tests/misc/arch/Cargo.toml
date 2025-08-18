@@ -25,3 +25,6 @@ features = [
     "Wdk_System_SystemServices",
     "Win32_Security",
 ]
+
+[lints]
+workspace = true

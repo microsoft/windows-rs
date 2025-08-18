@@ -11,3 +11,6 @@ features = [
     "Graphics_Imaging", 
     "Storage_Streams", 
 ]
+
+[lints]
+workspace = true

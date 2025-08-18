@@ -27,3 +27,6 @@ workspace = true
 
 [dependencies.regex]
 version = "1.7"
+
+[lints]
+workspace = true

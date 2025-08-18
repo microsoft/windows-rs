@@ -1,7 +1,15 @@
 #[test]
 fn test() {
-    for package in helpers::crates("../../..") {
+    for toml in helpers::crates("../../..") {
+        let package = &toml.package;
         println!("package: {}", package.name);
+
+        assert!(
+            toml.lints.map(|lints| lints.workspace).unwrap_or(false),
+            "`{}` missing workspace lints",
+            package.name
+        );
+
         assert_eq!(package.edition, "2021");
         assert_eq!(package.authors, None);
         assert_eq!(package.readme, None);
@@ -24,7 +32,7 @@ fn test() {
                 Some(vec!["os::windows-apis".to_string()])
             );
             assert!(package.description.is_some());
-            assert!(!package.description.unwrap().is_empty());
+            assert!(!package.description.as_ref().unwrap().is_empty());
         }
     }
 }

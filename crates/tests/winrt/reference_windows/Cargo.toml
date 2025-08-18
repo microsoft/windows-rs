@@ -28,3 +28,6 @@ features = [
 
 [build-dependencies.windows-bindgen]
 workspace = true
+
+[lints]
+workspace = true

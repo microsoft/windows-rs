@@ -21,3 +21,6 @@ features = [
     "Wdk_System_SystemServices",
     "Wdk_System_OfflineRegistry",
 ]
+
+[lints]
+workspace = true

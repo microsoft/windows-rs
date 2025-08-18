@@ -10,3 +10,6 @@ doctest = false
 
 [dependencies.windows-link]
 workspace = true
+
+[lints]
+workspace = true

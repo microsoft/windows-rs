@@ -6,3 +6,6 @@ publish = false
 
 [dependencies]
 windows-services = { workspace = true }
+
+[lints]
+workspace = true
