@@ -345,11 +345,7 @@ impl Interface {
                 let runtime_name = format!("{type_name}");
 
                 let cfg = if config.package {
-                    fn combine(
-                        interface: &Interface,
-                        dependencies: &mut TypeMap,
-                        config: &Config,
-                    ) {
+                    fn combine(interface: &Interface, dependencies: &mut TypeMap, config: &Config) {
                         for method in interface.get_methods(config).iter() {
                             if let MethodOrName::Method(method) = method {
                                 dependencies.combine(&method.dependencies);

@@ -231,11 +231,7 @@ impl CppInterface {
             let impl_name: TokenStream = format!("{}_Impl", self.def.name()).into();
 
             let cfg = if config.package {
-                fn combine(
-                    interface: &CppInterface,
-                    dependencies: &mut TypeMap,
-                    config: &Config,
-                ) {
+                fn combine(interface: &CppInterface, dependencies: &mut TypeMap, config: &Config) {
                     for method in interface.get_methods(config).iter() {
                         if let CppMethodOrName::Method(method) = method {
                             dependencies.combine(&method.dependencies);

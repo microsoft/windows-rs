@@ -49,11 +49,7 @@ where
         Ok(self.map.contains_key(&*key))
     }
 
-    fn Split(
-        &self,
-        first: OutRef<IMapView<K, V>>,
-        second: OutRef<IMapView<K, V>>,
-    ) -> Result<()> {
+    fn Split(&self, first: OutRef<IMapView<K, V>>, second: OutRef<IMapView<K, V>>) -> Result<()> {
         _ = first.write(None);
         _ = second.write(None);
         Ok(())
