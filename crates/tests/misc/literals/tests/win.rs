@@ -82,7 +82,7 @@ fn assert_hstring(left: &HSTRING, right: &[u16]) {
     assert_eq!(left, right);
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn strlen(s: PCSTR) -> usize;
     pub fn wcslen(s: PCWSTR) -> usize;
 }

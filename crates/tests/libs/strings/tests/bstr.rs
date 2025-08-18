@@ -86,6 +86,6 @@ fn deref_as_slice() {
     }
 }
 
-extern "C" {
+unsafe extern "C" {
     pub fn wcslen(s: *const u16) -> usize;
 }

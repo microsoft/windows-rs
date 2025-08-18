@@ -1,6 +1,6 @@
 use windows_sys::{core::*, Win32::Foundation::*, Win32::UI::Shell::*};
 
-extern "C" {
+unsafe extern "C" {
     fn wcslen(s: PCWSTR) -> usize;
 }
 

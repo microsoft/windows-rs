@@ -5,7 +5,7 @@ mod bindings;
 use bindings::*;
 use windows::core::*;
 
-extern "system" {
+unsafe extern "system" {
     fn interop() -> HRESULT;
 }
 

@@ -5,7 +5,7 @@ pub use bindings::*;
 pub use windows_core::*;
 
 pub fn make_cpp() -> Result<ITest> {
-    extern "system" {
+    unsafe extern "system" {
         fn make_cpp(test: *mut *mut std::ffi::c_void) -> HRESULT;
     }
 

@@ -22,6 +22,7 @@ opt-level = 2
 
 [workspace.lints.rust]
 unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib, windows_slim_errors)'] }
+missing_unsafe_on_extern = "warn"
 
 [workspace.dependencies]
 helpers = { path = "crates/tools/helpers" }
