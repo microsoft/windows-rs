@@ -155,7 +155,7 @@ struct ImplementAttributes {
 }
 
 impl syn::parse::Parse for ImplementAttributes {
-    fn parse(cursor: syn::parse::ParseStream<'_>) -> syn::parse::Result<Self> {
+    fn parse(cursor: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut input = Self::default();
 
         while !cursor.is_empty() {
@@ -167,7 +167,7 @@ impl syn::parse::Parse for ImplementAttributes {
 }
 
 impl ImplementAttributes {
-    fn parse_implement(&mut self, cursor: syn::parse::ParseStream<'_>) -> syn::parse::Result<()> {
+    fn parse_implement(&mut self, cursor: syn::parse::ParseStream) -> syn::parse::Result<()> {
         let tree = cursor.parse::<UseTree2>()?;
         self.walk_implement(&tree, &mut String::new())?;
 
@@ -270,7 +270,7 @@ struct UseGroup2 {
 }
 
 impl syn::parse::Parse for UseTree2 {
-    fn parse(input: syn::parse::ParseStream<'_>) -> syn::parse::Result<Self> {
+    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let lookahead = input.lookahead1();
         if lookahead.peek(syn::Ident) {
             use syn::ext::IdentExt;

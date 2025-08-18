@@ -77,13 +77,13 @@ impl Borrow<u32> for MyApp {
 }
 
 impl core::fmt::Debug for MyApp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "x = {}", self.x)
     }
 }
 
 impl core::fmt::Display for MyApp {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "x = {}", self.x)
     }
 }

@@ -1,7 +1,7 @@
 use super::*;
 
 impl std::fmt::Debug for ImplMap<'_> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("ImplMap").field(&self.import_name()).finish()
     }
 }

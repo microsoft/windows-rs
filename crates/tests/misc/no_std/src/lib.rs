@@ -33,6 +33,6 @@ fn _test() {
 // will include its own panic handler and conflict with this one.
 #[cfg_attr(not(test), panic_handler)]
 #[expect(clippy::empty_loop)] // just a test
-fn _panic(_: &core::panic::PanicInfo<'_>) -> ! {
+fn _panic(_: &core::panic::PanicInfo) -> ! {
     loop {}
 }

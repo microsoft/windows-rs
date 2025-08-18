@@ -10,7 +10,7 @@ impl Class {
         self.def.type_name()
     }
 
-    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
         if !config.package {
             return (Cfg::default(), quote! {});
         }
@@ -20,7 +20,7 @@ impl Class {
         (cfg, tokens)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let required_interfaces = self.required_interfaces();
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
@@ -227,7 +227,7 @@ impl Class {
         }
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 

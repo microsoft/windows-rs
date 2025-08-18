@@ -100,7 +100,7 @@ impl Drop for HStringBuilder {
 }
 
 impl core::fmt::Debug for HStringBuilder {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(
             f,
             "\"{}\"",

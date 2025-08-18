@@ -53,7 +53,7 @@ impl Interface {
         self.def.type_name()
     }
 
-    pub fn get_methods(&self, config: &Config<'_>) -> Vec<MethodOrName> {
+    pub fn get_methods(&self, config: &Config) -> Vec<MethodOrName> {
         self.def
             .methods()
             .map(|def| {
@@ -70,7 +70,7 @@ impl Interface {
             .collect()
     }
 
-    fn write_cfg(&self, config: &Config<'_>) -> (Cfg, TokenStream) {
+    fn write_cfg(&self, config: &Config) -> (Cfg, TokenStream) {
         if !config.package {
             return (Cfg::default(), quote! {});
         }
@@ -80,7 +80,7 @@ impl Interface {
         (cfg, tokens)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let type_name = self.def.type_name();
         let methods = self.get_methods(config);
 
@@ -348,7 +348,7 @@ impl Interface {
                     fn combine(
                         interface: &Interface,
                         dependencies: &mut TypeMap,
-                        config: &Config<'_>,
+                        config: &Config,
                     ) {
                         for method in interface.get_methods(config).iter() {
                             if let MethodOrName::Method(method) = method {
@@ -513,11 +513,11 @@ impl Interface {
         }
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &self.generics)
     }
 
-    fn write_vtbl_name(&self, config: &Config<'_>) -> TokenStream {
+    fn write_vtbl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
 
         if self.generics.is_empty() {
@@ -528,7 +528,7 @@ impl Interface {
         }
     }
 
-    pub fn write_impl_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_impl_name(&self, config: &Config) -> TokenStream {
         let name: TokenStream = format!("{}_Impl", self.def.name()).into();
         let namespace = config.write_namespace(self.def.type_name());
 

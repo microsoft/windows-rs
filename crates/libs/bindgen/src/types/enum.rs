@@ -10,11 +10,11 @@ impl Enum {
         self.def.type_name()
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.def.name());
         let underlying_type = self.def.underlying_type();
 

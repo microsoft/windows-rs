@@ -311,13 +311,13 @@ impl<T: ComObjectInner + Ord> Ord for ComObject<T> {
 }
 
 impl<T: ComObjectInner + core::fmt::Debug> core::fmt::Debug for ComObject<T> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         <T as core::fmt::Debug>::fmt(self.get(), f)
     }
 }
 
 impl<T: ComObjectInner + core::fmt::Display> core::fmt::Display for ComObject<T> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         <T as core::fmt::Display>::fmt(self.get(), f)
     }
 }

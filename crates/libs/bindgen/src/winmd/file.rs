@@ -9,7 +9,7 @@ pub struct File {
 }
 
 impl std::fmt::Debug for File {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         std::write!(f, "{:?}", self.bytes.as_ptr())
     }
 }

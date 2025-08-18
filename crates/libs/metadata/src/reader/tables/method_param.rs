@@ -1,7 +1,7 @@
 use super::*;
 
 impl std::fmt::Debug for MethodParam<'_> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_tuple("MethodParam").field(&self.name()).finish()
     }
 }

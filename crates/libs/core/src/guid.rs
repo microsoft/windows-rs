@@ -106,7 +106,7 @@ impl TypeKind for GUID {
 }
 
 impl core::fmt::Debug for GUID {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(
             f,
             "{:08X?}-{:04X?}-{:04X?}-{:02X?}{:02X?}-{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}{:02X?}",
@@ -168,23 +168,23 @@ fn invalid_guid() -> Error {
     Error::from_hresult(imp::E_INVALIDARG)
 }
 
-fn try_u32(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u32> {
+fn try_u32(bytes: &mut core::str::Bytes, delimiter: bool) -> Result<u32> {
     next(bytes, 8, delimiter).ok_or_else(invalid_guid)
 }
 
-fn try_u16(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u16> {
+fn try_u16(bytes: &mut core::str::Bytes, delimiter: bool) -> Result<u16> {
     next(bytes, 4, delimiter)
         .map(|value| value as u16)
         .ok_or_else(invalid_guid)
 }
 
-fn try_u8(bytes: &mut core::str::Bytes<'_>, delimiter: bool) -> Result<u8> {
+fn try_u8(bytes: &mut core::str::Bytes, delimiter: bool) -> Result<u8> {
     next(bytes, 2, delimiter)
         .map(|value| value as u8)
         .ok_or_else(invalid_guid)
 }
 
-fn next(bytes: &mut core::str::Bytes<'_>, len: usize, delimiter: bool) -> Option<u32> {
+fn next(bytes: &mut core::str::Bytes, len: usize, delimiter: bool) -> Option<u32> {
     let mut value: u32 = 0;
 
     for _ in 0..len {

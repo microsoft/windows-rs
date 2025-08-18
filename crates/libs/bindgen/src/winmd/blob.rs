@@ -6,7 +6,7 @@ pub struct Blob {
 }
 
 impl std::fmt::Debug for Blob {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{:?}", self.slice)
     }
 }

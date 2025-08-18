@@ -38,7 +38,7 @@ impl CppStruct {
         TypeName(self.def.namespace(), self.name)
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 
@@ -46,7 +46,7 @@ impl CppStruct {
         self.def.has_attribute("NativeTypedefAttribute")
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -54,7 +54,7 @@ impl CppStruct {
         Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         if self.is_handle() {
             return config.write_cpp_handle(self.def);
         }
@@ -70,7 +70,7 @@ impl CppStruct {
         self.write_with_cfg(config, &quote! { #arches #cfg })
     }
 
-    fn write_with_cfg(&self, config: &Config<'_>, cfg: &TokenStream) -> TokenStream {
+    fn write_with_cfg(&self, config: &Config, cfg: &TokenStream) -> TokenStream {
         let name = to_ident(self.name);
         let flags = self.def.flags();
         let is_union = flags.contains(TypeAttributes::ExplicitLayout);
@@ -229,7 +229,7 @@ impl CppStruct {
         tokens
     }
 
-    fn can_derive_default(&self, config: &Config<'_>) -> bool {
+    fn can_derive_default(&self, config: &Config) -> bool {
         !self.has_explicit_layout()
             && !self.def.fields().any(|field| {
                 let ty = field.ty(Some(self));

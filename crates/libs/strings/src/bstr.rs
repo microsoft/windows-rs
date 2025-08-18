@@ -116,7 +116,7 @@ impl Default for BSTR {
 }
 
 impl core::fmt::Display for BSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(
             f,
             "{}",
@@ -126,7 +126,7 @@ impl core::fmt::Display for BSTR {
 }
 
 impl core::fmt::Debug for BSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(f, "{self}")
     }
 }

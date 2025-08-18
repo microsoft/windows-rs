@@ -47,7 +47,7 @@ impl VARIANT {
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl core::fmt::Debug for VARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut debug = f.debug_struct("VARIANT");
         debug.field("type", &unsafe { self.Anonymous.Anonymous.vt });
 
@@ -61,7 +61,7 @@ impl core::fmt::Debug for VARIANT {
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl core::fmt::Display for VARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }

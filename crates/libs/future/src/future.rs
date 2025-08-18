@@ -41,7 +41,7 @@ impl<A: Async> Unpin for AsyncFuture<A> {}
 impl<A: Async> Future for AsyncFuture<A> {
     type Output = Result<A::Output>;
 
-    fn poll(mut self: Pin<&mut Self>, cx: &mut Context<'_>) -> Poll<Self::Output> {
+    fn poll(mut self: Pin<&mut Self>, cx: &mut Context) -> Poll<Self::Output> {
         // A status of `Started` just means async execution is still in flight. Since WinRT async is always
         // "hot start", if its not `Started` then its ready for us to call `GetResults` so we can skip all of
         // the remaining set up.
