@@ -20,3 +20,6 @@ workspace = true
 features = [
     "Foundation",
 ]
+
+[lints]
+workspace = true

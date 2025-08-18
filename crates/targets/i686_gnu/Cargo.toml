@@ -11,3 +11,6 @@ categories = ["os::windows-apis"]
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
+
+[lints]
+workspace = true

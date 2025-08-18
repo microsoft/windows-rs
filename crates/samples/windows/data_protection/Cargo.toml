@@ -12,3 +12,6 @@ features = [
     "Security_Cryptography_DataProtection",
     "Win32_System_WinRT",
 ]
+
+[lints]
+workspace = true

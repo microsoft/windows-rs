@@ -13,3 +13,6 @@ workspace = true
 features = [
     "Win32_System_Diagnostics_Debug_Extensions",
 ]
+
+[lints]
+workspace = true

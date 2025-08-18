@@ -24,7 +24,7 @@ impl<T: Async> ReadyState<T> {
 
     // The "Ready" implementations don't need to store the handler since the handler is invoked immediately
     // but still need to confirm that `SetCompleted` is called at most once.
-    fn invoke_completed(&self, sender: &T, handler: Ref<'_, T::CompletedHandler>) -> Result<()> {
+    fn invoke_completed(&self, sender: &T, handler: Ref<T::CompletedHandler>) -> Result<()> {
         if !self.set_completed.swap(true, Ordering::SeqCst) {
             sender.invoke_completed(handler.ok()?, self.status());
             Ok(())
@@ -135,7 +135,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncInfo_Impl for ReadyOperationWithProgr
 }
 
 impl IAsyncAction_Impl for ReadyAction_Impl {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncActionCompletedHandler>) -> Result<()> {
+    fn SetCompleted(&self, handler: Ref<AsyncActionCompletedHandler>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncActionCompletedHandler> {
@@ -147,7 +147,7 @@ impl IAsyncAction_Impl for ReadyAction_Impl {
 }
 
 impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
-    fn SetCompleted(&self, handler: Ref<'_, AsyncOperationCompletedHandler<T>>) -> Result<()> {
+    fn SetCompleted(&self, handler: Ref<AsyncOperationCompletedHandler<T>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncOperationCompletedHandler<T>> {
@@ -159,10 +159,7 @@ impl<T: RuntimeType> IAsyncOperation_Impl<T> for ReadyOperation_Impl<T> {
 }
 
 impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgress_Impl<P> {
-    fn SetCompleted(
-        &self,
-        handler: Ref<'_, AsyncActionWithProgressCompletedHandler<P>>,
-    ) -> Result<()> {
+    fn SetCompleted(&self, handler: Ref<AsyncActionWithProgressCompletedHandler<P>>) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
     fn Completed(&self) -> Result<AsyncActionWithProgressCompletedHandler<P>> {
@@ -171,7 +168,7 @@ impl<P: RuntimeType> IAsyncActionWithProgress_Impl<P> for ReadyActionWithProgres
     fn GetResults(&self) -> Result<()> {
         self.0.result.clone()
     }
-    fn SetProgress(&self, _: Ref<'_, AsyncActionProgressHandler<P>>) -> Result<()> {
+    fn SetProgress(&self, _: Ref<AsyncActionProgressHandler<P>>) -> Result<()> {
         Ok(())
     }
     fn Progress(&self) -> Result<AsyncActionProgressHandler<P>> {
@@ -184,7 +181,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
 {
     fn SetCompleted(
         &self,
-        handler: Ref<'_, AsyncOperationWithProgressCompletedHandler<T, P>>,
+        handler: Ref<AsyncOperationWithProgressCompletedHandler<T, P>>,
     ) -> Result<()> {
         self.0.invoke_completed(&self.as_interface(), handler)
     }
@@ -194,7 +191,7 @@ impl<T: RuntimeType, P: RuntimeType> IAsyncOperationWithProgress_Impl<T, P>
     fn GetResults(&self) -> Result<T> {
         self.0.result.clone()
     }
-    fn SetProgress(&self, _: Ref<'_, AsyncOperationProgressHandler<T, P>>) -> Result<()> {
+    fn SetProgress(&self, _: Ref<AsyncOperationProgressHandler<T, P>>) -> Result<()> {
         Ok(())
     }
     fn Progress(&self) -> Result<AsyncOperationProgressHandler<T, P>> {

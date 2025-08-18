@@ -13,3 +13,6 @@ windows-bindgen = { workspace = true }
 
 [dependencies]
 sample_json_validator_winrt = { path = "../json_validator_winrt" }
+
+[lints]
+workspace = true

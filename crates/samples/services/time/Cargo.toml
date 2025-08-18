@@ -10,3 +10,6 @@ windows-link = { workspace = true }
 
 [build-dependencies]
 windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

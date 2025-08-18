@@ -25,3 +25,6 @@ features = [
     "Win32_System_Environment",
     "Win32_System_Kernel",
 ]
+
+[lints]
+workspace = true

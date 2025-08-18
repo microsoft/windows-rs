@@ -1,5 +1,6 @@
 fn main() {
-    for package in helpers::crates("crates") {
+    for toml in helpers::crates("crates") {
+        let package = toml.package;
         let mut command = std::process::Command::new("cargo.exe");
         command.args(["test", "-p", &package.name]);
 

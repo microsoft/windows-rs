@@ -9,3 +9,6 @@ crate-type = ["cdylib"]
 
 [dependencies]
 windows-core = { workspace = true }
+
+[lints]
+workspace = true

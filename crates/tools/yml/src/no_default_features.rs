@@ -31,8 +31,8 @@ jobs:
           target: x86_64-pc-windows-msvc"
         .to_string();
 
-    for package in helpers::crates("crates/libs") {
-        let name = package.name;
+    for manifest in helpers::crates("crates/libs") {
+        let name = manifest.package.name;
         write!(
             &mut yml,
             r"

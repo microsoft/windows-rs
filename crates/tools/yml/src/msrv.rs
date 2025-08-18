@@ -23,9 +23,9 @@ jobs:
         uses: actions/checkout@v5"
         .to_string();
 
-    for package in helpers::crates("crates/libs") {
-        let name = package.name;
-        let version = package.rust_version.expect("rust-version");
+    for manifest in helpers::crates("crates/libs") {
+        let name = manifest.package.name;
+        let version = manifest.package.rust_version.expect("rust-version");
 
         let features = if name == "windows" {
             // We can't use `--all-features` for the `windows` crate as that would exhaust the available

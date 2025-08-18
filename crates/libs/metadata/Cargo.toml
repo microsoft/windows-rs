@@ -7,3 +7,6 @@ license = "MIT OR Apache-2.0"
 description = "Low-level metadata library for ECMA-335"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
+
+[lints]
+workspace = true

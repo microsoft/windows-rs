@@ -10,3 +10,6 @@ doctest = false
 
 [dependencies.windows-core]
 workspace = true
+
+[lints]
+workspace = true

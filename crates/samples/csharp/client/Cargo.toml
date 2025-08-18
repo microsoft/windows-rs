@@ -6,3 +6,6 @@ publish = false
 
 [dependencies.csharp_component]
 path = "../component"
+
+[lints]
+workspace = true

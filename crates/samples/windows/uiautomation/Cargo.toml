@@ -12,3 +12,6 @@ features = [
     "Win32_UI_WindowsAndMessaging",
     "UI_UIAutomation",
 ]
+
+[lints]
+workspace = true

@@ -11,3 +11,6 @@ doctest = false
 [dependencies.windows-registry]
 workspace = true
 features = ["std"]
+
+[lints]
+workspace = true

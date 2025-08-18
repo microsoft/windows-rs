@@ -52,3 +52,6 @@ workspace = true
 [dev-dependencies.windows-collections]
 workspace = true
 features = ["std"]
+
+[lints]
+workspace = true

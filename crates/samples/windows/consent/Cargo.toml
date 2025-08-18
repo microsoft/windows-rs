@@ -13,3 +13,6 @@ features = [
 
 [dependencies.windows-future]
 workspace = true
+
+[lints]
+workspace = true

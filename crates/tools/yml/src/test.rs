@@ -62,8 +62,8 @@ jobs:
     // This unrolling is required since "cargo test --all" consumes too much memory for the GitHub hosted runners
     // and the occasional "cargo clean" is required to avoid running out of disk space in the same runners.
 
-    for (count, package) in helpers::crates("crates").iter().enumerate() {
-        let name = &package.name;
+    for (count, manifest) in helpers::crates("crates").iter().enumerate() {
+        let name = &manifest.package.name;
         if count.is_multiple_of(50) {
             write!(
                 &mut yml,

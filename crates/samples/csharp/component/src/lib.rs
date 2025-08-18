@@ -9,7 +9,10 @@ unsafe extern "system" fn Add(left: u32, right: u32, result: *mut u32) -> HRESUL
         return E_POINTER;
     }
 
-    *result = left + right;
+    unsafe {
+        *result = left + right;
+    }
+
     S_OK
 }
 
@@ -19,10 +22,13 @@ unsafe extern "system" fn Concat(left: PCWSTR, right: PCWSTR, result: *mut BSTR)
         return E_POINTER;
     }
 
-    let left = left.as_wide();
-    let right = right.as_wide();
-    let combined: Vec<u16> = [left, right].concat();
+    unsafe {
+        let left = left.as_wide();
+        let right = right.as_wide();
+        let combined: Vec<u16> = [left, right].concat();
 
-    *result = BSTR::from_wide(&combined);
+        *result = BSTR::from_wide(&combined);
+    }
+
     S_OK
 }

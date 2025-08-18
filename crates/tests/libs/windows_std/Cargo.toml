@@ -15,3 +15,6 @@ windows-collections = { workspace = true }
 windows-core = { workspace = true }
 windows-future = { workspace = true }
 windows-numerics = { workspace = true }
+
+[lints]
+workspace = true

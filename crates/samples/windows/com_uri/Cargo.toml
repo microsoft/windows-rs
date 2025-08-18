@@ -9,3 +9,6 @@ workspace = true
 features = [
     "Win32_System_Com",
 ]
+
+[lints]
+workspace = true

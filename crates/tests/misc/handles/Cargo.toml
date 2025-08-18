@@ -23,3 +23,6 @@ workspace = true
 features = [
     "Win32_Graphics_Gdi",
 ]
+
+[lints]
+workspace = true

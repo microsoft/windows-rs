@@ -13,3 +13,6 @@ workspace = true
 
 [dependencies.windows-core]
 workspace = true
+
+[lints]
+workspace = true

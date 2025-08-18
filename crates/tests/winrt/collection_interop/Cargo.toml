@@ -23,3 +23,6 @@ cc = "1.0"
 
 [build-dependencies.cppwinrt]
 workspace = true
+
+[lints]
+workspace = true

@@ -8,3 +8,6 @@ publish = false
 windows-link = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 toml = "0.9"
+
+[lints]
+workspace = true
