@@ -385,7 +385,7 @@ impl windows_core::RuntimeName for IMediaExtension {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IMediaExtension_Impl: windows_core::IUnknownImpl {
-    fn SetProperties(&self, configuration: windows_core::Ref<'_, super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
+    fn SetProperties(&self, configuration: windows_core::Ref<super::Foundation::Collections::IPropertySet>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IMediaExtension_Vtbl {
@@ -558,11 +558,11 @@ impl windows_core::RuntimeName for IMediaFrame {
 pub trait IMediaFrame_Impl: super::Foundation::IClosable_Impl {
     fn Type(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn IsReadOnly(&self) -> windows_core::Result<bool>;
-    fn SetRelativeTime(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetRelativeTime(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn RelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetSystemRelativeTime(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetSystemRelativeTime(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn SystemRelativeTime(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
-    fn SetDuration(&self, value: windows_core::Ref<'_, super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
+    fn SetDuration(&self, value: windows_core::Ref<super::Foundation::IReference<super::Foundation::TimeSpan>>) -> windows_core::Result<()>;
     fn Duration(&self) -> windows_core::Result<super::Foundation::IReference<super::Foundation::TimeSpan>>;
     fn SetIsDiscontinuous(&self, value: bool) -> windows_core::Result<()>;
     fn IsDiscontinuous(&self) -> windows_core::Result<bool>;

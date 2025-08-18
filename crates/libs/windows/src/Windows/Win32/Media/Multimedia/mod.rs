@@ -1845,9 +1845,9 @@ pub struct IAVIEditStream_Vtbl {
     pub SetInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *const AVISTREAMINFOW, i32) -> windows_core::HRESULT,
 }
 pub trait IAVIEditStream_Impl: windows_core::IUnknownImpl {
-    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
-    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<'_, IAVIStream>) -> windows_core::Result<()>;
-    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<'_, IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
+    fn Cut(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<IAVIStream>) -> windows_core::Result<()>;
+    fn Copy(&self, plstart: *mut i32, pllength: *mut i32, ppresult: windows_core::OutRef<IAVIStream>) -> windows_core::Result<()>;
+    fn Paste(&self, plpos: *mut i32, pllength: *mut i32, pstream: windows_core::Ref<IAVIStream>, lstart: i32, lend: i32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAVIStream>;
     fn SetInfo(&self, lpinfo: *const AVISTREAMINFOW, cbinfo: i32) -> windows_core::Result<()>;
 }
@@ -1942,8 +1942,8 @@ pub struct IAVIFile_Vtbl {
 }
 pub trait IAVIFile_Impl: windows_core::IUnknownImpl {
     fn Info(&self, pfi: *mut AVIFILEINFOW, lsize: i32) -> windows_core::Result<()>;
-    fn GetStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
-    fn CreateStream(&self, ppstream: windows_core::OutRef<'_, IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
+    fn GetStream(&self, ppstream: windows_core::OutRef<IAVIStream>, fcctype: u32, lparam: i32) -> windows_core::Result<()>;
+    fn CreateStream(&self, ppstream: windows_core::OutRef<IAVIStream>, psi: *const AVISTREAMINFOW) -> windows_core::Result<()>;
     fn WriteData(&self, ckid: u32, lpdata: *const core::ffi::c_void, cbdata: i32) -> windows_core::Result<()>;
     fn ReadData(&self, ckid: u32, lpdata: *mut core::ffi::c_void, lpcbdata: *mut i32) -> windows_core::Result<()>;
     fn EndRecord(&self) -> windows_core::Result<()>;

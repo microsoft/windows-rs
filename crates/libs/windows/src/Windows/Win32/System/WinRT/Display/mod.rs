@@ -30,7 +30,7 @@ pub struct IDisplayDeviceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 pub trait IDisplayDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<'_, windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
     fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
 }
 #[cfg(feature = "Win32_Security")]

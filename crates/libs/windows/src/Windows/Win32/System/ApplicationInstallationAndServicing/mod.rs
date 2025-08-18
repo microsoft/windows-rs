@@ -3201,7 +3201,7 @@ pub struct IAssemblyCache_Vtbl {
 pub trait IAssemblyCache_Impl: windows_core::IUnknownImpl {
     fn UninstallAssembly(&self, dwflags: u32, pszassemblyname: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE, puldisposition: *mut IASSEMBLYCACHE_UNINSTALL_DISPOSITION) -> windows_core::Result<()>;
     fn QueryAssemblyInfo(&self, dwflags: QUERYASMINFO_FLAGS, pszassemblyname: &windows_core::PCWSTR, pasminfo: *mut ASSEMBLY_INFO) -> windows_core::Result<()>;
-    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: windows_core::OutRef<'_, IAssemblyCacheItem>, pszassemblyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn CreateAssemblyCacheItem(&self, dwflags: u32, pvreserved: *mut core::ffi::c_void, ppasmitem: windows_core::OutRef<IAssemblyCacheItem>, pszassemblyname: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Reserved(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn InstallAssembly(&self, dwflags: u32, pszmanifestfilepath: &windows_core::PCWSTR, prefdata: *mut FUSION_INSTALL_REFERENCE) -> windows_core::Result<()>;
 }
@@ -3287,7 +3287,7 @@ pub struct IAssemblyCacheItem_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAssemblyCacheItem_Impl: windows_core::IUnknownImpl {
-    fn CreateStream(&self, dwflags: u32, pszstreamname: &windows_core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: windows_core::OutRef<'_, super::Com::IStream>, pulimaxsize: *mut u64) -> windows_core::Result<()>;
+    fn CreateStream(&self, dwflags: u32, pszstreamname: &windows_core::PCWSTR, dwformat: u32, dwformatflags: u32, ppistream: windows_core::OutRef<super::Com::IStream>, pulimaxsize: *mut u64) -> windows_core::Result<()>;
     fn Commit(&self, dwflags: u32, puldisposition: *mut u32) -> windows_core::Result<()>;
     fn AbortItem(&self) -> windows_core::Result<()>;
 }
@@ -3386,10 +3386,10 @@ pub trait IAssemblyName_Impl: windows_core::IUnknownImpl {
     fn GetProperty(&self, propertyid: u32, pvproperty: *mut core::ffi::c_void, pcbproperty: *mut u32) -> windows_core::Result<()>;
     fn Finalize(&self) -> windows_core::Result<()>;
     fn GetDisplayName(&self, szdisplayname: windows_core::PWSTR, pccdisplayname: *mut u32, dwdisplayflags: u32) -> windows_core::Result<()>;
-    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<'_, windows_core::IUnknown>, punkreserved2: windows_core::Ref<'_, windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Reserved(&self, refiid: *const windows_core::GUID, punkreserved1: windows_core::Ref<windows_core::IUnknown>, punkreserved2: windows_core::Ref<windows_core::IUnknown>, szreserved: &windows_core::PCWSTR, llreserved: i64, pvreserved: *mut core::ffi::c_void, cbreserved: u32, ppreserved: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetName(&self, lpcwbuffer: *mut u32, pwzname: windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetVersion(&self, pdwversionhi: *mut u32, pdwversionlow: *mut u32) -> windows_core::Result<()>;
-    fn IsEqual(&self, pname: windows_core::Ref<'_, IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
+    fn IsEqual(&self, pname: windows_core::Ref<IAssemblyName>, dwcmpflags: u32) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IAssemblyName>;
 }
 impl IAssemblyName_Vtbl {
@@ -3506,7 +3506,7 @@ pub struct IEnumMsmDependency_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmDependency_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfetch: u32, rgmsmdependencies: windows_core::OutRef<'_, IMsmDependency>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cfetch: u32, rgmsmdependencies: windows_core::OutRef<IMsmDependency>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cskip: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumMsmDependency>;
@@ -3592,7 +3592,7 @@ pub struct IEnumMsmError_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMsmError_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, cfetch: u32, rgmsmerrors: windows_core::OutRef<'_, IMsmError>, pcfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, cfetch: u32, rgmsmerrors: windows_core::OutRef<IMsmError>, pcfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, cskip: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumMsmError>;
@@ -6743,12 +6743,12 @@ pub struct IPMEnumerationManager_Vtbl {
     pub get_StartAppEnumeratorBlob: unsafe extern "system" fn(*mut core::ffi::c_void, PM_ENUM_FILTER, *mut u32, *mut *mut PM_STARTAPPBLOB) -> windows_core::HRESULT,
 }
 pub trait IPMEnumerationManager_Impl: windows_core::IUnknownImpl {
-    fn get_AllApplications(&self, ppappenum: windows_core::OutRef<'_, IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllTiles(&self, pptileenum: windows_core::OutRef<'_, IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllTasks(&self, pptaskenum: windows_core::OutRef<'_, IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllExtensions(&self, ppextensionenum: windows_core::OutRef<'_, IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllBackgroundServiceAgents(&self, ppbsaenum: windows_core::OutRef<'_, IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
-    fn get_AllBackgroundWorkers(&self, ppbswenum: windows_core::OutRef<'_, IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllApplications(&self, ppappenum: windows_core::OutRef<IPMApplicationInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllTiles(&self, pptileenum: windows_core::OutRef<IPMTileInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllTasks(&self, pptaskenum: windows_core::OutRef<IPMTaskInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllExtensions(&self, ppextensionenum: windows_core::OutRef<IPMExtensionInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllBackgroundServiceAgents(&self, ppbsaenum: windows_core::OutRef<IPMBackgroundServiceAgentInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
+    fn get_AllBackgroundWorkers(&self, ppbswenum: windows_core::OutRef<IPMBackgroundWorkerInfoEnumerator>, filter: &PM_ENUM_FILTER) -> windows_core::Result<()>;
     fn get_ApplicationInfo(&self, productid: &windows_core::GUID) -> windows_core::Result<IPMApplicationInfo>;
     fn get_TileInfo(&self, productid: &windows_core::GUID, tileid: &windows_core::BSTR) -> windows_core::Result<IPMTileInfo>;
     fn get_TaskInfo(&self, productid: &windows_core::GUID, taskid: &windows_core::BSTR) -> windows_core::Result<IPMTaskInfo>;

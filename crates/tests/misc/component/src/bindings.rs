@@ -330,10 +330,10 @@ pub trait IClass_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>>;
     fn Input(
         &self,
-        a: windows_core::Ref<'_, windows_core::IInspectable>,
-        b: windows_core::Ref<'_, Class>,
-        c: windows_core::Ref<'_, windows::Foundation::IStringable>,
-        d: windows_core::Ref<'_, Callback>,
+        a: windows_core::Ref<windows_core::IInspectable>,
+        b: windows_core::Ref<Class>,
+        c: windows_core::Ref<windows::Foundation::IStringable>,
+        d: windows_core::Ref<Callback>,
     ) -> windows_core::Result<()>;
 }
 impl IClass_Vtbl {

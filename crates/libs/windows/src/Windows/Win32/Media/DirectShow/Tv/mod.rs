@@ -1361,7 +1361,7 @@ pub struct IATSC_EIT_Vtbl {
     pub GetRecordDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IATSC_EIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetSourceId(&self) -> windows_core::Result<u16>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
@@ -1373,7 +1373,7 @@ pub trait IATSC_EIT_Impl: windows_core::IUnknownImpl {
     fn GetRecordTitleText(&self, dwrecordindex: u32, pdwlength: *mut u32, pptext: *mut *mut u8) -> windows_core::Result<()>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IATSC_EIT_Vtbl {
     pub const fn new<Identity: IATSC_EIT_Impl, const OFFSET: isize>() -> Self {
@@ -1580,7 +1580,7 @@ pub struct IATSC_ETT_Vtbl {
     pub GetExtendedMessageText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut u8) -> windows_core::HRESULT,
 }
 pub trait IATSC_ETT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
     fn GetEtmId(&self) -> windows_core::Result<u32>;
@@ -1743,7 +1743,7 @@ pub struct IATSC_MGT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IATSC_MGT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
@@ -1752,10 +1752,10 @@ pub trait IATSC_MGT_Impl: windows_core::IUnknownImpl {
     fn GetRecordVersionNumber(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfTableDescriptors(&self, pdwval: *const u32) -> windows_core::Result<()>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IATSC_MGT_Vtbl {
     pub const fn new<Identity: IATSC_MGT_Impl, const OFFSET: isize>() -> Self {
@@ -1977,14 +1977,14 @@ pub struct IATSC_STT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IATSC_STT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
     fn GetSystemTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME>;
     fn GetGpsUtcOffset(&self) -> windows_core::Result<u8>;
     fn GetDaylightSavings(&self) -> windows_core::Result<u16>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IATSC_STT_Vtbl {
     pub const fn new<Identity: IATSC_STT_Impl, const OFFSET: isize>() -> Self {
@@ -2273,7 +2273,7 @@ pub struct IATSC_VCT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IATSC_VCT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
@@ -2295,10 +2295,10 @@ pub trait IATSC_VCT_Impl: windows_core::IUnknownImpl {
     fn GetRecordSourceId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfTableDescriptors(&self, pdwval: *const u32) -> windows_core::Result<()>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IATSC_VCT_Vtbl {
     pub const fn new<Identity: IATSC_VCT_Impl, const OFFSET: isize>() -> Self {
@@ -3403,7 +3403,7 @@ pub struct IAtscPsipParser_Vtbl {
     pub GetEAS: unsafe extern "system" fn(*mut core::ffi::c_void, u16, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAtscPsipParser_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, punkmpeg2data: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, punkmpeg2data: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPAT(&self) -> windows_core::Result<IPAT>;
     fn GetCAT(&self, dwtimeout: u32) -> windows_core::Result<ICAT>;
     fn GetPMT(&self, pid: u16, pwprogramnumber: *const u16) -> windows_core::Result<IPMT>;
@@ -3827,8 +3827,8 @@ pub struct IBDAComparable_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IBDAComparable_Impl: windows_core::IUnknownImpl {
-    fn CompareExact(&self, compareto: windows_core::Ref<'_, super::super::super::System::Com::IDispatch>) -> windows_core::Result<i32>;
-    fn CompareEquivalent(&self, compareto: windows_core::Ref<'_, super::super::super::System::Com::IDispatch>, dwflags: u32) -> windows_core::Result<i32>;
+    fn CompareExact(&self, compareto: windows_core::Ref<super::super::super::System::Com::IDispatch>) -> windows_core::Result<i32>;
+    fn CompareEquivalent(&self, compareto: windows_core::Ref<super::super::super::System::Com::IDispatch>, dwflags: u32) -> windows_core::Result<i32>;
     fn HashExact(&self) -> windows_core::Result<i64>;
     fn HashExactIncremental(&self, partialresult: i64) -> windows_core::Result<i64>;
     fn HashEquivalent(&self, dwflags: u32) -> windows_core::Result<i64>;
@@ -3993,7 +3993,7 @@ pub struct IBDA_TIF_REGISTRATION_Vtbl {
     pub UnregisterTIF: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait IBDA_TIF_REGISTRATION_Impl: windows_core::IUnknownImpl {
-    fn RegisterTIFEx(&self, ptifinputpin: windows_core::Ref<'_, super::IPin>, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RegisterTIFEx(&self, ptifinputpin: windows_core::Ref<super::IPin>, ppvregistrationcontext: *mut u32, ppmpeg2datacontrol: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn UnregisterTIF(&self, pvregistrationcontext: u32) -> windows_core::Result<()>;
 }
 impl IBDA_TIF_REGISTRATION_Vtbl {
@@ -4083,11 +4083,11 @@ pub struct ICAT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICAT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<ICAT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -4537,7 +4537,7 @@ pub struct IComponent_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IComponent_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Type(&self) -> windows_core::Result<IComponentType>;
-    fn SetType(&self, ct: windows_core::Ref<'_, IComponentType>) -> windows_core::Result<()>;
+    fn SetType(&self, ct: windows_core::Ref<IComponentType>) -> windows_core::Result<()>;
     fn DescLangID(&self) -> windows_core::Result<i32>;
     fn SetDescLangID(&self, langid: i32) -> windows_core::Result<()>;
     fn Status(&self) -> windows_core::Result<super::ComponentStatus>;
@@ -5083,8 +5083,8 @@ pub trait IComponentTypes_Impl: super::super::super::System::Com::IDispatch_Impl
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponentTypes(&self) -> windows_core::Result<IEnumComponentTypes>;
     fn get_Item(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IComponentType>;
-    fn put_Item(&self, index: &super::super::super::System::Variant::VARIANT, componenttype: windows_core::Ref<'_, IComponentType>) -> windows_core::Result<()>;
-    fn Add(&self, componenttype: windows_core::Ref<'_, IComponentType>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn put_Item(&self, index: &super::super::super::System::Variant::VARIANT, componenttype: windows_core::Ref<IComponentType>) -> windows_core::Result<()>;
+    fn Add(&self, componenttype: windows_core::Ref<IComponentType>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponentTypes>;
 }
@@ -5295,10 +5295,10 @@ pub trait IComponents_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&self) -> windows_core::Result<IEnumComponents>;
     fn get_Item(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IComponent>;
-    fn Add(&self, component: windows_core::Ref<'_, IComponent>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn Add(&self, component: windows_core::Ref<IComponent>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponents>;
-    fn put_Item(&self, index: &super::super::super::System::Variant::VARIANT, ppcomponent: windows_core::Ref<'_, IComponent>) -> windows_core::Result<()>;
+    fn put_Item(&self, index: &super::super::super::System::Variant::VARIANT, ppcomponent: windows_core::Ref<IComponent>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IComponents_Vtbl {
@@ -5496,7 +5496,7 @@ pub trait IComponentsOld_Impl: super::super::super::System::Com::IDispatch_Impl 
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn EnumComponents(&self) -> windows_core::Result<IEnumComponents>;
     fn get_Item(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IComponent>;
-    fn Add(&self, component: windows_core::Ref<'_, IComponent>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn Add(&self, component: windows_core::Ref<IComponent>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IComponents>;
 }
@@ -7471,18 +7471,18 @@ pub struct IDVB_BAT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDVB_BAT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetBouquetId(&self) -> windows_core::Result<u16>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32, ppdescriptor: *const Option<IGenericDescriptor>) -> windows_core::Result<()>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self) -> windows_core::Result<IDVB_BAT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -7689,7 +7689,7 @@ pub struct IDVB_DIT_Vtbl {
     pub GetTransitionFlag: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IDVB_DIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
     fn GetTransitionFlag(&self) -> windows_core::Result<windows_core::BOOL>;
 }
 impl IDVB_DIT_Vtbl {
@@ -7869,7 +7869,7 @@ pub struct IDVB_EIT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDVB_EIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetServiceId(&self) -> windows_core::Result<u16>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
@@ -7884,7 +7884,7 @@ pub trait IDVB_EIT_Impl: windows_core::IUnknownImpl {
     fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self) -> windows_core::Result<IDVB_EIT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -8321,18 +8321,18 @@ pub struct IDVB_NIT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDVB_NIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetNetworkId(&self) -> windows_core::Result<u16>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self) -> windows_core::Result<IDVB_NIT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -8594,7 +8594,7 @@ pub struct IDVB_RST_Vtbl {
     pub GetRecordRunningStatus: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut u8) -> windows_core::HRESULT,
 }
 pub trait IDVB_RST_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordTransportStreamId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordOriginalNetworkId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
@@ -8823,7 +8823,7 @@ pub struct IDVB_SDT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDVB_SDT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
     fn GetOriginalNetworkId(&self) -> windows_core::Result<u16>;
@@ -8835,7 +8835,7 @@ pub trait IDVB_SDT_Impl: windows_core::IUnknownImpl {
     fn GetRecordFreeCAMode(&self, dwrecordindex: u32) -> windows_core::Result<windows_core::BOOL>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self) -> windows_core::Result<IDVB_SDT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -9158,17 +9158,17 @@ pub struct IDVB_SIT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDVB_SIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordServiceId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordRunningStatus(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self, dwtimeout: u32) -> windows_core::Result<IDVB_SIT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -9375,7 +9375,7 @@ pub struct IDVB_ST_Vtbl {
     pub GetData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut u8) -> windows_core::HRESULT,
 }
 pub trait IDVB_ST_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
     fn GetDataLength(&self) -> windows_core::Result<u16>;
     fn GetData(&self) -> windows_core::Result<*mut u8>;
 }
@@ -9447,7 +9447,7 @@ pub struct IDVB_TDT_Vtbl {
     pub GetUTCTime: unsafe extern "system" fn(*mut core::ffi::c_void, *mut MPEG_DATE_AND_TIME) -> windows_core::HRESULT,
 }
 pub trait IDVB_TDT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
     fn GetUTCTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME>;
 }
 impl IDVB_TDT_Vtbl {
@@ -9523,11 +9523,11 @@ pub struct IDVB_TOT_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDVB_TOT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>) -> windows_core::Result<()>;
     fn GetUTCTime(&self) -> windows_core::Result<MPEG_DATE_AND_TIME>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IDVB_TOT_Vtbl {
     pub const fn new<Identity: IDVB_TOT_Impl, const OFFSET: isize>() -> Self {
@@ -10912,9 +10912,9 @@ pub trait IDvbExtendedEventDescriptor_Impl: windows_core::IUnknownImpl {
     fn GetLanguageCode(&self, pszcode: *mut u8) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u8>;
     fn GetRecordItemW(&self, brecordindex: u8, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut windows_core::BSTR, pbstritem: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetConcatenatedItemW(&self, pfollowingdescriptor: windows_core::Ref<'_, IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut windows_core::BSTR, pbstritem: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn GetConcatenatedItemW(&self, pfollowingdescriptor: windows_core::Ref<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE, pbstrdesc: *mut windows_core::BSTR, pbstritem: *mut windows_core::BSTR) -> windows_core::Result<()>;
     fn GetTextW(&self, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>;
-    fn GetConcatenatedTextW(&self, followingdescriptor: windows_core::Ref<'_, IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>;
+    fn GetConcatenatedTextW(&self, followingdescriptor: windows_core::Ref<IDvbExtendedEventDescriptor>, convmode: DVB_STRCONV_MODE) -> windows_core::Result<windows_core::BSTR>;
     fn GetRecordItemRawBytes(&self, brecordindex: u8, ppbrawitem: *mut *mut u8, pbitemlength: *mut u8) -> windows_core::Result<()>;
 }
 impl IDvbExtendedEventDescriptor_Vtbl {
@@ -13156,7 +13156,7 @@ pub struct IDvbSiParser_Vtbl {
     pub GetSIT: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDvbSiParser_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, punkmpeg2data: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, punkmpeg2data: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetPAT(&self) -> windows_core::Result<IPAT>;
     fn GetCAT(&self, dwtimeout: u32) -> windows_core::Result<ICAT>;
     fn GetPMT(&self, pid: u16, pwprogramnumber: *const u16) -> windows_core::Result<IPMT>;
@@ -14374,7 +14374,7 @@ pub struct IESEventFactory_Vtbl {
     pub CreateESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, windows_core::GUID, u32, *const u8, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IESEventFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateESEvent(&self, pserviceprovider: windows_core::Ref<'_, windows_core::IUnknown>, dweventid: u32, guideventtype: &windows_core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: &windows_core::BSTR, pinitcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<super::IESEvent>;
+    fn CreateESEvent(&self, pserviceprovider: windows_core::Ref<windows_core::IUnknown>, dweventid: u32, guideventtype: &windows_core::GUID, dweventdatalength: u32, peventdata: *const u8, bstrbaseurl: &windows_core::BSTR, pinitcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<super::IESEvent>;
 }
 impl IESEventFactory_Vtbl {
     pub const fn new<Identity: IESEventFactory_Impl, const OFFSET: isize>() -> Self {
@@ -14414,7 +14414,7 @@ pub struct IESEventService_Vtbl {
     pub FireESEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IESEventService_Impl: windows_core::IUnknownImpl {
-    fn FireESEvent(&self, pesevent: windows_core::Ref<'_, super::IESEvent>) -> windows_core::Result<()>;
+    fn FireESEvent(&self, pesevent: windows_core::Ref<super::IESEvent>) -> windows_core::Result<()>;
 }
 impl IESEventService_Vtbl {
     pub const fn new<Identity: IESEventService_Impl, const OFFSET: isize>() -> Self {
@@ -14477,12 +14477,12 @@ pub struct IESEventServiceConfiguration_Vtbl {
     pub RemoveGraph: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IESEventServiceConfiguration_Impl: windows_core::IUnknownImpl {
-    fn SetParent(&self, peventservice: windows_core::Ref<'_, IESEventService>) -> windows_core::Result<()>;
+    fn SetParent(&self, peventservice: windows_core::Ref<IESEventService>) -> windows_core::Result<()>;
     fn RemoveParent(&self) -> windows_core::Result<()>;
-    fn SetOwner(&self, pesevents: windows_core::Ref<'_, super::IESEvents>) -> windows_core::Result<()>;
+    fn SetOwner(&self, pesevents: windows_core::Ref<super::IESEvents>) -> windows_core::Result<()>;
     fn RemoveOwner(&self) -> windows_core::Result<()>;
-    fn SetGraph(&self, pgraph: windows_core::Ref<'_, super::IFilterGraph>) -> windows_core::Result<()>;
-    fn RemoveGraph(&self, pgraph: windows_core::Ref<'_, super::IFilterGraph>) -> windows_core::Result<()>;
+    fn SetGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::Result<()>;
+    fn RemoveGraph(&self, pgraph: windows_core::Ref<super::IFilterGraph>) -> windows_core::Result<()>;
 }
 impl IESEventServiceConfiguration_Vtbl {
     pub const fn new<Identity: IESEventServiceConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -15752,7 +15752,7 @@ pub struct IEnumGuideDataProperties_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IEnumGuideDataProperties_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppprop: windows_core::OutRef<'_, IGuideDataProperty>, pcelt: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppprop: windows_core::OutRef<IGuideDataProperty>, pcelt: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumGuideDataProperties>;
@@ -15836,7 +15836,7 @@ pub struct IEnumMSVidGraphSegment_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumMSVidGraphSegment_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<'_, IMSVidGraphSegment>, pceltfetched: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, rgelt: windows_core::OutRef<IMSVidGraphSegment>, pceltfetched: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumMSVidGraphSegment>;
@@ -16001,7 +16001,7 @@ pub struct IEnumTuneRequests_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IEnumTuneRequests_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppprop: windows_core::OutRef<'_, ITuneRequest>, pcelt: *mut u32) -> windows_core::Result<()>;
+    fn Next(&self, celt: u32, ppprop: windows_core::OutRef<ITuneRequest>, pcelt: *mut u32) -> windows_core::Result<()>;
     fn Skip(&self, celt: u32) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<IEnumTuneRequests>;
@@ -16536,7 +16536,7 @@ pub struct IGuideData_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGuideData_Impl: windows_core::IUnknownImpl {
     fn GetServices(&self) -> windows_core::Result<IEnumTuneRequests>;
-    fn GetServiceProperties(&self, ptunerequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<IEnumGuideDataProperties>;
+    fn GetServiceProperties(&self, ptunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<IEnumGuideDataProperties>;
     fn GetGuideProgramIDs(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn GetProgramProperties(&self, varprogramdescriptionid: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IEnumGuideDataProperties>;
     fn GetScheduleEntryIDs(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
@@ -16787,7 +16787,7 @@ pub struct IGuideDataLoader_Vtbl {
     pub Terminate: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IGuideDataLoader_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, pguidestore: windows_core::Ref<'_, IGuideData>) -> windows_core::Result<()>;
+    fn Init(&self, pguidestore: windows_core::Ref<IGuideData>) -> windows_core::Result<()>;
     fn Terminate(&self) -> windows_core::Result<()>;
 }
 impl IGuideDataLoader_Vtbl {
@@ -17029,18 +17029,18 @@ pub struct IISDB_BIT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_BIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetOriginalNetworkId(&self) -> windows_core::Result<u16>;
     fn GetBroadcastViewPropriety(&self) -> windows_core::Result<u8>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
     fn GetRecordBroadcasterId(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
 }
 impl IISDB_BIT_Vtbl {
@@ -17297,7 +17297,7 @@ pub struct IISDB_CDT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_CDT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>, bsectionnumber: u8) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>, bsectionnumber: u8) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetDownloadDataId(&self) -> windows_core::Result<u16>;
     fn GetSectionNumber(&self) -> windows_core::Result<u8>;
@@ -17305,7 +17305,7 @@ pub trait IISDB_CDT_Impl: windows_core::IUnknownImpl {
     fn GetDataType(&self) -> windows_core::Result<u8>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetSizeOfDataModule(&self) -> windows_core::Result<u32>;
     fn GetDataModule(&self) -> windows_core::Result<*mut u8>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
@@ -17519,12 +17519,12 @@ pub struct IISDB_EMM_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_EMM_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetTableIdExtension(&self) -> windows_core::Result<u16>;
     fn GetDataBytes(&self, pwbufferlength: *mut u16, pbbuffer: *mut u8) -> windows_core::Result<()>;
     fn GetSharedEmmMessage(&self, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> windows_core::Result<()>;
-    fn GetIndividualEmmMessage(&self, punknown: windows_core::Ref<'_, windows_core::IUnknown>, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> windows_core::Result<()>;
+    fn GetIndividualEmmMessage(&self, punknown: windows_core::Ref<windows_core::IUnknown>, pwlength: *mut u16, ppbmessage: *mut *mut u8) -> windows_core::Result<()>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
 }
 impl IISDB_EMM_Vtbl {
@@ -17690,7 +17690,7 @@ pub struct IISDB_LDT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_LDT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetOriginalServiceId(&self) -> windows_core::Result<u16>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
@@ -17699,7 +17699,7 @@ pub trait IISDB_LDT_Impl: windows_core::IUnknownImpl {
     fn GetRecordDescriptionId(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
 }
 impl IISDB_LDT_Vtbl {
@@ -17957,7 +17957,7 @@ pub struct IISDB_NBIT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_NBIT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetOriginalNetworkId(&self) -> windows_core::Result<u16>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
@@ -17970,7 +17970,7 @@ pub trait IISDB_NBIT_Impl: windows_core::IUnknownImpl {
     fn GetRecordKeys(&self, dwrecordindex: u32) -> windows_core::Result<*mut u8>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
 }
 impl IISDB_NBIT_Vtbl {
@@ -18361,7 +18361,7 @@ pub struct IISDB_SDTT_Vtbl {
     pub GetVersionHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IISDB_SDTT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetTableIdExt(&self) -> windows_core::Result<u16>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
@@ -18379,7 +18379,7 @@ pub trait IISDB_SDTT_Impl: windows_core::IUnknownImpl {
     fn GetRecordDurationByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<MPEG_TIME>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetVersionHash(&self) -> windows_core::Result<u32>;
 }
 impl IISDB_SDTT_Vtbl {
@@ -22610,7 +22610,7 @@ pub struct IMPEG2TuneRequestFactory_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMPEG2TuneRequestFactory_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn CreateTuneRequest(&self, tuningspace: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<IMPEG2TuneRequest>;
+    fn CreateTuneRequest(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<IMPEG2TuneRequest>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMPEG2TuneRequestFactory_Vtbl {
@@ -22692,7 +22692,7 @@ pub struct IMPEG2_TIF_CONTROL_Vtbl {
     pub GetPIDs: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IMPEG2_TIF_CONTROL_Impl: windows_core::IUnknownImpl {
-    fn RegisterTIF(&self, punktif: windows_core::Ref<'_, windows_core::IUnknown>, ppvregistrationcontext: *mut u32) -> windows_core::Result<()>;
+    fn RegisterTIF(&self, punktif: windows_core::Ref<windows_core::IUnknown>, ppvregistrationcontext: *mut u32) -> windows_core::Result<()>;
     fn UnregisterTIF(&self, pvregistrationcontext: u32) -> windows_core::Result<()>;
     fn AddPIDs(&self, ulcpids: u32, pulpids: *const u32) -> windows_core::Result<()>;
     fn DeletePIDs(&self, ulcpids: u32, pulpids: *const u32) -> windows_core::Result<()>;
@@ -22794,7 +22794,7 @@ pub struct IMSEventBinder_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSEventBinder_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn Bind(&self, peventobject: windows_core::Ref<'_, super::super::super::System::Com::IDispatch>, eventname: &windows_core::BSTR, eventhandler: &windows_core::BSTR) -> windows_core::Result<i32>;
+    fn Bind(&self, peventobject: windows_core::Ref<super::super::super::System::Com::IDispatch>, eventname: &windows_core::BSTR, eventhandler: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn Unbind(&self, cancelcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -23328,7 +23328,7 @@ pub trait IMSVidAudioRendererDevices_Impl: super::super::super::System::Com::IDi
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IMSVidAudioRenderer>;
-    fn Add(&self, pdb: windows_core::Ref<'_, IMSVidAudioRenderer>) -> windows_core::Result<()>;
+    fn Add(&self, pdb: windows_core::Ref<IMSVidAudioRenderer>) -> windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -23787,7 +23787,7 @@ pub struct IMSVidCompositionSegment_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidCompositionSegment_Impl: IMSVidGraphSegment_Impl {
-    fn Compose(&self, upstream: windows_core::Ref<'_, IMSVidGraphSegment>, downstream: windows_core::Ref<'_, IMSVidGraphSegment>) -> windows_core::Result<()>;
+    fn Compose(&self, upstream: windows_core::Ref<IMSVidGraphSegment>, downstream: windows_core::Ref<IMSVidGraphSegment>) -> windows_core::Result<()>;
     fn Up(&self) -> windows_core::Result<IMSVidGraphSegment>;
     fn Down(&self) -> windows_core::Result<IMSVidGraphSegment>;
 }
@@ -24141,15 +24141,15 @@ pub trait IMSVidCtl_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn AudioRenderersAvailable(&self) -> windows_core::Result<IMSVidAudioRendererDevices>;
     fn FeaturesAvailable(&self) -> windows_core::Result<IMSVidFeatures>;
     fn InputActive(&self) -> windows_core::Result<IMSVidInputDevice>;
-    fn SetInputActive(&self, pval: windows_core::Ref<'_, IMSVidInputDevice>) -> windows_core::Result<()>;
+    fn SetInputActive(&self, pval: windows_core::Ref<IMSVidInputDevice>) -> windows_core::Result<()>;
     fn OutputsActive(&self) -> windows_core::Result<IMSVidOutputDevices>;
-    fn SetOutputsActive(&self, pval: windows_core::Ref<'_, IMSVidOutputDevices>) -> windows_core::Result<()>;
+    fn SetOutputsActive(&self, pval: windows_core::Ref<IMSVidOutputDevices>) -> windows_core::Result<()>;
     fn VideoRendererActive(&self) -> windows_core::Result<IMSVidVideoRenderer>;
-    fn SetVideoRendererActive(&self, pval: windows_core::Ref<'_, IMSVidVideoRenderer>) -> windows_core::Result<()>;
+    fn SetVideoRendererActive(&self, pval: windows_core::Ref<IMSVidVideoRenderer>) -> windows_core::Result<()>;
     fn AudioRendererActive(&self) -> windows_core::Result<IMSVidAudioRenderer>;
-    fn SetAudioRendererActive(&self, pval: windows_core::Ref<'_, IMSVidAudioRenderer>) -> windows_core::Result<()>;
+    fn SetAudioRendererActive(&self, pval: windows_core::Ref<IMSVidAudioRenderer>) -> windows_core::Result<()>;
     fn FeaturesActive(&self) -> windows_core::Result<IMSVidFeatures>;
-    fn SetFeaturesActive(&self, pval: windows_core::Ref<'_, IMSVidFeatures>) -> windows_core::Result<()>;
+    fn SetFeaturesActive(&self, pval: windows_core::Ref<IMSVidFeatures>) -> windows_core::Result<()>;
     fn State(&self) -> windows_core::Result<MSVidCtlStateList>;
     fn View(&self, v: *const super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn Build(&self) -> windows_core::Result<()>;
@@ -24754,7 +24754,7 @@ pub trait IMSVidDevice_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn ClassID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn _Category(&self) -> windows_core::Result<windows_core::GUID>;
     fn _ClassID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn IsEqualDevice(&self, device: windows_core::Ref<'_, IMSVidDevice>) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
+    fn IsEqualDevice(&self, device: windows_core::Ref<IMSVidDevice>) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDevice_Vtbl {
@@ -24949,7 +24949,7 @@ pub struct IMSVidDeviceEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidDeviceEvent_Impl: super::super::super::System::Com::IDispatch_Impl {
-    fn StateChange(&self, lpd: windows_core::Ref<'_, IMSVidDevice>, oldstate: i32, newstate: i32) -> windows_core::Result<()>;
+    fn StateChange(&self, lpd: windows_core::Ref<IMSVidDevice>, oldstate: i32, newstate: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidDeviceEvent_Vtbl {
@@ -25024,7 +25024,7 @@ pub struct IMSVidEVR_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_Media_MediaFoundation", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidEVR_Impl: IMSVidVideoRenderer_Impl {
     fn Presenter(&self) -> windows_core::Result<super::super::MediaFoundation::IMFVideoPresenter>;
-    fn SetPresenter(&self, pallocpresent: windows_core::Ref<'_, super::super::MediaFoundation::IMFVideoPresenter>) -> windows_core::Result<()>;
+    fn SetPresenter(&self, pallocpresent: windows_core::Ref<super::super::MediaFoundation::IMFVideoPresenter>) -> windows_core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
@@ -25333,7 +25333,7 @@ pub trait IMSVidFeatures_Impl: super::super::super::System::Com::IDispatch_Impl 
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IMSVidFeature>;
-    fn Add(&self, pdb: windows_core::Ref<'_, IMSVidFeature>) -> windows_core::Result<()>;
+    fn Add(&self, pdb: windows_core::Ref<IMSVidFeature>) -> windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -25802,10 +25802,10 @@ pub struct IMSVidGraphSegment_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IMSVidGraphSegment_Impl: super::super::super::System::Com::IPersist_Impl {
     fn Init(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetInit(&self, pinit: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetInit(&self, pinit: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumFilters(&self) -> windows_core::Result<super::IEnumFilters>;
     fn Container(&self) -> windows_core::Result<IMSVidGraphSegmentContainer>;
-    fn SetContainer(&self, pctl: windows_core::Ref<'_, IMSVidGraphSegmentContainer>) -> windows_core::Result<()>;
+    fn SetContainer(&self, pctl: windows_core::Ref<IMSVidGraphSegmentContainer>) -> windows_core::Result<()>;
     fn Type(&self) -> windows_core::Result<MSVidSegmentType>;
     fn Category(&self) -> windows_core::Result<windows_core::GUID>;
     fn Build(&self) -> windows_core::Result<()>;
@@ -26071,7 +26071,7 @@ pub trait IMSVidGraphSegmentContainer_Impl: windows_core::IUnknownImpl {
     fn Features(&self) -> windows_core::Result<IEnumMSVidGraphSegment>;
     fn Composites(&self) -> windows_core::Result<IEnumMSVidGraphSegment>;
     fn ParentContainer(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Decompose(&self, psegment: windows_core::Ref<'_, IMSVidGraphSegment>) -> windows_core::Result<()>;
+    fn Decompose(&self, psegment: windows_core::Ref<IMSVidGraphSegment>) -> windows_core::Result<()>;
     fn IsWindowless(&self) -> windows_core::Result<()>;
     fn GetFocus(&self) -> windows_core::Result<()>;
 }
@@ -26503,7 +26503,7 @@ pub trait IMSVidInputDevices_Impl: super::super::super::System::Com::IDispatch_I
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IMSVidInputDevice>;
-    fn Add(&self, pdb: windows_core::Ref<'_, IMSVidInputDevice>) -> windows_core::Result<()>;
+    fn Add(&self, pdb: windows_core::Ref<IMSVidInputDevice>) -> windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -26701,7 +26701,7 @@ pub trait IMSVidOutputDevices_Impl: super::super::super::System::Com::IDispatch_
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IMSVidOutputDevice>;
-    fn Add(&self, pdb: windows_core::Ref<'_, IMSVidOutputDevice>) -> windows_core::Result<()>;
+    fn Add(&self, pdb: windows_core::Ref<IMSVidOutputDevice>) -> windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -27057,7 +27057,7 @@ pub struct IMSVidPlaybackEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidPlaybackEvent_Impl: IMSVidInputDeviceEvent_Impl {
-    fn EndOfMedia(&self, lpd: windows_core::Ref<'_, IMSVidPlayback>) -> windows_core::Result<()>;
+    fn EndOfMedia(&self, lpd: windows_core::Ref<IMSVidPlayback>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidPlaybackEvent_Vtbl {
@@ -27170,7 +27170,7 @@ pub trait IMSVidRect_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn SetHeight(&self, heightval: i32) -> windows_core::Result<()>;
     fn HWnd(&self) -> windows_core::Result<super::super::super::Foundation::HWND>;
     fn SetHWnd(&self, hwndval: super::super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn SetRect(&self, rectval: windows_core::Ref<'_, IMSVidRect>) -> windows_core::Result<()>;
+    fn SetRect(&self, rectval: windows_core::Ref<IMSVidRect>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidRect_Vtbl {
@@ -29008,9 +29008,9 @@ pub struct IMSVidTuner_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidTuner_Impl: IMSVidVideoInputDevice_Impl {
     fn Tune(&self) -> windows_core::Result<ITuneRequest>;
-    fn SetTune(&self, ptr: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
+    fn SetTune(&self, ptr: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
     fn TuningSpace(&self) -> windows_core::Result<ITuningSpace>;
-    fn SetTuningSpace(&self, plts: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<()>;
+    fn SetTuningSpace(&self, plts: windows_core::Ref<ITuningSpace>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidTuner_Vtbl {
@@ -29094,7 +29094,7 @@ pub struct IMSVidTunerEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidTunerEvent_Impl: IMSVidInputDeviceEvent_Impl {
-    fn TuneChanged(&self, lpd: windows_core::Ref<'_, IMSVidTuner>) -> windows_core::Result<()>;
+    fn TuneChanged(&self, lpd: windows_core::Ref<IMSVidTuner>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidTunerEvent_Vtbl {
@@ -29168,7 +29168,7 @@ pub struct IMSVidVMR9_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_DirectDraw", feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMSVidVMR9_Impl: IMSVidVideoRenderer_Impl {
     fn Allocator_ID(&self) -> windows_core::Result<i32>;
-    fn SetAllocator(&self, allocpresent: windows_core::Ref<'_, windows_core::IUnknown>, id: i32) -> windows_core::Result<()>;
+    fn SetAllocator(&self, allocpresent: windows_core::Ref<windows_core::IUnknown>, id: i32) -> windows_core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn Allocator(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -29867,16 +29867,16 @@ pub trait IMSVidVideoRenderer_Impl: IMSVidOutputDevice_Impl {
     fn _CustomCompositorClass(&self) -> windows_core::Result<windows_core::GUID>;
     fn Set_CustomCompositorClass(&self, compositorclsid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn _CustomCompositor(&self) -> windows_core::Result<super::IVMRImageCompositor>;
-    fn Set_CustomCompositor(&self, compositor: windows_core::Ref<'_, super::IVMRImageCompositor>) -> windows_core::Result<()>;
+    fn Set_CustomCompositor(&self, compositor: windows_core::Ref<super::IVMRImageCompositor>) -> windows_core::Result<()>;
     fn MixerBitmap(&self) -> windows_core::Result<super::super::super::System::Ole::IPictureDisp>;
     fn _MixerBitmap(&self) -> windows_core::Result<super::IVMRMixerBitmap>;
-    fn SetMixerBitmap(&self, mixerpicturedisp: windows_core::Ref<'_, super::super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
+    fn SetMixerBitmap(&self, mixerpicturedisp: windows_core::Ref<super::super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
     fn Set_MixerBitmap(&self, mixerpicture: *const super::VMRALPHABITMAP) -> windows_core::Result<()>;
     fn MixerBitmapPositionRect(&self) -> windows_core::Result<IMSVidRect>;
-    fn SetMixerBitmapPositionRect(&self, rdest: windows_core::Ref<'_, IMSVidRect>) -> windows_core::Result<()>;
+    fn SetMixerBitmapPositionRect(&self, rdest: windows_core::Ref<IMSVidRect>) -> windows_core::Result<()>;
     fn MixerBitmapOpacity(&self) -> windows_core::Result<i32>;
     fn SetMixerBitmapOpacity(&self, opacity: i32) -> windows_core::Result<()>;
-    fn SetupMixerBitmap(&self, mixerpicturedisp: windows_core::Ref<'_, super::super::super::System::Ole::IPictureDisp>, opacity: i32, rdest: windows_core::Ref<'_, IMSVidRect>) -> windows_core::Result<()>;
+    fn SetupMixerBitmap(&self, mixerpicturedisp: windows_core::Ref<super::super::super::System::Ole::IPictureDisp>, opacity: i32, rdest: windows_core::Ref<IMSVidRect>) -> windows_core::Result<()>;
     fn SourceSize(&self) -> windows_core::Result<SourceSizeList>;
     fn SetSourceSize(&self, newsize: SourceSizeList) -> windows_core::Result<()>;
     fn OverScan(&self) -> windows_core::Result<i32>;
@@ -29885,7 +29885,7 @@ pub trait IMSVidVideoRenderer_Impl: IMSVidOutputDevice_Impl {
     fn MaxVidRect(&self) -> windows_core::Result<IMSVidRect>;
     fn MinVidRect(&self) -> windows_core::Result<IMSVidRect>;
     fn ClippedSourceRect(&self) -> windows_core::Result<IMSVidRect>;
-    fn SetClippedSourceRect(&self, prect: windows_core::Ref<'_, IMSVidRect>) -> windows_core::Result<()>;
+    fn SetClippedSourceRect(&self, prect: windows_core::Ref<IMSVidRect>) -> windows_core::Result<()>;
     fn UsingOverlay(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
     fn SetUsingOverlay(&self, useoverlayval: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Capture(&self) -> windows_core::Result<super::super::super::System::Ole::IPictureDisp>;
@@ -30289,8 +30289,8 @@ pub trait IMSVidVideoRenderer2_Impl: IMSVidVideoRenderer_Impl {
     fn Allocator(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn _Allocator(&self) -> windows_core::Result<super::IVMRSurfaceAllocator>;
     fn Allocator_ID(&self) -> windows_core::Result<i32>;
-    fn SetAllocator(&self, allocpresent: windows_core::Ref<'_, windows_core::IUnknown>, id: i32) -> windows_core::Result<()>;
-    fn _SetAllocator2(&self, allocpresent: windows_core::Ref<'_, super::IVMRSurfaceAllocator>, id: i32) -> windows_core::Result<()>;
+    fn SetAllocator(&self, allocpresent: windows_core::Ref<windows_core::IUnknown>, id: i32) -> windows_core::Result<()>;
+    fn _SetAllocator2(&self, allocpresent: windows_core::Ref<super::IVMRSurfaceAllocator>, id: i32) -> windows_core::Result<()>;
     fn SetSuppressEffects(&self, bsuppress: super::super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SuppressEffects(&self) -> windows_core::Result<super::super::super::Foundation::VARIANT_BOOL>;
 }
@@ -30449,7 +30449,7 @@ pub trait IMSVidVideoRendererDevices_Impl: super::super::super::System::Com::IDi
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<IMSVidVideoRenderer>;
-    fn Add(&self, pdb: windows_core::Ref<'_, IMSVidVideoRenderer>) -> windows_core::Result<()>;
+    fn Add(&self, pdb: windows_core::Ref<IMSVidVideoRenderer>) -> windows_core::Result<()>;
     fn Remove(&self, v: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -31260,7 +31260,7 @@ pub trait IMSVidWebDVD_Impl: IMSVidPlayback_Impl {
     fn RestorePreferredSettings(&self) -> windows_core::Result<()>;
     fn get_ButtonRect(&self, lbutton: i32) -> windows_core::Result<IMSVidRect>;
     fn DVDScreenInMouseCoordinates(&self) -> windows_core::Result<IMSVidRect>;
-    fn SetDVDScreenInMouseCoordinates(&self, prect: windows_core::Ref<'_, IMSVidRect>) -> windows_core::Result<()>;
+    fn SetDVDScreenInMouseCoordinates(&self, prect: windows_core::Ref<IMSVidRect>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMSVidWebDVD_Vtbl {
@@ -33125,7 +33125,7 @@ pub struct IMpeg2Stream_Vtbl {
     pub SupplyDataBuffer: unsafe extern "system" fn(*mut core::ffi::c_void, *const MPEG_STREAM_BUFFER) -> windows_core::HRESULT,
 }
 pub trait IMpeg2Stream_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: windows_core::Ref<'_, IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: windows_core::Ref<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, hdatareadyevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn SupplyDataBuffer(&self, pstreambuffer: *const MPEG_STREAM_BUFFER) -> windows_core::Result<()>;
 }
 impl IMpeg2Stream_Vtbl {
@@ -33326,7 +33326,7 @@ pub struct IPAT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPAT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetTransportStreamId(&self) -> windows_core::Result<u16>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u32>;
@@ -33651,7 +33651,7 @@ pub struct IPBDASiParser_Vtbl {
     pub GetServices: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const u8, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPBDASiParser_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Initialize(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn GetEIT(&self, dwsize: u32, pbuffer: *const u8) -> windows_core::Result<IPBDA_EIT>;
     fn GetServices(&self, dwsize: u32, pbuffer: *const u8) -> windows_core::Result<IPBDA_Services>;
 }
@@ -33790,7 +33790,7 @@ pub trait IPBDA_EIT_Impl: windows_core::IUnknownImpl {
     fn GetRecordDuration(&self, dwrecordindex: u32) -> windows_core::Result<MPEG_TIME>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl IPBDA_EIT_Vtbl {
     pub const fn new<Identity: IPBDA_EIT_Impl, const OFFSET: isize>() -> Self {
@@ -34133,19 +34133,19 @@ pub struct IPMT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPMT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetProgramNumber(&self) -> windows_core::Result<u16>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetPcrPid(&self) -> windows_core::Result<u16>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn GetCountOfRecords(&self) -> windows_core::Result<u16>;
     fn GetRecordStreamType(&self, dwrecordindex: u32) -> windows_core::Result<u8>;
     fn GetRecordElementaryPid(&self, dwrecordindex: u32) -> windows_core::Result<u16>;
     fn GetRecordCountOfDescriptors(&self, dwrecordindex: u32) -> windows_core::Result<u32>;
     fn GetRecordDescriptorByIndex(&self, dwrecordindex: u32, dwdescindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetRecordDescriptorByTag(&self, dwrecordindex: u32, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn QueryServiceGatewayInfo(&self, ppdsmcclist: *mut *mut DSMCC_ELEMENT, puicount: *mut u32) -> windows_core::Result<()>;
     fn QueryMPEInfo(&self, ppmpelist: *mut *mut MPE_ELEMENT, puicount: *mut u32) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -34620,7 +34620,7 @@ pub struct IPersistTuneXmlUtility2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPersistTuneXmlUtility2_Impl: IPersistTuneXmlUtility_Impl {
-    fn Serialize(&self, pitunerequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<windows_core::BSTR>;
+    fn Serialize(&self, pitunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPersistTuneXmlUtility2_Vtbl {
@@ -34667,7 +34667,7 @@ pub struct IRegisterTuner_Vtbl {
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRegisterTuner_Impl: windows_core::IUnknownImpl {
-    fn Register(&self, ptuner: windows_core::Ref<'_, ITuner>, pgraph: windows_core::Ref<'_, super::IGraphBuilder>) -> windows_core::Result<()>;
+    fn Register(&self, ptuner: windows_core::Ref<ITuner>, pgraph: windows_core::Ref<super::IGraphBuilder>) -> windows_core::Result<()>;
     fn Unregister(&self) -> windows_core::Result<()>;
 }
 impl IRegisterTuner_Vtbl {
@@ -34732,7 +34732,7 @@ pub struct ISBE2Crossbar_Vtbl {
 pub trait ISBE2Crossbar_Impl: windows_core::IUnknownImpl {
     fn EnableDefaultMode(&self, defaultflags: u32) -> windows_core::Result<()>;
     fn GetInitialProfile(&self) -> windows_core::Result<ISBE2MediaTypeProfile>;
-    fn SetOutputProfile(&self, pprofile: windows_core::Ref<'_, ISBE2MediaTypeProfile>, pcoutputpins: *mut u32, ppoutputpins: windows_core::OutRef<'_, super::IPin>) -> windows_core::Result<()>;
+    fn SetOutputProfile(&self, pprofile: windows_core::Ref<ISBE2MediaTypeProfile>, pcoutputpins: *mut u32, ppoutputpins: windows_core::OutRef<super::IPin>) -> windows_core::Result<()>;
     fn EnumStreams(&self) -> windows_core::Result<ISBE2EnumStream>;
 }
 impl ISBE2Crossbar_Vtbl {
@@ -35369,7 +35369,7 @@ pub struct ISCTE_EAS_Vtbl {
     pub GetTableDescriptorByTag: unsafe extern "system" fn(*mut core::ffi::c_void, u8, *mut u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ISCTE_EAS_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetSequencyNumber(&self) -> windows_core::Result<u8>;
     fn GetProtocolVersion(&self) -> windows_core::Result<u8>;
@@ -35397,7 +35397,7 @@ pub trait ISCTE_EAS_Impl: windows_core::IUnknownImpl {
     fn GetExceptionService(&self, bindex: u8, pbibref: *mut u8, pwfirst: *mut u16, pwsecond: *mut u16) -> windows_core::Result<()>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
 }
 impl ISCTE_EAS_Vtbl {
     pub const fn new<Identity: ISCTE_EAS_Impl, const OFFSET: isize>() -> Self {
@@ -35867,7 +35867,7 @@ pub struct ISIInbandEPGEvent_Vtbl {
     pub SIObjectEvent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait ISIInbandEPGEvent_Impl: windows_core::IUnknownImpl {
-    fn SIObjectEvent(&self, pidvb_eit: windows_core::Ref<'_, IDVB_EIT2>, dwtable_id: u32, dwservice_id: u32) -> windows_core::Result<()>;
+    fn SIObjectEvent(&self, pidvb_eit: windows_core::Ref<IDVB_EIT2>, dwtable_id: u32, dwservice_id: u32) -> windows_core::Result<()>;
 }
 impl ISIInbandEPGEvent_Vtbl {
     pub const fn new<Identity: ISIInbandEPGEvent_Impl, const OFFSET: isize>() -> Self {
@@ -36159,7 +36159,7 @@ pub struct ISectionList_Vtbl {
     pub GetTableIdentifier: unsafe extern "system" fn(*mut core::ffi::c_void, *const u8) -> windows_core::HRESULT,
 }
 pub trait ISectionList_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: windows_core::Ref<'_, IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
+    fn Initialize(&self, requesttype: MPEG_REQUEST_TYPE, pmpeg2data: windows_core::Ref<IMpeg2Data>, pcontext: *const MPEG_CONTEXT, pid: u16, tid: u8, pfilter: *const MPEG2_FILTER, timeout: u32, hdoneevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn InitializeWithRawSections(&self, pmplsections: *const MPEG_PACKET_LIST) -> windows_core::Result<()>;
     fn CancelPendingRequest(&self) -> windows_core::Result<()>;
     fn GetNumberOfSections(&self) -> windows_core::Result<u16>;
@@ -37244,7 +37244,7 @@ pub struct IStreamBufferSource_Vtbl {
     pub SetStreamSink: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IStreamBufferSource_Impl: windows_core::IUnknownImpl {
-    fn SetStreamSink(&self, pistreambuffersink: windows_core::Ref<'_, IStreamBufferSink>) -> windows_core::Result<()>;
+    fn SetStreamSink(&self, pistreambuffersink: windows_core::Ref<IStreamBufferSink>) -> windows_core::Result<()>;
 }
 impl IStreamBufferSource_Vtbl {
     pub const fn new<Identity: IStreamBufferSource_Impl, const OFFSET: isize>() -> Self {
@@ -37323,11 +37323,11 @@ pub struct ITSDT_Vtbl {
     pub ConvertNextToCurrent: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITSDT_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, psectionlist: windows_core::Ref<'_, ISectionList>, pmpegdata: windows_core::Ref<'_, IMpeg2Data>) -> windows_core::Result<()>;
+    fn Initialize(&self, psectionlist: windows_core::Ref<ISectionList>, pmpegdata: windows_core::Ref<IMpeg2Data>) -> windows_core::Result<()>;
     fn GetVersionNumber(&self) -> windows_core::Result<u8>;
     fn GetCountOfTableDescriptors(&self) -> windows_core::Result<u32>;
     fn GetTableDescriptorByIndex(&self, dwindex: u32) -> windows_core::Result<IGenericDescriptor>;
-    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<'_, IGenericDescriptor>) -> windows_core::Result<()>;
+    fn GetTableDescriptorByTag(&self, btag: u8, pdwcookie: *mut u32, ppdescriptor: windows_core::OutRef<IGenericDescriptor>) -> windows_core::Result<()>;
     fn RegisterForNextTable(&self, hnexttableavailable: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
     fn GetNextTable(&self) -> windows_core::Result<ITSDT>;
     fn RegisterForWhenCurrent(&self, hnexttableiscurrent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
@@ -37492,7 +37492,7 @@ pub trait ITuneRequest_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn Components(&self) -> windows_core::Result<IComponents>;
     fn Clone(&self) -> windows_core::Result<ITuneRequest>;
     fn Locator(&self) -> windows_core::Result<ILocator>;
-    fn SetLocator(&self, locator: windows_core::Ref<'_, ILocator>) -> windows_core::Result<()>;
+    fn SetLocator(&self, locator: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ITuneRequest_Vtbl {
@@ -37666,13 +37666,13 @@ pub struct ITuneRequestInfo_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfo_Impl: windows_core::IUnknownImpl {
-    fn GetLocatorData(&self, request: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
-    fn GetComponentData(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
-    fn CreateComponentList(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
-    fn GetNextProgram(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<ITuneRequest>;
-    fn GetPreviousProgram(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<ITuneRequest>;
-    fn GetNextLocator(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<ITuneRequest>;
-    fn GetPreviousLocator(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<ITuneRequest>;
+    fn GetLocatorData(&self, request: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
+    fn GetComponentData(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
+    fn CreateComponentList(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
+    fn GetNextProgram(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<ITuneRequest>;
+    fn GetPreviousProgram(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<ITuneRequest>;
+    fn GetNextLocator(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<ITuneRequest>;
+    fn GetPreviousLocator(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<ITuneRequest>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequestInfo_Vtbl {
@@ -37791,7 +37791,7 @@ pub struct ITuneRequestInfoEx_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuneRequestInfoEx_Impl: ITuneRequestInfo_Impl {
-    fn CreateComponentListEx(&self, currentrequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<windows_core::IUnknown>;
+    fn CreateComponentListEx(&self, currentrequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<windows_core::IUnknown>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITuneRequestInfoEx_Vtbl {
@@ -37923,13 +37923,13 @@ pub struct ITuner_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITuner_Impl: windows_core::IUnknownImpl {
     fn TuningSpace(&self) -> windows_core::Result<ITuningSpace>;
-    fn SetTuningSpace(&self, tuningspace: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<()>;
+    fn SetTuningSpace(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<()>;
     fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces>;
     fn TuneRequest(&self) -> windows_core::Result<ITuneRequest>;
-    fn SetTuneRequest(&self, tunerequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
-    fn Validate(&self, tunerequest: windows_core::Ref<'_, ITuneRequest>) -> windows_core::Result<()>;
+    fn SetTuneRequest(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
+    fn Validate(&self, tunerequest: windows_core::Ref<ITuneRequest>) -> windows_core::Result<()>;
     fn PreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes>;
-    fn SetPreferredComponentTypes(&self, componenttypes: windows_core::Ref<'_, IComponentTypes>) -> windows_core::Result<()>;
+    fn SetPreferredComponentTypes(&self, componenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::Result<()>;
     fn SignalStrength(&self) -> windows_core::Result<i32>;
     fn TriggerSignalEvents(&self, interval: i32) -> windows_core::Result<()>;
 }
@@ -38297,11 +38297,11 @@ pub trait ITuningSpace_Impl: super::super::super::System::Com::IDispatch_Impl {
     fn EnumCategoryGUIDs(&self) -> windows_core::Result<super::super::super::System::Com::IEnumGUID>;
     fn EnumDeviceMonikers(&self) -> windows_core::Result<super::super::super::System::Com::IEnumMoniker>;
     fn DefaultPreferredComponentTypes(&self) -> windows_core::Result<IComponentTypes>;
-    fn SetDefaultPreferredComponentTypes(&self, newcomponenttypes: windows_core::Ref<'_, IComponentTypes>) -> windows_core::Result<()>;
+    fn SetDefaultPreferredComponentTypes(&self, newcomponenttypes: windows_core::Ref<IComponentTypes>) -> windows_core::Result<()>;
     fn FrequencyMapping(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetFrequencyMapping(&self, mapping: &windows_core::BSTR) -> windows_core::Result<()>;
     fn DefaultLocator(&self) -> windows_core::Result<ILocator>;
-    fn SetDefaultLocator(&self, locatorval: windows_core::Ref<'_, ILocator>) -> windows_core::Result<()>;
+    fn SetDefaultLocator(&self, locatorval: windows_core::Ref<ILocator>) -> windows_core::Result<()>;
     fn Clone(&self) -> windows_core::Result<ITuningSpace>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -38658,12 +38658,12 @@ pub trait ITuningSpaceContainer_Impl: super::super::super::System::Com::IDispatc
     fn Count(&self) -> windows_core::Result<i32>;
     fn _NewEnum(&self) -> windows_core::Result<super::super::super::System::Ole::IEnumVARIANT>;
     fn get_Item(&self, varindex: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<ITuningSpace>;
-    fn put_Item(&self, varindex: &super::super::super::System::Variant::VARIANT, tuningspace: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<()>;
+    fn put_Item(&self, varindex: &super::super::super::System::Variant::VARIANT, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<()>;
     fn TuningSpacesForCLSID(&self, spaceclsid: &windows_core::BSTR) -> windows_core::Result<ITuningSpaces>;
     fn _TuningSpacesForCLSID2(&self, spaceclsid: *const windows_core::GUID) -> windows_core::Result<ITuningSpaces>;
     fn TuningSpacesForName(&self, name: &windows_core::BSTR) -> windows_core::Result<ITuningSpaces>;
-    fn FindID(&self, tuningspace: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<i32>;
-    fn Add(&self, tuningspace: windows_core::Ref<'_, ITuningSpace>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
+    fn FindID(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<i32>;
+    fn Add(&self, tuningspace: windows_core::Ref<ITuningSpace>) -> windows_core::Result<super::super::super::System::Variant::VARIANT>;
     fn EnumTuningSpaces(&self) -> windows_core::Result<IEnumTuningSpaces>;
     fn Remove(&self, index: &super::super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
     fn MaxCount(&self) -> windows_core::Result<i32>;

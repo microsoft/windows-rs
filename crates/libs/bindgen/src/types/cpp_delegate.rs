@@ -85,7 +85,7 @@ fn write_param(config: &Config<'_>, param: &Param) -> TokenStream {
         if param.is_copyable() {
             return quote! { #name: #type_name, };
         } else {
-            return quote! { #name: windows_core::Ref<'_, #type_name>, };
+            return quote! { #name: windows_core::Ref<#type_name>, };
         }
     }
 
@@ -93,7 +93,7 @@ fn write_param(config: &Config<'_>, param: &Param) -> TokenStream {
 
     if deref.is_interface() {
         let type_name = deref.write_name(config);
-        quote! { #name: windows_core::OutRef<'_, #type_name>, }
+        quote! { #name: windows_core::OutRef<#type_name>, }
     } else {
         quote! { #name: #type_name, }
     }

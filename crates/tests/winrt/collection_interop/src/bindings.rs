@@ -69,7 +69,7 @@ impl windows_core::RuntimeName for ITest {
 pub trait ITest_Impl: windows_core::IUnknownImpl {
     fn TestIterable(
         &self,
-        collection: windows_core::Ref<'_, windows_collections::IIterable<i32>>,
+        collection: windows_core::Ref<windows_collections::IIterable<i32>>,
         values: &[i32],
     ) -> windows_core::Result<()>;
     fn GetIterable(

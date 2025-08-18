@@ -3109,7 +3109,7 @@ pub struct IDialEngine_Vtbl {
     pub GetConnectHandle: unsafe extern "system" fn(*mut core::ffi::c_void, *mut usize) -> windows_core::HRESULT,
 }
 pub trait IDialEngine_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: windows_core::Ref<'_, IDialEventSink>) -> windows_core::Result<()>;
+    fn Initialize(&self, pwzconnectoid: &windows_core::PCWSTR, pides: windows_core::Ref<IDialEventSink>) -> windows_core::Result<()>;
     fn GetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR, dwbufsize: u32) -> windows_core::Result<()>;
     fn SetProperty(&self, pwzproperty: &windows_core::PCWSTR, pwzvalue: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Dial(&self) -> windows_core::Result<()>;
@@ -4330,7 +4330,7 @@ pub struct IProofOfPossessionCookieInfoManager2_Vtbl {
     pub GetCookieInfoWithUriForAccount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::PCWSTR, *mut u32, *mut *mut ProofOfPossessionCookieInfo) -> windows_core::HRESULT,
 }
 pub trait IProofOfPossessionCookieInfoManager2_Impl: windows_core::IUnknownImpl {
-    fn GetCookieInfoWithUriForAccount(&self, webaccount: windows_core::Ref<'_, windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
+    fn GetCookieInfoWithUriForAccount(&self, webaccount: windows_core::Ref<windows_core::IInspectable>, uri: &windows_core::PCWSTR, cookieinfocount: *mut u32, cookieinfo: *mut *mut ProofOfPossessionCookieInfo) -> windows_core::Result<()>;
 }
 impl IProofOfPossessionCookieInfoManager2_Vtbl {
     pub const fn new<Identity: IProofOfPossessionCookieInfoManager2_Impl, const OFFSET: isize>() -> Self {

@@ -344,8 +344,8 @@ impl windows_core::RuntimeName for IStorageItemExtraProperties {
     const NAME: &'static str = "Windows.Storage.FileProperties.IStorageItemExtraProperties";
 }
 pub trait IStorageItemExtraProperties_Impl: windows_core::IUnknownImpl {
-    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<'_, windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
-    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<'_, windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn RetrievePropertiesAsync(&self, propertiesToRetrieve: windows_core::Ref<windows_collections::IIterable<windows_core::HSTRING>>) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
+    fn SavePropertiesAsync(&self, propertiesToSave: windows_core::Ref<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>) -> windows_core::Result<windows_future::IAsyncAction>;
     fn SavePropertiesAsyncOverloadDefault(&self) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 impl IStorageItemExtraProperties_Vtbl {

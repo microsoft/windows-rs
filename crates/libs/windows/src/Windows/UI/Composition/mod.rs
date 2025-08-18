@@ -14504,7 +14504,7 @@ impl windows_core::RuntimeName for IAnimationObject {
     const NAME: &'static str = "Windows.UI.Composition.IAnimationObject";
 }
 pub trait IAnimationObject_Impl: windows_core::IUnknownImpl {
-    fn PopulatePropertyInfo(&self, propertyName: &windows_core::HSTRING, propertyInfo: windows_core::Ref<'_, AnimationPropertyInfo>) -> windows_core::Result<()>;
+    fn PopulatePropertyInfo(&self, propertyName: &windows_core::HSTRING, propertyInfo: windows_core::Ref<AnimationPropertyInfo>) -> windows_core::Result<()>;
 }
 impl IAnimationObject_Vtbl {
     pub const fn new<Identity: IAnimationObject_Impl, const OFFSET: isize>() -> Self {
@@ -15750,7 +15750,7 @@ impl windows_core::RuntimeName for ICompositionSupportsSystemBackdrop {
 }
 pub trait ICompositionSupportsSystemBackdrop_Impl: windows_core::IUnknownImpl {
     fn SystemBackdrop(&self) -> windows_core::Result<CompositionBrush>;
-    fn SetSystemBackdrop(&self, value: windows_core::Ref<'_, CompositionBrush>) -> windows_core::Result<()>;
+    fn SetSystemBackdrop(&self, value: windows_core::Ref<CompositionBrush>) -> windows_core::Result<()>;
 }
 impl ICompositionSupportsSystemBackdrop_Vtbl {
     pub const fn new<Identity: ICompositionSupportsSystemBackdrop_Impl, const OFFSET: isize>() -> Self {

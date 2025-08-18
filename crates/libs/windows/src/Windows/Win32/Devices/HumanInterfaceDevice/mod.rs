@@ -3931,7 +3931,7 @@ pub struct IDirectInput7A_Vtbl {
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectInput7A_Impl: IDirectInput2A_Impl {
-    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IDirectInput7A_Vtbl {
     pub const fn new<Identity: IDirectInput7A_Impl, const OFFSET: isize>() -> Self {
@@ -3971,7 +3971,7 @@ pub struct IDirectInput7W_Vtbl {
     pub CreateDeviceEx: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *const windows_core::GUID, *mut *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectInput7W_Impl: IDirectInput2W_Impl {
-    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDeviceEx(&self, param0: *const windows_core::GUID, param1: *const windows_core::GUID, param2: *mut *mut core::ffi::c_void, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IDirectInput7W_Vtbl {
     pub const fn new<Identity: IDirectInput7W_Impl, const OFFSET: isize>() -> Self {
@@ -4039,7 +4039,7 @@ pub struct IDirectInput8A_Vtbl {
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSA, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectInput8A_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<'_, IDirectInputDevice8A>, param2: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDevice8A>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -4166,7 +4166,7 @@ pub struct IDirectInput8W_Vtbl {
     pub ConfigureDevices: unsafe extern "system" fn(*mut core::ffi::c_void, LPDICONFIGUREDEVICESCALLBACK, *mut DICONFIGUREDEVICESPARAMSW, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectInput8W_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<'_, IDirectInputDevice8W>, param2: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDevice8W>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -4275,7 +4275,7 @@ pub struct IDirectInputA_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectInputA_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<'_, IDirectInputDeviceA>, param2: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceA>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKA, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -4382,7 +4382,7 @@ pub struct IDirectInputDevice2A_Vtbl {
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectInputDevice2A_Impl: IDirectInputDeviceA_Impl {
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<'_, IDirectInputEffect>, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> windows_core::Result<()>;
@@ -4521,7 +4521,7 @@ pub struct IDirectInputDevice2W_Vtbl {
     pub SendDeviceData: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut DIDEVICEOBJECTDATA, *mut u32, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectInputDevice2W_Impl: IDirectInputDeviceW_Impl {
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<'_, IDirectInputEffect>, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> windows_core::Result<()>;
@@ -4877,7 +4877,7 @@ pub trait IDirectInputDevice8A_Impl: windows_core::IUnknownImpl {
     fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEA) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<'_, IDirectInputEffect>, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKA, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOA, param1: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> windows_core::Result<()>;
@@ -5262,7 +5262,7 @@ pub trait IDirectInputDevice8W_Impl: windows_core::IUnknownImpl {
     fn GetDeviceInfo(&self, param0: *mut DIDEVICEINSTANCEW) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
     fn Initialize(&self, param0: super::super::Foundation::HINSTANCE, param1: u32, param2: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<'_, IDirectInputEffect>, param3: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateEffect(&self, param0: *const windows_core::GUID, param1: *mut DIEFFECT, param2: windows_core::OutRef<IDirectInputEffect>, param3: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumEffects(&self, param0: LPDIENUMEFFECTSCALLBACKW, param1: *mut core::ffi::c_void, param2: u32) -> windows_core::Result<()>;
     fn GetEffectInfo(&self, param0: *mut DIEFFECTINFOW, param1: *const windows_core::GUID) -> windows_core::Result<()>;
     fn GetForceFeedbackState(&self, param0: *mut u32) -> windows_core::Result<()>;
@@ -6699,7 +6699,7 @@ pub struct IDirectInputW_Vtbl {
     pub Initialize: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HINSTANCE, u32) -> windows_core::HRESULT,
 }
 pub trait IDirectInputW_Impl: windows_core::IUnknownImpl {
-    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<'_, IDirectInputDeviceW>, param2: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateDevice(&self, param0: *const windows_core::GUID, param1: windows_core::OutRef<IDirectInputDeviceW>, param2: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumDevices(&self, param0: u32, param1: LPDIENUMDEVICESCALLBACKW, param2: *mut core::ffi::c_void, param3: u32) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self, param0: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RunControlPanel(&self, param0: super::super::Foundation::HWND, param1: u32) -> windows_core::Result<()>;
@@ -7015,12 +7015,12 @@ pub const KEY_TERMSRV_SHADOW: u32 = 16u32;
 pub const KEY_TERMSRV_VKPACKET: u32 = 32u32;
 pub const KEY_UNICODE_SEQUENCE_END: u32 = 512u32;
 pub const KEY_UNICODE_SEQUENCE_ITEM: u32 = 256u32;
-pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<'_, windows_core::IUnknown>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
-pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<'_, IDirectInputEffect>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPDICONFIGUREDEVICESCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<windows_core::IUnknown>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPDIENUMCREATEDEFFECTOBJECTSCALLBACK = Option<unsafe extern "system" fn(param0: windows_core::Ref<IDirectInputEffect>, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEA, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICEOBJECTSCALLBACKW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEOBJECTINSTANCEW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: windows_core::Ref<'_, IDirectInputDevice8A>, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
-pub type LPDIENUMDEVICESBYSEMANTICSCBW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: windows_core::Ref<'_, IDirectInputDevice8W>, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: windows_core::Ref<IDirectInputDevice8A>, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
+pub type LPDIENUMDEVICESBYSEMANTICSCBW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: windows_core::Ref<IDirectInputDevice8W>, param2: u32, param3: u32, param4: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICESCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEA, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMDEVICESCALLBACKW = Option<unsafe extern "system" fn(param0: *mut DIDEVICEINSTANCEW, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;
 pub type LPDIENUMEFFECTSCALLBACKA = Option<unsafe extern "system" fn(param0: *mut DIEFFECTINFOA, param1: *mut core::ffi::c_void) -> windows_core::BOOL>;

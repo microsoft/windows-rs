@@ -786,7 +786,7 @@ pub struct ICreateObject_Vtbl {
     pub CreateObject: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ICreateObject_Impl: windows_core::IUnknownImpl {
-    fn CreateObject(&self, clsid: *const windows_core::GUID, punkouter: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateObject(&self, clsid: *const windows_core::GUID, punkouter: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl ICreateObject_Vtbl {
     pub const fn new<Identity: ICreateObject_Impl, const OFFSET: isize>() -> Self {
@@ -900,7 +900,7 @@ pub struct IInitializeWithStream_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IInitializeWithStream_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, pstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, grfmode: u32) -> windows_core::Result<()>;
+    fn Initialize(&self, pstream: windows_core::Ref<super::super::super::System::Com::IStream>, grfmode: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IInitializeWithStream_Vtbl {
@@ -1307,9 +1307,9 @@ pub struct IPropertyChangeArray_Vtbl {
 pub trait IPropertyChangeArray_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
     fn GetAt(&self, iindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn InsertAt(&self, iindex: u32, ppropchange: windows_core::Ref<'_, IPropertyChange>) -> windows_core::Result<()>;
-    fn Append(&self, ppropchange: windows_core::Ref<'_, IPropertyChange>) -> windows_core::Result<()>;
-    fn AppendOrReplace(&self, ppropchange: windows_core::Ref<'_, IPropertyChange>) -> windows_core::Result<()>;
+    fn InsertAt(&self, iindex: u32, ppropchange: windows_core::Ref<IPropertyChange>) -> windows_core::Result<()>;
+    fn Append(&self, ppropchange: windows_core::Ref<IPropertyChange>) -> windows_core::Result<()>;
+    fn AppendOrReplace(&self, ppropchange: windows_core::Ref<IPropertyChange>) -> windows_core::Result<()>;
     fn RemoveAt(&self, iindex: u32) -> windows_core::Result<()>;
     fn IsKeyInArray(&self, key: *const super::super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
 }
@@ -2705,7 +2705,7 @@ pub struct IPropertyStoreFactory_Vtbl {
     pub GetPropertyStoreForKeys: unsafe extern "system" fn(*mut core::ffi::c_void, *const super::super::super::Foundation::PROPERTYKEY, u32, GETPROPERTYSTOREFLAGS, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPropertyStoreFactory_Impl: windows_core::IUnknownImpl {
-    fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: windows_core::Ref<'_, windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetPropertyStore(&self, flags: GETPROPERTYSTOREFLAGS, punkfactory: windows_core::Ref<windows_core::IUnknown>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
     fn GetPropertyStoreForKeys(&self, rgkeys: *const super::super::super::Foundation::PROPERTYKEY, ckeys: u32, flags: GETPROPERTYSTOREFLAGS, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl IPropertyStoreFactory_Vtbl {

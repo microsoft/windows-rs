@@ -11523,7 +11523,7 @@ pub trait ICertSrvSetupKeyInformationCollection_Impl: super::super::System::Com:
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
     fn get_Item(&self, index: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, pikeyinformation: windows_core::Ref<'_, ICertSrvSetupKeyInformation>) -> windows_core::Result<()>;
+    fn Add(&self, pikeyinformation: windows_core::Ref<ICertSrvSetupKeyInformation>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl ICertSrvSetupKeyInformationCollection_Vtbl {

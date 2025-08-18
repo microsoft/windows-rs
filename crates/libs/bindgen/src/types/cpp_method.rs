@@ -715,10 +715,10 @@ fn write_produce_type(config: &Config<'_>, param: &Param, hint: ParamHint) -> To
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(config);
-        quote! { #name: windows_core::Ref<'_, #type_name>, }
+        quote! { #name: windows_core::Ref<#type_name>, }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
-        quote! { #name: windows_core::OutRef<'_, #type_name>, }
+        quote! { #name: windows_core::OutRef<#type_name>, }
     } else if param.is_input() {
         if param.is_primitive() {
             quote! { #name: #kind, }

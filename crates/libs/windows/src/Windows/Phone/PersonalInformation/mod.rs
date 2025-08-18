@@ -691,7 +691,7 @@ pub trait IContactInformation_Impl: windows_core::IUnknownImpl {
     fn HonorificSuffix(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn SetHonorificSuffix(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn GetDisplayPictureAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;
-    fn SetDisplayPictureAsync(&self, stream: windows_core::Ref<'_, super::super::Storage::Streams::IInputStream>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn SetDisplayPictureAsync(&self, stream: windows_core::Ref<super::super::Storage::Streams::IInputStream>) -> windows_core::Result<windows_future::IAsyncAction>;
     fn DisplayPicture(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference>;
     fn GetPropertiesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>>;
     fn ToVcardAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::IRandomAccessStream>>;

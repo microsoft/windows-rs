@@ -152,7 +152,7 @@ impl Method {
                     quote! { #default_type }
                 } else if p.is_interface() || matches!(&p.ty, Type::Generic(_)) {
                     let type_name = p.write_name(config);
-                    quote! { windows_core::Ref<'_, #type_name> }
+                    quote! { windows_core::Ref<#type_name> }
                 } else {
                     quote! { &#default_type }
                 }
@@ -163,7 +163,7 @@ impl Method {
                 quote! { &mut windows_core::Array<#kind> }
             } else if p.is_interface() {
                 let type_name = p.write_name(config);
-                quote! { windows_core::OutRef<'_, #type_name> }
+                quote! { windows_core::OutRef<#type_name> }
             } else {
                 quote! { &mut #default_type }
             };

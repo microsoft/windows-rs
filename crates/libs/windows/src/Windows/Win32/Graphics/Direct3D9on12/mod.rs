@@ -63,8 +63,8 @@ pub struct IDirect3DDevice9On12_Vtbl {
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 pub trait IDirect3DDevice9On12_Impl: windows_core::IUnknownImpl {
     fn GetD3D12Device(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn UnwrapUnderlyingResource(&self, presource: windows_core::Ref<'_, super::Direct3D9::IDirect3DResource9>, pcommandqueue: windows_core::Ref<'_, super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ReturnUnderlyingResource(&self, presource: windows_core::Ref<'_, super::Direct3D9::IDirect3DResource9>, numsync: u32, psignalvalues: *mut u64, ppfences: windows_core::OutRef<'_, super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
+    fn UnwrapUnderlyingResource(&self, presource: windows_core::Ref<super::Direct3D9::IDirect3DResource9>, pcommandqueue: windows_core::Ref<super::Direct3D12::ID3D12CommandQueue>, riid: *const windows_core::GUID, ppvresource12: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn ReturnUnderlyingResource(&self, presource: windows_core::Ref<super::Direct3D9::IDirect3DResource9>, numsync: u32, psignalvalues: *mut u64, ppfences: windows_core::OutRef<super::Direct3D12::ID3D12Fence>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Direct3D9"))]
 impl IDirect3DDevice9On12_Vtbl {
@@ -104,4 +104,4 @@ pub const MAX_D3D9ON12_QUEUES: u32 = 2u32;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
 pub type PFN_Direct3DCreate9On12 = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32) -> Option<super::Direct3D9::IDirect3D9>>;
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
-pub type PFN_Direct3DCreate9On12Ex = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: windows_core::OutRef<'_, super::Direct3D9::IDirect3D9Ex>) -> windows_core::HRESULT>;
+pub type PFN_Direct3DCreate9On12Ex = Option<unsafe extern "system" fn(sdkversion: u32, poverridelist: *mut D3D9ON12_ARGS, numoverrideentries: u32, ppoutputinterface: windows_core::OutRef<super::Direct3D9::IDirect3D9Ex>) -> windows_core::HRESULT>;

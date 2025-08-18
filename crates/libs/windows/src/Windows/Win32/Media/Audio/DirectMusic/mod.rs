@@ -751,14 +751,14 @@ pub struct IDirectMusic_Vtbl {
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 pub trait IDirectMusic_Impl: windows_core::IUnknownImpl {
     fn EnumPort(&self, dwindex: u32, pportcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()>;
-    fn CreateMusicBuffer(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: windows_core::OutRef<'_, IDirectMusicBuffer>, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn CreatePort(&self, rclsidport: *const windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: windows_core::OutRef<'_, IDirectMusicPort>, punkouter: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreateMusicBuffer(&self, pbufferdesc: *mut DMUS_BUFFERDESC, ppbuffer: windows_core::OutRef<IDirectMusicBuffer>, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn CreatePort(&self, rclsidport: *const windows_core::GUID, pportparams: *mut DMUS_PORTPARAMS8, ppport: windows_core::OutRef<IDirectMusicPort>, punkouter: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn EnumMasterClock(&self, dwindex: u32, lpclockinfo: *mut DMUS_CLOCKINFO8) -> windows_core::Result<()>;
-    fn GetMasterClock(&self, pguidclock: *mut windows_core::GUID, ppreferenceclock: windows_core::OutRef<'_, super::super::IReferenceClock>) -> windows_core::Result<()>;
+    fn GetMasterClock(&self, pguidclock: *mut windows_core::GUID, ppreferenceclock: windows_core::OutRef<super::super::IReferenceClock>) -> windows_core::Result<()>;
     fn SetMasterClock(&self, rguidclock: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Activate(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDefaultPort(&self, pguidport: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<'_, super::DirectSound::IDirectSound>, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()>;
+    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<super::DirectSound::IDirectSound>, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl IDirectMusic_Vtbl {
@@ -860,7 +860,7 @@ pub struct IDirectMusic8_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 pub trait IDirectMusic8_Impl: IDirectMusic_Impl {
-    fn SetExternalMasterClock(&self, pclock: windows_core::Ref<'_, super::super::IReferenceClock>) -> windows_core::Result<()>;
+    fn SetExternalMasterClock(&self, pclock: windows_core::Ref<super::super::IReferenceClock>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 impl IDirectMusic8_Vtbl {
@@ -1311,11 +1311,11 @@ pub struct IDirectMusicPort_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
 pub trait IDirectMusicPort_Impl: windows_core::IUnknownImpl {
-    fn PlayBuffer(&self, pbuffer: windows_core::Ref<'_, IDirectMusicBuffer>) -> windows_core::Result<()>;
+    fn PlayBuffer(&self, pbuffer: windows_core::Ref<IDirectMusicBuffer>) -> windows_core::Result<()>;
     fn SetReadNotificationHandle(&self, hevent: super::super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn Read(&self, pbuffer: windows_core::Ref<'_, IDirectMusicBuffer>) -> windows_core::Result<()>;
-    fn DownloadInstrument(&self, pinstrument: windows_core::Ref<'_, IDirectMusicInstrument>, ppdownloadedinstrument: windows_core::OutRef<'_, IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> windows_core::Result<()>;
-    fn UnloadInstrument(&self, pdownloadedinstrument: windows_core::Ref<'_, IDirectMusicDownloadedInstrument>) -> windows_core::Result<()>;
+    fn Read(&self, pbuffer: windows_core::Ref<IDirectMusicBuffer>) -> windows_core::Result<()>;
+    fn DownloadInstrument(&self, pinstrument: windows_core::Ref<IDirectMusicInstrument>, ppdownloadedinstrument: windows_core::OutRef<IDirectMusicDownloadedInstrument>, pnoteranges: *mut DMUS_NOTERANGE, dwnumnoteranges: u32) -> windows_core::Result<()>;
+    fn UnloadInstrument(&self, pdownloadedinstrument: windows_core::Ref<IDirectMusicDownloadedInstrument>) -> windows_core::Result<()>;
     fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock>;
     fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> windows_core::Result<()>;
     fn Compact(&self) -> windows_core::Result<()>;
@@ -1326,7 +1326,7 @@ pub trait IDirectMusicPort_Impl: windows_core::IUnknownImpl {
     fn Activate(&self, factive: windows_core::BOOL) -> windows_core::Result<()>;
     fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> windows_core::Result<()>;
     fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> windows_core::Result<()>;
-    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<'_, super::DirectSound::IDirectSound>, pdirectsoundbuffer: windows_core::Ref<'_, super::DirectSound::IDirectSoundBuffer>) -> windows_core::Result<()>;
+    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<super::DirectSound::IDirectSound>, pdirectsoundbuffer: windows_core::Ref<super::DirectSound::IDirectSoundBuffer>) -> windows_core::Result<()>;
     fn GetFormat(&self, pwaveformatex: *mut super::WAVEFORMATEX, pdwwaveformatexsize: *mut u32, pdwbuffersize: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_Media_Audio_DirectSound", feature = "Win32_System_IO"))]
@@ -1517,8 +1517,8 @@ pub trait IDirectMusicPortDownload_Impl: windows_core::IUnknownImpl {
     fn AllocateBuffer(&self, dwsize: u32) -> windows_core::Result<IDirectMusicDownload>;
     fn GetDLId(&self, pdwstartdlid: *mut u32, dwcount: u32) -> windows_core::Result<()>;
     fn GetAppend(&self, pdwappend: *mut u32) -> windows_core::Result<()>;
-    fn Download(&self, pidmdownload: windows_core::Ref<'_, IDirectMusicDownload>) -> windows_core::Result<()>;
-    fn Unload(&self, pidmdownload: windows_core::Ref<'_, IDirectMusicDownload>) -> windows_core::Result<()>;
+    fn Download(&self, pidmdownload: windows_core::Ref<IDirectMusicDownload>) -> windows_core::Result<()>;
+    fn Unload(&self, pidmdownload: windows_core::Ref<IDirectMusicDownload>) -> windows_core::Result<()>;
 }
 impl IDirectMusicPortDownload_Vtbl {
     pub const fn new<Identity: IDirectMusicPortDownload_Impl, const OFFSET: isize>() -> Self {
@@ -1680,10 +1680,10 @@ pub trait IDirectMusicSynth_Impl: windows_core::IUnknownImpl {
     fn PlayBuffer(&self, rt: i64, pbbuffer: *mut u8, cbbuffer: u32) -> windows_core::Result<()>;
     fn GetRunningStats(&self, pstats: *mut DMUS_SYNTHSTATS) -> windows_core::Result<()>;
     fn GetPortCaps(&self, pcaps: *mut DMUS_PORTCAPS) -> windows_core::Result<()>;
-    fn SetMasterClock(&self, pclock: windows_core::Ref<'_, super::super::IReferenceClock>) -> windows_core::Result<()>;
+    fn SetMasterClock(&self, pclock: windows_core::Ref<super::super::IReferenceClock>) -> windows_core::Result<()>;
     fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock>;
     fn Activate(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetSynthSink(&self, psynthsink: windows_core::Ref<'_, IDirectMusicSynthSink>) -> windows_core::Result<()>;
+    fn SetSynthSink(&self, psynthsink: windows_core::Ref<IDirectMusicSynthSink>) -> windows_core::Result<()>;
     fn Render(&self, pbuffer: *mut i16, dwlength: u32, llposition: i64) -> windows_core::Result<()>;
     fn SetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, dwpriority: u32) -> windows_core::Result<()>;
     fn GetChannelPriority(&self, dwchannelgroup: u32, dwchannel: u32, pdwpriority: *mut u32) -> windows_core::Result<()>;
@@ -1974,13 +1974,13 @@ pub struct IDirectMusicSynthSink_Vtbl {
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
 pub trait IDirectMusicSynthSink_Impl: windows_core::IUnknownImpl {
-    fn Init(&self, psynth: windows_core::Ref<'_, IDirectMusicSynth>) -> windows_core::Result<()>;
-    fn SetMasterClock(&self, pclock: windows_core::Ref<'_, super::super::IReferenceClock>) -> windows_core::Result<()>;
+    fn Init(&self, psynth: windows_core::Ref<IDirectMusicSynth>) -> windows_core::Result<()>;
+    fn SetMasterClock(&self, pclock: windows_core::Ref<super::super::IReferenceClock>) -> windows_core::Result<()>;
     fn GetLatencyClock(&self) -> windows_core::Result<super::super::IReferenceClock>;
     fn Activate(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn SampleToRefTime(&self, llsampletime: i64, prftime: *mut i64) -> windows_core::Result<()>;
     fn RefTimeToSample(&self, rftime: i64, pllsampletime: *mut i64) -> windows_core::Result<()>;
-    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<'_, super::DirectSound::IDirectSound>, pdirectsoundbuffer: windows_core::Ref<'_, super::DirectSound::IDirectSoundBuffer>) -> windows_core::Result<()>;
+    fn SetDirectSound(&self, pdirectsound: windows_core::Ref<super::DirectSound::IDirectSound>, pdirectsoundbuffer: windows_core::Ref<super::DirectSound::IDirectSoundBuffer>) -> windows_core::Result<()>;
     fn GetDesiredBufferSize(&self, pdwbuffersizeinsamples: *mut u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_Audio_DirectSound")]
@@ -2075,7 +2075,7 @@ pub struct IDirectMusicThru_Vtbl {
     pub ThruChannel: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IDirectMusicThru_Impl: windows_core::IUnknownImpl {
-    fn ThruChannel(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: windows_core::Ref<'_, IDirectMusicPort>) -> windows_core::Result<()>;
+    fn ThruChannel(&self, dwsourcechannelgroup: u32, dwsourcechannel: u32, dwdestinationchannelgroup: u32, dwdestinationchannel: u32, pdestinationport: windows_core::Ref<IDirectMusicPort>) -> windows_core::Result<()>;
 }
 impl IDirectMusicThru_Vtbl {
     pub const fn new<Identity: IDirectMusicThru_Impl, const OFFSET: isize>() -> Self {

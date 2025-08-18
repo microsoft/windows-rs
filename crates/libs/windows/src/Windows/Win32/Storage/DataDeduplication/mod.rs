@@ -135,7 +135,7 @@ pub struct IDedupBackupSupport_Vtbl {
     pub RestoreFiles: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const *mut core::ffi::c_void, *mut core::ffi::c_void, u32, *mut windows_core::HRESULT) -> windows_core::HRESULT,
 }
 pub trait IDedupBackupSupport_Impl: windows_core::IUnknownImpl {
-    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<'_, IDedupReadFileCallback>, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
+    fn RestoreFiles(&self, numberoffiles: u32, filefullpaths: *const windows_core::BSTR, store: windows_core::Ref<IDedupReadFileCallback>, flags: u32, fileresults: *mut windows_core::HRESULT) -> windows_core::Result<()>;
 }
 impl IDedupBackupSupport_Vtbl {
     pub const fn new<Identity: IDedupBackupSupport_Impl, const OFFSET: isize>() -> Self {
@@ -338,9 +338,9 @@ pub trait IDedupDataPort_Impl: windows_core::IUnknownImpl {
     fn GetStatus(&self, pstatus: *mut DedupDataPortVolumeStatus, pdataheadroommb: *mut u32) -> windows_core::Result<()>;
     fn LookupChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;
     fn InsertChunks(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdata: *const u8) -> windows_core::Result<windows_core::GUID>;
-    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn InsertChunksWithStream(&self, chunkcount: u32, pchunkmetadata: *const DedupChunk, databytecount: u32, pchunkdatastream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn CommitStreams(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentries: *const DedupStreamEntry) -> windows_core::Result<windows_core::GUID>;
-    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
+    fn CommitStreamsWithStream(&self, streamcount: u32, pstreams: *const DedupStream, entrycount: u32, pentriesstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<windows_core::GUID>;
     fn GetStreams(&self, streamcount: u32, pstreampaths: *const windows_core::BSTR) -> windows_core::Result<windows_core::GUID>;
     fn GetStreamsResults(&self, requestid: &windows_core::GUID, maxwaitms: u32, streamentryindex: u32, pstreamcount: *mut u32, ppstreams: *mut *mut DedupStream, pentrycount: *mut u32, ppentries: *mut *mut DedupStreamEntry, pstatus: *mut DedupDataPortRequestStatus, ppitemresults: *mut *mut windows_core::HRESULT) -> windows_core::Result<()>;
     fn GetChunks(&self, count: u32, phashes: *const DedupHash) -> windows_core::Result<windows_core::GUID>;

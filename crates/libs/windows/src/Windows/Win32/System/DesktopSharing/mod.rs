@@ -980,7 +980,7 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIClipboardUseEvents_Impl: windows_core::IUnknownImpl {
-    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIClipboardUseEvents_Vtbl {
@@ -1918,9 +1918,9 @@ pub struct IRDPSRAPISharingSession2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession2_Impl: IRDPSRAPISharingSession_Impl {
-    fn ConnectUsingTransportStream(&self, pstream: windows_core::Ref<'_, IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn ConnectUsingTransportStream(&self, pstream: windows_core::Ref<IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer>;
-    fn SendControlLevelChangeResponse(&self, pattendee: windows_core::Ref<'_, IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
+    fn SendControlLevelChangeResponse(&self, pattendee: windows_core::Ref<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession2_Vtbl {
@@ -2153,10 +2153,10 @@ pub struct IRDPSRAPITransportStream_Vtbl {
 }
 pub trait IRDPSRAPITransportStream_Impl: windows_core::IUnknownImpl {
     fn AllocBuffer(&self, maxpayload: i32) -> windows_core::Result<IRDPSRAPITransportStreamBuffer>;
-    fn FreeBuffer(&self, pbuffer: windows_core::Ref<'_, IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn WriteBuffer(&self, pbuffer: windows_core::Ref<'_, IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn ReadBuffer(&self, pbuffer: windows_core::Ref<'_, IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn Open(&self, pcallbacks: windows_core::Ref<'_, IRDPSRAPITransportStreamEvents>) -> windows_core::Result<()>;
+    fn FreeBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn WriteBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn ReadBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
+    fn Open(&self, pcallbacks: windows_core::Ref<IRDPSRAPITransportStreamEvents>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 impl IRDPSRAPITransportStream_Vtbl {
@@ -2298,7 +2298,7 @@ pub trait IRDPSRAPITransportStreamBuffer_Impl: windows_core::IUnknownImpl {
     fn Flags(&self) -> windows_core::Result<i32>;
     fn SetFlags(&self, lflags: i32) -> windows_core::Result<()>;
     fn Context(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetContext(&self, pcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetContext(&self, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 impl IRDPSRAPITransportStreamBuffer_Vtbl {
     pub const fn new<Identity: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>() -> Self {
@@ -2445,8 +2445,8 @@ pub struct IRDPSRAPITransportStreamEvents_Vtbl {
     pub OnStreamClosed: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::HRESULT),
 }
 pub trait IRDPSRAPITransportStreamEvents_Impl: windows_core::IUnknownImpl {
-    fn OnWriteCompleted(&self, pbuffer: windows_core::Ref<'_, IRDPSRAPITransportStreamBuffer>);
-    fn OnReadCompleted(&self, pbuffer: windows_core::Ref<'_, IRDPSRAPITransportStreamBuffer>);
+    fn OnWriteCompleted(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>);
+    fn OnReadCompleted(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>);
     fn OnStreamClosed(&self, hrreason: windows_core::HRESULT);
 }
 impl IRDPSRAPITransportStreamEvents_Vtbl {

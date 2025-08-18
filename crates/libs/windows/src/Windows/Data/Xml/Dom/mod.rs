@@ -1370,7 +1370,7 @@ impl windows_core::RuntimeName for IXmlNode {
 }
 pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn NodeValue(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn SetNodeValue(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetNodeValue(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
     fn NodeType(&self) -> windows_core::Result<NodeType>;
     fn NodeName(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn ParentNode(&self) -> windows_core::Result<IXmlNode>;
@@ -1382,16 +1382,16 @@ pub trait IXmlNode_Impl: IXmlNodeSelector_Impl + IXmlNodeSerializer_Impl {
     fn Attributes(&self) -> windows_core::Result<XmlNamedNodeMap>;
     fn HasChildNodes(&self) -> windows_core::Result<bool>;
     fn OwnerDocument(&self) -> windows_core::Result<XmlDocument>;
-    fn InsertBefore(&self, newChild: windows_core::Ref<'_, IXmlNode>, referenceChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn ReplaceChild(&self, newChild: windows_core::Ref<'_, IXmlNode>, referenceChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn RemoveChild(&self, childNode: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
-    fn AppendChild(&self, newChild: windows_core::Ref<'_, IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn InsertBefore(&self, newChild: windows_core::Ref<IXmlNode>, referenceChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn ReplaceChild(&self, newChild: windows_core::Ref<IXmlNode>, referenceChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn RemoveChild(&self, childNode: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
+    fn AppendChild(&self, newChild: windows_core::Ref<IXmlNode>) -> windows_core::Result<IXmlNode>;
     fn CloneNode(&self, deep: bool) -> windows_core::Result<IXmlNode>;
     fn NamespaceUri(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn LocalName(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Prefix(&self) -> windows_core::Result<windows_core::IInspectable>;
     fn Normalize(&self) -> windows_core::Result<()>;
-    fn SetPrefix(&self, value: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<()>;
+    fn SetPrefix(&self, value: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<()>;
 }
 impl IXmlNode_Vtbl {
     pub const fn new<Identity: IXmlNode_Impl, const OFFSET: isize>() -> Self {
@@ -1788,8 +1788,8 @@ impl windows_core::RuntimeName for IXmlNodeSelector {
 pub trait IXmlNodeSelector_Impl: windows_core::IUnknownImpl {
     fn SelectSingleNode(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<IXmlNode>;
     fn SelectNodes(&self, xpath: &windows_core::HSTRING) -> windows_core::Result<XmlNodeList>;
-    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
-    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<'_, windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
+    fn SelectSingleNodeNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<IXmlNode>;
+    fn SelectNodesNS(&self, xpath: &windows_core::HSTRING, namespaces: windows_core::Ref<windows_core::IInspectable>) -> windows_core::Result<XmlNodeList>;
 }
 impl IXmlNodeSelector_Vtbl {
     pub const fn new<Identity: IXmlNodeSelector_Impl, const OFFSET: isize>() -> Self {

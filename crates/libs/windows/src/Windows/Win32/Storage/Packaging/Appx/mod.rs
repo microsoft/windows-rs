@@ -1062,7 +1062,7 @@ pub trait IAppxBlockMapFile_Impl: windows_core::IUnknownImpl {
     fn GetLocalFileHeaderSize(&self) -> windows_core::Result<u32>;
     fn GetName(&self) -> windows_core::Result<windows_core::PWSTR>;
     fn GetUncompressedSize(&self) -> windows_core::Result<u64>;
-    fn ValidateFileHash(&self, filestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
+    fn ValidateFileHash(&self, filestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<windows_core::BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBlockMapFile_Vtbl {
@@ -1400,9 +1400,9 @@ pub struct IAppxBundleFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateBundleWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
-    fn CreateBundleReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleReader>;
-    fn CreateBundleManifestReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
+    fn CreateBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64) -> windows_core::Result<IAppxBundleWriter>;
+    fn CreateBundleReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateBundleManifestReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBundleManifestReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory_Vtbl {
@@ -1482,7 +1482,7 @@ pub struct IAppxBundleFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateBundleReader2(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateBundleReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleFactory2_Vtbl {
@@ -2364,7 +2364,7 @@ pub struct IAppxBundleWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2417,7 +2417,7 @@ pub struct IAppxBundleWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter2_Impl: windows_core::IUnknownImpl {
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter2_Vtbl {
@@ -2466,7 +2466,7 @@ pub struct IAppxBundleWriter3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self, hashmethodstring: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2543,9 +2543,9 @@ pub struct IAppxBundleWriter4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxBundleWriter4_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackage(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxBundleWriter4_Vtbl {
@@ -3006,7 +3006,7 @@ pub struct IAppxEncryptedBundleWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3059,7 +3059,7 @@ pub struct IAppxEncryptedBundleWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter2_Impl: windows_core::IUnknownImpl {
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter2_Vtbl {
@@ -3113,8 +3113,8 @@ pub struct IAppxEncryptedBundleWriter3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedBundleWriter3_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddPayloadPackageEncrypted(&self, filename: &windows_core::PCWSTR, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddExternalPackageReference(&self, filename: &windows_core::PCWSTR, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, isdefaultapplicablepackage: windows_core::BOOL) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptedBundleWriter3_Vtbl {
@@ -3170,7 +3170,7 @@ pub struct IAppxEncryptedPackageWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptedPackageWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadFileEncrypted(&self, filename: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -3354,14 +3354,14 @@ pub struct IAppxEncryptionFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn DecryptPackage(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
-    fn CreateEncryptedPackageReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>;
-    fn EncryptBundle(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn DecryptBundle(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
-    fn CreateEncryptedBundleReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
+    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn DecryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxPackageReader>;
+    fn EncryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn DecryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn CreateEncryptedBundleReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory_Vtbl {
@@ -3483,7 +3483,7 @@ pub struct IAppxEncryptionFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory2_Vtbl {
@@ -3573,10 +3573,10 @@ pub struct IAppxEncryptionFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory3_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
-    fn EncryptBundle(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
-    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
+    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn CreateEncryptedPackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, manifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedPackageWriter>;
+    fn EncryptBundle(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<()>;
+    fn CreateEncryptedBundleWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> windows_core::Result<IAppxEncryptedBundleWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory3_Vtbl {
@@ -3654,7 +3654,7 @@ pub struct IAppxEncryptionFactory4_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory4_Impl: windows_core::IUnknownImpl {
-    fn EncryptPackage(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
+    fn EncryptPackage(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory4_Vtbl {
@@ -3714,8 +3714,8 @@ pub struct IAppxEncryptionFactory5_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxEncryptionFactory5_Impl: windows_core::IUnknownImpl {
-    fn CreateEncryptedPackageReader2(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateEncryptedBundleReader2(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
+    fn CreateEncryptedPackageReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateEncryptedBundleReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, keyinfo: *const APPX_KEY_INFO, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxBundleReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxEncryptionFactory5_Vtbl {
@@ -3838,11 +3838,11 @@ pub struct IAppxFactory_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory_Impl: windows_core::IUnknownImpl {
-    fn CreatePackageWriter(&self, outputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
-    fn CreatePackageReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateManifestReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxManifestReader>;
-    fn CreateBlockMapReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBlockMapReader>;
-    fn CreateValidatedBlockMapReader(&self, blockmapstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, signaturefilename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapReader>;
+    fn CreatePackageWriter(&self, outputstream: windows_core::Ref<super::super::super::System::Com::IStream>, settings: *const APPX_PACKAGE_SETTINGS) -> windows_core::Result<IAppxPackageWriter>;
+    fn CreatePackageReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateManifestReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxManifestReader>;
+    fn CreateBlockMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxBlockMapReader>;
+    fn CreateValidatedBlockMapReader(&self, blockmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, signaturefilename: &windows_core::PCWSTR) -> windows_core::Result<IAppxBlockMapReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory_Vtbl {
@@ -3975,9 +3975,9 @@ pub struct IAppxFactory2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory2_Impl: windows_core::IUnknownImpl {
-    fn CreateContentGroupMapReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
-    fn CreateSourceContentGroupMapReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
-    fn CreateContentGroupMapWriter(&self, stream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
+    fn CreateContentGroupMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapReader>;
+    fn CreateSourceContentGroupMapReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxSourceContentGroupMapReader>;
+    fn CreateContentGroupMapWriter(&self, stream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<IAppxContentGroupMapWriter>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory2_Vtbl {
@@ -4087,9 +4087,9 @@ pub struct IAppxFactory3_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxFactory3_Impl: windows_core::IUnknownImpl {
-    fn CreatePackageReader2(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
-    fn CreateManifestReader2(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
-    fn CreateAppInstallerReader(&self, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
+    fn CreatePackageReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxPackageReader>;
+    fn CreateManifestReader2(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxManifestReader>;
+    fn CreateAppInstallerReader(&self, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>, expecteddigest: &windows_core::PCWSTR) -> windows_core::Result<IAppxAppInstallerReader>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxFactory3_Vtbl {
@@ -7200,11 +7200,11 @@ pub struct IAppxPackageEditor_Vtbl {
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageEditor_Impl: windows_core::IUnknownImpl {
     fn SetWorkingDirectory(&self, workingdirectory: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn CreateDeltaPackage(&self, updatedpackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, baselinepackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, baselineblockmapstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn UpdatePackage(&self, baselinepackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>;
-    fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
-    fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, updatedmanifeststream: windows_core::Ref<'_, super::super::super::System::Com::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
+    fn CreateDeltaPackage(&self, updatedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, baselinepackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn CreateDeltaPackageUsingBaselineBlockMap(&self, updatedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, baselineblockmapstream: windows_core::Ref<super::super::super::System::Com::IStream>, baselinepackagefullname: &windows_core::PCWSTR, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn UpdatePackage(&self, baselinepackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> windows_core::Result<()>;
+    fn UpdateEncryptedPackage(&self, baselineencryptedpackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, deltapackagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> windows_core::Result<()>;
+    fn UpdatePackageManifest(&self, packagestream: windows_core::Ref<super::super::super::System::Com::IStream>, updatedmanifeststream: windows_core::Ref<super::super::super::System::Com::IStream>, ispackageencrypted: windows_core::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageEditor_Vtbl {
@@ -7426,8 +7426,8 @@ pub struct IAppxPackageWriter_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter_Impl: windows_core::IUnknownImpl {
-    fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn Close(&self, manifest: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn AddPayloadFile(&self, filename: &windows_core::PCWSTR, contenttype: &windows_core::PCWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Close(&self, manifest: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter_Vtbl {
@@ -7479,7 +7479,7 @@ pub struct IAppxPackageWriter2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IAppxPackageWriter2_Impl: windows_core::IUnknownImpl {
-    fn Close(&self, manifest: windows_core::Ref<'_, super::super::super::System::Com::IStream>, contentgroupmap: windows_core::Ref<'_, super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn Close(&self, manifest: windows_core::Ref<super::super::super::System::Com::IStream>, contentgroupmap: windows_core::Ref<super::super::super::System::Com::IStream>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IAppxPackageWriter2_Vtbl {
@@ -7607,7 +7607,7 @@ pub struct IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub SetSinkForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IAppxPackagingDiagnosticEventSinkManager_Impl: windows_core::IUnknownImpl {
-    fn SetSinkForProcess(&self, sink: windows_core::Ref<'_, IAppxPackagingDiagnosticEventSink>) -> windows_core::Result<()>;
+    fn SetSinkForProcess(&self, sink: windows_core::Ref<IAppxPackagingDiagnosticEventSink>) -> windows_core::Result<()>;
 }
 impl IAppxPackagingDiagnosticEventSinkManager_Vtbl {
     pub const fn new<Identity: IAppxPackagingDiagnosticEventSinkManager_Impl, const OFFSET: isize>() -> Self {

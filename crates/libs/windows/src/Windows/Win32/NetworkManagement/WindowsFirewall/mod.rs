@@ -1084,8 +1084,8 @@ pub struct INATEventManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INATEventManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn SetExternalIPAddressCallback(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetNumberOfEntriesCallback(&self, punk: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetExternalIPAddressCallback(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetNumberOfEntriesCallback(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INATEventManager_Vtbl {
@@ -1428,7 +1428,7 @@ pub struct INetConnectionConnectUi_Vtbl {
     pub Disconnect: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, u32) -> windows_core::HRESULT,
 }
 pub trait INetConnectionConnectUi_Impl: windows_core::IUnknownImpl {
-    fn SetConnection(&self, pcon: windows_core::Ref<'_, INetConnection>) -> windows_core::Result<()>;
+    fn SetConnection(&self, pcon: windows_core::Ref<INetConnection>) -> windows_core::Result<()>;
     fn Connect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
     fn Disconnect(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32) -> windows_core::Result<()>;
 }
@@ -1955,7 +1955,7 @@ pub struct INetFwAuthorizedApplications_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwAuthorizedApplications_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, app: windows_core::Ref<'_, INetFwAuthorizedApplication>) -> windows_core::Result<()>;
+    fn Add(&self, app: windows_core::Ref<INetFwAuthorizedApplication>) -> windows_core::Result<()>;
     fn Remove(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Item(&self, imagefilename: &windows_core::BSTR) -> windows_core::Result<INetFwAuthorizedApplication>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -2857,7 +2857,7 @@ pub struct INetFwOpenPorts_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwOpenPorts_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, port: windows_core::Ref<'_, INetFwOpenPort>) -> windows_core::Result<()>;
+    fn Add(&self, port: windows_core::Ref<INetFwOpenPort>) -> windows_core::Result<()>;
     fn Remove(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<()>;
     fn Item(&self, portnumber: i32, ipprotocol: NET_FW_IP_PROTOCOL) -> windows_core::Result<INetFwOpenPort>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -3616,7 +3616,7 @@ pub struct INetFwProducts_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwProducts_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Register(&self, product: windows_core::Ref<'_, INetFwProduct>) -> windows_core::Result<windows_core::IUnknown>;
+    fn Register(&self, product: windows_core::Ref<INetFwProduct>) -> windows_core::Result<windows_core::IUnknown>;
     fn Item(&self, index: i32) -> windows_core::Result<INetFwProduct>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
 }
@@ -5143,7 +5143,7 @@ pub struct INetFwRules_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetFwRules_Impl: super::super::System::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
-    fn Add(&self, rule: windows_core::Ref<'_, INetFwRule>) -> windows_core::Result<()>;
+    fn Add(&self, rule: windows_core::Ref<INetFwRule>) -> windows_core::Result<()>;
     fn Remove(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
     fn Item(&self, name: &windows_core::BSTR) -> windows_core::Result<INetFwRule>;
     fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
@@ -5744,7 +5744,7 @@ pub trait INetSharingConfiguration_Impl: super::super::System::Com::IDispatch_Im
     fn EnableInternetFirewall(&self) -> windows_core::Result<()>;
     fn get_EnumPortMappings(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPortMappingCollection>;
     fn AddPortMapping(&self, bstrname: &windows_core::BSTR, ucipprotocol: u8, usexternalport: u16, usinternalport: u16, dwoptions: u32, bstrtargetnameoripaddress: &windows_core::BSTR, etargettype: ICS_TARGETTYPE) -> windows_core::Result<INetSharingPortMapping>;
-    fn RemovePortMapping(&self, pmapping: windows_core::Ref<'_, INetSharingPortMapping>) -> windows_core::Result<()>;
+    fn RemovePortMapping(&self, pmapping: windows_core::Ref<INetSharingPortMapping>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingConfiguration_Vtbl {
@@ -6010,9 +6010,9 @@ pub trait INetSharingManager_Impl: super::super::System::Com::IDispatch_Impl {
     fn SharingInstalled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn get_EnumPublicConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPublicConnectionCollection>;
     fn get_EnumPrivateConnections(&self, flags: SHARINGCONNECTION_ENUM_FLAGS) -> windows_core::Result<INetSharingPrivateConnectionCollection>;
-    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: windows_core::Ref<'_, INetConnection>) -> windows_core::Result<INetSharingConfiguration>;
+    fn get_INetSharingConfigurationForINetConnection(&self, pnetconnection: windows_core::Ref<INetConnection>) -> windows_core::Result<INetSharingConfiguration>;
     fn EnumEveryConnection(&self) -> windows_core::Result<INetSharingEveryConnectionCollection>;
-    fn get_NetConnectionProps(&self, pnetconnection: windows_core::Ref<'_, INetConnection>) -> windows_core::Result<INetConnectionProps>;
+    fn get_NetConnectionProps(&self, pnetconnection: windows_core::Ref<INetConnection>) -> windows_core::Result<INetConnectionProps>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetSharingManager_Vtbl {

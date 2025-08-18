@@ -668,7 +668,7 @@ pub trait IITPropList_Impl: super::super::System::Com::IPersistStreamInit_Impl {
     fn SaveData(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
     fn GetHeaderSize(&self, dwhdrsize: *mut u32) -> windows_core::Result<()>;
     fn GetDataSize(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, dwdatasize: *mut u32) -> windows_core::Result<()>;
-    fn SaveDataToStream(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn SaveDataToStream(&self, lpvheader: *mut core::ffi::c_void, dwhdrsize: u32, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
     fn LoadFromMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
     fn SaveToMem(&self, lpvdata: *mut core::ffi::c_void, dwbufsize: u32) -> windows_core::Result<()>;
 }
@@ -965,8 +965,8 @@ pub trait IITResultSet_Impl: windows_core::IUnknownImpl {
     fn Set2(&self, lrowindex: i32, lcolumnindex: i32, lpwstr: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Set3(&self, lrowindex: i32, lcolumnindex: i32, dwdata: usize) -> windows_core::Result<()>;
     fn Set4(&self, lrowindex: i32, lpvhdr: *mut core::ffi::c_void, lpvdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn Copy(&self, prscopy: windows_core::Ref<'_, IITResultSet>) -> windows_core::Result<()>;
-    fn AppendRows(&self, pressrc: windows_core::Ref<'_, IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>;
+    fn Copy(&self, prscopy: windows_core::Ref<IITResultSet>) -> windows_core::Result<()>;
+    fn AppendRows(&self, pressrc: windows_core::Ref<IITResultSet>, lrowsrcfirst: i32, csrcrows: i32, lrowfirstdest: *mut i32) -> windows_core::Result<()>;
     fn Get(&self, lrowindex: i32, lcolumnindex: i32, prop: *mut CProperty) -> windows_core::Result<()>;
     fn GetKeyProp(&self, keypropid: *mut u32) -> windows_core::Result<()>;
     fn GetColumnPriority(&self, lcolumnindex: i32, columnpriority: *mut PRIORITY) -> windows_core::Result<()>;
@@ -1297,7 +1297,7 @@ pub trait IStemmerConfig_Impl: windows_core::IUnknownImpl {
     fn GetLocaleInfo(&self, pdwcodepageid: *mut u32, plcid: *mut u32) -> windows_core::Result<()>;
     fn SetControlInfo(&self, grfstemflags: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetControlInfo(&self, pgrfstemflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
-    fn LoadExternalStemmerData(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
+    fn LoadExternalStemmerData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStemmerConfig_Vtbl {
@@ -1426,8 +1426,8 @@ pub trait IWordBreakerConfig_Impl: windows_core::IUnknownImpl {
     fn GetBreakWordType(&self, pdwbreakwordtype: *mut u32) -> windows_core::Result<()>;
     fn SetControlInfo(&self, grfbreakflags: u32, dwreserved: u32) -> windows_core::Result<()>;
     fn GetControlInfo(&self, pgrfbreakflags: *mut u32, pdwreserved: *mut u32) -> windows_core::Result<()>;
-    fn LoadExternalBreakerData(&self, pstream: windows_core::Ref<'_, super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
-    fn SetWordStemmer(&self, rclsid: *const windows_core::GUID, pstemmer: windows_core::Ref<'_, super::super::System::Search::IStemmer>) -> windows_core::Result<()>;
+    fn LoadExternalBreakerData(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>, dwextdatatype: u32) -> windows_core::Result<()>;
+    fn SetWordStemmer(&self, rclsid: *const windows_core::GUID, pstemmer: windows_core::Ref<super::super::System::Search::IStemmer>) -> windows_core::Result<()>;
     fn GetWordStemmer(&self) -> windows_core::Result<super::super::System::Search::IStemmer>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Search"))]
