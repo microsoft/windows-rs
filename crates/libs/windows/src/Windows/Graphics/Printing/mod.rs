@@ -4,6 +4,8 @@ pub mod OptionDetails;
 pub mod PrintSupport;
 #[cfg(feature = "Graphics_Printing_PrintTicket")]
 pub mod PrintTicket;
+#[cfg(feature = "Graphics_Printing_ProtectedPrint")]
+pub mod ProtectedPrint;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
 windows_core::imp::define_interface!(IPrintDocumentSource, IPrintDocumentSource_Vtbl, 0xdedc0c30_f1eb_47df_aae6_ed5427511f01);

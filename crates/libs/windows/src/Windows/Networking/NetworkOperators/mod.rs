@@ -1004,22 +1004,6 @@ impl windows_core::TypeKind for ESimWatcherStatus {
 impl windows_core::RuntimeType for ESimWatcherStatus {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Networking.NetworkOperators.ESimWatcherStatus;i4)");
 }
-pub struct FdnAccessManager;
-impl FdnAccessManager {
-    pub fn RequestUnlockAsync(contactlistid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
-        Self::IFdnAccessManagerStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).RequestUnlockAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(contactlistid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IFdnAccessManagerStatics<R, F: FnOnce(&IFdnAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<FdnAccessManager, IFdnAccessManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for FdnAccessManager {
-    const NAME: &'static str = "Windows.Networking.NetworkOperators.FdnAccessManager";
-}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct HotspotAuthenticationContext(windows_core::IUnknown);
@@ -1426,16 +1410,6 @@ pub struct IESimWatcher_Vtbl {
     pub RemoveStopped: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub Updated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
     pub RemoveUpdated: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IFdnAccessManagerStatics, IFdnAccessManagerStatics_Vtbl, 0xf2aa4395_f1e6_4319_aa3e_477ca64b2bdf);
-impl windows_core::RuntimeType for IFdnAccessManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IFdnAccessManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub RequestUnlockAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHotspotAuthenticationContext, IHotspotAuthenticationContext_Vtbl, 0xe756c791_1003_4de5_83c7_de61d88831d0);
 impl windows_core::RuntimeType for IHotspotAuthenticationContext {

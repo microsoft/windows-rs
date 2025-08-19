@@ -6,8 +6,6 @@ pub mod ApplicationModel;
 pub mod Data;
 #[cfg(feature = "Devices")]
 pub mod Devices;
-#[cfg(feature = "Embedded")]
-pub mod Embedded;
 #[cfg(feature = "Foundation")]
 pub mod Foundation;
 #[cfg(feature = "Gaming")]
@@ -24,8 +22,6 @@ pub mod Media;
 pub mod Networking;
 #[cfg(feature = "Perception")]
 pub mod Perception;
-#[cfg(feature = "Phone")]
-pub mod Phone;
 #[cfg(feature = "Security")]
 pub mod Security;
 #[cfg(feature = "Services")]

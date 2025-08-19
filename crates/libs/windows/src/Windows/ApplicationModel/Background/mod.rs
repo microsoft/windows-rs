@@ -1236,6 +1236,32 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeTransmitPowerLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn PrimaryPhy(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrimaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetPrimaryPhy(&self, value: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetPrimaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SecondaryPhy(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetSecondaryPhy(&self, value: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTrigger>();
@@ -1332,6 +1358,44 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn SetAllowExtendedAdvertisements(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAllowExtendedAdvertisements)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UseUncoded1MPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseUncoded1MPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseUncoded1MPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseUncoded1MPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UseCodedPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseCodedPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseCodedPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseCodedPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn ScanParameters(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementScanParameters> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ScanParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetScanParameters<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementScanParameters>,
+    {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetScanParameters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
@@ -3329,6 +3393,31 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub IncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger3, IBluetoothLEAdvertisementPublisherTrigger3_Vtbl, 0x64419d03_d604_5bdc_b7d2_a7fe25c55460);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBluetoothLEAdvertisementPublisherTrigger3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub PrimaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    PrimaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetPrimaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetPrimaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SecondaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetSecondaryPhy: usize,
+}
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3368,6 +3457,27 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger3, IBluetoothLEAdvertisementWatcherTrigger3_Vtbl, 0xda50011a_8261_56a0_ac7b_a8de1624088b);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBluetoothLEAdvertisementWatcherTrigger3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UseUncoded1MPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseUncoded1MPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub UseCodedPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseCodedPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub ScanParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    ScanParameters: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetScanParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetScanParameters: usize,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {

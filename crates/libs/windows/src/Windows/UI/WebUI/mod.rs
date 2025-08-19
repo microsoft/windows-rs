@@ -1,5 +1,3 @@
-#[cfg(feature = "UI_WebUI_Core")]
-pub mod Core;
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ActivatedDeferral(windows_core::IUnknown);

@@ -9,7 +9,6 @@
     !Windows.ApplicationModel
     !Windows.Data
     !Windows.Devices
-    !Windows.Embedded
     !Windows.Foundation
     !Windows.Gaming
     !Windows.Globalization
@@ -18,7 +17,6 @@
     !Windows.Media
     !Windows.Networking
     !Windows.Perception
-    !Windows.Phone
     !Windows.Security
     !Windows.Services
     !Windows.Storage
