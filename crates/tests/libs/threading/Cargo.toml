@@ -10,3 +10,6 @@ doctest = false
 
 [dependencies.windows-threading]
 workspace = true
+
+[lints]
+workspace = true

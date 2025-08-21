@@ -14,3 +14,6 @@ features = [
     "Win32_System_Ole",
     "Win32_System_Com",
 ]
+
+[lints]
+workspace = true

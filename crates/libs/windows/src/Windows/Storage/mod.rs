@@ -613,7 +613,7 @@ impl windows_core::RuntimeType for ApplicationDataSetVersionHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ApplicationDataSetVersionHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ApplicationDataSetVersionHandlerBox { vtable: &ApplicationDataSetVersionHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -632,12 +632,12 @@ pub struct ApplicationDataSetVersionHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, setversionrequest: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ApplicationDataSetVersionHandlerBox<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct ApplicationDataSetVersionHandlerBox<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const ApplicationDataSetVersionHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<SetVersionRequest>) -> windows_core::Result<()> + Send + 'static> ApplicationDataSetVersionHandlerBox<F> {
     const VTABLE: ApplicationDataSetVersionHandler_Vtbl = ApplicationDataSetVersionHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1721,14 +1721,14 @@ pub trait IStorageFile_Impl: Streams::IInputStreamReference_Impl + Streams::IRan
     fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING>;
     fn OpenAsync(&self, accessMode: FileAccessMode) -> windows_core::Result<windows_future::IAsyncOperation<Streams::IRandomAccessStream>>;
     fn OpenTransactedWriteAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<StorageStreamTransaction>>;
-    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyOverload(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
-    fn CopyAndReplaceAsync(&self, fileToReplace: windows_core::Ref<'_, IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveOverload(&self, destinationFolder: windows_core::Ref<'_, IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn MoveAndReplaceAsync(&self, fileToReplace: windows_core::Ref<'_, IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn CopyOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyOverload(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncOperation<StorageFile>>;
+    fn CopyAndReplaceAsync(&self, fileToReplace: windows_core::Ref<IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverloadDefaultNameAndOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverloadDefaultOptions(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveOverload(&self, destinationFolder: windows_core::Ref<IStorageFolder>, desiredNewName: &windows_core::HSTRING, option: NameCollisionOption) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn MoveAndReplaceAsync(&self, fileToReplace: windows_core::Ref<IStorageFile>) -> windows_core::Result<windows_future::IAsyncAction>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]
 impl IStorageFile_Vtbl {
@@ -2914,7 +2914,7 @@ impl windows_core::RuntimeName for IStorageItem2 {
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 pub trait IStorageItem2_Impl: IStorageItem_Impl {
     fn GetParentAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<StorageFolder>>;
-    fn IsEqual(&self, item: windows_core::Ref<'_, IStorageItem>) -> windows_core::Result<bool>;
+    fn IsEqual(&self, item: windows_core::Ref<IStorageItem>) -> windows_core::Result<bool>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Search"))]
 impl IStorageItem2_Vtbl {
@@ -5694,7 +5694,7 @@ impl windows_core::RuntimeType for StreamedFileDataRequestedHandler {
 }
 #[cfg(feature = "Storage_Streams")]
 impl StreamedFileDataRequestedHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = StreamedFileDataRequestedHandlerBox { vtable: &StreamedFileDataRequestedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -5715,13 +5715,13 @@ pub struct StreamedFileDataRequestedHandler_Vtbl {
 }
 #[cfg(feature = "Storage_Streams")]
 #[repr(C)]
-struct StreamedFileDataRequestedHandlerBox<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct StreamedFileDataRequestedHandlerBox<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const StreamedFileDataRequestedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 #[cfg(feature = "Storage_Streams")]
-impl<F: FnMut(windows_core::Ref<'_, StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<StreamedFileDataRequest>) -> windows_core::Result<()> + Send + 'static> StreamedFileDataRequestedHandlerBox<F> {
     const VTABLE: StreamedFileDataRequestedHandler_Vtbl = StreamedFileDataRequestedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

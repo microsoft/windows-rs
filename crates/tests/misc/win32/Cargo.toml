@@ -37,3 +37,6 @@ features = [
 
 [dev-dependencies]
 helpers = { workspace = true }
+
+[lints]
+workspace = true

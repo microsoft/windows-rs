@@ -259,8 +259,8 @@ impl windows_core::RuntimeName for IMidiOutPort {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IMidiOutPort_Impl: super::super::Foundation::IClosable_Impl {
-    fn SendMessage(&self, midiMessage: windows_core::Ref<'_, IMidiMessage>) -> windows_core::Result<()>;
-    fn SendBuffer(&self, midiData: windows_core::Ref<'_, super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
+    fn SendMessage(&self, midiMessage: windows_core::Ref<IMidiMessage>) -> windows_core::Result<()>;
+    fn SendBuffer(&self, midiData: windows_core::Ref<super::super::Storage::Streams::IBuffer>) -> windows_core::Result<()>;
     fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
 }
 #[cfg(feature = "Storage_Streams")]

@@ -96,6 +96,20 @@ impl BluetoothAdapter {
             (windows_core::Interface::vtable(this).MaxAdvertisementDataLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    pub fn IsLowEnergyUncoded2MPhySupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothAdapter4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsLowEnergyUncoded2MPhySupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn IsLowEnergyCodedPhySupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothAdapter4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsLowEnergyCodedPhySupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
     pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
         Self::IBluetoothAdapterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1787,6 +1801,17 @@ pub struct IBluetoothAdapter3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsExtendedAdvertisingSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub MaxAdvertisementDataLength: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IBluetoothAdapter4, IBluetoothAdapter4_Vtbl, 0xf875f3e1_6d9a_5d5e_aee5_a17248e5f6dd);
+impl windows_core::RuntimeType for IBluetoothAdapter4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBluetoothAdapter4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsLowEnergyUncoded2MPhySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsLowEnergyCodedPhySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IBluetoothAdapterStatics, IBluetoothAdapterStatics_Vtbl, 0x8b02fb6a_ac4c_4741_8661_8eab7d17ea9f);
 impl windows_core::RuntimeType for IBluetoothAdapterStatics {

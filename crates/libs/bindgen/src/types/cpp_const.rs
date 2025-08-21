@@ -23,11 +23,11 @@ impl CppConst {
         TypeName(self.namespace, self.field.name())
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -35,7 +35,7 @@ impl CppConst {
         Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.field.name());
 
         if let Some(guid) = self.field.guid_attribute() {

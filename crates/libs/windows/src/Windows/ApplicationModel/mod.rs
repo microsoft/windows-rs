@@ -455,19 +455,6 @@ impl windows_core::RuntimeName for AppInstance {
 }
 unsafe impl Send for AppInstance {}
 unsafe impl Sync for AppInstance {}
-pub struct CameraApplicationManager;
-impl CameraApplicationManager {
-    pub fn ShowInstalledApplicationsUI() -> windows_core::Result<()> {
-        Self::ICameraApplicationManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowInstalledApplicationsUI)(windows_core::Interface::as_raw(this)).ok() })
-    }
-    fn ICameraApplicationManagerStatics<R, F: FnOnce(&ICameraApplicationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<CameraApplicationManager, ICameraApplicationManagerStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeName for CameraApplicationManager {
-    const NAME: &'static str = "Windows.ApplicationModel.CameraApplicationManager";
-}
 pub struct DesignMode;
 impl DesignMode {
     pub fn DesignModeEnabled() -> windows_core::Result<bool> {
@@ -834,16 +821,6 @@ pub struct IAppInstanceStatics_Vtbl {
     pub FindOrRegisterInstanceForKey: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
     pub GetInstances: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(ICameraApplicationManagerStatics, ICameraApplicationManagerStatics_Vtbl, 0x9599ddce_9bd3_435c_8054_c1add50028fe);
-impl windows_core::RuntimeType for ICameraApplicationManagerStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ICameraApplicationManagerStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShowInstalledApplicationsUI: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDesignModeStatics, IDesignModeStatics_Vtbl, 0x2c3893cc_f81a_4e7a_b857_76a80887e185);
 impl windows_core::RuntimeType for IDesignModeStatics {
@@ -1322,7 +1299,7 @@ impl windows_core::RuntimeName for IPackageCatalogStatics2 {
     const NAME: &'static str = "Windows.ApplicationModel.IPackageCatalogStatics2";
 }
 pub trait IPackageCatalogStatics2_Impl: windows_core::IUnknownImpl {
-    fn OpenForPackage(&self, package: windows_core::Ref<'_, Package>) -> windows_core::Result<PackageCatalog>;
+    fn OpenForPackage(&self, package: windows_core::Ref<Package>) -> windows_core::Result<PackageCatalog>;
 }
 impl IPackageCatalogStatics2_Vtbl {
     pub const fn new<Identity: IPackageCatalogStatics2_Impl, const OFFSET: isize>() -> Self {

@@ -8,8 +8,8 @@ publish = false
 doc = false
 doctest = false
 
-[lints.rust]
-unexpected_cfgs = { level = "warn", check-cfg = ['cfg(windows_raw_dylib)'] }
+[lints]
+workspace = true
 
 [dependencies.windows]
 workspace = true
@@ -25,3 +25,6 @@ features = [
     "Win32_System_SystemInformation",
     "Win32_UI_WindowsAndMessaging",
 ]
+
+[dependencies.windows-link]
+workspace = true

@@ -10,3 +10,6 @@ cc = "1.0"
 [dependencies]
 windows-link = { workspace = true }
 sample_json_validator = { path = "../json_validator" }
+
+[lints]
+workspace = true

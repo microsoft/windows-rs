@@ -582,7 +582,7 @@ impl windows_core::RuntimeType for BackgroundTaskCanceledEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCanceledEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCanceledEventHandlerBox { vtable: &BackgroundTaskCanceledEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -601,12 +601,12 @@ pub struct BackgroundTaskCanceledEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, reason: BackgroundTaskCancellationReason) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCanceledEventHandlerBox<F: FnMut(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCanceledEventHandlerBox<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCanceledEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<IBackgroundTaskInstance>, BackgroundTaskCancellationReason) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCanceledEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCanceledEventHandler_Vtbl = BackgroundTaskCanceledEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -710,7 +710,7 @@ impl windows_core::RuntimeType for BackgroundTaskCompletedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskCompletedEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskCompletedEventHandlerBox { vtable: &BackgroundTaskCompletedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -730,12 +730,12 @@ pub struct BackgroundTaskCompletedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskCompletedEventHandlerBox<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskCompletedEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskCompletedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskCompletedEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskCompletedEventHandlerBox<F> {
     const VTABLE: BackgroundTaskCompletedEventHandler_Vtbl = BackgroundTaskCompletedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -841,7 +841,7 @@ impl windows_core::RuntimeType for BackgroundTaskProgressEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl BackgroundTaskProgressEventHandler {
-    pub fn new<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = BackgroundTaskProgressEventHandlerBox { vtable: &BackgroundTaskProgressEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
@@ -861,12 +861,12 @@ pub struct BackgroundTaskProgressEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, args: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct BackgroundTaskProgressEventHandlerBox<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
+struct BackgroundTaskProgressEventHandlerBox<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> {
     vtable: *const BackgroundTaskProgressEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: FnMut(windows_core::Ref<'_, BackgroundTaskRegistration>, windows_core::Ref<'_, BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<BackgroundTaskRegistration>, windows_core::Ref<BackgroundTaskProgressEventArgs>) -> windows_core::Result<()> + Send + 'static> BackgroundTaskProgressEventHandlerBox<F> {
     const VTABLE: BackgroundTaskProgressEventHandler_Vtbl = BackgroundTaskProgressEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1236,6 +1236,32 @@ impl BluetoothLEAdvertisementPublisherTrigger {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetIncludeTransmitPowerLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn PrimaryPhy(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PrimaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetPrimaryPhy(&self, value: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetPrimaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SecondaryPhy(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetSecondaryPhy(&self, value: super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementPublisherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IBluetoothLEAdvertisementPublisherTrigger>();
@@ -1332,6 +1358,44 @@ impl BluetoothLEAdvertisementWatcherTrigger {
     pub fn SetAllowExtendedAdvertisements(&self, value: bool) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAllowExtendedAdvertisements)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UseUncoded1MPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseUncoded1MPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseUncoded1MPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseUncoded1MPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UseCodedPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseCodedPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseCodedPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseCodedPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn ScanParameters(&self) -> windows_core::Result<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementScanParameters> {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ScanParameters)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub fn SetScanParameters<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementScanParameters>,
+    {
+        let this = &windows_core::Interface::cast::<IBluetoothLEAdvertisementWatcherTrigger3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetScanParameters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
 }
 impl windows_core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
@@ -2272,7 +2336,7 @@ impl windows_core::RuntimeName for IBackgroundTask {
     const NAME: &'static str = "Windows.ApplicationModel.Background.IBackgroundTask";
 }
 pub trait IBackgroundTask_Impl: windows_core::IUnknownImpl {
-    fn Run(&self, taskInstance: windows_core::Ref<'_, IBackgroundTaskInstance>) -> windows_core::Result<()>;
+    fn Run(&self, taskInstance: windows_core::Ref<IBackgroundTaskInstance>) -> windows_core::Result<()>;
 }
 impl IBackgroundTask_Vtbl {
     pub const fn new<Identity: IBackgroundTask_Impl, const OFFSET: isize>() -> Self {
@@ -2473,7 +2537,7 @@ pub trait IBackgroundTaskInstance_Impl: windows_core::IUnknownImpl {
     fn Progress(&self) -> windows_core::Result<u32>;
     fn SetProgress(&self, value: u32) -> windows_core::Result<()>;
     fn TriggerDetails(&self) -> windows_core::Result<windows_core::IInspectable>;
-    fn Canceled(&self, cancelHandler: windows_core::Ref<'_, BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
+    fn Canceled(&self, cancelHandler: windows_core::Ref<BackgroundTaskCanceledEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCanceled(&self, cookie: i64) -> windows_core::Result<()>;
     fn SuspendedCount(&self) -> windows_core::Result<u32>;
     fn GetDeferral(&self) -> windows_core::Result<BackgroundTaskDeferral>;
@@ -2905,9 +2969,9 @@ impl windows_core::RuntimeName for IBackgroundTaskRegistration {
 pub trait IBackgroundTaskRegistration_Impl: windows_core::IUnknownImpl {
     fn TaskId(&self) -> windows_core::Result<windows_core::GUID>;
     fn Name(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Progress(&self, handler: windows_core::Ref<'_, BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
+    fn Progress(&self, handler: windows_core::Ref<BackgroundTaskProgressEventHandler>) -> windows_core::Result<i64>;
     fn RemoveProgress(&self, cookie: i64) -> windows_core::Result<()>;
-    fn Completed(&self, handler: windows_core::Ref<'_, BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
+    fn Completed(&self, handler: windows_core::Ref<BackgroundTaskCompletedEventHandler>) -> windows_core::Result<i64>;
     fn RemoveCompleted(&self, cookie: i64) -> windows_core::Result<()>;
     fn Unregister(&self, cancelTask: bool) -> windows_core::Result<()>;
 }
@@ -3329,6 +3393,31 @@ pub struct IBluetoothLEAdvertisementPublisherTrigger2_Vtbl {
     pub IncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetIncludeTransmitPowerLevel: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementPublisherTrigger3, IBluetoothLEAdvertisementPublisherTrigger3_Vtbl, 0x64419d03_d604_5bdc_b7d2_a7fe25c55460);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementPublisherTrigger3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBluetoothLEAdvertisementPublisherTrigger3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub PrimaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    PrimaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetPrimaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetPrimaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SecondaryPhy: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Devices::Bluetooth::Advertisement::BluetoothLEAdvertisementPhyType) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetSecondaryPhy: usize,
+}
 windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger, IBluetoothLEAdvertisementWatcherTrigger_Vtbl, 0x1aab1819_bce1_48eb_a827_59fb7cee52a6);
 impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3368,6 +3457,27 @@ pub struct IBluetoothLEAdvertisementWatcherTrigger2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub AllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub SetAllowExtendedAdvertisements: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IBluetoothLEAdvertisementWatcherTrigger3, IBluetoothLEAdvertisementWatcherTrigger3_Vtbl, 0xda50011a_8261_56a0_ac7b_a8de1624088b);
+impl windows_core::RuntimeType for IBluetoothLEAdvertisementWatcherTrigger3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IBluetoothLEAdvertisementWatcherTrigger3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UseUncoded1MPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseUncoded1MPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub UseCodedPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseCodedPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub ScanParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    ScanParameters: usize,
+    #[cfg(feature = "Devices_Bluetooth_Advertisement")]
+    pub SetScanParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Bluetooth_Advertisement"))]
+    SetScanParameters: usize,
 }
 windows_core::imp::define_interface!(ICachedFileUpdaterTrigger, ICachedFileUpdaterTrigger_Vtbl, 0xe21caeeb_32f2_4d31_b553_b9e01bde37e0);
 impl windows_core::RuntimeType for ICachedFileUpdaterTrigger {

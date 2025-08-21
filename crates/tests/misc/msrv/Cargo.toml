@@ -14,3 +14,6 @@ features = [
     "Globalization",
     "Win32_Graphics_Direct2D",
 ]
+
+[lints]
+workspace = true

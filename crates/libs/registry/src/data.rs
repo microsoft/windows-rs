@@ -109,7 +109,7 @@ impl PartialEq for Data {
 impl Eq for Data {}
 
 impl core::fmt::Debug for Data {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         self.deref().fmt(f)
     }
 }

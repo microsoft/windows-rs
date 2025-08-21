@@ -9,7 +9,6 @@ use windows_collections::*;
 )]
 struct Thing();
 
-#[allow(non_snake_case)]
 impl IVectorView_Impl<i32> for Thing_Impl {
     fn GetAt(&self, index: u32) -> Result<i32> {
         Ok(index as i32)
@@ -38,7 +37,7 @@ impl IIterable_Impl<i32> for Thing_Impl {
 #[test]
 fn test_implement() -> Result<()> {
     let v: IVectorView<i32> = Thing().into();
-    assert_eq!(012, v.GetAt(012)?);
+    assert_eq!(12, v.GetAt(12)?);
     assert_eq!(123, v.Size()?);
     let mut index = 0;
     assert!(v.IndexOf(456, &mut index)?);

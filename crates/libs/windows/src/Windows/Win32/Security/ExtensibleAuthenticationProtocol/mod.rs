@@ -1271,8 +1271,8 @@ pub struct IRouterProtocolConfig_Vtbl {
     pub RemoveProtocol: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, u32, u32, super::super::Foundation::HWND, u32, *mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait IRouterProtocolConfig_Impl: windows_core::IUnknownImpl {
-    fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<'_, windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
-    fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<'_, windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
+    fn AddProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
+    fn RemoveProtocol(&self, pszmachinename: &windows_core::PCWSTR, dwtransportid: u32, dwprotocolid: u32, hwnd: super::super::Foundation::HWND, dwflags: u32, prouter: windows_core::Ref<windows_core::IUnknown>, ureserved1: usize) -> windows_core::Result<()>;
 }
 impl IRouterProtocolConfig_Vtbl {
     pub const fn new<Identity: IRouterProtocolConfig_Impl, const OFFSET: isize>() -> Self {

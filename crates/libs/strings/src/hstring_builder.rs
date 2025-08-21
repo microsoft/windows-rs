@@ -98,3 +98,13 @@ impl Drop for HStringBuilder {
         }
     }
 }
+
+impl core::fmt::Debug for HStringBuilder {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
+        write!(
+            f,
+            "\"{}\"",
+            Decode(|| core::char::decode_utf16(self.iter().cloned()))
+        )
+    }
+}

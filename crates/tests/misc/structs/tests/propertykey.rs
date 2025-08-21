@@ -6,5 +6,5 @@ fn test_debug_impl() {
         DEVPKEY_Device_BiosDeviceName.fmtid
             == "540B947E-8B40-45BC-A8A2-6A0B894CBDA2".try_into().unwrap()
     );
-    assert!(DEVPKEY_Device_BiosDeviceName.pid == 10);
+    assert_eq!(DEVPKEY_Device_BiosDeviceName.pid, 10);
 }

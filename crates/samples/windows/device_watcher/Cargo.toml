@@ -9,3 +9,6 @@ workspace = true
 features = [
     "Devices_Enumeration",
 ]
+
+[lints]
+workspace = true

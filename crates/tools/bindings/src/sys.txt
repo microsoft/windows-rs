@@ -1,7 +1,5 @@
---in default
 --out crates/libs/sys
 --package --sys --no-comment --no-allow
---link windows_targets
 --rustfmt max_width=800,newline_style=Unix
 
 --filter
@@ -11,7 +9,6 @@
     !Windows.ApplicationModel
     !Windows.Data
     !Windows.Devices
-    !Windows.Embedded
     !Windows.Foundation
     !Windows.Gaming
     !Windows.Globalization
@@ -20,7 +17,6 @@
     !Windows.Media
     !Windows.Networking
     !Windows.Perception
-    !Windows.Phone
     !Windows.Security
     !Windows.Services
     !Windows.Storage

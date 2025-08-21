@@ -23,11 +23,11 @@ impl CppFn {
         TypeName(self.namespace, self.method.name())
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &[])
     }
 
-    pub fn write_link(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
+    pub fn write_link(&self, config: &Config, underlying_types: bool) -> TokenStream {
         let library = self.method.module_name().to_lowercase();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
@@ -59,7 +59,7 @@ impl CppFn {
         })
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -67,7 +67,7 @@ impl CppFn {
         Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
@@ -204,7 +204,7 @@ impl CppFn {
                         pub unsafe fn #name<#generics>(#params) -> windows_core::Result<#return_type> #where_clause {
                             #link
                             let result__ = unsafe { #name(#args) };
-                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+                            (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
                         }
                     }
                 } else {

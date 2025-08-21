@@ -131,7 +131,7 @@ pub struct IMLOperatorKernel_Vtbl {
     pub Compute: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorKernel_Impl: windows_core::IUnknownImpl {
-    fn Compute(&self, context: windows_core::Ref<'_, IMLOperatorKernelContext>) -> windows_core::Result<()>;
+    fn Compute(&self, context: windows_core::Ref<IMLOperatorKernelContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorKernel_Vtbl {
     pub const fn new<Identity: IMLOperatorKernel_Impl, const OFFSET: isize>() -> Self {
@@ -198,7 +198,7 @@ pub trait IMLOperatorKernelContext_Impl: windows_core::IUnknownImpl {
     fn GetOutputTensor(&self, outputindex: u32, dimensioncount: u32, dimensionsizes: *const u32) -> windows_core::Result<IMLOperatorTensor>;
     fn GetOutputTensor2(&self, outputindex: u32) -> windows_core::Result<IMLOperatorTensor>;
     fn AllocateTemporaryData(&self, size: usize) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<'_, windows_core::IUnknown>);
+    fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorKernelContext_Vtbl {
     pub const fn new<Identity: IMLOperatorKernelContext_Impl, const OFFSET: isize>() -> Self {
@@ -343,7 +343,7 @@ pub trait IMLOperatorKernelCreationContext_Impl: IMLOperatorAttributes_Impl {
     fn GetOutputEdgeDescription(&self, outputindex: u32) -> windows_core::Result<MLOperatorEdgeDescription>;
     fn HasTensorShapeDescription(&self) -> bool;
     fn GetTensorShapeDescription(&self) -> windows_core::Result<IMLOperatorTensorShapeDescription>;
-    fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<'_, windows_core::IUnknown>);
+    fn GetExecutionInterface(&self, executionobject: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorKernelCreationContext_Vtbl {
     pub const fn new<Identity: IMLOperatorKernelCreationContext_Impl, const OFFSET: isize>() -> Self {
@@ -457,7 +457,7 @@ pub struct IMLOperatorKernelFactory_Vtbl {
     pub CreateKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorKernelFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateKernel(&self, context: windows_core::Ref<'_, IMLOperatorKernelCreationContext>) -> windows_core::Result<IMLOperatorKernel>;
+    fn CreateKernel(&self, context: windows_core::Ref<IMLOperatorKernelCreationContext>) -> windows_core::Result<IMLOperatorKernel>;
 }
 impl IMLOperatorKernelFactory_Vtbl {
     pub const fn new<Identity: IMLOperatorKernelFactory_Impl, const OFFSET: isize>() -> Self {
@@ -506,8 +506,8 @@ pub struct IMLOperatorRegistry_Vtbl {
     pub RegisterOperatorKernel: unsafe extern "system" fn(*mut core::ffi::c_void, *const MLOperatorKernelDescription, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorRegistry_Impl: windows_core::IUnknownImpl {
-    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: windows_core::Ref<'_, IMLOperatorTypeInferrer>, shapeinferrer: windows_core::Ref<'_, IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
-    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: windows_core::Ref<'_, IMLOperatorKernelFactory>, shapeinferrer: windows_core::Ref<'_, IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
+    fn RegisterOperatorSetSchema(&self, operatorsetid: *const MLOperatorSetId, baselineversion: i32, schema: *const *const MLOperatorSchemaDescription, schemacount: u32, typeinferrer: windows_core::Ref<IMLOperatorTypeInferrer>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
+    fn RegisterOperatorKernel(&self, operatorkernel: *const MLOperatorKernelDescription, operatorkernelfactory: windows_core::Ref<IMLOperatorKernelFactory>, shapeinferrer: windows_core::Ref<IMLOperatorShapeInferrer>) -> windows_core::Result<()>;
 }
 impl IMLOperatorRegistry_Vtbl {
     pub const fn new<Identity: IMLOperatorRegistry_Impl, const OFFSET: isize>() -> Self {
@@ -693,7 +693,7 @@ pub struct IMLOperatorShapeInferrer_Vtbl {
     pub InferOutputShapes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorShapeInferrer_Impl: windows_core::IUnknownImpl {
-    fn InferOutputShapes(&self, context: windows_core::Ref<'_, IMLOperatorShapeInferenceContext>) -> windows_core::Result<()>;
+    fn InferOutputShapes(&self, context: windows_core::Ref<IMLOperatorShapeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorShapeInferrer_Vtbl {
     pub const fn new<Identity: IMLOperatorShapeInferrer_Impl, const OFFSET: isize>() -> Self {
@@ -758,7 +758,7 @@ pub trait IMLOperatorTensor_Impl: windows_core::IUnknownImpl {
     fn IsCpuData(&self) -> bool;
     fn IsDataInterface(&self) -> bool;
     fn GetData(&self) -> *mut core::ffi::c_void;
-    fn GetDataInterface(&self, datainterface: windows_core::OutRef<'_, windows_core::IUnknown>);
+    fn GetDataInterface(&self, datainterface: windows_core::OutRef<windows_core::IUnknown>);
 }
 impl IMLOperatorTensor_Vtbl {
     pub const fn new<Identity: IMLOperatorTensor_Impl, const OFFSET: isize>() -> Self {
@@ -1046,7 +1046,7 @@ pub struct IMLOperatorTypeInferrer_Vtbl {
     pub InferOutputTypes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMLOperatorTypeInferrer_Impl: windows_core::IUnknownImpl {
-    fn InferOutputTypes(&self, context: windows_core::Ref<'_, IMLOperatorTypeInferenceContext>) -> windows_core::Result<()>;
+    fn InferOutputTypes(&self, context: windows_core::Ref<IMLOperatorTypeInferenceContext>) -> windows_core::Result<()>;
 }
 impl IMLOperatorTypeInferrer_Vtbl {
     pub const fn new<Identity: IMLOperatorTypeInferrer_Impl, const OFFSET: isize>() -> Self {
@@ -1284,8 +1284,8 @@ pub struct IWinMLRuntime_Vtbl {
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 pub trait IWinMLRuntime_Impl: windows_core::IUnknownImpl {
     fn LoadModel(&self, path: &windows_core::PCWSTR) -> windows_core::Result<IWinMLModel>;
-    fn CreateEvaluationContext(&self, device: windows_core::Ref<'_, super::super::super::Graphics::Direct3D12::ID3D12Device>) -> windows_core::Result<IWinMLEvaluationContext>;
-    fn EvaluateModel(&self, pcontext: windows_core::Ref<'_, IWinMLEvaluationContext>) -> windows_core::Result<()>;
+    fn CreateEvaluationContext(&self, device: windows_core::Ref<super::super::super::Graphics::Direct3D12::ID3D12Device>) -> windows_core::Result<IWinMLEvaluationContext>;
+    fn EvaluateModel(&self, pcontext: windows_core::Ref<IWinMLEvaluationContext>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D12")]
 impl IWinMLRuntime_Vtbl {

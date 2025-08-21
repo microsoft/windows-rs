@@ -1,26 +1,61 @@
 use serde::Deserialize;
+use std::cmp::Ordering;
 use std::path::Path;
 
 #[derive(Deserialize)]
 pub struct Crate {
     pub package: Package,
+    pub lints: Option<Lints>,
 }
 
-#[derive(Deserialize, Ord, PartialOrd, Eq, PartialEq)]
+impl PartialEq for Crate {
+    fn eq(&self, other: &Self) -> bool {
+        self.package.name == other.package.name
+    }
+}
+
+impl Eq for Crate {}
+
+impl Ord for Crate {
+    fn cmp(&self, other: &Self) -> Ordering {
+        self.package.name.cmp(&other.package.name)
+    }
+}
+
+impl PartialOrd for Crate {
+    fn partial_cmp(&self, other: &Self) -> Option<Ordering> {
+        Some(self.cmp(other))
+    }
+}
+
+#[derive(Deserialize)]
+pub struct Lints {
+    pub workspace: bool,
+}
+
+#[derive(Deserialize)]
 pub struct Package {
     pub name: String,
     pub version: String,
+    pub edition: String,
+    pub publish: Option<bool>,
     #[serde(rename = "rust-version")]
     pub rust_version: Option<String>,
+    pub license: Option<String>,
+    pub description: Option<String>,
+    pub repository: Option<String>,
+    pub readme: Option<String>,
+    pub categories: Option<Vec<String>>,
+    pub authors: Option<Vec<String>>,
 }
 
-pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Package> {
+pub fn crates<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     let mut crates = find(path);
     crates.sort();
     crates
 }
 
-fn find<P: AsRef<Path>>(path: P) -> Vec<Package> {
+fn find<P: AsRef<Path>>(path: P) -> Vec<Crate> {
     let mut crates = vec![];
 
     if let Ok(files) = std::fs::read_dir(path) {
@@ -31,7 +66,7 @@ fn find<P: AsRef<Path>>(path: P) -> Vec<Package> {
                 } else if file.file_name() == "Cargo.toml" {
                     let text = std::fs::read_to_string(file.path()).expect("Cargo.toml");
                     let toml: Crate = toml::from_str(&text).expect("toml");
-                    crates.push(toml.package);
+                    crates.push(toml);
                 }
             }
         }

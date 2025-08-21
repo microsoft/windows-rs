@@ -1402,54 +1402,6 @@ pub struct IProjectionManagerStatics2_Vtbl {
     RequestStartProjectingWithPlacementAsync: usize,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IStatusBar, IStatusBar_Vtbl, 0x0ffcc5bf_98d0_4864_b1e8_b3f4020be8b4);
-impl windows_core::RuntimeType for IStatusBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStatusBar_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HideAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BackgroundOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetBackgroundOpacity: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub ForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetForegroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub BackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetBackgroundColor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProgressIndicator: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub OccludedRect: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Rect) -> windows_core::HRESULT,
-    pub Showing: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub RemoveShowing: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub Hiding: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub RemoveHiding: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IStatusBarProgressIndicator, IStatusBarProgressIndicator_Vtbl, 0x76cb2670_a3d7_49cf_8200_4f3eedca27bb);
-impl windows_core::RuntimeType for IStatusBarProgressIndicator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStatusBarProgressIndicator_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub ShowAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub HideAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub Text: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetText: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub ProgressValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-    pub SetProgressValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
-windows_core::imp::define_interface!(IStatusBarStatics, IStatusBarStatics_Vtbl, 0x8b463fdf_422f_4561_8806_fb1289cadfb7);
-impl windows_core::RuntimeType for IStatusBarStatics {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStatusBarStatics_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub GetForCurrentView: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(IUISettings, IUISettings_Vtbl, 0x85361600_1c63_4627_bcb1_3a89e0bc9c55);
 impl windows_core::RuntimeType for IUISettings {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1569,6 +1521,18 @@ impl windows_core::RuntimeType for IUIViewSettings {
 pub struct IUIViewSettings_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub UserInteractionMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut UserInteractionMode) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IUIViewSettingsPreferredInteractionMode, IUIViewSettingsPreferredInteractionMode_Vtbl, 0x426de261_82ec_5f61_bad4_19b2d0d3cf35);
+impl windows_core::RuntimeType for IUIViewSettingsPreferredInteractionMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IUIViewSettingsPreferredInteractionMode_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetPreferredInteractionMode: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const UserInteractionMode, *mut UserInteractionMode) -> windows_core::HRESULT,
+    pub PreferredInteractionModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemovePreferredInteractionModeChanged: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IUIViewSettingsStatics, IUIViewSettingsStatics_Vtbl, 0x595c97a5_f8f6_41cf_b0fb_aacdb81fd5f6);
 impl windows_core::RuntimeType for IUIViewSettingsStatics {
@@ -1828,186 +1792,6 @@ impl windows_core::TypeKind for ScreenCaptureDisabledBehavior {
 impl windows_core::RuntimeType for ScreenCaptureDisabledBehavior {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.UI.ViewManagement.ScreenCaptureDisabledBehavior;i4)");
 }
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StatusBar(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StatusBar, windows_core::IUnknown, windows_core::IInspectable);
-impl StatusBar {
-    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HideAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HideAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn BackgroundOpacity(&self) -> windows_core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundOpacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetBackgroundOpacity(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundOpacity)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-    pub fn ProgressIndicator(&self) -> windows_core::Result<StatusBarProgressIndicator> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProgressIndicator)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn OccludedRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).OccludedRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn Showing<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Showing)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RemoveShowing(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveShowing)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn Hiding<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
-    where
-        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StatusBar, windows_core::IInspectable>>,
-    {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Hiding)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
-        }
-    }
-    pub fn RemoveHiding(&self, token: i64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveHiding)(windows_core::Interface::as_raw(this), token).ok() }
-    }
-    pub fn GetForCurrentView() -> windows_core::Result<StatusBar> {
-        Self::IStatusBarStatics(|this| unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        })
-    }
-    fn IStatusBarStatics<R, F: FnOnce(&IStatusBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<StatusBar, IStatusBarStatics> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-}
-impl windows_core::RuntimeType for StatusBar {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBar>();
-}
-unsafe impl windows_core::Interface for StatusBar {
-    type Vtable = <IStatusBar as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStatusBar as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StatusBar {
-    const NAME: &'static str = "Windows.UI.ViewManagement.StatusBar";
-}
-unsafe impl Send for StatusBar {}
-unsafe impl Sync for StatusBar {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct StatusBarProgressIndicator(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(StatusBarProgressIndicator, windows_core::IUnknown, windows_core::IInspectable);
-impl StatusBarProgressIndicator {
-    pub fn ShowAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn HideAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).HideAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
-    }
-    pub fn ProgressValue(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ProgressValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-    pub fn SetProgressValue<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<super::super::Foundation::IReference<f64>>,
-    {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetProgressValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
-    }
-}
-impl windows_core::RuntimeType for StatusBarProgressIndicator {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IStatusBarProgressIndicator>();
-}
-unsafe impl windows_core::Interface for StatusBarProgressIndicator {
-    type Vtable = <IStatusBarProgressIndicator as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <IStatusBarProgressIndicator as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for StatusBarProgressIndicator {
-    const NAME: &'static str = "Windows.UI.ViewManagement.StatusBarProgressIndicator";
-}
-unsafe impl Send for StatusBarProgressIndicator {}
-unsafe impl Sync for StatusBarProgressIndicator {}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct UIColorType(pub i32);
@@ -2356,6 +2140,27 @@ impl UIViewSettings {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserInteractionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
+    }
+    pub fn GetPreferredInteractionMode(&self, supportedmodes: &[UserInteractionMode]) -> windows_core::Result<UserInteractionMode> {
+        let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPreferredInteractionMode)(windows_core::Interface::as_raw(this), supportedmodes.len().try_into().unwrap(), supportedmodes.as_ptr(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PreferredInteractionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<UIViewSettings, windows_core::IInspectable>>,
+    {
+        let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RemovePreferredInteractionModeChanged(&self, token: i64) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IUIViewSettingsPreferredInteractionMode>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).RemovePreferredInteractionModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn GetForCurrentView() -> windows_core::Result<UIViewSettings> {
         Self::IUIViewSettingsStatics(|this| unsafe {

@@ -1,0 +1,15 @@
+[package]
+name = "sample_service_time"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+windows-services = { workspace = true }
+windows-link = { workspace = true }
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[lints]
+workspace = true

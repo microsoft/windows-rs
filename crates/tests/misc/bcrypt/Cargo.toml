@@ -19,3 +19,6 @@ workspace = true
 features = [
     "Win32_Security_Cryptography",
 ]
+
+[lints]
+workspace = true

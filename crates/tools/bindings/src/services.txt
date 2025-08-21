@@ -1,16 +1,13 @@
 --out crates/libs/services/src/bindings.rs
---flat
---no-comment
---sys
---no-deps
+--flat --no-comment --sys --no-deps --no-allow
 
 --filter
-    RegisterServiceCtrlHandlerW
-    SetServiceStatus
-    StartServiceCtrlDispatcherW
+    NO_ERROR
+    RegisterServiceCtrlHandlerExW
     SERVICE_ACCEPT_PAUSE_CONTINUE
     SERVICE_ACCEPT_SHUTDOWN
     SERVICE_ACCEPT_STOP
+    SERVICE_CONTINUE_PENDING
     SERVICE_CONTROL_CONTINUE
     SERVICE_CONTROL_PAUSE
     SERVICE_CONTROL_SHUTDOWN
@@ -22,4 +19,5 @@
     SERVICE_STOP_PENDING
     SERVICE_STOPPED
     SERVICE_WIN32_OWN_PROCESS
-    SERVICE_CONTINUE_PENDING
+    SetServiceStatus
+    StartServiceCtrlDispatcherW

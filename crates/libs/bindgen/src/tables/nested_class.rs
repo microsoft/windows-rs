@@ -1,7 +1,7 @@
 use super::*;
 
 impl std::fmt::Debug for NestedClass {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         f.debug_struct("NestedClass")
             .field("inner", &self.inner())
             .field("outer", &self.outer())

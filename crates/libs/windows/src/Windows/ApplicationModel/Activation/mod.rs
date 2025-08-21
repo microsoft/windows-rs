@@ -46,6 +46,7 @@ impl ActivationKind {
     pub const PrintSupportSettingsUI: Self = Self(1024i32);
     pub const PhoneCallActivation: Self = Self(1025i32);
     pub const VpnForeground: Self = Self(1026i32);
+    pub const PrintSupportEnterpriseManagementUI: Self = Self(1027i32);
 }
 impl windows_core::TypeKind for ActivationKind {
     type TypeKind = windows_core::CopyType;

@@ -2556,6 +2556,13 @@ impl GattServiceProvider {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
+    pub fn UpdateAdvertisingParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<GattServiceProviderAdvertisingParameters>,
+    {
+        let this = &windows_core::Interface::cast::<IGattServiceProvider2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
+    }
     pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2676,6 +2683,28 @@ impl GattServiceProviderAdvertisingParameters {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+    pub fn UseLowEnergyUncoded1MPhyAsSecondaryPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseLowEnergyUncoded1MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseLowEnergyUncoded1MPhyAsSecondaryPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseLowEnergyUncoded1MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn UseLowEnergyUncoded2MPhyAsSecondaryPhy(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UseLowEnergyUncoded2MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetUseLowEnergyUncoded2MPhyAsSecondaryPhy(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetUseLowEnergyUncoded2MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl windows_core::RuntimeType for GattServiceProviderAdvertisingParameters {
@@ -3993,6 +4022,16 @@ pub struct IGattServiceProvider_Vtbl {
     pub StartAdvertisingWithParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StopAdvertising: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IGattServiceProvider2, IGattServiceProvider2_Vtbl, 0x9ef531a9_cf12_59a3_a81c_362f4aabaacf);
+impl windows_core::RuntimeType for IGattServiceProvider2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGattServiceProvider2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UpdateAdvertisingParameters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IGattServiceProviderAdvertisementStatusChangedEventArgs, IGattServiceProviderAdvertisementStatusChangedEventArgs_Vtbl, 0x59a5aa65_fa21_4ffc_b155_04d928012686);
 impl windows_core::RuntimeType for IGattServiceProviderAdvertisementStatusChangedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -4033,6 +4072,19 @@ pub struct IGattServiceProviderAdvertisingParameters2_Vtbl {
     pub ServiceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))]
     ServiceData: usize,
+}
+windows_core::imp::define_interface!(IGattServiceProviderAdvertisingParameters3, IGattServiceProviderAdvertisingParameters3_Vtbl, 0xa23546b2_b216_5929_9055_f1313dd53e2a);
+impl windows_core::RuntimeType for IGattServiceProviderAdvertisingParameters3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IGattServiceProviderAdvertisingParameters3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UseLowEnergyUncoded1MPhyAsSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseLowEnergyUncoded1MPhyAsSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub UseLowEnergyUncoded2MPhyAsSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetUseLowEnergyUncoded2MPhyAsSecondaryPhy: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IGattServiceProviderResult, IGattServiceProviderResult_Vtbl, 0x764696d8_c53e_428c_8a48_67afe02c3ae6);
 impl windows_core::RuntimeType for IGattServiceProviderResult {

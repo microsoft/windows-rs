@@ -1,7 +1,7 @@
 use super::*;
 use core::num::NonZeroI32;
 
-#[allow(unused_imports)]
+#[expect(unused_imports)]
 use core::mem::size_of;
 
 /// An error object consists of both an error code and optional detailed error information for debugging.
@@ -115,16 +115,8 @@ impl Error {
     }
 
     /// Creates a new `Error` from the Win32 error code returned by `GetLastError()`.
-    pub fn from_win32() -> Self {
-        #[cfg(windows)]
-        {
-            let error = unsafe { GetLastError() };
-            Self::from_hresult(HRESULT::from_win32(error))
-        }
-        #[cfg(not(windows))]
-        {
-            unimplemented!()
-        }
+    pub fn from_thread() -> Self {
+        Self::from_hresult(HRESULT::from_thread())
     }
 
     /// The error code describing the error.
@@ -209,7 +201,7 @@ impl From<core::num::TryFromIntError> for Error {
 }
 
 impl core::fmt::Debug for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut debug = fmt.debug_struct("Error");
         debug
             .field("code", &self.code())
@@ -219,7 +211,7 @@ impl core::fmt::Debug for Error {
 }
 
 impl core::fmt::Display for Error {
-    fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, fmt: &mut core::fmt::Formatter) -> core::fmt::Result {
         let message = self.message();
         if message.is_empty() {
             core::write!(fmt, "{}", self.code())

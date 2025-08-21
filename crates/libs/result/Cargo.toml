@@ -1,13 +1,11 @@
 [package]
 name = "windows-result"
 version = "0.3.4"
-authors = ["Microsoft"]
 edition = "2021"
-rust-version = "1.74"
+rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Windows error handling"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [dependencies]

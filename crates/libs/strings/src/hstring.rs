@@ -111,7 +111,7 @@ unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
 impl core::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(
             f,
             "{}",
@@ -121,7 +121,7 @@ impl core::fmt::Display for HSTRING {
 }
 
 impl core::fmt::Debug for HSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "\"{self}\"")
     }
 }
@@ -365,7 +365,7 @@ impl TryFrom<&HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: &HSTRING) -> core::result::Result<Self, Self::Error> {
-        String::from_utf16(hstring)
+        Self::from_utf16(hstring)
     }
 }
 
@@ -373,7 +373,7 @@ impl TryFrom<HSTRING> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(hstring: HSTRING) -> core::result::Result<Self, Self::Error> {
-        String::try_from(&hstring)
+        Self::try_from(&hstring)
     }
 }
 

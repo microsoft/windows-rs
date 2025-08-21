@@ -17,3 +17,6 @@ cppwinrt = { workspace = true }
 windows-core = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
 test_constructors = { path = "../constructors" }
+
+[lints]
+workspace = true

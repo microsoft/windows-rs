@@ -1,6 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![no_std]
+#![expect(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 
 mod bindings;
 use bindings::*;
@@ -34,11 +35,11 @@ where
     F: Fn(T) + Sync,
     T: Send,
 {
-    let pool = Pool::new();
-
-    for item in i {
-        pool.submit(|| f(item));
-    }
+    Pool::with_scope(|pool| {
+        for item in i {
+            pool.submit(|| f(item));
+        }
+    });
 }
 
 /// The thread identifier of the calling thread.

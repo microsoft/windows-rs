@@ -658,7 +658,7 @@ pub struct IGameStatisticsMgr_Vtbl {
     pub RemoveGameStatistics: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IGameStatisticsMgr_Impl: windows_core::IUnknownImpl {
-    fn GetGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: windows_core::OutRef<'_, IGameStatistics>) -> windows_core::Result<()>;
+    fn GetGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR, opentype: GAMESTATS_OPEN_TYPE, popenresult: *mut GAMESTATS_OPEN_RESULT, ppistats: windows_core::OutRef<IGameStatistics>) -> windows_core::Result<()>;
     fn RemoveGameStatistics(&self, gdfbinarypath: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl IGameStatisticsMgr_Vtbl {

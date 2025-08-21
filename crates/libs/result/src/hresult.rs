@@ -4,7 +4,6 @@ use super::*;
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[must_use]
-#[allow(non_camel_case_types)]
 pub struct HRESULT(pub i32);
 
 impl HRESULT {
@@ -80,7 +79,7 @@ impl HRESULT {
                     flags |= FORMAT_MESSAGE_FROM_HMODULE;
 
                     module = LoadLibraryExA(
-                        b"ntdll.dll\0".as_ptr(),
+                        c"ntdll.dll".as_ptr() as _,
                         core::ptr::null_mut(),
                         LOAD_LIBRARY_SEARCH_DEFAULT_DIRS,
                     );
@@ -113,6 +112,19 @@ impl HRESULT {
         }
     }
 
+    /// Creates a new `HRESULT` from the Win32 error code returned by `GetLastError()`.
+    pub fn from_thread() -> Self {
+        #[cfg(windows)]
+        {
+            let error = unsafe { GetLastError() };
+            Self::from_win32(error)
+        }
+        #[cfg(not(windows))]
+        {
+            unimplemented!()
+        }
+    }
+
     /// Maps a Win32 error code to an HRESULT value.
     pub const fn from_win32(error: u32) -> Self {
         Self(if error as i32 <= 0 {
@@ -137,18 +149,18 @@ impl<T> From<Result<T>> for HRESULT {
         if let Err(error) = result {
             return error.into();
         }
-        HRESULT(0)
+        Self(0)
     }
 }
 
 impl core::fmt::Display for HRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.write_fmt(format_args!("{:#010X}", self.0))
     }
 }
 
 impl core::fmt::Debug for HRESULT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.write_fmt(format_args!("HRESULT({self})"))
     }
 }

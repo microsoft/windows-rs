@@ -267,8 +267,8 @@ impl<T: ComObjectInner> Deref for ComObject<T> {
 // exclusive access.
 
 impl<T: ComObjectInner> From<T> for ComObject<T> {
-    fn from(value: T) -> ComObject<T> {
-        ComObject::new(value)
+    fn from(value: T) -> Self {
+        Self::new(value)
     }
 }
 
@@ -285,7 +285,7 @@ unsafe impl<T: ComObjectInner + Send> Send for ComObject<T> {}
 unsafe impl<T: ComObjectInner + Sync> Sync for ComObject<T> {}
 
 impl<T: ComObjectInner + PartialEq> PartialEq for ComObject<T> {
-    fn eq(&self, other: &ComObject<T>) -> bool {
+    fn eq(&self, other: &Self) -> bool {
         let inner_self: &T = self.get();
         let other_self: &T = other.get();
         inner_self == other_self
@@ -311,13 +311,13 @@ impl<T: ComObjectInner + Ord> Ord for ComObject<T> {
 }
 
 impl<T: ComObjectInner + core::fmt::Debug> core::fmt::Debug for ComObject<T> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         <T as core::fmt::Debug>::fmt(self.get(), f)
     }
 }
 
 impl<T: ComObjectInner + core::fmt::Display> core::fmt::Display for ComObject<T> {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         <T as core::fmt::Display>::fmt(self.get(), f)
     }
 }

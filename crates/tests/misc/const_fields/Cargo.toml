@@ -21,3 +21,6 @@ features = [
     "Win32_Storage_CloudFilters", 
     "Win32_System_CorrelationVector",
 ]
+
+[lints]
+workspace = true

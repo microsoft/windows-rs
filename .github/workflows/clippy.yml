@@ -13,11 +13,11 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  clippy:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
@@ -26,63 +26,367 @@ jobs:
         run: rustup component add clippy
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc
       - name: Check cppwinrt
-        run:  cargo clippy -p cppwinrt
-      - name: Check windows
-        run:  cargo clippy -p windows
-      - name: Check windows-bindgen
-        run:  cargo clippy -p windows-bindgen
-      - name: Check windows-collections
-        run:  cargo clippy -p windows-collections
-      - name: Check windows-core
-        run:  cargo clippy -p windows-core
-      - name: Check windows-future
-        run:  cargo clippy -p windows-future
-      - name: Check windows-implement
-        run:  cargo clippy -p windows-implement
-      - name: Check windows-interface
-        run:  cargo clippy -p windows-interface
-      - name: Check windows-link
-        run:  cargo clippy -p windows-link
-      - name: Check windows-metadata
-        run:  cargo clippy -p windows-metadata
-      - name: Check windows-numerics
-        run:  cargo clippy -p windows-numerics
-      - name: Check windows-registry
-        run:  cargo clippy -p windows-registry
-      - name: Check windows-result
-        run:  cargo clippy -p windows-result
-      - name: Check windows-services
-        run:  cargo clippy -p windows-services
-      - name: Check windows-strings
-        run:  cargo clippy -p windows-strings
-      - name: Check windows-sys
-        run:  cargo clippy -p windows-sys
-      - name: Check windows-targets
-        run:  cargo clippy -p windows-targets
-      - name: Check windows-threading
-        run:  cargo clippy -p windows-threading
-      - name: Check windows-version
-        run:  cargo clippy -p windows-version
+        run:  cargo clippy -p cppwinrt --tests
+      - name: Check csharp_client
+        run:  cargo clippy -p csharp_client --tests
+      - name: Check csharp_component
+        run:  cargo clippy -p csharp_component --tests
       - name: Check helpers
-        run:  cargo clippy -p helpers
+        run:  cargo clippy -p helpers --tests
+      - name: Check sample_bits
+        run:  cargo clippy -p sample_bits --tests
+      - name: Check sample_com_uri
+        run:  cargo clippy -p sample_com_uri --tests
+      - name: Check sample_consent
+        run:  cargo clippy -p sample_consent --tests
+      - name: Check sample_core_app
+        run:  cargo clippy -p sample_core_app --tests
+      - name: Check sample_counter
+        run:  cargo clippy -p sample_counter --tests
+      - name: Check sample_counter_sys
+        run:  cargo clippy -p sample_counter_sys --tests
+      - name: Check sample_create_window
+        run:  cargo clippy -p sample_create_window --tests
+      - name: Check sample_create_window_sys
+        run:  cargo clippy -p sample_create_window_sys --tests
+      - name: Check sample_credentials
+        run:  cargo clippy -p sample_credentials --tests
+      - name: Check sample_data_protection
+        run:  cargo clippy -p sample_data_protection --tests
+      - name: Check sample_dcomp
+        run:  cargo clippy -p sample_dcomp --tests
+      - name: Check sample_delay_load
+        run:  cargo clippy -p sample_delay_load --tests
+      - name: Check sample_delay_load_sys
+        run:  cargo clippy -p sample_delay_load_sys --tests
+      - name: Check sample_device_watcher
+        run:  cargo clippy -p sample_device_watcher --tests
+      - name: Check sample_direct2d
+        run:  cargo clippy -p sample_direct2d --tests
+      - name: Check sample_direct3d12
+        run:  cargo clippy -p sample_direct3d12 --tests
+      - name: Check sample_enum_windows
+        run:  cargo clippy -p sample_enum_windows --tests
+      - name: Check sample_enum_windows_sys
+        run:  cargo clippy -p sample_enum_windows_sys --tests
+      - name: Check sample_file_dialogs
+        run:  cargo clippy -p sample_file_dialogs --tests
+      - name: Check sample_json_validator
+        run:  cargo clippy -p sample_json_validator --tests
+      - name: Check sample_json_validator_client
+        run:  cargo clippy -p sample_json_validator_client --tests
+      - name: Check sample_json_validator_winrt
+        run:  cargo clippy -p sample_json_validator_winrt --tests
+      - name: Check sample_json_validator_winrt_client
+        run:  cargo clippy -p sample_json_validator_winrt_client --tests
+      - name: Check sample_json_validator_winrt_client_cpp
+        run:  cargo clippy -p sample_json_validator_winrt_client_cpp --tests
+      - name: Check sample_kernel_event
+        run:  cargo clippy -p sample_kernel_event --tests
+      - name: Check sample_memory_buffer
+        run:  cargo clippy -p sample_memory_buffer --tests
+      - name: Check sample_message_box
+        run:  cargo clippy -p sample_message_box --tests
+      - name: Check sample_message_box_sys
+        run:  cargo clippy -p sample_message_box_sys --tests
+      - name: Check sample_ocr
+        run:  cargo clippy -p sample_ocr --tests
+      - name: Check sample_overlapped
+        run:  cargo clippy -p sample_overlapped --tests
+      - name: Check sample_privileges
+        run:  cargo clippy -p sample_privileges --tests
+      - name: Check sample_privileges_sys
+        run:  cargo clippy -p sample_privileges_sys --tests
+      - name: Check sample_rss
+        run:  cargo clippy -p sample_rss --tests
+      - name: Check sample_service_simple
+        run:  cargo clippy -p sample_service_simple --tests
+      - name: Check sample_service_sys
+        run:  cargo clippy -p sample_service_sys --tests
+      - name: Check sample_service_thread
+        run:  cargo clippy -p sample_service_thread --tests
+      - name: Check sample_service_time
+        run:  cargo clippy -p sample_service_time --tests
+      - name: Check sample_shell
+        run:  cargo clippy -p sample_shell --tests
+      - name: Check sample_simple
+        run:  cargo clippy -p sample_simple --tests
+      - name: Check sample_spellchecker
+        run:  cargo clippy -p sample_spellchecker --tests
+      - name: Check sample_task_dialog
+        run:  cargo clippy -p sample_task_dialog --tests
+      - name: Check sample_task_dialog_sys
+        run:  cargo clippy -p sample_task_dialog_sys --tests
+      - name: Check sample_thread_pool_work
+        run:  cargo clippy -p sample_thread_pool_work --tests
+      - name: Check sample_thread_pool_work_sys
+        run:  cargo clippy -p sample_thread_pool_work_sys --tests
+      - name: Check sample_uiautomation
+        run:  cargo clippy -p sample_uiautomation --tests
+      - name: Check sample_wmi
+        run:  cargo clippy -p sample_wmi --tests
+      - name: Check sample_xml
+        run:  cargo clippy -p sample_xml --tests
+      - name: Check test_activation
+        run:  cargo clippy -p test_activation --tests
+      - name: Check test_activation_client
+        run:  cargo clippy -p test_activation_client --tests
+      - name: Check test_agile
+        run:  cargo clippy -p test_agile --tests
+      - name: Check test_agile_reference
+        run:  cargo clippy -p test_agile_reference --tests
+      - name: Check test_alternate_success_code
+        run:  cargo clippy -p test_alternate_success_code --tests
+      - name: Check test_arch
+        run:  cargo clippy -p test_arch --tests
+      - name: Check test_arch_feature
+        run:  cargo clippy -p test_arch_feature --tests
+      - name: Check test_array
+        run:  cargo clippy -p test_array --tests
+      - name: Check test_bcrypt
+        run:  cargo clippy -p test_bcrypt --tests
+      - name: Check test_bindgen
+        run:  cargo clippy -p test_bindgen --tests
+      - name: Check test_calling_convention
+        run:  cargo clippy -p test_calling_convention --tests
+      - name: Check test_cfg_generic
+        run:  cargo clippy -p test_cfg_generic --tests
+      - name: Check test_class_hierarchy
+        run:  cargo clippy -p test_class_hierarchy --tests
+      - name: Check test_collection_interop
+        run:  cargo clippy -p test_collection_interop --tests
+      - name: Check test_collections
+        run:  cargo clippy -p test_collections --tests
+      - name: Check test_component
+        run:  cargo clippy -p test_component --tests
+      - name: Check test_component_client
+        run:  cargo clippy -p test_component_client --tests
+      - name: Check test_composable
+        run:  cargo clippy -p test_composable --tests
+      - name: Check test_composable_client
+        run:  cargo clippy -p test_composable_client --tests
+      - name: Check test_const_fields
+        run:  cargo clippy -p test_const_fields --tests
+      - name: Check test_const_params
+        run:  cargo clippy -p test_const_params --tests
+      - name: Check test_const_ptrs
+        run:  cargo clippy -p test_const_ptrs --tests
+      - name: Check test_constructors
+        run:  cargo clippy -p test_constructors --tests
+      - name: Check test_constructors_client
+        run:  cargo clippy -p test_constructors_client --tests
+      - name: Check test_core
+        run:  cargo clippy -p test_core --tests
+      - name: Check test_debug
+        run:  cargo clippy -p test_debug --tests
+      - name: Check test_deprecated
+        run:  cargo clippy -p test_deprecated --tests
+      - name: Check test_dispatch
+        run:  cargo clippy -p test_dispatch --tests
+      - name: Check test_does_not_return
+        run:  cargo clippy -p test_does_not_return --tests
+      - name: Check test_enums
+        run:  cargo clippy -p test_enums --tests
+      - name: Check test_error
+        run:  cargo clippy -p test_error --tests
+      - name: Check test_event_core
+        run:  cargo clippy -p test_event_core --tests
+      - name: Check test_events
+        run:  cargo clippy -p test_events --tests
+      - name: Check test_events_client
+        run:  cargo clippy -p test_events_client --tests
+      - name: Check test_extensions
+        run:  cargo clippy -p test_extensions --tests
+      - name: Check test_future
+        run:  cargo clippy -p test_future --tests
+      - name: Check test_handles
+        run:  cargo clippy -p test_handles --tests
+      - name: Check test_implement
+        run:  cargo clippy -p test_implement --tests
+      - name: Check test_implement_core
+        run:  cargo clippy -p test_implement_core --tests
+      - name: Check test_interface
+        run:  cargo clippy -p test_interface --tests
+      - name: Check test_interface_core
+        run:  cargo clippy -p test_interface_core --tests
+      - name: Check test_interop
+        run:  cargo clippy -p test_interop --tests
+      - name: Check test_lib
+        run:  cargo clippy -p test_lib --tests
+      - name: Check test_link
+        run:  cargo clippy -p test_link --tests
+      - name: Check test_linux
+        run:  cargo clippy -p test_linux --tests
+      - name: Check test_literals
+        run:  cargo clippy -p test_literals --tests
+      - name: Check test_marshal
+        run:  cargo clippy -p test_marshal --tests
+      - name: Check test_match
+        run:  cargo clippy -p test_match --tests
+      - name: Check test_metadata
+        run:  cargo clippy -p test_metadata --tests
+      - name: Check test_msrv
+        run:  cargo clippy -p test_msrv --tests
+      - name: Check test_no_std
+        run:  cargo clippy -p test_no_std --tests
+      - name: Check test_no_use
+        run:  cargo clippy -p test_no_use --tests
+      - name: Check test_noexcept
+        run:  cargo clippy -p test_noexcept --tests
+      - name: Check test_not_dll
+        run:  cargo clippy -p test_not_dll --tests
+      - name: Check test_numerics
+        run:  cargo clippy -p test_numerics --tests
+      - name: Check test_overloads
+        run:  cargo clippy -p test_overloads --tests
+      - name: Check test_overloads_client
+        run:  cargo clippy -p test_overloads_client --tests
+      - name: Check test_package
+        run:  cargo clippy -p test_package --tests
+      - name: Check test_query_signature
+        run:  cargo clippy -p test_query_signature --tests
+      - name: Check test_readme
+        run:  cargo clippy -p test_readme --tests
+      - name: Check test_ref_params
+        run:  cargo clippy -p test_ref_params --tests
+      - name: Check test_reference
+        run:  cargo clippy -p test_reference --tests
+      - name: Check test_reference_client
+        run:  cargo clippy -p test_reference_client --tests
+      - name: Check test_reference_custom
+        run:  cargo clippy -p test_reference_custom --tests
+      - name: Check test_reference_float
+        run:  cargo clippy -p test_reference_float --tests
+      - name: Check test_reference_no_deps
+        run:  cargo clippy -p test_reference_no_deps --tests
+      - name: Check test_reference_no_windows
+        run:  cargo clippy -p test_reference_no_windows --tests
+      - name: Check test_reference_windows
+        run:  cargo clippy -p test_reference_windows --tests
+      - name: Check test_registry
+        run:  cargo clippy -p test_registry --tests
+      - name: Check test_registry_default
+        run:  cargo clippy -p test_registry_default --tests
+      - name: Check test_reserved
+        run:  cargo clippy -p test_reserved --tests
+      - name: Check test_resources
+        run:  cargo clippy -p test_resources --tests
+      - name: Check test_result
+        run:  cargo clippy -p test_result --tests
+      - name: Check test_return_handle
+        run:  cargo clippy -p test_return_handle --tests
+      - name: Check test_return_struct
+        run:  cargo clippy -p test_return_struct --tests
+      - name: Check test_services
+        run:  cargo clippy -p test_services --tests
+      - name: Check test_standalone
+        run:  cargo clippy -p test_standalone --tests
+      - name: Check test_string_param
+        run:  cargo clippy -p test_string_param --tests
+      - name: Check test_strings
+        run:  cargo clippy -p test_strings --tests
+      - name: Check test_struct_size
+        run:  cargo clippy -p test_struct_size --tests
+      - name: Check test_structs
+        run:  cargo clippy -p test_structs --tests
+      - name: Check test_sys
+        run:  cargo clippy -p test_sys --tests
+      - name: Check test_targets
+        run:  cargo clippy -p test_targets --tests
+      - name: Check test_threading
+        run:  cargo clippy -p test_threading --tests
+      - name: Check test_unions
+        run:  cargo clippy -p test_unions --tests
+      - name: Check test_variant
+        run:  cargo clippy -p test_variant --tests
+      - name: Check test_wdk
+        run:  cargo clippy -p test_wdk --tests
+      - name: Check test_weak
+        run:  cargo clippy -p test_weak --tests
+      - name: Check test_weak_ref
+        run:  cargo clippy -p test_weak_ref --tests
+      - name: Check test_win32
+        run:  cargo clippy -p test_win32 --tests
+      - name: Check test_win32_arrays
+        run:  cargo clippy -p test_win32_arrays --tests
+      - name: Check test_window_long
+        run:  cargo clippy -p test_window_long --tests
+      - name: Check test_windows_std
+        run:  cargo clippy -p test_windows_std --tests
+      - name: Check test_winrt
+        run:  cargo clippy -p test_winrt --tests
       - name: Check tool_bindgen
-        run:  cargo clippy -p tool_bindgen
+        run:  cargo clippy -p tool_bindgen --tests
       - name: Check tool_bindings
-        run:  cargo clippy -p tool_bindings
+        run:  cargo clippy -p tool_bindings --tests
       - name: Check tool_gnu
-        run:  cargo clippy -p tool_gnu
+        run:  cargo clippy -p tool_gnu --tests
       - name: Check tool_license
-        run:  cargo clippy -p tool_license
+        run:  cargo clippy -p tool_license --tests
       - name: Check tool_merge
-        run:  cargo clippy -p tool_merge
+        run:  cargo clippy -p tool_merge --tests
       - name: Check tool_msvc
-        run:  cargo clippy -p tool_msvc
+        run:  cargo clippy -p tool_msvc --tests
       - name: Check tool_standalone
-        run:  cargo clippy -p tool_standalone
+        run:  cargo clippy -p tool_standalone --tests
       - name: Check tool_test_all
-        run:  cargo clippy -p tool_test_all
+        run:  cargo clippy -p tool_test_all --tests
       - name: Check tool_workspace
-        run:  cargo clippy -p tool_workspace
+        run:  cargo clippy -p tool_workspace --tests
       - name: Check tool_yml
-        run:  cargo clippy -p tool_yml
+        run:  cargo clippy -p tool_yml --tests
+      - name: Check windows
+        run:  cargo clippy -p windows --tests
+      - name: Check windows-bindgen
+        run:  cargo clippy -p windows-bindgen --tests
+      - name: Check windows-collections
+        run:  cargo clippy -p windows-collections --tests
+      - name: Check windows-core
+        run:  cargo clippy -p windows-core --tests
+      - name: Check windows-future
+        run:  cargo clippy -p windows-future --tests
+      - name: Check windows-implement
+        run:  cargo clippy -p windows-implement --tests
+      - name: Check windows-interface
+        run:  cargo clippy -p windows-interface --tests
+      - name: Check windows-link
+        run:  cargo clippy -p windows-link --tests
+      - name: Check windows-metadata
+        run:  cargo clippy -p windows-metadata --tests
+      - name: Check windows-numerics
+        run:  cargo clippy -p windows-numerics --tests
+      - name: Check windows-registry
+        run:  cargo clippy -p windows-registry --tests
+      - name: Check windows-result
+        run:  cargo clippy -p windows-result --tests
+      - name: Check windows-services
+        run:  cargo clippy -p windows-services --tests
+      - name: Check windows-strings
+        run:  cargo clippy -p windows-strings --tests
+      - name: Check windows-sys
+        run:  cargo clippy -p windows-sys --tests
+      - name: Check windows-targets
+        run:  cargo clippy -p windows-targets --tests
+      - name: Check windows-threading
+        run:  cargo clippy -p windows-threading --tests
+      - name: Check windows-version
+        run:  cargo clippy -p windows-version --tests
+      - name: Check windows_aarch64_gnullvm
+        run:  cargo clippy -p windows_aarch64_gnullvm --tests
+      - name: Check windows_aarch64_msvc
+        run:  cargo clippy -p windows_aarch64_msvc --tests
+      - name: Check windows_i686_gnu
+        run:  cargo clippy -p windows_i686_gnu --tests
+      - name: Check windows_i686_gnullvm
+        run:  cargo clippy -p windows_i686_gnullvm --tests
+      - name: Check windows_i686_msvc
+        run:  cargo clippy -p windows_i686_msvc --tests
+      - name: Check windows_x86_64_gnu
+        run:  cargo clippy -p windows_x86_64_gnu --tests
+      - name: Check windows_x86_64_gnullvm
+        run:  cargo clippy -p windows_x86_64_gnullvm --tests
+      - name: Check windows_x86_64_msvc
+        run:  cargo clippy -p windows_x86_64_msvc --tests

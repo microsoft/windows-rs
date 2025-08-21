@@ -1,17 +1,15 @@
 [package]
 name = "windows-sys"
 version = "0.60.2"
-authors = ["Microsoft"]
 edition = "2021"
-rust-version = "1.60"
+rust-version = "1.71"
 license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
 categories = ["os::windows-apis"]
 
 [dependencies]
-windows-targets = { workspace = true }
+windows-link = { workspace = true }
 
 [lib]
 test = false

@@ -606,8 +606,8 @@ impl windows_core::RuntimeName for IBasicAudioEffect {
 pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
     fn UseInputFrameForOutput(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessAudioFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessAudioFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -773,8 +773,8 @@ pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
     fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes>;
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
     fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<'_, ProcessVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -930,17 +930,6 @@ pub struct IProcessVideoFrameContext_Vtbl {
     pub InputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub OutputFrame: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ISlowMotionEffectDefinition, ISlowMotionEffectDefinition_Vtbl, 0x35053cd0_176c_4763_82c4_1b02dbe31737);
-impl windows_core::RuntimeType for ISlowMotionEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct ISlowMotionEffectDefinition_Vtbl {
-    pub base__: windows_core::IInspectable_Vtbl,
-    pub TimeStretchRate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f64) -> windows_core::HRESULT,
-    pub SetTimeStretchRate: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-}
 windows_core::imp::define_interface!(IVideoCompositor, IVideoCompositor_Vtbl, 0x8510b43e_420c_420f_96c7_7c98bba1fc55);
 impl windows_core::RuntimeType for IVideoCompositor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -995,8 +984,8 @@ impl windows_core::RuntimeName for IVideoCompositor {
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: super::IMediaExtension_Impl {
     fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<'_, super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<'_, super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn CompositeFrame(&self, context: windows_core::Ref<'_, CompositeVideoFrameContext>) -> windows_core::Result<()>;
+    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
+    fn CompositeFrame(&self, context: windows_core::Ref<CompositeVideoFrameContext>) -> windows_core::Result<()>;
     fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
     fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
 }
@@ -1438,58 +1427,6 @@ impl windows_core::RuntimeName for ProcessVideoFrameContext {
 }
 unsafe impl Send for ProcessVideoFrameContext {}
 unsafe impl Sync for ProcessVideoFrameContext {}
-#[repr(transparent)]
-#[derive(Clone, Debug, Eq, PartialEq)]
-pub struct SlowMotionEffectDefinition(windows_core::IUnknown);
-windows_core::imp::interface_hierarchy!(SlowMotionEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
-windows_core::imp::required_hierarchy!(SlowMotionEffectDefinition, IVideoEffectDefinition);
-impl SlowMotionEffectDefinition {
-    pub fn new() -> windows_core::Result<Self> {
-        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
-    }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
-        static SHARED: windows_core::imp::FactoryCache<SlowMotionEffectDefinition, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
-        SHARED.call(callback)
-    }
-    pub fn TimeStretchRate(&self) -> windows_core::Result<f64> {
-        let this = self;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TimeStretchRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
-        }
-    }
-    pub fn SetTimeStretchRate(&self, value: f64) -> windows_core::Result<()> {
-        let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetTimeStretchRate)(windows_core::Interface::as_raw(this), value).ok() }
-    }
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
-        let this = &windows_core::Interface::cast::<IVideoEffectDefinition>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).ActivatableClassId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
-        }
-    }
-    #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
-        let this = &windows_core::Interface::cast::<IVideoEffectDefinition>(self)?;
-        unsafe {
-            let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
-        }
-    }
-}
-impl windows_core::RuntimeType for SlowMotionEffectDefinition {
-    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, ISlowMotionEffectDefinition>();
-}
-unsafe impl windows_core::Interface for SlowMotionEffectDefinition {
-    type Vtable = <ISlowMotionEffectDefinition as windows_core::Interface>::Vtable;
-    const IID: windows_core::GUID = <ISlowMotionEffectDefinition as windows_core::Interface>::IID;
-}
-impl windows_core::RuntimeName for SlowMotionEffectDefinition {
-    const NAME: &'static str = "Windows.Media.Effects.SlowMotionEffectDefinition";
-}
-unsafe impl Send for SlowMotionEffectDefinition {}
-unsafe impl Sync for SlowMotionEffectDefinition {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct VideoCompositorDefinition(windows_core::IUnknown);

@@ -97,7 +97,7 @@ impl TryFrom<&BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(value: &BSTR) -> core::result::Result<Self, Self::Error> {
-        String::from_utf16(value)
+        Self::from_utf16(value)
     }
 }
 
@@ -105,7 +105,7 @@ impl TryFrom<BSTR> for String {
     type Error = alloc::string::FromUtf16Error;
 
     fn try_from(value: BSTR) -> core::result::Result<Self, Self::Error> {
-        String::try_from(&value)
+        Self::try_from(&value)
     }
 }
 
@@ -116,7 +116,7 @@ impl Default for BSTR {
 }
 
 impl core::fmt::Display for BSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(
             f,
             "{}",
@@ -126,7 +126,7 @@ impl core::fmt::Display for BSTR {
 }
 
 impl core::fmt::Debug for BSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(f, "{self}")
     }
 }

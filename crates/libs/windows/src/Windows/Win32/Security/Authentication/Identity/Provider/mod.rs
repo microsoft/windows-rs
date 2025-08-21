@@ -191,7 +191,7 @@ pub trait AsyncIConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn Finish_DisconnectIdentity(&self) -> windows_core::Result<()>;
     fn Begin_IsConnected(&self) -> windows_core::Result<()>;
     fn Finish_IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn Begin_GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<'_, super::super::super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
+    fn Begin_GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<super::super::super::super::System::Com::IBindCtx>) -> windows_core::Result<()>;
     fn Finish_GetUrl(&self, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn Begin_GetAccountState(&self) -> windows_core::Result<()>;
     fn Finish_GetAccountState(&self) -> windows_core::Result<ACCOUNT_STATE>;
@@ -377,8 +377,8 @@ pub struct AsyncIIdentityAuthentication_Vtbl {
 pub trait AsyncIIdentityAuthentication_Impl: windows_core::IUnknownImpl {
     fn Begin_SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> windows_core::Result<()>;
     fn Finish_SetIdentityCredential(&self) -> windows_core::Result<()>;
-    fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
-    fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: windows_core::OutRef<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Begin_ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Finish_ValidateIdentityCredential(&self, ppidentityproperties: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl AsyncIIdentityAuthentication_Vtbl {
@@ -562,7 +562,7 @@ pub trait AsyncIIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn Finish_GetIdentityEnum(&self) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;
     fn Begin_Create(&self, lpszusername: &windows_core::PCWSTR, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Finish_Create(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_Import(&self, ppropertystore: windows_core::Ref<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Begin_Import(&self, ppropertystore: windows_core::Ref<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn Finish_Import(&self) -> windows_core::Result<()>;
     fn Begin_Delete(&self, lpszuniqueid: &windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn Finish_Delete(&self) -> windows_core::Result<()>;
@@ -570,7 +570,7 @@ pub trait AsyncIIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn Finish_FindByUniqueID(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn Begin_GetProviderPropertyStore(&self) -> windows_core::Result<()>;
     fn Finish_GetProviderPropertyStore(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Begin_Advise(&self, pidentityadvise: windows_core::Ref<'_, IIdentityAdvise>, dwidentityupdateevents: u32) -> windows_core::Result<()>;
+    fn Begin_Advise(&self, pidentityadvise: windows_core::Ref<IIdentityAdvise>, dwidentityupdateevents: u32) -> windows_core::Result<()>;
     fn Finish_Advise(&self) -> windows_core::Result<u32>;
     fn Begin_UnAdvise(&self, dwcookie: u32) -> windows_core::Result<()>;
     fn Finish_UnAdvise(&self) -> windows_core::Result<()>;
@@ -812,7 +812,7 @@ pub trait AsyncIIdentityStore_Impl: windows_core::IUnknownImpl {
     fn Begin_GetCount(&self) -> windows_core::Result<()>;
     fn Finish_GetCount(&self) -> windows_core::Result<u32>;
     fn Begin_GetAt(&self, dwprovider: u32, pprovguid: *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn Finish_GetAt(&self, pprovguid: *mut windows_core::GUID, ppidentityprovider: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Finish_GetAt(&self, pprovguid: *mut windows_core::GUID, ppidentityprovider: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Begin_AddToCache(&self, lpszuniqueid: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn Finish_AddToCache(&self) -> windows_core::Result<()>;
     fn Begin_ConvertToSid(&self, lpszuniqueid: &windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8) -> windows_core::Result<()>;
@@ -1139,7 +1139,7 @@ pub trait IConnectedIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn ConnectIdentity(&self, authbuffer: *const u8, authbuffersize: u32) -> windows_core::Result<()>;
     fn DisconnectIdentity(&self) -> windows_core::Result<()>;
     fn IsConnected(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<'_, super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn GetUrl(&self, identifier: IDENTITY_URL, context: windows_core::Ref<super::super::super::super::System::Com::IBindCtx>, postdata: *mut super::super::super::super::System::Variant::VARIANT, url: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetAccountState(&self) -> windows_core::Result<ACCOUNT_STATE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -1287,7 +1287,7 @@ pub struct IIdentityAuthentication_Vtbl {
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub trait IIdentityAuthentication_Impl: windows_core::IUnknownImpl {
     fn SetIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32) -> windows_core::Result<()>;
-    fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn ValidateIdentityCredential(&self, credbuffer: *const u8, credbufferlength: u32, ppidentityproperties: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 impl IIdentityAuthentication_Vtbl {
@@ -1411,12 +1411,12 @@ pub struct IIdentityProvider_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
 pub trait IIdentityProvider_Impl: windows_core::IUnknownImpl {
     fn GetIdentityEnum(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;
-    fn Create(&self, lpszusername: &windows_core::PCWSTR, pppropertystore: windows_core::OutRef<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn Import(&self, ppropertystore: windows_core::Ref<'_, super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
+    fn Create(&self, lpszusername: &windows_core::PCWSTR, pppropertystore: windows_core::OutRef<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>, pkeywordstoadd: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
+    fn Import(&self, ppropertystore: windows_core::Ref<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>) -> windows_core::Result<()>;
     fn Delete(&self, lpszuniqueid: &windows_core::PCWSTR, pkeywordstodelete: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
     fn FindByUniqueID(&self, lpszuniqueid: &windows_core::PCWSTR) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
     fn GetProviderPropertyStore(&self) -> windows_core::Result<super::super::super::super::UI::Shell::PropertiesSystem::IPropertyStore>;
-    fn Advise(&self, pidentityadvise: windows_core::Ref<'_, IIdentityAdvise>, dwidentityupdateevents: &IdentityUpdateEvent) -> windows_core::Result<u32>;
+    fn Advise(&self, pidentityadvise: windows_core::Ref<IIdentityAdvise>, dwidentityupdateevents: &IdentityUpdateEvent) -> windows_core::Result<u32>;
     fn UnAdvise(&self, dwcookie: u32) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant", feature = "Win32_UI_Shell_PropertiesSystem"))]
@@ -1564,7 +1564,7 @@ pub struct IIdentityStore_Vtbl {
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IIdentityStore_Impl: windows_core::IUnknownImpl {
     fn GetCount(&self) -> windows_core::Result<u32>;
-    fn GetAt(&self, dwprovider: u32, pprovguid: *mut windows_core::GUID, ppidentityprovider: windows_core::OutRef<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn GetAt(&self, dwprovider: u32, pprovguid: *mut windows_core::GUID, ppidentityprovider: windows_core::OutRef<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn AddToCache(&self, lpszuniqueid: &windows_core::PCWSTR, providerguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn ConvertToSid(&self, lpszuniqueid: &windows_core::PCWSTR, providerguid: *const windows_core::GUID, cbsid: u16, psid: *mut u8, pcbrequiredsid: *mut u16) -> windows_core::Result<()>;
     fn EnumerateIdentities(&self, eidentitytype: IDENTITY_TYPE, pfilterkey: *const super::super::super::super::Foundation::PROPERTYKEY, pfilterpropvarvalue: *const super::super::super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::super::super::System::Com::IEnumUnknown>;

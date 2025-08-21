@@ -16,3 +16,6 @@ features = [
     "Web_Http_Headers",
     "Devices_Sms",
 ]
+
+[lints]
+workspace = true

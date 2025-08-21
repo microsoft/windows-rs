@@ -1,6 +1,5 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
-#![allow(non_snake_case)]
 #![debugger_visualizer(natvis_file = "../windows-strings.natvis")]
 #![cfg_attr(all(not(feature = "std")), no_std)]
 
@@ -42,6 +41,6 @@ pub use pstr::*;
 mod pwstr;
 pub use pwstr::*;
 
-extern "C" {
+unsafe extern "C" {
     fn strlen(s: PCSTR) -> usize;
 }

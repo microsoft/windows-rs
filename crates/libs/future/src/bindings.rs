@@ -9,7 +9,7 @@ impl windows_core::RuntimeType for AsyncActionCompletedHandler {
 }
 impl AsyncActionCompletedHandler {
     pub fn new<
-        F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+        F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
             + Send
             + 'static,
     >(
@@ -49,16 +49,14 @@ pub struct AsyncActionCompletedHandler_Vtbl {
 }
 #[repr(C)]
 struct AsyncActionCompletedHandlerBox<
-    F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
-        + Send
-        + 'static,
+    F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()> + Send + 'static,
 > {
     vtable: *const AsyncActionCompletedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
 impl<
-        F: FnMut(windows_core::Ref<'_, IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
+        F: Fn(windows_core::Ref<IAsyncAction>, AsyncStatus) -> windows_core::Result<()>
             + Send
             + 'static,
     > AsyncActionCompletedHandlerBox<F>
@@ -156,9 +154,9 @@ impl<TProgress: windows_core::RuntimeType + 'static> windows_core::RuntimeType
 }
 impl<TProgress: windows_core::RuntimeType + 'static> AsyncActionProgressHandler<TProgress> {
     pub fn new<
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
-                windows_core::Ref<'_, TProgress>,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -205,9 +203,9 @@ where
 #[repr(C)]
 struct AsyncActionProgressHandlerBox<
     TProgress,
-    F: FnMut(
-            windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
-            windows_core::Ref<'_, TProgress>,
+    F: Fn(
+            windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+            windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
         + 'static,
@@ -220,9 +218,9 @@ struct AsyncActionProgressHandlerBox<
 }
 impl<
         TProgress: windows_core::RuntimeType + 'static,
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
-                windows_core::Ref<'_, TProgress>,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
+                windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -330,8 +328,8 @@ impl<TProgress: windows_core::RuntimeType + 'static>
     AsyncActionWithProgressCompletedHandler<TProgress>
 {
     pub fn new<
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
@@ -378,8 +376,8 @@ where
 #[repr(C)]
 struct AsyncActionWithProgressCompletedHandlerBox<
     TProgress,
-    F: FnMut(
-            windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
+    F: Fn(
+            windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
@@ -393,8 +391,8 @@ struct AsyncActionWithProgressCompletedHandlerBox<
 }
 impl<
         TProgress: windows_core::RuntimeType + 'static,
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncActionWithProgress<TProgress>>,
+        F: Fn(
+                windows_core::Ref<IAsyncActionWithProgress<TProgress>>,
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
@@ -483,10 +481,7 @@ impl<TResult: windows_core::RuntimeType + 'static> windows_core::RuntimeType
 }
 impl<TResult: windows_core::RuntimeType + 'static> AsyncOperationCompletedHandler<TResult> {
     pub fn new<
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperation<TResult>>,
-                AsyncStatus,
-            ) -> windows_core::Result<()>
+        F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
             + Send
             + 'static,
     >(
@@ -531,10 +526,7 @@ where
 #[repr(C)]
 struct AsyncOperationCompletedHandlerBox<
     TResult,
-    F: FnMut(
-            windows_core::Ref<'_, IAsyncOperation<TResult>>,
-            AsyncStatus,
-        ) -> windows_core::Result<()>
+    F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
         + Send
         + 'static,
 > where
@@ -546,10 +538,7 @@ struct AsyncOperationCompletedHandlerBox<
 }
 impl<
         TResult: windows_core::RuntimeType + 'static,
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperation<TResult>>,
-                AsyncStatus,
-            ) -> windows_core::Result<()>
+        F: Fn(windows_core::Ref<IAsyncOperation<TResult>>, AsyncStatus) -> windows_core::Result<()>
             + Send
             + 'static,
     > AsyncOperationCompletedHandlerBox<TResult, F>
@@ -662,9 +651,9 @@ impl<
     > AsyncOperationProgressHandler<TResult, TProgress>
 {
     pub fn new<
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
-                windows_core::Ref<'_, TProgress>,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -714,9 +703,9 @@ where
 struct AsyncOperationProgressHandlerBox<
     TResult,
     TProgress,
-    F: FnMut(
-            windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
-            windows_core::Ref<'_, TProgress>,
+    F: Fn(
+            windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+            windows_core::Ref<TProgress>,
         ) -> windows_core::Result<()>
         + Send
         + 'static,
@@ -731,9 +720,9 @@ struct AsyncOperationProgressHandlerBox<
 impl<
         TResult: windows_core::RuntimeType + 'static,
         TProgress: windows_core::RuntimeType + 'static,
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
-                windows_core::Ref<'_, TProgress>,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
+                windows_core::Ref<TProgress>,
             ) -> windows_core::Result<()>
             + Send
             + 'static,
@@ -838,8 +827,8 @@ impl<
     > AsyncOperationWithProgressCompletedHandler<TResult, TProgress>
 {
     pub fn new<
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
@@ -889,8 +878,8 @@ where
 struct AsyncOperationWithProgressCompletedHandlerBox<
     TResult,
     TProgress,
-    F: FnMut(
-            windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
+    F: Fn(
+            windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
             AsyncStatus,
         ) -> windows_core::Result<()>
         + Send
@@ -906,8 +895,8 @@ struct AsyncOperationWithProgressCompletedHandlerBox<
 impl<
         TResult: windows_core::RuntimeType + 'static,
         TProgress: windows_core::RuntimeType + 'static,
-        F: FnMut(
-                windows_core::Ref<'_, IAsyncOperationWithProgress<TResult, TProgress>>,
+        F: Fn(
+                windows_core::Ref<IAsyncOperationWithProgress<TResult, TProgress>>,
                 AsyncStatus,
             ) -> windows_core::Result<()>
             + Send
@@ -1092,7 +1081,7 @@ impl windows_core::RuntimeName for IAsyncAction {
 pub trait IAsyncAction_Impl: IAsyncInfo_Impl {
     fn SetCompleted(
         &self,
-        handler: windows_core::Ref<'_, AsyncActionCompletedHandler>,
+        handler: windows_core::Ref<AsyncActionCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncActionCompletedHandler>;
     fn GetResults(&self) -> windows_core::Result<()>;
@@ -1324,12 +1313,12 @@ where
 {
     fn SetProgress(
         &self,
-        handler: windows_core::Ref<'_, AsyncActionProgressHandler<TProgress>>,
+        handler: windows_core::Ref<AsyncActionProgressHandler<TProgress>>,
     ) -> windows_core::Result<()>;
     fn Progress(&self) -> windows_core::Result<AsyncActionProgressHandler<TProgress>>;
     fn SetCompleted(
         &self,
-        handler: windows_core::Ref<'_, AsyncActionWithProgressCompletedHandler<TProgress>>,
+        handler: windows_core::Ref<AsyncActionWithProgressCompletedHandler<TProgress>>,
     ) -> windows_core::Result<()>;
     fn Completed(&self)
         -> windows_core::Result<AsyncActionWithProgressCompletedHandler<TProgress>>;
@@ -1774,7 +1763,7 @@ where
 {
     fn SetCompleted(
         &self,
-        handler: windows_core::Ref<'_, AsyncOperationCompletedHandler<TResult>>,
+        handler: windows_core::Ref<AsyncOperationCompletedHandler<TResult>>,
     ) -> windows_core::Result<()>;
     fn Completed(&self) -> windows_core::Result<AsyncOperationCompletedHandler<TResult>>;
     fn GetResults(&self) -> windows_core::Result<TResult>;
@@ -2069,15 +2058,12 @@ where
 {
     fn SetProgress(
         &self,
-        handler: windows_core::Ref<'_, AsyncOperationProgressHandler<TResult, TProgress>>,
+        handler: windows_core::Ref<AsyncOperationProgressHandler<TResult, TProgress>>,
     ) -> windows_core::Result<()>;
     fn Progress(&self) -> windows_core::Result<AsyncOperationProgressHandler<TResult, TProgress>>;
     fn SetCompleted(
         &self,
-        handler: windows_core::Ref<
-            '_,
-            AsyncOperationWithProgressCompletedHandler<TResult, TProgress>,
-        >,
+        handler: windows_core::Ref<AsyncOperationWithProgressCompletedHandler<TResult, TProgress>>,
     ) -> windows_core::Result<()>;
     fn Completed(
         &self,

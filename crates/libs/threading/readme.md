@@ -75,16 +75,16 @@ The `for_each` function uses a `Pool` object internally, which you can also use 
 let set = std::sync::RwLock::<std::collections::HashMap<u32, usize>>::default();
 let pool = windows_threading::Pool::new();
 pool.set_thread_limits(2, 10);
+pool.scope(|pool| {
+    for _ in 0..10 {
+        pool.submit(|| {
+            windows_threading::sleep(10);
+            let mut writer = set.write().unwrap();
+            *writer.entry(windows_threading::thread_id()).or_default() += 1;
+        })
+    }
+});
 
-for _ in 0..10 {
-    pool.submit(|| {
-        windows_threading::sleep(10);
-        let mut writer = set.write().unwrap();
-        *writer.entry(windows_threading::thread_id()).or_default() += 1;
-    })
-}
-
-pool.join();
 println!("{:#?}", set.read().unwrap());
 ```
 

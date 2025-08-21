@@ -1,5 +1,6 @@
 #[test]
 #[cfg(target_arch = "x86_64")]
+#[expect(clippy::unnecessary_literal_unwrap)] // callback type is intentionally being tested
 fn test() {
     use windows_sys::{
         Win32::System::Diagnostics::Debug::CONTEXT,

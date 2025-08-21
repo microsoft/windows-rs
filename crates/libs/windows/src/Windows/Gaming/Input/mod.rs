@@ -1000,11 +1000,11 @@ impl windows_core::RuntimeName for IGameController {
 }
 #[cfg(feature = "System")]
 pub trait IGameController_Impl: windows_core::IUnknownImpl {
-    fn HeadsetConnected(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
+    fn HeadsetConnected(&self, value: windows_core::Ref<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
     fn RemoveHeadsetConnected(&self, token: i64) -> windows_core::Result<()>;
-    fn HeadsetDisconnected(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
+    fn HeadsetDisconnected(&self, value: windows_core::Ref<super::super::Foundation::TypedEventHandler<IGameController, Headset>>) -> windows_core::Result<i64>;
     fn RemoveHeadsetDisconnected(&self, token: i64) -> windows_core::Result<()>;
-    fn UserChanged(&self, value: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> windows_core::Result<i64>;
+    fn UserChanged(&self, value: windows_core::Ref<super::super::Foundation::TypedEventHandler<IGameController, super::super::System::UserChangedEventArgs>>) -> windows_core::Result<i64>;
     fn RemoveUserChanged(&self, token: i64) -> windows_core::Result<()>;
     fn Headset(&self) -> windows_core::Result<Headset>;
     fn IsWireless(&self) -> windows_core::Result<bool>;

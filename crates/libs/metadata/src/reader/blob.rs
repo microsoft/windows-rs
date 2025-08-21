@@ -13,7 +13,7 @@ impl Drop for Blob<'_> {
 }
 
 impl std::fmt::Debug for Blob<'_> {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{:?}", self.slice)
     }
 }
@@ -218,7 +218,7 @@ impl<'a> Blob<'a> {
     pub fn read_utf16(&mut self) -> String {
         let slice = self.slice;
 
-        let value = if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+        let value = if slice.as_ptr().align_offset(align_of::<u16>()) > 0 {
             let slice = slice
                 .chunks_exact(2)
                 .take(slice.len() / 2)

@@ -16,7 +16,7 @@ env:
   RUSTFLAGS: --cfg windows_slim_errors
 
 jobs:
-  check:
+  slim_errors:
     strategy:
       matrix:
         include:
@@ -25,11 +25,11 @@ jobs:
           - target: x86_64-pc-windows-gnu
           - target: i686-pc-windows-gnu
         runs-on:
-          - windows-2022
+          - windows-2025
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-${{ matrix.target }}
@@ -39,6 +39,8 @@ jobs:
 
       - name: Fix environment
         uses: ./.github/actions/fix-environment
+        with:
+          target: ${{ matrix.target }}
           
       - name: Test
         run: cargo test -p test_result

@@ -16,16 +16,16 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  msrv:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4"
+        uses: actions/checkout@v5"
         .to_string();
 
-    for package in helpers::crates("crates/libs") {
-        let name = package.name;
-        let version = package.rust_version.expect("rust-version");
+    for manifest in helpers::crates("crates/libs") {
+        let name = manifest.package.name;
+        let version = manifest.package.rust_version.expect("rust-version");
 
         let features = if name == "windows" {
             // We can't use `--all-features` for the `windows` crate as that would exhaust the available

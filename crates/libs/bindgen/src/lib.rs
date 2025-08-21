@@ -1,9 +1,11 @@
 #![doc = include_str!("../readme.md")]
-#![allow(
+#![expect(
     non_upper_case_globals,
+    non_camel_case_types,
+    dead_code,
+    non_snake_case,
     clippy::enum_variant_names,
-    clippy::upper_case_acronyms,
-    clippy::needless_doctest_main
+    clippy::upper_case_acronyms
 )]
 
 mod config;
@@ -57,16 +59,14 @@ use method_names::*;
 /// The conventional way of calling the `bindgen` function is as follows:
 ///
 /// ```rust,no_run
-/// fn main() {
-///     let args = [
-///         "--out",
-///         "src/bindings.rs",
-///         "--filter",
-///         "GetTickCount",
-///     ];
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--filter",
+///     "GetTickCount",
+/// ];
 ///
-///     windows_bindgen::bindgen(args).unwrap();
-/// }
+/// windows_bindgen::bindgen(args).unwrap();
 /// ```
 ///
 /// Here is a list of supported arguments.

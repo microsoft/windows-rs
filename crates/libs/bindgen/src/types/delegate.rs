@@ -11,7 +11,7 @@ impl Delegate {
         self.def.type_name()
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -19,7 +19,7 @@ impl Delegate {
         Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
-    pub fn write(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write(&self, config: &Config) -> TokenStream {
         let name = self.write_name(config);
         let vtbl_name: TokenStream = format!("{}_Vtbl", self.def.name()).into();
         let boxed: TokenStream = format!("{}Box", self.def.name()).into();
@@ -85,7 +85,7 @@ impl Delegate {
         let fn_constraint = {
             let signature = method.write_impl_signature(config, false, false);
 
-            quote! { F: FnMut #signature + Send + 'static }
+            quote! { F: Fn #signature + Send + 'static }
         };
 
         let invoke_upcall = method.write_upcall(quote! { (this.invoke) }, false);
@@ -202,7 +202,7 @@ impl Delegate {
         }
     }
 
-    pub fn write_name(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_name(&self, config: &Config) -> TokenStream {
         self.type_name().write(config, &self.generics)
     }
 }

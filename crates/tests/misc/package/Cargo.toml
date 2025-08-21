@@ -1,0 +1,11 @@
+[package]
+name = "test_package"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+helpers = { workspace = true }
+
+[lints]
+workspace = true

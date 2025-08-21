@@ -13,7 +13,6 @@ use windows::{
 #[implement(IFrameworkViewSource)]
 struct CoreApp();
 
-#[allow(non_snake_case)]
 impl IFrameworkViewSource_Impl for CoreApp_Impl {
     fn CreateView(&self) -> Result<IFrameworkView> {
         Ok(CoreAppView().into())
@@ -23,7 +22,6 @@ impl IFrameworkViewSource_Impl for CoreApp_Impl {
 #[implement(IFrameworkView)]
 struct CoreAppView();
 
-#[allow(non_snake_case)]
 impl IFrameworkView_Impl for CoreAppView_Impl {
     fn Initialize(&self, _: Ref<CoreApplicationView>) -> Result<()> {
         Ok(())

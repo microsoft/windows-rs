@@ -16,21 +16,23 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  no-default-features:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
         run: rustup target add x86_64-pc-windows-msvc
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc"
         .to_string();
 
-    for package in helpers::crates("crates/libs") {
-        let name = package.name;
+    for manifest in helpers::crates("crates/libs") {
+        let name = manifest.package.name;
         write!(
             &mut yml,
             r"

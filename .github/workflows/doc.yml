@@ -15,27 +15,27 @@ on:
 jobs:
   windows:
     name: windows
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Check
         run: cargo doc --no-deps -p windows
 
   windows-sys:
     name: windows-sys
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Check
         run: cargo doc --no-deps -p windows-sys
 
   other-crates:
-    runs-on: windows-2022
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Check
         run: >

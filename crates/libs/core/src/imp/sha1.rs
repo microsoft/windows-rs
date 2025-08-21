@@ -16,6 +16,12 @@ pub struct ConstBuffer {
     head: usize,
 }
 
+impl Default for ConstBuffer {
+    fn default() -> Self {
+        Self::new()
+    }
+}
+
 impl ConstBuffer {
     pub const fn for_class<C: crate::RuntimeName, I: crate::RuntimeType>() -> Self {
         Self::new()
@@ -472,7 +478,7 @@ impl Digest {
 }
 
 impl core::fmt::Display for Digest {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         for i in self.data.iter() {
             write!(f, "{i:08x}")?;
         }

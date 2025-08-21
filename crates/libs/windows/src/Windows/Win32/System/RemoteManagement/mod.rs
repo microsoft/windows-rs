@@ -813,7 +813,7 @@ pub struct IWSMan_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSMan_Impl: super::Com::IDispatch_Impl {
-    fn CreateSession(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<super::Com::IDispatch>;
+    fn CreateSession(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<super::Com::IDispatch>;
     fn CreateConnectionOptions(&self) -> windows_core::Result<super::Com::IDispatch>;
     fn CommandLine(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -2056,7 +2056,7 @@ pub struct IWSManInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManInternal_Impl: super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&self, session: windows_core::Ref<'_, super::Com::IDispatch>, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn ConfigSDDL(&self, session: windows_core::Ref<super::Com::IDispatch>, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManInternal_Vtbl {

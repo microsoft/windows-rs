@@ -6,7 +6,7 @@ pub struct Blob {
 }
 
 impl std::fmt::Debug for Blob {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(f, "{:?}", self.slice)
     }
 }
@@ -87,7 +87,7 @@ impl Blob {
 
     pub fn read_utf16(self) -> String {
         let slice = self.slice;
-        if slice.as_ptr().align_offset(std::mem::align_of::<u16>()) > 0 {
+        if slice.as_ptr().align_offset(align_of::<u16>()) > 0 {
             let slice = slice
                 .chunks_exact(2)
                 .take(slice.len() / 2)

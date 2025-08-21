@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-services]
-version = "0.24"
+version = "0.25"
 ```
 
 Use the Windows services support as needed. Here is how you might write a simple Windows services process:
@@ -20,8 +20,9 @@ fn main() {
     windows_services::Service::new()
         .can_pause()
         .can_stop()
-        .run(|command| {
+        .run(|service, command| {
             // Respond to service commands...
         })
+        .unwrap();
 }
 ```

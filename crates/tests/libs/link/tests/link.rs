@@ -30,3 +30,17 @@ fn cdecl() {
         assert_eq!(LdapMapErrorToWin32(LDAP_BUSY), ERROR_BUSY);
     }
 }
+
+// Test for https://github.com/microsoft/windows-rs/pull/3669#issuecomment-3097317771
+#[test]
+fn fn_ptr() {
+    windows_link::link!("kernel32.dll" "system" fn GetTickCount() -> u32);
+
+    type GetTickCountType = unsafe extern "system" fn() -> u32;
+
+    static GET_TICK_COUNT: GetTickCountType = GetTickCount;
+
+    unsafe {
+        GET_TICK_COUNT();
+    }
+}

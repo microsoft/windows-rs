@@ -13,7 +13,7 @@ impl WarningBuilder {
         self.0.write().unwrap().push(message);
     }
 
-    pub fn skip_method(&self, method: MethodDef, dependencies: &TypeMap, config: &Config<'_>) {
+    pub fn skip_method(&self, method: MethodDef, dependencies: &TypeMap, config: &Config) {
         let mut message = String::new();
         writeln!(
             &mut message,
@@ -48,7 +48,7 @@ impl Warnings {
 }
 
 impl std::fmt::Display for Warnings {
-    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         for message in &self.0 {
             write!(f, "{message}")?;
         }

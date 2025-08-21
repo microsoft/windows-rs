@@ -13,3 +13,6 @@ workspace = true
 features = [
     "Win32_Graphics_Direct2D_Common"
 ]
+
+[lints]
+workspace = true

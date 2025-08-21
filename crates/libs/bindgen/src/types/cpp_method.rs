@@ -41,10 +41,8 @@ impl From<&Param> for ParamHint {
                 "NativeArrayInfoAttribute" => {
                     for (_, value) in attribute.args() {
                         match value {
-                            Value::I16(value) => {
-                                return ParamHint::ArrayRelativeLen(value as usize)
-                            }
-                            Value::I32(value) => return ParamHint::ArrayFixed(value as usize),
+                            Value::I16(value) => return Self::ArrayRelativeLen(value as usize),
+                            Value::I32(value) => return Self::ArrayFixed(value as usize),
                             _ => {}
                         }
                     }
@@ -52,14 +50,14 @@ impl From<&Param> for ParamHint {
                 "MemorySizeAttribute" => {
                     for (_, value) in attribute.args() {
                         if let Value::I16(value) = value {
-                            return ParamHint::ArrayRelativeByteLen(value as usize);
+                            return Self::ArrayRelativeByteLen(value as usize);
                         }
                     }
                 }
                 _ => {}
             }
         }
-        ParamHint::None
+        Self::None
     }
 }
 
@@ -206,7 +204,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_cfg(&self, config: &Config<'_>, parent: &Cfg, not: bool) -> TokenStream {
+    pub fn write_cfg(&self, config: &Config, parent: &Cfg, not: bool) -> TokenStream {
         if !config.package {
             return quote! {};
         }
@@ -229,7 +227,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_where(&self, config: &Config<'_>, query: bool) -> TokenStream {
+    pub fn write_where(&self, config: &Config, query: bool) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -253,7 +251,7 @@ impl CppMethod {
 
     pub fn write(
         &self,
-        config: &Config<'_>,
+        config: &Config,
         method_names: &mut MethodNames,
         virtual_names: &mut MethodNames,
     ) -> TokenStream {
@@ -419,7 +417,7 @@ impl CppMethod {
         }
     }
 
-    pub fn write_impl_signature(&self, config: &Config<'_>, _named_params: bool) -> TokenStream {
+    pub fn write_impl_signature(&self, config: &Config, _named_params: bool) -> TokenStream {
         let mut params = quote! {};
 
         if self.return_hint == ReturnHint::ResultValue {
@@ -459,7 +457,7 @@ impl CppMethod {
         quote! { (&self, #params) #return_type }
     }
 
-    pub fn write_abi(&self, config: &Config<'_>, named_params: bool) -> TokenStream {
+    pub fn write_abi(&self, config: &Config, named_params: bool) -> TokenStream {
         let mut params: Vec<_> = self
             .signature
             .params
@@ -502,7 +500,7 @@ impl CppMethod {
         quote! { (#this, #(#params),*) #return_sig }
     }
 
-    pub fn write_params(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_params(&self, config: &Config) -> TokenStream {
         let mut tokens = quote! {};
 
         for (position, param) in self.signature.params.iter().enumerate() {
@@ -677,7 +675,7 @@ impl CppMethod {
         tokens
     }
 
-    pub fn write_return(&self, config: &Config<'_>) -> TokenStream {
+    pub fn write_return(&self, config: &Config) -> TokenStream {
         match &self.signature.return_type {
             Type::Void if self.def.has_attribute("DoesNotReturnAttribute") => quote! {  -> ! },
             Type::Void => quote! {},
@@ -711,16 +709,16 @@ impl CppMethod {
     }
 }
 
-fn write_produce_type(config: &Config<'_>, param: &Param, hint: ParamHint) -> TokenStream {
+fn write_produce_type(config: &Config, param: &Param, hint: ParamHint) -> TokenStream {
     let name = param.write_ident();
     let kind = param.write_default(config);
 
     if param.is_input() && param.is_interface() {
         let type_name = param.write_name(config);
-        quote! { #name: windows_core::Ref<'_, #type_name>, }
+        quote! { #name: windows_core::Ref<#type_name>, }
     } else if !param.is_input() && param.deref().is_interface() && !hint.is_array() {
         let type_name = param.deref().write_name(config);
-        quote! { #name: windows_core::OutRef<'_, #type_name>, }
+        quote! { #name: windows_core::OutRef<#type_name>, }
     } else if param.is_input() {
         if param.is_primitive() {
             quote! { #name: #kind, }

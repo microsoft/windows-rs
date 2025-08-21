@@ -1280,7 +1280,7 @@ pub struct IMouseWheelParameters_Vtbl {
     pub PageTranslation: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::Point) -> windows_core::HRESULT,
     pub SetPageTranslation: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::Point) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(IPhysicalGestureRecognizer, IPhysicalGestureRecognizer_Vtbl, 0xa3bb83e5_6937_5f29_8707_ae4875f8fda3);
+windows_core::imp::define_interface!(IPhysicalGestureRecognizer, IPhysicalGestureRecognizer_Vtbl, 0x79a29f4d_32a6_5aa5_a999_42b0b420c66d);
 impl windows_core::RuntimeType for IPhysicalGestureRecognizer {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1288,6 +1288,7 @@ impl windows_core::RuntimeType for IPhysicalGestureRecognizer {
 #[doc(hidden)]
 pub struct IPhysicalGestureRecognizer_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
+    pub IsActive: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub GestureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, *mut GestureSettings) -> windows_core::HRESULT,
     pub SetGestureSettings: unsafe extern "system" fn(*mut core::ffi::c_void, GestureSettings) -> windows_core::HRESULT,
     pub TapMinContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
@@ -1985,7 +1986,7 @@ pub struct ITappedEventArgs2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ContactCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITouchpadGesturesController, ITouchpadGesturesController_Vtbl, 0xb58f88d0_58ea_51b5_b5bf_61cc081bf21d);
+windows_core::imp::define_interface!(ITouchpadGesturesController, ITouchpadGesturesController_Vtbl, 0x28c13cdd_e068_549f_89c6_1a440c6fc327);
 impl windows_core::RuntimeType for ITouchpadGesturesController {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -1993,8 +1994,8 @@ impl windows_core::RuntimeType for ITouchpadGesturesController {
 #[doc(hidden)]
 pub struct ITouchpadGesturesController_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
-    pub GesturesEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
-    pub SetGesturesEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub Enabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
     pub SupportedGestures: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TouchpadGlobalGestureKinds) -> windows_core::HRESULT,
     pub SetSupportedGestures: unsafe extern "system" fn(*mut core::ffi::c_void, TouchpadGlobalGestureKinds) -> windows_core::HRESULT,
     #[cfg(feature = "UI_Core")]
@@ -2012,8 +2013,8 @@ pub struct ITouchpadGesturesController_Vtbl {
     #[cfg(not(feature = "UI_Core"))]
     PointerReleased: usize,
     pub RemovePointerReleased: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
-    pub TouchpadGlobalActionPerformed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
-    pub RemoveTouchpadGlobalActionPerformed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub GlobalActionPerformed: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveGlobalActionPerformed: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ITouchpadGesturesControllerStatics, ITouchpadGesturesControllerStatics_Vtbl, 0x207ef171_1a73_51cd_a694_8840e09dbafa);
 impl windows_core::RuntimeType for ITouchpadGesturesControllerStatics {
@@ -2026,7 +2027,7 @@ pub struct ITouchpadGesturesControllerStatics_Vtbl {
     pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
     pub CreateForProcess: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
-windows_core::imp::define_interface!(ITouchpadGlobalActionEventArgs, ITouchpadGlobalActionEventArgs_Vtbl, 0x08103525_dbb6_5f7f_9ffe_98c84bb49591);
+windows_core::imp::define_interface!(ITouchpadGlobalActionEventArgs, ITouchpadGlobalActionEventArgs_Vtbl, 0x6edad206_e4e3_5f39_9d13_8575e8e2a12b);
 impl windows_core::RuntimeType for ITouchpadGlobalActionEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
@@ -2035,6 +2036,10 @@ impl windows_core::RuntimeType for ITouchpadGlobalActionEventArgs {
 pub struct ITouchpadGlobalActionEventArgs_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut TouchpadGlobalAction) -> windows_core::HRESULT,
+    #[cfg(feature = "Devices_Input")]
+    pub PointerDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Devices_Input"))]
+    PointerDevice: usize,
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -2516,6 +2521,13 @@ impl PhysicalGestureRecognizer {
     fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhysicalGestureRecognizer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
+    }
+    pub fn IsActive(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
     }
     pub fn GestureSettings(&self) -> windows_core::Result<GestureSettings> {
         let this = self;
@@ -4257,16 +4269,16 @@ impl windows_core::RuntimeName for TappedEventArgs {
 pub struct TouchpadGesturesController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchpadGesturesController, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchpadGesturesController {
-    pub fn GesturesEnabled(&self) -> windows_core::Result<bool> {
+    pub fn Enabled(&self) -> windows_core::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).GesturesEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).Enabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetGesturesEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetEnabled(&self, value: bool) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).SetGesturesEnabled)(windows_core::Interface::as_raw(this), value).ok() }
+        unsafe { (windows_core::Interface::vtable(this).SetEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     pub fn SupportedGestures(&self) -> windows_core::Result<TouchpadGlobalGestureKinds> {
         let this = self;
@@ -4324,19 +4336,19 @@ impl TouchpadGesturesController {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePointerReleased)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TouchpadGlobalActionPerformed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GlobalActionPerformed<P0>(&self, handler: P0) -> windows_core::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<TouchpadGesturesController, TouchpadGlobalActionEventArgs>>,
     {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
-            (windows_core::Interface::vtable(this).TouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+            (windows_core::Interface::vtable(this).GlobalActionPerformed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTouchpadGlobalActionPerformed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveGlobalActionPerformed(&self, token: i64) -> windows_core::Result<()> {
         let this = self;
-        unsafe { (windows_core::Interface::vtable(this).RemoveTouchpadGlobalActionPerformed)(windows_core::Interface::as_raw(this), token).ok() }
+        unsafe { (windows_core::Interface::vtable(this).RemoveGlobalActionPerformed)(windows_core::Interface::as_raw(this), token).ok() }
     }
     pub fn IsSupported() -> windows_core::Result<bool> {
         Self::ITouchpadGesturesControllerStatics(|this| unsafe {
@@ -4397,6 +4409,14 @@ impl TouchpadGlobalActionEventArgs {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Devices_Input")]
+    pub fn PointerDevice(&self) -> windows_core::Result<super::super::Devices::Input::PointerDevice> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PointerDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
 }

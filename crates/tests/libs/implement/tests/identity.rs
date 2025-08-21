@@ -1,5 +1,3 @@
-#![allow(non_snake_case)]
-
 use std::sync::atomic::*;
 use windows::{core::*, Foundation::*};
 

@@ -46,7 +46,7 @@ impl PROPVARIANT {
 }
 
 impl core::fmt::Debug for PROPVARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut debug = f.debug_struct("PROPVARIANT");
         debug.field("type", &unsafe { self.Anonymous.Anonymous.vt });
 
@@ -59,7 +59,7 @@ impl core::fmt::Debug for PROPVARIANT {
 }
 
 impl core::fmt::Display for PROPVARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }
@@ -95,7 +95,7 @@ impl TryFrom<&PROPVARIANT> for IUnknown {
     fn try_from(from: &PROPVARIANT) -> Result<Self> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_UNKNOWN && !from.Anonymous.Anonymous.Anonymous.punkVal.is_none() {
-                let unknown: &IUnknown = transmute(&from.Anonymous.Anonymous.Anonymous.punkVal);
+                let unknown: &Self = transmute(&from.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
                 Err(Error::from_hresult(TYPE_E_TYPEMISMATCH))
@@ -256,7 +256,7 @@ impl TryFrom<&PROPVARIANT> for IDispatch {
     fn try_from(from: &PROPVARIANT) -> windows_core::Result<Self> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_DISPATCH && !from.Anonymous.Anonymous.Anonymous.pdispVal.is_none() {
-                let dispatch: &IDispatch = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
+                let dispatch: &Self = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
                 Ok(dispatch.clone())
             } else {
                 Err(windows_core::Error::from_hresult(TYPE_E_TYPEMISMATCH))

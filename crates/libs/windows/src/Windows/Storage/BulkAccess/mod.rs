@@ -1131,9 +1131,9 @@ pub trait IStorageItemInformation_Impl: windows_core::IUnknownImpl {
     fn DocumentProperties(&self) -> windows_core::Result<super::FileProperties::DocumentProperties>;
     fn BasicProperties(&self) -> windows_core::Result<super::FileProperties::BasicProperties>;
     fn Thumbnail(&self) -> windows_core::Result<super::FileProperties::StorageItemThumbnail>;
-    fn ThumbnailUpdated(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn ThumbnailUpdated(&self, changedHandler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemoveThumbnailUpdated(&self, eventCookie: i64) -> windows_core::Result<()>;
-    fn PropertiesUpdated(&self, changedHandler: windows_core::Ref<'_, super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
+    fn PropertiesUpdated(&self, changedHandler: windows_core::Ref<super::super::Foundation::TypedEventHandler<IStorageItemInformation, windows_core::IInspectable>>) -> windows_core::Result<i64>;
     fn RemovePropertiesUpdated(&self, eventCookie: i64) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Storage_FileProperties", feature = "Storage_Streams"))]

@@ -1,0 +1,11 @@
+[package]
+name = "csharp_client"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[dependencies.csharp_component]
+path = "../component"
+
+[lints]
+workspace = true

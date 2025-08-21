@@ -22,3 +22,6 @@ features = [
 
 [dependencies.windows-numerics]
 workspace = true
+
+[lints]
+workspace = true

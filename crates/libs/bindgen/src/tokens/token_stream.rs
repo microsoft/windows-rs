@@ -28,7 +28,7 @@ impl TokenStream {
     /// Appends another stream to the stream
     ///
     /// note: a space will be inserted before the other stream
-    pub fn combine<T: AsRef<TokenStream>>(&mut self, other: T) {
+    pub fn combine<T: AsRef<Self>>(&mut self, other: T) {
         self.push_space();
         self.0.push_str(&other.as_ref().0)
     }
@@ -90,19 +90,19 @@ impl Default for TokenStream {
     }
 }
 
-impl FromIterator<TokenStream> for TokenStream {
-    fn from_iter<I: IntoIterator<Item = TokenStream>>(iter: I) -> Self {
+impl FromIterator<Self> for TokenStream {
+    fn from_iter<I: IntoIterator<Item = Self>>(iter: I) -> Self {
         iter.into_iter()
-            .fold(None, |accum: Option<TokenStream>, n| {
+            .fold(None, |accum: Option<Self>, n| {
                 let mut ts = accum.unwrap_or_default();
                 ts.combine(&n);
                 Some(ts)
             })
-            .unwrap_or_else(TokenStream::new)
+            .unwrap_or_else(Self::new)
     }
 }
 
-impl AsRef<TokenStream> for TokenStream {
+impl AsRef<Self> for TokenStream {
     fn as_ref(&self) -> &Self {
         self
     }
@@ -129,18 +129,18 @@ impl Delimiter {
     /// The opening delimiter
     pub fn open(self) -> char {
         match self {
-            Delimiter::Bracket => '[',
-            Delimiter::Brace => '{',
-            Delimiter::Parenthesis => '(',
+            Self::Bracket => '[',
+            Self::Brace => '{',
+            Self::Parenthesis => '(',
         }
     }
 
     /// The closing delimiter
     pub fn close(self) -> char {
         match self {
-            Delimiter::Bracket => ']',
-            Delimiter::Brace => '}',
-            Delimiter::Parenthesis => ')',
+            Self::Bracket => ']',
+            Self::Brace => '}',
+            Self::Parenthesis => ')',
         }
     }
 }
@@ -179,7 +179,7 @@ impl Literal {
 }
 
 impl core::fmt::Display for TokenStream {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         write!(f, "{}", self.as_str())
     }
 }

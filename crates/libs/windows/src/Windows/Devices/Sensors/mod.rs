@@ -1856,6 +1856,13 @@ impl HumanPresenceFeatures {
             (windows_core::Interface::vtable(this).IsAdaptiveDimmingSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    pub fn IsOnlookerDetectionSupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceFeatures3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsOnlookerDetectionSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
 }
 impl windows_core::RuntimeType for HumanPresenceFeatures {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceFeatures>();
@@ -2176,6 +2183,20 @@ impl HumanPresenceSensorReadingUpdate {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDistanceInMillimeters)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
+    pub fn OnlookerPresence(&self) -> windows_core::Result<super::super::Foundation::IReference<HumanPresence>> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OnlookerPresence)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetOnlookerPresence<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<HumanPresence>>,
+    {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSensorReadingUpdate2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetOnlookerPresence)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
+    }
 }
 impl windows_core::RuntimeType for HumanPresenceSensorReadingUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IHumanPresenceSensorReadingUpdate>();
@@ -2307,6 +2328,24 @@ impl HumanPresenceSettings {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LockOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn IsOnlookerDetectionEnabled(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSettings3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsOnlookerDetectionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsOnlookerDetectionEnabled(&self, value: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSettings3>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetIsOnlookerDetectionEnabled)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn OnlookerDetectionOptions(&self) -> windows_core::Result<OnlookerDetectionOptions> {
+        let this = &windows_core::Interface::cast::<IHumanPresenceSettings3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OnlookerDetectionOptions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     pub fn GetCurrentSettingsAsync() -> windows_core::Result<windows_future::IAsyncOperation<HumanPresenceSettings>> {
@@ -3190,6 +3229,16 @@ pub struct IHumanPresenceFeatures2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsAdaptiveDimmingSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IHumanPresenceFeatures3, IHumanPresenceFeatures3_Vtbl, 0xed4e03aa_5ca2_5c02_b783_262e91295619);
+impl windows_core::RuntimeType for IHumanPresenceFeatures3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceFeatures3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsOnlookerDetectionSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IHumanPresenceSensor, IHumanPresenceSensor_Vtbl, 0x2116788b_e389_5cc3_9a97_cb17be1008bd);
 impl windows_core::RuntimeType for IHumanPresenceSensor {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3280,8 +3329,8 @@ impl windows_core::RuntimeName for IHumanPresenceSensorExtension {
 pub trait IHumanPresenceSensorExtension_Impl: windows_core::IUnknownImpl {
     fn Initialize(&self, deviceInterface: &windows_core::HSTRING) -> windows_core::Result<()>;
     fn Start(&self) -> windows_core::Result<()>;
-    fn ProcessReading(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
-    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<'_, HumanPresenceSensorReading>) -> windows_core::Result<()>;
+    fn ProcessReading(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<HumanPresenceSensorReadingUpdate>;
+    fn ProcessReadingTimeoutExpired(&self, reading: windows_core::Ref<HumanPresenceSensorReading>) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn Reset(&self) -> windows_core::Result<()>;
@@ -3425,6 +3474,17 @@ pub struct IHumanPresenceSensorReadingUpdate_Vtbl {
     pub DistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub SetDistanceInMillimeters: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IHumanPresenceSensorReadingUpdate2, IHumanPresenceSensorReadingUpdate2_Vtbl, 0xbb95a033_c688_546a_8e2d_b12642e7efeb);
+impl windows_core::RuntimeType for IHumanPresenceSensorReadingUpdate2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSensorReadingUpdate2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub OnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetOnlookerPresence: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IHumanPresenceSensorStatics, IHumanPresenceSensorStatics_Vtbl, 0x2ae89842_dba9_56b2_9f27_eac69d621004);
 impl windows_core::RuntimeType for IHumanPresenceSensorStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3484,6 +3544,18 @@ pub struct IHumanPresenceSettings2_Vtbl {
     pub WakeOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub DimmingOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub LockOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IHumanPresenceSettings3, IHumanPresenceSettings3_Vtbl, 0x89757226_acc1_4f58_81df_47f1d69537f2);
+impl windows_core::RuntimeType for IHumanPresenceSettings3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IHumanPresenceSettings3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsOnlookerDetectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsOnlookerDetectionEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub OnlookerDetectionOptions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IHumanPresenceSettingsStatics, IHumanPresenceSettingsStatics_Vtbl, 0x7f343202_e010_52c4_af0c_04a8f1e033da);
 impl windows_core::RuntimeType for IHumanPresenceSettingsStatics {
@@ -3705,6 +3777,16 @@ pub struct ILightSensor3_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub ReportThreshold: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(ILightSensor4, ILightSensor4_Vtbl, 0x6167be97_6390_404c_9c19_445311c6a1d3);
+impl windows_core::RuntimeType for ILightSensor4 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILightSensor4_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsChromaticitySupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(ILightSensorDataThreshold, ILightSensorDataThreshold_Vtbl, 0xb160afd1_878f_5492_9f2c_33dc3ae584a3);
 impl windows_core::RuntimeType for ILightSensorDataThreshold {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -3717,6 +3799,17 @@ pub struct ILightSensorDataThreshold_Vtbl {
     pub SetLuxPercentage: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
     pub AbsoluteLux: unsafe extern "system" fn(*mut core::ffi::c_void, *mut f32) -> windows_core::HRESULT,
     pub SetAbsoluteLux: unsafe extern "system" fn(*mut core::ffi::c_void, f32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ILightSensorDataThreshold2, ILightSensorDataThreshold2_Vtbl, 0x6f040fbd_e08b_5b97_8f61_dd4ee66b1733);
+impl windows_core::RuntimeType for ILightSensorDataThreshold2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILightSensorDataThreshold2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Chromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LightSensorChromaticity) -> windows_core::HRESULT,
+    pub SetChromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, LightSensorChromaticity) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILightSensorDeviceId, ILightSensorDeviceId_Vtbl, 0x7fee49f8_0afb_4f51_87f0_6c26375ce94f);
 impl windows_core::RuntimeType for ILightSensorDeviceId {
@@ -3749,6 +3842,16 @@ pub struct ILightSensorReading2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub PerformanceCount: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ILightSensorReading3, ILightSensorReading3_Vtbl, 0xf338ee06_96af_4029_b530_61acc05b7cfe);
+impl windows_core::RuntimeType for ILightSensorReading3 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ILightSensorReading3_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Chromaticity: unsafe extern "system" fn(*mut core::ffi::c_void, *mut LightSensorChromaticity) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(ILightSensorReadingChangedEventArgs, ILightSensorReadingChangedEventArgs_Vtbl, 0xa3a2f4cf_258b_420c_b8ab_8edd601ecf50);
 impl windows_core::RuntimeType for ILightSensorReadingChangedEventArgs {
@@ -3926,6 +4029,19 @@ pub struct IMagnetometerStatics2_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub GetDeviceSelector: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FromIdAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IOnlookerDetectionOptions, IOnlookerDetectionOptions_Vtbl, 0x0412b36f_36e6_51e2_876e_65197cc53c12);
+impl windows_core::RuntimeType for IOnlookerDetectionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IOnlookerDetectionOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlookerDetectionAction) -> windows_core::HRESULT,
+    pub SetAction: unsafe extern "system" fn(*mut core::ffi::c_void, OnlookerDetectionAction) -> windows_core::HRESULT,
+    pub BackOnMode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut OnlookerDetectionBackOnMode) -> windows_core::HRESULT,
+    pub SetBackOnMode: unsafe extern "system" fn(*mut core::ffi::c_void, OnlookerDetectionBackOnMode) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IOrientationSensor, IOrientationSensor_Vtbl, 0x5e354635_cf6b_4c63_abd8_10252b0bf6ec);
 impl windows_core::RuntimeType for IOrientationSensor {
@@ -4735,6 +4851,13 @@ impl LightSensor {
             (windows_core::Interface::vtable(this).ReportThreshold)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
+    pub fn IsChromaticitySupported(&self) -> windows_core::Result<bool> {
+        let this = &windows_core::Interface::cast::<ILightSensor4>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsChromaticitySupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
     pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<ILightSensorDeviceId>(self)?;
         unsafe {
@@ -4781,6 +4904,18 @@ impl windows_core::RuntimeName for LightSensor {
 }
 unsafe impl Send for LightSensor {}
 unsafe impl Sync for LightSensor {}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct LightSensorChromaticity {
+    pub X: f64,
+    pub Y: f64,
+}
+impl windows_core::TypeKind for LightSensorChromaticity {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for LightSensorChromaticity {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Sensors.LightSensorChromaticity;f8;f8)");
+}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct LightSensorDataThreshold(windows_core::IUnknown);
@@ -4807,6 +4942,17 @@ impl LightSensorDataThreshold {
     pub fn SetAbsoluteLux(&self, value: f32) -> windows_core::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAbsoluteLux)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn Chromaticity(&self) -> windows_core::Result<LightSensorChromaticity> {
+        let this = &windows_core::Interface::cast::<ILightSensorDataThreshold2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Chromaticity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetChromaticity(&self, value: LightSensorChromaticity) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<ILightSensorDataThreshold2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetChromaticity)(windows_core::Interface::as_raw(this), value).ok() }
     }
 }
 impl windows_core::RuntimeType for LightSensorDataThreshold {
@@ -4852,6 +4998,13 @@ impl LightSensorReading {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Chromaticity(&self) -> windows_core::Result<LightSensorChromaticity> {
+        let this = &windows_core::Interface::cast::<ILightSensorReading3>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Chromaticity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
 }
@@ -5207,6 +5360,75 @@ impl windows_core::RuntimeName for MagnetometerReadingChangedEventArgs {
 }
 unsafe impl Send for MagnetometerReadingChangedEventArgs {}
 unsafe impl Sync for MagnetometerReadingChangedEventArgs {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OnlookerDetectionAction(pub i32);
+impl OnlookerDetectionAction {
+    pub const Dim: Self = Self(0i32);
+    pub const Notify: Self = Self(1i32);
+    pub const DimAndNotify: Self = Self(2i32);
+}
+impl windows_core::TypeKind for OnlookerDetectionAction {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for OnlookerDetectionAction {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.OnlookerDetectionAction;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct OnlookerDetectionBackOnMode(pub i32);
+impl OnlookerDetectionBackOnMode {
+    pub const Manually: Self = Self(0i32);
+    pub const OneHour: Self = Self(1i32);
+    pub const FourHours: Self = Self(2i32);
+    pub const OneDay: Self = Self(3i32);
+}
+impl windows_core::TypeKind for OnlookerDetectionBackOnMode {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for OnlookerDetectionBackOnMode {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Sensors.OnlookerDetectionBackOnMode;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct OnlookerDetectionOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(OnlookerDetectionOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl OnlookerDetectionOptions {
+    pub fn Action(&self) -> windows_core::Result<OnlookerDetectionAction> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAction(&self, value: OnlookerDetectionAction) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAction)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn BackOnMode(&self) -> windows_core::Result<OnlookerDetectionBackOnMode> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).BackOnMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetBackOnMode(&self, value: OnlookerDetectionBackOnMode) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetBackOnMode)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+}
+impl windows_core::RuntimeType for OnlookerDetectionOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IOnlookerDetectionOptions>();
+}
+unsafe impl windows_core::Interface for OnlookerDetectionOptions {
+    type Vtable = <IOnlookerDetectionOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IOnlookerDetectionOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for OnlookerDetectionOptions {
+    const NAME: &'static str = "Windows.Devices.Sensors.OnlookerDetectionOptions";
+}
+unsafe impl Send for OnlookerDetectionOptions {}
+unsafe impl Sync for OnlookerDetectionOptions {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct OrientationSensor(windows_core::IUnknown);

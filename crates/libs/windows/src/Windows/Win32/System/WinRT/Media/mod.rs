@@ -59,7 +59,7 @@ pub struct IAudioFrameNativeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IAudioFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<super::super::super::Media::MediaFoundation::IMFSample>, forcereadonly: windows_core::BOOL, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IAudioFrameNativeFactory_Vtbl {
@@ -160,7 +160,7 @@ pub struct IVideoFrameNativeFactory_Vtbl {
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 pub trait IVideoFrameNativeFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateFromMFSample(&self, data: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: windows_core::Ref<'_, super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateFromMFSample(&self, data: windows_core::Ref<super::super::super::Media::MediaFoundation::IMFSample>, subtype: *const windows_core::GUID, width: u32, height: u32, forcereadonly: windows_core::BOOL, mindisplayaperture: *const super::super::super::Media::MediaFoundation::MFVideoArea, device: windows_core::Ref<super::super::super::Media::MediaFoundation::IMFDXGIDeviceManager>, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_Media_MediaFoundation")]
 impl IVideoFrameNativeFactory_Vtbl {

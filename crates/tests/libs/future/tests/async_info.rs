@@ -7,35 +7,35 @@ use windows_future::*;
 #[test]
 fn test() -> Result<()> {
     let a = IAsyncAction::ready(Ok(()));
-    a.get()?;
+    a.join()?;
     async_info(&a.cast()?)?;
 
     let a = IAsyncActionWithProgress::<i32>::ready(Ok(()));
-    a.get()?;
+    a.join()?;
     async_info(&a.cast()?)?;
 
     let a = IAsyncOperation::<i32>::ready(Ok(123));
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
     async_info(&a.cast()?)?;
 
     let a = IAsyncOperationWithProgress::<i32, i32>::ready(Ok(123));
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
     async_info(&a.cast()?)?;
 
     let a = IAsyncAction::spawn(|| Ok(()));
-    a.get()?;
+    a.join()?;
     async_info(&a.cast()?)?;
 
     let a = IAsyncOperation::spawn(|| Ok(123));
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
     async_info(&a.cast()?)?;
 
     let a = IAsyncActionWithProgress::<i32>::spawn(|| Ok(()));
-    a.get()?;
+    a.join()?;
     async_info(&a.cast()?)?;
 
     let a = IAsyncOperationWithProgress::<i32, i32>::spawn(|| Ok(123));
-    assert_eq!(a.get()?, 123);
+    assert_eq!(a.join()?, 123);
     async_info(&a.cast()?)?;
 
     Ok(())

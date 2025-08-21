@@ -47,7 +47,7 @@ impl VARIANT {
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl core::fmt::Debug for VARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         let mut debug = f.debug_struct("VARIANT");
         debug.field("type", &unsafe { self.Anonymous.Anonymous.vt });
 
@@ -61,7 +61,7 @@ impl core::fmt::Debug for VARIANT {
 
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl core::fmt::Display for VARIANT {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
     }
 }
@@ -107,7 +107,7 @@ impl TryFrom<&VARIANT> for IUnknown {
     fn try_from(from: &VARIANT) -> Result<Self> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_UNKNOWN && !from.Anonymous.Anonymous.Anonymous.punkVal.is_none() {
-                let unknown: &IUnknown = transmute(&from.Anonymous.Anonymous.Anonymous.punkVal);
+                let unknown: &Self = transmute(&from.Anonymous.Anonymous.Anonymous.punkVal);
                 Ok(unknown.clone())
             } else {
                 Err(Error::from_hresult(TYPE_E_TYPEMISMATCH))
@@ -131,7 +131,7 @@ impl TryFrom<&VARIANT> for BSTR {
     type Error = Error;
     fn try_from(from: &VARIANT) -> Result<Self> {
         let pv = PROPVARIANT::try_from(from)?;
-        BSTR::try_from(&pv)
+        Self::try_from(&pv)
     }
 }
 
@@ -268,7 +268,7 @@ impl TryFrom<&VARIANT> for IDispatch {
     fn try_from(from: &VARIANT) -> windows_core::Result<Self> {
         unsafe {
             if from.Anonymous.Anonymous.vt == VT_DISPATCH && !from.Anonymous.Anonymous.Anonymous.pdispVal.is_none() {
-                let dispatch: &IDispatch = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
+                let dispatch: &Self = transmute(&from.Anonymous.Anonymous.Anonymous.pdispVal);
                 Ok(dispatch.clone())
             } else {
                 Err(windows_core::Error::from_hresult(TYPE_E_TYPEMISMATCH))

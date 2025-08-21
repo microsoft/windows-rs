@@ -1,0 +1,20 @@
+[package]
+name = "test_windows_std"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows = { workspace = true, features = ["std"] }
+# the inclusion of "std" in `windows` should enable it for the following dependencies
+windows-collections = { workspace = true }
+windows-core = { workspace = true }
+windows-future = { workspace = true }
+windows-numerics = { workspace = true }
+
+[lints]
+workspace = true

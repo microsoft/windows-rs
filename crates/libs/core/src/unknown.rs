@@ -13,7 +13,6 @@ pub struct IUnknown(NonNull<c_void>);
 
 #[doc(hidden)]
 #[repr(C)]
-#[allow(non_camel_case_types)]
 pub struct IUnknown_Vtbl {
     pub QueryInterface: unsafe extern "system" fn(
         this: *mut c_void,
@@ -59,14 +58,14 @@ impl PartialEq for IUnknown {
         // pointer values. This works since `QueryInterface` is required to return
         // the same pointer value for queries for `IUnknown`.
         core::ptr::eq(self.as_raw(), other.as_raw())
-            || self.cast::<IUnknown>().unwrap().0 == other.cast::<IUnknown>().unwrap().0
+            || self.cast::<Self>().unwrap().0 == other.cast::<Self>().unwrap().0
     }
 }
 
 impl Eq for IUnknown {}
 
 impl core::fmt::Debug for IUnknown {
-    fn fmt(&self, f: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
+    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
         f.debug_tuple("IUnknown").field(&self.as_raw()).finish()
     }
 }

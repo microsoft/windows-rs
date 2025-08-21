@@ -387,7 +387,7 @@ impl Interface {
             }
             impl ::core::cmp::Eq for #name {}
             impl ::core::fmt::Debug for #name {
-                fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                fn fmt(&self, f: &mut ::core::fmt::Formatter) -> ::core::fmt::Result {
                     f.debug_tuple(#name_string).field(&::windows_core::Interface::as_raw(self)).finish()
                 }
             }
@@ -445,7 +445,7 @@ impl Interface {
 }
 
 impl syn::parse::Parse for Interface {
-    fn parse(input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let attributes = input.call(syn::Attribute::parse_outer)?;
         let mut docs = Vec::new();
         for attr in attributes.into_iter() {
@@ -576,7 +576,7 @@ impl Guid {
 }
 
 impl syn::parse::Parse for Guid {
-    fn parse(cursor: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(cursor: syn::parse::ParseStream) -> syn::Result<Self> {
         let string: Option<syn::LitStr> = cursor.parse().ok();
 
         Ok(Self(string))
@@ -690,7 +690,7 @@ impl InterfaceMethod {
 }
 
 impl syn::parse::Parse for InterfaceMethod {
-    fn parse(input: syn::parse::ParseStream<'_>) -> syn::Result<Self> {
+    fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         let docs = input.call(syn::Attribute::parse_outer)?;
         let visibility = input.parse::<syn::Visibility>()?;
         let method = input.parse::<syn::TraitItemFn>()?;
@@ -722,7 +722,7 @@ impl syn::parse::Parse for InterfaceMethod {
             .collect::<Result<Vec<InterfaceMethodArg>, syn::Error>>()?;
 
         let ret = sig.output;
-        Ok(InterfaceMethod {
+        Ok(Self {
             name: sig.ident,
             visibility,
             args,

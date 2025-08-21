@@ -41,7 +41,7 @@ where
 pub unsafe fn EnterCriticalPolicySection(bmachine: bool) -> windows_core::Result<super::super::Foundation::HANDLE> {
     windows_link::link!("userenv.dll" "system" fn EnterCriticalPolicySection(bmachine : windows_core::BOOL) -> super::super::Foundation:: HANDLE);
     let result__ = unsafe { EnterCriticalPolicySection(bmachine.into()) };
-    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_win32)
+    (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn ExportRSoPData<P0, P1>(lpnamespace: P0, lpfilename: P1) -> windows_core::Result<()>
@@ -1051,7 +1051,7 @@ pub struct IGPMAsyncProgress_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGPMAsyncProgress_Impl: super::Com::IDispatch_Impl {
-    fn Status(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: windows_core::Ref<'_, IGPMStatusMsgCollection>) -> windows_core::Result<()>;
+    fn Status(&self, lprogressnumerator: i32, lprogressdenominator: i32, hrstatus: windows_core::HRESULT, presult: *const super::Variant::VARIANT, ppigpmstatusmsgcollection: windows_core::Ref<IGPMStatusMsgCollection>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMAsyncProgress_Vtbl {
@@ -1466,7 +1466,7 @@ pub struct IGPMBackupDir_Vtbl {
 pub trait IGPMBackupDir_Impl: super::Com::IDispatch_Impl {
     fn BackupDirectory(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetBackup(&self, bstrid: &windows_core::BSTR) -> windows_core::Result<IGPMBackup>;
-    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMBackupCollection>;
+    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMBackupCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMBackupDir_Vtbl {
@@ -1584,7 +1584,7 @@ pub trait IGPMBackupDirEx_Impl: super::Com::IDispatch_Impl {
     fn BackupDir(&self) -> windows_core::Result<windows_core::BSTR>;
     fn BackupType(&self) -> windows_core::Result<GPMBackupType>;
     fn GetBackup(&self, bstrid: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<super::Variant::VARIANT>;
+    fn SearchBackups(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<super::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMBackupDirEx_Vtbl {
@@ -3637,12 +3637,12 @@ pub trait IGPMDomain_Impl: super::Com::IDispatch_Impl {
     fn Domain(&self) -> windows_core::Result<windows_core::BSTR>;
     fn CreateGPO(&self) -> windows_core::Result<IGPMGPO>;
     fn GetGPO(&self, bstrguid: &windows_core::BSTR) -> windows_core::Result<IGPMGPO>;
-    fn SearchGPOs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMGPOCollection>;
-    fn RestoreGPO(&self, pigpmbackup: windows_core::Ref<'_, IGPMBackup>, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn SearchGPOs(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMGPOCollection>;
+    fn RestoreGPO(&self, pigpmbackup: windows_core::Ref<IGPMBackup>, ldcflags: i32, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GetSOM(&self, bstrpath: &windows_core::BSTR) -> windows_core::Result<IGPMSOM>;
-    fn SearchSOMs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
+    fn SearchSOMs(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
     fn GetWMIFilter(&self, bstrpath: &windows_core::BSTR) -> windows_core::Result<IGPMWMIFilter>;
-    fn SearchWMIFilters(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMWMIFilterCollection>;
+    fn SearchWMIFilters(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMWMIFilterCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMDomain_Vtbl {
@@ -3869,11 +3869,11 @@ pub struct IGPMDomain2_Vtbl {
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IGPMDomain2_Impl: IGPMDomain_Impl {
     fn CreateStarterGPO(&self) -> windows_core::Result<IGPMStarterGPO>;
-    fn CreateGPOFromStarterGPO(&self, pgpotemplate: windows_core::Ref<'_, IGPMStarterGPO>) -> windows_core::Result<IGPMGPO>;
+    fn CreateGPOFromStarterGPO(&self, pgpotemplate: windows_core::Ref<IGPMStarterGPO>) -> windows_core::Result<IGPMGPO>;
     fn GetStarterGPO(&self, bstrguid: &windows_core::BSTR) -> windows_core::Result<IGPMStarterGPO>;
-    fn SearchStarterGPOs(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMStarterGPOCollection>;
+    fn SearchStarterGPOs(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMStarterGPOCollection>;
     fn LoadStarterGPO(&self, bstrloadfile: &windows_core::BSTR, boverwrite: super::super::Foundation::VARIANT_BOOL, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn RestoreStarterGPO(&self, pigpmtmplbackup: windows_core::Ref<'_, IGPMStarterGPOBackup>, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn RestoreStarterGPO(&self, pigpmtmplbackup: windows_core::Ref<IGPMStarterGPOBackup>, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMDomain2_Vtbl {
@@ -4316,20 +4316,20 @@ pub trait IGPMGPO_Impl: super::Com::IDispatch_Impl {
     fn UserSysvolVersionNumber(&self) -> windows_core::Result<i32>;
     fn ComputerSysvolVersionNumber(&self) -> windows_core::Result<i32>;
     fn GetWMIFilter(&self) -> windows_core::Result<IGPMWMIFilter>;
-    fn SetWMIFilter(&self, pigpmwmifilter: windows_core::Ref<'_, IGPMWMIFilter>) -> windows_core::Result<()>;
+    fn SetWMIFilter(&self, pigpmwmifilter: windows_core::Ref<IGPMWMIFilter>) -> windows_core::Result<()>;
     fn SetUserEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn SetComputerEnabled(&self, vbenabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn IsUserEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn IsComputerEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<IGPMSecurityInfo>) -> windows_core::Result<()>;
     fn Delete(&self) -> windows_core::Result<()>;
     fn Backup(&self, bstrbackupdir: &windows_core::BSTR, bstrcomment: &windows_core::BSTR, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn Import(&self, lflags: i32, pigpmbackup: windows_core::Ref<'_, IGPMBackup>, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn Import(&self, lflags: i32, pigpmbackup: windows_core::Ref<IGPMBackup>, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &windows_core::BSTR) -> windows_core::Result<IGPMResult>;
-    fn CopyTo(&self, lflags: i32, pigpmdomain: windows_core::Ref<'_, IGPMDomain>, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
-    fn SetSecurityDescriptor(&self, lflags: i32, psd: windows_core::Ref<'_, super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn CopyTo(&self, lflags: i32, pigpmdomain: windows_core::Ref<IGPMDomain>, pvarnewdisplayname: *const super::Variant::VARIANT, pvarmigrationtable: *const super::Variant::VARIANT, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *mut super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
+    fn SetSecurityDescriptor(&self, lflags: i32, psd: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
     fn GetSecurityDescriptor(&self, lflags: i32) -> windows_core::Result<super::Com::IDispatch>;
     fn IsACLConsistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
     fn MakeACLConsistent(&self) -> windows_core::Result<()>;
@@ -6652,12 +6652,12 @@ pub trait IGPMSOM_Impl: super::Com::IDispatch_Impl {
     fn SetGPOInheritanceBlocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
     fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Path(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn CreateGPOLink(&self, llinkpos: i32, pgpo: windows_core::Ref<'_, IGPMGPO>) -> windows_core::Result<IGPMGPOLink>;
+    fn CreateGPOLink(&self, llinkpos: i32, pgpo: windows_core::Ref<IGPMGPO>) -> windows_core::Result<IGPMGPOLink>;
     fn Type(&self) -> windows_core::Result<GPMSOMType>;
     fn GetGPOLinks(&self) -> windows_core::Result<IGPMGPOLinksCollection>;
     fn GetInheritedGPOLinks(&self) -> windows_core::Result<IGPMGPOLinksCollection>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMSOM_Vtbl {
@@ -7018,8 +7018,8 @@ pub trait IGPMSecurityInfo_Impl: super::Com::IDispatch_Impl {
     fn Count(&self) -> windows_core::Result<i32>;
     fn get_Item(&self, lindex: i32) -> windows_core::Result<super::Variant::VARIANT>;
     fn _NewEnum(&self) -> windows_core::Result<super::Ole::IEnumVARIANT>;
-    fn Add(&self, pperm: windows_core::Ref<'_, IGPMPermission>) -> windows_core::Result<()>;
-    fn Remove(&self, pperm: windows_core::Ref<'_, IGPMPermission>) -> windows_core::Result<()>;
+    fn Add(&self, pperm: windows_core::Ref<IGPMPermission>) -> windows_core::Result<()>;
+    fn Remove(&self, pperm: windows_core::Ref<IGPMPermission>) -> windows_core::Result<()>;
     fn RemoveTrustee(&self, bstrtrustee: &windows_core::BSTR) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -7159,7 +7159,7 @@ pub trait IGPMSitesContainer_Impl: super::Com::IDispatch_Impl {
     fn Domain(&self) -> windows_core::Result<windows_core::BSTR>;
     fn Forest(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetSite(&self, bstrsitename: &windows_core::BSTR) -> windows_core::Result<IGPMSOM>;
-    fn SearchSites(&self, pigpmsearchcriteria: windows_core::Ref<'_, IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
+    fn SearchSites(&self, pigpmsearchcriteria: windows_core::Ref<IGPMSearchCriteria>) -> windows_core::Result<IGPMSOMCollection>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMSitesContainer_Vtbl {
@@ -7435,7 +7435,7 @@ pub trait IGPMStarterGPO_Impl: super::Com::IDispatch_Impl {
     fn GenerateReport(&self, gpmreporttype: GPMReportType, pvargpmprogress: *const super::Variant::VARIANT, pvargpmcancel: *const super::Variant::VARIANT) -> windows_core::Result<IGPMResult>;
     fn GenerateReportToFile(&self, gpmreporttype: GPMReportType, bstrtargetfilepath: &windows_core::BSTR) -> windows_core::Result<IGPMResult>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMStarterGPO_Vtbl {
@@ -8650,7 +8650,7 @@ pub trait IGPMWMIFilter_Impl: super::Com::IDispatch_Impl {
     fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
     fn GetQueryList(&self) -> windows_core::Result<super::Variant::VARIANT>;
     fn GetSecurityInfo(&self) -> windows_core::Result<IGPMSecurityInfo>;
-    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<'_, IGPMSecurityInfo>) -> windows_core::Result<()>;
+    fn SetSecurityInfo(&self, psecurityinfo: windows_core::Ref<IGPMSecurityInfo>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IGPMWMIFilter_Vtbl {
@@ -9286,7 +9286,7 @@ pub type PFNGENERATEGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32,
 #[cfg(feature = "Win32_System_Registry")]
 pub type PFNPROCESSGROUPPOLICY = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK) -> u32>;
 #[cfg(all(feature = "Win32_System_Registry", feature = "Win32_System_Wmi"))]
-pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<'_, super::Wmi::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> u32>;
+pub type PFNPROCESSGROUPPOLICYEX = Option<unsafe extern "system" fn(dwflags: u32, htoken: super::super::Foundation::HANDLE, hkeyroot: super::Registry::HKEY, pdeletedgpolist: *const GROUP_POLICY_OBJECTA, pchangedgpolist: *const GROUP_POLICY_OBJECTA, phandle: usize, pbabort: *mut windows_core::BOOL, pstatuscallback: PFNSTATUSMESSAGECALLBACK, pwbemservices: windows_core::Ref<super::Wmi::IWbemServices>, prsopstatus: *mut windows_core::HRESULT) -> u32>;
 pub type PFNSTATUSMESSAGECALLBACK = Option<unsafe extern "system" fn(bverbose: windows_core::BOOL, lpmessage: windows_core::PCWSTR) -> u32>;
 pub const PI_APPLYPOLICY: u32 = 2u32;
 pub const PI_NOUI: u32 = 1u32;

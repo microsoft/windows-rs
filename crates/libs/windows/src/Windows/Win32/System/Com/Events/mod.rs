@@ -595,7 +595,7 @@ pub struct IEventControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventControl_Impl: super::IDispatch_Impl {
-    fn SetPublisherFilter(&self, methodname: &windows_core::BSTR, ppublisherfilter: windows_core::Ref<'_, IPublisherFilter>) -> windows_core::Result<()>;
+    fn SetPublisherFilter(&self, methodname: &windows_core::BSTR, ppublisherfilter: windows_core::Ref<IPublisherFilter>) -> windows_core::Result<()>;
     fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetAllowInprocActivation(&self, fallowinprocactivation: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetSubscriptions(&self, methodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>;
@@ -1529,7 +1529,7 @@ pub trait IEventSubscription_Impl: super::IDispatch_Impl {
     fn SubscriberCLSID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn SetSubscriberCLSID(&self, bstrsubscriberclsid: &windows_core::BSTR) -> windows_core::Result<()>;
     fn SubscriberInterface(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetSubscriberInterface(&self, psubscriberinterface: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetSubscriberInterface(&self, psubscriberinterface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn PerUser(&self) -> windows_core::Result<windows_core::BOOL>;
     fn SetPerUser(&self, fperuser: windows_core::BOOL) -> windows_core::Result<()>;
     fn OwnerSID(&self) -> windows_core::Result<windows_core::BSTR>;
@@ -1961,7 +1961,7 @@ pub struct IEventSystem_Vtbl {
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEventSystem_Impl: super::IDispatch_Impl {
     fn Query(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR, errorindex: *mut i32) -> windows_core::Result<windows_core::IUnknown>;
-    fn Store(&self, progid: &windows_core::BSTR, pinterface: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Store(&self, progid: &windows_core::BSTR, pinterface: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn Remove(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn EventObjectChangeEventClassID(&self) -> windows_core::Result<windows_core::BSTR>;
     fn QueryS(&self, progid: &windows_core::BSTR, querycriteria: &windows_core::BSTR) -> windows_core::Result<windows_core::IUnknown>;
@@ -2070,7 +2070,7 @@ pub struct IFiringControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IFiringControl_Impl: super::IDispatch_Impl {
-    fn FireSubscription(&self, subscription: windows_core::Ref<'_, IEventSubscription>) -> windows_core::Result<()>;
+    fn FireSubscription(&self, subscription: windows_core::Ref<IEventSubscription>) -> windows_core::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IFiringControl_Vtbl {
@@ -2142,7 +2142,7 @@ pub struct IMultiInterfaceEventControl_Vtbl {
     pub SetFireInParallel: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IMultiInterfaceEventControl_Impl: windows_core::IUnknownImpl {
-    fn SetMultiInterfacePublisherFilter(&self, classfilter: windows_core::Ref<'_, IMultiInterfacePublisherFilter>) -> windows_core::Result<()>;
+    fn SetMultiInterfacePublisherFilter(&self, classfilter: windows_core::Ref<IMultiInterfacePublisherFilter>) -> windows_core::Result<()>;
     fn GetSubscriptions(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, optionalcriteria: &windows_core::BSTR, optionalerrorindex: *const i32) -> windows_core::Result<IEventObjectCollection>;
     fn SetDefaultQuery(&self, eventiid: *const windows_core::GUID, bstrmethodname: &windows_core::BSTR, bstrcriteria: &windows_core::BSTR) -> windows_core::Result<i32>;
     fn AllowInprocActivation(&self) -> windows_core::Result<windows_core::BOOL>;
@@ -2258,8 +2258,8 @@ pub struct IMultiInterfacePublisherFilter_Vtbl {
     pub PrepareToFire: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IMultiInterfacePublisherFilter_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, peic: windows_core::Ref<'_, IMultiInterfaceEventControl>) -> windows_core::Result<()>;
-    fn PrepareToFire(&self, iid: *const windows_core::GUID, methodname: &windows_core::BSTR, firingcontrol: windows_core::Ref<'_, IFiringControl>) -> windows_core::Result<()>;
+    fn Initialize(&self, peic: windows_core::Ref<IMultiInterfaceEventControl>) -> windows_core::Result<()>;
+    fn PrepareToFire(&self, iid: *const windows_core::GUID, methodname: &windows_core::BSTR, firingcontrol: windows_core::Ref<IFiringControl>) -> windows_core::Result<()>;
 }
 impl IMultiInterfacePublisherFilter_Vtbl {
     pub const fn new<Identity: IMultiInterfacePublisherFilter_Impl, const OFFSET: isize>() -> Self {
@@ -2310,8 +2310,8 @@ pub struct IPublisherFilter_Vtbl {
     pub PrepareToFire: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IPublisherFilter_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, methodname: &windows_core::BSTR, dispuserdefined: windows_core::Ref<'_, super::IDispatch>) -> windows_core::Result<()>;
-    fn PrepareToFire(&self, methodname: &windows_core::BSTR, firingcontrol: windows_core::Ref<'_, IFiringControl>) -> windows_core::Result<()>;
+    fn Initialize(&self, methodname: &windows_core::BSTR, dispuserdefined: windows_core::Ref<super::IDispatch>) -> windows_core::Result<()>;
+    fn PrepareToFire(&self, methodname: &windows_core::BSTR, firingcontrol: windows_core::Ref<IFiringControl>) -> windows_core::Result<()>;
 }
 impl IPublisherFilter_Vtbl {
     pub const fn new<Identity: IPublisherFilter_Impl, const OFFSET: isize>() -> Self {

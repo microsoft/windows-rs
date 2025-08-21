@@ -1,4 +1,4 @@
-windows_targets::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
+windows_link::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct ACTION_HEADER {

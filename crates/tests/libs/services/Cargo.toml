@@ -1,0 +1,16 @@
+[package]
+name = "test_services"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies]
+windows-services = { workspace = true }
+windows-sys = { workspace = true, features = ["Win32_System_Services"] }
+
+[lints]
+workspace = true

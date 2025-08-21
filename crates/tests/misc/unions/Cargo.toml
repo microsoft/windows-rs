@@ -20,3 +20,6 @@ workspace = true
 features = [
     "Win32_System_IO",
 ]
+
+[lints]
+workspace = true

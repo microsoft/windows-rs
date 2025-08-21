@@ -10,7 +10,6 @@ where
     T: RuntimeType + 'static + Clone,
     <T as Type<T>>::Default: PartialEq;
 
-#[allow(non_snake_case)]
 impl<T> IVectorView_Impl<T> for Thing_Impl<T>
 where
     T: RuntimeType + 'static + Clone,

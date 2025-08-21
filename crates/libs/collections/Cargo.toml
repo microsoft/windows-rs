@@ -2,11 +2,11 @@
 name = "windows-collections"
 version = "0.2.0"
 edition = "2021"
-rust-version = "1.74"
+rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Windows collection types"
 repository = "https://github.com/microsoft/windows-rs"
-readme = "readme.md"
+categories = ["os::windows-apis"]
 
 [dependencies]
 windows-core = { workspace = true }
@@ -17,7 +17,7 @@ windows-strings = { workspace = true }
 
 [features]
 default = ["std"]
-std = []
+std = ["windows-core/std"]
 
 [lints]
 workspace = true

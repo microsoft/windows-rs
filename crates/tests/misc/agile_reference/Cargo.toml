@@ -14,3 +14,6 @@ features = [
     "Media_Control",
     "Foundation_Collections"
 ]
+
+[lints]
+workspace = true

@@ -540,8 +540,8 @@ pub trait IRdcLibrary_Impl: windows_core::IUnknownImpl {
     fn CreateGeneratorParameters(&self, parameterstype: GeneratorParametersType, level: u32) -> windows_core::Result<IRdcGeneratorParameters>;
     fn OpenGeneratorParameters(&self, size: u32, parametersblob: *const u8) -> windows_core::Result<IRdcGeneratorParameters>;
     fn CreateGenerator(&self, depth: u32, igeneratorparametersarray: *const Option<IRdcGeneratorParameters>) -> windows_core::Result<IRdcGenerator>;
-    fn CreateComparator(&self, iseedsignaturesfile: windows_core::Ref<'_, IRdcFileReader>, comparatorbuffersize: u32) -> windows_core::Result<IRdcComparator>;
-    fn CreateSignatureReader(&self, ifilereader: windows_core::Ref<'_, IRdcFileReader>) -> windows_core::Result<IRdcSignatureReader>;
+    fn CreateComparator(&self, iseedsignaturesfile: windows_core::Ref<IRdcFileReader>, comparatorbuffersize: u32) -> windows_core::Result<IRdcComparator>;
+    fn CreateSignatureReader(&self, ifilereader: windows_core::Ref<IRdcFileReader>) -> windows_core::Result<IRdcSignatureReader>;
     fn GetRDCVersion(&self, currentversion: *mut u32, minimumcompatibleappversion: *mut u32) -> windows_core::Result<()>;
 }
 impl IRdcLibrary_Vtbl {
@@ -812,11 +812,11 @@ pub struct ISimilarity_Vtbl {
 }
 pub trait ISimilarity_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: windows_core::Ref<'_, ISimilarityTraitsMapping>, fileidfile: windows_core::Ref<'_, IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId, similaritydata: *const SimilarityData) -> windows_core::Result<()>;
     fn FindSimilarFileId(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, resultssize: u32) -> windows_core::Result<IFindSimilarResults>;
-    fn CopyAndSwap(&self, newsimilaritytables: windows_core::Ref<'_, ISimilarity>, reportprogress: windows_core::Ref<'_, ISimilarityReportProgress>) -> windows_core::Result<()>;
+    fn CopyAndSwap(&self, newsimilaritytables: windows_core::Ref<ISimilarity>, reportprogress: windows_core::Ref<ISimilarityReportProgress>) -> windows_core::Result<()>;
     fn GetRecordCount(&self) -> windows_core::Result<u32>;
 }
 impl ISimilarity_Vtbl {
@@ -960,7 +960,7 @@ pub struct ISimilarityFileIdTable_Vtbl {
 }
 pub trait ISimilarityFileIdTable_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, fileidfile: windows_core::Ref<'_, IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, fileidfile: windows_core::Ref<IRdcFileWriter>, truncate: windows_core::BOOL, recordsize: u32) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, similarityfileid: *const SimilarityFileId) -> windows_core::Result<u32>;
     fn Lookup(&self, similarityfileindex: u32, similarityfileid: *mut SimilarityFileId) -> windows_core::Result<()>;
@@ -1395,7 +1395,7 @@ pub struct ISimilarityTraitsTable_Vtbl {
 }
 pub trait ISimilarityTraitsTable_Impl: windows_core::IUnknownImpl {
     fn CreateTable(&self, path: &windows_core::PCWSTR, truncate: windows_core::BOOL, securitydescriptor: *const u8) -> windows_core::Result<RdcCreatedTables>;
-    fn CreateTableIndirect(&self, mapping: windows_core::Ref<'_, ISimilarityTraitsMapping>, truncate: windows_core::BOOL) -> windows_core::Result<RdcCreatedTables>;
+    fn CreateTableIndirect(&self, mapping: windows_core::Ref<ISimilarityTraitsMapping>, truncate: windows_core::BOOL) -> windows_core::Result<RdcCreatedTables>;
     fn CloseTable(&self, isvalid: windows_core::BOOL) -> windows_core::Result<()>;
     fn Append(&self, data: *const SimilarityData, fileindex: u32) -> windows_core::Result<()>;
     fn FindSimilarFileIndex(&self, similaritydata: *const SimilarityData, numberofmatchesrequired: u16, findsimilarfileindexresults: *mut FindSimilarFileIndexResults, resultssize: u32, resultsused: *mut u32) -> windows_core::Result<()>;

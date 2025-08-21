@@ -32,6 +32,7 @@ fn _test() {
 // This panic handler will cause a build error if an indirect `std` dependency exists as `std`
 // will include its own panic handler and conflict with this one.
 #[cfg_attr(not(test), panic_handler)]
-fn _panic(_: &core::panic::PanicInfo<'_>) -> ! {
+#[expect(clippy::empty_loop)] // just a test
+fn _panic(_: &core::panic::PanicInfo) -> ! {
     loop {}
 }

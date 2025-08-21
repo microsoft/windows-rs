@@ -17,7 +17,9 @@ fn main() {
         }
     }
 
-    for package in helpers::crates("crates/libs") {
+    for manifest in helpers::crates("crates/libs") {
+        let package = manifest.package;
+
         writeln!(
             &mut toml,
             r#"{} = {{ version = "{}", path = "crates/libs/{}", default-features = false }}"#,

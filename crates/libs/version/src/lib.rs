@@ -1,6 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![cfg_attr(not(test), no_std)]
+#![allow(non_snake_case, clippy::upper_case_acronyms)]
 
 mod bindings;
 use bindings::*;
@@ -41,7 +42,7 @@ impl OsVersion {
             RtlGetVersion(&mut info as *mut _ as *mut _);
         }
 
-        OsVersion {
+        Self {
             major: info.dwMajorVersion,
             minor: info.dwMinorVersion,
             pack: info.wServicePackMajor as u32,
@@ -77,6 +78,7 @@ impl OSVERSIONINFOEXW {
 }
 
 #[cfg(test)]
+#[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 mod test {
     use super::OsVersion;
     use std::sync::RwLock;

@@ -1,0 +1,19 @@
+fn main() {
+    windows_bindgen::bindgen([
+        "--out",
+        "src/bindings.rs",
+        "--flat",
+        "--sys",
+        "--no-deps",
+        "--filter",
+        "SERVICE_ACCEPT_TIMECHANGE",
+        "SERVICE_CONTROL_TIMECHANGE",
+        "SERVICE_TIMECHANGE_INFO",
+        "FileTimeToSystemTime",
+        "FileTimeToLocalFileTime",
+        "--derive",
+        "SYSTEMTIME=Debug",
+        "SERVICE_TIMECHANGE_INFO=Debug",
+    ])
+    .unwrap();
+}

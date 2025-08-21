@@ -52,7 +52,7 @@ impl TypeName {
         self.1
     }
 
-    pub fn write(&self, config: &Config<'_>, generics: &[Type]) -> TokenStream {
+    pub fn write(&self, config: &Config, generics: &[Type]) -> TokenStream {
         let name = to_ident(self.name());
         let namespace = config.write_namespace(*self);
 
@@ -66,7 +66,7 @@ impl TypeName {
 }
 
 impl std::fmt::Display for TypeName {
-    fn fmt(&self, fmt: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter) -> std::fmt::Result {
         write!(fmt, "{}.{}", self.0, self.1)
     }
 }

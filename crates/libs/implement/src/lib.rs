@@ -155,7 +155,7 @@ struct ImplementAttributes {
 }
 
 impl syn::parse::Parse for ImplementAttributes {
-    fn parse(cursor: syn::parse::ParseStream<'_>) -> syn::parse::Result<Self> {
+    fn parse(cursor: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let mut input = Self::default();
 
         while !cursor.is_empty() {
@@ -167,7 +167,7 @@ impl syn::parse::Parse for ImplementAttributes {
 }
 
 impl ImplementAttributes {
-    fn parse_implement(&mut self, cursor: syn::parse::ParseStream<'_>) -> syn::parse::Result<()> {
+    fn parse_implement(&mut self, cursor: syn::parse::ParseStream) -> syn::parse::Result<()> {
         let tree = cursor.parse::<UseTree2>()?;
         self.walk_implement(&tree, &mut String::new())?;
 
@@ -217,7 +217,7 @@ enum UseTree2 {
 impl UseTree2 {
     fn to_element_type(&self, namespace: &mut String) -> syn::parse::Result<ImplementType> {
         match self {
-            UseTree2::Path(input) => {
+            Self::Path(input) => {
                 if !namespace.is_empty() {
                     namespace.push_str("::");
                 }
@@ -225,7 +225,7 @@ impl UseTree2 {
                 namespace.push_str(&input.ident.to_string());
                 input.tree.to_element_type(namespace)
             }
-            UseTree2::Name(input) => {
+            Self::Name(input) => {
                 let mut type_name = input.ident.to_string();
                 let span = input.ident.span();
 
@@ -245,7 +245,7 @@ impl UseTree2 {
                     span,
                 })
             }
-            UseTree2::Group(input) => Err(syn::parse::Error::new(
+            Self::Group(input) => Err(syn::parse::Error::new(
                 input.brace_token.span.join(),
                 "Syntax not supported",
             )),
@@ -270,14 +270,14 @@ struct UseGroup2 {
 }
 
 impl syn::parse::Parse for UseTree2 {
-    fn parse(input: syn::parse::ParseStream<'_>) -> syn::parse::Result<UseTree2> {
+    fn parse(input: syn::parse::ParseStream) -> syn::parse::Result<Self> {
         let lookahead = input.lookahead1();
         if lookahead.peek(syn::Ident) {
             use syn::ext::IdentExt;
             let ident = input.call(syn::Ident::parse_any)?;
             if input.peek(syn::Token![::]) {
                 input.parse::<syn::Token![::]>()?;
-                Ok(UseTree2::Path(UsePath2 {
+                Ok(Self::Path(UsePath2 {
                     ident,
                     tree: Box::new(input.parse()?),
                 }))
@@ -292,8 +292,8 @@ impl syn::parse::Parse for UseTree2 {
                 let span = input.span();
                 let value = input.call(syn::Ident::parse_any)?;
                 match value.to_string().as_str() {
-                    "Partial" => Ok(UseTree2::TrustLevel(1)),
-                    "Full" => Ok(UseTree2::TrustLevel(2)),
+                    "Partial" => Ok(Self::TrustLevel(1)),
+                    "Full" => Ok(Self::TrustLevel(2)),
                     _ => Err(syn::parse::Error::new(
                         span,
                         "`TrustLevel` must be `Partial` or `Full`",
@@ -304,7 +304,7 @@ impl syn::parse::Parse for UseTree2 {
                     input.parse::<syn::Token![<]>()?;
                     let mut generics = Vec::new();
                     loop {
-                        generics.push(input.parse::<UseTree2>()?);
+                        generics.push(input.parse::<Self>()?);
 
                         if input.parse::<syn::Token![,]>().is_err() {
                             break;
@@ -316,14 +316,14 @@ impl syn::parse::Parse for UseTree2 {
                     Vec::new()
                 };
 
-                Ok(UseTree2::Name(UseName2 { ident, generics }))
+                Ok(Self::Name(UseName2 { ident, generics }))
             }
         } else if lookahead.peek(syn::token::Brace) {
             let content;
             let brace_token = syn::braced!(content in input);
-            let items = content.parse_terminated(UseTree2::parse, syn::Token![,])?;
+            let items = content.parse_terminated(Self::parse, syn::Token![,])?;
 
-            Ok(UseTree2::Group(UseGroup2 { brace_token, items }))
+            Ok(Self::Group(UseGroup2 { brace_token, items }))
         } else {
             Err(lookahead.error())
         }

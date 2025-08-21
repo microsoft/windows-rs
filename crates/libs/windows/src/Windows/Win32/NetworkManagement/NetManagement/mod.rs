@@ -2782,8 +2782,8 @@ pub trait INetCfg_Impl: windows_core::IUnknownImpl {
     fn Uninitialize(&self) -> windows_core::Result<()>;
     fn Apply(&self) -> windows_core::Result<()>;
     fn Cancel(&self) -> windows_core::Result<()>;
-    fn EnumComponents(&self, pguidclass: *const windows_core::GUID, ppenumcomponent: windows_core::OutRef<'_, IEnumNetCfgComponent>) -> windows_core::Result<()>;
-    fn FindComponent(&self, pszwinfid: &windows_core::PCWSTR, pcomponent: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
+    fn EnumComponents(&self, pguidclass: *const windows_core::GUID, ppenumcomponent: windows_core::OutRef<IEnumNetCfgComponent>) -> windows_core::Result<()>;
+    fn FindComponent(&self, pszwinfid: &windows_core::PCWSTR, pcomponent: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
     fn QueryNetCfgClass(&self, pguidclass: *const windows_core::GUID, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
 }
 impl INetCfg_Vtbl {
@@ -2869,8 +2869,8 @@ pub struct INetCfgBindingInterface_Vtbl {
 }
 pub trait INetCfgBindingInterface_Impl: windows_core::IUnknownImpl {
     fn GetName(&self, ppszwinterfacename: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetUpperComponent(&self, ppnccitem: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn GetLowerComponent(&self, ppnccitem: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
+    fn GetUpperComponent(&self, ppnccitem: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
+    fn GetLowerComponent(&self, ppnccitem: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
 }
 impl INetCfgBindingInterface_Vtbl {
     pub const fn new<Identity: INetCfgBindingInterface_Impl, const OFFSET: isize>() -> Self {
@@ -2955,14 +2955,14 @@ pub struct INetCfgBindingPath_Vtbl {
     pub EnumBindingInterfaces: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgBindingPath_Impl: windows_core::IUnknownImpl {
-    fn IsSamePathAs(&self, ppath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
-    fn IsSubPathOf(&self, ppath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn IsSamePathAs(&self, ppath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn IsSubPathOf(&self, ppath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
     fn IsEnabled(&self) -> windows_core::Result<()>;
     fn Enable(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetPathToken(&self, ppszwpathtoken: *mut windows_core::PWSTR) -> windows_core::Result<()>;
-    fn GetOwner(&self, ppcomponent: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
+    fn GetOwner(&self, ppcomponent: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
     fn GetDepth(&self) -> windows_core::Result<u32>;
-    fn EnumBindingInterfaces(&self, ppenuminterface: windows_core::OutRef<'_, IEnumNetCfgBindingInterface>) -> windows_core::Result<()>;
+    fn EnumBindingInterfaces(&self, ppenuminterface: windows_core::OutRef<IEnumNetCfgBindingInterface>) -> windows_core::Result<()>;
 }
 impl INetCfgBindingPath_Vtbl {
     pub const fn new<Identity: INetCfgBindingPath_Impl, const OFFSET: isize>() -> Self {
@@ -3058,8 +3058,8 @@ pub struct INetCfgClass_Vtbl {
     pub EnumComponents: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgClass_Impl: windows_core::IUnknownImpl {
-    fn FindComponent(&self, pszwinfid: &windows_core::PCWSTR, ppnccitem: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn EnumComponents(&self, ppenumcomponent: windows_core::OutRef<'_, IEnumNetCfgComponent>) -> windows_core::Result<()>;
+    fn FindComponent(&self, pszwinfid: &windows_core::PCWSTR, ppnccitem: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
+    fn EnumComponents(&self, ppenumcomponent: windows_core::OutRef<IEnumNetCfgComponent>) -> windows_core::Result<()>;
 }
 impl INetCfgClass_Vtbl {
     pub const fn new<Identity: INetCfgClass_Impl, const OFFSET: isize>() -> Self {
@@ -3116,9 +3116,9 @@ pub struct INetCfgClassSetup_Vtbl {
     pub DeInstall: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *const OBO_TOKEN, *mut windows_core::PWSTR) -> windows_core::HRESULT,
 }
 pub trait INetCfgClassSetup_Impl: windows_core::IUnknownImpl {
-    fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn Install(&self, pszwinfid: &windows_core::PCWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: &windows_core::PCWSTR, pszwanswersections: &windows_core::PCWSTR, ppnccitem: windows_core::OutRef<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn DeInstall(&self, pcomponent: windows_core::Ref<'_, INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut windows_core::PWSTR) -> windows_core::Result<()>;
+    fn SelectAndInstall(&self, hwndparent: super::super::Foundation::HWND, pobotoken: *const OBO_TOKEN, ppnccitem: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
+    fn Install(&self, pszwinfid: &windows_core::PCWSTR, pobotoken: *const OBO_TOKEN, dwsetupflags: u32, dwupgradefrombuildno: u32, pszwanswerfile: &windows_core::PCWSTR, pszwanswersections: &windows_core::PCWSTR, ppnccitem: windows_core::OutRef<INetCfgComponent>) -> windows_core::Result<()>;
+    fn DeInstall(&self, pcomponent: windows_core::Ref<INetCfgComponent>, pobotoken: *const OBO_TOKEN, pmszwrefs: *mut windows_core::PWSTR) -> windows_core::Result<()>;
 }
 impl INetCfgClassSetup_Vtbl {
     pub const fn new<Identity: INetCfgClassSetup_Impl, const OFFSET: isize>() -> Self {
@@ -3175,7 +3175,7 @@ pub struct INetCfgClassSetup2_Vtbl {
     pub UpdateNonEnumeratedComponent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, u32) -> windows_core::HRESULT,
 }
 pub trait INetCfgClassSetup2_Impl: INetCfgClassSetup_Impl {
-    fn UpdateNonEnumeratedComponent(&self, picomp: windows_core::Ref<'_, INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> windows_core::Result<()>;
+    fn UpdateNonEnumeratedComponent(&self, picomp: windows_core::Ref<INetCfgComponent>, dwsetupflags: u32, dwupgradefrombuildno: u32) -> windows_core::Result<()>;
 }
 impl INetCfgClassSetup2_Vtbl {
     pub const fn new<Identity: INetCfgClassSetup2_Impl, const OFFSET: isize>() -> Self {
@@ -3278,7 +3278,7 @@ pub trait INetCfgComponent_Impl: windows_core::IUnknownImpl {
     fn GetBindName(&self, ppszwbindname: *mut windows_core::PWSTR) -> windows_core::Result<()>;
     fn GetDeviceStatus(&self) -> windows_core::Result<u32>;
     fn OpenParamKey(&self, phkey: *mut super::super::System::Registry::HKEY) -> windows_core::Result<()>;
-    fn RaisePropertyUi(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn RaisePropertyUi(&self, hwndparent: super::super::Foundation::HWND, dwflags: u32, punkcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
 }
 #[cfg(feature = "Win32_System_Registry")]
 impl INetCfgComponent_Vtbl {
@@ -3454,14 +3454,14 @@ pub struct INetCfgComponentBindings_Vtbl {
     pub MoveAfter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentBindings_Impl: windows_core::IUnknownImpl {
-    fn BindTo(&self, pnccitem: windows_core::Ref<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn UnbindFrom(&self, pnccitem: windows_core::Ref<'_, INetCfgComponent>) -> windows_core::Result<()>;
+    fn BindTo(&self, pnccitem: windows_core::Ref<INetCfgComponent>) -> windows_core::Result<()>;
+    fn UnbindFrom(&self, pnccitem: windows_core::Ref<INetCfgComponent>) -> windows_core::Result<()>;
     fn SupportsBindingInterface(&self, dwflags: u32, pszwinterfacename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn IsBoundTo(&self, pnccitem: windows_core::Ref<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn IsBindableTo(&self, pnccitem: windows_core::Ref<'_, INetCfgComponent>) -> windows_core::Result<()>;
-    fn EnumBindingPaths(&self, dwflags: u32, ppienum: windows_core::OutRef<'_, IEnumNetCfgBindingPath>) -> windows_core::Result<()>;
-    fn MoveBefore(&self, pncbitemsrc: windows_core::Ref<'_, INetCfgBindingPath>, pncbitemdest: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
-    fn MoveAfter(&self, pncbitemsrc: windows_core::Ref<'_, INetCfgBindingPath>, pncbitemdest: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn IsBoundTo(&self, pnccitem: windows_core::Ref<INetCfgComponent>) -> windows_core::Result<()>;
+    fn IsBindableTo(&self, pnccitem: windows_core::Ref<INetCfgComponent>) -> windows_core::Result<()>;
+    fn EnumBindingPaths(&self, dwflags: u32, ppienum: windows_core::OutRef<IEnumNetCfgBindingPath>) -> windows_core::Result<()>;
+    fn MoveBefore(&self, pncbitemsrc: windows_core::Ref<INetCfgBindingPath>, pncbitemdest: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn MoveAfter(&self, pncbitemsrc: windows_core::Ref<INetCfgBindingPath>, pncbitemdest: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
 }
 impl INetCfgComponentBindings_Vtbl {
     pub const fn new<Identity: INetCfgComponentBindings_Impl, const OFFSET: isize>() -> Self {
@@ -3563,9 +3563,9 @@ pub struct INetCfgComponentControl_Vtbl {
     pub CancelChanges: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentControl_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, picomp: windows_core::Ref<'_, INetCfgComponent>, pinetcfg: windows_core::Ref<'_, INetCfg>, finstalling: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Initialize(&self, picomp: windows_core::Ref<INetCfgComponent>, pinetcfg: windows_core::Ref<INetCfg>, finstalling: windows_core::BOOL) -> windows_core::Result<()>;
     fn ApplyRegistryChanges(&self) -> windows_core::Result<()>;
-    fn ApplyPnpChanges(&self, picallback: windows_core::Ref<'_, INetCfgPnpReconfigCallback>) -> windows_core::Result<()>;
+    fn ApplyPnpChanges(&self, picallback: windows_core::Ref<INetCfgPnpReconfigCallback>) -> windows_core::Result<()>;
     fn CancelChanges(&self) -> windows_core::Result<()>;
 }
 impl INetCfgComponentControl_Vtbl {
@@ -3631,8 +3631,8 @@ pub struct INetCfgComponentNotifyBinding_Vtbl {
     pub NotifyBindingPath: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentNotifyBinding_Impl: windows_core::IUnknownImpl {
-    fn QueryBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
-    fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn QueryBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn NotifyBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
 }
 impl INetCfgComponentNotifyBinding_Vtbl {
     pub const fn new<Identity: INetCfgComponentNotifyBinding_Impl, const OFFSET: isize>() -> Self {
@@ -3698,9 +3698,9 @@ pub struct INetCfgComponentNotifyGlobal_Vtbl {
 }
 pub trait INetCfgComponentNotifyGlobal_Impl: windows_core::IUnknownImpl {
     fn GetSupportedNotifications(&self) -> windows_core::Result<u32>;
-    fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
-    fn SysNotifyBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<'_, INetCfgBindingPath>) -> windows_core::Result<()>;
-    fn SysNotifyComponent(&self, dwchangeflag: u32, picomp: windows_core::Ref<'_, INetCfgComponent>) -> windows_core::Result<()>;
+    fn SysQueryBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn SysNotifyBindingPath(&self, dwchangeflag: u32, pipath: windows_core::Ref<INetCfgBindingPath>) -> windows_core::Result<()>;
+    fn SysNotifyComponent(&self, dwchangeflag: u32, picomp: windows_core::Ref<INetCfgComponent>) -> windows_core::Result<()>;
 }
 impl INetCfgComponentNotifyGlobal_Vtbl {
     pub const fn new<Identity: INetCfgComponentNotifyGlobal_Impl, const OFFSET: isize>() -> Self {
@@ -3787,8 +3787,8 @@ pub struct INetCfgComponentPropertyUi_Vtbl {
     pub CancelProperties: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentPropertyUi_Impl: windows_core::IUnknownImpl {
-    fn QueryPropertyUi(&self, punkreserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetContext(&self, punkreserved: windows_core::Ref<'_, windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn QueryPropertyUi(&self, punkreserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn SetContext(&self, punkreserved: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
     fn MergePropPages(&self, pdwdefpages: *mut u32, pahpspprivate: *mut *mut u8, pcpages: *mut u32, hwndparent: super::super::Foundation::HWND, pszstartpage: *const windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ValidateProperties(&self, hwndsheet: super::super::Foundation::HWND) -> windows_core::Result<()>;
     fn ApplyProperties(&self) -> windows_core::Result<()>;
@@ -3947,7 +3947,7 @@ pub struct INetCfgComponentSysPrep_Vtbl {
     pub RestoreAdapterParameters: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::PCWSTR, windows_core::PCWSTR, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentSysPrep_Impl: windows_core::IUnknownImpl {
-    fn SaveAdapterParameters(&self, pncsp: windows_core::Ref<'_, INetCfgSysPrep>, pszwanswersections: &windows_core::PCWSTR, padapterinstanceguid: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn SaveAdapterParameters(&self, pncsp: windows_core::Ref<INetCfgSysPrep>, pszwanswersections: &windows_core::PCWSTR, padapterinstanceguid: *const windows_core::GUID) -> windows_core::Result<()>;
     fn RestoreAdapterParameters(&self, pszwanswerfile: &windows_core::PCWSTR, pszwanswersection: &windows_core::PCWSTR, padapterinstanceguid: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl INetCfgComponentSysPrep_Vtbl {
@@ -4006,9 +4006,9 @@ pub struct INetCfgComponentUpperEdge_Vtbl {
     pub RemoveInterfacesFromAdapter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait INetCfgComponentUpperEdge_Impl: windows_core::IUnknownImpl {
-    fn GetInterfaceIdsForAdapter(&self, padapter: windows_core::Ref<'_, INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn AddInterfacesToAdapter(&self, padapter: windows_core::Ref<'_, INetCfgComponent>, dwnuminterfaces: u32) -> windows_core::Result<()>;
-    fn RemoveInterfacesFromAdapter(&self, padapter: windows_core::Ref<'_, INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const windows_core::GUID) -> windows_core::Result<()>;
+    fn GetInterfaceIdsForAdapter(&self, padapter: windows_core::Ref<INetCfgComponent>, pdwnuminterfaces: *mut u32, ppguidinterfaceids: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
+    fn AddInterfacesToAdapter(&self, padapter: windows_core::Ref<INetCfgComponent>, dwnuminterfaces: u32) -> windows_core::Result<()>;
+    fn RemoveInterfacesFromAdapter(&self, padapter: windows_core::Ref<INetCfgComponent>, dwnuminterfaces: u32, pguidinterfaceids: *const windows_core::GUID) -> windows_core::Result<()>;
 }
 impl INetCfgComponentUpperEdge_Vtbl {
     pub const fn new<Identity: INetCfgComponentUpperEdge_Impl, const OFFSET: isize>() -> Self {

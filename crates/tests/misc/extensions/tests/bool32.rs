@@ -1,6 +1,7 @@
 use windows::{core::*, Win32::Foundation::*, Win32::System::Threading::*};
 
 #[test]
+#[expect(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 fn test() {
     let status = BOOL::default();
     assert_eq!(status.0, 0);

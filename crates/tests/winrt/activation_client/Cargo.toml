@@ -1,0 +1,20 @@
+[package]
+name = "test_activation_client"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[build-dependencies]
+windows-bindgen = { workspace = true }
+
+[dependencies]
+windows-core = { workspace = true }
+windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
+test_activation = { path = "../activation" }
+
+[lints]
+workspace = true

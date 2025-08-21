@@ -1,11 +1,3 @@
-#![allow(
-    non_snake_case,
-    non_upper_case_globals,
-    non_camel_case_types,
-    dead_code,
-    clippy::all
-)]
-
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct IIterable<T>(windows_core::IUnknown, core::marker::PhantomData<T>)
@@ -670,16 +662,16 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<V>;
+    fn Lookup(&self, key: windows_core::Ref<K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: windows_core::Ref<K>) -> windows_core::Result<bool>;
     fn GetView(&self) -> windows_core::Result<IMapView<K, V>>;
     fn Insert(
         &self,
-        key: windows_core::Ref<'_, K>,
-        value: windows_core::Ref<'_, V>,
+        key: windows_core::Ref<K>,
+        value: windows_core::Ref<V>,
     ) -> windows_core::Result<bool>;
-    fn Remove(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<()>;
+    fn Remove(&self, key: windows_core::Ref<K>) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1024,13 +1016,13 @@ where
     K: windows_core::RuntimeType + 'static,
     V: windows_core::RuntimeType + 'static,
 {
-    fn Lookup(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<V>;
+    fn Lookup(&self, key: windows_core::Ref<K>) -> windows_core::Result<V>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn HasKey(&self, key: windows_core::Ref<'_, K>) -> windows_core::Result<bool>;
+    fn HasKey(&self, key: windows_core::Ref<K>) -> windows_core::Result<bool>;
     fn Split(
         &self,
-        first: windows_core::OutRef<'_, IMapView<K, V>>,
-        second: windows_core::OutRef<'_, IMapView<K, V>>,
+        first: windows_core::OutRef<IMapView<K, V>>,
+        second: windows_core::OutRef<IMapView<K, V>>,
     ) -> windows_core::Result<()>;
 }
 impl<K: windows_core::RuntimeType + 'static, V: windows_core::RuntimeType + 'static>
@@ -1381,15 +1373,11 @@ where
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
     fn GetView(&self) -> windows_core::Result<IVectorView<T>>;
-    fn IndexOf(
-        &self,
-        value: windows_core::Ref<'_, T>,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
-    fn SetAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
-    fn InsertAt(&self, index: u32, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
+    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
+    fn SetAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
+    fn InsertAt(&self, index: u32, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Append(&self, value: windows_core::Ref<'_, T>) -> windows_core::Result<()>;
+    fn Append(&self, value: windows_core::Ref<T>) -> windows_core::Result<()>;
     fn RemoveAtEnd(&self) -> windows_core::Result<()>;
     fn Clear(&self) -> windows_core::Result<()>;
     fn GetMany(
@@ -1824,11 +1812,7 @@ where
 {
     fn GetAt(&self, index: u32) -> windows_core::Result<T>;
     fn Size(&self) -> windows_core::Result<u32>;
-    fn IndexOf(
-        &self,
-        value: windows_core::Ref<'_, T>,
-        index: &mut u32,
-    ) -> windows_core::Result<bool>;
+    fn IndexOf(&self, value: windows_core::Ref<T>, index: &mut u32) -> windows_core::Result<bool>;
     fn GetMany(
         &self,
         startIndex: u32,

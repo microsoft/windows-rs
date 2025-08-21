@@ -16,11 +16,11 @@ on:
       - master
 
 jobs:
-  check:
-    runs-on: windows-2022
+  clippy:
+    runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
       - name: Add toolchain target
@@ -28,22 +28,21 @@ jobs:
       - name: Install clippy
         run: rustup component add clippy
       - name: Fix environment
-        uses: ./.github/actions/fix-environment"
+        uses: ./.github/actions/fix-environment
+        with:
+          target: x86_64-pc-windows-msvc"
         .to_string();
 
     // This unrolling is required since "cargo clippy --all" consumes too much memory for the GitHub hosted runners.
 
-    for package in helpers::crates("crates/libs")
-        .iter()
-        .chain(helpers::crates("crates/tools").iter())
-    {
-        let name = &package.name;
+    for manifest in helpers::crates("crates") {
+        let name = manifest.package.name;
 
         write!(
             &mut yml,
             r"
       - name: Check {name}
-        run:  cargo clippy -p {name}"
+        run:  cargo clippy -p {name} --tests"
         )
         .unwrap();
     }
