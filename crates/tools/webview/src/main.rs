@@ -102,6 +102,14 @@ fn write_struct(item: &idl::Struct, output: &mut writer::File) {
         writer::TypeDefOrRef::TypeRef(value_type),
         TypeAttributes::Public | TypeAttributes::SequentialLayout | TypeAttributes::Sealed,
     );
+
+    for field in &item.fields {
+        output.Field(
+        &field.name,
+        &to_type(&field.field_type),
+        FieldAttributes::Public,
+    );
+    }
 }
 
 fn write_interface(item: &idl::Interface, output: &mut writer::File) {

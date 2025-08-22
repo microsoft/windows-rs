@@ -118,7 +118,12 @@ pub const COREWEBVIEW2_CLIENT_CERTIFICATE_KIND_SMART_CARD: COREWEBVIEW2_CLIENT_C
     COREWEBVIEW2_CLIENT_CERTIFICATE_KIND(0u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct COREWEBVIEW2_COLOR(pub u8);
+pub struct COREWEBVIEW2_COLOR {
+    pub A: u8,
+    pub R: u8,
+    pub G: u8,
+    pub B: u8,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND(pub u32);
@@ -460,7 +465,14 @@ pub const COREWEBVIEW2_PERMISSION_STATE_DENY: COREWEBVIEW2_PERMISSION_STATE =
     COREWEBVIEW2_PERMISSION_STATE(2u32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
-pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS(pub u8);
+pub struct COREWEBVIEW2_PHYSICAL_KEY_STATUS {
+    pub RepeatCount: u32,
+    pub ScanCode: u32,
+    pub IsExtendedKey: windows_core::BOOL,
+    pub IsMenuKeyDown: windows_core::BOOL,
+    pub WasKeyDown: windows_core::BOOL,
+    pub IsKeyReleased: windows_core::BOOL,
+}
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct COREWEBVIEW2_POINTER_EVENT_KIND(pub u32);
@@ -1924,68 +1936,68 @@ pub struct ICoreWebView2_Vtbl {
 pub trait ICoreWebView2_Impl {
     fn Settings(
         &self,
-        settings: windows_core::Ref<'_, ICoreWebView2Settings>,
+        settings: windows_core::Ref<ICoreWebView2Settings>,
     ) -> windows_core::Result<()>;
     fn Source(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Navigate(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn NavigateToString(&self, htmlcontent: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn add_NavigationStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NavigationStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NavigationStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NavigationStarting(&self, token: i64) -> windows_core::Result<()>;
     fn add_ContentLoading(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ContentLoadingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ContentLoadingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ContentLoading(&self, token: i64) -> windows_core::Result<()>;
     fn add_SourceChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2SourceChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2SourceChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_SourceChanged(&self, token: i64) -> windows_core::Result<()>;
     fn add_HistoryChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2HistoryChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2HistoryChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_HistoryChanged(&self, token: i64) -> windows_core::Result<()>;
     fn add_NavigationCompleted(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NavigationCompletedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NavigationCompletedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NavigationCompleted(&self, token: i64) -> windows_core::Result<()>;
     fn add_FrameNavigationStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NavigationStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NavigationStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_FrameNavigationStarting(&self, token: i64) -> windows_core::Result<()>;
     fn add_FrameNavigationCompleted(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NavigationCompletedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NavigationCompletedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_FrameNavigationCompleted(&self, token: i64) -> windows_core::Result<()>;
     fn add_ScriptDialogOpening(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ScriptDialogOpeningEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ScriptDialogOpeningEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ScriptDialogOpening(&self, token: i64) -> windows_core::Result<()>;
     fn add_PermissionRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2PermissionRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2PermissionRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_PermissionRequested(&self, token: i64) -> windows_core::Result<()>;
     fn add_ProcessFailed(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ProcessFailedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ProcessFailedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ProcessFailed(&self, token: i64) -> windows_core::Result<()>;
@@ -1993,7 +2005,6 @@ pub trait ICoreWebView2_Impl {
         &self,
         javascript: &windows_core::PCWSTR,
         handler: windows_core::Ref<
-            '_,
             ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
         >,
     ) -> windows_core::Result<()>;
@@ -2004,13 +2015,13 @@ pub trait ICoreWebView2_Impl {
     fn ExecuteScript(
         &self,
         javascript: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2ExecuteScriptCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ExecuteScriptCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn CapturePreview(
         &self,
         imageformat: COREWEBVIEW2_CAPTURE_PREVIEW_IMAGE_FORMAT,
-        imagestream: windows_core::Ref<'_, IStream>,
-        handler: windows_core::Ref<'_, ICoreWebView2CapturePreviewCompletedHandler>,
+        imagestream: windows_core::Ref<IStream>,
+        handler: windows_core::Ref<ICoreWebView2CapturePreviewCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn Reload(&self) -> windows_core::Result<()>;
     fn PostWebMessageAsJson(
@@ -2023,7 +2034,7 @@ pub trait ICoreWebView2_Impl {
     ) -> windows_core::Result<()>;
     fn add_WebMessageReceived(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2WebMessageReceivedEventHandler>,
+        handler: windows_core::Ref<ICoreWebView2WebMessageReceivedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_WebMessageReceived(&self, token: i64) -> windows_core::Result<()>;
@@ -2031,7 +2042,7 @@ pub trait ICoreWebView2_Impl {
         &self,
         methodname: &windows_core::PCWSTR,
         parametersasjson: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn BrowserProcessId(&self, value: u32) -> windows_core::Result<()>;
     fn CanGoBack(&self, cangoback: windows_core::BOOL) -> windows_core::Result<()>;
@@ -2041,18 +2052,18 @@ pub trait ICoreWebView2_Impl {
     fn GetDevToolsProtocolEventReceiver(
         &self,
         eventname: &windows_core::PCWSTR,
-        receiver: windows_core::Ref<'_, ICoreWebView2DevToolsProtocolEventReceiver>,
+        receiver: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceiver>,
     ) -> windows_core::Result<()>;
     fn Stop(&self) -> windows_core::Result<()>;
     fn add_NewWindowRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NewWindowRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NewWindowRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NewWindowRequested(&self, token: i64) -> windows_core::Result<()>;
     fn add_DocumentTitleChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2DocumentTitleChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2DocumentTitleChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_DocumentTitleChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -2066,10 +2077,7 @@ pub trait ICoreWebView2_Impl {
     fn OpenDevToolsWindow(&self) -> windows_core::Result<()>;
     fn add_ContainsFullScreenElementChanged(
         &self,
-        eventhandler: windows_core::Ref<
-            '_,
-            ICoreWebView2ContainsFullScreenElementChangedEventHandler,
-        >,
+        eventhandler: windows_core::Ref<ICoreWebView2ContainsFullScreenElementChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ContainsFullScreenElementChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -2079,7 +2087,7 @@ pub trait ICoreWebView2_Impl {
     ) -> windows_core::Result<()>;
     fn add_WebResourceRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2WebResourceRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2WebResourceRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_WebResourceRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -2095,7 +2103,7 @@ pub trait ICoreWebView2_Impl {
     ) -> windows_core::Result<()>;
     fn add_WindowCloseRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2WindowCloseRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2WindowCloseRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_WindowCloseRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -3352,8 +3360,8 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
 pub trait ICoreWebView2AcceleratorKeyPressedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Controller>,
-        args: windows_core::Ref<'_, ICoreWebView2AcceleratorKeyPressedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl {
@@ -3598,13 +3606,13 @@ pub trait ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl {
     fn Challenge(&self, challenge: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Response(
         &self,
-        response: windows_core::Ref<'_, ICoreWebView2BasicAuthenticationResponse>,
+        response: windows_core::Ref<ICoreWebView2BasicAuthenticationResponse>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
@@ -3769,8 +3777,8 @@ pub struct ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2BasicAuthenticationRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2BasicAuthenticationRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2BasicAuthenticationRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl {
@@ -4091,13 +4099,13 @@ pub trait ICoreWebView2BrowserExtension_Impl {
     fn Name(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Remove(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2BrowserExtensionRemoveCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2BrowserExtensionRemoveCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn IsEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Enable(
         &self,
         isenabled: windows_core::BOOL,
-        handler: windows_core::Ref<'_, ICoreWebView2BrowserExtensionEnableCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2BrowserExtensionEnableCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BrowserExtension_Vtbl {
@@ -4308,7 +4316,7 @@ pub trait ICoreWebView2BrowserExtensionList_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2BrowserExtension>,
+        value: windows_core::Ref<ICoreWebView2BrowserExtension>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BrowserExtensionList_Vtbl {
@@ -4580,8 +4588,8 @@ pub struct ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
 pub trait ICoreWebView2BrowserProcessExitedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Environment>,
-        args: windows_core::Ref<'_, ICoreWebView2BrowserProcessExitedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Environment>,
+        args: windows_core::Ref<ICoreWebView2BrowserProcessExitedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BrowserProcessExitedEventHandler_Vtbl {
@@ -4663,8 +4671,8 @@ pub struct ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
 pub trait ICoreWebView2BytesReceivedChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2DownloadOperation>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BytesReceivedChangedEventHandler_Vtbl {
@@ -5005,7 +5013,7 @@ pub trait ICoreWebView2Certificate_Impl {
     fn ToPemEncoding(&self, pemencodeddata: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PemEncodedIssuerCertificateChain(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2StringCollection>,
+        value: windows_core::Ref<ICoreWebView2StringCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Certificate_Vtbl {
@@ -5431,7 +5439,7 @@ pub trait ICoreWebView2ClientCertificate_Impl {
     fn ToPemEncoding(&self, pemencodeddata: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PemEncodedIssuerCertificateChain(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2StringCollection>,
+        value: windows_core::Ref<ICoreWebView2StringCollection>,
     ) -> windows_core::Result<()>;
     fn Kind(&self, value: COREWEBVIEW2_CLIENT_CERTIFICATE_KIND) -> windows_core::Result<()>;
 }
@@ -5630,7 +5638,7 @@ pub trait ICoreWebView2ClientCertificateCollection_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2ClientCertificate>,
+        value: windows_core::Ref<ICoreWebView2ClientCertificate>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ClientCertificateCollection_Vtbl {
@@ -5882,19 +5890,19 @@ pub trait ICoreWebView2ClientCertificateRequestedEventArgs_Impl {
     fn IsProxy(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn AllowedCertificateAuthorities(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2StringCollection>,
+        value: windows_core::Ref<ICoreWebView2StringCollection>,
     ) -> windows_core::Result<()>;
     fn MutuallyTrustedCertificates(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ClientCertificateCollection>,
+        value: windows_core::Ref<ICoreWebView2ClientCertificateCollection>,
     ) -> windows_core::Result<()>;
     fn SelectedCertificate(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ClientCertificate>,
+        value: windows_core::Ref<ICoreWebView2ClientCertificate>,
     ) -> windows_core::Result<()>;
     fn SelectedCertificate2(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ClientCertificate>,
+        value: windows_core::Ref<ICoreWebView2ClientCertificate>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
@@ -5902,7 +5910,7 @@ pub trait ICoreWebView2ClientCertificateRequestedEventArgs_Impl {
     fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
@@ -6165,8 +6173,8 @@ pub struct ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2ClientCertificateRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ClientCertificateRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ClientCertificateRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl {
@@ -6362,11 +6370,11 @@ pub struct ICoreWebView2CompositionController_Vtbl {
 pub trait ICoreWebView2CompositionController_Impl {
     fn RootVisualTarget(
         &self,
-        target: windows_core::Ref<'_, windows_core::IUnknown>,
+        target: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn RootVisualTarget2(
         &self,
-        target: windows_core::Ref<'_, windows_core::IUnknown>,
+        target: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
     fn SendMouseInput(
         &self,
@@ -6378,13 +6386,13 @@ pub trait ICoreWebView2CompositionController_Impl {
     fn SendPointerInput(
         &self,
         eventkind: COREWEBVIEW2_POINTER_EVENT_KIND,
-        pointerinfo: windows_core::Ref<'_, ICoreWebView2PointerInfo>,
+        pointerinfo: windows_core::Ref<ICoreWebView2PointerInfo>,
     ) -> windows_core::Result<()>;
     fn Cursor(&self, cursor: HCURSOR) -> windows_core::Result<()>;
     fn SystemCursorId(&self, systemcursorid: u32) -> windows_core::Result<()>;
     fn add_CursorChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2CursorChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2CursorChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_CursorChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -6588,7 +6596,7 @@ pub struct ICoreWebView2CompositionController2_Vtbl {
 pub trait ICoreWebView2CompositionController2_Impl {
     fn AutomationProvider(
         &self,
-        value: windows_core::Ref<'_, windows_core::IUnknown>,
+        value: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CompositionController2_Vtbl {
@@ -6728,7 +6736,7 @@ pub struct ICoreWebView2CompositionController3_Vtbl {
 pub trait ICoreWebView2CompositionController3_Impl {
     fn DragEnter(
         &self,
-        dataobject: windows_core::Ref<'_, IDataObject>,
+        dataobject: windows_core::Ref<IDataObject>,
         keystate: u32,
         point: &POINT,
         effect: u32,
@@ -6737,7 +6745,7 @@ pub trait ICoreWebView2CompositionController3_Impl {
     fn DragOver(&self, keystate: u32, point: &POINT, effect: u32) -> windows_core::Result<()>;
     fn Drop(
         &self,
-        dataobject: windows_core::Ref<'_, IDataObject>,
+        dataobject: windows_core::Ref<IDataObject>,
         keystate: u32,
         point: &POINT,
         effect: u32,
@@ -6933,11 +6941,11 @@ pub trait ICoreWebView2CompositionController4_Impl {
     fn QueryNonClientRegion(
         &self,
         kind: COREWEBVIEW2_NON_CLIENT_REGION_KIND,
-        rects: windows_core::Ref<'_, ICoreWebView2RegionRectCollectionView>,
+        rects: windows_core::Ref<ICoreWebView2RegionRectCollectionView>,
     ) -> windows_core::Result<()>;
     fn add_NonClientRegionChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NonClientRegionChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NonClientRegionChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NonClientRegionChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -7074,8 +7082,8 @@ pub struct ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
 pub trait ICoreWebView2ContainsFullScreenElementChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl {
@@ -7258,8 +7266,8 @@ pub struct ICoreWebView2ContentLoadingEventHandler_Vtbl {
 pub trait ICoreWebView2ContentLoadingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ContentLoadingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContentLoadingEventHandler_Vtbl {
@@ -7513,7 +7521,7 @@ pub trait ICoreWebView2ContextMenuItem_Impl {
     fn Label(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn CommandId(&self, value: i32) -> windows_core::Result<()>;
     fn ShortcutKeyDescription(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Icon(&self, value: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
+    fn Icon(&self, value: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Kind(&self, value: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND) -> windows_core::Result<()>;
     fn IsEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
@@ -7521,11 +7529,11 @@ pub trait ICoreWebView2ContextMenuItem_Impl {
     fn IsChecked2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Children(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuItemCollection>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuItemCollection>,
     ) -> windows_core::Result<()>;
     fn add_CustomItemSelected(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2CustomItemSelectedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2CustomItemSelectedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_CustomItemSelected(&self, token: i64) -> windows_core::Result<()>;
@@ -7812,13 +7820,13 @@ pub trait ICoreWebView2ContextMenuItemCollection_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuItem>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuItem>,
     ) -> windows_core::Result<()>;
     fn RemoveValueAtIndex(&self, index: u32) -> windows_core::Result<()>;
     fn InsertValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuItem>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuItem>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContextMenuItemCollection_Vtbl {
@@ -8038,11 +8046,11 @@ pub struct ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
 pub trait ICoreWebView2ContextMenuRequestedEventArgs_Impl {
     fn MenuItems(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuItemCollection>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuItemCollection>,
     ) -> windows_core::Result<()>;
     fn ContextMenuTarget(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuTarget>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuTarget>,
     ) -> windows_core::Result<()>;
     fn Location(&self, value: &POINT) -> windows_core::Result<()>;
     fn SelectedCommandId(&self, value: i32) -> windows_core::Result<()>;
@@ -8051,7 +8059,7 @@ pub trait ICoreWebView2ContextMenuRequestedEventArgs_Impl {
     fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
@@ -8250,8 +8258,8 @@ pub struct ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2ContextMenuRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ContextMenuRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ContextMenuRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ContextMenuRequestedEventHandler_Vtbl {
@@ -9047,7 +9055,7 @@ pub trait ICoreWebView2Controller_Impl {
     fn ZoomFactor2(&self, zoomfactor: f64) -> windows_core::Result<()>;
     fn add_ZoomFactorChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ZoomFactorChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ZoomFactorChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ZoomFactorChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -9055,25 +9063,25 @@ pub trait ICoreWebView2Controller_Impl {
     fn MoveFocus(&self, reason: COREWEBVIEW2_MOVE_FOCUS_REASON) -> windows_core::Result<()>;
     fn add_MoveFocusRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2MoveFocusRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_MoveFocusRequested(&self, token: i64) -> windows_core::Result<()>;
     fn add_GotFocus(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FocusChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FocusChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_GotFocus(&self, token: i64) -> windows_core::Result<()>;
     fn add_LostFocus(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FocusChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FocusChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_LostFocus(&self, token: i64) -> windows_core::Result<()>;
     fn add_AcceleratorKeyPressed(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2AcceleratorKeyPressedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2AcceleratorKeyPressedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_AcceleratorKeyPressed(&self, token: i64) -> windows_core::Result<()>;
@@ -9083,7 +9091,7 @@ pub trait ICoreWebView2Controller_Impl {
     fn Close(&self) -> windows_core::Result<()>;
     fn CoreWebView2(
         &self,
-        corewebview2: windows_core::Ref<'_, ICoreWebView2>,
+        corewebview2: windows_core::Ref<ICoreWebView2>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Controller_Vtbl {
@@ -9687,7 +9695,7 @@ pub trait ICoreWebView2Controller3_Impl {
     ) -> windows_core::Result<()>;
     fn add_RasterizationScaleChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2RasterizationScaleChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2RasterizationScaleChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_RasterizationScaleChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -10643,7 +10651,7 @@ pub trait ICoreWebView2CookieList_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2Cookie>,
+        value: windows_core::Ref<ICoreWebView2Cookie>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CookieList_Vtbl {
@@ -10873,25 +10881,25 @@ pub trait ICoreWebView2CookieManager_Impl {
         value: &windows_core::PCWSTR,
         domain: &windows_core::PCWSTR,
         path: &windows_core::PCWSTR,
-        cookie: windows_core::Ref<'_, ICoreWebView2Cookie>,
+        cookie: windows_core::Ref<ICoreWebView2Cookie>,
     ) -> windows_core::Result<()>;
     fn CopyCookie(
         &self,
-        cookieparam: windows_core::Ref<'_, ICoreWebView2Cookie>,
-        cookie: windows_core::Ref<'_, ICoreWebView2Cookie>,
+        cookieparam: windows_core::Ref<ICoreWebView2Cookie>,
+        cookie: windows_core::Ref<ICoreWebView2Cookie>,
     ) -> windows_core::Result<()>;
     fn GetCookies(
         &self,
         uri: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2GetCookiesCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2GetCookiesCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn AddOrUpdateCookie(
         &self,
-        cookie: windows_core::Ref<'_, ICoreWebView2Cookie>,
+        cookie: windows_core::Ref<ICoreWebView2Cookie>,
     ) -> windows_core::Result<()>;
     fn DeleteCookie(
         &self,
-        cookie: windows_core::Ref<'_, ICoreWebView2Cookie>,
+        cookie: windows_core::Ref<ICoreWebView2Cookie>,
     ) -> windows_core::Result<()>;
     fn DeleteCookies(
         &self,
@@ -11101,7 +11109,7 @@ pub trait ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_I
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2CompositionController>,
+        result: windows_core::Ref<ICoreWebView2CompositionController>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
@@ -11190,7 +11198,7 @@ pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2Controller>,
+        result: windows_core::Ref<ICoreWebView2Controller>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
@@ -11277,7 +11285,7 @@ pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2Environment>,
+        result: windows_core::Ref<ICoreWebView2Environment>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
@@ -11361,8 +11369,8 @@ pub struct ICoreWebView2CursorChangedEventHandler_Vtbl {
 pub trait ICoreWebView2CursorChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2CompositionController>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2CompositionController>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CursorChangedEventHandler_Vtbl {
@@ -11442,8 +11450,8 @@ pub struct ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
 pub trait ICoreWebView2CustomItemSelectedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2ContextMenuItem>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2ContextMenuItem>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2CustomItemSelectedEventHandler_Vtbl {
@@ -11896,8 +11904,8 @@ pub struct ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
 pub trait ICoreWebView2DOMContentLoadedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2DOMContentLoadedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2DOMContentLoadedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DOMContentLoadedEventHandler_Vtbl {
@@ -12177,8 +12185,8 @@ pub struct ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
 pub trait ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceivedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl {
@@ -12278,7 +12286,7 @@ pub struct ICoreWebView2DevToolsProtocolEventReceiver_Vtbl {
 pub trait ICoreWebView2DevToolsProtocolEventReceiver_Impl {
     fn add_DevToolsProtocolEventReceived(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2DevToolsProtocolEventReceivedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_DevToolsProtocolEventReceived(&self, token: i64) -> windows_core::Result<()>;
@@ -12375,8 +12383,8 @@ pub struct ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
 pub trait ICoreWebView2DocumentTitleChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DocumentTitleChangedEventHandler_Vtbl {
@@ -12706,19 +12714,19 @@ pub struct ICoreWebView2DownloadOperation_Vtbl {
 pub trait ICoreWebView2DownloadOperation_Impl {
     fn add_BytesReceivedChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2BytesReceivedChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2BytesReceivedChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_BytesReceivedChanged(&self, token: i64) -> windows_core::Result<()>;
     fn add_EstimatedEndTimeChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2EstimatedEndTimeChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2EstimatedEndTimeChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_EstimatedEndTimeChanged(&self, token: i64) -> windows_core::Result<()>;
     fn add_StateChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2StateChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2StateChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_StateChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -13184,7 +13192,7 @@ pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
 pub trait ICoreWebView2DownloadStartingEventArgs_Impl {
     fn DownloadOperation(
         &self,
-        downloadoperation: windows_core::Ref<'_, ICoreWebView2DownloadOperation>,
+        downloadoperation: windows_core::Ref<ICoreWebView2DownloadOperation>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
@@ -13194,7 +13202,7 @@ pub trait ICoreWebView2DownloadStartingEventArgs_Impl {
     fn Handled2(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
@@ -13387,8 +13395,8 @@ pub struct ICoreWebView2DownloadStartingEventHandler_Vtbl {
 pub trait ICoreWebView2DownloadStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2DownloadStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2DownloadStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2DownloadStartingEventHandler_Vtbl {
@@ -13554,20 +13562,20 @@ pub trait ICoreWebView2Environment_Impl {
     fn CreateCoreWebView2Controller(
         &self,
         parentwindow: HWND,
-        handler: windows_core::Ref<'_, ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn CreateWebResourceResponse(
         &self,
-        content: windows_core::Ref<'_, IStream>,
+        content: windows_core::Ref<IStream>,
         statuscode: i32,
         reasonphrase: &windows_core::PCWSTR,
         headers: &windows_core::PCWSTR,
-        response: windows_core::Ref<'_, ICoreWebView2WebResourceResponse>,
+        response: windows_core::Ref<ICoreWebView2WebResourceResponse>,
     ) -> windows_core::Result<()>;
     fn BrowserVersionString(&self, versioninfo: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn add_NewBrowserVersionAvailable(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NewBrowserVersionAvailableEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NewBrowserVersionAvailableEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NewBrowserVersionAvailable(&self, token: i64) -> windows_core::Result<()>;
@@ -13778,20 +13786,19 @@ pub struct ICoreWebView2Environment10_Vtbl {
 pub trait ICoreWebView2Environment10_Impl {
     fn CreateCoreWebView2ControllerOptions(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ControllerOptions>,
+        value: windows_core::Ref<ICoreWebView2ControllerOptions>,
     ) -> windows_core::Result<()>;
     fn CreateCoreWebView2ControllerWithOptions(
         &self,
         parentwindow: HWND,
-        options: windows_core::Ref<'_, ICoreWebView2ControllerOptions>,
-        handler: windows_core::Ref<'_, ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
+        options: windows_core::Ref<ICoreWebView2ControllerOptions>,
+        handler: windows_core::Ref<ICoreWebView2CreateCoreWebView2ControllerCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn CreateCoreWebView2CompositionControllerWithOptions(
         &self,
         parentwindow: HWND,
-        options: windows_core::Ref<'_, ICoreWebView2ControllerOptions>,
+        options: windows_core::Ref<ICoreWebView2ControllerOptions>,
         handler: windows_core::Ref<
-            '_,
             ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
         >,
     ) -> windows_core::Result<()>;
@@ -13978,7 +13985,7 @@ pub trait ICoreWebView2Environment12_Impl {
     fn CreateSharedBuffer(
         &self,
         size: u64,
-        value: windows_core::Ref<'_, ICoreWebView2SharedBuffer>,
+        value: windows_core::Ref<ICoreWebView2SharedBuffer>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment12_Vtbl {
@@ -14048,7 +14055,7 @@ pub struct ICoreWebView2Environment13_Vtbl {
 pub trait ICoreWebView2Environment13_Impl {
     fn GetProcessExtendedInfos(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2GetProcessExtendedInfosCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2GetProcessExtendedInfosCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment13_Vtbl {
@@ -14182,19 +14189,19 @@ pub trait ICoreWebView2Environment14_Impl {
         &self,
         path: &windows_core::PCWSTR,
         permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
-        value: windows_core::Ref<'_, ICoreWebView2FileSystemHandle>,
+        value: windows_core::Ref<ICoreWebView2FileSystemHandle>,
     ) -> windows_core::Result<()>;
     fn CreateWebFileSystemDirectoryHandle(
         &self,
         path: &windows_core::PCWSTR,
         permission: COREWEBVIEW2_FILE_SYSTEM_HANDLE_PERMISSION,
-        value: windows_core::Ref<'_, ICoreWebView2FileSystemHandle>,
+        value: windows_core::Ref<ICoreWebView2FileSystemHandle>,
     ) -> windows_core::Result<()>;
     fn CreateObjectCollection(
         &self,
         length: u32,
-        items: windows_core::Ref<'_, windows_core::IUnknown>,
-        objectcollection: windows_core::Ref<'_, ICoreWebView2ObjectCollection>,
+        items: windows_core::Ref<windows_core::IUnknown>,
+        objectcollection: windows_core::Ref<ICoreWebView2ObjectCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment14_Vtbl {
@@ -14331,9 +14338,9 @@ pub trait ICoreWebView2Environment2_Impl {
         &self,
         uri: &windows_core::PCWSTR,
         method: &windows_core::PCWSTR,
-        postdata: windows_core::Ref<'_, IStream>,
+        postdata: windows_core::Ref<IStream>,
         headers: &windows_core::PCWSTR,
-        value: windows_core::Ref<'_, ICoreWebView2WebResourceRequest>,
+        value: windows_core::Ref<ICoreWebView2WebResourceRequest>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment2_Vtbl {
@@ -14438,13 +14445,12 @@ pub trait ICoreWebView2Environment3_Impl {
         &self,
         parentwindow: HWND,
         handler: windows_core::Ref<
-            '_,
             ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
         >,
     ) -> windows_core::Result<()>;
     fn CreateCoreWebView2PointerInfo(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2PointerInfo>,
+        value: windows_core::Ref<ICoreWebView2PointerInfo>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment3_Vtbl {
@@ -14542,7 +14548,7 @@ pub trait ICoreWebView2Environment4_Impl {
     fn GetAutomationProviderForWindow(
         &self,
         hwnd: HWND,
-        value: windows_core::Ref<'_, windows_core::IUnknown>,
+        value: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment4_Vtbl {
@@ -14631,7 +14637,7 @@ pub struct ICoreWebView2Environment5_Vtbl {
 pub trait ICoreWebView2Environment5_Impl {
     fn add_BrowserProcessExited(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2BrowserProcessExitedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2BrowserProcessExitedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_BrowserProcessExited(&self, token: i64) -> windows_core::Result<()>;
@@ -14722,7 +14728,7 @@ pub struct ICoreWebView2Environment6_Vtbl {
 pub trait ICoreWebView2Environment6_Impl {
     fn CreatePrintSettings(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2PrintSettings>,
+        value: windows_core::Ref<ICoreWebView2PrintSettings>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment6_Vtbl {
@@ -14885,13 +14891,13 @@ pub struct ICoreWebView2Environment8_Vtbl {
 pub trait ICoreWebView2Environment8_Impl {
     fn add_ProcessInfosChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ProcessInfosChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ProcessInfosChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ProcessInfosChanged(&self, token: i64) -> windows_core::Result<()>;
     fn GetProcessInfos(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ProcessInfoCollection>,
+        value: windows_core::Ref<ICoreWebView2ProcessInfoCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment8_Vtbl {
@@ -15010,9 +15016,9 @@ pub trait ICoreWebView2Environment9_Impl {
     fn CreateContextMenuItem(
         &self,
         label: &windows_core::PCWSTR,
-        iconstream: windows_core::Ref<'_, IStream>,
+        iconstream: windows_core::Ref<IStream>,
         kind: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND,
-        value: windows_core::Ref<'_, ICoreWebView2ContextMenuItem>,
+        value: windows_core::Ref<ICoreWebView2ContextMenuItem>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Environment9_Vtbl {
@@ -15638,12 +15644,12 @@ pub trait ICoreWebView2EnvironmentOptions4_Impl {
     fn GetCustomSchemeRegistrations(
         &self,
         count: u32,
-        schemeregistrations: windows_core::Ref<'_, ICoreWebView2CustomSchemeRegistration>,
+        schemeregistrations: windows_core::Ref<ICoreWebView2CustomSchemeRegistration>,
     ) -> windows_core::Result<()>;
     fn SetCustomSchemeRegistrations(
         &self,
         count: u32,
-        schemeregistrations: windows_core::Ref<'_, ICoreWebView2CustomSchemeRegistration>,
+        schemeregistrations: windows_core::Ref<ICoreWebView2CustomSchemeRegistration>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions4_Vtbl {
@@ -16223,8 +16229,8 @@ pub struct ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
 pub trait ICoreWebView2EstimatedEndTimeChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2DownloadOperation>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl {
@@ -16447,7 +16453,7 @@ pub trait ICoreWebView2ExecuteScriptResult_Impl {
     ) -> windows_core::Result<()>;
     fn Exception(
         &self,
-        exception: windows_core::Ref<'_, ICoreWebView2ScriptException>,
+        exception: windows_core::Ref<ICoreWebView2ScriptException>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ExecuteScriptResult_Vtbl {
@@ -16575,7 +16581,7 @@ pub trait ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2ExecuteScriptResult>,
+        result: windows_core::Ref<ICoreWebView2ExecuteScriptResult>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
@@ -16658,8 +16664,8 @@ pub struct ICoreWebView2FaviconChangedEventHandler_Vtbl {
 pub trait ICoreWebView2FaviconChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FaviconChangedEventHandler_Vtbl {
@@ -16927,8 +16933,8 @@ pub struct ICoreWebView2FocusChangedEventHandler_Vtbl {
 pub trait ICoreWebView2FocusChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Controller>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FocusChangedEventHandler_Vtbl {
@@ -17123,7 +17129,7 @@ pub trait ICoreWebView2Frame_Impl {
     fn Name(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn add_NameChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameNameChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameNameChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NameChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -17137,7 +17143,7 @@ pub trait ICoreWebView2Frame_Impl {
     fn RemoveHostObjectFromScript(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn add_Destroyed(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameDestroyedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameDestroyedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_Destroyed(&self, token: i64) -> windows_core::Result<()>;
@@ -17517,32 +17523,32 @@ pub struct ICoreWebView2Frame2_Vtbl {
 pub trait ICoreWebView2Frame2_Impl {
     fn add_NavigationStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameNavigationStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameNavigationStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NavigationStarting(&self, token: i64) -> windows_core::Result<()>;
     fn add_ContentLoading(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameContentLoadingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameContentLoadingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ContentLoading(&self, token: i64) -> windows_core::Result<()>;
     fn add_NavigationCompleted(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameNavigationCompletedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameNavigationCompletedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NavigationCompleted(&self, token: i64) -> windows_core::Result<()>;
     fn add_DOMContentLoaded(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameDOMContentLoadedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameDOMContentLoadedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_DOMContentLoaded(&self, token: i64) -> windows_core::Result<()>;
     fn ExecuteScript(
         &self,
         javascript: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2ExecuteScriptCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ExecuteScriptCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn PostWebMessageAsJson(
         &self,
@@ -17554,7 +17560,7 @@ pub trait ICoreWebView2Frame2_Impl {
     ) -> windows_core::Result<()>;
     fn add_WebMessageReceived(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2FrameWebMessageReceivedEventHandler>,
+        handler: windows_core::Ref<ICoreWebView2FrameWebMessageReceivedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_WebMessageReceived(&self, token: i64) -> windows_core::Result<()>;
@@ -17831,7 +17837,7 @@ pub struct ICoreWebView2Frame3_Vtbl {
 pub trait ICoreWebView2Frame3_Impl {
     fn add_PermissionRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FramePermissionRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FramePermissionRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_PermissionRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -17926,7 +17932,7 @@ pub struct ICoreWebView2Frame4_Vtbl {
 pub trait ICoreWebView2Frame4_Impl {
     fn PostSharedBufferToScript(
         &self,
-        sharedbuffer: windows_core::Ref<'_, ICoreWebView2SharedBuffer>,
+        sharedbuffer: windows_core::Ref<ICoreWebView2SharedBuffer>,
         access: COREWEBVIEW2_SHARED_BUFFER_ACCESS,
         additionaldataasjson: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
@@ -18068,7 +18074,7 @@ pub struct ICoreWebView2Frame6_Vtbl {
 pub trait ICoreWebView2Frame6_Impl {
     fn add_ScreenCaptureStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameScreenCaptureStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameScreenCaptureStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ScreenCaptureStarting(&self, token: i64) -> windows_core::Result<()>;
@@ -18172,7 +18178,7 @@ pub struct ICoreWebView2Frame7_Vtbl {
 pub trait ICoreWebView2Frame7_Impl {
     fn add_FrameCreated(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameChildFrameCreatedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameChildFrameCreatedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_FrameCreated(&self, token: i64) -> windows_core::Result<()>;
@@ -18263,8 +18269,8 @@ pub struct ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameChildFrameCreatedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2FrameCreatedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2FrameCreatedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl {
@@ -18346,8 +18352,8 @@ pub struct ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
 pub trait ICoreWebView2FrameContentLoadingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2ContentLoadingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2ContentLoadingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameContentLoadingEventHandler_Vtbl {
@@ -18424,7 +18430,7 @@ pub struct ICoreWebView2FrameCreatedEventArgs_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2FrameCreatedEventArgs_Impl {
-    fn Frame(&self, value: windows_core::Ref<'_, ICoreWebView2Frame>) -> windows_core::Result<()>;
+    fn Frame(&self, value: windows_core::Ref<ICoreWebView2Frame>) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameCreatedEventArgs_Vtbl {
     pub const fn new<Identity: ICoreWebView2FrameCreatedEventArgs_Impl>() -> Self {
@@ -18499,8 +18505,8 @@ pub struct ICoreWebView2FrameCreatedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameCreatedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2FrameCreatedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2FrameCreatedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameCreatedEventHandler_Vtbl {
@@ -18580,8 +18586,8 @@ pub struct ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameDOMContentLoadedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2DOMContentLoadedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2DOMContentLoadedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl {
@@ -18663,8 +18669,8 @@ pub struct ICoreWebView2FrameDestroyedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameDestroyedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameDestroyedEventHandler_Vtbl {
@@ -18850,7 +18856,7 @@ pub struct ICoreWebView2FrameInfo2_Vtbl {
 pub trait ICoreWebView2FrameInfo2_Impl {
     fn ParentFrameInfo(
         &self,
-        frameinfo: windows_core::Ref<'_, ICoreWebView2FrameInfo>,
+        frameinfo: windows_core::Ref<ICoreWebView2FrameInfo>,
     ) -> windows_core::Result<()>;
     fn FrameId(&self, id: u32) -> windows_core::Result<()>;
     fn FrameKind(&self, kind: COREWEBVIEW2_FRAME_KIND) -> windows_core::Result<()>;
@@ -18946,7 +18952,7 @@ pub struct ICoreWebView2FrameInfoCollection_Vtbl {
 pub trait ICoreWebView2FrameInfoCollection_Impl {
     fn GetIterator(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2FrameInfoCollectionIterator>,
+        value: windows_core::Ref<ICoreWebView2FrameInfoCollectionIterator>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameInfoCollection_Vtbl {
@@ -19045,7 +19051,7 @@ pub trait ICoreWebView2FrameInfoCollectionIterator_Impl {
     fn HasCurrent(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetCurrent(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2FrameInfo>,
+        value: windows_core::Ref<ICoreWebView2FrameInfo>,
     ) -> windows_core::Result<()>;
     fn MoveNext(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
@@ -19160,8 +19166,8 @@ pub struct ICoreWebView2FrameNameChangedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameNameChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameNameChangedEventHandler_Vtbl {
@@ -19243,8 +19249,8 @@ pub struct ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameNavigationCompletedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2NavigationCompletedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl {
@@ -19326,8 +19332,8 @@ pub struct ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
 pub trait ICoreWebView2FrameNavigationStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2NavigationStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameNavigationStartingEventHandler_Vtbl {
@@ -19409,8 +19415,8 @@ pub struct ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2FramePermissionRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2PermissionRequestedEventArgs2>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs2>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FramePermissionRequestedEventHandler_Vtbl {
@@ -19492,8 +19498,8 @@ pub struct ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
 pub trait ICoreWebView2FrameScreenCaptureStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2ScreenCaptureStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2ScreenCaptureStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl {
@@ -19575,8 +19581,8 @@ pub struct ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
 pub trait ICoreWebView2FrameWebMessageReceivedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Frame>,
-        args: windows_core::Ref<'_, ICoreWebView2WebMessageReceivedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Frame>,
+        args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl {
@@ -19662,7 +19668,7 @@ pub trait ICoreWebView2GetCookiesCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2CookieList>,
+        result: windows_core::Ref<ICoreWebView2CookieList>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
@@ -19746,7 +19752,7 @@ pub trait ICoreWebView2GetFaviconCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, IStream>,
+        result: windows_core::Ref<IStream>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2GetFaviconCompletedHandler_Vtbl {
@@ -19830,7 +19836,7 @@ pub trait ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2PermissionSettingCollectionView>,
+        result: windows_core::Ref<ICoreWebView2PermissionSettingCollectionView>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
@@ -19919,7 +19925,7 @@ pub trait ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2ProcessExtendedInfoCollection>,
+        result: windows_core::Ref<ICoreWebView2ProcessExtendedInfoCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
@@ -20002,8 +20008,8 @@ pub struct ICoreWebView2HistoryChangedEventHandler_Vtbl {
 pub trait ICoreWebView2HistoryChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2HistoryChangedEventHandler_Vtbl {
@@ -20322,7 +20328,7 @@ pub trait ICoreWebView2HttpRequestHeaders_Impl {
     fn GetHeaders(
         &self,
         name: &windows_core::PCWSTR,
-        value: windows_core::Ref<'_, ICoreWebView2HttpHeadersCollectionIterator>,
+        value: windows_core::Ref<ICoreWebView2HttpHeadersCollectionIterator>,
     ) -> windows_core::Result<()>;
     fn Contains(
         &self,
@@ -20337,7 +20343,7 @@ pub trait ICoreWebView2HttpRequestHeaders_Impl {
     fn RemoveHeader(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetIterator(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2HttpHeadersCollectionIterator>,
+        value: windows_core::Ref<ICoreWebView2HttpHeadersCollectionIterator>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2HttpRequestHeaders_Vtbl {
@@ -20583,11 +20589,11 @@ pub trait ICoreWebView2HttpResponseHeaders_Impl {
     fn GetHeaders(
         &self,
         name: &windows_core::PCWSTR,
-        value: windows_core::Ref<'_, ICoreWebView2HttpHeadersCollectionIterator>,
+        value: windows_core::Ref<ICoreWebView2HttpHeadersCollectionIterator>,
     ) -> windows_core::Result<()>;
     fn GetIterator(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2HttpHeadersCollectionIterator>,
+        value: windows_core::Ref<ICoreWebView2HttpHeadersCollectionIterator>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2HttpResponseHeaders_Vtbl {
@@ -20730,8 +20736,8 @@ pub struct ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
 pub trait ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl {
@@ -20815,8 +20821,8 @@ pub struct ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
 pub trait ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl {
@@ -20899,8 +20905,8 @@ pub struct ICoreWebView2IsMutedChangedEventHandler_Vtbl {
 pub trait ICoreWebView2IsMutedChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2IsMutedChangedEventHandler_Vtbl {
@@ -21053,7 +21059,7 @@ pub trait ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl {
     fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        value: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
@@ -21218,8 +21224,8 @@ pub struct ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {
 pub trait ICoreWebView2LaunchingExternalUriSchemeEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2LaunchingExternalUriSchemeEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2LaunchingExternalUriSchemeEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl {
@@ -21437,8 +21443,8 @@ pub struct ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2MoveFocusRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Controller>,
-        args: windows_core::Ref<'_, ICoreWebView2MoveFocusRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<ICoreWebView2MoveFocusRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2MoveFocusRequestedEventHandler_Vtbl {
@@ -21726,8 +21732,8 @@ pub struct ICoreWebView2NavigationCompletedEventHandler_Vtbl {
 pub trait ICoreWebView2NavigationCompletedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2NavigationCompletedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NavigationCompletedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NavigationCompletedEventHandler_Vtbl {
@@ -21888,7 +21894,7 @@ pub trait ICoreWebView2NavigationStartingEventArgs_Impl {
     fn IsRedirected(&self, isredirected: windows_core::BOOL) -> windows_core::Result<()>;
     fn RequestHeaders(
         &self,
-        requestheaders: windows_core::Ref<'_, ICoreWebView2HttpRequestHeaders>,
+        requestheaders: windows_core::Ref<ICoreWebView2HttpRequestHeaders>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
@@ -22256,8 +22262,8 @@ pub struct ICoreWebView2NavigationStartingEventHandler_Vtbl {
 pub trait ICoreWebView2NavigationStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2NavigationStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NavigationStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NavigationStartingEventHandler_Vtbl {
@@ -22339,8 +22345,8 @@ pub struct ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
 pub trait ICoreWebView2NewBrowserVersionAvailableEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Environment>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Environment>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl {
@@ -22521,24 +22527,18 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
 }
 pub trait ICoreWebView2NewWindowRequestedEventArgs_Impl {
     fn Uri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn NewWindow(
-        &self,
-        newwindow: windows_core::Ref<'_, ICoreWebView2>,
-    ) -> windows_core::Result<()>;
-    fn NewWindow2(
-        &self,
-        newwindow: windows_core::Ref<'_, ICoreWebView2>,
-    ) -> windows_core::Result<()>;
+    fn NewWindow(&self, newwindow: windows_core::Ref<ICoreWebView2>) -> windows_core::Result<()>;
+    fn NewWindow2(&self, newwindow: windows_core::Ref<ICoreWebView2>) -> windows_core::Result<()>;
     fn Handled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled2(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsUserInitiated(&self, isuserinitiated: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
     fn WindowFeatures(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2WindowFeatures>,
+        value: windows_core::Ref<ICoreWebView2WindowFeatures>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
@@ -22801,7 +22801,7 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {
 pub trait ICoreWebView2NewWindowRequestedEventArgs3_Impl {
     fn OriginalSourceFrameInfo(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2FrameInfo>,
+        value: windows_core::Ref<ICoreWebView2FrameInfo>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NewWindowRequestedEventArgs3_Vtbl {
@@ -22881,8 +22881,8 @@ pub struct ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2NewWindowRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2NewWindowRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NewWindowRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NewWindowRequestedEventHandler_Vtbl {
@@ -23038,8 +23038,8 @@ pub struct ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {
 pub trait ICoreWebView2NonClientRegionChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2CompositionController>,
-        args: windows_core::Ref<'_, ICoreWebView2NonClientRegionChangedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2CompositionController>,
+        args: windows_core::Ref<ICoreWebView2NonClientRegionChangedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NonClientRegionChangedEventHandler_Vtbl {
@@ -23352,7 +23352,7 @@ pub struct ICoreWebView2Notification_Vtbl {
 pub trait ICoreWebView2Notification_Impl {
     fn add_CloseRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NotificationCloseRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NotificationCloseRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_CloseRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -23654,8 +23654,8 @@ pub struct ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2NotificationCloseRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Notification>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Notification>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl {
@@ -23793,13 +23793,13 @@ pub trait ICoreWebView2NotificationReceivedEventArgs_Impl {
     fn SenderOrigin(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Notification(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Notification>,
+        value: windows_core::Ref<ICoreWebView2Notification>,
     ) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
@@ -23947,8 +23947,8 @@ pub struct ICoreWebView2NotificationReceivedEventHandler_Vtbl {
 pub trait ICoreWebView2NotificationReceivedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2NotificationReceivedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2NotificationReceivedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NotificationReceivedEventHandler_Vtbl {
@@ -24042,7 +24042,7 @@ pub trait ICoreWebView2ObjectCollection_Impl {
     fn InsertValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, windows_core::IUnknown>,
+        value: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ObjectCollection_Vtbl {
@@ -24149,7 +24149,7 @@ pub trait ICoreWebView2ObjectCollectionView_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, windows_core::IUnknown>,
+        value: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ObjectCollectionView_Vtbl {
@@ -24320,7 +24320,7 @@ pub trait ICoreWebView2PermissionRequestedEventArgs_Impl {
     fn State2(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
@@ -24687,8 +24687,8 @@ pub struct ICoreWebView2PermissionRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2PermissionRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2PermissionRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2PermissionRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PermissionRequestedEventHandler_Vtbl {
@@ -24919,7 +24919,7 @@ pub trait ICoreWebView2PermissionSettingCollectionView_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        permissionsetting: windows_core::Ref<'_, ICoreWebView2PermissionSetting>,
+        permissionsetting: windows_core::Ref<ICoreWebView2PermissionSetting>,
     ) -> windows_core::Result<()>;
     fn Count(&self, value: u32) -> windows_core::Result<()>;
 }
@@ -27973,7 +27973,7 @@ pub trait ICoreWebView2PrintToPdfStreamCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, IStream>,
+        result: windows_core::Ref<IStream>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
@@ -28068,11 +28068,11 @@ pub struct ICoreWebView2ProcessExtendedInfo_Vtbl {
 pub trait ICoreWebView2ProcessExtendedInfo_Impl {
     fn ProcessInfo(
         &self,
-        processinfo: windows_core::Ref<'_, ICoreWebView2ProcessInfo>,
+        processinfo: windows_core::Ref<ICoreWebView2ProcessInfo>,
     ) -> windows_core::Result<()>;
     fn AssociatedFrameInfos(
         &self,
-        frames: windows_core::Ref<'_, ICoreWebView2FrameInfoCollection>,
+        frames: windows_core::Ref<ICoreWebView2FrameInfoCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessExtendedInfo_Vtbl {
@@ -28175,7 +28175,7 @@ pub trait ICoreWebView2ProcessExtendedInfoCollection_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2ProcessExtendedInfo>,
+        value: windows_core::Ref<ICoreWebView2ProcessExtendedInfo>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessExtendedInfoCollection_Vtbl {
@@ -28394,7 +28394,7 @@ pub trait ICoreWebView2ProcessFailedEventArgs2_Impl {
     ) -> windows_core::Result<()>;
     fn FrameInfosForFailedProcess(
         &self,
-        frames: windows_core::Ref<'_, ICoreWebView2FrameInfoCollection>,
+        frames: windows_core::Ref<ICoreWebView2FrameInfoCollection>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessFailedEventArgs2_Vtbl {
@@ -28595,8 +28595,8 @@ pub struct ICoreWebView2ProcessFailedEventHandler_Vtbl {
 pub trait ICoreWebView2ProcessFailedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ProcessFailedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ProcessFailedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessFailedEventHandler_Vtbl {
@@ -28768,7 +28768,7 @@ pub trait ICoreWebView2ProcessInfoCollection_Impl {
     fn GetValueAtIndex(
         &self,
         index: u32,
-        value: windows_core::Ref<'_, ICoreWebView2ProcessInfo>,
+        value: windows_core::Ref<ICoreWebView2ProcessInfo>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessInfoCollection_Vtbl {
@@ -28863,8 +28863,8 @@ pub struct ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
 pub trait ICoreWebView2ProcessInfosChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Environment>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Environment>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProcessInfosChangedEventHandler_Vtbl {
@@ -29243,18 +29243,18 @@ pub trait ICoreWebView2Profile2_Impl {
     fn ClearBrowsingData(
         &self,
         datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
-        handler: windows_core::Ref<'_, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ClearBrowsingDataCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn ClearBrowsingDataInTimeRange(
         &self,
         datakinds: COREWEBVIEW2_BROWSING_DATA_KINDS,
         starttime: f64,
         endtime: f64,
-        handler: windows_core::Ref<'_, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ClearBrowsingDataCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn ClearBrowsingDataAll(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2ClearBrowsingDataCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ClearBrowsingDataCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Profile2_Vtbl {
@@ -29500,14 +29500,11 @@ pub trait ICoreWebView2Profile4_Impl {
         permissionkind: COREWEBVIEW2_PERMISSION_KIND,
         origin: &windows_core::PCWSTR,
         state: COREWEBVIEW2_PERMISSION_STATE,
-        handler: windows_core::Ref<'_, ICoreWebView2SetPermissionStateCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2SetPermissionStateCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn GetNonDefaultPermissionSettings(
         &self,
-        handler: windows_core::Ref<
-            '_,
-            ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
-        >,
+        handler: windows_core::Ref<ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Profile4_Vtbl {
@@ -29596,7 +29593,7 @@ pub struct ICoreWebView2Profile5_Vtbl {
 pub trait ICoreWebView2Profile5_Impl {
     fn CookieManager(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2CookieManager>,
+        value: windows_core::Ref<ICoreWebView2CookieManager>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Profile5_Vtbl {
@@ -29836,11 +29833,11 @@ pub trait ICoreWebView2Profile7_Impl {
     fn AddBrowserExtension(
         &self,
         extensionfolderpath: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2ProfileAddBrowserExtensionCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ProfileAddBrowserExtensionCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn GetBrowserExtensions(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Profile7_Vtbl {
@@ -29944,7 +29941,7 @@ pub trait ICoreWebView2Profile8_Impl {
     fn Delete(&self) -> windows_core::Result<()>;
     fn add_Deleted(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ProfileDeletedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ProfileDeletedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_Deleted(&self, token: i64) -> windows_core::Result<()>;
@@ -30046,7 +30043,7 @@ pub trait ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2BrowserExtension>,
+        result: windows_core::Ref<ICoreWebView2BrowserExtension>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
@@ -30129,8 +30126,8 @@ pub struct ICoreWebView2ProfileDeletedEventHandler_Vtbl {
 pub trait ICoreWebView2ProfileDeletedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Profile>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Profile>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProfileDeletedEventHandler_Vtbl {
@@ -30214,7 +30211,7 @@ pub trait ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, ICoreWebView2BrowserExtensionList>,
+        result: windows_core::Ref<ICoreWebView2BrowserExtensionList>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
@@ -30297,8 +30294,8 @@ pub struct ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
 pub trait ICoreWebView2RasterizationScaleChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Controller>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl {
@@ -30632,7 +30629,7 @@ pub trait ICoreWebView2SaveAsUIShowingEventArgs_Impl {
     fn SuppressDefaultDialog2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        value: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
     fn SaveAsFilePath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SaveAsFilePath2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
@@ -30897,8 +30894,8 @@ pub struct ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
 pub trait ICoreWebView2SaveAsUIShowingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2SaveAsUIShowingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2SaveAsUIShowingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SaveAsUIShowingEventHandler_Vtbl {
@@ -31084,7 +31081,7 @@ pub trait ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl {
     fn SuppressDefaultPolicy2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        value: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
@@ -31283,8 +31280,8 @@ pub struct ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
 pub trait ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2SaveFileSecurityCheckStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2SaveFileSecurityCheckStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl {
@@ -31436,11 +31433,11 @@ pub trait ICoreWebView2ScreenCaptureStartingEventArgs_Impl {
     fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn OriginalSourceFrameInfo(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2FrameInfo>,
+        value: windows_core::Ref<ICoreWebView2FrameInfo>,
     ) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        value: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
@@ -31605,8 +31602,8 @@ pub struct ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
 pub trait ICoreWebView2ScreenCaptureStartingEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ScreenCaptureStartingEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ScreenCaptureStartingEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl {
@@ -31792,7 +31789,7 @@ pub trait ICoreWebView2ScriptDialogOpeningEventArgs_Impl {
     fn ResultText2(&self, resulttext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
@@ -31982,8 +31979,8 @@ pub struct ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
 pub trait ICoreWebView2ScriptDialogOpeningEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ScriptDialogOpeningEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ScriptDialogOpeningEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl {
@@ -32318,7 +32315,7 @@ pub trait ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl {
     fn RequestUri(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ServerCertificate(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2Certificate>,
+        value: windows_core::Ref<ICoreWebView2Certificate>,
     ) -> windows_core::Result<()>;
     fn Action(
         &self,
@@ -32330,7 +32327,7 @@ pub trait ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl {
     ) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
@@ -32496,8 +32493,8 @@ pub struct ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
 pub trait ICoreWebView2ServerCertificateErrorDetectedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2ServerCertificateErrorDetectedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl {
@@ -34125,7 +34122,7 @@ pub struct ICoreWebView2SharedBuffer_Vtbl {
 pub trait ICoreWebView2SharedBuffer_Impl {
     fn Size(&self, value: u64) -> windows_core::Result<()>;
     fn Buffer(&self, value: u8) -> windows_core::Result<()>;
-    fn OpenStream(&self, value: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
+    fn OpenStream(&self, value: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn FileMappingHandle(&self, value: HANDLE) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
 }
@@ -34397,8 +34394,8 @@ pub struct ICoreWebView2SourceChangedEventHandler_Vtbl {
 pub trait ICoreWebView2SourceChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2SourceChangedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2SourceChangedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SourceChangedEventHandler_Vtbl {
@@ -34478,8 +34475,8 @@ pub struct ICoreWebView2StateChangedEventHandler_Vtbl {
 pub trait ICoreWebView2StateChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2DownloadOperation>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2DownloadOperation>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2StateChangedEventHandler_Vtbl {
@@ -34559,8 +34556,8 @@ pub struct ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
 pub trait ICoreWebView2StatusBarTextChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2StatusBarTextChangedEventHandler_Vtbl {
@@ -34959,7 +34956,7 @@ pub struct ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {
 pub trait ICoreWebView2WebMessageReceivedEventArgs2_Impl {
     fn AdditionalObjects(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2ObjectCollectionView>,
+        value: windows_core::Ref<ICoreWebView2ObjectCollectionView>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebMessageReceivedEventArgs2_Vtbl {
@@ -35039,8 +35036,8 @@ pub struct ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
 pub trait ICoreWebView2WebMessageReceivedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2WebMessageReceivedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2WebMessageReceivedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebMessageReceivedEventHandler_Vtbl {
@@ -35217,11 +35214,11 @@ pub trait ICoreWebView2WebResourceRequest_Impl {
     fn Uri2(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Method(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Method2(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Content(&self, content: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
-    fn Content2(&self, content: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
+    fn Content(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
+    fn Content2(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Headers(
         &self,
-        headers: windows_core::Ref<'_, ICoreWebView2HttpRequestHeaders>,
+        headers: windows_core::Ref<ICoreWebView2HttpRequestHeaders>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceRequest_Vtbl {
@@ -35433,19 +35430,19 @@ pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
 pub trait ICoreWebView2WebResourceRequestedEventArgs_Impl {
     fn Request(
         &self,
-        request: windows_core::Ref<'_, ICoreWebView2WebResourceRequest>,
+        request: windows_core::Ref<ICoreWebView2WebResourceRequest>,
     ) -> windows_core::Result<()>;
     fn Response(
         &self,
-        response: windows_core::Ref<'_, ICoreWebView2WebResourceResponse>,
+        response: windows_core::Ref<ICoreWebView2WebResourceResponse>,
     ) -> windows_core::Result<()>;
     fn Response2(
         &self,
-        response: windows_core::Ref<'_, ICoreWebView2WebResourceResponse>,
+        response: windows_core::Ref<ICoreWebView2WebResourceResponse>,
     ) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
-        deferral: windows_core::Ref<'_, ICoreWebView2Deferral>,
+        deferral: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
     fn ResourceContext(
         &self,
@@ -35674,8 +35671,8 @@ pub struct ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2WebResourceRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2WebResourceRequestedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2WebResourceRequestedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceRequestedEventHandler_Vtbl {
@@ -35837,11 +35834,11 @@ pub struct ICoreWebView2WebResourceResponse_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2WebResourceResponse_Impl {
-    fn Content(&self, content: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
-    fn Content2(&self, content: windows_core::Ref<'_, IStream>) -> windows_core::Result<()>;
+    fn Content(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
+    fn Content2(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Headers(
         &self,
-        headers: windows_core::Ref<'_, ICoreWebView2HttpResponseHeaders>,
+        headers: windows_core::Ref<ICoreWebView2HttpResponseHeaders>,
     ) -> windows_core::Result<()>;
     fn StatusCode(&self, statuscode: i32) -> windows_core::Result<()>;
     fn StatusCode2(&self, statuscode: i32) -> windows_core::Result<()>;
@@ -36023,11 +36020,11 @@ pub struct ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
 pub trait ICoreWebView2WebResourceResponseReceivedEventArgs_Impl {
     fn Request(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2WebResourceRequest>,
+        value: windows_core::Ref<ICoreWebView2WebResourceRequest>,
     ) -> windows_core::Result<()>;
     fn Response(
         &self,
-        value: windows_core::Ref<'_, ICoreWebView2WebResourceResponseView>,
+        value: windows_core::Ref<ICoreWebView2WebResourceResponseView>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl {
@@ -36124,8 +36121,8 @@ pub struct ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
 pub trait ICoreWebView2WebResourceResponseReceivedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, ICoreWebView2WebResourceResponseReceivedEventArgs>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<ICoreWebView2WebResourceResponseReceivedEventArgs>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl {
@@ -36247,16 +36244,13 @@ pub struct ICoreWebView2WebResourceResponseView_Vtbl {
 pub trait ICoreWebView2WebResourceResponseView_Impl {
     fn Headers(
         &self,
-        headers: windows_core::Ref<'_, ICoreWebView2HttpResponseHeaders>,
+        headers: windows_core::Ref<ICoreWebView2HttpResponseHeaders>,
     ) -> windows_core::Result<()>;
     fn StatusCode(&self, statuscode: i32) -> windows_core::Result<()>;
     fn ReasonPhrase(&self, reasonphrase: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetContent(
         &self,
-        handler: windows_core::Ref<
-            '_,
-            ICoreWebView2WebResourceResponseViewGetContentCompletedHandler,
-        >,
+        handler: windows_core::Ref<ICoreWebView2WebResourceResponseViewGetContentCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponseView_Vtbl {
@@ -36389,7 +36383,7 @@ pub trait ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl {
     fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<'_, IStream>,
+        result: windows_core::Ref<IStream>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
@@ -36469,8 +36463,8 @@ pub struct ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
 pub trait ICoreWebView2WindowCloseRequestedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WindowCloseRequestedEventHandler_Vtbl {
@@ -36859,8 +36853,8 @@ pub struct ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
 pub trait ICoreWebView2ZoomFactorChangedEventHandler_Impl {
     fn Invoke(
         &self,
-        sender: windows_core::Ref<'_, ICoreWebView2Controller>,
-        args: windows_core::Ref<'_, windows_core::IUnknown>,
+        sender: windows_core::Ref<ICoreWebView2Controller>,
+        args: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ZoomFactorChangedEventHandler_Vtbl {
@@ -36956,7 +36950,7 @@ pub struct ICoreWebView2_10_Vtbl {
 pub trait ICoreWebView2_10_Impl {
     fn add_BasicAuthenticationRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2BasicAuthenticationRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2BasicAuthenticationRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_BasicAuthenticationRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -37097,11 +37091,11 @@ pub trait ICoreWebView2_11_Impl {
         sessionid: &windows_core::PCWSTR,
         methodname: &windows_core::PCWSTR,
         parametersasjson: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2CallDevToolsProtocolMethodCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn add_ContextMenuRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ContextMenuRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ContextMenuRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ContextMenuRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -37242,7 +37236,7 @@ pub struct ICoreWebView2_12_Vtbl {
 pub trait ICoreWebView2_12_Impl {
     fn add_StatusBarTextChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2StatusBarTextChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2StatusBarTextChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_StatusBarTextChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -37337,10 +37331,7 @@ pub struct ICoreWebView2_13_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2_13_Impl {
-    fn Profile(
-        &self,
-        value: windows_core::Ref<'_, ICoreWebView2Profile>,
-    ) -> windows_core::Result<()>;
+    fn Profile(&self, value: windows_core::Ref<ICoreWebView2Profile>) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_13_Vtbl {
     pub const fn new<Identity: ICoreWebView2_13_Impl>() -> Self {
@@ -37440,19 +37431,13 @@ pub struct ICoreWebView2_14_Vtbl {
 pub trait ICoreWebView2_14_Impl {
     fn add_ServerCertificateErrorDetected(
         &self,
-        eventhandler: windows_core::Ref<
-            '_,
-            ICoreWebView2ServerCertificateErrorDetectedEventHandler,
-        >,
+        eventhandler: windows_core::Ref<ICoreWebView2ServerCertificateErrorDetectedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ServerCertificateErrorDetected(&self, token: i64) -> windows_core::Result<()>;
     fn ClearServerCertificateErrorActions(
         &self,
-        handler: windows_core::Ref<
-            '_,
-            ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
-        >,
+        handler: windows_core::Ref<ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_14_Vtbl {
@@ -37611,7 +37596,7 @@ pub struct ICoreWebView2_15_Vtbl {
 pub trait ICoreWebView2_15_Impl {
     fn add_FaviconChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FaviconChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FaviconChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_FaviconChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -37619,7 +37604,7 @@ pub trait ICoreWebView2_15_Impl {
     fn GetFavicon(
         &self,
         format: COREWEBVIEW2_FAVICON_IMAGE_FORMAT,
-        completedhandler: windows_core::Ref<'_, ICoreWebView2GetFaviconCompletedHandler>,
+        completedhandler: windows_core::Ref<ICoreWebView2GetFaviconCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_15_Vtbl {
@@ -37772,8 +37757,8 @@ pub struct ICoreWebView2_16_Vtbl {
 pub trait ICoreWebView2_16_Impl {
     fn Print(
         &self,
-        printsettings: windows_core::Ref<'_, ICoreWebView2PrintSettings>,
-        handler: windows_core::Ref<'_, ICoreWebView2PrintCompletedHandler>,
+        printsettings: windows_core::Ref<ICoreWebView2PrintSettings>,
+        handler: windows_core::Ref<ICoreWebView2PrintCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn ShowPrintUI(
         &self,
@@ -37781,8 +37766,8 @@ pub trait ICoreWebView2_16_Impl {
     ) -> windows_core::Result<()>;
     fn PrintToPdfStream(
         &self,
-        printsettings: windows_core::Ref<'_, ICoreWebView2PrintSettings>,
-        handler: windows_core::Ref<'_, ICoreWebView2PrintToPdfStreamCompletedHandler>,
+        printsettings: windows_core::Ref<ICoreWebView2PrintSettings>,
+        handler: windows_core::Ref<ICoreWebView2PrintToPdfStreamCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_16_Vtbl {
@@ -37892,7 +37877,7 @@ pub struct ICoreWebView2_17_Vtbl {
 pub trait ICoreWebView2_17_Impl {
     fn PostSharedBufferToScript(
         &self,
-        sharedbuffer: windows_core::Ref<'_, ICoreWebView2SharedBuffer>,
+        sharedbuffer: windows_core::Ref<ICoreWebView2SharedBuffer>,
         access: COREWEBVIEW2_SHARED_BUFFER_ACCESS,
         additionaldataasjson: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
@@ -37981,7 +37966,7 @@ pub struct ICoreWebView2_18_Vtbl {
 pub trait ICoreWebView2_18_Impl {
     fn add_LaunchingExternalUriScheme(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2LaunchingExternalUriSchemeEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2LaunchingExternalUriSchemeEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_LaunchingExternalUriScheme(&self, token: i64) -> windows_core::Result<()>;
@@ -38272,27 +38257,27 @@ pub struct ICoreWebView2_2_Vtbl {
 pub trait ICoreWebView2_2_Impl {
     fn add_WebResourceResponseReceived(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2WebResourceResponseReceivedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2WebResourceResponseReceivedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_WebResourceResponseReceived(&self, token: i64) -> windows_core::Result<()>;
     fn NavigateWithWebResourceRequest(
         &self,
-        request: windows_core::Ref<'_, ICoreWebView2WebResourceRequest>,
+        request: windows_core::Ref<ICoreWebView2WebResourceRequest>,
     ) -> windows_core::Result<()>;
     fn add_DOMContentLoaded(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2DOMContentLoadedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2DOMContentLoadedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_DOMContentLoaded(&self, token: i64) -> windows_core::Result<()>;
     fn CookieManager(
         &self,
-        cookiemanager: windows_core::Ref<'_, ICoreWebView2CookieManager>,
+        cookiemanager: windows_core::Ref<ICoreWebView2CookieManager>,
     ) -> windows_core::Result<()>;
     fn Environment(
         &self,
-        environment: windows_core::Ref<'_, ICoreWebView2Environment>,
+        environment: windows_core::Ref<ICoreWebView2Environment>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_2_Vtbl {
@@ -38511,7 +38496,7 @@ pub trait ICoreWebView2_21_Impl {
     fn ExecuteScriptWithResult(
         &self,
         javascript: &windows_core::PCWSTR,
-        handler: windows_core::Ref<'_, ICoreWebView2ExecuteScriptWithResultCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ExecuteScriptWithResultCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_21_Vtbl {
@@ -38729,7 +38714,7 @@ pub trait ICoreWebView2_23_Impl {
     fn PostWebMessageAsJsonWithAdditionalObjects(
         &self,
         webmessageasjson: &windows_core::PCWSTR,
-        additionalobjects: windows_core::Ref<'_, ICoreWebView2ObjectCollectionView>,
+        additionalobjects: windows_core::Ref<ICoreWebView2ObjectCollectionView>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_23_Vtbl {
@@ -38818,7 +38803,7 @@ pub struct ICoreWebView2_24_Vtbl {
 pub trait ICoreWebView2_24_Impl {
     fn add_NotificationReceived(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2NotificationReceivedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2NotificationReceivedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_NotificationReceived(&self, token: i64) -> windows_core::Result<()>;
@@ -38936,13 +38921,13 @@ pub struct ICoreWebView2_25_Vtbl {
 pub trait ICoreWebView2_25_Impl {
     fn add_SaveAsUIShowing(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2SaveAsUIShowingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2SaveAsUIShowingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_SaveAsUIShowing(&self, token: i64) -> windows_core::Result<()>;
     fn ShowSaveAsUI(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2ShowSaveAsUICompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2ShowSaveAsUICompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_25_Vtbl {
@@ -39057,7 +39042,7 @@ pub struct ICoreWebView2_26_Vtbl {
 pub trait ICoreWebView2_26_Impl {
     fn add_SaveFileSecurityCheckStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2SaveFileSecurityCheckStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_SaveFileSecurityCheckStarting(&self, token: i64) -> windows_core::Result<()>;
@@ -39163,7 +39148,7 @@ pub struct ICoreWebView2_27_Vtbl {
 pub trait ICoreWebView2_27_Impl {
     fn add_ScreenCaptureStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ScreenCaptureStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ScreenCaptureStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ScreenCaptureStarting(&self, token: i64) -> windows_core::Result<()>;
@@ -39314,7 +39299,7 @@ pub struct ICoreWebView2_3_Vtbl {
 pub trait ICoreWebView2_3_Impl {
     fn TrySuspend(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2TrySuspendCompletedHandler>,
+        handler: windows_core::Ref<ICoreWebView2TrySuspendCompletedHandler>,
     ) -> windows_core::Result<()>;
     fn Resume(&self) -> windows_core::Result<()>;
     fn IsSuspended(&self, issuspended: windows_core::BOOL) -> windows_core::Result<()>;
@@ -39498,13 +39483,13 @@ pub struct ICoreWebView2_4_Vtbl {
 pub trait ICoreWebView2_4_Impl {
     fn add_FrameCreated(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2FrameCreatedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2FrameCreatedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_FrameCreated(&self, token: i64) -> windows_core::Result<()>;
     fn add_DownloadStarting(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2DownloadStartingEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2DownloadStartingEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_DownloadStarting(&self, token: i64) -> windows_core::Result<()>;
@@ -39635,7 +39620,7 @@ pub struct ICoreWebView2_5_Vtbl {
 pub trait ICoreWebView2_5_Impl {
     fn add_ClientCertificateRequested(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2ClientCertificateRequestedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2ClientCertificateRequestedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_ClientCertificateRequested(&self, token: i64) -> windows_core::Result<()>;
@@ -39786,8 +39771,8 @@ pub trait ICoreWebView2_7_Impl {
     fn PrintToPdf(
         &self,
         resultfilepath: &windows_core::PCWSTR,
-        printsettings: windows_core::Ref<'_, ICoreWebView2PrintSettings>,
-        handler: windows_core::Ref<'_, ICoreWebView2PrintToPdfCompletedHandler>,
+        printsettings: windows_core::Ref<ICoreWebView2PrintSettings>,
+        handler: windows_core::Ref<ICoreWebView2PrintToPdfCompletedHandler>,
     ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_7_Vtbl {
@@ -39949,7 +39934,7 @@ pub struct ICoreWebView2_8_Vtbl {
 pub trait ICoreWebView2_8_Impl {
     fn add_IsMutedChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2IsMutedChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2IsMutedChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_IsMutedChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -39957,7 +39942,7 @@ pub trait ICoreWebView2_8_Impl {
     fn IsMuted2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn add_IsDocumentPlayingAudioChanged(
         &self,
-        eventhandler: windows_core::Ref<'_, ICoreWebView2IsDocumentPlayingAudioChangedEventHandler>,
+        eventhandler: windows_core::Ref<ICoreWebView2IsDocumentPlayingAudioChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_IsDocumentPlayingAudioChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -40223,7 +40208,7 @@ pub struct ICoreWebView2_9_Vtbl {
 pub trait ICoreWebView2_9_Impl {
     fn add_IsDefaultDownloadDialogOpenChanged(
         &self,
-        handler: windows_core::Ref<'_, ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler>,
+        handler: windows_core::Ref<ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler>,
         token: i64,
     ) -> windows_core::Result<()>;
     fn remove_IsDefaultDownloadDialogOpenChanged(&self, token: i64) -> windows_core::Result<()>;
@@ -40918,8 +40903,7 @@ pub trait IRecordInfo_Impl: windows_core::IUnknownImpl {
         pcnames: *mut u32,
         rgbstrnames: *mut windows_core::BSTR,
     ) -> windows_core::Result<()>;
-    fn IsMatchingType(&self, precordinfo: windows_core::Ref<'_, IRecordInfo>)
-        -> windows_core::BOOL;
+    fn IsMatchingType(&self, precordinfo: windows_core::Ref<IRecordInfo>) -> windows_core::BOOL;
     fn RecordCreate(&self) -> *mut core::ffi::c_void;
     fn RecordCreateCopy(
         &self,
@@ -41410,7 +41394,7 @@ pub trait IStream_Impl: ISequentialStream_Impl {
     fn SetSize(&self, libnewsize: u64) -> windows_core::Result<()>;
     fn CopyTo(
         &self,
-        pstm: windows_core::Ref<'_, IStream>,
+        pstm: windows_core::Ref<IStream>,
         cb: u64,
         pcbread: *mut u64,
         pcbwritten: *mut u64,
