@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 
-mod parse;
 mod index;
+mod parse;
 
 // TODO: this should be private with a more practical Error type and avoid exposing a direct dependency on nom and nom_locate
 pub type Input<'a> = nom_locate::LocatedSpan<&'a str>;

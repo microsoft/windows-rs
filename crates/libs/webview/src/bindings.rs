@@ -3558,12 +3558,29 @@ windows_core::imp::define_interface!(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType
+    for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
+{
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox {
+            vtable:
+                &ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -3571,9 +3588,10 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -3584,58 +3602,81 @@ impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        windows_core::PCWSTR,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: windows_core::PCWSTR,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl =
+        ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
     }
-}
-impl windows_core::RuntimeName
-    for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
-{
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute(&result)).into()
+        }
+    }
 }
 windows_core::imp::define_interface!(
     ICoreWebView2BasicAuthenticationRequestedEventArgs,
@@ -4337,15 +4378,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2BrowserExtensionEnableCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2BrowserExtensionEnableCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2BrowserExtensionEnableCompletedHandlerBox {
+            vtable: &ICoreWebView2BrowserExtensionEnableCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -4355,49 +4407,77 @@ impl ICoreWebView2BrowserExtensionEnableCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2BrowserExtensionEnableCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BrowserExtensionEnableCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2BrowserExtensionEnableCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl =
+        ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2BrowserExtensionEnableCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2BrowserExtensionEnableCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2BrowserExtensionEnableCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionList,
     ICoreWebView2BrowserExtensionList_Vtbl,
@@ -4502,15 +4582,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2BrowserExtensionRemoveCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2BrowserExtensionRemoveCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2BrowserExtensionRemoveCompletedHandlerBox {
+            vtable: &ICoreWebView2BrowserExtensionRemoveCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -4520,49 +4611,77 @@ impl ICoreWebView2BrowserExtensionRemoveCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2BrowserExtensionRemoveCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BrowserExtensionRemoveCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2BrowserExtensionRemoveCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl =
+        ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2BrowserExtensionRemoveCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2BrowserExtensionRemoveCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2BrowserExtensionRemoveCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserProcessExitedEventArgs,
     ICoreWebView2BrowserProcessExitedEventArgs_Vtbl,
@@ -4820,12 +4939,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2CallDevToolsProtocolMethodCompletedHandlerBox {
+            vtable: &ICoreWebView2CallDevToolsProtocolMethodCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -4833,9 +4966,10 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -4846,70 +4980,107 @@ impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        windows_core::PCWSTR,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2CallDevToolsProtocolMethodCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: windows_core::PCWSTR,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2CallDevToolsProtocolMethodCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl =
+        ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2CallDevToolsProtocolMethodCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CallDevToolsProtocolMethodCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2CapturePreviewCompletedHandler,
     ICoreWebView2CapturePreviewCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2CapturePreviewCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2CapturePreviewCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2CapturePreviewCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2CapturePreviewCompletedHandlerBox {
+            vtable: &ICoreWebView2CapturePreviewCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -4919,47 +5090,91 @@ impl ICoreWebView2CapturePreviewCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CapturePreviewCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2CapturePreviewCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2CapturePreviewCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CapturePreviewCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CapturePreviewCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CapturePreviewCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2CapturePreviewCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2CapturePreviewCompletedHandler_Vtbl =
+        ICoreWebView2CapturePreviewCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2CapturePreviewCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2CapturePreviewCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2CapturePreviewCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Certificate,
     ICoreWebView2Certificate_Vtbl,
@@ -5245,15 +5460,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ClearBrowsingDataCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ClearBrowsingDataCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ClearBrowsingDataCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ClearBrowsingDataCompletedHandlerBox {
+            vtable: &ICoreWebView2ClearBrowsingDataCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -5263,61 +5489,117 @@ impl ICoreWebView2ClearBrowsingDataCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ClearBrowsingDataCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ClearBrowsingDataCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ClearBrowsingDataCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClearBrowsingDataCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2ClearBrowsingDataCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl =
+        ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ClearBrowsingDataCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ClearBrowsingDataCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
     ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ClearServerCertificateErrorActionsCompletedHandlerBox {
+            vtable:
+                &ICoreWebView2ClearServerCertificateErrorActionsCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -5327,49 +5609,77 @@ impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ClearServerCertificateErrorActionsCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2ClearServerCertificateErrorActionsCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl =
+        ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClientCertificate,
     ICoreWebView2ClientCertificate_Vtbl,
@@ -11357,12 +11667,27 @@ windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType
+    for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
+{
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2CompositionController>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandlerBox { vtable : & ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandlerBox:: <  F >::VTABLE , count :windows_core::imp::RefCount::new ( 1 ) , invoke , } ;
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -11370,9 +11695,10 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2CompositionController>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -11383,70 +11709,118 @@ impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2CompositionController>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2CompositionController>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2CompositionController>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl =
+        ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
     }
-}
-impl windows_core::RuntimeName
-    for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
-{
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
+    }
 }
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2Controller>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox {
+            vtable: &ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -11454,9 +11828,10 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2Controller>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -11467,67 +11842,118 @@ impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2Controller>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2Controller>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2Controller>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2CreateCoreWebView2ControllerCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl =
+        ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2CreateCoreWebView2ControllerCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CreateCoreWebView2ControllerCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2Environment>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox {
+            vtable: &ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -11535,9 +11961,10 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2Environment>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -11548,56 +11975,90 @@ impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2Environment>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2Environment>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2Environment>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl =
+        ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2CursorChangedEventHandler,
     ICoreWebView2CursorChangedEventHandler_Vtbl,
@@ -16707,12 +17168,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ExecuteScriptCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ExecuteScriptCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ExecuteScriptCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ExecuteScriptCompletedHandlerBox {
+            vtable: &ICoreWebView2ExecuteScriptCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -16720,9 +17195,10 @@ impl ICoreWebView2ExecuteScriptCompletedHandler {
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -16733,54 +17209,96 @@ impl ICoreWebView2ExecuteScriptCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        windows_core::PCWSTR,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ExecuteScriptCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: &windows_core::PCWSTR,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ExecuteScriptCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2ExecuteScriptCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ExecuteScriptCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: windows_core::PCWSTR,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ExecuteScriptCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, &windows_core::PCWSTR) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2ExecuteScriptCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ExecuteScriptCompletedHandler_Vtbl =
+        ICoreWebView2ExecuteScriptCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2ExecuteScriptCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ExecuteScriptCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::PCWSTR,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptResult,
     ICoreWebView2ExecuteScriptResult_Vtbl,
@@ -16965,12 +17483,29 @@ windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ExecuteScriptWithResultCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ExecuteScriptWithResultCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2ExecuteScriptResult>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ExecuteScriptWithResultCompletedHandlerBox {
+            vtable: &ICoreWebView2ExecuteScriptWithResultCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -16978,9 +17513,10 @@ impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2ExecuteScriptResult>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -16991,56 +17527,90 @@ impl ICoreWebView2ExecuteScriptWithResultCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2ExecuteScriptResult>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ExecuteScriptWithResultCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2ExecuteScriptResult>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ExecuteScriptWithResultCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2ExecuteScriptResult>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2ExecuteScriptWithResultCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl =
+        ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2ExecuteScriptWithResultCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2ExecuteScriptWithResultCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptWithResultCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2FaviconChangedEventHandler,
     ICoreWebView2FaviconChangedEventHandler_Vtbl,
@@ -20095,12 +20665,29 @@ windows_core::imp::define_interface!(
     ICoreWebView2GetCookiesCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2GetCookiesCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2GetCookiesCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2GetCookiesCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2CookieList>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2GetCookiesCompletedHandlerBox {
+            vtable: &ICoreWebView2GetCookiesCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -20108,9 +20695,10 @@ impl ICoreWebView2GetCookiesCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2CookieList>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -20121,65 +20709,129 @@ impl ICoreWebView2GetCookiesCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2GetCookiesCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2GetCookiesCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2CookieList>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2GetCookiesCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2CookieList>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2GetCookiesCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2GetCookiesCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2GetCookiesCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2GetCookiesCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2CookieList>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2GetCookiesCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2GetCookiesCompletedHandler_Vtbl =
+        ICoreWebView2GetCookiesCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2GetCookiesCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2GetCookiesCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2GetFaviconCompletedHandler,
     ICoreWebView2GetFaviconCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2GetFaviconCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2GetFaviconCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2GetFaviconCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2GetFaviconCompletedHandlerBox {
+            vtable: &ICoreWebView2GetFaviconCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -20187,9 +20839,10 @@ impl ICoreWebView2GetFaviconCompletedHandler {
     where
         P1: windows_core::Param<IStream>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -20200,65 +20853,126 @@ impl ICoreWebView2GetFaviconCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2GetFaviconCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2GetFaviconCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<IStream>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2GetFaviconCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2GetFaviconCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2GetFaviconCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2GetFaviconCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2GetFaviconCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2GetFaviconCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2GetFaviconCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2GetFaviconCompletedHandler_Vtbl =
+        ICoreWebView2GetFaviconCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2GetFaviconCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2GetFaviconCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2GetFaviconCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
     ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2PermissionSettingCollectionView>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandlerBox {
+            vtable: &ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -20266,9 +20980,10 @@ impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2PermissionSettingCollectionView>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -20279,67 +20994,118 @@ impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2PermissionSettingCollectionView>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2PermissionSettingCollectionView>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2PermissionSettingCollectionView>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl =
+        ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2GetProcessExtendedInfosCompletedHandler,
     ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2GetProcessExtendedInfosCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2GetProcessExtendedInfosCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2ProcessExtendedInfoCollection>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2GetProcessExtendedInfosCompletedHandlerBox {
+            vtable: &ICoreWebView2GetProcessExtendedInfosCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -20347,9 +21113,10 @@ impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2ProcessExtendedInfoCollection>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -20360,56 +21127,90 @@ impl ICoreWebView2GetProcessExtendedInfosCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2ProcessExtendedInfoCollection>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2GetProcessExtendedInfosCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2ProcessExtendedInfoCollection>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2GetProcessExtendedInfosCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2ProcessExtendedInfoCollection>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2GetProcessExtendedInfosCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl =
+        ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2GetProcessExtendedInfosCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2GetProcessExtendedInfosCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2GetProcessExtendedInfosCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2HistoryChangedEventHandler,
     ICoreWebView2HistoryChangedEventHandler_Vtbl,
@@ -27042,16 +27843,34 @@ windows_core::imp::define_interface!(
     ICoreWebView2PrintCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(ICoreWebView2PrintCompletedHandler, windows_core::IUnknown);
+impl windows_core::RuntimeType for ICoreWebView2PrintCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2PrintCompletedHandler {
-    pub unsafe fn Invoke(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, COREWEBVIEW2_PRINT_STATUS) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2PrintCompletedHandlerBox {
+            vtable: &ICoreWebView2PrintCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
         result: COREWEBVIEW2_PRINT_STATUS,
     ) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result,
             )
@@ -27062,52 +27881,98 @@ impl ICoreWebView2PrintCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PrintCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        COREWEBVIEW2_PRINT_STATUS,
-    ) -> windows_core::HRESULT,
-}
-pub trait ICoreWebView2PrintCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
         result: COREWEBVIEW2_PRINT_STATUS,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT,
 }
-impl ICoreWebView2PrintCompletedHandler_Vtbl {
-    pub const fn new<Identity: ICoreWebView2PrintCompletedHandler_Impl, const OFFSET: isize>(
-    ) -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2PrintCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: COREWEBVIEW2_PRINT_STATUS,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+#[repr(C)]
+struct ICoreWebView2PrintCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, COREWEBVIEW2_PRINT_STATUS) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2PrintCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<
+        F: Fn(windows_core::HRESULT, COREWEBVIEW2_PRINT_STATUS) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2PrintCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2PrintCompletedHandler_Vtbl =
+        ICoreWebView2PrintCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2PrintCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2PrintCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: COREWEBVIEW2_PRINT_STATUS,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, result).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2PrintCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2PrintSettings,
     ICoreWebView2PrintSettings_Vtbl,
@@ -28522,21 +29387,34 @@ windows_core::imp::define_interface!(
     ICoreWebView2PrintToPdfCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2PrintToPdfCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2PrintToPdfCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2PrintToPdfCompletedHandler {
-    pub unsafe fn Invoke(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2PrintToPdfCompletedHandlerBox {
+            vtable: &ICoreWebView2PrintToPdfCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: bool,
+        result: windows_core::BOOL,
     ) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
-                result.into(),
+                result,
             )
             .ok()
         }
@@ -28545,65 +29423,119 @@ impl ICoreWebView2PrintToPdfCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        windows_core::BOOL,
-    ) -> windows_core::HRESULT,
-}
-pub trait ICoreWebView2PrintToPdfCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
         result: windows_core::BOOL,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT,
 }
-impl ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2PrintToPdfCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2PrintToPdfCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintToPdfCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+#[repr(C)]
+struct ICoreWebView2PrintToPdfCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2PrintToPdfCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<
+        F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+    > ICoreWebView2PrintToPdfCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2PrintToPdfCompletedHandler_Vtbl =
+        ICoreWebView2PrintToPdfCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2PrintToPdfCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2PrintToPdfCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::BOOL,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, result).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2PrintToPdfCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2PrintToPdfStreamCompletedHandler,
     ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2PrintToPdfStreamCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2PrintToPdfStreamCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2PrintToPdfStreamCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2PrintToPdfStreamCompletedHandlerBox {
+            vtable: &ICoreWebView2PrintToPdfStreamCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -28611,9 +29543,10 @@ impl ICoreWebView2PrintToPdfStreamCompletedHandler {
     where
         P1: windows_core::Param<IStream>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -28624,54 +29557,98 @@ impl ICoreWebView2PrintToPdfStreamCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2PrintToPdfStreamCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<IStream>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2PrintToPdfStreamCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2PrintToPdfStreamCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2PrintToPdfStreamCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintToPdfStreamCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2PrintToPdfStreamCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl =
+        ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2PrintToPdfStreamCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2PrintToPdfStreamCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2PrintToPdfStreamCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessExtendedInfo,
     ICoreWebView2ProcessExtendedInfo_Vtbl,
@@ -30766,12 +31743,29 @@ windows_core::imp::define_interface!(
     ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ProfileAddBrowserExtensionCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2BrowserExtension>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ProfileAddBrowserExtensionCompletedHandlerBox {
+            vtable: &ICoreWebView2ProfileAddBrowserExtensionCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -30779,9 +31773,10 @@ impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2BrowserExtension>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -30792,56 +31787,90 @@ impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2BrowserExtension>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ProfileAddBrowserExtensionCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2BrowserExtension>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2BrowserExtension>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2ProfileAddBrowserExtensionCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl =
+        ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2ProfileAddBrowserExtensionCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2ProfileAddBrowserExtensionCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProfileDeletedEventHandler,
     ICoreWebView2ProfileDeletedEventHandler_Vtbl,
@@ -30923,12 +31952,29 @@ windows_core::imp::define_interface!(
     ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2BrowserExtensionList>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ProfileGetBrowserExtensionsCompletedHandlerBox {
+            vtable: &ICoreWebView2ProfileGetBrowserExtensionsCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -30936,9 +31982,10 @@ impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
     where
         P1: windows_core::Param<ICoreWebView2BrowserExtensionList>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -30949,56 +31996,90 @@ impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<ICoreWebView2BrowserExtensionList>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2ProfileGetBrowserExtensionsCompletedHandlerBox<
+    F: Fn(
+            windows_core::HRESULT,
+            windows_core::Ref<ICoreWebView2BrowserExtensionList>,
+        ) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(
+                windows_core::HRESULT,
+                windows_core::Ref<ICoreWebView2BrowserExtensionList>,
+            ) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2ProfileGetBrowserExtensionsCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl =
+        ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2RasterizationScaleChangedEventHandler,
     ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl,
@@ -33261,15 +34342,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2SetPermissionStateCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2SetPermissionStateCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2SetPermissionStateCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2SetPermissionStateCompletedHandler {
-    pub unsafe fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn new<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2SetPermissionStateCompletedHandlerBox {
+            vtable: &ICoreWebView2SetPermissionStateCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
             )
             .ok()
@@ -33279,47 +34371,91 @@ impl ICoreWebView2SetPermissionStateCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2SetPermissionStateCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self, errorcode: windows_core::HRESULT) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2SetPermissionStateCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2SetPermissionStateCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2SetPermissionStateCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2SetPermissionStateCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SetPermissionStateCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                )
-                .into()
+impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
+    ICoreWebView2SetPermissionStateCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2SetPermissionStateCompletedHandler_Vtbl =
+        ICoreWebView2SetPermissionStateCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2SetPermissionStateCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2SetPermissionStateCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2SetPermissionStateCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings,
     ICoreWebView2Settings_Vtbl,
@@ -35082,19 +36218,34 @@ windows_core::imp::define_interface!(
     ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2ShowSaveAsUICompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2ShowSaveAsUICompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2ShowSaveAsUICompletedHandler {
-    pub unsafe fn Invoke(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, COREWEBVIEW2_SAVE_AS_UI_RESULT) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2ShowSaveAsUICompletedHandlerBox {
+            vtable: &ICoreWebView2ShowSaveAsUICompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
         result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
     ) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result,
             )
@@ -35105,54 +36256,98 @@ impl ICoreWebView2ShowSaveAsUICompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        COREWEBVIEW2_SAVE_AS_UI_RESULT,
-    ) -> windows_core::HRESULT,
-}
-pub trait ICoreWebView2ShowSaveAsUICompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
         result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT,
 }
-impl ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2ShowSaveAsUICompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2ShowSaveAsUICompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ShowSaveAsUICompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+#[repr(C)]
+struct ICoreWebView2ShowSaveAsUICompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, COREWEBVIEW2_SAVE_AS_UI_RESULT) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<
+        F: Fn(windows_core::HRESULT, COREWEBVIEW2_SAVE_AS_UI_RESULT) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2ShowSaveAsUICompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl =
+        ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2ShowSaveAsUICompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2ShowSaveAsUICompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: COREWEBVIEW2_SAVE_AS_UI_RESULT,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, result).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2ShowSaveAsUICompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2SourceChangedEventArgs,
     ICoreWebView2SourceChangedEventArgs_Vtbl,
@@ -35536,21 +36731,34 @@ windows_core::imp::define_interface!(
     ICoreWebView2TrySuspendCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2TrySuspendCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2TrySuspendCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2TrySuspendCompletedHandler {
-    pub unsafe fn Invoke(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2TrySuspendCompletedHandlerBox {
+            vtable: &ICoreWebView2TrySuspendCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke(
         &self,
         errorcode: windows_core::HRESULT,
-        result: bool,
+        result: windows_core::BOOL,
     ) -> windows_core::Result<()> {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
-                result.into(),
+                result,
             )
             .ok()
         }
@@ -35559,54 +36767,94 @@ impl ICoreWebView2TrySuspendCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2TrySuspendCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        windows_core::BOOL,
-    ) -> windows_core::HRESULT,
-}
-pub trait ICoreWebView2TrySuspendCompletedHandler_Impl: windows_core::IUnknownImpl {
-    fn Invoke(
-        &self,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
         errorcode: windows_core::HRESULT,
         result: windows_core::BOOL,
-    ) -> windows_core::Result<()>;
+    ) -> windows_core::HRESULT,
 }
-impl ICoreWebView2TrySuspendCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2TrySuspendCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2TrySuspendCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2TrySuspendCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+#[repr(C)]
+struct ICoreWebView2TrySuspendCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+> {
+    vtable: *const ICoreWebView2TrySuspendCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
+}
+impl<
+        F: Fn(windows_core::HRESULT, windows_core::BOOL) -> windows_core::Result<()> + Send + 'static,
+    > ICoreWebView2TrySuspendCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2TrySuspendCompletedHandler_Vtbl =
+        ICoreWebView2TrySuspendCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            *interface = if *iid
+                == <ICoreWebView2TrySuspendCompletedHandler as windows_core::Interface>::IID
+                || *iid == <windows_core::IUnknown as windows_core::Interface>::IID
+                || *iid == <windows_core::imp::IAgileObject as windows_core::Interface>::IID
+            {
+                &mut (*this).vtable as *mut _ as _
+            } else if *iid == <windows_core::imp::IMarshal as windows_core::Interface>::IID {
+                (*this).count.add_ref();
+                return windows_core::imp::marshaler(
+                    core::mem::transmute(&mut (*this).vtable as *mut _ as *mut core::ffi::c_void),
+                    interface,
+                );
+            } else {
+                core::ptr::null_mut()
+            };
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == &<ICoreWebView2TrySuspendCompletedHandler as windows_core::Interface>::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: windows_core::BOOL,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, result).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2TrySuspendCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs,
     ICoreWebView2WebMessageReceivedEventArgs_Vtbl,
@@ -37166,12 +38414,26 @@ windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl,
     0xd095a8ca_1103_4ef5_998c_62821510ef8f
 );
-windows_core::imp::interface_hierarchy!(
-    ICoreWebView2WebResourceResponseViewGetContentCompletedHandler,
-    windows_core::IUnknown
-);
+impl windows_core::RuntimeType for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
+    const SIGNATURE: windows_core::imp::ConstBuffer =
+        windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
 impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
-    pub unsafe fn Invoke<P1>(
+    pub fn new<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    >(
+        invoke: F,
+    ) -> Self {
+        let com = ICoreWebView2WebResourceResponseViewGetContentCompletedHandlerBox {
+            vtable: &ICoreWebView2WebResourceResponseViewGetContentCompletedHandlerBox::<F>::VTABLE,
+            count: windows_core::imp::RefCount::new(1),
+            invoke,
+        };
+        unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
+    }
+    pub fn Invoke<P1>(
         &self,
         errorcode: windows_core::HRESULT,
         result: P1,
@@ -37179,9 +38441,10 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
     where
         P1: windows_core::Param<IStream>,
     {
+        let this = self;
         unsafe {
-            (windows_core::Interface::vtable(self).Invoke)(
-                windows_core::Interface::as_raw(self),
+            (windows_core::Interface::vtable(this).Invoke)(
+                windows_core::Interface::as_raw(this),
                 errorcode,
                 result.param().abi(),
             )
@@ -37192,56 +38455,84 @@ impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
-    pub base__: windows_core::IUnknown_Vtbl,
-    pub Invoke: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::HRESULT,
-        *mut core::ffi::c_void,
+    base__: windows_core::IUnknown_Vtbl,
+    Invoke: unsafe extern "system" fn(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
 }
-pub trait ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl:
-    windows_core::IUnknownImpl
-{
-    fn Invoke(
-        &self,
-        errorcode: windows_core::HRESULT,
-        result: windows_core::Ref<IStream>,
-    ) -> windows_core::Result<()>;
+#[repr(C)]
+struct ICoreWebView2WebResourceResponseViewGetContentCompletedHandlerBox<
+    F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+        + Send
+        + 'static,
+> {
+    vtable: *const ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl,
+    invoke: F,
+    count: windows_core::imp::RefCount,
 }
-impl ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
-    pub const fn new<
-        Identity: ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl,
-        const OFFSET: isize,
-    >() -> Self {
-        unsafe extern "system" fn Invoke<
-            Identity: ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            errorcode: windows_core::HRESULT,
-            result: *mut core::ffi::c_void,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Impl::Invoke(
-                    this,
-                    core::mem::transmute_copy(&errorcode),
-                    core::mem::transmute_copy(&result),
-                )
-                .into()
+impl<
+        F: Fn(windows_core::HRESULT, windows_core::Ref<IStream>) -> windows_core::Result<()>
+            + Send
+            + 'static,
+    > ICoreWebView2WebResourceResponseViewGetContentCompletedHandlerBox<F>
+{
+    const VTABLE: ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl =
+        ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl {
+            base__: windows_core::IUnknown_Vtbl {
+                QueryInterface: Self::QueryInterface,
+                AddRef: Self::AddRef,
+                Release: Self::Release,
+            },
+            Invoke: Self::Invoke,
+        };
+    unsafe extern "system" fn QueryInterface(
+        this: *mut core::ffi::c_void,
+        iid: *const windows_core::GUID,
+        interface: *mut *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            if iid.is_null() || interface.is_null() {
+                return windows_core::HRESULT(-2147467261);
+            }
+            * interface = if * iid == < ICoreWebView2WebResourceResponseViewGetContentCompletedHandler as windows_core::Interface >::IID || * iid == < windows_core::IUnknown as windows_core::Interface >::IID || * iid == < windows_core::imp::IAgileObject as windows_core::Interface >::IID { & mut ( * this ) . vtable as * mut _ as _ } else if * iid == < windows_core::imp::IMarshal as windows_core::Interface >::IID { ( * this ) . count . add_ref ( ) ; return windows_core::imp::marshaler ( core::mem::transmute ( & mut ( * this ) . vtable as * mut _ as * mut core::ffi::c_void ) , interface ) ; } else { core::ptr::null_mut ( ) } ;
+            if (*interface).is_null() {
+                windows_core::HRESULT(-2147467262)
+            } else {
+                (*this).count.add_ref();
+                windows_core::HRESULT(0)
             }
         }
-        Self {
-            base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
-            Invoke: Invoke::<Identity, OFFSET>,
+    }
+    unsafe extern "system" fn AddRef(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            (*this).count.add_ref()
         }
     }
-    pub fn matches(iid: &windows_core::GUID) -> bool {
-        iid == & < ICoreWebView2WebResourceResponseViewGetContentCompletedHandler as windows_core::Interface >::IID
+    unsafe extern "system" fn Release(this: *mut core::ffi::c_void) -> u32 {
+        unsafe {
+            let this = this as *mut *mut core::ffi::c_void as *mut Self;
+            let remaining = (*this).count.release();
+            if remaining == 0 {
+                let _ = windows_core::imp::Box::from_raw(this);
+            }
+            remaining
+        }
+    }
+    unsafe extern "system" fn Invoke(
+        this: *mut core::ffi::c_void,
+        errorcode: windows_core::HRESULT,
+        result: *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT {
+        unsafe {
+            let this = &mut *(this as *mut *mut core::ffi::c_void as *mut Self);
+            (this.invoke)(errorcode, core::mem::transmute_copy(&result)).into()
+        }
     }
 }
-impl windows_core::RuntimeName for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2WindowCloseRequestedEventHandler,
     ICoreWebView2WindowCloseRequestedEventHandler_Vtbl,

@@ -106,29 +106,51 @@ fn write_struct(item: &idl::Struct, output: &mut writer::File) {
 
     for field in &item.fields {
         output.Field(
-        &field.name,
-        &to_type(&field.field_type),
-        FieldAttributes::Public,
-    );
+            &field.name,
+            &to_type(&field.field_type),
+            FieldAttributes::Public,
+        );
     }
 }
 
-// TODO: detect delegate-like interfaces and project them as such
-
 fn write_interface(item: &idl::Interface, output: &mut writer::File) {
-    let type_def = output.TypeDef(
-        "WebView2",
-        &item.name,
-        writer::TypeDefOrRef::default(),
-        TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
-    );
+    // TODO: detect delegate-like interfaces and project them as such
+    let like_delegate = if item.name.ends_with("CompletedHandler") {
+        assert_eq!(item.implements.len(), 1);
+        assert_eq!(item.implements[0].name, "IUnknown");
+        assert_eq!(item.methods.len(), 1);
+        assert_eq!(item.methods[0].name, "Invoke");
+        // TODO: validate return type is HRESULT
+        true
+    } else {
+        false
+    };
+
+    let type_def = if like_delegate {
+        let delegate_type = output.TypeRef("System", "MulticastDelegate");
+
+        output.TypeDef(
+            "WebView2",
+            &item.name,
+            writer::TypeDefOrRef::TypeRef(delegate_type),
+            TypeAttributes::Public | TypeAttributes::WindowsRuntime,
+        )
+    } else {
+        output.TypeDef(
+            "WebView2",
+            &item.name,
+            writer::TypeDefOrRef::default(),
+            TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
+        )
+    };
 
     output.InterfaceImpl(type_def, &to_type(&item.implements[0].name));
 
-    let attribute_ref =
-            writer::MemberRefParent::TypeRef(output.TypeRef("System.Runtime.InteropServices", "GuidAttribute"));
+    let attribute_ref = writer::MemberRefParent::TypeRef(
+        output.TypeRef("System.Runtime.InteropServices", "GuidAttribute"),
+    );
 
-                let signature = Signature {
+    let signature = Signature {
         types: vec![
             Type::U32,
             Type::U16,
@@ -145,9 +167,10 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         ..Default::default()
     };
 
-        let ctor = output.MemberRef(".ctor", &signature, attribute_ref);
+    let ctor = output.MemberRef(".ctor", &signature, attribute_ref);
 
-            let value = vec![
+    // TODO: read the actual guid
+    let value = vec![
         (String::new(), Value::U32(0xd095a8ca)),
         (String::new(), Value::U16(0x1103)),
         (String::new(), Value::U16(0x4ef5)),
@@ -161,11 +184,11 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         (String::new(), Value::U8(0x8f)),
     ];
 
-        output.Attribute(
-            writer::HasAttribute::TypeDef(type_def),
-            writer::AttributeType::MemberRef(ctor),
-            &value,
-        );
+    output.Attribute(
+        writer::HasAttribute::TypeDef(type_def),
+        writer::AttributeType::MemberRef(ctor),
+        &value,
+    );
 
     for method in &item.methods {
         let flags = MethodAttributes::Public
@@ -174,9 +197,16 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
             | MethodAttributes::NewSlot
             | MethodAttributes::Virtual;
 
+        let return_type = if like_delegate {
+            assert_eq!(method.return_type, "HRESULT");
+            Type::Void
+        } else {
+            to_type(&method.return_type)
+        };
+
         let signature = Signature {
             flags: MethodCallAttributes::HASTHIS,
-            return_type: to_type(&method.return_type),
+            return_type,
             types: method
                 .params
                 .iter()

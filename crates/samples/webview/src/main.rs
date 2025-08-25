@@ -44,8 +44,6 @@ fn main() {
             std::ptr::null(),
         );
 
-
-
         let mut message = std::mem::zeroed();
 
         while GetMessageA(&mut message, core::ptr::null_mut(), 0, 0) != 0 {
