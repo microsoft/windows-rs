@@ -967,7 +967,7 @@ impl From<HWND> for HANDLE {
 windows_core::imp::define_interface!(
     ICoreWebView2,
     ICoreWebView2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x76eceacb_0462_4d94_ac83_423a6793775e
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2, windows_core::IUnknown);
 impl ICoreWebView2 {
@@ -3142,7 +3142,7 @@ impl windows_core::RuntimeName for ICoreWebView2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2AcceleratorKeyPressedEventArgs,
     ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9f760f8a_fb79_42be_9990_7b56900fa9c7
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2AcceleratorKeyPressedEventArgs,
@@ -3370,7 +3370,7 @@ impl windows_core::RuntimeName for ICoreWebView2AcceleratorKeyPressedEventArgs {
 windows_core::imp::define_interface!(
     ICoreWebView2AcceleratorKeyPressedEventArgs2,
     ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x03b2c8c8_7799_4e34_bd66_ed26aa85f2bf
 );
 impl core::ops::Deref for ICoreWebView2AcceleratorKeyPressedEventArgs2 {
     type Target = ICoreWebView2AcceleratorKeyPressedEventArgs;
@@ -3480,7 +3480,7 @@ impl windows_core::RuntimeName for ICoreWebView2AcceleratorKeyPressedEventArgs2 
 windows_core::imp::define_interface!(
     ICoreWebView2AcceleratorKeyPressedEventHandler,
     ICoreWebView2AcceleratorKeyPressedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb29c7e28_fa79_41a8_8e44_65811c76dcb2
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2AcceleratorKeyPressedEventHandler,
@@ -3556,7 +3556,7 @@ impl windows_core::RuntimeName for ICoreWebView2AcceleratorKeyPressedEventHandle
 windows_core::imp::define_interface!(
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler,
     ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb99369f3_9b11_47b5_bc6f_8e7895fcea17
 );
 impl windows_core::RuntimeType
     for ICoreWebView2AddScriptToExecuteOnDocumentCreatedCompletedHandler
@@ -3681,7 +3681,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2BasicAuthenticationRequestedEventArgs,
     ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xef05516f_d897_4f9e_b672_d8e2307a3fb0
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BasicAuthenticationRequestedEventArgs,
@@ -3925,7 +3925,7 @@ impl windows_core::RuntimeName for ICoreWebView2BasicAuthenticationRequestedEven
 windows_core::imp::define_interface!(
     ICoreWebView2BasicAuthenticationRequestedEventHandler,
     ICoreWebView2BasicAuthenticationRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x58b4d6c2_18d4_497e_b39b_9a96533fa278
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BasicAuthenticationRequestedEventHandler,
@@ -4003,7 +4003,7 @@ impl windows_core::RuntimeName for ICoreWebView2BasicAuthenticationRequestedEven
 windows_core::imp::define_interface!(
     ICoreWebView2BasicAuthenticationResponse,
     ICoreWebView2BasicAuthenticationResponse_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x07023f7d_2d77_4d67_9040_6e7d428c6a40
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BasicAuthenticationResponse,
@@ -4175,7 +4175,7 @@ impl windows_core::RuntimeName for ICoreWebView2BasicAuthenticationResponse {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtension,
     ICoreWebView2BrowserExtension_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7ef7ffa0_fac5_462c_b189_3d9edbe575da
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2BrowserExtension, windows_core::IUnknown);
 impl ICoreWebView2BrowserExtension {
@@ -4376,7 +4376,7 @@ impl windows_core::RuntimeName for ICoreWebView2BrowserExtension {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionEnableCompletedHandler,
     ICoreWebView2BrowserExtensionEnableCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x30c186ce_7fad_421f_a3bc_a8eaf071ddb8
 );
 impl windows_core::RuntimeType for ICoreWebView2BrowserExtensionEnableCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -4481,7 +4481,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionList,
     ICoreWebView2BrowserExtensionList_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2ef3d2dc_bd5f_4f4d_90af_fd67798f0c2f
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2BrowserExtensionList, windows_core::IUnknown);
 impl ICoreWebView2BrowserExtensionList {
@@ -4580,7 +4580,7 @@ impl windows_core::RuntimeName for ICoreWebView2BrowserExtensionList {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserExtensionRemoveCompletedHandler,
     ICoreWebView2BrowserExtensionRemoveCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x8e41909a_9b18_4bb1_8cdf_930f467a50be
 );
 impl windows_core::RuntimeType for ICoreWebView2BrowserExtensionRemoveCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -4685,7 +4685,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserProcessExitedEventArgs,
     ICoreWebView2BrowserProcessExitedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x1f00663f_af8c_4782_9cdd_dd01c52e34cb
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BrowserProcessExitedEventArgs,
@@ -4785,7 +4785,7 @@ impl windows_core::RuntimeName for ICoreWebView2BrowserProcessExitedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2BrowserProcessExitedEventHandler,
     ICoreWebView2BrowserProcessExitedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfa504257_a216_4911_a860_fe8825712861
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BrowserProcessExitedEventHandler,
@@ -4861,7 +4861,7 @@ impl windows_core::RuntimeName for ICoreWebView2BrowserProcessExitedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2BytesReceivedChangedEventHandler,
     ICoreWebView2BytesReceivedChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x828e8ab6_d94c_4264_9cef_5217170d6251
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2BytesReceivedChangedEventHandler,
@@ -4937,7 +4937,7 @@ impl windows_core::RuntimeName for ICoreWebView2BytesReceivedChangedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2CallDevToolsProtocolMethodCompletedHandler,
     ICoreWebView2CallDevToolsProtocolMethodCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5c4889f0_5ef6_4c5a_952c_d8f1b92d0574
 );
 impl windows_core::RuntimeType for ICoreWebView2CallDevToolsProtocolMethodCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -5059,7 +5059,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2CapturePreviewCompletedHandler,
     ICoreWebView2CapturePreviewCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x697e05e9_3d8f_45fa_96f4_8ffe1ededaf5
 );
 impl windows_core::RuntimeType for ICoreWebView2CapturePreviewCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -5178,7 +5178,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2Certificate,
     ICoreWebView2Certificate_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc5fb2fce_1cac_4aee_9c79_5ed0362eaae0
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Certificate, windows_core::IUnknown);
 impl ICoreWebView2Certificate {
@@ -5458,7 +5458,7 @@ impl windows_core::RuntimeName for ICoreWebView2Certificate {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClearBrowsingDataCompletedHandler,
     ICoreWebView2ClearBrowsingDataCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe9710a06_1d1d_49b2_8234_226f35846ae5
 );
 impl windows_core::RuntimeType for ICoreWebView2ClearBrowsingDataCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -5577,7 +5577,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler,
     ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3b40aac6_acfe_4ffd_8211_f607b96e2d5b
 );
 impl windows_core::RuntimeType for ICoreWebView2ClearServerCertificateErrorActionsCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -5683,7 +5683,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2ClientCertificate,
     ICoreWebView2ClientCertificate_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe7188076_bcc3_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ClientCertificate, windows_core::IUnknown);
 impl ICoreWebView2ClientCertificate {
@@ -6003,7 +6003,7 @@ impl windows_core::RuntimeName for ICoreWebView2ClientCertificate {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClientCertificateCollection,
     ICoreWebView2ClientCertificateCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xef5674d2_bcc3_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ClientCertificateCollection,
@@ -6107,7 +6107,7 @@ impl windows_core::RuntimeName for ICoreWebView2ClientCertificateCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2ClientCertificateRequestedEventArgs,
     ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xbc59db28_bcc3_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ClientCertificateRequestedEventArgs,
@@ -6551,7 +6551,7 @@ impl windows_core::RuntimeName for ICoreWebView2ClientCertificateRequestedEventA
 windows_core::imp::define_interface!(
     ICoreWebView2ClientCertificateRequestedEventHandler,
     ICoreWebView2ClientCertificateRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd7175ba2_bcc3_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ClientCertificateRequestedEventHandler,
@@ -6629,7 +6629,7 @@ impl windows_core::RuntimeName for ICoreWebView2ClientCertificateRequestedEventH
 windows_core::imp::define_interface!(
     ICoreWebView2CompositionController,
     ICoreWebView2CompositionController_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3df9b733_b9ae_4a15_86b4_eb9ee9826469
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2CompositionController, windows_core::IUnknown);
 impl ICoreWebView2CompositionController {
@@ -6971,7 +6971,7 @@ impl windows_core::RuntimeName for ICoreWebView2CompositionController {}
 windows_core::imp::define_interface!(
     ICoreWebView2CompositionController2,
     ICoreWebView2CompositionController2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0b6a3d24_49cb_4806_ba20_b5e0734a7b26
 );
 impl core::ops::Deref for ICoreWebView2CompositionController2 {
     type Target = ICoreWebView2CompositionController;
@@ -7049,7 +7049,7 @@ impl windows_core::RuntimeName for ICoreWebView2CompositionController2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2CompositionController3,
     ICoreWebView2CompositionController3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9570570e_4d76_4361_9ee1_f04d0dbdfb1e
 );
 impl core::ops::Deref for ICoreWebView2CompositionController3 {
     type Target = ICoreWebView2CompositionController2;
@@ -7271,7 +7271,7 @@ impl windows_core::RuntimeName for ICoreWebView2CompositionController3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2CompositionController4,
     ICoreWebView2CompositionController4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7c367b9b_3d2b_450f_9e58_d61a20f486aa
 );
 impl core::ops::Deref for ICoreWebView2CompositionController4 {
     type Target = ICoreWebView2CompositionController3;
@@ -7483,7 +7483,7 @@ impl windows_core::RuntimeName for ICoreWebView2CompositionController4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContainsFullScreenElementChangedEventHandler,
     ICoreWebView2ContainsFullScreenElementChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe45d98b1_afef_45be_8baf_6c7728867f73
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContainsFullScreenElementChangedEventHandler,
@@ -7561,7 +7561,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContainsFullScreenElementChanged
 windows_core::imp::define_interface!(
     ICoreWebView2ContentLoadingEventArgs,
     ICoreWebView2ContentLoadingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0c8a1275_9b6b_4901_87ad_70df25bafa6e
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContentLoadingEventArgs,
@@ -7653,7 +7653,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContentLoadingEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContentLoadingEventHandler,
     ICoreWebView2ContentLoadingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x364471e7_f2be_4910_bdba_d72077d51c4b
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContentLoadingEventHandler,
@@ -7729,7 +7729,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContentLoadingEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContextMenuItem,
     ICoreWebView2ContextMenuItem_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7aed49e3_a93f_497a_811c_749c6b6b6c65
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ContextMenuItem, windows_core::IUnknown);
 impl ICoreWebView2ContextMenuItem {
@@ -8185,7 +8185,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContextMenuItem {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContextMenuItemCollection,
     ICoreWebView2ContextMenuItemCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf562a2f5_c415_45cf_b909_d4b7c1e276d3
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContextMenuItemCollection,
@@ -8360,7 +8360,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContextMenuItemCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContextMenuRequestedEventArgs,
     ICoreWebView2ContextMenuRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa1d309ee_c03f_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContextMenuRequestedEventArgs,
@@ -8659,7 +8659,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContextMenuRequestedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2ContextMenuRequestedEventHandler,
     ICoreWebView2ContextMenuRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x04d3fe1d_ab87_42fb_a898_da241d35b63c
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ContextMenuRequestedEventHandler,
@@ -8735,7 +8735,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContextMenuRequestedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2ContextMenuTarget,
     ICoreWebView2ContextMenuTarget_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb8611d99_eed6_4f3f_902c_a198502ad472
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ContextMenuTarget, windows_core::IUnknown);
 impl ICoreWebView2ContextMenuTarget {
@@ -9180,7 +9180,7 @@ impl windows_core::RuntimeName for ICoreWebView2ContextMenuTarget {}
 windows_core::imp::define_interface!(
     ICoreWebView2Controller,
     ICoreWebView2Controller_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4d00c0d1_9434_4eb6_8078_8697a560334f
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Controller, windows_core::IUnknown);
 impl ICoreWebView2Controller {
@@ -9965,7 +9965,7 @@ impl windows_core::RuntimeName for ICoreWebView2Controller {}
 windows_core::imp::define_interface!(
     ICoreWebView2Controller2,
     ICoreWebView2Controller2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc979903e_d4ca_4228_92eb_47ee3fa96eab
 );
 impl core::ops::Deref for ICoreWebView2Controller2 {
     type Target = ICoreWebView2Controller;
@@ -10072,7 +10072,7 @@ impl windows_core::RuntimeName for ICoreWebView2Controller2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Controller3,
     ICoreWebView2Controller3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf9614724_5d2b_41dc_aef7_73d62b51543b
 );
 impl core::ops::Deref for ICoreWebView2Controller3 {
     type Target = ICoreWebView2Controller2;
@@ -10388,7 +10388,7 @@ impl windows_core::RuntimeName for ICoreWebView2Controller3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Controller4,
     ICoreWebView2Controller4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x97d418d5_a426_4e49_a151_e1a10f327d9e
 );
 impl core::ops::Deref for ICoreWebView2Controller4 {
     type Target = ICoreWebView2Controller3;
@@ -10493,7 +10493,7 @@ impl windows_core::RuntimeName for ICoreWebView2Controller4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ControllerOptions,
     ICoreWebView2ControllerOptions_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x12aae616_8ccb_44ec_bcb3_eb1831881635
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ControllerOptions, windows_core::IUnknown);
 impl ICoreWebView2ControllerOptions {
@@ -10650,7 +10650,7 @@ impl windows_core::RuntimeName for ICoreWebView2ControllerOptions {}
 windows_core::imp::define_interface!(
     ICoreWebView2ControllerOptions2,
     ICoreWebView2ControllerOptions2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x06c991d8_9e7e_11ed_a8fc_0242ac120002
 );
 impl core::ops::Deref for ICoreWebView2ControllerOptions2 {
     type Target = ICoreWebView2ControllerOptions;
@@ -10758,7 +10758,7 @@ impl windows_core::RuntimeName for ICoreWebView2ControllerOptions2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Cookie,
     ICoreWebView2Cookie_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xad26d6be_1486_43e6_bf87_a2034006ca21
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Cookie, windows_core::IUnknown);
 impl ICoreWebView2Cookie {
@@ -11189,7 +11189,7 @@ impl windows_core::RuntimeName for ICoreWebView2Cookie {}
 windows_core::imp::define_interface!(
     ICoreWebView2CookieList,
     ICoreWebView2CookieList_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf7f6f714_5d2a_43c6_9503_346ece02d186
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2CookieList, windows_core::IUnknown);
 impl ICoreWebView2CookieList {
@@ -11283,7 +11283,7 @@ impl windows_core::RuntimeName for ICoreWebView2CookieList {}
 windows_core::imp::define_interface!(
     ICoreWebView2CookieManager,
     ICoreWebView2CookieManager_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x177cd9e7_b6f5_451a_94a0_5d7a3a4c4141
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2CookieManager, windows_core::IUnknown);
 impl ICoreWebView2CookieManager {
@@ -11665,7 +11665,7 @@ impl windows_core::RuntimeName for ICoreWebView2CookieManager {}
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler,
     ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x02fab84b_1428_4fb7_ad45_1b2e64736184
 );
 impl windows_core::RuntimeType
     for ICoreWebView2CreateCoreWebView2CompositionControllerCompletedHandler
@@ -11796,7 +11796,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler,
     ICoreWebView2CreateCoreWebView2ControllerCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x6c4819f3_c9b7_4260_8127_c9f5bde7f68c
 );
 impl windows_core::RuntimeType for ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -11929,7 +11929,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler,
     ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4e8a3389_c9d8_4bd2_b6b5_124fee6cc14d
 );
 impl windows_core::RuntimeType for ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -12062,7 +12062,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2CursorChangedEventHandler,
     ICoreWebView2CursorChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9da43ccc_26e1_4dad_b56c_d8961c94c571
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2CursorChangedEventHandler,
@@ -12136,7 +12136,7 @@ impl windows_core::RuntimeName for ICoreWebView2CursorChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2CustomItemSelectedEventHandler,
     ICoreWebView2CustomItemSelectedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x49e1d0bc_fe9e_4481_b7c2_32324aa21998
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2CustomItemSelectedEventHandler,
@@ -12212,7 +12212,7 @@ impl windows_core::RuntimeName for ICoreWebView2CustomItemSelectedEventHandler {
 windows_core::imp::define_interface!(
     ICoreWebView2CustomSchemeRegistration,
     ICoreWebView2CustomSchemeRegistration_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd60ac92c_37a6_4b26_a39e_95cfe59047bb
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2CustomSchemeRegistration,
@@ -12511,7 +12511,7 @@ impl windows_core::RuntimeName for ICoreWebView2CustomSchemeRegistration {}
 windows_core::imp::define_interface!(
     ICoreWebView2DOMContentLoadedEventArgs,
     ICoreWebView2DOMContentLoadedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x16b1e21a_c503_44f2_84c9_70aba5031283
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DOMContentLoadedEventArgs,
@@ -12571,7 +12571,7 @@ impl windows_core::RuntimeName for ICoreWebView2DOMContentLoadedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2DOMContentLoadedEventHandler,
     ICoreWebView2DOMContentLoadedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4bac7e9c_199e_49ed_87ed_249303acf019
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DOMContentLoadedEventHandler,
@@ -12647,7 +12647,7 @@ impl windows_core::RuntimeName for ICoreWebView2DOMContentLoadedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Deferral,
     ICoreWebView2Deferral_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc10e7f7b_b585_46f0_a623_8befbf3e4ee0
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Deferral, windows_core::IUnknown);
 impl ICoreWebView2Deferral {
@@ -12694,7 +12694,7 @@ impl windows_core::RuntimeName for ICoreWebView2Deferral {}
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x653c2959_bb3a_4377_8632_b58ada4e66c4
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs,
@@ -12763,7 +12763,7 @@ impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEve
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs2,
     ICoreWebView2DevToolsProtocolEventReceivedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2dc4959d_1494_4393_95ba_bea4cb9ebd1b
 );
 impl core::ops::Deref for ICoreWebView2DevToolsProtocolEventReceivedEventArgs2 {
     type Target = ICoreWebView2DevToolsProtocolEventReceivedEventArgs;
@@ -12840,7 +12840,7 @@ impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEve
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
     ICoreWebView2DevToolsProtocolEventReceivedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe2fda4be_5456_406c_a261_3d452138362c
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DevToolsProtocolEventReceivedEventHandler,
@@ -12918,7 +12918,7 @@ impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceivedEve
 windows_core::imp::define_interface!(
     ICoreWebView2DevToolsProtocolEventReceiver,
     ICoreWebView2DevToolsProtocolEventReceiver_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb32ca51a_8371_45e9_9317_af021d080367
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DevToolsProtocolEventReceiver,
@@ -13029,7 +13029,7 @@ impl windows_core::RuntimeName for ICoreWebView2DevToolsProtocolEventReceiver {}
 windows_core::imp::define_interface!(
     ICoreWebView2DocumentTitleChangedEventHandler,
     ICoreWebView2DocumentTitleChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf5f2b923_953e_4042_9f95_f3a118e1afd4
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DocumentTitleChangedEventHandler,
@@ -13105,7 +13105,7 @@ impl windows_core::RuntimeName for ICoreWebView2DocumentTitleChangedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadOperation,
     ICoreWebView2DownloadOperation_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3d6b6cf2_afe1_44c7_a995_c65117714336
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2DownloadOperation, windows_core::IUnknown);
 impl ICoreWebView2DownloadOperation {
@@ -13762,7 +13762,7 @@ impl windows_core::RuntimeName for ICoreWebView2DownloadOperation {}
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadStartingEventArgs,
     ICoreWebView2DownloadStartingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe99bbe21_43e9_4544_a732_282764eafa60
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DownloadStartingEventArgs,
@@ -14066,7 +14066,7 @@ impl windows_core::RuntimeName for ICoreWebView2DownloadStartingEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2DownloadStartingEventHandler,
     ICoreWebView2DownloadStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xefedc989_c396_41ca_83f7_07f845a55724
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2DownloadStartingEventHandler,
@@ -14142,7 +14142,7 @@ impl windows_core::RuntimeName for ICoreWebView2DownloadStartingEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment,
     ICoreWebView2Environment_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb96d755e_0319_4e92_a296_23436f46a1fc
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Environment, windows_core::IUnknown);
 impl ICoreWebView2Environment {
@@ -14395,7 +14395,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment10,
     ICoreWebView2Environment10_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xee0eb9df_6f12_46ce_b53f_3f47b9c928e0
 );
 impl core::ops::Deref for ICoreWebView2Environment10 {
     type Target = ICoreWebView2Environment9;
@@ -14612,7 +14612,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment10 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment11,
     ICoreWebView2Environment11_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf0913dc6_a0ec_42ef_9805_91dff3a2966a
 );
 impl core::ops::Deref for ICoreWebView2Environment11 {
     type Target = ICoreWebView2Environment10;
@@ -14702,7 +14702,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment11 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment12,
     ICoreWebView2Environment12_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf503db9b_739f_48dd_b151_fdfcf253f54e
 );
 impl core::ops::Deref for ICoreWebView2Environment12 {
     type Target = ICoreWebView2Environment11;
@@ -14802,7 +14802,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment12 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment13,
     ICoreWebView2Environment13_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xaf641f58_72b2_11ee_b962_0242ac120002
 );
 impl core::ops::Deref for ICoreWebView2Environment13 {
     type Target = ICoreWebView2Environment12;
@@ -14899,7 +14899,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment13 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment14,
     ICoreWebView2Environment14_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa5e9fad9_c875_59da_9bd7_473aa5ca1cef
 );
 impl core::ops::Deref for ICoreWebView2Environment14 {
     type Target = ICoreWebView2Environment13;
@@ -15125,7 +15125,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment14 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment2,
     ICoreWebView2Environment2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x41f3632b_5ef4_404f_ad82_2d606c5a9a21
 );
 impl core::ops::Deref for ICoreWebView2Environment2 {
     type Target = ICoreWebView2Environment;
@@ -15231,7 +15231,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment3,
     ICoreWebView2Environment3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x80a22ae3_be7c_4ce2_afe1_5a50056cdeeb
 );
 impl core::ops::Deref for ICoreWebView2Environment3 {
     type Target = ICoreWebView2Environment2;
@@ -15363,7 +15363,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment4,
     ICoreWebView2Environment4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x20944379_6dcf_41d6_a0a0_abc0fc50de0d
 );
 impl core::ops::Deref for ICoreWebView2Environment4 {
     type Target = ICoreWebView2Environment3;
@@ -15451,7 +15451,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment5,
     ICoreWebView2Environment5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x319e423d_e0d7_4b8d_9254_ae9475de9b17
 );
 impl core::ops::Deref for ICoreWebView2Environment5 {
     type Target = ICoreWebView2Environment4;
@@ -15571,7 +15571,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment6,
     ICoreWebView2Environment6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe59ee362_acbd_4857_9a8e_d3644d9459a9
 );
 impl core::ops::Deref for ICoreWebView2Environment6 {
     type Target = ICoreWebView2Environment5;
@@ -15654,7 +15654,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment7,
     ICoreWebView2Environment7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x43c22296_3bbd_43a4_9c00_5c0df6dd29a2
 );
 impl core::ops::Deref for ICoreWebView2Environment7 {
     type Target = ICoreWebView2Environment6;
@@ -15733,7 +15733,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment8,
     ICoreWebView2Environment8_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd6eb91dd_c3d2_45e5_bd29_6dc2bc4de9cf
 );
 impl core::ops::Deref for ICoreWebView2Environment8 {
     type Target = ICoreWebView2Environment7;
@@ -15897,7 +15897,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Environment9,
     ICoreWebView2Environment9_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf06f41bf_4b5a_49d8_b9f6_fa16cd29f274
 );
 impl core::ops::Deref for ICoreWebView2Environment9 {
     type Target = ICoreWebView2Environment8;
@@ -16009,7 +16009,7 @@ impl windows_core::RuntimeName for ICoreWebView2Environment9 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions,
     ICoreWebView2EnvironmentOptions_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2fde08a8_1e9a_4766_8c05_95a9ceb9d1c5
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions {
@@ -16331,7 +16331,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions2,
     ICoreWebView2EnvironmentOptions2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xff85c98a_1ba7_4a6b_90c8_2b752c89e9e2
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions2, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions2 {
@@ -16423,7 +16423,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions3,
     ICoreWebView2EnvironmentOptions3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4a5c436e_a9e3_4a2e_89c3_910d3513f5cc
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions3, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions3 {
@@ -16515,7 +16515,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions4,
     ICoreWebView2EnvironmentOptions4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xac52d13f_0d38_475a_9dca_876580d6793e
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions4, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions4 {
@@ -16636,7 +16636,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions5,
     ICoreWebView2EnvironmentOptions5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0ae35d64_c47f_4464_814e_259c345d1501
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions5, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions5 {
@@ -16727,7 +16727,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions6,
     ICoreWebView2EnvironmentOptions6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x57d29cc3_c84f_42a0_b0e2_effbd5e179de
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions6, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions6 {
@@ -16818,7 +16818,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions7,
     ICoreWebView2EnvironmentOptions7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc48d539f_e39f_441c_ae68_1f66e570bdc5
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions7, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions7 {
@@ -16991,7 +16991,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EnvironmentOptions8,
     ICoreWebView2EnvironmentOptions8_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7c7ecf51_e918_5caf_853c_e9a2bcc27775
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2EnvironmentOptions8, windows_core::IUnknown);
 impl ICoreWebView2EnvironmentOptions8 {
@@ -17088,7 +17088,7 @@ impl windows_core::RuntimeName for ICoreWebView2EnvironmentOptions8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2EstimatedEndTimeChangedEventHandler,
     ICoreWebView2EstimatedEndTimeChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x28f0d425_93fe_4e63_9f8d_2aeec6d3ba1e
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2EstimatedEndTimeChangedEventHandler,
@@ -17166,7 +17166,7 @@ impl windows_core::RuntimeName for ICoreWebView2EstimatedEndTimeChangedEventHand
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptCompletedHandler,
     ICoreWebView2ExecuteScriptCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x49511172_cc67_4bca_9923_137112f4c4cc
 );
 impl windows_core::RuntimeType for ICoreWebView2ExecuteScriptCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -17302,7 +17302,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptResult,
     ICoreWebView2ExecuteScriptResult_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0ce15963_3698_4df7_9399_71ed6cdd8c9f
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ExecuteScriptResult, windows_core::IUnknown);
 impl ICoreWebView2ExecuteScriptResult {
@@ -17481,7 +17481,7 @@ impl windows_core::RuntimeName for ICoreWebView2ExecuteScriptResult {}
 windows_core::imp::define_interface!(
     ICoreWebView2ExecuteScriptWithResultCompletedHandler,
     ICoreWebView2ExecuteScriptWithResultCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x1bb5317b_8238_4c67_a7ff_baf6558f289d
 );
 impl windows_core::RuntimeType for ICoreWebView2ExecuteScriptWithResultCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -17614,7 +17614,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2FaviconChangedEventHandler,
     ICoreWebView2FaviconChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2913da94_833d_4de0_8dca_900fc524a1a4
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FaviconChangedEventHandler,
@@ -17690,7 +17690,7 @@ impl windows_core::RuntimeName for ICoreWebView2FaviconChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2File,
     ICoreWebView2File_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf2c19559_6bc1_4583_a757_90021be9afec
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2File, windows_core::IUnknown);
 impl ICoreWebView2File {
@@ -17744,7 +17744,7 @@ impl windows_core::RuntimeName for ICoreWebView2File {}
 windows_core::imp::define_interface!(
     ICoreWebView2FileSystemHandle,
     ICoreWebView2FileSystemHandle_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc65100ac_0de2_5551_a362_23d9bd1d0e1f
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2FileSystemHandle, windows_core::IUnknown);
 impl ICoreWebView2FileSystemHandle {
@@ -17871,7 +17871,7 @@ impl windows_core::RuntimeName for ICoreWebView2FileSystemHandle {}
 windows_core::imp::define_interface!(
     ICoreWebView2FocusChangedEventHandler,
     ICoreWebView2FocusChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x05ea24bd_6452_4926_9014_4b82b498135d
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FocusChangedEventHandler,
@@ -17945,7 +17945,7 @@ impl windows_core::RuntimeName for ICoreWebView2FocusChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame,
     ICoreWebView2Frame_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf1131a5e_9ba9_11eb_a8b3_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Frame, windows_core::IUnknown);
 impl ICoreWebView2Frame {
@@ -18267,7 +18267,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame2,
     ICoreWebView2Frame2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7a6a5834_d185_4dbf_b63f_4a9bc43107d4
 );
 impl core::ops::Deref for ICoreWebView2Frame2 {
     type Target = ICoreWebView2Frame;
@@ -18816,7 +18816,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame3,
     ICoreWebView2Frame3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb50d82cc_cc28_481d_9614_cb048895e6a0
 );
 impl core::ops::Deref for ICoreWebView2Frame3 {
     type Target = ICoreWebView2Frame2;
@@ -18932,7 +18932,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame4,
     ICoreWebView2Frame4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x188782dc_92aa_4732_ab3c_fcc59f6f68b9
 );
 impl core::ops::Deref for ICoreWebView2Frame4 {
     type Target = ICoreWebView2Frame3;
@@ -19027,7 +19027,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame5,
     ICoreWebView2Frame5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x99d199c4_7305_11ee_b962_0242ac120002
 );
 impl core::ops::Deref for ICoreWebView2Frame5 {
     type Target = ICoreWebView2Frame4;
@@ -19095,7 +19095,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame6,
     ICoreWebView2Frame6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0de611fd_31e9_5ddc_9d71_95eda26eff32
 );
 impl core::ops::Deref for ICoreWebView2Frame6 {
     type Target = ICoreWebView2Frame5;
@@ -19217,7 +19217,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Frame7,
     ICoreWebView2Frame7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3598cfa2_d85d_5a9f_9228_4dde1f59ec64
 );
 impl core::ops::Deref for ICoreWebView2Frame7 {
     type Target = ICoreWebView2Frame6;
@@ -19341,7 +19341,7 @@ impl windows_core::RuntimeName for ICoreWebView2Frame7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameChildFrameCreatedEventHandler,
     ICoreWebView2FrameChildFrameCreatedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x569e40e7_46b7_563d_83ae_1073155664d7
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameChildFrameCreatedEventHandler,
@@ -19417,7 +19417,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameChildFrameCreatedEventHandl
 windows_core::imp::define_interface!(
     ICoreWebView2FrameContentLoadingEventHandler,
     ICoreWebView2FrameContentLoadingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0d6156f2_d332_49a7_9e03_7d8f2feeee54
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameContentLoadingEventHandler,
@@ -19493,7 +19493,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameContentLoadingEventHandler 
 windows_core::imp::define_interface!(
     ICoreWebView2FrameCreatedEventArgs,
     ICoreWebView2FrameCreatedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4d6e7b5e_9baa_11eb_a8b3_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2FrameCreatedEventArgs, windows_core::IUnknown);
 impl ICoreWebView2FrameCreatedEventArgs {
@@ -19555,7 +19555,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameCreatedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameCreatedEventHandler,
     ICoreWebView2FrameCreatedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x38059770_9baa_11eb_a8b3_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameCreatedEventHandler,
@@ -19629,7 +19629,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameCreatedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameDOMContentLoadedEventHandler,
     ICoreWebView2FrameDOMContentLoadedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x38d9520d_340f_4d1e_a775_43fce9753683
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameDOMContentLoadedEventHandler,
@@ -19705,7 +19705,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameDOMContentLoadedEventHandle
 windows_core::imp::define_interface!(
     ICoreWebView2FrameDestroyedEventHandler,
     ICoreWebView2FrameDestroyedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x59dd7b4c_9baa_11eb_a8b3_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameDestroyedEventHandler,
@@ -19781,7 +19781,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameDestroyedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameInfo,
     ICoreWebView2FrameInfo_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xda86b8a1_bdf3_4f11_9955_528cefa59727
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2FrameInfo, windows_core::IUnknown);
 impl ICoreWebView2FrameInfo {
@@ -19869,7 +19869,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameInfo {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameInfo2,
     ICoreWebView2FrameInfo2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x56f85cfa_72c4_11ee_b962_0242ac120002
 );
 impl core::ops::Deref for ICoreWebView2FrameInfo2 {
     type Target = ICoreWebView2FrameInfo;
@@ -19998,7 +19998,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameInfo2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameInfoCollection,
     ICoreWebView2FrameInfoCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x8f834154_d38e_4d90_affb_6800a7272839
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2FrameInfoCollection, windows_core::IUnknown);
 impl ICoreWebView2FrameInfoCollection {
@@ -20063,7 +20063,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameInfoCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameInfoCollectionIterator,
     ICoreWebView2FrameInfoCollectionIterator_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x1bf89e2d_1b2b_4629_b28f_05099b41bb03
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameInfoCollectionIterator,
@@ -20197,7 +20197,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameInfoCollectionIterator {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameNameChangedEventHandler,
     ICoreWebView2FrameNameChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x435c7dc8_9baa_11eb_a8b3_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameNameChangedEventHandler,
@@ -20273,7 +20273,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameNameChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2FrameNavigationCompletedEventHandler,
     ICoreWebView2FrameNavigationCompletedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x609302ad_0e36_4f9a_a210_6a45272842a9
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameNavigationCompletedEventHandler,
@@ -20351,7 +20351,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameNavigationCompletedEventHan
 windows_core::imp::define_interface!(
     ICoreWebView2FrameNavigationStartingEventHandler,
     ICoreWebView2FrameNavigationStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe79908bf_2d5d_4968_83db_263fea2c1da3
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameNavigationStartingEventHandler,
@@ -20429,7 +20429,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameNavigationStartingEventHand
 windows_core::imp::define_interface!(
     ICoreWebView2FramePermissionRequestedEventHandler,
     ICoreWebView2FramePermissionRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x845d0edd_8bd8_429b_9915_4821789f23e9
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FramePermissionRequestedEventHandler,
@@ -20507,7 +20507,7 @@ impl windows_core::RuntimeName for ICoreWebView2FramePermissionRequestedEventHan
 windows_core::imp::define_interface!(
     ICoreWebView2FrameScreenCaptureStartingEventHandler,
     ICoreWebView2FrameScreenCaptureStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa6c1d8ad_bb80_59c5_895b_fba1698b9309
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameScreenCaptureStartingEventHandler,
@@ -20585,7 +20585,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameScreenCaptureStartingEventH
 windows_core::imp::define_interface!(
     ICoreWebView2FrameWebMessageReceivedEventHandler,
     ICoreWebView2FrameWebMessageReceivedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe371e005_6d1d_4517_934b_a8f1629c62a5
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2FrameWebMessageReceivedEventHandler,
@@ -20663,7 +20663,7 @@ impl windows_core::RuntimeName for ICoreWebView2FrameWebMessageReceivedEventHand
 windows_core::imp::define_interface!(
     ICoreWebView2GetCookiesCompletedHandler,
     ICoreWebView2GetCookiesCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5a4f5069_5c15_47c3_8646_f4de1c116670
 );
 impl windows_core::RuntimeType for ICoreWebView2GetCookiesCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -20810,7 +20810,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2GetFaviconCompletedHandler,
     ICoreWebView2GetFaviconCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa2508329_7da8_49d7_8c05_fa125e4aee8d
 );
 impl windows_core::RuntimeType for ICoreWebView2GetFaviconCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -20948,7 +20948,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler,
     ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x38274481_a15c_4563_94cf_990edc9aeb95
 );
 impl windows_core::RuntimeType for ICoreWebView2GetNonDefaultPermissionSettingsCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -21081,7 +21081,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2GetProcessExtendedInfosCompletedHandler,
     ICoreWebView2GetProcessExtendedInfosCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf45e55aa_3bc2_11ee_be56_0242ac120002
 );
 impl windows_core::RuntimeType for ICoreWebView2GetProcessExtendedInfosCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -21214,7 +21214,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2HistoryChangedEventHandler,
     ICoreWebView2HistoryChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc79a420c_efd9_4058_9295_3e8b4bcab645
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2HistoryChangedEventHandler,
@@ -21290,7 +21290,7 @@ impl windows_core::RuntimeName for ICoreWebView2HistoryChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2HttpHeadersCollectionIterator,
     ICoreWebView2HttpHeadersCollectionIterator_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0702fc30_f43b_47bb_ab52_a42cb552ad9f
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2HttpHeadersCollectionIterator,
@@ -21430,7 +21430,7 @@ impl windows_core::RuntimeName for ICoreWebView2HttpHeadersCollectionIterator {}
 windows_core::imp::define_interface!(
     ICoreWebView2HttpRequestHeaders,
     ICoreWebView2HttpRequestHeaders_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe86cac0e_5523_465c_b536_8fb9fc8c8c60
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2HttpRequestHeaders, windows_core::IUnknown);
 impl ICoreWebView2HttpRequestHeaders {
@@ -21705,7 +21705,7 @@ impl windows_core::RuntimeName for ICoreWebView2HttpRequestHeaders {}
 windows_core::imp::define_interface!(
     ICoreWebView2HttpResponseHeaders,
     ICoreWebView2HttpResponseHeaders_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x03c5ff5a_9b45_4a88_881c_89a9f328619c
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2HttpResponseHeaders, windows_core::IUnknown);
 impl ICoreWebView2HttpResponseHeaders {
@@ -21945,7 +21945,7 @@ impl windows_core::RuntimeName for ICoreWebView2HttpResponseHeaders {}
 windows_core::imp::define_interface!(
     ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler,
     ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3117da26_ae13_438d_bd46_edbeb2c4ce81
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2IsDefaultDownloadDialogOpenChangedEventHandler,
@@ -22023,7 +22023,7 @@ impl windows_core::RuntimeName for ICoreWebView2IsDefaultDownloadDialogOpenChang
 windows_core::imp::define_interface!(
     ICoreWebView2IsDocumentPlayingAudioChangedEventHandler,
     ICoreWebView2IsDocumentPlayingAudioChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5def109a_2f4b_49fa_b7f6_11c39e513328
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2IsDocumentPlayingAudioChangedEventHandler,
@@ -22101,7 +22101,7 @@ impl windows_core::RuntimeName for ICoreWebView2IsDocumentPlayingAudioChangedEve
 windows_core::imp::define_interface!(
     ICoreWebView2IsMutedChangedEventHandler,
     ICoreWebView2IsMutedChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x57d90347_cd0e_4952_a4a2_7483a2756f08
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2IsMutedChangedEventHandler,
@@ -22177,7 +22177,7 @@ impl windows_core::RuntimeName for ICoreWebView2IsMutedChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2LaunchingExternalUriSchemeEventArgs,
     ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x07d1a6c3_7175_4ba1_9306_e593ca07e46c
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2LaunchingExternalUriSchemeEventArgs,
@@ -22415,7 +22415,7 @@ impl windows_core::RuntimeName for ICoreWebView2LaunchingExternalUriSchemeEventA
 windows_core::imp::define_interface!(
     ICoreWebView2LaunchingExternalUriSchemeEventHandler,
     ICoreWebView2LaunchingExternalUriSchemeEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x74f712e0_8165_43a9_a13f_0cce597e75df
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2LaunchingExternalUriSchemeEventHandler,
@@ -22493,7 +22493,7 @@ impl windows_core::RuntimeName for ICoreWebView2LaunchingExternalUriSchemeEventH
 windows_core::imp::define_interface!(
     ICoreWebView2MoveFocusRequestedEventArgs,
     ICoreWebView2MoveFocusRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2d6aa13b_3839_4a15_92fc_d88b3c0d9c9d
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2MoveFocusRequestedEventArgs,
@@ -22624,7 +22624,7 @@ impl windows_core::RuntimeName for ICoreWebView2MoveFocusRequestedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2MoveFocusRequestedEventHandler,
     ICoreWebView2MoveFocusRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x69035451_6dc7_4cb8_9bce_b2bd70ad289f
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2MoveFocusRequestedEventHandler,
@@ -22700,7 +22700,7 @@ impl windows_core::RuntimeName for ICoreWebView2MoveFocusRequestedEventHandler {
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventArgs,
     ICoreWebView2NavigationCompletedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x30d68b7d_20d9_4752_a9ca_ec8448fbb5c1
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NavigationCompletedEventArgs,
@@ -22832,7 +22832,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventArgs2,
     ICoreWebView2NavigationCompletedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfdf8b738_ee1e_4db2_a329_8d7d7b74d792
 );
 impl core::ops::Deref for ICoreWebView2NavigationCompletedEventArgs2 {
     type Target = ICoreWebView2NavigationCompletedEventArgs;
@@ -22904,7 +22904,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationCompletedEventHandler,
     ICoreWebView2NavigationCompletedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd33a35bf_1c49_4f98_93ab_006e0533fe1c
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NavigationCompletedEventHandler,
@@ -22980,7 +22980,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationCompletedEventHandler 
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventArgs,
     ICoreWebView2NavigationStartingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5b495469_e119_438a_9b18_7604f25f2e49
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NavigationStartingEventArgs,
@@ -23240,7 +23240,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventArgs2,
     ICoreWebView2NavigationStartingEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9086be93_91aa_472d_a7e0_579f2ba006ad
 );
 impl core::ops::Deref for ICoreWebView2NavigationStartingEventArgs2 {
     type Target = ICoreWebView2NavigationStartingEventArgs;
@@ -23358,7 +23358,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventArgs3,
     ICoreWebView2NavigationStartingEventArgs3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xddffe494_4942_4bd2_ab73_35b8ff40e19f
 );
 impl core::ops::Deref for ICoreWebView2NavigationStartingEventArgs3 {
     type Target = ICoreWebView2NavigationStartingEventArgs2;
@@ -23437,7 +23437,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventArgs3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2NavigationStartingEventHandler,
     ICoreWebView2NavigationStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9adbe429_f36d_432b_9ddc_f8881fbd76e3
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NavigationStartingEventHandler,
@@ -23513,7 +23513,7 @@ impl windows_core::RuntimeName for ICoreWebView2NavigationStartingEventHandler {
 windows_core::imp::define_interface!(
     ICoreWebView2NewBrowserVersionAvailableEventHandler,
     ICoreWebView2NewBrowserVersionAvailableEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf9a2976e_d34e_44fc_adee_81b6b57ca914
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NewBrowserVersionAvailableEventHandler,
@@ -23591,7 +23591,7 @@ impl windows_core::RuntimeName for ICoreWebView2NewBrowserVersionAvailableEventH
 windows_core::imp::define_interface!(
     ICoreWebView2NewWindowRequestedEventArgs,
     ICoreWebView2NewWindowRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x34acb11c_fc37_4418_9132_f9c21d1eafb9
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NewWindowRequestedEventArgs,
@@ -23897,7 +23897,7 @@ impl windows_core::RuntimeName for ICoreWebView2NewWindowRequestedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2NewWindowRequestedEventArgs2,
     ICoreWebView2NewWindowRequestedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xbbc7baed_74c6_4c92_b63a_7f5aeae03de3
 );
 impl core::ops::Deref for ICoreWebView2NewWindowRequestedEventArgs2 {
     type Target = ICoreWebView2NewWindowRequestedEventArgs;
@@ -23974,7 +23974,7 @@ impl windows_core::RuntimeName for ICoreWebView2NewWindowRequestedEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2NewWindowRequestedEventArgs3,
     ICoreWebView2NewWindowRequestedEventArgs3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x842bed3c_6ad6_4dd9_b938_28c96667ad66
 );
 impl core::ops::Deref for ICoreWebView2NewWindowRequestedEventArgs3 {
     type Target = ICoreWebView2NewWindowRequestedEventArgs2;
@@ -24056,7 +24056,7 @@ impl windows_core::RuntimeName for ICoreWebView2NewWindowRequestedEventArgs3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2NewWindowRequestedEventHandler,
     ICoreWebView2NewWindowRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd4c185fe_c81c_4989_97af_2d3fa7ab5651
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NewWindowRequestedEventHandler,
@@ -24132,7 +24132,7 @@ impl windows_core::RuntimeName for ICoreWebView2NewWindowRequestedEventHandler {
 windows_core::imp::define_interface!(
     ICoreWebView2NonClientRegionChangedEventArgs,
     ICoreWebView2NonClientRegionChangedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xab71d500_0820_4a52_809c_48db04ff93bf
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NonClientRegionChangedEventArgs,
@@ -24199,7 +24199,7 @@ impl windows_core::RuntimeName for ICoreWebView2NonClientRegionChangedEventArgs 
 windows_core::imp::define_interface!(
     ICoreWebView2NonClientRegionChangedEventHandler,
     ICoreWebView2NonClientRegionChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4a794e66_aa6c_46bd_93a3_382196837680
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NonClientRegionChangedEventHandler,
@@ -24275,7 +24275,7 @@ impl windows_core::RuntimeName for ICoreWebView2NonClientRegionChangedEventHandl
 windows_core::imp::define_interface!(
     ICoreWebView2Notification,
     ICoreWebView2Notification_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb7434d98_6bc8_419d_9da5_fb5a96d4dacd
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Notification, windows_core::IUnknown);
 impl ICoreWebView2Notification {
@@ -24853,7 +24853,7 @@ impl windows_core::RuntimeName for ICoreWebView2Notification {}
 windows_core::imp::define_interface!(
     ICoreWebView2NotificationCloseRequestedEventHandler,
     ICoreWebView2NotificationCloseRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x47c32d23_1e94_4733_85f1_d9bf4acd0974
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NotificationCloseRequestedEventHandler,
@@ -24931,7 +24931,7 @@ impl windows_core::RuntimeName for ICoreWebView2NotificationCloseRequestedEventH
 windows_core::imp::define_interface!(
     ICoreWebView2NotificationReceivedEventArgs,
     ICoreWebView2NotificationReceivedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x1512dd5b_5514_4f85_886e_21c3a4c9cfe6
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NotificationReceivedEventArgs,
@@ -25138,7 +25138,7 @@ impl windows_core::RuntimeName for ICoreWebView2NotificationReceivedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2NotificationReceivedEventHandler,
     ICoreWebView2NotificationReceivedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x89c5d598_8788_423b_be97_e6e01c0f9ee3
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2NotificationReceivedEventHandler,
@@ -25214,7 +25214,7 @@ impl windows_core::RuntimeName for ICoreWebView2NotificationReceivedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2ObjectCollection,
     ICoreWebView2ObjectCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5cfec11c_25bd_4e8d_9e1a_7acdaeeec047
 );
 impl core::ops::Deref for ICoreWebView2ObjectCollection {
     type Target = ICoreWebView2ObjectCollectionView;
@@ -25324,7 +25324,7 @@ impl windows_core::RuntimeName for ICoreWebView2ObjectCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2ObjectCollectionView,
     ICoreWebView2ObjectCollectionView_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0f36fd87_4f69_4415_98da_888f89fb9a33
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ObjectCollectionView, windows_core::IUnknown);
 impl ICoreWebView2ObjectCollectionView {
@@ -25423,7 +25423,7 @@ impl windows_core::RuntimeName for ICoreWebView2ObjectCollectionView {}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventArgs,
     ICoreWebView2PermissionRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x973ae2ef_ff18_4894_8fb2_3c758f046810
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2PermissionRequestedEventArgs,
@@ -25662,7 +25662,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventArgs2,
     ICoreWebView2PermissionRequestedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x74d7127f_9de6_4200_8734_42d6fb4ff741
 );
 impl core::ops::Deref for ICoreWebView2PermissionRequestedEventArgs2 {
     type Target = ICoreWebView2PermissionRequestedEventArgs;
@@ -25768,7 +25768,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventArgs3,
     ICoreWebView2PermissionRequestedEventArgs3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe61670bc_3dce_4177_86d2_c629ae3cb6ac
 );
 impl core::ops::Deref for ICoreWebView2PermissionRequestedEventArgs3 {
     type Target = ICoreWebView2PermissionRequestedEventArgs2;
@@ -25876,7 +25876,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventArgs3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionRequestedEventHandler,
     ICoreWebView2PermissionRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x15e1c6a3_c72a_4df3_91d7_d097fbec6bfd
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2PermissionRequestedEventHandler,
@@ -25952,7 +25952,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionRequestedEventHandler 
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionSetting,
     ICoreWebView2PermissionSetting_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x792b6eca_5576_421c_9119_74ebb3a4ffb3
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2PermissionSetting, windows_core::IUnknown);
 impl ICoreWebView2PermissionSetting {
@@ -26083,7 +26083,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionSetting {}
 windows_core::imp::define_interface!(
     ICoreWebView2PermissionSettingCollectionView,
     ICoreWebView2PermissionSettingCollectionView_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf5596f62_3de5_47b1_91e8_a4104b596b96
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2PermissionSettingCollectionView,
@@ -26191,7 +26191,7 @@ impl windows_core::RuntimeName for ICoreWebView2PermissionSettingCollectionView 
 windows_core::imp::define_interface!(
     ICoreWebView2PointerInfo,
     ICoreWebView2PointerInfo_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe6995887_d10d_4f5d_9359_4ce46e4f96b9
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2PointerInfo, windows_core::IUnknown);
 impl ICoreWebView2PointerInfo {
@@ -27841,7 +27841,7 @@ impl windows_core::RuntimeName for ICoreWebView2PointerInfo {}
 windows_core::imp::define_interface!(
     ICoreWebView2PrintCompletedHandler,
     ICoreWebView2PrintCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x8fd80075_ed08_42db_8570_f5d14977461e
 );
 impl windows_core::RuntimeType for ICoreWebView2PrintCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -27976,7 +27976,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2PrintSettings,
     ICoreWebView2PrintSettings_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x377f3721_c74e_48ca_8db1_df68e51d60e2
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2PrintSettings, windows_core::IUnknown);
 impl ICoreWebView2PrintSettings {
@@ -28849,7 +28849,7 @@ impl windows_core::RuntimeName for ICoreWebView2PrintSettings {}
 windows_core::imp::define_interface!(
     ICoreWebView2PrintSettings2,
     ICoreWebView2PrintSettings2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xca7f0e1f_3484_41d1_8c1a_65cd44a63f8d
 );
 impl core::ops::Deref for ICoreWebView2PrintSettings2 {
     type Target = ICoreWebView2PrintSettings;
@@ -29385,7 +29385,7 @@ impl windows_core::RuntimeName for ICoreWebView2PrintSettings2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2PrintToPdfCompletedHandler,
     ICoreWebView2PrintToPdfCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xccf1ef04_fd8e_4d5f_b2de_0983e41b8c36
 );
 impl windows_core::RuntimeType for ICoreWebView2PrintToPdfCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -29514,7 +29514,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2PrintToPdfStreamCompletedHandler,
     ICoreWebView2PrintToPdfStreamCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4c9f8229_8f93_444f_a711_2c0dfd6359d5
 );
 impl windows_core::RuntimeType for ICoreWebView2PrintToPdfStreamCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -29652,7 +29652,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessExtendedInfo,
     ICoreWebView2ProcessExtendedInfo_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xaf4c4c2e_45db_11ee_be56_0242ac120002
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ProcessExtendedInfo, windows_core::IUnknown);
 impl ICoreWebView2ProcessExtendedInfo {
@@ -29755,7 +29755,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessExtendedInfo {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessExtendedInfoCollection,
     ICoreWebView2ProcessExtendedInfoCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x32efa696_407a_11ee_be56_0242ac120002
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ProcessExtendedInfoCollection,
@@ -29859,7 +29859,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessExtendedInfoCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventArgs,
     ICoreWebView2ProcessFailedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x8155a9a4_1474_4a86_8cae_151b0fa6b8ca
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ProcessFailedEventArgs,
@@ -29927,7 +29927,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventArgs2,
     ICoreWebView2ProcessFailedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4dab9422_46fa_4c3e_a5d2_41d2071d3680
 );
 impl core::ops::Deref for ICoreWebView2ProcessFailedEventArgs2 {
     type Target = ICoreWebView2ProcessFailedEventArgs;
@@ -30107,7 +30107,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventArgs3,
     ICoreWebView2ProcessFailedEventArgs3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xab667428_094d_5fd1_b480_8b4c0fdbdf2f
 );
 impl core::ops::Deref for ICoreWebView2ProcessFailedEventArgs3 {
     type Target = ICoreWebView2ProcessFailedEventArgs2;
@@ -30184,7 +30184,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventArgs3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessFailedEventHandler,
     ICoreWebView2ProcessFailedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x79e0aea4_990b_42d9_aa1d_0fcc2e5bc7f1
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ProcessFailedEventHandler,
@@ -30258,7 +30258,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessFailedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessInfo,
     ICoreWebView2ProcessInfo_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x84fa7612_3f3d_4fbf_889d_fad000492d72
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ProcessInfo, windows_core::IUnknown);
 impl ICoreWebView2ProcessInfo {
@@ -30338,7 +30338,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessInfo {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessInfoCollection,
     ICoreWebView2ProcessInfoCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x402b99cd_a0cc_4fa5_b7a5_51d86a1d2339
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ProcessInfoCollection, windows_core::IUnknown);
 impl ICoreWebView2ProcessInfoCollection {
@@ -30437,7 +30437,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessInfoCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProcessInfosChangedEventHandler,
     ICoreWebView2ProcessInfosChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf4af0c39_44b9_40e9_8b11_0484cfb9e0a1
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ProcessInfosChangedEventHandler,
@@ -30513,7 +30513,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProcessInfosChangedEventHandler 
 windows_core::imp::define_interface!(
     ICoreWebView2Profile,
     ICoreWebView2Profile_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x79110ad3_cd5d_4373_8bc3_c60658f17a5f
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Profile, windows_core::IUnknown);
 impl ICoreWebView2Profile {
@@ -30779,7 +30779,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile2,
     ICoreWebView2Profile2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfa740d4b_5eae_4344_a8ad_74be31925397
 );
 impl core::ops::Deref for ICoreWebView2Profile2 {
     type Target = ICoreWebView2Profile;
@@ -30960,7 +30960,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile3,
     ICoreWebView2Profile3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb188e659_5685_4e05_bdba_fc640e0f1992
 );
 impl core::ops::Deref for ICoreWebView2Profile3 {
     type Target = ICoreWebView2Profile2;
@@ -31075,7 +31075,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile4,
     ICoreWebView2Profile4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x8f4ae680_192e_4ec8_833a_21cfadaef628
 );
 impl core::ops::Deref for ICoreWebView2Profile4 {
     type Target = ICoreWebView2Profile3;
@@ -31217,7 +31217,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile5,
     ICoreWebView2Profile5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x2ee5b76e_6e80_4df2_bcd3_d4ec3340a01b
 );
 impl core::ops::Deref for ICoreWebView2Profile5 {
     type Target = ICoreWebView2Profile4;
@@ -31295,7 +31295,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile6,
     ICoreWebView2Profile6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xbd82fa6a_1d65_4c33_b2b4_0393020cc61b
 );
 impl core::ops::Deref for ICoreWebView2Profile6 {
     type Target = ICoreWebView2Profile5;
@@ -31468,7 +31468,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile7,
     ICoreWebView2Profile7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7b4c7906_a1aa_4cb4_b723_db09f813d541
 );
 impl core::ops::Deref for ICoreWebView2Profile7 {
     type Target = ICoreWebView2Profile6;
@@ -31601,7 +31601,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Profile8,
     ICoreWebView2Profile8_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfbf70c2f_eb1f_4383_85a0_163e92044011
 );
 impl core::ops::Deref for ICoreWebView2Profile8 {
     type Target = ICoreWebView2Profile7;
@@ -31741,7 +31741,7 @@ impl windows_core::RuntimeName for ICoreWebView2Profile8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProfileAddBrowserExtensionCompletedHandler,
     ICoreWebView2ProfileAddBrowserExtensionCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xdf1aab27_82b9_4ab6_aae8_017a49398c14
 );
 impl windows_core::RuntimeType for ICoreWebView2ProfileAddBrowserExtensionCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -31874,7 +31874,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2ProfileDeletedEventHandler,
     ICoreWebView2ProfileDeletedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xdf35055d_772e_4dbe_b743_5fbf74a2b258
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ProfileDeletedEventHandler,
@@ -31950,7 +31950,7 @@ impl windows_core::RuntimeName for ICoreWebView2ProfileDeletedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler,
     ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfce16a1c_f107_4601_8b75_fc4940ae25d0
 );
 impl windows_core::RuntimeType for ICoreWebView2ProfileGetBrowserExtensionsCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -32083,7 +32083,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2RasterizationScaleChangedEventHandler,
     ICoreWebView2RasterizationScaleChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9c98c8b1_ac53_427e_a345_3049b5524bbe
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2RasterizationScaleChangedEventHandler,
@@ -32161,7 +32161,7 @@ impl windows_core::RuntimeName for ICoreWebView2RasterizationScaleChangedEventHa
 windows_core::imp::define_interface!(
     ICoreWebView2RegionRectCollectionView,
     ICoreWebView2RegionRectCollectionView_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x333353b8_48bf_4449_8fcc_22697faf5753
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2RegionRectCollectionView,
@@ -32253,7 +32253,7 @@ impl windows_core::RuntimeName for ICoreWebView2RegionRectCollectionView {}
 windows_core::imp::define_interface!(
     ICoreWebView2SaveAsUIShowingEventArgs,
     ICoreWebView2SaveAsUIShowingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x55902952_0e0d_5aaa_a7d0_e833cdb34f62
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SaveAsUIShowingEventArgs,
@@ -32682,7 +32682,7 @@ impl windows_core::RuntimeName for ICoreWebView2SaveAsUIShowingEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2SaveAsUIShowingEventHandler,
     ICoreWebView2SaveAsUIShowingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x6baa177e_3a2e_5ccf_9a13_fad676cd0522
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SaveAsUIShowingEventHandler,
@@ -32758,7 +32758,7 @@ impl windows_core::RuntimeName for ICoreWebView2SaveAsUIShowingEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2SaveFileSecurityCheckStartingEventArgs,
     ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xcf4ff1d1_5a67_5660_8d63_ef699881ea65
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SaveFileSecurityCheckStartingEventArgs,
@@ -33063,7 +33063,7 @@ impl windows_core::RuntimeName for ICoreWebView2SaveFileSecurityCheckStartingEve
 windows_core::imp::define_interface!(
     ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
     ICoreWebView2SaveFileSecurityCheckStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7899576c_19e3_57c8_b7d1_55808292de57
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SaveFileSecurityCheckStartingEventHandler,
@@ -33141,7 +33141,7 @@ impl windows_core::RuntimeName for ICoreWebView2SaveFileSecurityCheckStartingEve
 windows_core::imp::define_interface!(
     ICoreWebView2ScreenCaptureStartingEventArgs,
     ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x892c03fd_aee3_5eba_a1fa_6fd2f6484b2b
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ScreenCaptureStartingEventArgs,
@@ -33377,7 +33377,7 @@ impl windows_core::RuntimeName for ICoreWebView2ScreenCaptureStartingEventArgs {
 windows_core::imp::define_interface!(
     ICoreWebView2ScreenCaptureStartingEventHandler,
     ICoreWebView2ScreenCaptureStartingEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe24ff05a_1db5_59d9_89f3_3c864268db4a
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ScreenCaptureStartingEventHandler,
@@ -33453,7 +33453,7 @@ impl windows_core::RuntimeName for ICoreWebView2ScreenCaptureStartingEventHandle
 windows_core::imp::define_interface!(
     ICoreWebView2ScriptDialogOpeningEventArgs,
     ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7390bb70_abe0_4843_9529_f143b31b03d6
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ScriptDialogOpeningEventArgs,
@@ -33751,7 +33751,7 @@ impl windows_core::RuntimeName for ICoreWebView2ScriptDialogOpeningEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2ScriptDialogOpeningEventHandler,
     ICoreWebView2ScriptDialogOpeningEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xef381bf9_afa8_4e37_91c4_8ac48524bdfb
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ScriptDialogOpeningEventHandler,
@@ -33827,7 +33827,7 @@ impl windows_core::RuntimeName for ICoreWebView2ScriptDialogOpeningEventHandler 
 windows_core::imp::define_interface!(
     ICoreWebView2ScriptException,
     ICoreWebView2ScriptException_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x054dae00_84a3_49ff_bc17_4012a90bc9fd
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2ScriptException, windows_core::IUnknown);
 impl ICoreWebView2ScriptException {
@@ -34006,7 +34006,7 @@ impl windows_core::RuntimeName for ICoreWebView2ScriptException {}
 windows_core::imp::define_interface!(
     ICoreWebView2ServerCertificateErrorDetectedEventArgs,
     ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x012193ed_7c13_48ff_969d_a84c1f432a14
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ServerCertificateErrorDetectedEventArgs,
@@ -34262,7 +34262,7 @@ impl windows_core::RuntimeName for ICoreWebView2ServerCertificateErrorDetectedEv
 windows_core::imp::define_interface!(
     ICoreWebView2ServerCertificateErrorDetectedEventHandler,
     ICoreWebView2ServerCertificateErrorDetectedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x969b3a26_d85e_4795_8199_fef57344da22
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ServerCertificateErrorDetectedEventHandler,
@@ -34340,7 +34340,7 @@ impl windows_core::RuntimeName for ICoreWebView2ServerCertificateErrorDetectedEv
 windows_core::imp::define_interface!(
     ICoreWebView2SetPermissionStateCompletedHandler,
     ICoreWebView2SetPermissionStateCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfc77fb30_9c9e_4076_b8c7_7644a703ca1b
 );
 impl windows_core::RuntimeType for ICoreWebView2SetPermissionStateCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -34459,7 +34459,7 @@ impl<F: Fn(windows_core::HRESULT) -> windows_core::Result<()> + Send + 'static>
 windows_core::imp::define_interface!(
     ICoreWebView2Settings,
     ICoreWebView2Settings_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe562e4f0_d7fa_43ac_8d71_c05150499f00
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2Settings, windows_core::IUnknown);
 impl ICoreWebView2Settings {
@@ -35103,7 +35103,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings2,
     ICoreWebView2Settings2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xee9a0f68_f46c_4e32_ac23_ef8cac224d2a
 );
 impl core::ops::Deref for ICoreWebView2Settings2 {
     type Target = ICoreWebView2Settings;
@@ -35202,7 +35202,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings3,
     ICoreWebView2Settings3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xfdb5ab74_af33_4854_84f0_0a631deb5eba
 );
 impl core::ops::Deref for ICoreWebView2Settings3 {
     type Target = ICoreWebView2Settings2;
@@ -35314,7 +35314,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings4,
     ICoreWebView2Settings4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xcb56846c_4168_4d53_b04f_03b6d6796ff2
 );
 impl core::ops::Deref for ICoreWebView2Settings4 {
     type Target = ICoreWebView2Settings3;
@@ -35483,7 +35483,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings5,
     ICoreWebView2Settings5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x183e7052_1d03_43a0_ab99_98e043b66b39
 );
 impl core::ops::Deref for ICoreWebView2Settings5 {
     type Target = ICoreWebView2Settings4;
@@ -35590,7 +35590,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings6,
     ICoreWebView2Settings6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x11cb3acd_9bc8_43b8_83bf_f40753714f87
 );
 impl core::ops::Deref for ICoreWebView2Settings6 {
     type Target = ICoreWebView2Settings5;
@@ -35699,7 +35699,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings7,
     ICoreWebView2Settings7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x488dc902_35ef_42d2_bc7d_94b65c4bc49c
 );
 impl core::ops::Deref for ICoreWebView2Settings7 {
     type Target = ICoreWebView2Settings6;
@@ -35822,7 +35822,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings8,
     ICoreWebView2Settings8_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9e6b0e8f_86ad_4e81_8147_a9b5edb68650
 );
 impl core::ops::Deref for ICoreWebView2Settings8 {
     type Target = ICoreWebView2Settings7;
@@ -35935,7 +35935,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2Settings9,
     ICoreWebView2Settings9_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0528a73b_e92d_49f4_927a_e547dddaa37d
 );
 impl core::ops::Deref for ICoreWebView2Settings9 {
     type Target = ICoreWebView2Settings8;
@@ -36056,7 +36056,7 @@ impl windows_core::RuntimeName for ICoreWebView2Settings9 {}
 windows_core::imp::define_interface!(
     ICoreWebView2SharedBuffer,
     ICoreWebView2SharedBuffer_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb747a495_0c6f_449e_97b8_2f81e9d6ab43
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2SharedBuffer, windows_core::IUnknown);
 impl ICoreWebView2SharedBuffer {
@@ -36216,7 +36216,7 @@ impl windows_core::RuntimeName for ICoreWebView2SharedBuffer {}
 windows_core::imp::define_interface!(
     ICoreWebView2ShowSaveAsUICompletedHandler,
     ICoreWebView2ShowSaveAsUICompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe24b07e3_8169_5c34_994a_7f6478946a3c
 );
 impl windows_core::RuntimeType for ICoreWebView2ShowSaveAsUICompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -36351,7 +36351,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2SourceChangedEventArgs,
     ICoreWebView2SourceChangedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x31e0e545_1dba_4266_8914_f63848a1f7d7
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SourceChangedEventArgs,
@@ -36413,7 +36413,7 @@ impl windows_core::RuntimeName for ICoreWebView2SourceChangedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2SourceChangedEventHandler,
     ICoreWebView2SourceChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x3c067f9f_5388_4772_8b48_79f7ef1ab37c
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2SourceChangedEventHandler,
@@ -36487,7 +36487,7 @@ impl windows_core::RuntimeName for ICoreWebView2SourceChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2StateChangedEventHandler,
     ICoreWebView2StateChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x81336594_7ede_4ba9_bf71_acf0a95b58dd
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2StateChangedEventHandler,
@@ -36561,7 +36561,7 @@ impl windows_core::RuntimeName for ICoreWebView2StateChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2StatusBarTextChangedEventHandler,
     ICoreWebView2StatusBarTextChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa5e3b0d0_10df_4156_bfad_3b43867acac6
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2StatusBarTextChangedEventHandler,
@@ -36637,7 +36637,7 @@ impl windows_core::RuntimeName for ICoreWebView2StatusBarTextChangedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2StringCollection,
     ICoreWebView2StringCollection_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf41f3f8a_bcc3_11eb_8529_0242ac130003
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2StringCollection, windows_core::IUnknown);
 impl ICoreWebView2StringCollection {
@@ -36729,7 +36729,7 @@ impl windows_core::RuntimeName for ICoreWebView2StringCollection {}
 windows_core::imp::define_interface!(
     ICoreWebView2TrySuspendCompletedHandler,
     ICoreWebView2TrySuspendCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x00f206a7_9d17_4605_91f6_4e8e4de192e3
 );
 impl windows_core::RuntimeType for ICoreWebView2TrySuspendCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -36858,7 +36858,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs,
     ICoreWebView2WebMessageReceivedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0f99a40c_e962_4207_9e92_e3d542eff849
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebMessageReceivedEventArgs,
@@ -36995,7 +36995,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventArgs2,
     ICoreWebView2WebMessageReceivedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x06fc7ab7_c90c_4297_9389_33ca01cf6d5e
 );
 impl core::ops::Deref for ICoreWebView2WebMessageReceivedEventArgs2 {
     type Target = ICoreWebView2WebMessageReceivedEventArgs;
@@ -37075,7 +37075,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventArgs2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebMessageReceivedEventHandler,
     ICoreWebView2WebMessageReceivedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x57213f19_00e6_49fa_8e07_898ea01ecbd2
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebMessageReceivedEventHandler,
@@ -37151,7 +37151,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebMessageReceivedEventHandler {
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequest,
     ICoreWebView2WebResourceRequest_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x97055cd4_512c_4264_8b5f_e3f446cea6a5
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2WebResourceRequest, windows_core::IUnknown);
 impl ICoreWebView2WebResourceRequest {
@@ -37412,7 +37412,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceRequest {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequestedEventArgs,
     ICoreWebView2WebResourceRequestedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x453e667f_12c7_49d4_be6d_ddbe7956f57a
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebResourceRequestedEventArgs,
@@ -37634,7 +37634,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceRequestedEventArgs {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequestedEventArgs2,
     ICoreWebView2WebResourceRequestedEventArgs2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9c562c24_b219_4d7f_92f6_b187fbbadd56
 );
 impl core::ops::Deref for ICoreWebView2WebResourceRequestedEventArgs2 {
     type Target = ICoreWebView2WebResourceRequestedEventArgs;
@@ -37714,7 +37714,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceRequestedEventArgs2 {
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceRequestedEventHandler,
     ICoreWebView2WebResourceRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xab00b74c_15f1_4646_80e8_e76341d25d71
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebResourceRequestedEventHandler,
@@ -37790,7 +37790,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceRequestedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponse,
     ICoreWebView2WebResourceResponse_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xaafcc94f_fa27_48fd_97df_830ef75aaec9
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2WebResourceResponse, windows_core::IUnknown);
 impl ICoreWebView2WebResourceResponse {
@@ -38054,7 +38054,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceResponse {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponseReceivedEventArgs,
     ICoreWebView2WebResourceResponseReceivedEventArgs_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xd1db483d_6796_4b8b_80fc_13712bb716f4
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebResourceResponseReceivedEventArgs,
@@ -38164,7 +38164,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceResponseReceivedEvent
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponseReceivedEventHandler,
     ICoreWebView2WebResourceResponseReceivedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7de9898a_24f5_40c3_a2de_d4f458e69828
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebResourceResponseReceivedEventHandler,
@@ -38242,7 +38242,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceResponseReceivedEvent
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponseView,
     ICoreWebView2WebResourceResponseView_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x79701053_7759_4162_8f7d_f1b3f084928d
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WebResourceResponseView,
@@ -38412,7 +38412,7 @@ impl windows_core::RuntimeName for ICoreWebView2WebResourceResponseView {}
 windows_core::imp::define_interface!(
     ICoreWebView2WebResourceResponseViewGetContentCompletedHandler,
     ICoreWebView2WebResourceResponseViewGetContentCompletedHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x875738e1_9fa2_40e3_8b74_2e8972dd6fe7
 );
 impl windows_core::RuntimeType for ICoreWebView2WebResourceResponseViewGetContentCompletedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer =
@@ -38536,7 +38536,7 @@ impl<
 windows_core::imp::define_interface!(
     ICoreWebView2WindowCloseRequestedEventHandler,
     ICoreWebView2WindowCloseRequestedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5c19e9e0_092f_486b_affa_ca8231913039
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2WindowCloseRequestedEventHandler,
@@ -38612,7 +38612,7 @@ impl windows_core::RuntimeName for ICoreWebView2WindowCloseRequestedEventHandler
 windows_core::imp::define_interface!(
     ICoreWebView2WindowFeatures,
     ICoreWebView2WindowFeatures_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x5eaf559f_b46e_4397_8860_e422f287ff1e
 );
 windows_core::imp::interface_hierarchy!(ICoreWebView2WindowFeatures, windows_core::IUnknown);
 impl ICoreWebView2WindowFeatures {
@@ -38931,7 +38931,7 @@ impl windows_core::RuntimeName for ICoreWebView2WindowFeatures {}
 windows_core::imp::define_interface!(
     ICoreWebView2ZoomFactorChangedEventHandler,
     ICoreWebView2ZoomFactorChangedEventHandler_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb52d71d6_c4df_4543_a90c_64a3e60f38cb
 );
 windows_core::imp::interface_hierarchy!(
     ICoreWebView2ZoomFactorChangedEventHandler,
@@ -39007,7 +39007,7 @@ impl windows_core::RuntimeName for ICoreWebView2ZoomFactorChangedEventHandler {}
 windows_core::imp::define_interface!(
     ICoreWebView2_10,
     ICoreWebView2_10_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb1690564_6f5a_4983_8e48_31d1143fecdb
 );
 impl core::ops::Deref for ICoreWebView2_10 {
     type Target = ICoreWebView2_9;
@@ -39143,7 +39143,7 @@ impl windows_core::RuntimeName for ICoreWebView2_10 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_11,
     ICoreWebView2_11_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0be78e56_c193_4051_b943_23b460c08bdb
 );
 impl core::ops::Deref for ICoreWebView2_11 {
     type Target = ICoreWebView2_10;
@@ -39341,7 +39341,7 @@ impl windows_core::RuntimeName for ICoreWebView2_11 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_12,
     ICoreWebView2_12_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x35d69927_bcfa_4566_9349_6b3e0d154cac
 );
 impl core::ops::Deref for ICoreWebView2_12 {
     type Target = ICoreWebView2_11;
@@ -39506,7 +39506,7 @@ impl windows_core::RuntimeName for ICoreWebView2_12 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_13,
     ICoreWebView2_13_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xf75f09a8_667e_4983_88d6_c8773f315e84
 );
 impl core::ops::Deref for ICoreWebView2_13 {
     type Target = ICoreWebView2_12;
@@ -39593,7 +39593,7 @@ impl windows_core::RuntimeName for ICoreWebView2_13 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_14,
     ICoreWebView2_14_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x6daa4f10_4a90_4753_8898_77c5df534165
 );
 impl core::ops::Deref for ICoreWebView2_14 {
     type Target = ICoreWebView2_13;
@@ -39784,7 +39784,7 @@ impl windows_core::RuntimeName for ICoreWebView2_14 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_15,
     ICoreWebView2_15_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x517b2d1d_7dae_4a66_a4f4_10352ffb9518
 );
 impl core::ops::Deref for ICoreWebView2_15 {
     type Target = ICoreWebView2_14;
@@ -40002,7 +40002,7 @@ impl windows_core::RuntimeName for ICoreWebView2_15 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_16,
     ICoreWebView2_16_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x0eb34dc9_9f91_41e1_8639_95cd5943906b
 );
 impl core::ops::Deref for ICoreWebView2_16 {
     type Target = ICoreWebView2_15;
@@ -40194,7 +40194,7 @@ impl windows_core::RuntimeName for ICoreWebView2_16 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_17,
     ICoreWebView2_17_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x702e75d4_fd44_434d_9d70_1a68a6b1192a
 );
 impl core::ops::Deref for ICoreWebView2_17 {
     type Target = ICoreWebView2_16;
@@ -40315,7 +40315,7 @@ impl windows_core::RuntimeName for ICoreWebView2_17 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_18,
     ICoreWebView2_18_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x7a626017_28be_49b2_b865_3ba2b3522d90
 );
 impl core::ops::Deref for ICoreWebView2_18 {
     type Target = ICoreWebView2_17;
@@ -40461,7 +40461,7 @@ impl windows_core::RuntimeName for ICoreWebView2_18 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_19,
     ICoreWebView2_19_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x6921f954_79b0_437f_a997_c85811897c68
 );
 impl core::ops::Deref for ICoreWebView2_19 {
     type Target = ICoreWebView2_18;
@@ -40608,7 +40608,7 @@ impl windows_core::RuntimeName for ICoreWebView2_19 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_2,
     ICoreWebView2_2_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x9e8f0cf8_e670_4b5e_b2bc_73e061e3184c
 );
 impl core::ops::Deref for ICoreWebView2_2 {
     type Target = ICoreWebView2;
@@ -40909,7 +40909,7 @@ impl windows_core::RuntimeName for ICoreWebView2_2 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_20,
     ICoreWebView2_20_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb4bc1926_7305_11ee_b962_0242ac120002
 );
 impl core::ops::Deref for ICoreWebView2_20 {
     type Target = ICoreWebView2_19;
@@ -41004,7 +41004,7 @@ impl windows_core::RuntimeName for ICoreWebView2_20 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_21,
     ICoreWebView2_21_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xc4980dea_587b_43b9_8143_3ef3bf552d95
 );
 impl core::ops::Deref for ICoreWebView2_21 {
     type Target = ICoreWebView2_20;
@@ -41127,7 +41127,7 @@ impl windows_core::RuntimeName for ICoreWebView2_21 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_22,
     ICoreWebView2_22_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xdb75dfc7_a857_4632_a398_6969dde26c0a
 );
 impl core::ops::Deref for ICoreWebView2_22 {
     type Target = ICoreWebView2_21;
@@ -41316,7 +41316,7 @@ impl windows_core::RuntimeName for ICoreWebView2_22 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_23,
     ICoreWebView2_23_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x508f0db5_90c4_5872_90a7_267a91377502
 );
 impl core::ops::Deref for ICoreWebView2_23 {
     type Target = ICoreWebView2_22;
@@ -41447,7 +41447,7 @@ impl windows_core::RuntimeName for ICoreWebView2_23 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_24,
     ICoreWebView2_24_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x39a7ad55_4287_5cc1_88a1_c6f458593824
 );
 impl core::ops::Deref for ICoreWebView2_24 {
     type Target = ICoreWebView2_23;
@@ -41605,7 +41605,7 @@ impl windows_core::RuntimeName for ICoreWebView2_24 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_25,
     ICoreWebView2_25_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xb5a86092_df50_5b4f_a17b_6c8f8b40b771
 );
 impl core::ops::Deref for ICoreWebView2_25 {
     type Target = ICoreWebView2_24;
@@ -41800,7 +41800,7 @@ impl windows_core::RuntimeName for ICoreWebView2_25 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_26,
     ICoreWebView2_26_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x806268b8_f897_5685_88e5_c45fca0b1a48
 );
 impl core::ops::Deref for ICoreWebView2_26 {
     type Target = ICoreWebView2_25;
@@ -41968,7 +41968,7 @@ impl windows_core::RuntimeName for ICoreWebView2_26 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_27,
     ICoreWebView2_27_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x00fbe33b_8c07_517c_aa23_0ddd4b5f6fa0
 );
 impl core::ops::Deref for ICoreWebView2_27 {
     type Target = ICoreWebView2_26;
@@ -42132,7 +42132,7 @@ impl windows_core::RuntimeName for ICoreWebView2_27 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_3,
     ICoreWebView2_3_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xa0d6df20_3b92_416d_aa0c_437a9c727857
 );
 impl core::ops::Deref for ICoreWebView2_3 {
     type Target = ICoreWebView2_2;
@@ -42351,7 +42351,7 @@ impl windows_core::RuntimeName for ICoreWebView2_3 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_4,
     ICoreWebView2_4_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x20d02d59_6df2_42dc_bd06_f98a694b1302
 );
 impl core::ops::Deref for ICoreWebView2_4 {
     type Target = ICoreWebView2_3;
@@ -42543,7 +42543,7 @@ impl windows_core::RuntimeName for ICoreWebView2_4 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_5,
     ICoreWebView2_5_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xbedb11b8_d63c_11eb_b8bc_0242ac130003
 );
 impl core::ops::Deref for ICoreWebView2_5 {
     type Target = ICoreWebView2_4;
@@ -42663,7 +42663,7 @@ impl windows_core::RuntimeName for ICoreWebView2_5 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_6,
     ICoreWebView2_6_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x499aadac_d92c_4589_8a75_111bfc167795
 );
 impl core::ops::Deref for ICoreWebView2_6 {
     type Target = ICoreWebView2_5;
@@ -42732,7 +42732,7 @@ impl windows_core::RuntimeName for ICoreWebView2_6 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_7,
     ICoreWebView2_7_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x79c24d83_09a3_45ae_9418_487f32a58740
 );
 impl core::ops::Deref for ICoreWebView2_7 {
     type Target = ICoreWebView2_6;
@@ -42834,7 +42834,7 @@ impl windows_core::RuntimeName for ICoreWebView2_7 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_8,
     ICoreWebView2_8_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0xe9632730_6e1e_43ab_b7b8_7b2c9e62e094
 );
 impl core::ops::Deref for ICoreWebView2_8 {
     type Target = ICoreWebView2_7;
@@ -43122,7 +43122,7 @@ impl windows_core::RuntimeName for ICoreWebView2_8 {}
 windows_core::imp::define_interface!(
     ICoreWebView2_9,
     ICoreWebView2_9_Vtbl,
-    0xd095a8ca_1103_4ef5_998c_62821510ef8f
+    0x4d7b2eab_9fdc_468d_b998_a9260b5ed651
 );
 impl core::ops::Deref for ICoreWebView2_9 {
     type Target = ICoreWebView2_8;

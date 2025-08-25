@@ -150,6 +150,10 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         output.TypeRef("System.Runtime.InteropServices", "GuidAttribute"),
     );
 
+    let uuid = item.attributes.iter().find(|attribute|attribute.name == "uuid").unwrap();
+    assert_eq!(uuid.parameters.len(), 1);
+    let guid =  &mut uuid.parameters[0].1.bytes();
+
     let signature = Signature {
         types: vec![
             Type::U32,
@@ -171,17 +175,17 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
 
     // TODO: read the actual guid
     let value = vec![
-        (String::new(), Value::U32(0xd095a8ca)),
-        (String::new(), Value::U16(0x1103)),
-        (String::new(), Value::U16(0x4ef5)),
-        (String::new(), Value::U8(0x99)),
-        (String::new(), Value::U8(0x8c)),
-        (String::new(), Value::U8(0x62)),
-        (String::new(), Value::U8(0x82)),
-        (String::new(), Value::U8(0x15)),
-        (String::new(), Value::U8(0x10)),
-        (String::new(), Value::U8(0xef)),
-        (String::new(), Value::U8(0x8f)),
+        (String::new(), Value::U32(guid_u32(guid, true))),
+        (String::new(), Value::U16(guid_u16(guid, true))),
+        (String::new(), Value::U16(guid_u16(guid, true))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, true))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
+        (String::new(), Value::U8(guid_u8(guid, false))),
     ];
 
     output.Attribute(
@@ -265,5 +269,40 @@ fn to_type(name: &str) -> Type {
                 Type::named("WebView2", name)
             }
         }
+    }
+}
+
+// TODO: push common handling to windows-guid
+
+fn guid_u32(bytes: &mut core::str::Bytes, delimiter: bool) -> u32 {
+    guid_next(bytes, 8, delimiter)
+}
+
+fn guid_u16(bytes: &mut core::str::Bytes, delimiter: bool) -> u16 {
+    guid_next(bytes, 4, delimiter) as u16
+}
+
+fn guid_u8(bytes: &mut core::str::Bytes, delimiter: bool) -> u8 {
+    guid_next(bytes, 2, delimiter) as u8
+}
+
+fn guid_next(bytes: &mut core::str::Bytes, len: usize, delimiter: bool) -> u32 {
+    let mut value: u32 = 0;
+
+    for _ in 0..len {
+        let digit = bytes.next().unwrap();
+
+        match digit {
+            b'0'..=b'9' => value = (value << 4) + (digit - b'0') as u32,
+            b'A'..=b'F' => value = (value << 4) + (digit - b'A' + 10) as u32,
+            b'a'..=b'f' => value = (value << 4) + (digit - b'a' + 10) as u32,
+            _ => panic!(),
+        }
+    }
+
+    if delimiter && bytes.next() != Some(b'-') {
+        panic!()
+    } else {
+        value
     }
 }

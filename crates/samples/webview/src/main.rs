@@ -69,6 +69,3 @@ extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: L
         }
     }
 }
-
-#[implement(wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler)]
-struct CreateCoreWebView2EnvironmentCompletedHandler;
