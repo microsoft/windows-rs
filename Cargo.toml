@@ -7,11 +7,12 @@ members = [
     "crates/samples/components/*",
     "crates/samples/csharp/*",
     "crates/samples/services/*",
+    "crates/samples/webview",
     "crates/targets/*",
     "crates/tests/misc/*",
     "crates/tests/winrt/*",
     "crates/tests/libs/*",
-    "crates/tools/*",
+    "crates/tools/*", "crates/samples/webview",
 ]
 exclude = [
     "crates/targets/baseline",
@@ -51,6 +52,7 @@ windows-sys = { version = "0.60.2", path = "crates/libs/sys", default-features =
 windows-targets = { version = "0.53.3", path = "crates/libs/targets", default-features = false }
 windows-threading = { version = "0.1.0", path = "crates/libs/threading", default-features = false }
 windows-version = { version = "0.1.4", path = "crates/libs/version", default-features = false }
+windows-webview = { version = "0.0.0", path = "crates/libs/webview", default-features = false }
 
 windows-idl = { version = "0.0.0", path = "crates/libs/idl", default-features = false }
 windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }

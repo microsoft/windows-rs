@@ -3,4 +3,5 @@
 #![allow(non_snake_case, dead_code, non_camel_case_types)]
 
 mod bindings;
-//use bindings::*;
+// TODO: need to hide this 
+pub use bindings::*;

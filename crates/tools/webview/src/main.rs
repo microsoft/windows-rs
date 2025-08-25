@@ -19,6 +19,7 @@ fn metadata_to_bindings() {
     let output = output.into_stream();
     std::fs::write("crates/tools/webview/WebView2.winmd", output).unwrap();
 
+    // TODO: some methods will be skipped
     _ = bindgen([
         "--in",
         "default",
@@ -112,13 +113,59 @@ fn write_struct(item: &idl::Struct, output: &mut writer::File) {
     }
 }
 
+// TODO: detect delegate-like interfaces and project them as such
+
 fn write_interface(item: &idl::Interface, output: &mut writer::File) {
-    output.TypeDef(
+    let type_def = output.TypeDef(
         "WebView2",
         &item.name,
         writer::TypeDefOrRef::default(),
         TypeAttributes::Public | TypeAttributes::Interface | TypeAttributes::Abstract,
     );
+
+    output.InterfaceImpl(type_def, &to_type(&item.implements[0].name));
+
+    let attribute_ref =
+            writer::MemberRefParent::TypeRef(output.TypeRef("System.Runtime.InteropServices", "GuidAttribute"));
+
+                let signature = Signature {
+        types: vec![
+            Type::U32,
+            Type::U16,
+            Type::U16,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+            Type::U8,
+        ],
+        ..Default::default()
+    };
+
+        let ctor = output.MemberRef(".ctor", &signature, attribute_ref);
+
+            let value = vec![
+        (String::new(), Value::U32(0xd095a8ca)),
+        (String::new(), Value::U16(0x1103)),
+        (String::new(), Value::U16(0x4ef5)),
+        (String::new(), Value::U8(0x99)),
+        (String::new(), Value::U8(0x8c)),
+        (String::new(), Value::U8(0x62)),
+        (String::new(), Value::U8(0x82)),
+        (String::new(), Value::U8(0x15)),
+        (String::new(), Value::U8(0x10)),
+        (String::new(), Value::U8(0xef)),
+        (String::new(), Value::U8(0x8f)),
+    ];
+
+        output.Attribute(
+            writer::HasAttribute::TypeDef(type_def),
+            writer::AttributeType::MemberRef(ctor),
+            &value,
+        );
 
     for method in &item.methods {
         let flags = MethodAttributes::Public

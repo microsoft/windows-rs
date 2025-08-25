@@ -35,7 +35,7 @@ code! { TypeDefOrRef(2)
 
 impl Default for TypeDefOrRef {
     fn default() -> Self {
-        // This results in an encoded value of zero.
+        // This results in an encoded value of zero used to define an interface
         TypeDefOrRef::TypeDef(id::TypeDef(u32::MAX))
     }
 }
