@@ -13,6 +13,7 @@ categories = ["os::windows-apis"]
 [dependencies]
 windows-link = { workspace = true }
 windows-core = { workspace = true }
+windows-strings = { workspace = true }
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"

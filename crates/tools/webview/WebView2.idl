@@ -8403,7 +8403,7 @@ cpp_quote("STDAPI CreateCoreWebView2Environment(ICoreWebView2CreateCoreWebView2E
 /// ```
 /// 
 /// If `CoInitializeEx` did not run or previously ran with
-/// `COINIT_MULTITHREADED`, `CreateCoreWebView2EnvironmentWithOptions` fails
+ /// `COINIT_MULTITHREADED`, `CreateCoreWebView2EnvironmentWithOptions` fails
 /// with one of the following errors.
 /// 
 /// ```text

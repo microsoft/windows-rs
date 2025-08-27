@@ -3,6 +3,7 @@ use core::mem::transmute;
 
 /// A borrowed type with the same memory layout as the type itself that can be used to construct ABI-compatible function signatures.
 #[repr(transparent)]
+#[derive(Debug)]
 pub struct Ref<'a, T: Type<T>>(T::Abi, core::marker::PhantomData<&'a T>);
 
 impl<T: Type<T>> Ref<'_, T> {

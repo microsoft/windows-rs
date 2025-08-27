@@ -29,7 +29,7 @@ fn main() {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        CreateWindowExA(
+        let window_handle = wv::HWND(CreateWindowExA(
             0,
             window_class.0,
             s!("This is a sample window").0,
@@ -42,7 +42,27 @@ fn main() {
             core::ptr::null_mut(),
             instance,
             std::ptr::null(),
-        );
+        ));
+
+        // TODO: these callbacks should be like windows-future's when with a single Result parameter like Result<ICoreWebView2Controller> and the HRESULT being made 
+        // available through the Err variant. This should work for all of the XxxxCompletedHandler callbacks and the XxxEventHandler callbacks would have two 
+        // parameters as usual.
+
+        wv::CreateCoreWebView2Environment(core::mem::transmute_copy(&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(move |result, environment| {
+            println!("handler {result} {environment:?}");
+            result.unwrap();
+
+            let window_handle = window_handle.clone();
+
+            environment.unwrap().CreateCoreWebView2Controller(window_handle, &wv::ICoreWebView2CreateCoreWebView2ControllerCompletedHandler::new(|result, controller| {
+                println!("handler {result} {controller:?}");
+                result.unwrap();
+
+                Ok(())
+            }) ).unwrap();
+
+            Ok(())
+        }) )).unwrap();
 
         let mut message = std::mem::zeroed();
 
