@@ -29,3 +29,9 @@ impl<'a, T: Type<T>> From<&'a mut T::Default> for OutRef<'a, T> {
         unsafe { core::mem::transmute(from) }
     }
 }
+
+impl<T: Type<T>> Default for OutRef<'_, T> {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
