@@ -155,7 +155,10 @@ impl TearOff {
     }
 
     unsafe fn decode<'a>(value: isize) -> &'a mut Self {
-        unsafe { transmute(value << 1) }
+        #[allow(unknown_lints, integer_to_ptr_transmutes)]
+        unsafe {
+            transmute(value << 1)
+        }
     }
 
     unsafe fn query_interface(&self, iid: *const GUID, interface: *mut *mut c_void) -> HRESULT {
