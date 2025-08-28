@@ -48,6 +48,8 @@ fn main() {
         // available through the Err variant. This should work for all of the XxxxCompletedHandler callbacks and the XxxEventHandler callbacks would have two 
         // parameters as usual.
 
+        println!("CreateCoreWebView2Environment");
+
         wv::CreateCoreWebView2Environment(core::mem::transmute_copy(&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(move |result, environment| {
             println!("handler {result} {environment:?}");
             result.unwrap();

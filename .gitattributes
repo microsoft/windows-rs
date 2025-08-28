@@ -6,3 +6,4 @@
 *.lib   -text
 *.a     -text
 *.exe   -text
+*.dll   -text
