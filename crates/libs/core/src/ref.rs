@@ -46,6 +46,12 @@ impl<T: Type<T>> Ref<'_, T> {
     }
 }
 
+impl<T: Type<T>> Default for Ref<'_, T> {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+
 impl<T: Type<T>> core::ops::Deref for Ref<'_, T> {
     type Target = T::Default;
     fn deref(&self) -> &Self::Target {
@@ -53,8 +59,30 @@ impl<T: Type<T>> core::ops::Deref for Ref<'_, T> {
     }
 }
 
-impl<'a, T: Type<T>> From<&'a T::Default> for Ref<'a, T> {
-    fn from(from: &'a T::Default) -> Self {
+impl<'a, T: Type<T, InterfaceType>> From<&'a Option<T>> for Ref<'a, T>
+where
+    T: TypeKind<TypeKind = InterfaceType>,
+{
+    fn from(from: &'a Option<T>) -> Self {
+        unsafe { core::mem::transmute_copy(from) }
+    }
+}
+
+impl<'a, T: Type<T, InterfaceType>> From<Option<&'a T>> for Ref<'a, T>
+where
+    T: TypeKind<TypeKind = InterfaceType>,
+{
+    fn from(from: Option<&'a T>) -> Self {
+        if let Some(from) = from {
+            unsafe { core::mem::transmute_copy(from) }
+        } else {
+            unsafe { core::mem::zeroed() }
+        }
+    }
+}
+
+impl<'a, T: Type<T>> From<&'a T> for Ref<'a, T> {
+    fn from(from: &'a T) -> Self {
         unsafe { core::mem::transmute_copy(from) }
     }
 }

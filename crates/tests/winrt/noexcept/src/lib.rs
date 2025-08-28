@@ -9,17 +9,17 @@ pub fn consume(test: &ITest) -> Result<()> {
         fn consume(test: Ref<ITest>) -> HRESULT;
     }
 
-    unsafe { consume(std::mem::transmute_copy(test)).ok() }
+    unsafe { consume(test.into()).ok() }
 }
 
 pub fn produce() -> Result<ITest> {
     unsafe extern "system" {
-        fn produce(test: *mut *mut std::ffi::c_void) -> HRESULT;
+        fn produce(test: OutRef<ITest>) -> HRESULT;
     }
 
     unsafe {
         let mut test = None;
-        produce(&mut test as *mut _ as *mut _).ok()?;
+        produce((&mut test).into()).ok()?;
         Type::from_default(&test)
     }
 }
