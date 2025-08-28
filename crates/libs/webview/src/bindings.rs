@@ -3200,9 +3200,9 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, handled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
@@ -3229,7 +3229,7 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -3243,7 +3243,7 @@ pub trait ICoreWebView2AcceleratorKeyPressedEventArgs_Impl: windows_core::IUnkno
         physicalkeystatus: &COREWEBVIEW2_PHYSICAL_KEY_STATUS,
     ) -> windows_core::Result<()>;
     fn Handled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
     pub const fn new<
@@ -3335,7 +3335,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2AcceleratorKeyPressedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -3345,7 +3345,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::Handled2(
+                ICoreWebView2AcceleratorKeyPressedEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&handled),
                 )
@@ -3359,7 +3359,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl {
             KeyEventLParam: KeyEventLParam::<Identity, OFFSET>,
             PhysicalKeyStatus: PhysicalKeyStatus::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -3393,9 +3393,12 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2 {
             .ok()
         }
     }
-    pub unsafe fn IsBrowserAcceleratorKeyEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsBrowserAcceleratorKeyEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsBrowserAcceleratorKeyEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsBrowserAcceleratorKeyEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -3411,7 +3414,7 @@ pub struct ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsBrowserAcceleratorKeyEnabled2: unsafe extern "system" fn(
+    pub SetIsBrowserAcceleratorKeyEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -3421,7 +3424,7 @@ pub trait ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:
 {
     fn IsBrowserAcceleratorKeyEnabled(&self, value: windows_core::BOOL)
         -> windows_core::Result<()>;
-    fn IsBrowserAcceleratorKeyEnabled2(
+    fn SetIsBrowserAcceleratorKeyEnabled(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -3448,7 +3451,7 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsBrowserAcceleratorKeyEnabled2<
+        unsafe extern "system" fn SetIsBrowserAcceleratorKeyEnabled<
             Identity: ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl,
             const OFFSET: isize,
         >(
@@ -3458,17 +3461,13 @@ impl ICoreWebView2AcceleratorKeyPressedEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl::IsBrowserAcceleratorKeyEnabled2(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
+                ICoreWebView2AcceleratorKeyPressedEventArgs2_Impl:: SetIsBrowserAcceleratorKeyEnabled ( this , core::mem::transmute_copy ( & value ) , ) . into ( )
             }
         }
         Self {
             base__: ICoreWebView2AcceleratorKeyPressedEventArgs_Vtbl::new::<Identity, OFFSET>(),
             IsBrowserAcceleratorKeyEnabled: IsBrowserAcceleratorKeyEnabled::<Identity, OFFSET>,
-            IsBrowserAcceleratorKeyEnabled2: IsBrowserAcceleratorKeyEnabled2::<Identity, OFFSET>,
+            SetIsBrowserAcceleratorKeyEnabled: SetIsBrowserAcceleratorKeyEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -3733,9 +3732,9 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, cancel: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 cancel.into(),
             )
@@ -3775,7 +3774,7 @@ pub struct ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -3794,7 +3793,7 @@ pub trait ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl:
         response: windows_core::Ref<ICoreWebView2BasicAuthenticationResponse>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -3873,7 +3872,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -3883,7 +3882,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::Cancel2(
+                ICoreWebView2BasicAuthenticationRequestedEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&cancel),
                 )
@@ -3913,7 +3912,7 @@ impl ICoreWebView2BasicAuthenticationRequestedEventArgs_Vtbl {
             Challenge: Challenge::<Identity, OFFSET>,
             Response: Response::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -4022,12 +4021,12 @@ impl ICoreWebView2BasicAuthenticationResponse {
             .ok()
         }
     }
-    pub unsafe fn UserName2<P0>(&self, username: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUserName<P0>(&self, username: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).UserName2)(
+            (windows_core::Interface::vtable(self).SetUserName)(
                 windows_core::Interface::as_raw(self),
                 username.param().abi(),
             )
@@ -4046,12 +4045,12 @@ impl ICoreWebView2BasicAuthenticationResponse {
             .ok()
         }
     }
-    pub unsafe fn Password2<P0>(&self, password: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPassword<P0>(&self, password: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Password2)(
+            (windows_core::Interface::vtable(self).SetPassword)(
                 windows_core::Interface::as_raw(self),
                 password.param().abi(),
             )
@@ -4067,7 +4066,7 @@ pub struct ICoreWebView2BasicAuthenticationResponse_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub UserName2: unsafe extern "system" fn(
+    pub SetUserName: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -4075,16 +4074,16 @@ pub struct ICoreWebView2BasicAuthenticationResponse_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub Password2: unsafe extern "system" fn(
+    pub SetPassword: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2BasicAuthenticationResponse_Impl: windows_core::IUnknownImpl {
     fn UserName(&self, username: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn UserName2(&self, username: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetUserName(&self, username: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Password(&self, password: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Password2(&self, password: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetPassword(&self, password: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
     pub const fn new<
@@ -4108,7 +4107,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn UserName2<
+        unsafe extern "system" fn SetUserName<
             Identity: ICoreWebView2BasicAuthenticationResponse_Impl,
             const OFFSET: isize,
         >(
@@ -4118,7 +4117,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BasicAuthenticationResponse_Impl::UserName2(
+                ICoreWebView2BasicAuthenticationResponse_Impl::SetUserName(
                     this,
                     core::mem::transmute(&username),
                 )
@@ -4142,7 +4141,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Password2<
+        unsafe extern "system" fn SetPassword<
             Identity: ICoreWebView2BasicAuthenticationResponse_Impl,
             const OFFSET: isize,
         >(
@@ -4152,7 +4151,7 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2BasicAuthenticationResponse_Impl::Password2(
+                ICoreWebView2BasicAuthenticationResponse_Impl::SetPassword(
                     this,
                     core::mem::transmute(&password),
                 )
@@ -4162,9 +4161,9 @@ impl ICoreWebView2BasicAuthenticationResponse_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             UserName: UserName::<Identity, OFFSET>,
-            UserName2: UserName2::<Identity, OFFSET>,
+            SetUserName: SetUserName::<Identity, OFFSET>,
             Password: Password::<Identity, OFFSET>,
-            Password2: Password2::<Identity, OFFSET>,
+            SetPassword: SetPassword::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -6180,12 +6179,12 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn SelectedCertificate2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSelectedCertificate<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ICoreWebView2ClientCertificate>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).SelectedCertificate2)(
+            (windows_core::Interface::vtable(self).SetSelectedCertificate)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -6201,9 +6200,9 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -6219,9 +6218,9 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -6266,7 +6265,7 @@ pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub SelectedCertificate2: unsafe extern "system" fn(
+    pub SetSelectedCertificate: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -6274,7 +6273,7 @@ pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -6282,7 +6281,7 @@ pub struct ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -6309,14 +6308,14 @@ pub trait ICoreWebView2ClientCertificateRequestedEventArgs_Impl:
         &self,
         value: windows_core::Ref<ICoreWebView2ClientCertificate>,
     ) -> windows_core::Result<()>;
-    fn SelectedCertificate2(
+    fn SetSelectedCertificate(
         &self,
         value: windows_core::Ref<ICoreWebView2ClientCertificate>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -6425,7 +6424,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SelectedCertificate2<
+        unsafe extern "system" fn SetSelectedCertificate<
             Identity: ICoreWebView2ClientCertificateRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -6435,7 +6434,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SelectedCertificate2(
+                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetSelectedCertificate(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -6459,7 +6458,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2ClientCertificateRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -6469,7 +6468,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Cancel2(
+                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -6493,7 +6492,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2ClientCertificateRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -6503,7 +6502,7 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::Handled2(
+                ICoreWebView2ClientCertificateRequestedEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -6535,11 +6534,11 @@ impl ICoreWebView2ClientCertificateRequestedEventArgs_Vtbl {
             AllowedCertificateAuthorities: AllowedCertificateAuthorities::<Identity, OFFSET>,
             MutuallyTrustedCertificates: MutuallyTrustedCertificates::<Identity, OFFSET>,
             SelectedCertificate: SelectedCertificate::<Identity, OFFSET>,
-            SelectedCertificate2: SelectedCertificate2::<Identity, OFFSET>,
+            SetSelectedCertificate: SetSelectedCertificate::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -6645,12 +6644,12 @@ impl ICoreWebView2CompositionController {
             .ok()
         }
     }
-    pub unsafe fn RootVisualTarget2<P0>(&self, target: P0) -> windows_core::Result<()>
+    pub unsafe fn SetRootVisualTarget<P0>(&self, target: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).RootVisualTarget2)(
+            (windows_core::Interface::vtable(self).SetRootVisualTarget)(
                 windows_core::Interface::as_raw(self),
                 target.param().abi(),
             )
@@ -6745,7 +6744,7 @@ pub struct ICoreWebView2CompositionController_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub RootVisualTarget2: unsafe extern "system" fn(
+    pub SetRootVisualTarget: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -6777,7 +6776,7 @@ pub trait ICoreWebView2CompositionController_Impl: windows_core::IUnknownImpl {
         &self,
         target: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
-    fn RootVisualTarget2(
+    fn SetRootVisualTarget(
         &self,
         target: windows_core::Ref<windows_core::IUnknown>,
     ) -> windows_core::Result<()>;
@@ -6822,7 +6821,7 @@ impl ICoreWebView2CompositionController_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn RootVisualTarget2<
+        unsafe extern "system" fn SetRootVisualTarget<
             Identity: ICoreWebView2CompositionController_Impl,
             const OFFSET: isize,
         >(
@@ -6832,7 +6831,7 @@ impl ICoreWebView2CompositionController_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CompositionController_Impl::RootVisualTarget2(
+                ICoreWebView2CompositionController_Impl::SetRootVisualTarget(
                     this,
                     core::mem::transmute_copy(&target),
                 )
@@ -6954,7 +6953,7 @@ impl ICoreWebView2CompositionController_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             RootVisualTarget: RootVisualTarget::<Identity, OFFSET>,
-            RootVisualTarget2: RootVisualTarget2::<Identity, OFFSET>,
+            SetRootVisualTarget: SetRootVisualTarget::<Identity, OFFSET>,
             SendMouseInput: SendMouseInput::<Identity, OFFSET>,
             SendPointerInput: SendPointerInput::<Identity, OFFSET>,
             Cursor: Cursor::<Identity, OFFSET>,
@@ -7802,6 +7801,15 @@ impl ICoreWebView2ContextMenuItem {
             .ok()
         }
     }
+    pub unsafe fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetIsEnabled)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
     pub unsafe fn IsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).IsEnabled)(
@@ -7811,9 +7819,9 @@ impl ICoreWebView2ContextMenuItem {
             .ok()
         }
     }
-    pub unsafe fn IsEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsChecked(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsChecked)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -7823,15 +7831,6 @@ impl ICoreWebView2ContextMenuItem {
     pub unsafe fn IsChecked(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).IsChecked)(
-                windows_core::Interface::as_raw(self),
-                value.into(),
-            )
-            .ok()
-        }
-    }
-    pub unsafe fn IsChecked2(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).IsChecked2)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -7902,19 +7901,19 @@ pub struct ICoreWebView2ContextMenuItem_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND,
     ) -> windows_core::HRESULT,
+    pub SetIsEnabled: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub IsEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsEnabled2: unsafe extern "system" fn(
+    pub SetIsChecked: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
     pub IsChecked: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::BOOL,
-    ) -> windows_core::HRESULT,
-    pub IsChecked2: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -7937,10 +7936,10 @@ pub trait ICoreWebView2ContextMenuItem_Impl: windows_core::IUnknownImpl {
     fn ShortcutKeyDescription(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Icon(&self, value: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Kind(&self, value: COREWEBVIEW2_CONTEXT_MENU_ITEM_KIND) -> windows_core::Result<()>;
+    fn SetIsEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsChecked(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsChecked(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsChecked2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Children(
         &self,
         value: windows_core::Ref<ICoreWebView2ContextMenuItemCollection>,
@@ -8042,6 +8041,23 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                     .into()
             }
         }
+        unsafe extern "system" fn SetIsEnabled<
+            Identity: ICoreWebView2ContextMenuItem_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ContextMenuItem_Impl::SetIsEnabled(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
         unsafe extern "system" fn IsEnabled<
             Identity: ICoreWebView2ContextMenuItem_Impl,
             const OFFSET: isize,
@@ -8059,7 +8075,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsEnabled2<
+        unsafe extern "system" fn SetIsChecked<
             Identity: ICoreWebView2ContextMenuItem_Impl,
             const OFFSET: isize,
         >(
@@ -8069,7 +8085,7 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContextMenuItem_Impl::IsEnabled2(
+                ICoreWebView2ContextMenuItem_Impl::SetIsChecked(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -8087,23 +8103,6 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2ContextMenuItem_Impl::IsChecked(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
-            }
-        }
-        unsafe extern "system" fn IsChecked2<
-            Identity: ICoreWebView2ContextMenuItem_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            value: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContextMenuItem_Impl::IsChecked2(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -8168,10 +8167,10 @@ impl ICoreWebView2ContextMenuItem_Vtbl {
             ShortcutKeyDescription: ShortcutKeyDescription::<Identity, OFFSET>,
             Icon: Icon::<Identity, OFFSET>,
             Kind: Kind::<Identity, OFFSET>,
+            SetIsEnabled: SetIsEnabled::<Identity, OFFSET>,
             IsEnabled: IsEnabled::<Identity, OFFSET>,
-            IsEnabled2: IsEnabled2::<Identity, OFFSET>,
+            SetIsChecked: SetIsChecked::<Identity, OFFSET>,
             IsChecked: IsChecked::<Identity, OFFSET>,
-            IsChecked2: IsChecked2::<Identity, OFFSET>,
             Children: Children::<Identity, OFFSET>,
             add_CustomItemSelected: add_CustomItemSelected::<Identity, OFFSET>,
             remove_CustomItemSelected: remove_CustomItemSelected::<Identity, OFFSET>,
@@ -8400,6 +8399,15 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
             .ok()
         }
     }
+    pub unsafe fn SetSelectedCommandId(&self, value: i32) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSelectedCommandId)(
+                windows_core::Interface::as_raw(self),
+                value,
+            )
+            .ok()
+        }
+    }
     pub unsafe fn SelectedCommandId(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SelectedCommandId)(
@@ -8409,11 +8417,11 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn SelectedCommandId2(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).SelectedCommandId2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
-                value,
+                value.into(),
             )
             .ok()
         }
@@ -8421,15 +8429,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs {
     pub unsafe fn Handled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Handled)(
-                windows_core::Interface::as_raw(self),
-                value.into(),
-            )
-            .ok()
-        }
-    }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -8462,15 +8461,15 @@ pub struct ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub Location: unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
+    pub SetSelectedCommandId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub SelectedCommandId:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub SelectedCommandId2:
-        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Handled: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub Handled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -8489,10 +8488,10 @@ pub trait ICoreWebView2ContextMenuRequestedEventArgs_Impl: windows_core::IUnknow
         value: windows_core::Ref<ICoreWebView2ContextMenuTarget>,
     ) -> windows_core::Result<()>;
     fn Location(&self, value: &POINT) -> windows_core::Result<()>;
+    fn SetSelectedCommandId(&self, value: i32) -> windows_core::Result<()>;
     fn SelectedCommandId(&self, value: i32) -> windows_core::Result<()>;
-    fn SelectedCommandId2(&self, value: i32) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -8554,6 +8553,23 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                 .into()
             }
         }
+        unsafe extern "system" fn SetSelectedCommandId<
+            Identity: ICoreWebView2ContextMenuRequestedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: i32,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2ContextMenuRequestedEventArgs_Impl::SetSelectedCommandId(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
         unsafe extern "system" fn SelectedCommandId<
             Identity: ICoreWebView2ContextMenuRequestedEventArgs_Impl,
             const OFFSET: isize,
@@ -8571,17 +8587,17 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SelectedCommandId2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2ContextMenuRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: i32,
+            value: windows_core::BOOL,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContextMenuRequestedEventArgs_Impl::SelectedCommandId2(
+                ICoreWebView2ContextMenuRequestedEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -8599,23 +8615,6 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2ContextMenuRequestedEventArgs_Impl::Handled(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
-            }
-        }
-        unsafe extern "system" fn Handled2<
-            Identity: ICoreWebView2ContextMenuRequestedEventArgs_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            value: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ContextMenuRequestedEventArgs_Impl::Handled2(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -8644,10 +8643,10 @@ impl ICoreWebView2ContextMenuRequestedEventArgs_Vtbl {
             MenuItems: MenuItems::<Identity, OFFSET>,
             ContextMenuTarget: ContextMenuTarget::<Identity, OFFSET>,
             Location: Location::<Identity, OFFSET>,
+            SetSelectedCommandId: SetSelectedCommandId::<Identity, OFFSET>,
             SelectedCommandId: SelectedCommandId::<Identity, OFFSET>,
-            SelectedCommandId2: SelectedCommandId2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -9193,9 +9192,9 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
-    pub unsafe fn IsVisible2(&self, isvisible: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsVisible(&self, isvisible: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsVisible2)(
+            (windows_core::Interface::vtable(self).SetIsVisible)(
                 windows_core::Interface::as_raw(self),
                 isvisible.into(),
             )
@@ -9211,9 +9210,9 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
-    pub unsafe fn Bounds2(&self, bounds: RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetBounds(&self, bounds: RECT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Bounds2)(
+            (windows_core::Interface::vtable(self).SetBounds)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(bounds),
             )
@@ -9229,9 +9228,9 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
-    pub unsafe fn ZoomFactor2(&self, zoomfactor: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetZoomFactor(&self, zoomfactor: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ZoomFactor2)(
+            (windows_core::Interface::vtable(self).SetZoomFactor)(
                 windows_core::Interface::as_raw(self),
                 zoomfactor,
             )
@@ -9395,9 +9394,9 @@ impl ICoreWebView2Controller {
             .ok()
         }
     }
-    pub unsafe fn ParentWindow2(&self, parentwindow: HWND) -> windows_core::Result<()> {
+    pub unsafe fn SetParentWindow(&self, parentwindow: HWND) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ParentWindow2)(
+            (windows_core::Interface::vtable(self).SetParentWindow)(
                 windows_core::Interface::as_raw(self),
                 parentwindow,
             )
@@ -9439,14 +9438,14 @@ pub struct ICoreWebView2Controller_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsVisible2: unsafe extern "system" fn(
+    pub SetIsVisible: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
     pub Bounds: unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    pub Bounds2: unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
+    pub SetBounds: unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
     pub ZoomFactor: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub ZoomFactor2:
+    pub SetZoomFactor:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub add_ZoomFactorChanged: unsafe extern "system" fn(
         *mut core::ffi::c_void,
@@ -9491,7 +9490,7 @@ pub struct ICoreWebView2Controller_Vtbl {
         unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
     pub ParentWindow:
         unsafe extern "system" fn(*mut core::ffi::c_void, HWND) -> windows_core::HRESULT,
-    pub ParentWindow2:
+    pub SetParentWindow:
         unsafe extern "system" fn(*mut core::ffi::c_void, HWND) -> windows_core::HRESULT,
     pub NotifyParentWindowPositionChanged:
         unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
@@ -9503,11 +9502,11 @@ pub struct ICoreWebView2Controller_Vtbl {
 }
 pub trait ICoreWebView2Controller_Impl: windows_core::IUnknownImpl {
     fn IsVisible(&self, isvisible: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsVisible2(&self, isvisible: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsVisible(&self, isvisible: windows_core::BOOL) -> windows_core::Result<()>;
     fn Bounds(&self, bounds: &RECT) -> windows_core::Result<()>;
-    fn Bounds2(&self, bounds: &RECT) -> windows_core::Result<()>;
+    fn SetBounds(&self, bounds: &RECT) -> windows_core::Result<()>;
     fn ZoomFactor(&self, zoomfactor: f64) -> windows_core::Result<()>;
-    fn ZoomFactor2(&self, zoomfactor: f64) -> windows_core::Result<()>;
+    fn SetZoomFactor(&self, zoomfactor: f64) -> windows_core::Result<()>;
     fn add_ZoomFactorChanged(
         &self,
         eventhandler: windows_core::Ref<ICoreWebView2ZoomFactorChangedEventHandler>,
@@ -9541,7 +9540,7 @@ pub trait ICoreWebView2Controller_Impl: windows_core::IUnknownImpl {
     ) -> windows_core::Result<()>;
     fn remove_AcceleratorKeyPressed(&self, token: i64) -> windows_core::Result<()>;
     fn ParentWindow(&self, parentwindow: HWND) -> windows_core::Result<()>;
-    fn ParentWindow2(&self, parentwindow: HWND) -> windows_core::Result<()>;
+    fn SetParentWindow(&self, parentwindow: HWND) -> windows_core::Result<()>;
     fn NotifyParentWindowPositionChanged(&self) -> windows_core::Result<()>;
     fn Close(&self) -> windows_core::Result<()>;
     fn CoreWebView2(
@@ -9565,7 +9564,7 @@ impl ICoreWebView2Controller_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn IsVisible2<
+        unsafe extern "system" fn SetIsVisible<
             Identity: ICoreWebView2Controller_Impl,
             const OFFSET: isize,
         >(
@@ -9575,7 +9574,7 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller_Impl::IsVisible2(
+                ICoreWebView2Controller_Impl::SetIsVisible(
                     this,
                     core::mem::transmute_copy(&isvisible),
                 )
@@ -9595,7 +9594,7 @@ impl ICoreWebView2Controller_Vtbl {
                 ICoreWebView2Controller_Impl::Bounds(this, core::mem::transmute(&bounds)).into()
             }
         }
-        unsafe extern "system" fn Bounds2<
+        unsafe extern "system" fn SetBounds<
             Identity: ICoreWebView2Controller_Impl,
             const OFFSET: isize,
         >(
@@ -9605,7 +9604,7 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller_Impl::Bounds2(this, core::mem::transmute(&bounds)).into()
+                ICoreWebView2Controller_Impl::SetBounds(this, core::mem::transmute(&bounds)).into()
             }
         }
         unsafe extern "system" fn ZoomFactor<
@@ -9625,7 +9624,7 @@ impl ICoreWebView2Controller_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ZoomFactor2<
+        unsafe extern "system" fn SetZoomFactor<
             Identity: ICoreWebView2Controller_Impl,
             const OFFSET: isize,
         >(
@@ -9635,7 +9634,7 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller_Impl::ZoomFactor2(
+                ICoreWebView2Controller_Impl::SetZoomFactor(
                     this,
                     core::mem::transmute_copy(&zoomfactor),
                 )
@@ -9872,7 +9871,7 @@ impl ICoreWebView2Controller_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ParentWindow2<
+        unsafe extern "system" fn SetParentWindow<
             Identity: ICoreWebView2Controller_Impl,
             const OFFSET: isize,
         >(
@@ -9882,7 +9881,7 @@ impl ICoreWebView2Controller_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller_Impl::ParentWindow2(
+                ICoreWebView2Controller_Impl::SetParentWindow(
                     this,
                     core::mem::transmute_copy(&parentwindow),
                 )
@@ -9933,11 +9932,11 @@ impl ICoreWebView2Controller_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsVisible: IsVisible::<Identity, OFFSET>,
-            IsVisible2: IsVisible2::<Identity, OFFSET>,
+            SetIsVisible: SetIsVisible::<Identity, OFFSET>,
             Bounds: Bounds::<Identity, OFFSET>,
-            Bounds2: Bounds2::<Identity, OFFSET>,
+            SetBounds: SetBounds::<Identity, OFFSET>,
             ZoomFactor: ZoomFactor::<Identity, OFFSET>,
-            ZoomFactor2: ZoomFactor2::<Identity, OFFSET>,
+            SetZoomFactor: SetZoomFactor::<Identity, OFFSET>,
             add_ZoomFactorChanged: add_ZoomFactorChanged::<Identity, OFFSET>,
             remove_ZoomFactorChanged: remove_ZoomFactorChanged::<Identity, OFFSET>,
             SetBoundsAndZoomFactor: SetBoundsAndZoomFactor::<Identity, OFFSET>,
@@ -9951,7 +9950,7 @@ impl ICoreWebView2Controller_Vtbl {
             add_AcceleratorKeyPressed: add_AcceleratorKeyPressed::<Identity, OFFSET>,
             remove_AcceleratorKeyPressed: remove_AcceleratorKeyPressed::<Identity, OFFSET>,
             ParentWindow: ParentWindow::<Identity, OFFSET>,
-            ParentWindow2: ParentWindow2::<Identity, OFFSET>,
+            SetParentWindow: SetParentWindow::<Identity, OFFSET>,
             NotifyParentWindowPositionChanged: NotifyParentWindowPositionChanged::<Identity, OFFSET>,
             Close: Close::<Identity, OFFSET>,
             CoreWebView2: CoreWebView2::<Identity, OFFSET>,
@@ -9991,12 +9990,12 @@ impl ICoreWebView2Controller2 {
             .ok()
         }
     }
-    pub unsafe fn DefaultBackgroundColor2(
+    pub unsafe fn SetDefaultBackgroundColor(
         &self,
         value: COREWEBVIEW2_COLOR,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).DefaultBackgroundColor2)(
+            (windows_core::Interface::vtable(self).SetDefaultBackgroundColor)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(value),
             )
@@ -10012,14 +10011,14 @@ pub struct ICoreWebView2Controller2_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_COLOR,
     ) -> windows_core::HRESULT,
-    pub DefaultBackgroundColor2: unsafe extern "system" fn(
+    pub SetDefaultBackgroundColor: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_COLOR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Controller2_Impl: ICoreWebView2Controller_Impl {
     fn DefaultBackgroundColor(&self, value: &COREWEBVIEW2_COLOR) -> windows_core::Result<()>;
-    fn DefaultBackgroundColor2(&self, value: &COREWEBVIEW2_COLOR) -> windows_core::Result<()>;
+    fn SetDefaultBackgroundColor(&self, value: &COREWEBVIEW2_COLOR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Controller2_Vtbl {
     pub const fn new<Identity: ICoreWebView2Controller2_Impl, const OFFSET: isize>() -> Self {
@@ -10040,7 +10039,7 @@ impl ICoreWebView2Controller2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn DefaultBackgroundColor2<
+        unsafe extern "system" fn SetDefaultBackgroundColor<
             Identity: ICoreWebView2Controller2_Impl,
             const OFFSET: isize,
         >(
@@ -10050,7 +10049,7 @@ impl ICoreWebView2Controller2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller2_Impl::DefaultBackgroundColor2(
+                ICoreWebView2Controller2_Impl::SetDefaultBackgroundColor(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -10060,7 +10059,7 @@ impl ICoreWebView2Controller2_Vtbl {
         Self {
             base__: ICoreWebView2Controller_Vtbl::new::<Identity, OFFSET>(),
             DefaultBackgroundColor: DefaultBackgroundColor::<Identity, OFFSET>,
-            DefaultBackgroundColor2: DefaultBackgroundColor2::<Identity, OFFSET>,
+            SetDefaultBackgroundColor: SetDefaultBackgroundColor::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -10096,9 +10095,9 @@ impl ICoreWebView2Controller3 {
             .ok()
         }
     }
-    pub unsafe fn RasterizationScale2(&self, scale: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetRasterizationScale(&self, scale: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).RasterizationScale2)(
+            (windows_core::Interface::vtable(self).SetRasterizationScale)(
                 windows_core::Interface::as_raw(self),
                 scale,
             )
@@ -10114,9 +10113,12 @@ impl ICoreWebView2Controller3 {
             .ok()
         }
     }
-    pub unsafe fn ShouldDetectMonitorScaleChanges2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetShouldDetectMonitorScaleChanges(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ShouldDetectMonitorScaleChanges2)(
+            (windows_core::Interface::vtable(self).SetShouldDetectMonitorScaleChanges)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -10161,12 +10163,12 @@ impl ICoreWebView2Controller3 {
             .ok()
         }
     }
-    pub unsafe fn BoundsMode2(
+    pub unsafe fn SetBoundsMode(
         &self,
         boundsmode: COREWEBVIEW2_BOUNDS_MODE,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).BoundsMode2)(
+            (windows_core::Interface::vtable(self).SetBoundsMode)(
                 windows_core::Interface::as_raw(self),
                 boundsmode,
             )
@@ -10180,13 +10182,13 @@ pub struct ICoreWebView2Controller3_Vtbl {
     pub base__: ICoreWebView2Controller2_Vtbl,
     pub RasterizationScale:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub RasterizationScale2:
+    pub SetRasterizationScale:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub ShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub ShouldDetectMonitorScaleChanges2: unsafe extern "system" fn(
+    pub SetShouldDetectMonitorScaleChanges: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -10201,19 +10203,19 @@ pub struct ICoreWebView2Controller3_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_BOUNDS_MODE,
     ) -> windows_core::HRESULT,
-    pub BoundsMode2: unsafe extern "system" fn(
+    pub SetBoundsMode: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_BOUNDS_MODE,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Controller3_Impl: ICoreWebView2Controller2_Impl {
     fn RasterizationScale(&self, scale: f64) -> windows_core::Result<()>;
-    fn RasterizationScale2(&self, scale: f64) -> windows_core::Result<()>;
+    fn SetRasterizationScale(&self, scale: f64) -> windows_core::Result<()>;
     fn ShouldDetectMonitorScaleChanges(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn ShouldDetectMonitorScaleChanges2(
+    fn SetShouldDetectMonitorScaleChanges(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -10224,7 +10226,7 @@ pub trait ICoreWebView2Controller3_Impl: ICoreWebView2Controller2_Impl {
     ) -> windows_core::Result<()>;
     fn remove_RasterizationScaleChanged(&self, token: i64) -> windows_core::Result<()>;
     fn BoundsMode(&self, boundsmode: COREWEBVIEW2_BOUNDS_MODE) -> windows_core::Result<()>;
-    fn BoundsMode2(&self, boundsmode: COREWEBVIEW2_BOUNDS_MODE) -> windows_core::Result<()>;
+    fn SetBoundsMode(&self, boundsmode: COREWEBVIEW2_BOUNDS_MODE) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Controller3_Vtbl {
     pub const fn new<Identity: ICoreWebView2Controller3_Impl, const OFFSET: isize>() -> Self {
@@ -10245,7 +10247,7 @@ impl ICoreWebView2Controller3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn RasterizationScale2<
+        unsafe extern "system" fn SetRasterizationScale<
             Identity: ICoreWebView2Controller3_Impl,
             const OFFSET: isize,
         >(
@@ -10255,7 +10257,7 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller3_Impl::RasterizationScale2(
+                ICoreWebView2Controller3_Impl::SetRasterizationScale(
                     this,
                     core::mem::transmute_copy(&scale),
                 )
@@ -10279,7 +10281,7 @@ impl ICoreWebView2Controller3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ShouldDetectMonitorScaleChanges2<
+        unsafe extern "system" fn SetShouldDetectMonitorScaleChanges<
             Identity: ICoreWebView2Controller3_Impl,
             const OFFSET: isize,
         >(
@@ -10289,7 +10291,7 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller3_Impl::ShouldDetectMonitorScaleChanges2(
+                ICoreWebView2Controller3_Impl::SetShouldDetectMonitorScaleChanges(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -10349,7 +10351,7 @@ impl ICoreWebView2Controller3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn BoundsMode2<
+        unsafe extern "system" fn SetBoundsMode<
             Identity: ICoreWebView2Controller3_Impl,
             const OFFSET: isize,
         >(
@@ -10359,7 +10361,7 @@ impl ICoreWebView2Controller3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller3_Impl::BoundsMode2(
+                ICoreWebView2Controller3_Impl::SetBoundsMode(
                     this,
                     core::mem::transmute_copy(&boundsmode),
                 )
@@ -10369,13 +10371,16 @@ impl ICoreWebView2Controller3_Vtbl {
         Self {
             base__: ICoreWebView2Controller2_Vtbl::new::<Identity, OFFSET>(),
             RasterizationScale: RasterizationScale::<Identity, OFFSET>,
-            RasterizationScale2: RasterizationScale2::<Identity, OFFSET>,
+            SetRasterizationScale: SetRasterizationScale::<Identity, OFFSET>,
             ShouldDetectMonitorScaleChanges: ShouldDetectMonitorScaleChanges::<Identity, OFFSET>,
-            ShouldDetectMonitorScaleChanges2: ShouldDetectMonitorScaleChanges2::<Identity, OFFSET>,
+            SetShouldDetectMonitorScaleChanges: SetShouldDetectMonitorScaleChanges::<
+                Identity,
+                OFFSET,
+            >,
             add_RasterizationScaleChanged: add_RasterizationScaleChanged::<Identity, OFFSET>,
             remove_RasterizationScaleChanged: remove_RasterizationScaleChanged::<Identity, OFFSET>,
             BoundsMode: BoundsMode::<Identity, OFFSET>,
-            BoundsMode2: BoundsMode2::<Identity, OFFSET>,
+            SetBoundsMode: SetBoundsMode::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -10413,9 +10418,9 @@ impl ICoreWebView2Controller4 {
             .ok()
         }
     }
-    pub unsafe fn AllowExternalDrop2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAllowExternalDrop(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AllowExternalDrop2)(
+            (windows_core::Interface::vtable(self).SetAllowExternalDrop)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -10431,14 +10436,14 @@ pub struct ICoreWebView2Controller4_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AllowExternalDrop2: unsafe extern "system" fn(
+    pub SetAllowExternalDrop: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Controller4_Impl: ICoreWebView2Controller3_Impl {
     fn AllowExternalDrop(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AllowExternalDrop2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetAllowExternalDrop(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Controller4_Vtbl {
     pub const fn new<Identity: ICoreWebView2Controller4_Impl, const OFFSET: isize>() -> Self {
@@ -10459,7 +10464,7 @@ impl ICoreWebView2Controller4_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AllowExternalDrop2<
+        unsafe extern "system" fn SetAllowExternalDrop<
             Identity: ICoreWebView2Controller4_Impl,
             const OFFSET: isize,
         >(
@@ -10469,7 +10474,7 @@ impl ICoreWebView2Controller4_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Controller4_Impl::AllowExternalDrop2(
+                ICoreWebView2Controller4_Impl::SetAllowExternalDrop(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -10479,7 +10484,7 @@ impl ICoreWebView2Controller4_Vtbl {
         Self {
             base__: ICoreWebView2Controller3_Vtbl::new::<Identity, OFFSET>(),
             AllowExternalDrop: AllowExternalDrop::<Identity, OFFSET>,
-            AllowExternalDrop2: AllowExternalDrop2::<Identity, OFFSET>,
+            SetAllowExternalDrop: SetAllowExternalDrop::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -10509,12 +10514,12 @@ impl ICoreWebView2ControllerOptions {
             .ok()
         }
     }
-    pub unsafe fn ProfileName2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetProfileName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ProfileName2)(
+            (windows_core::Interface::vtable(self).SetProfileName)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -10530,9 +10535,9 @@ impl ICoreWebView2ControllerOptions {
             .ok()
         }
     }
-    pub unsafe fn IsInPrivateModeEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsInPrivateModeEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsInPrivateModeEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsInPrivateModeEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -10548,7 +10553,7 @@ pub struct ICoreWebView2ControllerOptions_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub ProfileName2: unsafe extern "system" fn(
+    pub SetProfileName: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -10556,16 +10561,16 @@ pub struct ICoreWebView2ControllerOptions_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsInPrivateModeEnabled2: unsafe extern "system" fn(
+    pub SetIsInPrivateModeEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ControllerOptions_Impl: windows_core::IUnknownImpl {
     fn ProfileName(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ProfileName2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetProfileName(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn IsInPrivateModeEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsInPrivateModeEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsInPrivateModeEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ControllerOptions_Vtbl {
     pub const fn new<Identity: ICoreWebView2ControllerOptions_Impl, const OFFSET: isize>() -> Self {
@@ -10583,7 +10588,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn ProfileName2<
+        unsafe extern "system" fn SetProfileName<
             Identity: ICoreWebView2ControllerOptions_Impl,
             const OFFSET: isize,
         >(
@@ -10593,7 +10598,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ControllerOptions_Impl::ProfileName2(
+                ICoreWebView2ControllerOptions_Impl::SetProfileName(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -10617,7 +10622,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsInPrivateModeEnabled2<
+        unsafe extern "system" fn SetIsInPrivateModeEnabled<
             Identity: ICoreWebView2ControllerOptions_Impl,
             const OFFSET: isize,
         >(
@@ -10627,7 +10632,7 @@ impl ICoreWebView2ControllerOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ControllerOptions_Impl::IsInPrivateModeEnabled2(
+                ICoreWebView2ControllerOptions_Impl::SetIsInPrivateModeEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -10637,9 +10642,9 @@ impl ICoreWebView2ControllerOptions_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ProfileName: ProfileName::<Identity, OFFSET>,
-            ProfileName2: ProfileName2::<Identity, OFFSET>,
+            SetProfileName: SetProfileName::<Identity, OFFSET>,
             IsInPrivateModeEnabled: IsInPrivateModeEnabled::<Identity, OFFSET>,
-            IsInPrivateModeEnabled2: IsInPrivateModeEnabled2::<Identity, OFFSET>,
+            SetIsInPrivateModeEnabled: SetIsInPrivateModeEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -10676,12 +10681,12 @@ impl ICoreWebView2ControllerOptions2 {
             .ok()
         }
     }
-    pub unsafe fn ScriptLocale2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetScriptLocale<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ScriptLocale2)(
+            (windows_core::Interface::vtable(self).SetScriptLocale)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -10697,14 +10702,14 @@ pub struct ICoreWebView2ControllerOptions2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub ScriptLocale2: unsafe extern "system" fn(
+    pub SetScriptLocale: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2ControllerOptions2_Impl: ICoreWebView2ControllerOptions_Impl {
     fn ScriptLocale(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ScriptLocale2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetScriptLocale(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2ControllerOptions2_Vtbl {
     pub const fn new<Identity: ICoreWebView2ControllerOptions2_Impl, const OFFSET: isize>() -> Self
@@ -10726,7 +10731,7 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ScriptLocale2<
+        unsafe extern "system" fn SetScriptLocale<
             Identity: ICoreWebView2ControllerOptions2_Impl,
             const OFFSET: isize,
         >(
@@ -10736,7 +10741,7 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ControllerOptions2_Impl::ScriptLocale2(
+                ICoreWebView2ControllerOptions2_Impl::SetScriptLocale(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -10746,7 +10751,7 @@ impl ICoreWebView2ControllerOptions2_Vtbl {
         Self {
             base__: ICoreWebView2ControllerOptions_Vtbl::new::<Identity, OFFSET>(),
             ScriptLocale: ScriptLocale::<Identity, OFFSET>,
-            ScriptLocale2: ScriptLocale2::<Identity, OFFSET>,
+            SetScriptLocale: SetScriptLocale::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -10786,12 +10791,12 @@ impl ICoreWebView2Cookie {
             .ok()
         }
     }
-    pub unsafe fn Value2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetValue<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Value2)(
+            (windows_core::Interface::vtable(self).SetValue)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -10831,9 +10836,9 @@ impl ICoreWebView2Cookie {
             .ok()
         }
     }
-    pub unsafe fn Expires2(&self, expires: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetExpires(&self, expires: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Expires2)(
+            (windows_core::Interface::vtable(self).SetExpires)(
                 windows_core::Interface::as_raw(self),
                 expires,
             )
@@ -10849,9 +10854,9 @@ impl ICoreWebView2Cookie {
             .ok()
         }
     }
-    pub unsafe fn IsHttpOnly2(&self, ishttponly: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsHttpOnly(&self, ishttponly: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsHttpOnly2)(
+            (windows_core::Interface::vtable(self).SetIsHttpOnly)(
                 windows_core::Interface::as_raw(self),
                 ishttponly.into(),
             )
@@ -10870,12 +10875,12 @@ impl ICoreWebView2Cookie {
             .ok()
         }
     }
-    pub unsafe fn SameSite2(
+    pub unsafe fn SetSameSite(
         &self,
         samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).SameSite2)(
+            (windows_core::Interface::vtable(self).SetSameSite)(
                 windows_core::Interface::as_raw(self),
                 samesite,
             )
@@ -10891,9 +10896,9 @@ impl ICoreWebView2Cookie {
             .ok()
         }
     }
-    pub unsafe fn IsSecure2(&self, issecure: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsSecure(&self, issecure: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsSecure2)(
+            (windows_core::Interface::vtable(self).SetIsSecure)(
                 windows_core::Interface::as_raw(self),
                 issecure.into(),
             )
@@ -10922,7 +10927,7 @@ pub struct ICoreWebView2Cookie_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub Value2: unsafe extern "system" fn(
+    pub SetValue: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -10935,12 +10940,12 @@ pub struct ICoreWebView2Cookie_Vtbl {
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
     pub Expires: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub Expires2: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub SetExpires: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub IsHttpOnly: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsHttpOnly2: unsafe extern "system" fn(
+    pub SetIsHttpOnly: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -10948,7 +10953,7 @@ pub struct ICoreWebView2Cookie_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
     ) -> windows_core::HRESULT,
-    pub SameSite2: unsafe extern "system" fn(
+    pub SetSameSite: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_COOKIE_SAME_SITE_KIND,
     ) -> windows_core::HRESULT,
@@ -10956,7 +10961,7 @@ pub struct ICoreWebView2Cookie_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsSecure2: unsafe extern "system" fn(
+    pub SetIsSecure: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -10968,17 +10973,18 @@ pub struct ICoreWebView2Cookie_Vtbl {
 pub trait ICoreWebView2Cookie_Impl: windows_core::IUnknownImpl {
     fn Name(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Value(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Value2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetValue(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Domain(&self, domain: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Path(&self, path: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Expires(&self, expires: f64) -> windows_core::Result<()>;
-    fn Expires2(&self, expires: f64) -> windows_core::Result<()>;
+    fn SetExpires(&self, expires: f64) -> windows_core::Result<()>;
     fn IsHttpOnly(&self, ishttponly: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsHttpOnly2(&self, ishttponly: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsHttpOnly(&self, ishttponly: windows_core::BOOL) -> windows_core::Result<()>;
     fn SameSite(&self, samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND) -> windows_core::Result<()>;
-    fn SameSite2(&self, samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND) -> windows_core::Result<()>;
+    fn SetSameSite(&self, samesite: COREWEBVIEW2_COOKIE_SAME_SITE_KIND)
+        -> windows_core::Result<()>;
     fn IsSecure(&self, issecure: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsSecure2(&self, issecure: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsSecure(&self, issecure: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsSession(&self, issession: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Cookie_Vtbl {
@@ -11003,7 +11009,7 @@ impl ICoreWebView2Cookie_Vtbl {
                 ICoreWebView2Cookie_Impl::Value(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn Value2<
+        unsafe extern "system" fn SetValue<
             Identity: ICoreWebView2Cookie_Impl,
             const OFFSET: isize,
         >(
@@ -11013,7 +11019,7 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Cookie_Impl::Value2(this, core::mem::transmute(&value)).into()
+                ICoreWebView2Cookie_Impl::SetValue(this, core::mem::transmute(&value)).into()
             }
         }
         unsafe extern "system" fn Domain<
@@ -11052,7 +11058,7 @@ impl ICoreWebView2Cookie_Vtbl {
                 ICoreWebView2Cookie_Impl::Expires(this, core::mem::transmute_copy(&expires)).into()
             }
         }
-        unsafe extern "system" fn Expires2<
+        unsafe extern "system" fn SetExpires<
             Identity: ICoreWebView2Cookie_Impl,
             const OFFSET: isize,
         >(
@@ -11062,7 +11068,8 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Cookie_Impl::Expires2(this, core::mem::transmute_copy(&expires)).into()
+                ICoreWebView2Cookie_Impl::SetExpires(this, core::mem::transmute_copy(&expires))
+                    .into()
             }
         }
         unsafe extern "system" fn IsHttpOnly<
@@ -11079,7 +11086,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn IsHttpOnly2<
+        unsafe extern "system" fn SetIsHttpOnly<
             Identity: ICoreWebView2Cookie_Impl,
             const OFFSET: isize,
         >(
@@ -11089,8 +11096,11 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Cookie_Impl::IsHttpOnly2(this, core::mem::transmute_copy(&ishttponly))
-                    .into()
+                ICoreWebView2Cookie_Impl::SetIsHttpOnly(
+                    this,
+                    core::mem::transmute_copy(&ishttponly),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn SameSite<
@@ -11107,7 +11117,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn SameSite2<
+        unsafe extern "system" fn SetSameSite<
             Identity: ICoreWebView2Cookie_Impl,
             const OFFSET: isize,
         >(
@@ -11117,7 +11127,7 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Cookie_Impl::SameSite2(this, core::mem::transmute_copy(&samesite))
+                ICoreWebView2Cookie_Impl::SetSameSite(this, core::mem::transmute_copy(&samesite))
                     .into()
             }
         }
@@ -11135,7 +11145,7 @@ impl ICoreWebView2Cookie_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn IsSecure2<
+        unsafe extern "system" fn SetIsSecure<
             Identity: ICoreWebView2Cookie_Impl,
             const OFFSET: isize,
         >(
@@ -11145,7 +11155,7 @@ impl ICoreWebView2Cookie_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Cookie_Impl::IsSecure2(this, core::mem::transmute_copy(&issecure))
+                ICoreWebView2Cookie_Impl::SetIsSecure(this, core::mem::transmute_copy(&issecure))
                     .into()
             }
         }
@@ -11167,17 +11177,17 @@ impl ICoreWebView2Cookie_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Name: Name::<Identity, OFFSET>,
             Value: Value::<Identity, OFFSET>,
-            Value2: Value2::<Identity, OFFSET>,
+            SetValue: SetValue::<Identity, OFFSET>,
             Domain: Domain::<Identity, OFFSET>,
             Path: Path::<Identity, OFFSET>,
             Expires: Expires::<Identity, OFFSET>,
-            Expires2: Expires2::<Identity, OFFSET>,
+            SetExpires: SetExpires::<Identity, OFFSET>,
             IsHttpOnly: IsHttpOnly::<Identity, OFFSET>,
-            IsHttpOnly2: IsHttpOnly2::<Identity, OFFSET>,
+            SetIsHttpOnly: SetIsHttpOnly::<Identity, OFFSET>,
             SameSite: SameSite::<Identity, OFFSET>,
-            SameSite2: SameSite2::<Identity, OFFSET>,
+            SetSameSite: SetSameSite::<Identity, OFFSET>,
             IsSecure: IsSecure::<Identity, OFFSET>,
-            IsSecure2: IsSecure2::<Identity, OFFSET>,
+            SetIsSecure: SetIsSecure::<Identity, OFFSET>,
             IsSession: IsSession::<Identity, OFFSET>,
         }
     }
@@ -12240,9 +12250,9 @@ impl ICoreWebView2CustomSchemeRegistration {
             .ok()
         }
     }
-    pub unsafe fn TreatAsSecure2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetTreatAsSecure(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TreatAsSecure2)(
+            (windows_core::Interface::vtable(self).SetTreatAsSecure)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -12295,12 +12305,12 @@ impl ICoreWebView2CustomSchemeRegistration {
             .ok()
         }
     }
-    pub unsafe fn HasAuthorityComponent2(
+    pub unsafe fn SetHasAuthorityComponent(
         &self,
         hasauthoritycomponent: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).HasAuthorityComponent2)(
+            (windows_core::Interface::vtable(self).SetHasAuthorityComponent)(
                 windows_core::Interface::as_raw(self),
                 hasauthoritycomponent.into(),
             )
@@ -12320,7 +12330,7 @@ pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub TreatAsSecure2: unsafe extern "system" fn(
+    pub SetTreatAsSecure: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -12338,7 +12348,7 @@ pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub HasAuthorityComponent2: unsafe extern "system" fn(
+    pub SetHasAuthorityComponent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -12346,7 +12356,7 @@ pub struct ICoreWebView2CustomSchemeRegistration_Vtbl {
 pub trait ICoreWebView2CustomSchemeRegistration_Impl: windows_core::IUnknownImpl {
     fn SchemeName(&self, schemename: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn TreatAsSecure(&self, treatassecure: windows_core::BOOL) -> windows_core::Result<()>;
-    fn TreatAsSecure2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetTreatAsSecure(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetAllowedOrigins(
         &self,
         allowedoriginscount: u32,
@@ -12361,7 +12371,7 @@ pub trait ICoreWebView2CustomSchemeRegistration_Impl: windows_core::IUnknownImpl
         &self,
         hasauthoritycomponent: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn HasAuthorityComponent2(
+    fn SetHasAuthorityComponent(
         &self,
         hasauthoritycomponent: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -12403,7 +12413,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TreatAsSecure2<
+        unsafe extern "system" fn SetTreatAsSecure<
             Identity: ICoreWebView2CustomSchemeRegistration_Impl,
             const OFFSET: isize,
         >(
@@ -12413,7 +12423,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CustomSchemeRegistration_Impl::TreatAsSecure2(
+                ICoreWebView2CustomSchemeRegistration_Impl::SetTreatAsSecure(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -12475,7 +12485,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HasAuthorityComponent2<
+        unsafe extern "system" fn SetHasAuthorityComponent<
             Identity: ICoreWebView2CustomSchemeRegistration_Impl,
             const OFFSET: isize,
         >(
@@ -12485,7 +12495,7 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2CustomSchemeRegistration_Impl::HasAuthorityComponent2(
+                ICoreWebView2CustomSchemeRegistration_Impl::SetHasAuthorityComponent(
                     this,
                     core::mem::transmute_copy(&hasauthoritycomponent),
                 )
@@ -12496,11 +12506,11 @@ impl ICoreWebView2CustomSchemeRegistration_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SchemeName: SchemeName::<Identity, OFFSET>,
             TreatAsSecure: TreatAsSecure::<Identity, OFFSET>,
-            TreatAsSecure2: TreatAsSecure2::<Identity, OFFSET>,
+            SetTreatAsSecure: SetTreatAsSecure::<Identity, OFFSET>,
             GetAllowedOrigins: GetAllowedOrigins::<Identity, OFFSET>,
             SetAllowedOrigins: SetAllowedOrigins::<Identity, OFFSET>,
             HasAuthorityComponent: HasAuthorityComponent::<Identity, OFFSET>,
-            HasAuthorityComponent2: HasAuthorityComponent2::<Identity, OFFSET>,
+            SetHasAuthorityComponent: SetHasAuthorityComponent::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -13790,9 +13800,9 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, cancel: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 cancel.into(),
             )
@@ -13811,12 +13821,12 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn ResultFilePath2<P0>(&self, resultfilepath: P0) -> windows_core::Result<()>
+    pub unsafe fn SetResultFilePath<P0>(&self, resultfilepath: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ResultFilePath2)(
+            (windows_core::Interface::vtable(self).SetResultFilePath)(
                 windows_core::Interface::as_raw(self),
                 resultfilepath.param().abi(),
             )
@@ -13832,9 +13842,9 @@ impl ICoreWebView2DownloadStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, handled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
@@ -13866,7 +13876,7 @@ pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -13874,7 +13884,7 @@ pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub ResultFilePath2: unsafe extern "system" fn(
+    pub SetResultFilePath: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -13882,7 +13892,7 @@ pub struct ICoreWebView2DownloadStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -13897,11 +13907,11 @@ pub trait ICoreWebView2DownloadStartingEventArgs_Impl: windows_core::IUnknownImp
         downloadoperation: windows_core::Ref<ICoreWebView2DownloadOperation>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn ResultFilePath(&self, resultfilepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ResultFilePath2(&self, resultfilepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetResultFilePath(&self, resultfilepath: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Handled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -13944,7 +13954,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2DownloadStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -13954,7 +13964,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DownloadStartingEventArgs_Impl::Cancel2(
+                ICoreWebView2DownloadStartingEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&cancel),
                 )
@@ -13978,7 +13988,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ResultFilePath2<
+        unsafe extern "system" fn SetResultFilePath<
             Identity: ICoreWebView2DownloadStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -13988,7 +13998,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DownloadStartingEventArgs_Impl::ResultFilePath2(
+                ICoreWebView2DownloadStartingEventArgs_Impl::SetResultFilePath(
                     this,
                     core::mem::transmute(&resultfilepath),
                 )
@@ -14012,7 +14022,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2DownloadStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -14022,7 +14032,7 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2DownloadStartingEventArgs_Impl::Handled2(
+                ICoreWebView2DownloadStartingEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&handled),
                 )
@@ -14050,11 +14060,11 @@ impl ICoreWebView2DownloadStartingEventArgs_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             DownloadOperation: DownloadOperation::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             ResultFilePath: ResultFilePath::<Identity, OFFSET>,
-            ResultFilePath2: ResultFilePath2::<Identity, OFFSET>,
+            SetResultFilePath: SetResultFilePath::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -16025,12 +16035,12 @@ impl ICoreWebView2EnvironmentOptions {
             .ok()
         }
     }
-    pub unsafe fn AdditionalBrowserArguments2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAdditionalBrowserArguments<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).AdditionalBrowserArguments2)(
+            (windows_core::Interface::vtable(self).SetAdditionalBrowserArguments)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -16049,12 +16059,12 @@ impl ICoreWebView2EnvironmentOptions {
             .ok()
         }
     }
-    pub unsafe fn Language2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetLanguage<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Language2)(
+            (windows_core::Interface::vtable(self).SetLanguage)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -16073,12 +16083,15 @@ impl ICoreWebView2EnvironmentOptions {
             .ok()
         }
     }
-    pub unsafe fn TargetCompatibleBrowserVersion2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetTargetCompatibleBrowserVersion<P0>(
+        &self,
+        value: P0,
+    ) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).TargetCompatibleBrowserVersion2)(
+            (windows_core::Interface::vtable(self).SetTargetCompatibleBrowserVersion)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -16097,12 +16110,12 @@ impl ICoreWebView2EnvironmentOptions {
             .ok()
         }
     }
-    pub unsafe fn AllowSingleSignOnUsingOSPrimaryAccount2(
+    pub unsafe fn SetAllowSingleSignOnUsingOSPrimaryAccount(
         &self,
         allow: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AllowSingleSignOnUsingOSPrimaryAccount2)(
+            (windows_core::Interface::vtable(self).SetAllowSingleSignOnUsingOSPrimaryAccount)(
                 windows_core::Interface::as_raw(self),
                 allow.into(),
             )
@@ -16118,7 +16131,7 @@ pub struct ICoreWebView2EnvironmentOptions_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub AdditionalBrowserArguments2: unsafe extern "system" fn(
+    pub SetAdditionalBrowserArguments: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -16126,7 +16139,7 @@ pub struct ICoreWebView2EnvironmentOptions_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub Language2: unsafe extern "system" fn(
+    pub SetLanguage: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -16134,7 +16147,7 @@ pub struct ICoreWebView2EnvironmentOptions_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub TargetCompatibleBrowserVersion2: unsafe extern "system" fn(
+    pub SetTargetCompatibleBrowserVersion: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -16143,23 +16156,25 @@ pub struct ICoreWebView2EnvironmentOptions_Vtbl {
         windows_core::BOOL,
     )
         -> windows_core::HRESULT,
-    pub AllowSingleSignOnUsingOSPrimaryAccount2: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::BOOL,
-    )
-        -> windows_core::HRESULT,
+    pub SetAllowSingleSignOnUsingOSPrimaryAccount:
+        unsafe extern "system" fn(
+            *mut core::ffi::c_void,
+            windows_core::BOOL,
+        ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
     fn AdditionalBrowserArguments(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn AdditionalBrowserArguments2(&self, value: &windows_core::PCWSTR)
-        -> windows_core::Result<()>;
+    fn SetAdditionalBrowserArguments(
+        &self,
+        value: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
     fn Language(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Language2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetLanguage(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn TargetCompatibleBrowserVersion(
         &self,
         value: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
-    fn TargetCompatibleBrowserVersion2(
+    fn SetTargetCompatibleBrowserVersion(
         &self,
         value: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
@@ -16167,7 +16182,7 @@ pub trait ICoreWebView2EnvironmentOptions_Impl: windows_core::IUnknownImpl {
         &self,
         allow: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn AllowSingleSignOnUsingOSPrimaryAccount2(
+    fn SetAllowSingleSignOnUsingOSPrimaryAccount(
         &self,
         allow: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -16192,7 +16207,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AdditionalBrowserArguments2<
+        unsafe extern "system" fn SetAdditionalBrowserArguments<
             Identity: ICoreWebView2EnvironmentOptions_Impl,
             const OFFSET: isize,
         >(
@@ -16202,7 +16217,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::AdditionalBrowserArguments2(
+                ICoreWebView2EnvironmentOptions_Impl::SetAdditionalBrowserArguments(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -16223,7 +16238,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn Language2<
+        unsafe extern "system" fn SetLanguage<
             Identity: ICoreWebView2EnvironmentOptions_Impl,
             const OFFSET: isize,
         >(
@@ -16233,8 +16248,11 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::Language2(this, core::mem::transmute(&value))
-                    .into()
+                ICoreWebView2EnvironmentOptions_Impl::SetLanguage(
+                    this,
+                    core::mem::transmute(&value),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn TargetCompatibleBrowserVersion<
@@ -16254,7 +16272,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TargetCompatibleBrowserVersion2<
+        unsafe extern "system" fn SetTargetCompatibleBrowserVersion<
             Identity: ICoreWebView2EnvironmentOptions_Impl,
             const OFFSET: isize,
         >(
@@ -16264,7 +16282,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::TargetCompatibleBrowserVersion2(
+                ICoreWebView2EnvironmentOptions_Impl::SetTargetCompatibleBrowserVersion(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -16288,7 +16306,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AllowSingleSignOnUsingOSPrimaryAccount2<
+        unsafe extern "system" fn SetAllowSingleSignOnUsingOSPrimaryAccount<
             Identity: ICoreWebView2EnvironmentOptions_Impl,
             const OFFSET: isize,
         >(
@@ -16298,7 +16316,7 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions_Impl::AllowSingleSignOnUsingOSPrimaryAccount2(
+                ICoreWebView2EnvironmentOptions_Impl::SetAllowSingleSignOnUsingOSPrimaryAccount(
                     this,
                     core::mem::transmute_copy(&allow),
                 )
@@ -16308,16 +16326,16 @@ impl ICoreWebView2EnvironmentOptions_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AdditionalBrowserArguments: AdditionalBrowserArguments::<Identity, OFFSET>,
-            AdditionalBrowserArguments2: AdditionalBrowserArguments2::<Identity, OFFSET>,
+            SetAdditionalBrowserArguments: SetAdditionalBrowserArguments::<Identity, OFFSET>,
             Language: Language::<Identity, OFFSET>,
-            Language2: Language2::<Identity, OFFSET>,
+            SetLanguage: SetLanguage::<Identity, OFFSET>,
             TargetCompatibleBrowserVersion: TargetCompatibleBrowserVersion::<Identity, OFFSET>,
-            TargetCompatibleBrowserVersion2: TargetCompatibleBrowserVersion2::<Identity, OFFSET>,
+            SetTargetCompatibleBrowserVersion: SetTargetCompatibleBrowserVersion::<Identity, OFFSET>,
             AllowSingleSignOnUsingOSPrimaryAccount: AllowSingleSignOnUsingOSPrimaryAccount::<
                 Identity,
                 OFFSET,
             >,
-            AllowSingleSignOnUsingOSPrimaryAccount2: AllowSingleSignOnUsingOSPrimaryAccount2::<
+            SetAllowSingleSignOnUsingOSPrimaryAccount: SetAllowSingleSignOnUsingOSPrimaryAccount::<
                 Identity,
                 OFFSET,
             >,
@@ -16344,9 +16362,9 @@ impl ICoreWebView2EnvironmentOptions2 {
             .ok()
         }
     }
-    pub unsafe fn ExclusiveUserDataFolderAccess2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetExclusiveUserDataFolderAccess(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ExclusiveUserDataFolderAccess2)(
+            (windows_core::Interface::vtable(self).SetExclusiveUserDataFolderAccess)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -16362,15 +16380,17 @@ pub struct ICoreWebView2EnvironmentOptions2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub ExclusiveUserDataFolderAccess2: unsafe extern "system" fn(
+    pub SetExclusiveUserDataFolderAccess: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions2_Impl: windows_core::IUnknownImpl {
     fn ExclusiveUserDataFolderAccess(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ExclusiveUserDataFolderAccess2(&self, value: windows_core::BOOL)
-        -> windows_core::Result<()>;
+    fn SetExclusiveUserDataFolderAccess(
+        &self,
+        value: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions2_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions2_Impl, const OFFSET: isize>() -> Self
@@ -16392,7 +16412,7 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ExclusiveUserDataFolderAccess2<
+        unsafe extern "system" fn SetExclusiveUserDataFolderAccess<
             Identity: ICoreWebView2EnvironmentOptions2_Impl,
             const OFFSET: isize,
         >(
@@ -16402,7 +16422,7 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions2_Impl::ExclusiveUserDataFolderAccess2(
+                ICoreWebView2EnvironmentOptions2_Impl::SetExclusiveUserDataFolderAccess(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16412,7 +16432,7 @@ impl ICoreWebView2EnvironmentOptions2_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ExclusiveUserDataFolderAccess: ExclusiveUserDataFolderAccess::<Identity, OFFSET>,
-            ExclusiveUserDataFolderAccess2: ExclusiveUserDataFolderAccess2::<Identity, OFFSET>,
+            SetExclusiveUserDataFolderAccess: SetExclusiveUserDataFolderAccess::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -16436,9 +16456,9 @@ impl ICoreWebView2EnvironmentOptions3 {
             .ok()
         }
     }
-    pub unsafe fn IsCustomCrashReportingEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsCustomCrashReportingEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsCustomCrashReportingEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsCustomCrashReportingEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -16454,15 +16474,17 @@ pub struct ICoreWebView2EnvironmentOptions3_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsCustomCrashReportingEnabled2: unsafe extern "system" fn(
+    pub SetIsCustomCrashReportingEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions3_Impl: windows_core::IUnknownImpl {
     fn IsCustomCrashReportingEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsCustomCrashReportingEnabled2(&self, value: windows_core::BOOL)
-        -> windows_core::Result<()>;
+    fn SetIsCustomCrashReportingEnabled(
+        &self,
+        value: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions3_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions3_Impl, const OFFSET: isize>() -> Self
@@ -16484,7 +16506,7 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsCustomCrashReportingEnabled2<
+        unsafe extern "system" fn SetIsCustomCrashReportingEnabled<
             Identity: ICoreWebView2EnvironmentOptions3_Impl,
             const OFFSET: isize,
         >(
@@ -16494,7 +16516,7 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions3_Impl::IsCustomCrashReportingEnabled2(
+                ICoreWebView2EnvironmentOptions3_Impl::SetIsCustomCrashReportingEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16504,7 +16526,7 @@ impl ICoreWebView2EnvironmentOptions3_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsCustomCrashReportingEnabled: IsCustomCrashReportingEnabled::<Identity, OFFSET>,
-            IsCustomCrashReportingEnabled2: IsCustomCrashReportingEnabled2::<Identity, OFFSET>,
+            SetIsCustomCrashReportingEnabled: SetIsCustomCrashReportingEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -16649,9 +16671,9 @@ impl ICoreWebView2EnvironmentOptions5 {
             .ok()
         }
     }
-    pub unsafe fn EnableTrackingPrevention2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetEnableTrackingPrevention(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).EnableTrackingPrevention2)(
+            (windows_core::Interface::vtable(self).SetEnableTrackingPrevention)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -16667,14 +16689,14 @@ pub struct ICoreWebView2EnvironmentOptions5_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub EnableTrackingPrevention2: unsafe extern "system" fn(
+    pub SetEnableTrackingPrevention: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions5_Impl: windows_core::IUnknownImpl {
     fn EnableTrackingPrevention(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn EnableTrackingPrevention2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetEnableTrackingPrevention(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions5_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions5_Impl, const OFFSET: isize>() -> Self
@@ -16696,7 +16718,7 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn EnableTrackingPrevention2<
+        unsafe extern "system" fn SetEnableTrackingPrevention<
             Identity: ICoreWebView2EnvironmentOptions5_Impl,
             const OFFSET: isize,
         >(
@@ -16706,7 +16728,7 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions5_Impl::EnableTrackingPrevention2(
+                ICoreWebView2EnvironmentOptions5_Impl::SetEnableTrackingPrevention(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16716,7 +16738,7 @@ impl ICoreWebView2EnvironmentOptions5_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             EnableTrackingPrevention: EnableTrackingPrevention::<Identity, OFFSET>,
-            EnableTrackingPrevention2: EnableTrackingPrevention2::<Identity, OFFSET>,
+            SetEnableTrackingPrevention: SetEnableTrackingPrevention::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -16740,9 +16762,9 @@ impl ICoreWebView2EnvironmentOptions6 {
             .ok()
         }
     }
-    pub unsafe fn AreBrowserExtensionsEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAreBrowserExtensionsEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreBrowserExtensionsEnabled2)(
+            (windows_core::Interface::vtable(self).SetAreBrowserExtensionsEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -16758,14 +16780,15 @@ pub struct ICoreWebView2EnvironmentOptions6_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreBrowserExtensionsEnabled2: unsafe extern "system" fn(
+    pub SetAreBrowserExtensionsEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions6_Impl: windows_core::IUnknownImpl {
     fn AreBrowserExtensionsEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AreBrowserExtensionsEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetAreBrowserExtensionsEnabled(&self, value: windows_core::BOOL)
+        -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions6_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions6_Impl, const OFFSET: isize>() -> Self
@@ -16787,7 +16810,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreBrowserExtensionsEnabled2<
+        unsafe extern "system" fn SetAreBrowserExtensionsEnabled<
             Identity: ICoreWebView2EnvironmentOptions6_Impl,
             const OFFSET: isize,
         >(
@@ -16797,7 +16820,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions6_Impl::AreBrowserExtensionsEnabled2(
+                ICoreWebView2EnvironmentOptions6_Impl::SetAreBrowserExtensionsEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16807,7 +16830,7 @@ impl ICoreWebView2EnvironmentOptions6_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             AreBrowserExtensionsEnabled: AreBrowserExtensionsEnabled::<Identity, OFFSET>,
-            AreBrowserExtensionsEnabled2: AreBrowserExtensionsEnabled2::<Identity, OFFSET>,
+            SetAreBrowserExtensionsEnabled: SetAreBrowserExtensionsEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -16834,12 +16857,12 @@ impl ICoreWebView2EnvironmentOptions7 {
             .ok()
         }
     }
-    pub unsafe fn ChannelSearchKind2(
+    pub unsafe fn SetChannelSearchKind(
         &self,
         value: COREWEBVIEW2_CHANNEL_SEARCH_KIND,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ChannelSearchKind2)(
+            (windows_core::Interface::vtable(self).SetChannelSearchKind)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -16858,12 +16881,12 @@ impl ICoreWebView2EnvironmentOptions7 {
             .ok()
         }
     }
-    pub unsafe fn ReleaseChannels2(
+    pub unsafe fn SetReleaseChannels(
         &self,
         value: COREWEBVIEW2_RELEASE_CHANNELS,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ReleaseChannels2)(
+            (windows_core::Interface::vtable(self).SetReleaseChannels)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -16879,7 +16902,7 @@ pub struct ICoreWebView2EnvironmentOptions7_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_CHANNEL_SEARCH_KIND,
     ) -> windows_core::HRESULT,
-    pub ChannelSearchKind2: unsafe extern "system" fn(
+    pub SetChannelSearchKind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_CHANNEL_SEARCH_KIND,
     ) -> windows_core::HRESULT,
@@ -16887,7 +16910,7 @@ pub struct ICoreWebView2EnvironmentOptions7_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_RELEASE_CHANNELS,
     ) -> windows_core::HRESULT,
-    pub ReleaseChannels2: unsafe extern "system" fn(
+    pub SetReleaseChannels: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_RELEASE_CHANNELS,
     ) -> windows_core::HRESULT,
@@ -16897,12 +16920,12 @@ pub trait ICoreWebView2EnvironmentOptions7_Impl: windows_core::IUnknownImpl {
         &self,
         value: COREWEBVIEW2_CHANNEL_SEARCH_KIND,
     ) -> windows_core::Result<()>;
-    fn ChannelSearchKind2(
+    fn SetChannelSearchKind(
         &self,
         value: COREWEBVIEW2_CHANNEL_SEARCH_KIND,
     ) -> windows_core::Result<()>;
     fn ReleaseChannels(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) -> windows_core::Result<()>;
-    fn ReleaseChannels2(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) -> windows_core::Result<()>;
+    fn SetReleaseChannels(&self, value: COREWEBVIEW2_RELEASE_CHANNELS) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions7_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions7_Impl, const OFFSET: isize>() -> Self
@@ -16924,7 +16947,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ChannelSearchKind2<
+        unsafe extern "system" fn SetChannelSearchKind<
             Identity: ICoreWebView2EnvironmentOptions7_Impl,
             const OFFSET: isize,
         >(
@@ -16934,7 +16957,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions7_Impl::ChannelSearchKind2(
+                ICoreWebView2EnvironmentOptions7_Impl::SetChannelSearchKind(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16958,7 +16981,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ReleaseChannels2<
+        unsafe extern "system" fn SetReleaseChannels<
             Identity: ICoreWebView2EnvironmentOptions7_Impl,
             const OFFSET: isize,
         >(
@@ -16968,7 +16991,7 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions7_Impl::ReleaseChannels2(
+                ICoreWebView2EnvironmentOptions7_Impl::SetReleaseChannels(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -16978,9 +17001,9 @@ impl ICoreWebView2EnvironmentOptions7_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ChannelSearchKind: ChannelSearchKind::<Identity, OFFSET>,
-            ChannelSearchKind2: ChannelSearchKind2::<Identity, OFFSET>,
+            SetChannelSearchKind: SetChannelSearchKind::<Identity, OFFSET>,
             ReleaseChannels: ReleaseChannels::<Identity, OFFSET>,
-            ReleaseChannels2: ReleaseChannels2::<Identity, OFFSET>,
+            SetReleaseChannels: SetReleaseChannels::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -17007,12 +17030,12 @@ impl ICoreWebView2EnvironmentOptions8 {
             .ok()
         }
     }
-    pub unsafe fn ScrollBarStyle2(
+    pub unsafe fn SetScrollBarStyle(
         &self,
         value: COREWEBVIEW2_SCROLLBAR_STYLE,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ScrollBarStyle2)(
+            (windows_core::Interface::vtable(self).SetScrollBarStyle)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -17028,14 +17051,14 @@ pub struct ICoreWebView2EnvironmentOptions8_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_SCROLLBAR_STYLE,
     ) -> windows_core::HRESULT,
-    pub ScrollBarStyle2: unsafe extern "system" fn(
+    pub SetScrollBarStyle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_SCROLLBAR_STYLE,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2EnvironmentOptions8_Impl: windows_core::IUnknownImpl {
     fn ScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
-    fn ScrollBarStyle2(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
+    fn SetScrollBarStyle(&self, value: COREWEBVIEW2_SCROLLBAR_STYLE) -> windows_core::Result<()>;
 }
 impl ICoreWebView2EnvironmentOptions8_Vtbl {
     pub const fn new<Identity: ICoreWebView2EnvironmentOptions8_Impl, const OFFSET: isize>() -> Self
@@ -17057,7 +17080,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ScrollBarStyle2<
+        unsafe extern "system" fn SetScrollBarStyle<
             Identity: ICoreWebView2EnvironmentOptions8_Impl,
             const OFFSET: isize,
         >(
@@ -17067,7 +17090,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2EnvironmentOptions8_Impl::ScrollBarStyle2(
+                ICoreWebView2EnvironmentOptions8_Impl::SetScrollBarStyle(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -17077,7 +17100,7 @@ impl ICoreWebView2EnvironmentOptions8_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ScrollBarStyle: ScrollBarStyle::<Identity, OFFSET>,
-            ScrollBarStyle2: ScrollBarStyle2::<Identity, OFFSET>,
+            SetScrollBarStyle: SetScrollBarStyle::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -22226,9 +22249,9 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -22268,7 +22291,7 @@ pub struct ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -22284,7 +22307,7 @@ pub trait ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl:
     fn InitiatingOrigin(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn IsUserInitiated(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         value: windows_core::Ref<ICoreWebView2Deferral>,
@@ -22363,7 +22386,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -22373,7 +22396,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::Cancel2(
+                ICoreWebView2LaunchingExternalUriSchemeEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -22403,7 +22426,7 @@ impl ICoreWebView2LaunchingExternalUriSchemeEventArgs_Vtbl {
             InitiatingOrigin: InitiatingOrigin::<Identity, OFFSET>,
             IsUserInitiated: IsUserInitiated::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -22521,9 +22544,9 @@ impl ICoreWebView2MoveFocusRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -22543,7 +22566,7 @@ pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -22551,7 +22574,7 @@ pub struct ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
 pub trait ICoreWebView2MoveFocusRequestedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Reason(&self, reason: COREWEBVIEW2_MOVE_FOCUS_REASON) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
     pub const fn new<
@@ -22592,7 +22615,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2MoveFocusRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -22602,7 +22625,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2MoveFocusRequestedEventArgs_Impl::Handled2(
+                ICoreWebView2MoveFocusRequestedEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -22613,7 +22636,7 @@ impl ICoreWebView2MoveFocusRequestedEventArgs_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Reason: Reason::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -23038,9 +23061,9 @@ impl ICoreWebView2NavigationStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, cancel: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, cancel: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 cancel.into(),
             )
@@ -23081,7 +23104,7 @@ pub struct ICoreWebView2NavigationStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -23097,7 +23120,7 @@ pub trait ICoreWebView2NavigationStartingEventArgs_Impl: windows_core::IUnknownI
         requestheaders: windows_core::Ref<ICoreWebView2HttpRequestHeaders>,
     ) -> windows_core::Result<()>;
     fn Cancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, cancel: windows_core::BOOL) -> windows_core::Result<()>;
     fn NavigationId(&self, navigationid: u64) -> windows_core::Result<()>;
 }
 impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
@@ -23187,7 +23210,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2NavigationStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -23197,7 +23220,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NavigationStartingEventArgs_Impl::Cancel2(
+                ICoreWebView2NavigationStartingEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&cancel),
                 )
@@ -23228,7 +23251,7 @@ impl ICoreWebView2NavigationStartingEventArgs_Vtbl {
             IsRedirected: IsRedirected::<Identity, OFFSET>,
             RequestHeaders: RequestHeaders::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             NavigationId: NavigationId::<Identity, OFFSET>,
         }
     }
@@ -23266,12 +23289,15 @@ impl ICoreWebView2NavigationStartingEventArgs2 {
             .ok()
         }
     }
-    pub unsafe fn AdditionalAllowedFrameAncestors2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetAdditionalAllowedFrameAncestors<P0>(
+        &self,
+        value: P0,
+    ) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).AdditionalAllowedFrameAncestors2)(
+            (windows_core::Interface::vtable(self).SetAdditionalAllowedFrameAncestors)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -23287,7 +23313,7 @@ pub struct ICoreWebView2NavigationStartingEventArgs2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub AdditionalAllowedFrameAncestors2: unsafe extern "system" fn(
+    pub SetAdditionalAllowedFrameAncestors: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -23299,7 +23325,7 @@ pub trait ICoreWebView2NavigationStartingEventArgs2_Impl:
         &self,
         value: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
-    fn AdditionalAllowedFrameAncestors2(
+    fn SetAdditionalAllowedFrameAncestors(
         &self,
         value: &windows_core::PCWSTR,
     ) -> windows_core::Result<()>;
@@ -23326,7 +23352,7 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AdditionalAllowedFrameAncestors2<
+        unsafe extern "system" fn SetAdditionalAllowedFrameAncestors<
             Identity: ICoreWebView2NavigationStartingEventArgs2_Impl,
             const OFFSET: isize,
         >(
@@ -23336,7 +23362,7 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NavigationStartingEventArgs2_Impl::AdditionalAllowedFrameAncestors2(
+                ICoreWebView2NavigationStartingEventArgs2_Impl::SetAdditionalAllowedFrameAncestors(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -23346,7 +23372,10 @@ impl ICoreWebView2NavigationStartingEventArgs2_Vtbl {
         Self {
             base__: ICoreWebView2NavigationStartingEventArgs_Vtbl::new::<Identity, OFFSET>(),
             AdditionalAllowedFrameAncestors: AdditionalAllowedFrameAncestors::<Identity, OFFSET>,
-            AdditionalAllowedFrameAncestors2: AdditionalAllowedFrameAncestors2::<Identity, OFFSET>,
+            SetAdditionalAllowedFrameAncestors: SetAdditionalAllowedFrameAncestors::<
+                Identity,
+                OFFSET,
+            >,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -23610,6 +23639,18 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
             .ok()
         }
     }
+    pub unsafe fn SetNewWindow<P0>(&self, newwindow: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<ICoreWebView2>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetNewWindow)(
+                windows_core::Interface::as_raw(self),
+                newwindow.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub unsafe fn NewWindow<P0>(&self, newwindow: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ICoreWebView2>,
@@ -23622,14 +23663,11 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn NewWindow2<P0>(&self, newwindow: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<ICoreWebView2>,
-    {
+    pub unsafe fn SetHandled(&self, handled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).NewWindow2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
-                newwindow.param().abi(),
+                handled.into(),
             )
             .ok()
         }
@@ -23637,15 +23675,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs {
     pub unsafe fn Handled(&self, handled: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Handled)(
-                windows_core::Interface::as_raw(self),
-                handled.into(),
-            )
-            .ok()
-        }
-    }
-    pub unsafe fn Handled2(&self, handled: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
                 windows_core::Interface::as_raw(self),
                 handled.into(),
             )
@@ -23694,19 +23723,19 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
+    pub SetNewWindow: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
     pub NewWindow: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub NewWindow2: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        *mut core::ffi::c_void,
-    ) -> windows_core::HRESULT,
-    pub Handled: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub Handled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -23725,10 +23754,11 @@ pub struct ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
 }
 pub trait ICoreWebView2NewWindowRequestedEventArgs_Impl: windows_core::IUnknownImpl {
     fn Uri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetNewWindow(&self, newwindow: windows_core::Ref<ICoreWebView2>)
+        -> windows_core::Result<()>;
     fn NewWindow(&self, newwindow: windows_core::Ref<ICoreWebView2>) -> windows_core::Result<()>;
-    fn NewWindow2(&self, newwindow: windows_core::Ref<ICoreWebView2>) -> windows_core::Result<()>;
+    fn SetHandled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, handled: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsUserInitiated(&self, isuserinitiated: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
@@ -23758,6 +23788,23 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                     .into()
             }
         }
+        unsafe extern "system" fn SetNewWindow<
+            Identity: ICoreWebView2NewWindowRequestedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            newwindow: *mut core::ffi::c_void,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2NewWindowRequestedEventArgs_Impl::SetNewWindow(
+                    this,
+                    core::mem::transmute_copy(&newwindow),
+                )
+                .into()
+            }
+        }
         unsafe extern "system" fn NewWindow<
             Identity: ICoreWebView2NewWindowRequestedEventArgs_Impl,
             const OFFSET: isize,
@@ -23775,19 +23822,19 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn NewWindow2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2NewWindowRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            newwindow: *mut core::ffi::c_void,
+            handled: windows_core::BOOL,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NewWindowRequestedEventArgs_Impl::NewWindow2(
+                ICoreWebView2NewWindowRequestedEventArgs_Impl::SetHandled(
                     this,
-                    core::mem::transmute_copy(&newwindow),
+                    core::mem::transmute_copy(&handled),
                 )
                 .into()
             }
@@ -23803,23 +23850,6 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2NewWindowRequestedEventArgs_Impl::Handled(
-                    this,
-                    core::mem::transmute_copy(&handled),
-                )
-                .into()
-            }
-        }
-        unsafe extern "system" fn Handled2<
-            Identity: ICoreWebView2NewWindowRequestedEventArgs_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            handled: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NewWindowRequestedEventArgs_Impl::Handled2(
                     this,
                     core::mem::transmute_copy(&handled),
                 )
@@ -23880,10 +23910,10 @@ impl ICoreWebView2NewWindowRequestedEventArgs_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, OFFSET>,
+            SetNewWindow: SetNewWindow::<Identity, OFFSET>,
             NewWindow: NewWindow::<Identity, OFFSET>,
-            NewWindow2: NewWindow2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
             IsUserInitiated: IsUserInitiated::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
             WindowFeatures: WindowFeatures::<Identity, OFFSET>,
@@ -24962,18 +24992,18 @@ impl ICoreWebView2NotificationReceivedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn Handled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).Handled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -25005,11 +25035,11 @@ pub struct ICoreWebView2NotificationReceivedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Handled: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub Handled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -25024,8 +25054,8 @@ pub trait ICoreWebView2NotificationReceivedEventArgs_Impl: windows_core::IUnknow
         &self,
         value: windows_core::Ref<ICoreWebView2Notification>,
     ) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -25070,6 +25100,23 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
                 .into()
             }
         }
+        unsafe extern "system" fn SetHandled<
+            Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2NotificationReceivedEventArgs_Impl::SetHandled(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
         unsafe extern "system" fn Handled<
             Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
             const OFFSET: isize,
@@ -25081,23 +25128,6 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
                 ICoreWebView2NotificationReceivedEventArgs_Impl::Handled(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
-            }
-        }
-        unsafe extern "system" fn Handled2<
-            Identity: ICoreWebView2NotificationReceivedEventArgs_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            value: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2NotificationReceivedEventArgs_Impl::Handled2(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -25125,8 +25155,8 @@ impl ICoreWebView2NotificationReceivedEventArgs_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             SenderOrigin: SenderOrigin::<Identity, OFFSET>,
             Notification: Notification::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -25472,9 +25502,12 @@ impl ICoreWebView2PermissionRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn State2(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetState(
+        &self,
+        state: COREWEBVIEW2_PERMISSION_STATE,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).State2)(
+            (windows_core::Interface::vtable(self).SetState)(
                 windows_core::Interface::as_raw(self),
                 state,
             )
@@ -25514,7 +25547,7 @@ pub struct ICoreWebView2PermissionRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PERMISSION_STATE,
     ) -> windows_core::HRESULT,
-    pub State2: unsafe extern "system" fn(
+    pub SetState: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PERMISSION_STATE,
     ) -> windows_core::HRESULT,
@@ -25531,7 +25564,7 @@ pub trait ICoreWebView2PermissionRequestedEventArgs_Impl: windows_core::IUnknown
     ) -> windows_core::Result<()>;
     fn IsUserInitiated(&self, isuserinitiated: windows_core::BOOL) -> windows_core::Result<()>;
     fn State(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> windows_core::Result<()>;
-    fn State2(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> windows_core::Result<()>;
+    fn SetState(&self, state: COREWEBVIEW2_PERMISSION_STATE) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -25610,7 +25643,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn State2<
+        unsafe extern "system" fn SetState<
             Identity: ICoreWebView2PermissionRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -25620,7 +25653,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PermissionRequestedEventArgs_Impl::State2(
+                ICoreWebView2PermissionRequestedEventArgs_Impl::SetState(
                     this,
                     core::mem::transmute_copy(&state),
                 )
@@ -25650,7 +25683,7 @@ impl ICoreWebView2PermissionRequestedEventArgs_Vtbl {
             PermissionKind: PermissionKind::<Identity, OFFSET>,
             IsUserInitiated: IsUserInitiated::<Identity, OFFSET>,
             State: State::<Identity, OFFSET>,
-            State2: State2::<Identity, OFFSET>,
+            SetState: SetState::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -25685,9 +25718,9 @@ impl ICoreWebView2PermissionRequestedEventArgs2 {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -25703,7 +25736,7 @@ pub struct ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -25712,7 +25745,7 @@ pub trait ICoreWebView2PermissionRequestedEventArgs2_Impl:
     ICoreWebView2PermissionRequestedEventArgs_Impl
 {
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
     pub const fn new<
@@ -25736,7 +25769,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2PermissionRequestedEventArgs2_Impl,
             const OFFSET: isize,
         >(
@@ -25746,7 +25779,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PermissionRequestedEventArgs2_Impl::Handled2(
+                ICoreWebView2PermissionRequestedEventArgs2_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -25756,7 +25789,7 @@ impl ICoreWebView2PermissionRequestedEventArgs2_Vtbl {
         Self {
             base__: ICoreWebView2PermissionRequestedEventArgs_Vtbl::new::<Identity, OFFSET>(),
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -25792,9 +25825,9 @@ impl ICoreWebView2PermissionRequestedEventArgs3 {
             .ok()
         }
     }
-    pub unsafe fn SavesInProfile2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSavesInProfile(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).SavesInProfile2)(
+            (windows_core::Interface::vtable(self).SetSavesInProfile)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -25810,7 +25843,7 @@ pub struct ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub SavesInProfile2: unsafe extern "system" fn(
+    pub SetSavesInProfile: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -25819,7 +25852,7 @@ pub trait ICoreWebView2PermissionRequestedEventArgs3_Impl:
     ICoreWebView2PermissionRequestedEventArgs2_Impl
 {
     fn SavesInProfile(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SavesInProfile2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSavesInProfile(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
     pub const fn new<
@@ -25843,7 +25876,7 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SavesInProfile2<
+        unsafe extern "system" fn SetSavesInProfile<
             Identity: ICoreWebView2PermissionRequestedEventArgs3_Impl,
             const OFFSET: isize,
         >(
@@ -25853,7 +25886,7 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PermissionRequestedEventArgs3_Impl::SavesInProfile2(
+                ICoreWebView2PermissionRequestedEventArgs3_Impl::SetSavesInProfile(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -25863,7 +25896,7 @@ impl ICoreWebView2PermissionRequestedEventArgs3_Vtbl {
         Self {
             base__: ICoreWebView2PermissionRequestedEventArgs2_Vtbl::new::<Identity, OFFSET>(),
             SavesInProfile: SavesInProfile::<Identity, OFFSET>,
-            SavesInProfile2: SavesInProfile2::<Identity, OFFSET>,
+            SetSavesInProfile: SetSavesInProfile::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -26204,9 +26237,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PointerKind2(&self, pointerkind: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPointerKind(&self, pointerkind: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PointerKind2)(
+            (windows_core::Interface::vtable(self).SetPointerKind)(
                 windows_core::Interface::as_raw(self),
                 pointerkind,
             )
@@ -26222,9 +26255,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PointerId2(&self, pointerid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPointerId(&self, pointerid: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PointerId2)(
+            (windows_core::Interface::vtable(self).SetPointerId)(
                 windows_core::Interface::as_raw(self),
                 pointerid,
             )
@@ -26240,9 +26273,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn FrameId2(&self, frameid: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetFrameId(&self, frameid: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).FrameId2)(
+            (windows_core::Interface::vtable(self).SetFrameId)(
                 windows_core::Interface::as_raw(self),
                 frameid,
             )
@@ -26258,9 +26291,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PointerFlags2(&self, pointerflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPointerFlags(&self, pointerflags: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PointerFlags2)(
+            (windows_core::Interface::vtable(self).SetPointerFlags)(
                 windows_core::Interface::as_raw(self),
                 pointerflags,
             )
@@ -26276,9 +26309,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PointerDeviceRect2(&self, pointerdevicerect: RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetPointerDeviceRect(&self, pointerdevicerect: RECT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PointerDeviceRect2)(
+            (windows_core::Interface::vtable(self).SetPointerDeviceRect)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(pointerdevicerect),
             )
@@ -26294,9 +26327,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn DisplayRect2(&self, displayrect: RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetDisplayRect(&self, displayrect: RECT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).DisplayRect2)(
+            (windows_core::Interface::vtable(self).SetDisplayRect)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(displayrect),
             )
@@ -26312,9 +26345,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PixelLocation2(&self, pixellocation: POINT) -> windows_core::Result<()> {
+    pub unsafe fn SetPixelLocation(&self, pixellocation: POINT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PixelLocation2)(
+            (windows_core::Interface::vtable(self).SetPixelLocation)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(pixellocation),
             )
@@ -26330,9 +26363,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn HimetricLocation2(&self, himetriclocation: POINT) -> windows_core::Result<()> {
+    pub unsafe fn SetHimetricLocation(&self, himetriclocation: POINT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).HimetricLocation2)(
+            (windows_core::Interface::vtable(self).SetHimetricLocation)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(himetriclocation),
             )
@@ -26348,9 +26381,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PixelLocationRaw2(&self, pixellocationraw: POINT) -> windows_core::Result<()> {
+    pub unsafe fn SetPixelLocationRaw(&self, pixellocationraw: POINT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PixelLocationRaw2)(
+            (windows_core::Interface::vtable(self).SetPixelLocationRaw)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(pixellocationraw),
             )
@@ -26369,12 +26402,12 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn HimetricLocationRaw2(
+    pub unsafe fn SetHimetricLocationRaw(
         &self,
         himetriclocationraw: POINT,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).HimetricLocationRaw2)(
+            (windows_core::Interface::vtable(self).SetHimetricLocationRaw)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(himetriclocationraw),
             )
@@ -26390,9 +26423,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn Time2(&self, time: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTime(&self, time: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Time2)(
+            (windows_core::Interface::vtable(self).SetTime)(
                 windows_core::Interface::as_raw(self),
                 time,
             )
@@ -26408,9 +26441,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn HistoryCount2(&self, historycount: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetHistoryCount(&self, historycount: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).HistoryCount2)(
+            (windows_core::Interface::vtable(self).SetHistoryCount)(
                 windows_core::Interface::as_raw(self),
                 historycount,
             )
@@ -26426,9 +26459,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn InputData2(&self, inputdata: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetInputData(&self, inputdata: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).InputData2)(
+            (windows_core::Interface::vtable(self).SetInputData)(
                 windows_core::Interface::as_raw(self),
                 inputdata,
             )
@@ -26444,9 +26477,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn KeyStates2(&self, keystates: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetKeyStates(&self, keystates: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).KeyStates2)(
+            (windows_core::Interface::vtable(self).SetKeyStates)(
                 windows_core::Interface::as_raw(self),
                 keystates,
             )
@@ -26462,9 +26495,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PerformanceCount2(&self, performancecount: u64) -> windows_core::Result<()> {
+    pub unsafe fn SetPerformanceCount(&self, performancecount: u64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PerformanceCount2)(
+            (windows_core::Interface::vtable(self).SetPerformanceCount)(
                 windows_core::Interface::as_raw(self),
                 performancecount,
             )
@@ -26480,9 +26513,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn ButtonChangeKind2(&self, buttonchangekind: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetButtonChangeKind(&self, buttonchangekind: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ButtonChangeKind2)(
+            (windows_core::Interface::vtable(self).SetButtonChangeKind)(
                 windows_core::Interface::as_raw(self),
                 buttonchangekind,
             )
@@ -26498,9 +26531,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenFlags2(&self, penflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenFlags(&self, penflags: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenFlags2)(
+            (windows_core::Interface::vtable(self).SetPenFlags)(
                 windows_core::Interface::as_raw(self),
                 penflags,
             )
@@ -26516,9 +26549,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenMask2(&self, penmask: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenMask(&self, penmask: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenMask2)(
+            (windows_core::Interface::vtable(self).SetPenMask)(
                 windows_core::Interface::as_raw(self),
                 penmask,
             )
@@ -26534,9 +26567,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenPressure2(&self, penpressure: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenPressure(&self, penpressure: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenPressure2)(
+            (windows_core::Interface::vtable(self).SetPenPressure)(
                 windows_core::Interface::as_raw(self),
                 penpressure,
             )
@@ -26552,9 +26585,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenRotation2(&self, penrotation: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenRotation(&self, penrotation: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenRotation2)(
+            (windows_core::Interface::vtable(self).SetPenRotation)(
                 windows_core::Interface::as_raw(self),
                 penrotation,
             )
@@ -26570,9 +26603,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenTiltX2(&self, pentiltx: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenTiltX(&self, pentiltx: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenTiltX2)(
+            (windows_core::Interface::vtable(self).SetPenTiltX)(
                 windows_core::Interface::as_raw(self),
                 pentiltx,
             )
@@ -26588,9 +26621,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn PenTiltY2(&self, pentilty: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPenTiltY(&self, pentilty: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PenTiltY2)(
+            (windows_core::Interface::vtable(self).SetPenTiltY)(
                 windows_core::Interface::as_raw(self),
                 pentilty,
             )
@@ -26606,9 +26639,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchFlags2(&self, touchflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchFlags(&self, touchflags: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchFlags2)(
+            (windows_core::Interface::vtable(self).SetTouchFlags)(
                 windows_core::Interface::as_raw(self),
                 touchflags,
             )
@@ -26624,9 +26657,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchMask2(&self, touchmask: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchMask(&self, touchmask: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchMask2)(
+            (windows_core::Interface::vtable(self).SetTouchMask)(
                 windows_core::Interface::as_raw(self),
                 touchmask,
             )
@@ -26642,9 +26675,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchContact2(&self, touchcontact: RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchContact(&self, touchcontact: RECT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchContact2)(
+            (windows_core::Interface::vtable(self).SetTouchContact)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(touchcontact),
             )
@@ -26660,9 +26693,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchContactRaw2(&self, touchcontactraw: RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchContactRaw(&self, touchcontactraw: RECT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchContactRaw2)(
+            (windows_core::Interface::vtable(self).SetTouchContactRaw)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(touchcontactraw),
             )
@@ -26678,9 +26711,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchOrientation2(&self, touchorientation: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchOrientation(&self, touchorientation: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchOrientation2)(
+            (windows_core::Interface::vtable(self).SetTouchOrientation)(
                 windows_core::Interface::as_raw(self),
                 touchorientation,
             )
@@ -26696,9 +26729,9 @@ impl ICoreWebView2PointerInfo {
             .ok()
         }
     }
-    pub unsafe fn TouchPressure2(&self, touchpressure: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetTouchPressure(&self, touchpressure: u32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).TouchPressure2)(
+            (windows_core::Interface::vtable(self).SetTouchPressure)(
                 windows_core::Interface::as_raw(self),
                 touchpressure,
             )
@@ -26712,153 +26745,160 @@ pub struct ICoreWebView2PointerInfo_Vtbl {
     pub base__: windows_core::IUnknown_Vtbl,
     pub PointerKind:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PointerKind2:
+    pub SetPointerKind:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PointerId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PointerId2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetPointerId:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub FrameId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub FrameId2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetFrameId: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PointerFlags:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PointerFlags2:
+    pub SetPointerFlags:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PointerDeviceRect:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    pub PointerDeviceRect2:
+    pub SetPointerDeviceRect:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
     pub DisplayRect:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    pub DisplayRect2:
+    pub SetDisplayRect:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
     pub PixelLocation:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
-    pub PixelLocation2:
+    pub SetPixelLocation:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
     pub HimetricLocation:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
-    pub HimetricLocation2:
+    pub SetHimetricLocation:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
     pub PixelLocationRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
-    pub PixelLocationRaw2:
+    pub SetPixelLocationRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
     pub HimetricLocationRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
-    pub HimetricLocationRaw2:
+    pub SetHimetricLocationRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
     pub Time: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub Time2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetTime: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub HistoryCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub HistoryCount2:
+    pub SetHistoryCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub InputData: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub InputData2: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetInputData:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub KeyStates: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub KeyStates2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetKeyStates:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PerformanceCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
-    pub PerformanceCount2:
+    pub SetPerformanceCount:
         unsafe extern "system" fn(*mut core::ffi::c_void, u64) -> windows_core::HRESULT,
     pub ButtonChangeKind:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub ButtonChangeKind2:
+    pub SetButtonChangeKind:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub PenFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PenFlags2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetPenFlags:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PenMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PenMask2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetPenMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PenPressure:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PenPressure2:
+    pub SetPenPressure:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PenRotation:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub PenRotation2:
+    pub SetPenRotation:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub PenTiltX: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub PenTiltX2: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetPenTiltX:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub PenTiltY: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub PenTiltY2: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetPenTiltY:
+        unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub TouchFlags: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub TouchFlags2:
+    pub SetTouchFlags:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TouchMask: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub TouchMask2: unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
+    pub SetTouchMask:
+        unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TouchContact:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    pub TouchContact2:
+    pub SetTouchContact:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
     pub TouchContactRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
-    pub TouchContactRaw2:
+    pub SetTouchContactRaw:
         unsafe extern "system" fn(*mut core::ffi::c_void, RECT) -> windows_core::HRESULT,
     pub TouchOrientation:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub TouchOrientation2:
+    pub SetTouchOrientation:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
     pub TouchPressure:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
-    pub TouchPressure2:
+    pub SetTouchPressure:
         unsafe extern "system" fn(*mut core::ffi::c_void, u32) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2PointerInfo_Impl: windows_core::IUnknownImpl {
     fn PointerKind(&self, pointerkind: u32) -> windows_core::Result<()>;
-    fn PointerKind2(&self, pointerkind: u32) -> windows_core::Result<()>;
+    fn SetPointerKind(&self, pointerkind: u32) -> windows_core::Result<()>;
     fn PointerId(&self, pointerid: u32) -> windows_core::Result<()>;
-    fn PointerId2(&self, pointerid: u32) -> windows_core::Result<()>;
+    fn SetPointerId(&self, pointerid: u32) -> windows_core::Result<()>;
     fn FrameId(&self, frameid: u32) -> windows_core::Result<()>;
-    fn FrameId2(&self, frameid: u32) -> windows_core::Result<()>;
+    fn SetFrameId(&self, frameid: u32) -> windows_core::Result<()>;
     fn PointerFlags(&self, pointerflags: u32) -> windows_core::Result<()>;
-    fn PointerFlags2(&self, pointerflags: u32) -> windows_core::Result<()>;
+    fn SetPointerFlags(&self, pointerflags: u32) -> windows_core::Result<()>;
     fn PointerDeviceRect(&self, pointerdevicerect: &RECT) -> windows_core::Result<()>;
-    fn PointerDeviceRect2(&self, pointerdevicerect: &RECT) -> windows_core::Result<()>;
+    fn SetPointerDeviceRect(&self, pointerdevicerect: &RECT) -> windows_core::Result<()>;
     fn DisplayRect(&self, displayrect: &RECT) -> windows_core::Result<()>;
-    fn DisplayRect2(&self, displayrect: &RECT) -> windows_core::Result<()>;
+    fn SetDisplayRect(&self, displayrect: &RECT) -> windows_core::Result<()>;
     fn PixelLocation(&self, pixellocation: &POINT) -> windows_core::Result<()>;
-    fn PixelLocation2(&self, pixellocation: &POINT) -> windows_core::Result<()>;
+    fn SetPixelLocation(&self, pixellocation: &POINT) -> windows_core::Result<()>;
     fn HimetricLocation(&self, himetriclocation: &POINT) -> windows_core::Result<()>;
-    fn HimetricLocation2(&self, himetriclocation: &POINT) -> windows_core::Result<()>;
+    fn SetHimetricLocation(&self, himetriclocation: &POINT) -> windows_core::Result<()>;
     fn PixelLocationRaw(&self, pixellocationraw: &POINT) -> windows_core::Result<()>;
-    fn PixelLocationRaw2(&self, pixellocationraw: &POINT) -> windows_core::Result<()>;
+    fn SetPixelLocationRaw(&self, pixellocationraw: &POINT) -> windows_core::Result<()>;
     fn HimetricLocationRaw(&self, himetriclocationraw: &POINT) -> windows_core::Result<()>;
-    fn HimetricLocationRaw2(&self, himetriclocationraw: &POINT) -> windows_core::Result<()>;
+    fn SetHimetricLocationRaw(&self, himetriclocationraw: &POINT) -> windows_core::Result<()>;
     fn Time(&self, time: u32) -> windows_core::Result<()>;
-    fn Time2(&self, time: u32) -> windows_core::Result<()>;
+    fn SetTime(&self, time: u32) -> windows_core::Result<()>;
     fn HistoryCount(&self, historycount: u32) -> windows_core::Result<()>;
-    fn HistoryCount2(&self, historycount: u32) -> windows_core::Result<()>;
+    fn SetHistoryCount(&self, historycount: u32) -> windows_core::Result<()>;
     fn InputData(&self, inputdata: i32) -> windows_core::Result<()>;
-    fn InputData2(&self, inputdata: i32) -> windows_core::Result<()>;
+    fn SetInputData(&self, inputdata: i32) -> windows_core::Result<()>;
     fn KeyStates(&self, keystates: u32) -> windows_core::Result<()>;
-    fn KeyStates2(&self, keystates: u32) -> windows_core::Result<()>;
+    fn SetKeyStates(&self, keystates: u32) -> windows_core::Result<()>;
     fn PerformanceCount(&self, performancecount: u64) -> windows_core::Result<()>;
-    fn PerformanceCount2(&self, performancecount: u64) -> windows_core::Result<()>;
+    fn SetPerformanceCount(&self, performancecount: u64) -> windows_core::Result<()>;
     fn ButtonChangeKind(&self, buttonchangekind: i32) -> windows_core::Result<()>;
-    fn ButtonChangeKind2(&self, buttonchangekind: i32) -> windows_core::Result<()>;
+    fn SetButtonChangeKind(&self, buttonchangekind: i32) -> windows_core::Result<()>;
     fn PenFlags(&self, penflags: u32) -> windows_core::Result<()>;
-    fn PenFlags2(&self, penflags: u32) -> windows_core::Result<()>;
+    fn SetPenFlags(&self, penflags: u32) -> windows_core::Result<()>;
     fn PenMask(&self, penmask: u32) -> windows_core::Result<()>;
-    fn PenMask2(&self, penmask: u32) -> windows_core::Result<()>;
+    fn SetPenMask(&self, penmask: u32) -> windows_core::Result<()>;
     fn PenPressure(&self, penpressure: u32) -> windows_core::Result<()>;
-    fn PenPressure2(&self, penpressure: u32) -> windows_core::Result<()>;
+    fn SetPenPressure(&self, penpressure: u32) -> windows_core::Result<()>;
     fn PenRotation(&self, penrotation: u32) -> windows_core::Result<()>;
-    fn PenRotation2(&self, penrotation: u32) -> windows_core::Result<()>;
+    fn SetPenRotation(&self, penrotation: u32) -> windows_core::Result<()>;
     fn PenTiltX(&self, pentiltx: i32) -> windows_core::Result<()>;
-    fn PenTiltX2(&self, pentiltx: i32) -> windows_core::Result<()>;
+    fn SetPenTiltX(&self, pentiltx: i32) -> windows_core::Result<()>;
     fn PenTiltY(&self, pentilty: i32) -> windows_core::Result<()>;
-    fn PenTiltY2(&self, pentilty: i32) -> windows_core::Result<()>;
+    fn SetPenTiltY(&self, pentilty: i32) -> windows_core::Result<()>;
     fn TouchFlags(&self, touchflags: u32) -> windows_core::Result<()>;
-    fn TouchFlags2(&self, touchflags: u32) -> windows_core::Result<()>;
+    fn SetTouchFlags(&self, touchflags: u32) -> windows_core::Result<()>;
     fn TouchMask(&self, touchmask: u32) -> windows_core::Result<()>;
-    fn TouchMask2(&self, touchmask: u32) -> windows_core::Result<()>;
+    fn SetTouchMask(&self, touchmask: u32) -> windows_core::Result<()>;
     fn TouchContact(&self, touchcontact: &RECT) -> windows_core::Result<()>;
-    fn TouchContact2(&self, touchcontact: &RECT) -> windows_core::Result<()>;
+    fn SetTouchContact(&self, touchcontact: &RECT) -> windows_core::Result<()>;
     fn TouchContactRaw(&self, touchcontactraw: &RECT) -> windows_core::Result<()>;
-    fn TouchContactRaw2(&self, touchcontactraw: &RECT) -> windows_core::Result<()>;
+    fn SetTouchContactRaw(&self, touchcontactraw: &RECT) -> windows_core::Result<()>;
     fn TouchOrientation(&self, touchorientation: u32) -> windows_core::Result<()>;
-    fn TouchOrientation2(&self, touchorientation: u32) -> windows_core::Result<()>;
+    fn SetTouchOrientation(&self, touchorientation: u32) -> windows_core::Result<()>;
     fn TouchPressure(&self, touchpressure: u32) -> windows_core::Result<()>;
-    fn TouchPressure2(&self, touchpressure: u32) -> windows_core::Result<()>;
+    fn SetTouchPressure(&self, touchpressure: u32) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PointerInfo_Vtbl {
     pub const fn new<Identity: ICoreWebView2PointerInfo_Impl, const OFFSET: isize>() -> Self {
@@ -26879,7 +26919,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PointerKind2<
+        unsafe extern "system" fn SetPointerKind<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -26889,7 +26929,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PointerKind2(
+                ICoreWebView2PointerInfo_Impl::SetPointerKind(
                     this,
                     core::mem::transmute_copy(&pointerkind),
                 )
@@ -26913,7 +26953,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PointerId2<
+        unsafe extern "system" fn SetPointerId<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -26923,7 +26963,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PointerId2(
+                ICoreWebView2PointerInfo_Impl::SetPointerId(
                     this,
                     core::mem::transmute_copy(&pointerid),
                 )
@@ -26944,7 +26984,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn FrameId2<
+        unsafe extern "system" fn SetFrameId<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -26954,7 +26994,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::FrameId2(this, core::mem::transmute_copy(&frameid))
+                ICoreWebView2PointerInfo_Impl::SetFrameId(this, core::mem::transmute_copy(&frameid))
                     .into()
             }
         }
@@ -26975,7 +27015,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PointerFlags2<
+        unsafe extern "system" fn SetPointerFlags<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -26985,7 +27025,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PointerFlags2(
+                ICoreWebView2PointerInfo_Impl::SetPointerFlags(
                     this,
                     core::mem::transmute_copy(&pointerflags),
                 )
@@ -27009,7 +27049,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PointerDeviceRect2<
+        unsafe extern "system" fn SetPointerDeviceRect<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27019,7 +27059,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PointerDeviceRect2(
+                ICoreWebView2PointerInfo_Impl::SetPointerDeviceRect(
                     this,
                     core::mem::transmute(&pointerdevicerect),
                 )
@@ -27040,7 +27080,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn DisplayRect2<
+        unsafe extern "system" fn SetDisplayRect<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27050,7 +27090,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::DisplayRect2(
+                ICoreWebView2PointerInfo_Impl::SetDisplayRect(
                     this,
                     core::mem::transmute(&displayrect),
                 )
@@ -27074,7 +27114,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PixelLocation2<
+        unsafe extern "system" fn SetPixelLocation<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27084,7 +27124,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PixelLocation2(
+                ICoreWebView2PointerInfo_Impl::SetPixelLocation(
                     this,
                     core::mem::transmute(&pixellocation),
                 )
@@ -27108,7 +27148,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HimetricLocation2<
+        unsafe extern "system" fn SetHimetricLocation<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27118,7 +27158,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::HimetricLocation2(
+                ICoreWebView2PointerInfo_Impl::SetHimetricLocation(
                     this,
                     core::mem::transmute(&himetriclocation),
                 )
@@ -27142,7 +27182,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PixelLocationRaw2<
+        unsafe extern "system" fn SetPixelLocationRaw<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27152,7 +27192,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PixelLocationRaw2(
+                ICoreWebView2PointerInfo_Impl::SetPixelLocationRaw(
                     this,
                     core::mem::transmute(&pixellocationraw),
                 )
@@ -27176,7 +27216,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HimetricLocationRaw2<
+        unsafe extern "system" fn SetHimetricLocationRaw<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27186,7 +27226,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::HimetricLocationRaw2(
+                ICoreWebView2PointerInfo_Impl::SetHimetricLocationRaw(
                     this,
                     core::mem::transmute(&himetriclocationraw),
                 )
@@ -27206,7 +27246,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 ICoreWebView2PointerInfo_Impl::Time(this, core::mem::transmute_copy(&time)).into()
             }
         }
-        unsafe extern "system" fn Time2<
+        unsafe extern "system" fn SetTime<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27216,7 +27256,8 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::Time2(this, core::mem::transmute_copy(&time)).into()
+                ICoreWebView2PointerInfo_Impl::SetTime(this, core::mem::transmute_copy(&time))
+                    .into()
             }
         }
         unsafe extern "system" fn HistoryCount<
@@ -27236,7 +27277,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HistoryCount2<
+        unsafe extern "system" fn SetHistoryCount<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27246,7 +27287,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::HistoryCount2(
+                ICoreWebView2PointerInfo_Impl::SetHistoryCount(
                     this,
                     core::mem::transmute_copy(&historycount),
                 )
@@ -27270,7 +27311,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn InputData2<
+        unsafe extern "system" fn SetInputData<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27280,7 +27321,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::InputData2(
+                ICoreWebView2PointerInfo_Impl::SetInputData(
                     this,
                     core::mem::transmute_copy(&inputdata),
                 )
@@ -27304,7 +27345,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn KeyStates2<
+        unsafe extern "system" fn SetKeyStates<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27314,7 +27355,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::KeyStates2(
+                ICoreWebView2PointerInfo_Impl::SetKeyStates(
                     this,
                     core::mem::transmute_copy(&keystates),
                 )
@@ -27338,7 +27379,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PerformanceCount2<
+        unsafe extern "system" fn SetPerformanceCount<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27348,7 +27389,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PerformanceCount2(
+                ICoreWebView2PointerInfo_Impl::SetPerformanceCount(
                     this,
                     core::mem::transmute_copy(&performancecount),
                 )
@@ -27372,7 +27413,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ButtonChangeKind2<
+        unsafe extern "system" fn SetButtonChangeKind<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27382,7 +27423,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::ButtonChangeKind2(
+                ICoreWebView2PointerInfo_Impl::SetButtonChangeKind(
                     this,
                     core::mem::transmute_copy(&buttonchangekind),
                 )
@@ -27403,7 +27444,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PenFlags2<
+        unsafe extern "system" fn SetPenFlags<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27413,8 +27454,11 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenFlags2(this, core::mem::transmute_copy(&penflags))
-                    .into()
+                ICoreWebView2PointerInfo_Impl::SetPenFlags(
+                    this,
+                    core::mem::transmute_copy(&penflags),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn PenMask<
@@ -27431,7 +27475,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PenMask2<
+        unsafe extern "system" fn SetPenMask<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27441,7 +27485,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenMask2(this, core::mem::transmute_copy(&penmask))
+                ICoreWebView2PointerInfo_Impl::SetPenMask(this, core::mem::transmute_copy(&penmask))
                     .into()
             }
         }
@@ -27462,7 +27506,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PenPressure2<
+        unsafe extern "system" fn SetPenPressure<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27472,7 +27516,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenPressure2(
+                ICoreWebView2PointerInfo_Impl::SetPenPressure(
                     this,
                     core::mem::transmute_copy(&penpressure),
                 )
@@ -27496,7 +27540,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PenRotation2<
+        unsafe extern "system" fn SetPenRotation<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27506,7 +27550,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenRotation2(
+                ICoreWebView2PointerInfo_Impl::SetPenRotation(
                     this,
                     core::mem::transmute_copy(&penrotation),
                 )
@@ -27527,7 +27571,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PenTiltX2<
+        unsafe extern "system" fn SetPenTiltX<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27537,8 +27581,11 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenTiltX2(this, core::mem::transmute_copy(&pentiltx))
-                    .into()
+                ICoreWebView2PointerInfo_Impl::SetPenTiltX(
+                    this,
+                    core::mem::transmute_copy(&pentiltx),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn PenTiltY<
@@ -27555,7 +27602,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PenTiltY2<
+        unsafe extern "system" fn SetPenTiltY<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27565,8 +27612,11 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::PenTiltY2(this, core::mem::transmute_copy(&pentilty))
-                    .into()
+                ICoreWebView2PointerInfo_Impl::SetPenTiltY(
+                    this,
+                    core::mem::transmute_copy(&pentilty),
+                )
+                .into()
             }
         }
         unsafe extern "system" fn TouchFlags<
@@ -27586,7 +27636,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchFlags2<
+        unsafe extern "system" fn SetTouchFlags<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27596,7 +27646,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchFlags2(
+                ICoreWebView2PointerInfo_Impl::SetTouchFlags(
                     this,
                     core::mem::transmute_copy(&touchflags),
                 )
@@ -27620,7 +27670,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchMask2<
+        unsafe extern "system" fn SetTouchMask<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27630,7 +27680,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchMask2(
+                ICoreWebView2PointerInfo_Impl::SetTouchMask(
                     this,
                     core::mem::transmute_copy(&touchmask),
                 )
@@ -27654,7 +27704,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchContact2<
+        unsafe extern "system" fn SetTouchContact<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27664,7 +27714,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchContact2(
+                ICoreWebView2PointerInfo_Impl::SetTouchContact(
                     this,
                     core::mem::transmute(&touchcontact),
                 )
@@ -27688,7 +27738,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchContactRaw2<
+        unsafe extern "system" fn SetTouchContactRaw<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27698,7 +27748,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchContactRaw2(
+                ICoreWebView2PointerInfo_Impl::SetTouchContactRaw(
                     this,
                     core::mem::transmute(&touchcontactraw),
                 )
@@ -27722,7 +27772,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchOrientation2<
+        unsafe extern "system" fn SetTouchOrientation<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27732,7 +27782,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchOrientation2(
+                ICoreWebView2PointerInfo_Impl::SetTouchOrientation(
                     this,
                     core::mem::transmute_copy(&touchorientation),
                 )
@@ -27756,7 +27806,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn TouchPressure2<
+        unsafe extern "system" fn SetTouchPressure<
             Identity: ICoreWebView2PointerInfo_Impl,
             const OFFSET: isize,
         >(
@@ -27766,7 +27816,7 @@ impl ICoreWebView2PointerInfo_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PointerInfo_Impl::TouchPressure2(
+                ICoreWebView2PointerInfo_Impl::SetTouchPressure(
                     this,
                     core::mem::transmute_copy(&touchpressure),
                 )
@@ -27776,61 +27826,61 @@ impl ICoreWebView2PointerInfo_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             PointerKind: PointerKind::<Identity, OFFSET>,
-            PointerKind2: PointerKind2::<Identity, OFFSET>,
+            SetPointerKind: SetPointerKind::<Identity, OFFSET>,
             PointerId: PointerId::<Identity, OFFSET>,
-            PointerId2: PointerId2::<Identity, OFFSET>,
+            SetPointerId: SetPointerId::<Identity, OFFSET>,
             FrameId: FrameId::<Identity, OFFSET>,
-            FrameId2: FrameId2::<Identity, OFFSET>,
+            SetFrameId: SetFrameId::<Identity, OFFSET>,
             PointerFlags: PointerFlags::<Identity, OFFSET>,
-            PointerFlags2: PointerFlags2::<Identity, OFFSET>,
+            SetPointerFlags: SetPointerFlags::<Identity, OFFSET>,
             PointerDeviceRect: PointerDeviceRect::<Identity, OFFSET>,
-            PointerDeviceRect2: PointerDeviceRect2::<Identity, OFFSET>,
+            SetPointerDeviceRect: SetPointerDeviceRect::<Identity, OFFSET>,
             DisplayRect: DisplayRect::<Identity, OFFSET>,
-            DisplayRect2: DisplayRect2::<Identity, OFFSET>,
+            SetDisplayRect: SetDisplayRect::<Identity, OFFSET>,
             PixelLocation: PixelLocation::<Identity, OFFSET>,
-            PixelLocation2: PixelLocation2::<Identity, OFFSET>,
+            SetPixelLocation: SetPixelLocation::<Identity, OFFSET>,
             HimetricLocation: HimetricLocation::<Identity, OFFSET>,
-            HimetricLocation2: HimetricLocation2::<Identity, OFFSET>,
+            SetHimetricLocation: SetHimetricLocation::<Identity, OFFSET>,
             PixelLocationRaw: PixelLocationRaw::<Identity, OFFSET>,
-            PixelLocationRaw2: PixelLocationRaw2::<Identity, OFFSET>,
+            SetPixelLocationRaw: SetPixelLocationRaw::<Identity, OFFSET>,
             HimetricLocationRaw: HimetricLocationRaw::<Identity, OFFSET>,
-            HimetricLocationRaw2: HimetricLocationRaw2::<Identity, OFFSET>,
+            SetHimetricLocationRaw: SetHimetricLocationRaw::<Identity, OFFSET>,
             Time: Time::<Identity, OFFSET>,
-            Time2: Time2::<Identity, OFFSET>,
+            SetTime: SetTime::<Identity, OFFSET>,
             HistoryCount: HistoryCount::<Identity, OFFSET>,
-            HistoryCount2: HistoryCount2::<Identity, OFFSET>,
+            SetHistoryCount: SetHistoryCount::<Identity, OFFSET>,
             InputData: InputData::<Identity, OFFSET>,
-            InputData2: InputData2::<Identity, OFFSET>,
+            SetInputData: SetInputData::<Identity, OFFSET>,
             KeyStates: KeyStates::<Identity, OFFSET>,
-            KeyStates2: KeyStates2::<Identity, OFFSET>,
+            SetKeyStates: SetKeyStates::<Identity, OFFSET>,
             PerformanceCount: PerformanceCount::<Identity, OFFSET>,
-            PerformanceCount2: PerformanceCount2::<Identity, OFFSET>,
+            SetPerformanceCount: SetPerformanceCount::<Identity, OFFSET>,
             ButtonChangeKind: ButtonChangeKind::<Identity, OFFSET>,
-            ButtonChangeKind2: ButtonChangeKind2::<Identity, OFFSET>,
+            SetButtonChangeKind: SetButtonChangeKind::<Identity, OFFSET>,
             PenFlags: PenFlags::<Identity, OFFSET>,
-            PenFlags2: PenFlags2::<Identity, OFFSET>,
+            SetPenFlags: SetPenFlags::<Identity, OFFSET>,
             PenMask: PenMask::<Identity, OFFSET>,
-            PenMask2: PenMask2::<Identity, OFFSET>,
+            SetPenMask: SetPenMask::<Identity, OFFSET>,
             PenPressure: PenPressure::<Identity, OFFSET>,
-            PenPressure2: PenPressure2::<Identity, OFFSET>,
+            SetPenPressure: SetPenPressure::<Identity, OFFSET>,
             PenRotation: PenRotation::<Identity, OFFSET>,
-            PenRotation2: PenRotation2::<Identity, OFFSET>,
+            SetPenRotation: SetPenRotation::<Identity, OFFSET>,
             PenTiltX: PenTiltX::<Identity, OFFSET>,
-            PenTiltX2: PenTiltX2::<Identity, OFFSET>,
+            SetPenTiltX: SetPenTiltX::<Identity, OFFSET>,
             PenTiltY: PenTiltY::<Identity, OFFSET>,
-            PenTiltY2: PenTiltY2::<Identity, OFFSET>,
+            SetPenTiltY: SetPenTiltY::<Identity, OFFSET>,
             TouchFlags: TouchFlags::<Identity, OFFSET>,
-            TouchFlags2: TouchFlags2::<Identity, OFFSET>,
+            SetTouchFlags: SetTouchFlags::<Identity, OFFSET>,
             TouchMask: TouchMask::<Identity, OFFSET>,
-            TouchMask2: TouchMask2::<Identity, OFFSET>,
+            SetTouchMask: SetTouchMask::<Identity, OFFSET>,
             TouchContact: TouchContact::<Identity, OFFSET>,
-            TouchContact2: TouchContact2::<Identity, OFFSET>,
+            SetTouchContact: SetTouchContact::<Identity, OFFSET>,
             TouchContactRaw: TouchContactRaw::<Identity, OFFSET>,
-            TouchContactRaw2: TouchContactRaw2::<Identity, OFFSET>,
+            SetTouchContactRaw: SetTouchContactRaw::<Identity, OFFSET>,
             TouchOrientation: TouchOrientation::<Identity, OFFSET>,
-            TouchOrientation2: TouchOrientation2::<Identity, OFFSET>,
+            SetTouchOrientation: SetTouchOrientation::<Identity, OFFSET>,
             TouchPressure: TouchPressure::<Identity, OFFSET>,
-            TouchPressure2: TouchPressure2::<Identity, OFFSET>,
+            SetTouchPressure: SetTouchPressure::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -27992,12 +28042,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn Orientation2(
+    pub unsafe fn SetOrientation(
         &self,
         orientation: COREWEBVIEW2_PRINT_ORIENTATION,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Orientation2)(
+            (windows_core::Interface::vtable(self).SetOrientation)(
                 windows_core::Interface::as_raw(self),
                 orientation,
             )
@@ -28013,9 +28063,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn ScaleFactor2(&self, scalefactor: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetScaleFactor(&self, scalefactor: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ScaleFactor2)(
+            (windows_core::Interface::vtable(self).SetScaleFactor)(
                 windows_core::Interface::as_raw(self),
                 scalefactor,
             )
@@ -28031,9 +28081,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn PageWidth2(&self, pagewidth: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetPageWidth(&self, pagewidth: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PageWidth2)(
+            (windows_core::Interface::vtable(self).SetPageWidth)(
                 windows_core::Interface::as_raw(self),
                 pagewidth,
             )
@@ -28049,9 +28099,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn PageHeight2(&self, pageheight: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetPageHeight(&self, pageheight: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PageHeight2)(
+            (windows_core::Interface::vtable(self).SetPageHeight)(
                 windows_core::Interface::as_raw(self),
                 pageheight,
             )
@@ -28067,9 +28117,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn MarginTop2(&self, margintop: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginTop(&self, margintop: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MarginTop2)(
+            (windows_core::Interface::vtable(self).SetMarginTop)(
                 windows_core::Interface::as_raw(self),
                 margintop,
             )
@@ -28085,9 +28135,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn MarginBottom2(&self, marginbottom: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginBottom(&self, marginbottom: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MarginBottom2)(
+            (windows_core::Interface::vtable(self).SetMarginBottom)(
                 windows_core::Interface::as_raw(self),
                 marginbottom,
             )
@@ -28103,9 +28153,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn MarginLeft2(&self, marginleft: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginLeft(&self, marginleft: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MarginLeft2)(
+            (windows_core::Interface::vtable(self).SetMarginLeft)(
                 windows_core::Interface::as_raw(self),
                 marginleft,
             )
@@ -28121,9 +28171,9 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn MarginRight2(&self, marginright: f64) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginRight(&self, marginright: f64) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MarginRight2)(
+            (windows_core::Interface::vtable(self).SetMarginRight)(
                 windows_core::Interface::as_raw(self),
                 marginright,
             )
@@ -28142,12 +28192,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn ShouldPrintBackgrounds2(
+    pub unsafe fn SetShouldPrintBackgrounds(
         &self,
         shouldprintbackgrounds: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ShouldPrintBackgrounds2)(
+            (windows_core::Interface::vtable(self).SetShouldPrintBackgrounds)(
                 windows_core::Interface::as_raw(self),
                 shouldprintbackgrounds.into(),
             )
@@ -28166,12 +28216,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn ShouldPrintSelectionOnly2(
+    pub unsafe fn SetShouldPrintSelectionOnly(
         &self,
         shouldprintselectiononly: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ShouldPrintSelectionOnly2)(
+            (windows_core::Interface::vtable(self).SetShouldPrintSelectionOnly)(
                 windows_core::Interface::as_raw(self),
                 shouldprintselectiononly.into(),
             )
@@ -28190,12 +28240,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn ShouldPrintHeaderAndFooter2(
+    pub unsafe fn SetShouldPrintHeaderAndFooter(
         &self,
         shouldprintheaderandfooter: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ShouldPrintHeaderAndFooter2)(
+            (windows_core::Interface::vtable(self).SetShouldPrintHeaderAndFooter)(
                 windows_core::Interface::as_raw(self),
                 shouldprintheaderandfooter.into(),
             )
@@ -28214,12 +28264,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn HeaderTitle2<P0>(&self, headertitle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetHeaderTitle<P0>(&self, headertitle: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).HeaderTitle2)(
+            (windows_core::Interface::vtable(self).SetHeaderTitle)(
                 windows_core::Interface::as_raw(self),
                 headertitle.param().abi(),
             )
@@ -28238,12 +28288,12 @@ impl ICoreWebView2PrintSettings {
             .ok()
         }
     }
-    pub unsafe fn FooterUri2<P0>(&self, footeruri: P0) -> windows_core::Result<()>
+    pub unsafe fn SetFooterUri<P0>(&self, footeruri: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).FooterUri2)(
+            (windows_core::Interface::vtable(self).SetFooterUri)(
                 windows_core::Interface::as_raw(self),
                 footeruri.param().abi(),
             )
@@ -28259,37 +28309,39 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_ORIENTATION,
     ) -> windows_core::HRESULT,
-    pub Orientation2: unsafe extern "system" fn(
+    pub SetOrientation: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_ORIENTATION,
     ) -> windows_core::HRESULT,
     pub ScaleFactor:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub ScaleFactor2:
+    pub SetScaleFactor:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub PageWidth: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub PageWidth2: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub SetPageWidth:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub PageHeight: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub PageHeight2:
+    pub SetPageHeight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub MarginTop: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub MarginTop2: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
+    pub SetMarginTop:
+        unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub MarginBottom:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub MarginBottom2:
+    pub SetMarginBottom:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub MarginLeft: unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub MarginLeft2:
+    pub SetMarginLeft:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub MarginRight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
-    pub MarginRight2:
+    pub SetMarginRight:
         unsafe extern "system" fn(*mut core::ffi::c_void, f64) -> windows_core::HRESULT,
     pub ShouldPrintBackgrounds: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub ShouldPrintBackgrounds2: unsafe extern "system" fn(
+    pub SetShouldPrintBackgrounds: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -28297,7 +28349,7 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub ShouldPrintSelectionOnly2: unsafe extern "system" fn(
+    pub SetShouldPrintSelectionOnly: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -28305,7 +28357,7 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub ShouldPrintHeaderAndFooter2: unsafe extern "system" fn(
+    pub SetShouldPrintHeaderAndFooter: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -28313,7 +28365,7 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub HeaderTitle2: unsafe extern "system" fn(
+    pub SetHeaderTitle: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -28321,34 +28373,36 @@ pub struct ICoreWebView2PrintSettings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub FooterUri2: unsafe extern "system" fn(
+    pub SetFooterUri: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2PrintSettings_Impl: windows_core::IUnknownImpl {
     fn Orientation(&self, orientation: COREWEBVIEW2_PRINT_ORIENTATION) -> windows_core::Result<()>;
-    fn Orientation2(&self, orientation: COREWEBVIEW2_PRINT_ORIENTATION)
-        -> windows_core::Result<()>;
+    fn SetOrientation(
+        &self,
+        orientation: COREWEBVIEW2_PRINT_ORIENTATION,
+    ) -> windows_core::Result<()>;
     fn ScaleFactor(&self, scalefactor: f64) -> windows_core::Result<()>;
-    fn ScaleFactor2(&self, scalefactor: f64) -> windows_core::Result<()>;
+    fn SetScaleFactor(&self, scalefactor: f64) -> windows_core::Result<()>;
     fn PageWidth(&self, pagewidth: f64) -> windows_core::Result<()>;
-    fn PageWidth2(&self, pagewidth: f64) -> windows_core::Result<()>;
+    fn SetPageWidth(&self, pagewidth: f64) -> windows_core::Result<()>;
     fn PageHeight(&self, pageheight: f64) -> windows_core::Result<()>;
-    fn PageHeight2(&self, pageheight: f64) -> windows_core::Result<()>;
+    fn SetPageHeight(&self, pageheight: f64) -> windows_core::Result<()>;
     fn MarginTop(&self, margintop: f64) -> windows_core::Result<()>;
-    fn MarginTop2(&self, margintop: f64) -> windows_core::Result<()>;
+    fn SetMarginTop(&self, margintop: f64) -> windows_core::Result<()>;
     fn MarginBottom(&self, marginbottom: f64) -> windows_core::Result<()>;
-    fn MarginBottom2(&self, marginbottom: f64) -> windows_core::Result<()>;
+    fn SetMarginBottom(&self, marginbottom: f64) -> windows_core::Result<()>;
     fn MarginLeft(&self, marginleft: f64) -> windows_core::Result<()>;
-    fn MarginLeft2(&self, marginleft: f64) -> windows_core::Result<()>;
+    fn SetMarginLeft(&self, marginleft: f64) -> windows_core::Result<()>;
     fn MarginRight(&self, marginright: f64) -> windows_core::Result<()>;
-    fn MarginRight2(&self, marginright: f64) -> windows_core::Result<()>;
+    fn SetMarginRight(&self, marginright: f64) -> windows_core::Result<()>;
     fn ShouldPrintBackgrounds(
         &self,
         shouldprintbackgrounds: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn ShouldPrintBackgrounds2(
+    fn SetShouldPrintBackgrounds(
         &self,
         shouldprintbackgrounds: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -28356,7 +28410,7 @@ pub trait ICoreWebView2PrintSettings_Impl: windows_core::IUnknownImpl {
         &self,
         shouldprintselectiononly: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn ShouldPrintSelectionOnly2(
+    fn SetShouldPrintSelectionOnly(
         &self,
         shouldprintselectiononly: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -28364,14 +28418,14 @@ pub trait ICoreWebView2PrintSettings_Impl: windows_core::IUnknownImpl {
         &self,
         shouldprintheaderandfooter: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn ShouldPrintHeaderAndFooter2(
+    fn SetShouldPrintHeaderAndFooter(
         &self,
         shouldprintheaderandfooter: windows_core::BOOL,
     ) -> windows_core::Result<()>;
     fn HeaderTitle(&self, headertitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn HeaderTitle2(&self, headertitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetHeaderTitle(&self, headertitle: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn FooterUri(&self, footeruri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn FooterUri2(&self, footeruri: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetFooterUri(&self, footeruri: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PrintSettings_Vtbl {
     pub const fn new<Identity: ICoreWebView2PrintSettings_Impl, const OFFSET: isize>() -> Self {
@@ -28392,7 +28446,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Orientation2<
+        unsafe extern "system" fn SetOrientation<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28402,7 +28456,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::Orientation2(
+                ICoreWebView2PrintSettings_Impl::SetOrientation(
                     this,
                     core::mem::transmute_copy(&orientation),
                 )
@@ -28426,7 +28480,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ScaleFactor2<
+        unsafe extern "system" fn SetScaleFactor<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28436,7 +28490,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::ScaleFactor2(
+                ICoreWebView2PrintSettings_Impl::SetScaleFactor(
                     this,
                     core::mem::transmute_copy(&scalefactor),
                 )
@@ -28460,7 +28514,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PageWidth2<
+        unsafe extern "system" fn SetPageWidth<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28470,7 +28524,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::PageWidth2(
+                ICoreWebView2PrintSettings_Impl::SetPageWidth(
                     this,
                     core::mem::transmute_copy(&pagewidth),
                 )
@@ -28494,7 +28548,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PageHeight2<
+        unsafe extern "system" fn SetPageHeight<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28504,7 +28558,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::PageHeight2(
+                ICoreWebView2PrintSettings_Impl::SetPageHeight(
                     this,
                     core::mem::transmute_copy(&pageheight),
                 )
@@ -28528,7 +28582,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn MarginTop2<
+        unsafe extern "system" fn SetMarginTop<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28538,7 +28592,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::MarginTop2(
+                ICoreWebView2PrintSettings_Impl::SetMarginTop(
                     this,
                     core::mem::transmute_copy(&margintop),
                 )
@@ -28562,7 +28616,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn MarginBottom2<
+        unsafe extern "system" fn SetMarginBottom<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28572,7 +28626,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::MarginBottom2(
+                ICoreWebView2PrintSettings_Impl::SetMarginBottom(
                     this,
                     core::mem::transmute_copy(&marginbottom),
                 )
@@ -28596,7 +28650,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn MarginLeft2<
+        unsafe extern "system" fn SetMarginLeft<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28606,7 +28660,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::MarginLeft2(
+                ICoreWebView2PrintSettings_Impl::SetMarginLeft(
                     this,
                     core::mem::transmute_copy(&marginleft),
                 )
@@ -28630,7 +28684,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn MarginRight2<
+        unsafe extern "system" fn SetMarginRight<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28640,7 +28694,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::MarginRight2(
+                ICoreWebView2PrintSettings_Impl::SetMarginRight(
                     this,
                     core::mem::transmute_copy(&marginright),
                 )
@@ -28664,7 +28718,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ShouldPrintBackgrounds2<
+        unsafe extern "system" fn SetShouldPrintBackgrounds<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28674,7 +28728,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::ShouldPrintBackgrounds2(
+                ICoreWebView2PrintSettings_Impl::SetShouldPrintBackgrounds(
                     this,
                     core::mem::transmute_copy(&shouldprintbackgrounds),
                 )
@@ -28698,7 +28752,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ShouldPrintSelectionOnly2<
+        unsafe extern "system" fn SetShouldPrintSelectionOnly<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28708,7 +28762,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::ShouldPrintSelectionOnly2(
+                ICoreWebView2PrintSettings_Impl::SetShouldPrintSelectionOnly(
                     this,
                     core::mem::transmute_copy(&shouldprintselectiononly),
                 )
@@ -28732,7 +28786,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ShouldPrintHeaderAndFooter2<
+        unsafe extern "system" fn SetShouldPrintHeaderAndFooter<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28742,7 +28796,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::ShouldPrintHeaderAndFooter2(
+                ICoreWebView2PrintSettings_Impl::SetShouldPrintHeaderAndFooter(
                     this,
                     core::mem::transmute_copy(&shouldprintheaderandfooter),
                 )
@@ -28766,7 +28820,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HeaderTitle2<
+        unsafe extern "system" fn SetHeaderTitle<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28776,7 +28830,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::HeaderTitle2(
+                ICoreWebView2PrintSettings_Impl::SetHeaderTitle(
                     this,
                     core::mem::transmute(&headertitle),
                 )
@@ -28797,7 +28851,7 @@ impl ICoreWebView2PrintSettings_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn FooterUri2<
+        unsafe extern "system" fn SetFooterUri<
             Identity: ICoreWebView2PrintSettings_Impl,
             const OFFSET: isize,
         >(
@@ -28807,38 +28861,41 @@ impl ICoreWebView2PrintSettings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings_Impl::FooterUri2(this, core::mem::transmute(&footeruri))
-                    .into()
+                ICoreWebView2PrintSettings_Impl::SetFooterUri(
+                    this,
+                    core::mem::transmute(&footeruri),
+                )
+                .into()
             }
         }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Orientation: Orientation::<Identity, OFFSET>,
-            Orientation2: Orientation2::<Identity, OFFSET>,
+            SetOrientation: SetOrientation::<Identity, OFFSET>,
             ScaleFactor: ScaleFactor::<Identity, OFFSET>,
-            ScaleFactor2: ScaleFactor2::<Identity, OFFSET>,
+            SetScaleFactor: SetScaleFactor::<Identity, OFFSET>,
             PageWidth: PageWidth::<Identity, OFFSET>,
-            PageWidth2: PageWidth2::<Identity, OFFSET>,
+            SetPageWidth: SetPageWidth::<Identity, OFFSET>,
             PageHeight: PageHeight::<Identity, OFFSET>,
-            PageHeight2: PageHeight2::<Identity, OFFSET>,
+            SetPageHeight: SetPageHeight::<Identity, OFFSET>,
             MarginTop: MarginTop::<Identity, OFFSET>,
-            MarginTop2: MarginTop2::<Identity, OFFSET>,
+            SetMarginTop: SetMarginTop::<Identity, OFFSET>,
             MarginBottom: MarginBottom::<Identity, OFFSET>,
-            MarginBottom2: MarginBottom2::<Identity, OFFSET>,
+            SetMarginBottom: SetMarginBottom::<Identity, OFFSET>,
             MarginLeft: MarginLeft::<Identity, OFFSET>,
-            MarginLeft2: MarginLeft2::<Identity, OFFSET>,
+            SetMarginLeft: SetMarginLeft::<Identity, OFFSET>,
             MarginRight: MarginRight::<Identity, OFFSET>,
-            MarginRight2: MarginRight2::<Identity, OFFSET>,
+            SetMarginRight: SetMarginRight::<Identity, OFFSET>,
             ShouldPrintBackgrounds: ShouldPrintBackgrounds::<Identity, OFFSET>,
-            ShouldPrintBackgrounds2: ShouldPrintBackgrounds2::<Identity, OFFSET>,
+            SetShouldPrintBackgrounds: SetShouldPrintBackgrounds::<Identity, OFFSET>,
             ShouldPrintSelectionOnly: ShouldPrintSelectionOnly::<Identity, OFFSET>,
-            ShouldPrintSelectionOnly2: ShouldPrintSelectionOnly2::<Identity, OFFSET>,
+            SetShouldPrintSelectionOnly: SetShouldPrintSelectionOnly::<Identity, OFFSET>,
             ShouldPrintHeaderAndFooter: ShouldPrintHeaderAndFooter::<Identity, OFFSET>,
-            ShouldPrintHeaderAndFooter2: ShouldPrintHeaderAndFooter2::<Identity, OFFSET>,
+            SetShouldPrintHeaderAndFooter: SetShouldPrintHeaderAndFooter::<Identity, OFFSET>,
             HeaderTitle: HeaderTitle::<Identity, OFFSET>,
-            HeaderTitle2: HeaderTitle2::<Identity, OFFSET>,
+            SetHeaderTitle: SetHeaderTitle::<Identity, OFFSET>,
             FooterUri: FooterUri::<Identity, OFFSET>,
-            FooterUri2: FooterUri2::<Identity, OFFSET>,
+            SetFooterUri: SetFooterUri::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -28875,12 +28932,12 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn PageRanges2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPageRanges<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).PageRanges2)(
+            (windows_core::Interface::vtable(self).SetPageRanges)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -28896,9 +28953,9 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn PagesPerSide2(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPagesPerSide(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PagesPerSide2)(
+            (windows_core::Interface::vtable(self).SetPagesPerSide)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -28914,9 +28971,9 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn Copies2(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetCopies(&self, value: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Copies2)(
+            (windows_core::Interface::vtable(self).SetCopies)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -28935,12 +28992,12 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn Collation2(
+    pub unsafe fn SetCollation(
         &self,
         value: COREWEBVIEW2_PRINT_COLLATION,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Collation2)(
+            (windows_core::Interface::vtable(self).SetCollation)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -28959,12 +29016,12 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn ColorMode2(
+    pub unsafe fn SetColorMode(
         &self,
         value: COREWEBVIEW2_PRINT_COLOR_MODE,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).ColorMode2)(
+            (windows_core::Interface::vtable(self).SetColorMode)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -28980,9 +29037,9 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn Duplex2(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> windows_core::Result<()> {
+    pub unsafe fn SetDuplex(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Duplex2)(
+            (windows_core::Interface::vtable(self).SetDuplex)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -29001,12 +29058,12 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn MediaSize2(
+    pub unsafe fn SetMediaSize(
         &self,
         value: COREWEBVIEW2_PRINT_MEDIA_SIZE,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MediaSize2)(
+            (windows_core::Interface::vtable(self).SetMediaSize)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -29025,12 +29082,12 @@ impl ICoreWebView2PrintSettings2 {
             .ok()
         }
     }
-    pub unsafe fn PrinterName2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPrinterName<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).PrinterName2)(
+            (windows_core::Interface::vtable(self).SetPrinterName)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -29046,21 +29103,21 @@ pub struct ICoreWebView2PrintSettings2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub PageRanges2: unsafe extern "system" fn(
+    pub SetPageRanges: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
     pub PagesPerSide:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub PagesPerSide2:
+    pub SetPagesPerSide:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Copies: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub Copies2: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
+    pub SetCopies: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub Collation: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_COLLATION,
     ) -> windows_core::HRESULT,
-    pub Collation2: unsafe extern "system" fn(
+    pub SetCollation: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_COLLATION,
     ) -> windows_core::HRESULT,
@@ -29068,7 +29125,7 @@ pub struct ICoreWebView2PrintSettings2_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_COLOR_MODE,
     ) -> windows_core::HRESULT,
-    pub ColorMode2: unsafe extern "system" fn(
+    pub SetColorMode: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_COLOR_MODE,
     ) -> windows_core::HRESULT,
@@ -29076,7 +29133,7 @@ pub struct ICoreWebView2PrintSettings2_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_DUPLEX,
     ) -> windows_core::HRESULT,
-    pub Duplex2: unsafe extern "system" fn(
+    pub SetDuplex: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_DUPLEX,
     ) -> windows_core::HRESULT,
@@ -29084,7 +29141,7 @@ pub struct ICoreWebView2PrintSettings2_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_MEDIA_SIZE,
     ) -> windows_core::HRESULT,
-    pub MediaSize2: unsafe extern "system" fn(
+    pub SetMediaSize: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PRINT_MEDIA_SIZE,
     ) -> windows_core::HRESULT,
@@ -29092,28 +29149,28 @@ pub struct ICoreWebView2PrintSettings2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub PrinterName2: unsafe extern "system" fn(
+    pub SetPrinterName: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2PrintSettings2_Impl: ICoreWebView2PrintSettings_Impl {
     fn PageRanges(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PageRanges2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetPageRanges(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn PagesPerSide(&self, value: i32) -> windows_core::Result<()>;
-    fn PagesPerSide2(&self, value: i32) -> windows_core::Result<()>;
+    fn SetPagesPerSide(&self, value: i32) -> windows_core::Result<()>;
     fn Copies(&self, value: i32) -> windows_core::Result<()>;
-    fn Copies2(&self, value: i32) -> windows_core::Result<()>;
+    fn SetCopies(&self, value: i32) -> windows_core::Result<()>;
     fn Collation(&self, value: COREWEBVIEW2_PRINT_COLLATION) -> windows_core::Result<()>;
-    fn Collation2(&self, value: COREWEBVIEW2_PRINT_COLLATION) -> windows_core::Result<()>;
+    fn SetCollation(&self, value: COREWEBVIEW2_PRINT_COLLATION) -> windows_core::Result<()>;
     fn ColorMode(&self, value: COREWEBVIEW2_PRINT_COLOR_MODE) -> windows_core::Result<()>;
-    fn ColorMode2(&self, value: COREWEBVIEW2_PRINT_COLOR_MODE) -> windows_core::Result<()>;
+    fn SetColorMode(&self, value: COREWEBVIEW2_PRINT_COLOR_MODE) -> windows_core::Result<()>;
     fn Duplex(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> windows_core::Result<()>;
-    fn Duplex2(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> windows_core::Result<()>;
+    fn SetDuplex(&self, value: COREWEBVIEW2_PRINT_DUPLEX) -> windows_core::Result<()>;
     fn MediaSize(&self, value: COREWEBVIEW2_PRINT_MEDIA_SIZE) -> windows_core::Result<()>;
-    fn MediaSize2(&self, value: COREWEBVIEW2_PRINT_MEDIA_SIZE) -> windows_core::Result<()>;
+    fn SetMediaSize(&self, value: COREWEBVIEW2_PRINT_MEDIA_SIZE) -> windows_core::Result<()>;
     fn PrinterName(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn PrinterName2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetPrinterName(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2PrintSettings2_Vtbl {
     pub const fn new<Identity: ICoreWebView2PrintSettings2_Impl, const OFFSET: isize>() -> Self {
@@ -29131,7 +29188,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PageRanges2<
+        unsafe extern "system" fn SetPageRanges<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29141,7 +29198,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::PageRanges2(this, core::mem::transmute(&value))
+                ICoreWebView2PrintSettings2_Impl::SetPageRanges(this, core::mem::transmute(&value))
                     .into()
             }
         }
@@ -29162,7 +29219,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PagesPerSide2<
+        unsafe extern "system" fn SetPagesPerSide<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29172,7 +29229,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::PagesPerSide2(
+                ICoreWebView2PrintSettings2_Impl::SetPagesPerSide(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -29193,7 +29250,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn Copies2<
+        unsafe extern "system" fn SetCopies<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29203,7 +29260,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::Copies2(this, core::mem::transmute_copy(&value))
+                ICoreWebView2PrintSettings2_Impl::SetCopies(this, core::mem::transmute_copy(&value))
                     .into()
             }
         }
@@ -29221,7 +29278,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn Collation2<
+        unsafe extern "system" fn SetCollation<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29231,7 +29288,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::Collation2(
+                ICoreWebView2PrintSettings2_Impl::SetCollation(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -29252,7 +29309,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn ColorMode2<
+        unsafe extern "system" fn SetColorMode<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29262,7 +29319,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::ColorMode2(
+                ICoreWebView2PrintSettings2_Impl::SetColorMode(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -29283,7 +29340,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn Duplex2<
+        unsafe extern "system" fn SetDuplex<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29293,7 +29350,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::Duplex2(this, core::mem::transmute_copy(&value))
+                ICoreWebView2PrintSettings2_Impl::SetDuplex(this, core::mem::transmute_copy(&value))
                     .into()
             }
         }
@@ -29311,7 +29368,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn MediaSize2<
+        unsafe extern "system" fn SetMediaSize<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29321,7 +29378,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::MediaSize2(
+                ICoreWebView2PrintSettings2_Impl::SetMediaSize(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -29342,7 +29399,7 @@ impl ICoreWebView2PrintSettings2_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn PrinterName2<
+        unsafe extern "system" fn SetPrinterName<
             Identity: ICoreWebView2PrintSettings2_Impl,
             const OFFSET: isize,
         >(
@@ -29352,28 +29409,28 @@ impl ICoreWebView2PrintSettings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2PrintSettings2_Impl::PrinterName2(this, core::mem::transmute(&value))
+                ICoreWebView2PrintSettings2_Impl::SetPrinterName(this, core::mem::transmute(&value))
                     .into()
             }
         }
         Self {
             base__: ICoreWebView2PrintSettings_Vtbl::new::<Identity, OFFSET>(),
             PageRanges: PageRanges::<Identity, OFFSET>,
-            PageRanges2: PageRanges2::<Identity, OFFSET>,
+            SetPageRanges: SetPageRanges::<Identity, OFFSET>,
             PagesPerSide: PagesPerSide::<Identity, OFFSET>,
-            PagesPerSide2: PagesPerSide2::<Identity, OFFSET>,
+            SetPagesPerSide: SetPagesPerSide::<Identity, OFFSET>,
             Copies: Copies::<Identity, OFFSET>,
-            Copies2: Copies2::<Identity, OFFSET>,
+            SetCopies: SetCopies::<Identity, OFFSET>,
             Collation: Collation::<Identity, OFFSET>,
-            Collation2: Collation2::<Identity, OFFSET>,
+            SetCollation: SetCollation::<Identity, OFFSET>,
             ColorMode: ColorMode::<Identity, OFFSET>,
-            ColorMode2: ColorMode2::<Identity, OFFSET>,
+            SetColorMode: SetColorMode::<Identity, OFFSET>,
             Duplex: Duplex::<Identity, OFFSET>,
-            Duplex2: Duplex2::<Identity, OFFSET>,
+            SetDuplex: SetDuplex::<Identity, OFFSET>,
             MediaSize: MediaSize::<Identity, OFFSET>,
-            MediaSize2: MediaSize2::<Identity, OFFSET>,
+            SetMediaSize: SetMediaSize::<Identity, OFFSET>,
             PrinterName: PrinterName::<Identity, OFFSET>,
-            PrinterName2: PrinterName2::<Identity, OFFSET>,
+            SetPrinterName: SetPrinterName::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -30562,12 +30619,12 @@ impl ICoreWebView2Profile {
             .ok()
         }
     }
-    pub unsafe fn DefaultDownloadFolderPath2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDefaultDownloadFolderPath<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).DefaultDownloadFolderPath2)(
+            (windows_core::Interface::vtable(self).SetDefaultDownloadFolderPath)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -30586,12 +30643,12 @@ impl ICoreWebView2Profile {
             .ok()
         }
     }
-    pub unsafe fn PreferredColorScheme2(
+    pub unsafe fn SetPreferredColorScheme(
         &self,
         value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PreferredColorScheme2)(
+            (windows_core::Interface::vtable(self).SetPreferredColorScheme)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -30619,7 +30676,7 @@ pub struct ICoreWebView2Profile_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub DefaultDownloadFolderPath2: unsafe extern "system" fn(
+    pub SetDefaultDownloadFolderPath: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -30627,7 +30684,7 @@ pub struct ICoreWebView2Profile_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
     ) -> windows_core::HRESULT,
-    pub PreferredColorScheme2: unsafe extern "system" fn(
+    pub SetPreferredColorScheme: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
     ) -> windows_core::HRESULT,
@@ -30637,12 +30694,15 @@ pub trait ICoreWebView2Profile_Impl: windows_core::IUnknownImpl {
     fn IsInPrivateModeEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn ProfilePath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn DefaultDownloadFolderPath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn DefaultDownloadFolderPath2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetDefaultDownloadFolderPath(
+        &self,
+        value: &windows_core::PCWSTR,
+    ) -> windows_core::Result<()>;
     fn PreferredColorScheme(
         &self,
         value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
     ) -> windows_core::Result<()>;
-    fn PreferredColorScheme2(
+    fn SetPreferredColorScheme(
         &self,
         value: COREWEBVIEW2_PREFERRED_COLOR_SCHEME,
     ) -> windows_core::Result<()>;
@@ -30709,7 +30769,7 @@ impl ICoreWebView2Profile_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn DefaultDownloadFolderPath2<
+        unsafe extern "system" fn SetDefaultDownloadFolderPath<
             Identity: ICoreWebView2Profile_Impl,
             const OFFSET: isize,
         >(
@@ -30719,7 +30779,7 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Profile_Impl::DefaultDownloadFolderPath2(
+                ICoreWebView2Profile_Impl::SetDefaultDownloadFolderPath(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -30743,7 +30803,7 @@ impl ICoreWebView2Profile_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PreferredColorScheme2<
+        unsafe extern "system" fn SetPreferredColorScheme<
             Identity: ICoreWebView2Profile_Impl,
             const OFFSET: isize,
         >(
@@ -30753,7 +30813,7 @@ impl ICoreWebView2Profile_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Profile_Impl::PreferredColorScheme2(
+                ICoreWebView2Profile_Impl::SetPreferredColorScheme(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -30766,9 +30826,9 @@ impl ICoreWebView2Profile_Vtbl {
             IsInPrivateModeEnabled: IsInPrivateModeEnabled::<Identity, OFFSET>,
             ProfilePath: ProfilePath::<Identity, OFFSET>,
             DefaultDownloadFolderPath: DefaultDownloadFolderPath::<Identity, OFFSET>,
-            DefaultDownloadFolderPath2: DefaultDownloadFolderPath2::<Identity, OFFSET>,
+            SetDefaultDownloadFolderPath: SetDefaultDownloadFolderPath::<Identity, OFFSET>,
             PreferredColorScheme: PreferredColorScheme::<Identity, OFFSET>,
-            PreferredColorScheme2: PreferredColorScheme2::<Identity, OFFSET>,
+            SetPreferredColorScheme: SetPreferredColorScheme::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -30987,12 +31047,12 @@ impl ICoreWebView2Profile3 {
             .ok()
         }
     }
-    pub unsafe fn PreferredTrackingPreventionLevel2(
+    pub unsafe fn SetPreferredTrackingPreventionLevel(
         &self,
         value: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).PreferredTrackingPreventionLevel2)(
+            (windows_core::Interface::vtable(self).SetPreferredTrackingPreventionLevel)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -31008,17 +31068,18 @@ pub struct ICoreWebView2Profile3_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_TRACKING_PREVENTION_LEVEL,
     ) -> windows_core::HRESULT,
-    pub PreferredTrackingPreventionLevel2: unsafe extern "system" fn(
+    pub SetPreferredTrackingPreventionLevel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_TRACKING_PREVENTION_LEVEL,
-    ) -> windows_core::HRESULT,
+    )
+        -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Profile3_Impl: ICoreWebView2Profile2_Impl {
     fn PreferredTrackingPreventionLevel(
         &self,
         value: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL,
     ) -> windows_core::Result<()>;
-    fn PreferredTrackingPreventionLevel2(
+    fn SetPreferredTrackingPreventionLevel(
         &self,
         value: COREWEBVIEW2_TRACKING_PREVENTION_LEVEL,
     ) -> windows_core::Result<()>;
@@ -31042,7 +31103,7 @@ impl ICoreWebView2Profile3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn PreferredTrackingPreventionLevel2<
+        unsafe extern "system" fn SetPreferredTrackingPreventionLevel<
             Identity: ICoreWebView2Profile3_Impl,
             const OFFSET: isize,
         >(
@@ -31052,7 +31113,7 @@ impl ICoreWebView2Profile3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Profile3_Impl::PreferredTrackingPreventionLevel2(
+                ICoreWebView2Profile3_Impl::SetPreferredTrackingPreventionLevel(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -31062,7 +31123,10 @@ impl ICoreWebView2Profile3_Vtbl {
         Self {
             base__: ICoreWebView2Profile2_Vtbl::new::<Identity, OFFSET>(),
             PreferredTrackingPreventionLevel: PreferredTrackingPreventionLevel::<Identity, OFFSET>,
-            PreferredTrackingPreventionLevel2: PreferredTrackingPreventionLevel2::<Identity, OFFSET>,
+            SetPreferredTrackingPreventionLevel: SetPreferredTrackingPreventionLevel::<
+                Identity,
+                OFFSET,
+            >,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -31322,9 +31386,9 @@ impl ICoreWebView2Profile6 {
             .ok()
         }
     }
-    pub unsafe fn IsPasswordAutosaveEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsPasswordAutosaveEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsPasswordAutosaveEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsPasswordAutosaveEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -31340,9 +31404,9 @@ impl ICoreWebView2Profile6 {
             .ok()
         }
     }
-    pub unsafe fn IsGeneralAutofillEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsGeneralAutofillEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsGeneralAutofillEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsGeneralAutofillEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -31358,7 +31422,7 @@ pub struct ICoreWebView2Profile6_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsPasswordAutosaveEnabled2: unsafe extern "system" fn(
+    pub SetIsPasswordAutosaveEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -31366,16 +31430,16 @@ pub struct ICoreWebView2Profile6_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsGeneralAutofillEnabled2: unsafe extern "system" fn(
+    pub SetIsGeneralAutofillEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Profile6_Impl: ICoreWebView2Profile5_Impl {
     fn IsPasswordAutosaveEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsPasswordAutosaveEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsPasswordAutosaveEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsGeneralAutofillEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsGeneralAutofillEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsGeneralAutofillEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Profile6_Vtbl {
     pub const fn new<Identity: ICoreWebView2Profile6_Impl, const OFFSET: isize>() -> Self {
@@ -31396,7 +31460,7 @@ impl ICoreWebView2Profile6_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsPasswordAutosaveEnabled2<
+        unsafe extern "system" fn SetIsPasswordAutosaveEnabled<
             Identity: ICoreWebView2Profile6_Impl,
             const OFFSET: isize,
         >(
@@ -31406,7 +31470,7 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Profile6_Impl::IsPasswordAutosaveEnabled2(
+                ICoreWebView2Profile6_Impl::SetIsPasswordAutosaveEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -31430,7 +31494,7 @@ impl ICoreWebView2Profile6_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsGeneralAutofillEnabled2<
+        unsafe extern "system" fn SetIsGeneralAutofillEnabled<
             Identity: ICoreWebView2Profile6_Impl,
             const OFFSET: isize,
         >(
@@ -31440,7 +31504,7 @@ impl ICoreWebView2Profile6_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Profile6_Impl::IsGeneralAutofillEnabled2(
+                ICoreWebView2Profile6_Impl::SetIsGeneralAutofillEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -31450,9 +31514,9 @@ impl ICoreWebView2Profile6_Vtbl {
         Self {
             base__: ICoreWebView2Profile5_Vtbl::new::<Identity, OFFSET>(),
             IsPasswordAutosaveEnabled: IsPasswordAutosaveEnabled::<Identity, OFFSET>,
-            IsPasswordAutosaveEnabled2: IsPasswordAutosaveEnabled2::<Identity, OFFSET>,
+            SetIsPasswordAutosaveEnabled: SetIsPasswordAutosaveEnabled::<Identity, OFFSET>,
             IsGeneralAutofillEnabled: IsGeneralAutofillEnabled::<Identity, OFFSET>,
-            IsGeneralAutofillEnabled2: IsGeneralAutofillEnabled2::<Identity, OFFSET>,
+            SetIsGeneralAutofillEnabled: SetIsGeneralAutofillEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -32272,6 +32336,15 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
             .ok()
         }
     }
+    pub unsafe fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetCancel)(
+                windows_core::Interface::as_raw(self),
+                value.into(),
+            )
+            .ok()
+        }
+    }
     pub unsafe fn Cancel(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Cancel)(
@@ -32281,9 +32354,9 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSuppressDefaultDialog(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetSuppressDefaultDialog)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -32293,15 +32366,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
     pub unsafe fn SuppressDefaultDialog(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).SuppressDefaultDialog)(
-                windows_core::Interface::as_raw(self),
-                value.into(),
-            )
-            .ok()
-        }
-    }
-    pub unsafe fn SuppressDefaultDialog2(&self, value: bool) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).SuppressDefaultDialog2)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -32320,6 +32384,18 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
             .ok()
         }
     }
+    pub unsafe fn SetSaveAsFilePath<P0>(&self, value: P0) -> windows_core::Result<()>
+    where
+        P0: windows_core::Param<windows_core::PCWSTR>,
+    {
+        unsafe {
+            (windows_core::Interface::vtable(self).SetSaveAsFilePath)(
+                windows_core::Interface::as_raw(self),
+                value.param().abi(),
+            )
+            .ok()
+        }
+    }
     pub unsafe fn SaveAsFilePath<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
@@ -32332,14 +32408,11 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn SaveAsFilePath2<P0>(&self, value: P0) -> windows_core::Result<()>
-    where
-        P0: windows_core::Param<windows_core::PCWSTR>,
-    {
+    pub unsafe fn SetAllowReplace(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).SaveAsFilePath2)(
+            (windows_core::Interface::vtable(self).SetAllowReplace)(
                 windows_core::Interface::as_raw(self),
-                value.param().abi(),
+                value.into(),
             )
             .ok()
         }
@@ -32353,11 +32426,11 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn AllowReplace2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetKind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AllowReplace2)(
+            (windows_core::Interface::vtable(self).SetKind)(
                 windows_core::Interface::as_raw(self),
-                value.into(),
+                value,
             )
             .ok()
         }
@@ -32365,15 +32438,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs {
     pub unsafe fn Kind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).Kind)(
-                windows_core::Interface::as_raw(self),
-                value,
-            )
-            .ok()
-        }
-    }
-    pub unsafe fn Kind2(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()> {
-        unsafe {
-            (windows_core::Interface::vtable(self).Kind2)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -32389,11 +32453,15 @@ pub struct ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
+    pub SetCancel: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::BOOL,
+    ) -> windows_core::HRESULT,
     pub Cancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetSuppressDefaultDialog: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -32401,55 +32469,51 @@ pub struct ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub SuppressDefaultDialog2: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::BOOL,
-    ) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
+    ) -> windows_core::HRESULT,
+    pub SetSaveAsFilePath: unsafe extern "system" fn(
+        *mut core::ffi::c_void,
+        windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
     pub SaveAsFilePath: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub SaveAsFilePath2: unsafe extern "system" fn(
+    pub SetAllowReplace: unsafe extern "system" fn(
         *mut core::ffi::c_void,
-        windows_core::PCWSTR,
+        windows_core::BOOL,
     ) -> windows_core::HRESULT,
     pub AllowReplace: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AllowReplace2: unsafe extern "system" fn(
-        *mut core::ffi::c_void,
-        windows_core::BOOL,
-    ) -> windows_core::HRESULT,
-    pub Kind: unsafe extern "system" fn(
+    pub SetKind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_SAVE_AS_KIND,
     ) -> windows_core::HRESULT,
-    pub Kind2: unsafe extern "system" fn(
+    pub Kind: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_SAVE_AS_KIND,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2SaveAsUIShowingEventArgs_Impl: windows_core::IUnknownImpl {
     fn ContentMimeType(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetCancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Cancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSuppressDefaultDialog(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn SuppressDefaultDialog(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SuppressDefaultDialog2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         value: windows_core::Ref<ICoreWebView2Deferral>,
     ) -> windows_core::Result<()>;
+    fn SetSaveAsFilePath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SaveAsFilePath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn SaveAsFilePath2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetAllowReplace(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn AllowReplace(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AllowReplace2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetKind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()>;
     fn Kind(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()>;
-    fn Kind2(&self, value: COREWEBVIEW2_SAVE_AS_KIND) -> windows_core::Result<()>;
 }
 impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
     pub const fn new<Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl, const OFFSET: isize>(
@@ -32471,6 +32535,23 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
+        unsafe extern "system" fn SetCancel<
+            Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::BOOL,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetCancel(
+                    this,
+                    core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
         unsafe extern "system" fn Cancel<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
@@ -32488,7 +32569,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetSuppressDefaultDialog<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -32498,7 +32579,7 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveAsUIShowingEventArgs_Impl::Cancel2(
+                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSuppressDefaultDialog(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -32522,23 +32603,6 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SuppressDefaultDialog2<
-            Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            value: windows_core::BOOL,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SuppressDefaultDialog2(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
-            }
-        }
         unsafe extern "system" fn GetDeferral<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
@@ -32552,6 +32616,23 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 ICoreWebView2SaveAsUIShowingEventArgs_Impl::GetDeferral(
                     this,
                     core::mem::transmute_copy(&value),
+                )
+                .into()
+            }
+        }
+        unsafe extern "system" fn SetSaveAsFilePath<
+            Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
+            const OFFSET: isize,
+        >(
+            this: *mut core::ffi::c_void,
+            value: windows_core::PCWSTR,
+        ) -> windows_core::HRESULT {
+            unsafe {
+                let this: &Identity =
+                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
+                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetSaveAsFilePath(
+                    this,
+                    core::mem::transmute(&value),
                 )
                 .into()
             }
@@ -32573,19 +32654,19 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SaveAsFilePath2<
+        unsafe extern "system" fn SetAllowReplace<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::PCWSTR,
+            value: windows_core::BOOL,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SaveAsFilePath2(
+                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetAllowReplace(
                     this,
-                    core::mem::transmute(&value),
+                    core::mem::transmute_copy(&value),
                 )
                 .into()
             }
@@ -32607,17 +32688,17 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AllowReplace2<
+        unsafe extern "system" fn SetKind<
             Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
             const OFFSET: isize,
         >(
             this: *mut core::ffi::c_void,
-            value: windows_core::BOOL,
+            value: COREWEBVIEW2_SAVE_AS_KIND,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveAsUIShowingEventArgs_Impl::AllowReplace2(
+                ICoreWebView2SaveAsUIShowingEventArgs_Impl::SetKind(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -32641,37 +32722,20 @@ impl ICoreWebView2SaveAsUIShowingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Kind2<
-            Identity: ICoreWebView2SaveAsUIShowingEventArgs_Impl,
-            const OFFSET: isize,
-        >(
-            this: *mut core::ffi::c_void,
-            value: COREWEBVIEW2_SAVE_AS_KIND,
-        ) -> windows_core::HRESULT {
-            unsafe {
-                let this: &Identity =
-                    &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveAsUIShowingEventArgs_Impl::Kind2(
-                    this,
-                    core::mem::transmute_copy(&value),
-                )
-                .into()
-            }
-        }
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             ContentMimeType: ContentMimeType::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetSuppressDefaultDialog: SetSuppressDefaultDialog::<Identity, OFFSET>,
             SuppressDefaultDialog: SuppressDefaultDialog::<Identity, OFFSET>,
-            SuppressDefaultDialog2: SuppressDefaultDialog2::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
+            SetSaveAsFilePath: SetSaveAsFilePath::<Identity, OFFSET>,
             SaveAsFilePath: SaveAsFilePath::<Identity, OFFSET>,
-            SaveAsFilePath2: SaveAsFilePath2::<Identity, OFFSET>,
+            SetAllowReplace: SetAllowReplace::<Identity, OFFSET>,
             AllowReplace: AllowReplace::<Identity, OFFSET>,
-            AllowReplace2: AllowReplace2::<Identity, OFFSET>,
+            SetKind: SetKind::<Identity, OFFSET>,
             Kind: Kind::<Identity, OFFSET>,
-            Kind2: Kind2::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -32774,9 +32838,9 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn CancelSave2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancelSave(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).CancelSave2)(
+            (windows_core::Interface::vtable(self).SetCancelSave)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -32828,9 +32892,9 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn SuppressDefaultPolicy2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetSuppressDefaultPolicy(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).SuppressDefaultPolicy2)(
+            (windows_core::Interface::vtable(self).SetSuppressDefaultPolicy)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -32858,7 +32922,7 @@ pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub CancelSave2: unsafe extern "system" fn(
+    pub SetCancelSave: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -32878,7 +32942,7 @@ pub struct ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub SuppressDefaultPolicy2: unsafe extern "system" fn(
+    pub SetSuppressDefaultPolicy: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -32891,12 +32955,12 @@ pub trait ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl:
     windows_core::IUnknownImpl
 {
     fn CancelSave(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CancelSave2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancelSave(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn DocumentOriginUri(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn FileExtension(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn FilePath(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn SuppressDefaultPolicy(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SuppressDefaultPolicy2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetSuppressDefaultPolicy(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         value: windows_core::Ref<ICoreWebView2Deferral>,
@@ -32924,7 +32988,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn CancelSave2<
+        unsafe extern "system" fn SetCancelSave<
             Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -32934,7 +32998,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::CancelSave2(
+                ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SetCancelSave(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -33009,7 +33073,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn SuppressDefaultPolicy2<
+        unsafe extern "system" fn SetSuppressDefaultPolicy<
             Identity: ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -33019,7 +33083,7 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SuppressDefaultPolicy2(
+                ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Impl::SetSuppressDefaultPolicy(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -33046,12 +33110,12 @@ impl ICoreWebView2SaveFileSecurityCheckStartingEventArgs_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             CancelSave: CancelSave::<Identity, OFFSET>,
-            CancelSave2: CancelSave2::<Identity, OFFSET>,
+            SetCancelSave: SetCancelSave::<Identity, OFFSET>,
             DocumentOriginUri: DocumentOriginUri::<Identity, OFFSET>,
             FileExtension: FileExtension::<Identity, OFFSET>,
             FilePath: FilePath::<Identity, OFFSET>,
             SuppressDefaultPolicy: SuppressDefaultPolicy::<Identity, OFFSET>,
-            SuppressDefaultPolicy2: SuppressDefaultPolicy2::<Identity, OFFSET>,
+            SetSuppressDefaultPolicy: SetSuppressDefaultPolicy::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -33157,9 +33221,9 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Cancel2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Cancel2)(
+            (windows_core::Interface::vtable(self).SetCancel)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -33175,9 +33239,9 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Handled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Handled2)(
+            (windows_core::Interface::vtable(self).SetHandled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -33217,7 +33281,7 @@ pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Cancel2: unsafe extern "system" fn(
+    pub SetCancel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -33225,7 +33289,7 @@ pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub Handled2: unsafe extern "system" fn(
+    pub SetHandled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -33240,9 +33304,9 @@ pub struct ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
 }
 pub trait ICoreWebView2ScreenCaptureStartingEventArgs_Impl: windows_core::IUnknownImpl {
     fn Cancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Cancel2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetCancel(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn Handled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn Handled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetHandled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn OriginalSourceFrameInfo(
         &self,
         value: windows_core::Ref<ICoreWebView2FrameInfo>,
@@ -33274,7 +33338,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Cancel2<
+        unsafe extern "system" fn SetCancel<
             Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -33284,7 +33348,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Cancel2(
+                ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetCancel(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -33308,7 +33372,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Handled2<
+        unsafe extern "system" fn SetHandled<
             Identity: ICoreWebView2ScreenCaptureStartingEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -33318,7 +33382,7 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ScreenCaptureStartingEventArgs_Impl::Handled2(
+                ICoreWebView2ScreenCaptureStartingEventArgs_Impl::SetHandled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -33362,9 +33426,9 @@ impl ICoreWebView2ScreenCaptureStartingEventArgs_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Cancel: Cancel::<Identity, OFFSET>,
-            Cancel2: Cancel2::<Identity, OFFSET>,
+            SetCancel: SetCancel::<Identity, OFFSET>,
             Handled: Handled::<Identity, OFFSET>,
-            Handled2: Handled2::<Identity, OFFSET>,
+            SetHandled: SetHandled::<Identity, OFFSET>,
             OriginalSourceFrameInfo: OriginalSourceFrameInfo::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
@@ -33523,12 +33587,12 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs {
             .ok()
         }
     }
-    pub unsafe fn ResultText2<P0>(&self, resulttext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetResultText<P0>(&self, resulttext: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ResultText2)(
+            (windows_core::Interface::vtable(self).SetResultText)(
                 windows_core::Interface::as_raw(self),
                 resulttext.param().abi(),
             )
@@ -33573,7 +33637,7 @@ pub struct ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub ResultText2: unsafe extern "system" fn(
+    pub SetResultText: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -33589,7 +33653,7 @@ pub trait ICoreWebView2ScriptDialogOpeningEventArgs_Impl: windows_core::IUnknown
     fn Accept(&self) -> windows_core::Result<()>;
     fn DefaultText(&self, defaulttext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn ResultText(&self, resulttext: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ResultText2(&self, resulttext: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetResultText(&self, resulttext: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn GetDeferral(
         &self,
         deferral: windows_core::Ref<ICoreWebView2Deferral>,
@@ -33697,7 +33761,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ResultText2<
+        unsafe extern "system" fn SetResultText<
             Identity: ICoreWebView2ScriptDialogOpeningEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -33707,7 +33771,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ScriptDialogOpeningEventArgs_Impl::ResultText2(
+                ICoreWebView2ScriptDialogOpeningEventArgs_Impl::SetResultText(
                     this,
                     core::mem::transmute(&resulttext),
                 )
@@ -33739,7 +33803,7 @@ impl ICoreWebView2ScriptDialogOpeningEventArgs_Vtbl {
             Accept: Accept::<Identity, OFFSET>,
             DefaultText: DefaultText::<Identity, OFFSET>,
             ResultText: ResultText::<Identity, OFFSET>,
-            ResultText2: ResultText2::<Identity, OFFSET>,
+            SetResultText: SetResultText::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -34061,12 +34125,12 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Action2(
+    pub unsafe fn SetAction(
         &self,
         value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).Action2)(
+            (windows_core::Interface::vtable(self).SetAction)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -34106,7 +34170,7 @@ pub struct ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
     ) -> windows_core::HRESULT,
-    pub Action2: unsafe extern "system" fn(
+    pub SetAction: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
     ) -> windows_core::HRESULT,
@@ -34128,7 +34192,7 @@ pub trait ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl:
         &self,
         value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
     ) -> windows_core::Result<()>;
-    fn Action2(
+    fn SetAction(
         &self,
         value: COREWEBVIEW2_SERVER_CERTIFICATE_ERROR_ACTION,
     ) -> windows_core::Result<()>;
@@ -34210,7 +34274,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Action2<
+        unsafe extern "system" fn SetAction<
             Identity: ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -34220,7 +34284,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::Action2(
+                ICoreWebView2ServerCertificateErrorDetectedEventArgs_Impl::SetAction(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -34250,7 +34314,7 @@ impl ICoreWebView2ServerCertificateErrorDetectedEventArgs_Vtbl {
             RequestUri: RequestUri::<Identity, OFFSET>,
             ServerCertificate: ServerCertificate::<Identity, OFFSET>,
             Action: Action::<Identity, OFFSET>,
-            Action2: Action2::<Identity, OFFSET>,
+            SetAction: SetAction::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
         }
     }
@@ -34472,9 +34536,9 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn IsScriptEnabled2(&self, isscriptenabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsScriptEnabled(&self, isscriptenabled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsScriptEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsScriptEnabled)(
                 windows_core::Interface::as_raw(self),
                 isscriptenabled.into(),
             )
@@ -34493,12 +34557,12 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn IsWebMessageEnabled2(
+    pub unsafe fn SetIsWebMessageEnabled(
         &self,
         iswebmessageenabled: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsWebMessageEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsWebMessageEnabled)(
                 windows_core::Interface::as_raw(self),
                 iswebmessageenabled.into(),
             )
@@ -34517,12 +34581,12 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn AreDefaultScriptDialogsEnabled2(
+    pub unsafe fn SetAreDefaultScriptDialogsEnabled(
         &self,
         aredefaultscriptdialogsenabled: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreDefaultScriptDialogsEnabled2)(
+            (windows_core::Interface::vtable(self).SetAreDefaultScriptDialogsEnabled)(
                 windows_core::Interface::as_raw(self),
                 aredefaultscriptdialogsenabled.into(),
             )
@@ -34538,9 +34602,12 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn IsStatusBarEnabled2(&self, isstatusbarenabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsStatusBarEnabled(
+        &self,
+        isstatusbarenabled: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsStatusBarEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsStatusBarEnabled)(
                 windows_core::Interface::as_raw(self),
                 isstatusbarenabled.into(),
             )
@@ -34556,9 +34623,12 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn AreDevToolsEnabled2(&self, aredevtoolsenabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAreDevToolsEnabled(
+        &self,
+        aredevtoolsenabled: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreDevToolsEnabled2)(
+            (windows_core::Interface::vtable(self).SetAreDevToolsEnabled)(
                 windows_core::Interface::as_raw(self),
                 aredevtoolsenabled.into(),
             )
@@ -34574,9 +34644,12 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn AreDefaultContextMenusEnabled2(&self, enabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAreDefaultContextMenusEnabled(
+        &self,
+        enabled: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreDefaultContextMenusEnabled2)(
+            (windows_core::Interface::vtable(self).SetAreDefaultContextMenusEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
@@ -34592,9 +34665,9 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn AreHostObjectsAllowed2(&self, allowed: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAreHostObjectsAllowed(&self, allowed: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreHostObjectsAllowed2)(
+            (windows_core::Interface::vtable(self).SetAreHostObjectsAllowed)(
                 windows_core::Interface::as_raw(self),
                 allowed.into(),
             )
@@ -34610,9 +34683,9 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn IsZoomControlEnabled2(&self, enabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsZoomControlEnabled(&self, enabled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsZoomControlEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsZoomControlEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
@@ -34628,9 +34701,9 @@ impl ICoreWebView2Settings {
             .ok()
         }
     }
-    pub unsafe fn IsBuiltInErrorPageEnabled2(&self, enabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsBuiltInErrorPageEnabled(&self, enabled: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsBuiltInErrorPageEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsBuiltInErrorPageEnabled)(
                 windows_core::Interface::as_raw(self),
                 enabled.into(),
             )
@@ -34646,7 +34719,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsScriptEnabled2: unsafe extern "system" fn(
+    pub SetIsScriptEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34654,7 +34727,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsWebMessageEnabled2: unsafe extern "system" fn(
+    pub SetIsWebMessageEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34662,7 +34735,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreDefaultScriptDialogsEnabled2: unsafe extern "system" fn(
+    pub SetAreDefaultScriptDialogsEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34670,7 +34743,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsStatusBarEnabled2: unsafe extern "system" fn(
+    pub SetIsStatusBarEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34678,7 +34751,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreDevToolsEnabled2: unsafe extern "system" fn(
+    pub SetAreDevToolsEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34686,7 +34759,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreDefaultContextMenusEnabled2: unsafe extern "system" fn(
+    pub SetAreDefaultContextMenusEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34694,7 +34767,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreHostObjectsAllowed2: unsafe extern "system" fn(
+    pub SetAreHostObjectsAllowed: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34702,7 +34775,7 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsZoomControlEnabled2: unsafe extern "system" fn(
+    pub SetIsZoomControlEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -34710,19 +34783,19 @@ pub struct ICoreWebView2Settings_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsBuiltInErrorPageEnabled2: unsafe extern "system" fn(
+    pub SetIsBuiltInErrorPageEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
     fn IsScriptEnabled(&self, isscriptenabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsScriptEnabled2(&self, isscriptenabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsScriptEnabled(&self, isscriptenabled: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsWebMessageEnabled(
         &self,
         iswebmessageenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn IsWebMessageEnabled2(
+    fn SetIsWebMessageEnabled(
         &self,
         iswebmessageenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -34730,7 +34803,7 @@ pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
         &self,
         aredefaultscriptdialogsenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn AreDefaultScriptDialogsEnabled2(
+    fn SetAreDefaultScriptDialogsEnabled(
         &self,
         aredefaultscriptdialogsenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -34738,7 +34811,7 @@ pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
         &self,
         isstatusbarenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn IsStatusBarEnabled2(
+    fn SetIsStatusBarEnabled(
         &self,
         isstatusbarenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -34746,7 +34819,7 @@ pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
         &self,
         aredevtoolsenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn AreDevToolsEnabled2(
+    fn SetAreDevToolsEnabled(
         &self,
         aredevtoolsenabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -34754,16 +34827,17 @@ pub trait ICoreWebView2Settings_Impl: windows_core::IUnknownImpl {
         &self,
         enabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn AreDefaultContextMenusEnabled2(
+    fn SetAreDefaultContextMenusEnabled(
         &self,
         enabled: windows_core::BOOL,
     ) -> windows_core::Result<()>;
     fn AreHostObjectsAllowed(&self, allowed: windows_core::BOOL) -> windows_core::Result<()>;
-    fn AreHostObjectsAllowed2(&self, allowed: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetAreHostObjectsAllowed(&self, allowed: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsZoomControlEnabled(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsZoomControlEnabled2(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsZoomControlEnabled(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsBuiltInErrorPageEnabled(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsBuiltInErrorPageEnabled2(&self, enabled: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsBuiltInErrorPageEnabled(&self, enabled: windows_core::BOOL)
+        -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings_Impl, const OFFSET: isize>() -> Self {
@@ -34784,7 +34858,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsScriptEnabled2<
+        unsafe extern "system" fn SetIsScriptEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34794,7 +34868,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::IsScriptEnabled2(
+                ICoreWebView2Settings_Impl::SetIsScriptEnabled(
                     this,
                     core::mem::transmute_copy(&isscriptenabled),
                 )
@@ -34818,7 +34892,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsWebMessageEnabled2<
+        unsafe extern "system" fn SetIsWebMessageEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34828,7 +34902,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::IsWebMessageEnabled2(
+                ICoreWebView2Settings_Impl::SetIsWebMessageEnabled(
                     this,
                     core::mem::transmute_copy(&iswebmessageenabled),
                 )
@@ -34852,7 +34926,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreDefaultScriptDialogsEnabled2<
+        unsafe extern "system" fn SetAreDefaultScriptDialogsEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34862,7 +34936,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::AreDefaultScriptDialogsEnabled2(
+                ICoreWebView2Settings_Impl::SetAreDefaultScriptDialogsEnabled(
                     this,
                     core::mem::transmute_copy(&aredefaultscriptdialogsenabled),
                 )
@@ -34886,7 +34960,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsStatusBarEnabled2<
+        unsafe extern "system" fn SetIsStatusBarEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34896,7 +34970,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::IsStatusBarEnabled2(
+                ICoreWebView2Settings_Impl::SetIsStatusBarEnabled(
                     this,
                     core::mem::transmute_copy(&isstatusbarenabled),
                 )
@@ -34920,7 +34994,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreDevToolsEnabled2<
+        unsafe extern "system" fn SetAreDevToolsEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34930,7 +35004,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::AreDevToolsEnabled2(
+                ICoreWebView2Settings_Impl::SetAreDevToolsEnabled(
                     this,
                     core::mem::transmute_copy(&aredevtoolsenabled),
                 )
@@ -34954,7 +35028,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreDefaultContextMenusEnabled2<
+        unsafe extern "system" fn SetAreDefaultContextMenusEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34964,7 +35038,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::AreDefaultContextMenusEnabled2(
+                ICoreWebView2Settings_Impl::SetAreDefaultContextMenusEnabled(
                     this,
                     core::mem::transmute_copy(&enabled),
                 )
@@ -34988,7 +35062,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreHostObjectsAllowed2<
+        unsafe extern "system" fn SetAreHostObjectsAllowed<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -34998,7 +35072,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::AreHostObjectsAllowed2(
+                ICoreWebView2Settings_Impl::SetAreHostObjectsAllowed(
                     this,
                     core::mem::transmute_copy(&allowed),
                 )
@@ -35022,7 +35096,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsZoomControlEnabled2<
+        unsafe extern "system" fn SetIsZoomControlEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -35032,7 +35106,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::IsZoomControlEnabled2(
+                ICoreWebView2Settings_Impl::SetIsZoomControlEnabled(
                     this,
                     core::mem::transmute_copy(&enabled),
                 )
@@ -35056,7 +35130,7 @@ impl ICoreWebView2Settings_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsBuiltInErrorPageEnabled2<
+        unsafe extern "system" fn SetIsBuiltInErrorPageEnabled<
             Identity: ICoreWebView2Settings_Impl,
             const OFFSET: isize,
         >(
@@ -35066,7 +35140,7 @@ impl ICoreWebView2Settings_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings_Impl::IsBuiltInErrorPageEnabled2(
+                ICoreWebView2Settings_Impl::SetIsBuiltInErrorPageEnabled(
                     this,
                     core::mem::transmute_copy(&enabled),
                 )
@@ -35076,23 +35150,23 @@ impl ICoreWebView2Settings_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             IsScriptEnabled: IsScriptEnabled::<Identity, OFFSET>,
-            IsScriptEnabled2: IsScriptEnabled2::<Identity, OFFSET>,
+            SetIsScriptEnabled: SetIsScriptEnabled::<Identity, OFFSET>,
             IsWebMessageEnabled: IsWebMessageEnabled::<Identity, OFFSET>,
-            IsWebMessageEnabled2: IsWebMessageEnabled2::<Identity, OFFSET>,
+            SetIsWebMessageEnabled: SetIsWebMessageEnabled::<Identity, OFFSET>,
             AreDefaultScriptDialogsEnabled: AreDefaultScriptDialogsEnabled::<Identity, OFFSET>,
-            AreDefaultScriptDialogsEnabled2: AreDefaultScriptDialogsEnabled2::<Identity, OFFSET>,
+            SetAreDefaultScriptDialogsEnabled: SetAreDefaultScriptDialogsEnabled::<Identity, OFFSET>,
             IsStatusBarEnabled: IsStatusBarEnabled::<Identity, OFFSET>,
-            IsStatusBarEnabled2: IsStatusBarEnabled2::<Identity, OFFSET>,
+            SetIsStatusBarEnabled: SetIsStatusBarEnabled::<Identity, OFFSET>,
             AreDevToolsEnabled: AreDevToolsEnabled::<Identity, OFFSET>,
-            AreDevToolsEnabled2: AreDevToolsEnabled2::<Identity, OFFSET>,
+            SetAreDevToolsEnabled: SetAreDevToolsEnabled::<Identity, OFFSET>,
             AreDefaultContextMenusEnabled: AreDefaultContextMenusEnabled::<Identity, OFFSET>,
-            AreDefaultContextMenusEnabled2: AreDefaultContextMenusEnabled2::<Identity, OFFSET>,
+            SetAreDefaultContextMenusEnabled: SetAreDefaultContextMenusEnabled::<Identity, OFFSET>,
             AreHostObjectsAllowed: AreHostObjectsAllowed::<Identity, OFFSET>,
-            AreHostObjectsAllowed2: AreHostObjectsAllowed2::<Identity, OFFSET>,
+            SetAreHostObjectsAllowed: SetAreHostObjectsAllowed::<Identity, OFFSET>,
             IsZoomControlEnabled: IsZoomControlEnabled::<Identity, OFFSET>,
-            IsZoomControlEnabled2: IsZoomControlEnabled2::<Identity, OFFSET>,
+            SetIsZoomControlEnabled: SetIsZoomControlEnabled::<Identity, OFFSET>,
             IsBuiltInErrorPageEnabled: IsBuiltInErrorPageEnabled::<Identity, OFFSET>,
-            IsBuiltInErrorPageEnabled2: IsBuiltInErrorPageEnabled2::<Identity, OFFSET>,
+            SetIsBuiltInErrorPageEnabled: SetIsBuiltInErrorPageEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35129,12 +35203,12 @@ impl ICoreWebView2Settings2 {
             .ok()
         }
     }
-    pub unsafe fn UserAgent2<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUserAgent<P0>(&self, value: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).UserAgent2)(
+            (windows_core::Interface::vtable(self).SetUserAgent)(
                 windows_core::Interface::as_raw(self),
                 value.param().abi(),
             )
@@ -35150,14 +35224,14 @@ pub struct ICoreWebView2Settings2_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub UserAgent2: unsafe extern "system" fn(
+    pub SetUserAgent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings2_Impl: ICoreWebView2Settings_Impl {
     fn UserAgent(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn UserAgent2(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetUserAgent(&self, value: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings2_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings2_Impl, const OFFSET: isize>() -> Self {
@@ -35174,7 +35248,7 @@ impl ICoreWebView2Settings2_Vtbl {
                 ICoreWebView2Settings2_Impl::UserAgent(this, core::mem::transmute(&value)).into()
             }
         }
-        unsafe extern "system" fn UserAgent2<
+        unsafe extern "system" fn SetUserAgent<
             Identity: ICoreWebView2Settings2_Impl,
             const OFFSET: isize,
         >(
@@ -35184,13 +35258,13 @@ impl ICoreWebView2Settings2_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings2_Impl::UserAgent2(this, core::mem::transmute(&value)).into()
+                ICoreWebView2Settings2_Impl::SetUserAgent(this, core::mem::transmute(&value)).into()
             }
         }
         Self {
             base__: ICoreWebView2Settings_Vtbl::new::<Identity, OFFSET>(),
             UserAgent: UserAgent::<Identity, OFFSET>,
-            UserAgent2: UserAgent2::<Identity, OFFSET>,
+            SetUserAgent: SetUserAgent::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35226,12 +35300,12 @@ impl ICoreWebView2Settings3 {
             .ok()
         }
     }
-    pub unsafe fn AreBrowserAcceleratorKeysEnabled2(
+    pub unsafe fn SetAreBrowserAcceleratorKeysEnabled(
         &self,
         value: bool,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).AreBrowserAcceleratorKeysEnabled2)(
+            (windows_core::Interface::vtable(self).SetAreBrowserAcceleratorKeysEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35247,17 +35321,18 @@ pub struct ICoreWebView2Settings3_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub AreBrowserAcceleratorKeysEnabled2: unsafe extern "system" fn(
+    pub SetAreBrowserAcceleratorKeysEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
-    ) -> windows_core::HRESULT,
+    )
+        -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings3_Impl: ICoreWebView2Settings2_Impl {
     fn AreBrowserAcceleratorKeysEnabled(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn AreBrowserAcceleratorKeysEnabled2(
+    fn SetAreBrowserAcceleratorKeysEnabled(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -35281,7 +35356,7 @@ impl ICoreWebView2Settings3_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn AreBrowserAcceleratorKeysEnabled2<
+        unsafe extern "system" fn SetAreBrowserAcceleratorKeysEnabled<
             Identity: ICoreWebView2Settings3_Impl,
             const OFFSET: isize,
         >(
@@ -35291,7 +35366,7 @@ impl ICoreWebView2Settings3_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings3_Impl::AreBrowserAcceleratorKeysEnabled2(
+                ICoreWebView2Settings3_Impl::SetAreBrowserAcceleratorKeysEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35301,7 +35376,10 @@ impl ICoreWebView2Settings3_Vtbl {
         Self {
             base__: ICoreWebView2Settings2_Vtbl::new::<Identity, OFFSET>(),
             AreBrowserAcceleratorKeysEnabled: AreBrowserAcceleratorKeysEnabled::<Identity, OFFSET>,
-            AreBrowserAcceleratorKeysEnabled2: AreBrowserAcceleratorKeysEnabled2::<Identity, OFFSET>,
+            SetAreBrowserAcceleratorKeysEnabled: SetAreBrowserAcceleratorKeysEnabled::<
+                Identity,
+                OFFSET,
+            >,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35339,9 +35417,9 @@ impl ICoreWebView2Settings4 {
             .ok()
         }
     }
-    pub unsafe fn IsPasswordAutosaveEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsPasswordAutosaveEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsPasswordAutosaveEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsPasswordAutosaveEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35357,9 +35435,9 @@ impl ICoreWebView2Settings4 {
             .ok()
         }
     }
-    pub unsafe fn IsGeneralAutofillEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsGeneralAutofillEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsGeneralAutofillEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsGeneralAutofillEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35375,7 +35453,7 @@ pub struct ICoreWebView2Settings4_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsPasswordAutosaveEnabled2: unsafe extern "system" fn(
+    pub SetIsPasswordAutosaveEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -35383,16 +35461,16 @@ pub struct ICoreWebView2Settings4_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsGeneralAutofillEnabled2: unsafe extern "system" fn(
+    pub SetIsGeneralAutofillEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings4_Impl: ICoreWebView2Settings3_Impl {
     fn IsPasswordAutosaveEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsPasswordAutosaveEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsPasswordAutosaveEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn IsGeneralAutofillEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsGeneralAutofillEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsGeneralAutofillEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings4_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings4_Impl, const OFFSET: isize>() -> Self {
@@ -35413,7 +35491,7 @@ impl ICoreWebView2Settings4_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsPasswordAutosaveEnabled2<
+        unsafe extern "system" fn SetIsPasswordAutosaveEnabled<
             Identity: ICoreWebView2Settings4_Impl,
             const OFFSET: isize,
         >(
@@ -35423,7 +35501,7 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings4_Impl::IsPasswordAutosaveEnabled2(
+                ICoreWebView2Settings4_Impl::SetIsPasswordAutosaveEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35447,7 +35525,7 @@ impl ICoreWebView2Settings4_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsGeneralAutofillEnabled2<
+        unsafe extern "system" fn SetIsGeneralAutofillEnabled<
             Identity: ICoreWebView2Settings4_Impl,
             const OFFSET: isize,
         >(
@@ -35457,7 +35535,7 @@ impl ICoreWebView2Settings4_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings4_Impl::IsGeneralAutofillEnabled2(
+                ICoreWebView2Settings4_Impl::SetIsGeneralAutofillEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35467,9 +35545,9 @@ impl ICoreWebView2Settings4_Vtbl {
         Self {
             base__: ICoreWebView2Settings3_Vtbl::new::<Identity, OFFSET>(),
             IsPasswordAutosaveEnabled: IsPasswordAutosaveEnabled::<Identity, OFFSET>,
-            IsPasswordAutosaveEnabled2: IsPasswordAutosaveEnabled2::<Identity, OFFSET>,
+            SetIsPasswordAutosaveEnabled: SetIsPasswordAutosaveEnabled::<Identity, OFFSET>,
             IsGeneralAutofillEnabled: IsGeneralAutofillEnabled::<Identity, OFFSET>,
-            IsGeneralAutofillEnabled2: IsGeneralAutofillEnabled2::<Identity, OFFSET>,
+            SetIsGeneralAutofillEnabled: SetIsGeneralAutofillEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35509,9 +35587,9 @@ impl ICoreWebView2Settings5 {
             .ok()
         }
     }
-    pub unsafe fn IsPinchZoomEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsPinchZoomEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsPinchZoomEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsPinchZoomEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35527,14 +35605,14 @@ pub struct ICoreWebView2Settings5_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsPinchZoomEnabled2: unsafe extern "system" fn(
+    pub SetIsPinchZoomEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings5_Impl: ICoreWebView2Settings4_Impl {
     fn IsPinchZoomEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsPinchZoomEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsPinchZoomEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings5_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings5_Impl, const OFFSET: isize>() -> Self {
@@ -35555,7 +35633,7 @@ impl ICoreWebView2Settings5_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsPinchZoomEnabled2<
+        unsafe extern "system" fn SetIsPinchZoomEnabled<
             Identity: ICoreWebView2Settings5_Impl,
             const OFFSET: isize,
         >(
@@ -35565,7 +35643,7 @@ impl ICoreWebView2Settings5_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings5_Impl::IsPinchZoomEnabled2(
+                ICoreWebView2Settings5_Impl::SetIsPinchZoomEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35575,7 +35653,7 @@ impl ICoreWebView2Settings5_Vtbl {
         Self {
             base__: ICoreWebView2Settings4_Vtbl::new::<Identity, OFFSET>(),
             IsPinchZoomEnabled: IsPinchZoomEnabled::<Identity, OFFSET>,
-            IsPinchZoomEnabled2: IsPinchZoomEnabled2::<Identity, OFFSET>,
+            SetIsPinchZoomEnabled: SetIsPinchZoomEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35617,9 +35695,9 @@ impl ICoreWebView2Settings6 {
             .ok()
         }
     }
-    pub unsafe fn IsSwipeNavigationEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsSwipeNavigationEnabled(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsSwipeNavigationEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsSwipeNavigationEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35635,14 +35713,14 @@ pub struct ICoreWebView2Settings6_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsSwipeNavigationEnabled2: unsafe extern "system" fn(
+    pub SetIsSwipeNavigationEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings6_Impl: ICoreWebView2Settings5_Impl {
     fn IsSwipeNavigationEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsSwipeNavigationEnabled2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsSwipeNavigationEnabled(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings6_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings6_Impl, const OFFSET: isize>() -> Self {
@@ -35663,7 +35741,7 @@ impl ICoreWebView2Settings6_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsSwipeNavigationEnabled2<
+        unsafe extern "system" fn SetIsSwipeNavigationEnabled<
             Identity: ICoreWebView2Settings6_Impl,
             const OFFSET: isize,
         >(
@@ -35673,7 +35751,7 @@ impl ICoreWebView2Settings6_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings6_Impl::IsSwipeNavigationEnabled2(
+                ICoreWebView2Settings6_Impl::SetIsSwipeNavigationEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35683,7 +35761,7 @@ impl ICoreWebView2Settings6_Vtbl {
         Self {
             base__: ICoreWebView2Settings5_Vtbl::new::<Identity, OFFSET>(),
             IsSwipeNavigationEnabled: IsSwipeNavigationEnabled::<Identity, OFFSET>,
-            IsSwipeNavigationEnabled2: IsSwipeNavigationEnabled2::<Identity, OFFSET>,
+            SetIsSwipeNavigationEnabled: SetIsSwipeNavigationEnabled::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35730,12 +35808,12 @@ impl ICoreWebView2Settings7 {
             .ok()
         }
     }
-    pub unsafe fn HiddenPdfToolbarItems2(
+    pub unsafe fn SetHiddenPdfToolbarItems(
         &self,
         value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).HiddenPdfToolbarItems2)(
+            (windows_core::Interface::vtable(self).SetHiddenPdfToolbarItems)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -35751,7 +35829,7 @@ pub struct ICoreWebView2Settings7_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
     ) -> windows_core::HRESULT,
-    pub HiddenPdfToolbarItems2: unsafe extern "system" fn(
+    pub SetHiddenPdfToolbarItems: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
     ) -> windows_core::HRESULT,
@@ -35761,7 +35839,7 @@ pub trait ICoreWebView2Settings7_Impl: ICoreWebView2Settings6_Impl {
         &self,
         value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
     ) -> windows_core::Result<()>;
-    fn HiddenPdfToolbarItems2(
+    fn SetHiddenPdfToolbarItems(
         &self,
         value: COREWEBVIEW2_PDF_TOOLBAR_ITEMS,
     ) -> windows_core::Result<()>;
@@ -35785,7 +35863,7 @@ impl ICoreWebView2Settings7_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn HiddenPdfToolbarItems2<
+        unsafe extern "system" fn SetHiddenPdfToolbarItems<
             Identity: ICoreWebView2Settings7_Impl,
             const OFFSET: isize,
         >(
@@ -35795,7 +35873,7 @@ impl ICoreWebView2Settings7_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings7_Impl::HiddenPdfToolbarItems2(
+                ICoreWebView2Settings7_Impl::SetHiddenPdfToolbarItems(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35805,7 +35883,7 @@ impl ICoreWebView2Settings7_Vtbl {
         Self {
             base__: ICoreWebView2Settings6_Vtbl::new::<Identity, OFFSET>(),
             HiddenPdfToolbarItems: HiddenPdfToolbarItems::<Identity, OFFSET>,
-            HiddenPdfToolbarItems2: HiddenPdfToolbarItems2::<Identity, OFFSET>,
+            SetHiddenPdfToolbarItems: SetHiddenPdfToolbarItems::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35851,9 +35929,9 @@ impl ICoreWebView2Settings8 {
             .ok()
         }
     }
-    pub unsafe fn IsReputationCheckingRequired2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsReputationCheckingRequired(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsReputationCheckingRequired2)(
+            (windows_core::Interface::vtable(self).SetIsReputationCheckingRequired)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35869,14 +35947,17 @@ pub struct ICoreWebView2Settings8_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsReputationCheckingRequired2: unsafe extern "system" fn(
+    pub SetIsReputationCheckingRequired: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2Settings8_Impl: ICoreWebView2Settings7_Impl {
     fn IsReputationCheckingRequired(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsReputationCheckingRequired2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsReputationCheckingRequired(
+        &self,
+        value: windows_core::BOOL,
+    ) -> windows_core::Result<()>;
 }
 impl ICoreWebView2Settings8_Vtbl {
     pub const fn new<Identity: ICoreWebView2Settings8_Impl, const OFFSET: isize>() -> Self {
@@ -35897,7 +35978,7 @@ impl ICoreWebView2Settings8_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsReputationCheckingRequired2<
+        unsafe extern "system" fn SetIsReputationCheckingRequired<
             Identity: ICoreWebView2Settings8_Impl,
             const OFFSET: isize,
         >(
@@ -35907,7 +35988,7 @@ impl ICoreWebView2Settings8_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings8_Impl::IsReputationCheckingRequired2(
+                ICoreWebView2Settings8_Impl::SetIsReputationCheckingRequired(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -35917,7 +35998,7 @@ impl ICoreWebView2Settings8_Vtbl {
         Self {
             base__: ICoreWebView2Settings7_Vtbl::new::<Identity, OFFSET>(),
             IsReputationCheckingRequired: IsReputationCheckingRequired::<Identity, OFFSET>,
-            IsReputationCheckingRequired2: IsReputationCheckingRequired2::<Identity, OFFSET>,
+            SetIsReputationCheckingRequired: SetIsReputationCheckingRequired::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -35965,9 +36046,12 @@ impl ICoreWebView2Settings9 {
             .ok()
         }
     }
-    pub unsafe fn IsNonClientRegionSupportEnabled2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsNonClientRegionSupportEnabled(
+        &self,
+        value: bool,
+    ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsNonClientRegionSupportEnabled2)(
+            (windows_core::Interface::vtable(self).SetIsNonClientRegionSupportEnabled)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -35983,7 +36067,7 @@ pub struct ICoreWebView2Settings9_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsNonClientRegionSupportEnabled2: unsafe extern "system" fn(
+    pub SetIsNonClientRegionSupportEnabled: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -35993,7 +36077,7 @@ pub trait ICoreWebView2Settings9_Impl: ICoreWebView2Settings8_Impl {
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
-    fn IsNonClientRegionSupportEnabled2(
+    fn SetIsNonClientRegionSupportEnabled(
         &self,
         value: windows_core::BOOL,
     ) -> windows_core::Result<()>;
@@ -36017,7 +36101,7 @@ impl ICoreWebView2Settings9_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn IsNonClientRegionSupportEnabled2<
+        unsafe extern "system" fn SetIsNonClientRegionSupportEnabled<
             Identity: ICoreWebView2Settings9_Impl,
             const OFFSET: isize,
         >(
@@ -36027,7 +36111,7 @@ impl ICoreWebView2Settings9_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2Settings9_Impl::IsNonClientRegionSupportEnabled2(
+                ICoreWebView2Settings9_Impl::SetIsNonClientRegionSupportEnabled(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -36037,7 +36121,10 @@ impl ICoreWebView2Settings9_Vtbl {
         Self {
             base__: ICoreWebView2Settings8_Vtbl::new::<Identity, OFFSET>(),
             IsNonClientRegionSupportEnabled: IsNonClientRegionSupportEnabled::<Identity, OFFSET>,
-            IsNonClientRegionSupportEnabled2: IsNonClientRegionSupportEnabled2::<Identity, OFFSET>,
+            SetIsNonClientRegionSupportEnabled: SetIsNonClientRegionSupportEnabled::<
+                Identity,
+                OFFSET,
+            >,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -37167,12 +37254,12 @@ impl ICoreWebView2WebResourceRequest {
             .ok()
         }
     }
-    pub unsafe fn Uri2<P0>(&self, uri: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUri<P0>(&self, uri: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Uri2)(
+            (windows_core::Interface::vtable(self).SetUri)(
                 windows_core::Interface::as_raw(self),
                 uri.param().abi(),
             )
@@ -37191,12 +37278,12 @@ impl ICoreWebView2WebResourceRequest {
             .ok()
         }
     }
-    pub unsafe fn Method2<P0>(&self, method: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMethod<P0>(&self, method: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Method2)(
+            (windows_core::Interface::vtable(self).SetMethod)(
                 windows_core::Interface::as_raw(self),
                 method.param().abi(),
             )
@@ -37215,12 +37302,12 @@ impl ICoreWebView2WebResourceRequest {
             .ok()
         }
     }
-    pub unsafe fn Content2<P0>(&self, content: P0) -> windows_core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStream>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Content2)(
+            (windows_core::Interface::vtable(self).SetContent)(
                 windows_core::Interface::as_raw(self),
                 content.param().abi(),
             )
@@ -37248,7 +37335,7 @@ pub struct ICoreWebView2WebResourceRequest_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub Uri2: unsafe extern "system" fn(
+    pub SetUri: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -37256,7 +37343,7 @@ pub struct ICoreWebView2WebResourceRequest_Vtbl {
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub Method2: unsafe extern "system" fn(
+    pub SetMethod: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
@@ -37264,7 +37351,7 @@ pub struct ICoreWebView2WebResourceRequest_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Content2: unsafe extern "system" fn(
+    pub SetContent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -37275,11 +37362,11 @@ pub struct ICoreWebView2WebResourceRequest_Vtbl {
 }
 pub trait ICoreWebView2WebResourceRequest_Impl: windows_core::IUnknownImpl {
     fn Uri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Uri2(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetUri(&self, uri: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Method(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Method2(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetMethod(&self, method: &windows_core::PCWSTR) -> windows_core::Result<()>;
     fn Content(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
-    fn Content2(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
+    fn SetContent(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Headers(
         &self,
         headers: windows_core::Ref<ICoreWebView2HttpRequestHeaders>,
@@ -37301,7 +37388,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
                 ICoreWebView2WebResourceRequest_Impl::Uri(this, core::mem::transmute(&uri)).into()
             }
         }
-        unsafe extern "system" fn Uri2<
+        unsafe extern "system" fn SetUri<
             Identity: ICoreWebView2WebResourceRequest_Impl,
             const OFFSET: isize,
         >(
@@ -37311,7 +37398,8 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceRequest_Impl::Uri2(this, core::mem::transmute(&uri)).into()
+                ICoreWebView2WebResourceRequest_Impl::SetUri(this, core::mem::transmute(&uri))
+                    .into()
             }
         }
         unsafe extern "system" fn Method<
@@ -37328,7 +37416,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
                     .into()
             }
         }
-        unsafe extern "system" fn Method2<
+        unsafe extern "system" fn SetMethod<
             Identity: ICoreWebView2WebResourceRequest_Impl,
             const OFFSET: isize,
         >(
@@ -37338,7 +37426,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceRequest_Impl::Method2(this, core::mem::transmute(&method))
+                ICoreWebView2WebResourceRequest_Impl::SetMethod(this, core::mem::transmute(&method))
                     .into()
             }
         }
@@ -37359,7 +37447,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Content2<
+        unsafe extern "system" fn SetContent<
             Identity: ICoreWebView2WebResourceRequest_Impl,
             const OFFSET: isize,
         >(
@@ -37369,7 +37457,7 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceRequest_Impl::Content2(
+                ICoreWebView2WebResourceRequest_Impl::SetContent(
                     this,
                     core::mem::transmute_copy(&content),
                 )
@@ -37396,11 +37484,11 @@ impl ICoreWebView2WebResourceRequest_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Uri: Uri::<Identity, OFFSET>,
-            Uri2: Uri2::<Identity, OFFSET>,
+            SetUri: SetUri::<Identity, OFFSET>,
             Method: Method::<Identity, OFFSET>,
-            Method2: Method2::<Identity, OFFSET>,
+            SetMethod: SetMethod::<Identity, OFFSET>,
             Content: Content::<Identity, OFFSET>,
-            Content2: Content2::<Identity, OFFSET>,
+            SetContent: SetContent::<Identity, OFFSET>,
             Headers: Headers::<Identity, OFFSET>,
         }
     }
@@ -37443,12 +37531,12 @@ impl ICoreWebView2WebResourceRequestedEventArgs {
             .ok()
         }
     }
-    pub unsafe fn Response2<P0>(&self, response: P0) -> windows_core::Result<()>
+    pub unsafe fn SetResponse<P0>(&self, response: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<ICoreWebView2WebResourceResponse>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Response2)(
+            (windows_core::Interface::vtable(self).SetResponse)(
                 windows_core::Interface::as_raw(self),
                 response.param().abi(),
             )
@@ -37492,7 +37580,7 @@ pub struct ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Response2: unsafe extern "system" fn(
+    pub SetResponse: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -37514,7 +37602,7 @@ pub trait ICoreWebView2WebResourceRequestedEventArgs_Impl: windows_core::IUnknow
         &self,
         response: windows_core::Ref<ICoreWebView2WebResourceResponse>,
     ) -> windows_core::Result<()>;
-    fn Response2(
+    fn SetResponse(
         &self,
         response: windows_core::Ref<ICoreWebView2WebResourceResponse>,
     ) -> windows_core::Result<()>;
@@ -37566,7 +37654,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Response2<
+        unsafe extern "system" fn SetResponse<
             Identity: ICoreWebView2WebResourceRequestedEventArgs_Impl,
             const OFFSET: isize,
         >(
@@ -37576,7 +37664,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceRequestedEventArgs_Impl::Response2(
+                ICoreWebView2WebResourceRequestedEventArgs_Impl::SetResponse(
                     this,
                     core::mem::transmute_copy(&response),
                 )
@@ -37621,7 +37709,7 @@ impl ICoreWebView2WebResourceRequestedEventArgs_Vtbl {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Request: Request::<Identity, OFFSET>,
             Response: Response::<Identity, OFFSET>,
-            Response2: Response2::<Identity, OFFSET>,
+            SetResponse: SetResponse::<Identity, OFFSET>,
             GetDeferral: GetDeferral::<Identity, OFFSET>,
             ResourceContext: ResourceContext::<Identity, OFFSET>,
         }
@@ -37806,12 +37894,12 @@ impl ICoreWebView2WebResourceResponse {
             .ok()
         }
     }
-    pub unsafe fn Content2<P0>(&self, content: P0) -> windows_core::Result<()>
+    pub unsafe fn SetContent<P0>(&self, content: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<IStream>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).Content2)(
+            (windows_core::Interface::vtable(self).SetContent)(
                 windows_core::Interface::as_raw(self),
                 content.param().abi(),
             )
@@ -37839,9 +37927,9 @@ impl ICoreWebView2WebResourceResponse {
             .ok()
         }
     }
-    pub unsafe fn StatusCode2(&self, statuscode: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetStatusCode(&self, statuscode: i32) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).StatusCode2)(
+            (windows_core::Interface::vtable(self).SetStatusCode)(
                 windows_core::Interface::as_raw(self),
                 statuscode,
             )
@@ -37860,12 +37948,12 @@ impl ICoreWebView2WebResourceResponse {
             .ok()
         }
     }
-    pub unsafe fn ReasonPhrase2<P0>(&self, reasonphrase: P0) -> windows_core::Result<()>
+    pub unsafe fn SetReasonPhrase<P0>(&self, reasonphrase: P0) -> windows_core::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe {
-            (windows_core::Interface::vtable(self).ReasonPhrase2)(
+            (windows_core::Interface::vtable(self).SetReasonPhrase)(
                 windows_core::Interface::as_raw(self),
                 reasonphrase.param().abi(),
             )
@@ -37881,7 +37969,7 @@ pub struct ICoreWebView2WebResourceResponse_Vtbl {
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
-    pub Content2: unsafe extern "system" fn(
+    pub SetContent: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
@@ -37890,28 +37978,28 @@ pub struct ICoreWebView2WebResourceResponse_Vtbl {
         *mut core::ffi::c_void,
     ) -> windows_core::HRESULT,
     pub StatusCode: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
-    pub StatusCode2:
+    pub SetStatusCode:
         unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
     pub ReasonPhrase: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
-    pub ReasonPhrase2: unsafe extern "system" fn(
+    pub SetReasonPhrase: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::PCWSTR,
     ) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2WebResourceResponse_Impl: windows_core::IUnknownImpl {
     fn Content(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
-    fn Content2(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
+    fn SetContent(&self, content: windows_core::Ref<IStream>) -> windows_core::Result<()>;
     fn Headers(
         &self,
         headers: windows_core::Ref<ICoreWebView2HttpResponseHeaders>,
     ) -> windows_core::Result<()>;
     fn StatusCode(&self, statuscode: i32) -> windows_core::Result<()>;
-    fn StatusCode2(&self, statuscode: i32) -> windows_core::Result<()>;
+    fn SetStatusCode(&self, statuscode: i32) -> windows_core::Result<()>;
     fn ReasonPhrase(&self, reasonphrase: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn ReasonPhrase2(&self, reasonphrase: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetReasonPhrase(&self, reasonphrase: &windows_core::PCWSTR) -> windows_core::Result<()>;
 }
 impl ICoreWebView2WebResourceResponse_Vtbl {
     pub const fn new<Identity: ICoreWebView2WebResourceResponse_Impl, const OFFSET: isize>() -> Self
@@ -37933,7 +38021,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn Content2<
+        unsafe extern "system" fn SetContent<
             Identity: ICoreWebView2WebResourceResponse_Impl,
             const OFFSET: isize,
         >(
@@ -37943,7 +38031,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceResponse_Impl::Content2(
+                ICoreWebView2WebResourceResponse_Impl::SetContent(
                     this,
                     core::mem::transmute_copy(&content),
                 )
@@ -37984,7 +38072,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn StatusCode2<
+        unsafe extern "system" fn SetStatusCode<
             Identity: ICoreWebView2WebResourceResponse_Impl,
             const OFFSET: isize,
         >(
@@ -37994,7 +38082,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceResponse_Impl::StatusCode2(
+                ICoreWebView2WebResourceResponse_Impl::SetStatusCode(
                     this,
                     core::mem::transmute_copy(&statuscode),
                 )
@@ -38018,7 +38106,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn ReasonPhrase2<
+        unsafe extern "system" fn SetReasonPhrase<
             Identity: ICoreWebView2WebResourceResponse_Impl,
             const OFFSET: isize,
         >(
@@ -38028,7 +38116,7 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2WebResourceResponse_Impl::ReasonPhrase2(
+                ICoreWebView2WebResourceResponse_Impl::SetReasonPhrase(
                     this,
                     core::mem::transmute(&reasonphrase),
                 )
@@ -38038,12 +38126,12 @@ impl ICoreWebView2WebResourceResponse_Vtbl {
         Self {
             base__: windows_core::IUnknown_Vtbl::new::<Identity, OFFSET>(),
             Content: Content::<Identity, OFFSET>,
-            Content2: Content2::<Identity, OFFSET>,
+            SetContent: SetContent::<Identity, OFFSET>,
             Headers: Headers::<Identity, OFFSET>,
             StatusCode: StatusCode::<Identity, OFFSET>,
-            StatusCode2: StatusCode2::<Identity, OFFSET>,
+            SetStatusCode: SetStatusCode::<Identity, OFFSET>,
             ReasonPhrase: ReasonPhrase::<Identity, OFFSET>,
-            ReasonPhrase2: ReasonPhrase2::<Identity, OFFSET>,
+            SetReasonPhrase: SetReasonPhrase::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -40504,12 +40592,12 @@ impl ICoreWebView2_19 {
             .ok()
         }
     }
-    pub unsafe fn MemoryUsageTargetLevel2(
+    pub unsafe fn SetMemoryUsageTargetLevel(
         &self,
         value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).MemoryUsageTargetLevel2)(
+            (windows_core::Interface::vtable(self).SetMemoryUsageTargetLevel)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -40525,7 +40613,7 @@ pub struct ICoreWebView2_19_Vtbl {
         *mut core::ffi::c_void,
         COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
     ) -> windows_core::HRESULT,
-    pub MemoryUsageTargetLevel2: unsafe extern "system" fn(
+    pub SetMemoryUsageTargetLevel: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
     ) -> windows_core::HRESULT,
@@ -40535,7 +40623,7 @@ pub trait ICoreWebView2_19_Impl: ICoreWebView2_18_Impl {
         &self,
         value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
     ) -> windows_core::Result<()>;
-    fn MemoryUsageTargetLevel2(
+    fn SetMemoryUsageTargetLevel(
         &self,
         value: COREWEBVIEW2_MEMORY_USAGE_TARGET_LEVEL,
     ) -> windows_core::Result<()>;
@@ -40559,7 +40647,7 @@ impl ICoreWebView2_19_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn MemoryUsageTargetLevel2<
+        unsafe extern "system" fn SetMemoryUsageTargetLevel<
             Identity: ICoreWebView2_19_Impl,
             const OFFSET: isize,
         >(
@@ -40569,7 +40657,7 @@ impl ICoreWebView2_19_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2_19_Impl::MemoryUsageTargetLevel2(
+                ICoreWebView2_19_Impl::SetMemoryUsageTargetLevel(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -40579,7 +40667,7 @@ impl ICoreWebView2_19_Vtbl {
         Self {
             base__: ICoreWebView2_18_Vtbl::new::<Identity, OFFSET>(),
             MemoryUsageTargetLevel: MemoryUsageTargetLevel::<Identity, OFFSET>,
-            MemoryUsageTargetLevel2: MemoryUsageTargetLevel2::<Identity, OFFSET>,
+            SetMemoryUsageTargetLevel: SetMemoryUsageTargetLevel::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {
@@ -42889,9 +42977,9 @@ impl ICoreWebView2_8 {
             .ok()
         }
     }
-    pub unsafe fn IsMuted2(&self, value: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetIsMuted(&self, value: bool) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).IsMuted2)(
+            (windows_core::Interface::vtable(self).SetIsMuted)(
                 windows_core::Interface::as_raw(self),
                 value.into(),
             )
@@ -42952,7 +43040,7 @@ pub struct ICoreWebView2_8_Vtbl {
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
-    pub IsMuted2: unsafe extern "system" fn(
+    pub SetIsMuted: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         windows_core::BOOL,
     ) -> windows_core::HRESULT,
@@ -42976,7 +43064,7 @@ pub trait ICoreWebView2_8_Impl: ICoreWebView2_7_Impl {
     ) -> windows_core::Result<()>;
     fn remove_IsMutedChanged(&self, token: i64) -> windows_core::Result<()>;
     fn IsMuted(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
-    fn IsMuted2(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetIsMuted(&self, value: windows_core::BOOL) -> windows_core::Result<()>;
     fn add_IsDocumentPlayingAudioChanged(
         &self,
         eventhandler: windows_core::Ref<ICoreWebView2IsDocumentPlayingAudioChangedEventHandler>,
@@ -43030,14 +43118,17 @@ impl ICoreWebView2_8_Vtbl {
                 ICoreWebView2_8_Impl::IsMuted(this, core::mem::transmute_copy(&value)).into()
             }
         }
-        unsafe extern "system" fn IsMuted2<Identity: ICoreWebView2_8_Impl, const OFFSET: isize>(
+        unsafe extern "system" fn SetIsMuted<
+            Identity: ICoreWebView2_8_Impl,
+            const OFFSET: isize,
+        >(
             this: *mut core::ffi::c_void,
             value: windows_core::BOOL,
         ) -> windows_core::HRESULT {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2_8_Impl::IsMuted2(this, core::mem::transmute_copy(&value)).into()
+                ICoreWebView2_8_Impl::SetIsMuted(this, core::mem::transmute_copy(&value)).into()
             }
         }
         unsafe extern "system" fn add_IsDocumentPlayingAudioChanged<
@@ -43098,7 +43189,7 @@ impl ICoreWebView2_8_Vtbl {
             add_IsMutedChanged: add_IsMutedChanged::<Identity, OFFSET>,
             remove_IsMutedChanged: remove_IsMutedChanged::<Identity, OFFSET>,
             IsMuted: IsMuted::<Identity, OFFSET>,
-            IsMuted2: IsMuted2::<Identity, OFFSET>,
+            SetIsMuted: SetIsMuted::<Identity, OFFSET>,
             add_IsDocumentPlayingAudioChanged: add_IsDocumentPlayingAudioChanged::<Identity, OFFSET>,
             remove_IsDocumentPlayingAudioChanged: remove_IsDocumentPlayingAudioChanged::<
                 Identity,
@@ -43209,12 +43300,12 @@ impl ICoreWebView2_9 {
             .ok()
         }
     }
-    pub unsafe fn DefaultDownloadDialogCornerAlignment2(
+    pub unsafe fn SetDefaultDownloadDialogCornerAlignment(
         &self,
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).DefaultDownloadDialogCornerAlignment2)(
+            (windows_core::Interface::vtable(self).SetDefaultDownloadDialogCornerAlignment)(
                 windows_core::Interface::as_raw(self),
                 value,
             )
@@ -43230,9 +43321,9 @@ impl ICoreWebView2_9 {
             .ok()
         }
     }
-    pub unsafe fn DefaultDownloadDialogMargin2(&self, value: POINT) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultDownloadDialogMargin(&self, value: POINT) -> windows_core::Result<()> {
         unsafe {
-            (windows_core::Interface::vtable(self).DefaultDownloadDialogMargin2)(
+            (windows_core::Interface::vtable(self).SetDefaultDownloadDialogMargin)(
                 windows_core::Interface::as_raw(self),
                 core::mem::transmute(value),
             )
@@ -43265,14 +43356,14 @@ pub struct ICoreWebView2_9_Vtbl {
         COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     )
         -> windows_core::HRESULT,
-    pub DefaultDownloadDialogCornerAlignment2: unsafe extern "system" fn(
+    pub SetDefaultDownloadDialogCornerAlignment: unsafe extern "system" fn(
         *mut core::ffi::c_void,
         COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     )
         -> windows_core::HRESULT,
     pub DefaultDownloadDialogMargin:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
-    pub DefaultDownloadDialogMargin2:
+    pub SetDefaultDownloadDialogMargin:
         unsafe extern "system" fn(*mut core::ffi::c_void, POINT) -> windows_core::HRESULT,
 }
 pub trait ICoreWebView2_9_Impl: ICoreWebView2_8_Impl {
@@ -43289,12 +43380,12 @@ pub trait ICoreWebView2_9_Impl: ICoreWebView2_8_Impl {
         &self,
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> windows_core::Result<()>;
-    fn DefaultDownloadDialogCornerAlignment2(
+    fn SetDefaultDownloadDialogCornerAlignment(
         &self,
         value: COREWEBVIEW2_DEFAULT_DOWNLOAD_DIALOG_CORNER_ALIGNMENT,
     ) -> windows_core::Result<()>;
     fn DefaultDownloadDialogMargin(&self, value: &POINT) -> windows_core::Result<()>;
-    fn DefaultDownloadDialogMargin2(&self, value: &POINT) -> windows_core::Result<()>;
+    fn SetDefaultDownloadDialogMargin(&self, value: &POINT) -> windows_core::Result<()>;
 }
 impl ICoreWebView2_9_Vtbl {
     pub const fn new<Identity: ICoreWebView2_9_Impl, const OFFSET: isize>() -> Self {
@@ -43392,7 +43483,7 @@ impl ICoreWebView2_9_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn DefaultDownloadDialogCornerAlignment2<
+        unsafe extern "system" fn SetDefaultDownloadDialogCornerAlignment<
             Identity: ICoreWebView2_9_Impl,
             const OFFSET: isize,
         >(
@@ -43402,7 +43493,7 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2_9_Impl::DefaultDownloadDialogCornerAlignment2(
+                ICoreWebView2_9_Impl::SetDefaultDownloadDialogCornerAlignment(
                     this,
                     core::mem::transmute_copy(&value),
                 )
@@ -43426,7 +43517,7 @@ impl ICoreWebView2_9_Vtbl {
                 .into()
             }
         }
-        unsafe extern "system" fn DefaultDownloadDialogMargin2<
+        unsafe extern "system" fn SetDefaultDownloadDialogMargin<
             Identity: ICoreWebView2_9_Impl,
             const OFFSET: isize,
         >(
@@ -43436,7 +43527,7 @@ impl ICoreWebView2_9_Vtbl {
             unsafe {
                 let this: &Identity =
                     &*((this as *const *const ()).offset(OFFSET) as *const Identity);
-                ICoreWebView2_9_Impl::DefaultDownloadDialogMargin2(
+                ICoreWebView2_9_Impl::SetDefaultDownloadDialogMargin(
                     this,
                     core::mem::transmute(&value),
                 )
@@ -43460,12 +43551,12 @@ impl ICoreWebView2_9_Vtbl {
                 Identity,
                 OFFSET,
             >,
-            DefaultDownloadDialogCornerAlignment2: DefaultDownloadDialogCornerAlignment2::<
+            SetDefaultDownloadDialogCornerAlignment: SetDefaultDownloadDialogCornerAlignment::<
                 Identity,
                 OFFSET,
             >,
             DefaultDownloadDialogMargin: DefaultDownloadDialogMargin::<Identity, OFFSET>,
-            DefaultDownloadDialogMargin2: DefaultDownloadDialogMargin2::<Identity, OFFSET>,
+            SetDefaultDownloadDialogMargin: SetDefaultDownloadDialogMargin::<Identity, OFFSET>,
         }
     }
     pub fn matches(iid: &windows_core::GUID) -> bool {

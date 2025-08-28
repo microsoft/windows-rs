@@ -10,8 +10,11 @@ use windows_link::*;
 use windows_strings::*;
 use windows_core::*;
 
+// TODO: maybe keep these manually defined anyway so we can give the following options:
+// - delay load
+// - process load
+// - static library
 link!("WebView2Loader.dll" "system" fn CreateCoreWebView2EnvironmentWithOptions(browserExecutableFolder: PCWSTR, userDataFolder: PCWSTR, environmentOptions: Ref<ICoreWebView2EnvironmentOptions>, environmentCreatedHandler: Ref<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>) -> HRESULT);
-
 link!("WebView2Loader.dll" "system" fn CreateCoreWebView2Environment(environmentCreatedHandler: Ref<ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler>) -> HRESULT);
 
 unsafe impl Send for HWND{}

@@ -50,7 +50,7 @@ fn main() {
 
         println!("CreateCoreWebView2Environment");
 
-        wv::CreateCoreWebView2Environment(core::mem::transmute_copy(&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(move |result, environment| {
+        wv::CreateCoreWebView2Environment((&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(move |result, environment| {
             println!("handler {result} {environment:?}");
             result.unwrap();
 
@@ -64,7 +64,7 @@ fn main() {
             }) ).unwrap();
 
             Ok(())
-        }) )).unwrap();
+        }) ).into()).unwrap();
 
         let mut message = std::mem::zeroed();
 

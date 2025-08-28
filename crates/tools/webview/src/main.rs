@@ -195,11 +195,21 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
     );
 
     for method in &item.methods {
-        let flags = MethodAttributes::Public
+        let mut flags = MethodAttributes::Public
             | MethodAttributes::HideBySig
             | MethodAttributes::Abstract
             | MethodAttributes::NewSlot
             | MethodAttributes::Virtual;
+
+        let specialname = if method.attributes.iter().any(|attribute|attribute.name == "propget") {
+            flags |= MethodAttributes::SpecialName;
+            "propget"
+        } else if method.attributes.iter().any(|attribute|attribute.name == "propput") {
+            flags |= MethodAttributes::SpecialName;
+            "propput"
+        } else {
+            ""
+        };
 
         let return_type = if like_delegate {
             assert_eq!(method.return_type, "HRESULT");
@@ -218,7 +228,13 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
                 .collect(),
         };
 
-        output.MethodDef(&method.name, &signature, flags, Default::default());
+        let name = match specialname {
+            "propget" => format!("get_{}", &method.name),
+            "propput" => format!("put_{}", &method.name),
+            _ => method.name.clone(),
+        };
+
+        output.MethodDef(&name, &signature, flags, Default::default());
 
         for (sequence, param) in method.params.iter().enumerate() {
             output.Param(
