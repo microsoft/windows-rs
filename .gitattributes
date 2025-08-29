@@ -6,3 +6,7 @@
 *.lib   -text
 *.a     -text
 *.exe   -text
+*.eot   binary
+*.ttf   binary
+*.woff  binary
+*.woff2 binary

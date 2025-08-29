@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Rust for Windows</title>
+    <link rel="icon" href="https://microsoft.com/favicon.ico" />
+    <style>
+      body {
+          text-rendering: optimizeLegibility;
+          font-family: "Segoe UI", "Segoe UI Variable Text", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+          padding: 2rem;
+          max-width: 600px;
+          margin: 0 auto;
+      }
+
+      .header {
+          display: flex;
+          align-items: center;
+          gap: 1em;
+          margin-bottom: 1rem;
+      }
+
+      .header span {
+          display: flex;
+          align-items: center;
+      }
+
+      .header svg {
+          width: 1.5rem;
+          height: 1.5rem;
+      }
+
+      .card {
+          border: 1px solid #e5e5e5;
+          border-radius: 8px;
+          padding: 1.5rem;
+          box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+          background: white;
+      }
+
+      @media (prefers-color-scheme: dark) {
+          .card {
+              border-color: #353535;
+              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+              background: #202020;
+          }
+      }
+
+      .feature {
+          margin-bottom: 1.5rem;
+      }
+
+      .feature a, a:active, a:visited {
+          color: #278cda;
+          text-decoration: none;
+      }
+
+      .feature a:hover {
+        text-decoration: underline;
+      }
+
+      .feature h2 {
+        margin-top: 0;
+      }
+
+      .feature:last-child {
+          margin-bottom: 0;
+      }
+
+      .feature-description {
+          opacity: 0.7;
+          font-size: 0.9rem;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <span>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 25 25"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          itemprop="logo"
+          itemscope="itemscope"
+        >
+          <path d="M11.5216 0.5H0V11.9067H11.5216V0.5Z" fill="#f25022"></path>
+          <path
+            d="M24.2418 0.5H12.7202V11.9067H24.2418V0.5Z"
+            fill="#7fba00"
+          ></path>
+          <path
+            d="M11.5216 13.0933H0V24.5H11.5216V13.0933Z"
+            fill="#00a4ef"
+          ></path>
+          <path
+            d="M24.2418 13.0933H12.7202V24.5H24.2418V13.0933Z"
+            fill="#ffb900"
+          ></path>
+        </svg>
+      </span>
+      <h1>Rust for Windows</h1>
+    </div>
+
+    <div class="card">
+      <div class="feature">
+        <a href="book">
+          <h2>Read the book</h2>
+        </a>
+        <div class="feature-description">
+          Covers fundamentals of the Rust for Windows project with tutorials for
+          both Windows developers new to Rust and Rust developers new to
+          Windows.
+        </div>
+      </div>
+
+      <div class="feature">
+        <a href="features">
+          <h2>Search for crate features</h2>
+        </a>
+        <div class="feature-description">
+          Tool to help developers find the crate features they need to add to their
+          Cargo.toml to access specific Windows APIs.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
