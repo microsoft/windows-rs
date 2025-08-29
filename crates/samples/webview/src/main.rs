@@ -56,18 +56,29 @@ fn main() {
                     println!("ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {result} {environment:?}");
                     result.unwrap();
 
-                    let window_handle = window_handle.clone();
+                    let window_handle = window_handle;
 
                     environment
                         .unwrap()
                         .CreateCoreWebView2Controller(
                             window_handle,
                             &wv::ICoreWebView2CreateCoreWebView2ControllerCompletedHandler::new(
-                                |result, controller| {
+                                move |result, controller| {
                                     println!("ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {result} {controller:?}");
+
+                                    let window_handle = window_handle;
+
                                     result.unwrap();
 
-                                    controller.unwrap().SetBounds(wv::RECT{left:0,top:0,right:1000, bottom: 1000}).unwrap();
+                                                    let mut rect = Default::default();
+                GetClientRect(window_handle.0, &mut rect);
+
+                                    controller.unwrap().                        SetBounds(wv::RECT {
+                            left: rect.left,
+                            top: rect.top,
+                            right: rect.right,
+                            bottom: rect.bottom,
+                        }).unwrap();
 
                                     let view = controller.unwrap().CoreWebView2().unwrap();
                                     view.Navigate(w!("https://github.com/microsoft/windows-rs")).unwrap();
