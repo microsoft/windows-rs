@@ -44,27 +44,48 @@ fn main() {
             std::ptr::null(),
         ));
 
-        // TODO: these callbacks should be like windows-future's when with a single Result parameter like Result<ICoreWebView2Controller> and the HRESULT being made 
-        // available through the Err variant. This should work for all of the XxxxCompletedHandler callbacks and the XxxEventHandler callbacks would have two 
+        // TODO: these callbacks should be like windows-future's when with a single Result parameter like Result<ICoreWebView2Controller> and the HRESULT being made
+        // available through the Err variant. This should work for all of the XxxxCompletedHandler callbacks and the XxxEventHandler callbacks would have two
         // parameters as usual.
 
         println!("CreateCoreWebView2Environment");
 
-        wv::CreateCoreWebView2Environment((&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(move |result, environment| {
-            println!("handler {result} {environment:?}");
-            result.unwrap();
+        wv::CreateCoreWebView2Environment(
+            (&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(
+                move |result, environment| {
+                    println!("ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {result} {environment:?}");
+                    result.unwrap();
 
-            let window_handle = window_handle.clone();
+                    let window_handle = window_handle.clone();
 
-            environment.unwrap().CreateCoreWebView2Controller(window_handle, &wv::ICoreWebView2CreateCoreWebView2ControllerCompletedHandler::new(|result, controller| {
-                println!("handler {result} {controller:?}");
-                result.unwrap();
+                    environment
+                        .unwrap()
+                        .CreateCoreWebView2Controller(
+                            window_handle,
+                            &wv::ICoreWebView2CreateCoreWebView2ControllerCompletedHandler::new(
+                                |result, controller| {
+                                    println!("ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {result} {controller:?}");
+                                    result.unwrap();
 
-                Ok(())
-            }) ).unwrap();
+                                    controller.unwrap().SetBounds(wv::RECT{left:0,top:0,right:1000, bottom: 1000}).unwrap();
 
-            Ok(())
-        }) ).into()).unwrap();
+                                    let view = controller.unwrap().CoreWebView2().unwrap();
+                                    view.Navigate(w!("https://github.com/microsoft/windows-rs")).unwrap();
+
+                                    *CONTROLLER.write().unwrap() = Some(Controller(controller.unwrap().clone()));
+
+                                    Ok(())
+                                },
+                            ),
+                        )
+                        .unwrap();
+
+                    Ok(())
+                },
+            ))
+                .into(),
+        )
+        .unwrap();
 
         let mut message = std::mem::zeroed();
 
@@ -73,6 +94,12 @@ fn main() {
         }
     }
 }
+
+struct Controller(wv::ICoreWebView2Controller);
+unsafe impl Send for Controller {}
+unsafe impl Sync for Controller {}
+
+static CONTROLLER: std::sync::RwLock<Option<Controller>> = std::sync::RwLock::new(None);
 
 extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     unsafe {
@@ -85,6 +112,23 @@ extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: L
             WM_DESTROY => {
                 println!("WM_DESTROY");
                 PostQuitMessage(0);
+                0
+            }
+            WM_SIZE => {
+                let mut rect = Default::default();
+                GetClientRect(window, &mut rect);
+                let controller = CONTROLLER.read().unwrap();
+                if let Some(controller) = controller.as_ref() {
+                    controller
+                        .0
+                        .SetBounds(wv::RECT {
+                            left: rect.left,
+                            top: rect.top,
+                            right: rect.right,
+                            bottom: rect.bottom,
+                        })
+                        .unwrap();
+                }
                 0
             }
             _ => DefWindowProcA(window, message, wparam, lparam),

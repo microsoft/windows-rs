@@ -150,9 +150,13 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         output.TypeRef("System.Runtime.InteropServices", "GuidAttribute"),
     );
 
-    let uuid = item.attributes.iter().find(|attribute|attribute.name == "uuid").unwrap();
+    let uuid = item
+        .attributes
+        .iter()
+        .find(|attribute| attribute.name == "uuid")
+        .unwrap();
     assert_eq!(uuid.parameters.len(), 1);
-    let guid =  &mut uuid.parameters[0].1.bytes();
+    let guid = &mut uuid.parameters[0].1.bytes();
 
     let signature = Signature {
         types: vec![
@@ -201,10 +205,18 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
             | MethodAttributes::NewSlot
             | MethodAttributes::Virtual;
 
-        let specialname = if method.attributes.iter().any(|attribute|attribute.name == "propget") {
+        let specialname = if method
+            .attributes
+            .iter()
+            .any(|attribute| attribute.name == "propget")
+        {
             flags |= MethodAttributes::SpecialName;
             "propget"
-        } else if method.attributes.iter().any(|attribute|attribute.name == "propput") {
+        } else if method
+            .attributes
+            .iter()
+            .any(|attribute| attribute.name == "propput")
+        {
             flags |= MethodAttributes::SpecialName;
             "propput"
         } else {
@@ -237,11 +249,17 @@ fn write_interface(item: &idl::Interface, output: &mut writer::File) {
         output.MethodDef(&name, &signature, flags, Default::default());
 
         for (sequence, param) in method.params.iter().enumerate() {
-            output.Param(
-                &param.name,
-                (sequence + 1).try_into().unwrap(),
-                ParamAttributes::In,
-            );
+            let in_out = if param
+                .attributes
+                .iter()
+                .any(|attribute| attribute.name == "out")
+            {
+                ParamAttributes::Out
+            } else {
+                ParamAttributes::In
+            };
+
+            output.Param(&param.name, (sequence + 1).try_into().unwrap(), in_out);
         }
     }
 }
@@ -275,7 +293,7 @@ fn to_type(name: &str) -> Type {
         "EventRegistrationToken" | "INT64" => Type::I64,
         "UINT64" => Type::U64,
         _ => {
-            // TODO: idl parser needs type awareness to know how many pointers to "count" 
+            // TODO: idl parser needs type awareness to know how many pointers to "count"
 
             let mut ptr_count = 0;
             let mut trim = name;
@@ -293,6 +311,11 @@ fn to_type(name: &str) -> Type {
 
             if trim.len() != name.len() {
                 let ty = to_type(trim);
+
+                if trim.starts_with('I') {
+                    ptr_count -= 1;
+                }
+
                 if ptr_count > 0 {
                     Type::PtrMut(Box::new(ty), ptr_count)
                 } else {
