@@ -275,12 +275,29 @@ fn to_type(name: &str) -> Type {
         "EventRegistrationToken" | "INT64" => Type::I64,
         "UINT64" => Type::U64,
         _ => {
-            // TODO: need to count `*` and into PtrMut or PtrConst depending on `const`
-            // and possibly other attributes?
-            let trim = name.trim_end_matches('*').trim_end_matches("const").trim();
+            // TODO: idl parser needs type awareness to know how many pointers to "count" 
+
+            let mut ptr_count = 0;
+            let mut trim = name;
+
+            loop {
+                trim = trim.trim_end_matches("const").trim();
+
+                trim = if let Some(trim) = trim.strip_suffix('*') {
+                    ptr_count += 1;
+                    trim
+                } else {
+                    break;
+                }
+            }
 
             if trim.len() != name.len() {
-                to_type(trim)
+                let ty = to_type(trim);
+                if ptr_count > 0 {
+                    Type::PtrMut(Box::new(ty), ptr_count)
+                } else {
+                    ty
+                }
             } else {
                 Type::named("WebView2", name)
             }
