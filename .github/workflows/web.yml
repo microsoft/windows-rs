@@ -8,9 +8,14 @@ permissions:
 on:
   push:
     branches: [master]
-    paths: ["web/**"]
+    paths:
+      - "web/**"
+      - ".github/workflows/web.yml"
   pull_request:
-    paths: ["web/**"]
+    paths:
+      - "web/**"
+      - ".github/workflows/web.yml"
+  workflow_dispatch:
 
 jobs:
   web:
