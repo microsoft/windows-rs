@@ -8,10 +8,12 @@ on:
   pull_request:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
       - 'web/**'
     branches:
       - master
