@@ -1,81 +1,60 @@
 name: web
 
 permissions:
-  contents: write
+  contents: read
+  pages: write
+  id-token: write
 
 on:
-  pull_request:
-    paths: [web/**]
-    types: [opened, synchronize, reopened, closed]
   push:
-    paths: [web/**]
     branches: [master]
-  workflow_dispatch:
+    paths: ["web/**"]
+  pull_request:
+    paths: ["web/**"]
 
 jobs:
   web:
-    if: github.repository == 'microsoft/windows-rs'
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-        with:
-          path: current
+      - name: Get sources
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+      - name: Setup node
+        uses: actions/setup-node@v4
         with:
-          node-version: 'latest'
+          node-version: "latest"
 
-      - name: Build sites
-        shell: pwsh
+      - name: Setup mdBook
         run: |
-          cd current/web
-          $sites = Get-ChildItem -Directory
-          foreach ($site in $sites) {
-            Write-Host "Building $($site.Name)"
-            ./build.ps1 $site.Name
-          }
+          cargo install mdbook
 
-      - uses: actions/checkout@v5
-        with:
-          ref: gh-pages
-          path: gh-pages
-
-      - name: Update gh-pages
-        shell: pwsh
+      - name: Build
+        working-directory: web
         run: |
-          cd gh-pages
+          mkdir -p .build/features .build/book
 
-          $sites = Get-ChildItem ../current/web -Directory
-          foreach ($site in $sites) {
-              Write-Host "Deploying $($site.Name)"
+          # Copy static files
+          cp -r static/* .build/
 
-              if ("${{ github.event_name }}" -eq "pull_request") {
-                  if ("${{ github.event.action }}" -eq "closed") {
-                      Remove-Item -Recurse -Force -ErrorAction Ignore "$($site.Name)/preview/pr-${{ github.event.number }}"
-                  } else {
-                      if (Test-Path "$($site.FullName)/build") {
-                          $previewPath = "$($site.Name)/preview/pr-${{ github.event.number }}"
-                          New-Item -ItemType Directory -Force $previewPath | Out-Null
-                          Remove-Item -Recurse -Force -ErrorAction Ignore "$previewPath/*"
-                          Copy-Item "$($site.FullName)/build/*" $previewPath -Recurse -Force
-                      }
-                  }
-              } elseif ("${{ github.ref }}" -eq "refs/heads/master") {
-                  if (Test-Path "$($site.FullName)/build") {
-                      New-Item -ItemType Directory -Force $site.Name | Out-Null
-                      Get-ChildItem "$($site.Name)/*" -Exclude "preview" | Remove-Item -Recurse -Force -ErrorAction Ignore
-                      Copy-Item "$($site.FullName)/build/*" $site.Name -Recurse -Force
-                  }
-              }
-          }
+          # Build book
+          pushd book
+          mdbook build --dest-dir ../.build/book
+          popd
 
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://github.com/${{ github.repository }}
+          # Build feature tool
+          pushd features
+          npm ci
+          npm run build
+          cp -r build/* ../.build/features/
+          popd
 
-          $status = git status --porcelain
-          if ($status) {
-              git add .
-              git commit -m "Update from ${{ github.sha }}"
-              git push
-          }
+      - name: Upload Pages artifact
+        if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: ./web/.build
+
+      - name: Deploy to GitHub Pages
+        if: github.event_name != 'pull_request'
+        id: deployment
+        uses: actions/deploy-pages@v4

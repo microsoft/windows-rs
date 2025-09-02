@@ -1,0 +1,418 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Implement a traditional Win32-style API - Kenny Kerr</title>
+
+
+        <!-- Custom HTML head -->
+        <meta property="og:image" content="https://kennykerr.ca/image.jpg"/>
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../favicon.svg">
+        <link rel="stylesheet" href="../css/variables.css">
+        <link rel="stylesheet" href="../css/general.css">
+        <link rel="stylesheet" href="../css/chrome.css">
+        <link rel="stylesheet" href="../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Kenny Kerr</h1>
+
+                    <div class="right-buttons">
+                        <a href="../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+                        <a href="https://github.com/kennykerr/blog" title="Git repository" aria-label="Git repository">
+                            <i id="git-repository-button" class="fa fa-github"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="implement-a-traditional-win32-style-api"><a class="header" href="#implement-a-traditional-win32-style-api">Implement a traditional Win32-style API</a></h1>
+<p>Now that we know <a href="creating-your-first-dll.html">how to create a DLL in Rust</a>, let's consider what it takes to implement a simple Win32-style API. While WinRT is generally a better choice for new  operating system APIs, Win32-style APIs continue to be important. You might need to re-implement an existing API in Rust or just need finer control of the type system or activation model for one reason or another.</p>
+<p>To keep things simple but realistic, let's implement a JSON validator API. The idea is to provide a way to efficiently validate a given JSON string against a known schema. Efficiency requires that the schema is pre-compiled, so we can produce a logical JSON validator object that may be created and freed separately from the process of validating the JSON string. You can imagine a hypothetical Win32-style API looking like this:</p>
+<pre><code class="language-C++">HRESULT __stdcall CreateJsonValidator(char const* schema, size_t schema_len, uintptr_t* handle);
+
+HRESULT __stdcall ValidateJson(uintptr_t handle, char const* value, size_t value_len, char** sanitized_value, size_t* sanitized_value_len);
+
+void __stdcall CloseJsonValidator(uintptr_t handle);
+</code></pre>
+<p>The <code>CreateJsonValidator</code> function should compile the schema and make it available through the returned <code>handle</code>.</p>
+<p>The handle can then be passed to the <code>ValidateJson</code> function to perform the validation. The function can optionally return a sanitized version of the JSON value.</p>
+<p>The JSON validator handle can later be freed using the <code>CloseJsonValidator</code> function, causing any memory occupied by the validator "object" to be freed.</p>
+<p>Both creation and validation can fail, so those functions return an <code>HRESULT</code>, with rich error information being available via the <code>GetErrorInfo</code> function.</p>
+<p>Let's use the <code>windows</code> crate for basic Windows error handling and type support. The popular <code>serde_json</code> crate will be used for parsing JSON strings. Unfortunately, it doesn't provide schema validation. A quick online search reveals the <code>jsonschema</code> crate seems to be the main or only game in town. It will do for this example. The focus here is not really on the particular implementation as much as the process of building such an API in Rust generally.</p>
+<p>Given these dependencies and what we learned about creating a DLL in Rust, here's what the project's <code>Cargo.toml</code> file should look like:</p>
+<pre><code class="language-toml">[package]
+name = "json_validator"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+jsonschema = "0.17"
+serde_json = "1.0"
+
+[dependencies.windows]
+version = "0.52"
+features = [
+    "Win32_Foundation",
+    "Win32_System_Com",
+]
+</code></pre>
+<p>We can employ a <code>use</code> declaration to make things a little easier for ourselves:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>use jsonschema::JSONSchema;
+use windows::{core::*, Win32::Foundation::*, Win32::System::Com::*};
+<span class="boring">}</span></code></pre></pre>
+<p>And let's begin with the <code>CreateJsonValidator</code> API function. Here's how the C++ declaration might look in Rust:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[no_mangle]
+unsafe extern "system" fn CreateJsonValidator(
+    schema: *const u8,
+    schema_len: usize,
+    handle: *mut usize,
+) -&gt; HRESULT {
+    create_validator(schema, schema_len, handle).into()
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Nothing too exciting here. We're just using the definition of <code>HRESULT</code> from the <code>windows</code> crate. The implementation calls a different <code>create_validator</code> function for its implementaion. We'll do this so that we can use the syntactic convenience of the standard <a href="https://doc.rust-lang.org/stable/std/result/index.html">Result</a> type for error propagation. The specialization of <code>Result</code> provided by the <code>windows</code> crate further supports turning a <code>Result</code> into an <code>HRESULT</code> while discharging its rich error information to the caller. That's what the trailing <code>into()</code> is used for.</p>
+<p>The <code>create_validator</code> function looks as follows:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -&gt; Result&lt;()&gt; {
+    // ...
+
+    Ok(())
+}
+<span class="boring">}</span></code></pre></pre>
+<p>As you can see, it carries the exact same parameters and simply switches out the <code>HRESULT</code> for a <code>Result</code> returning the <a href="https://doc.rust-lang.org/stable/std/primitive.unit.html">unit type</a>, or nothing other than success or error information.</p>
+<p>First up, we need to parse the provided schema using <code>serde_json</code>. Since we need to parse JSON in a couple spots, we'll just drop this in a reusable helper function:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>unsafe fn json_from_raw_parts(value: *const u8, value_len: usize) -&gt; Result&lt;serde_json::Value&gt; {
+    if value.is_null() {
+        return Err(E_POINTER.into());
+    }
+
+    let value = std::slice::from_raw_parts(value, value_len);
+
+    let value =
+        std::str::from_utf8(value).map_err(|_| Error::from(ERROR_NO_UNICODE_TRANSLATION))?;
+
+    serde_json::from_str(value).map_err(|error| Error::new(E_INVALIDARG, format!("{error}").into()))
+}
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>json_from_raw_parts</code> function starts by checking that the pointer to a UTF-8 string is not null, return <code>E_POINTER</code> in such cases. We can then turn the pointer and length into a Rust slice and from there a string slice, ensuring that it is in fact a valid UTF-8 string. Finally, we call out to <code>serde_json</code> to turn the string into a JSON value for further processing.</p>
+<p>Now that we can parse JSON, completing the <code>create_validator</code> function is relatively straightforward:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>unsafe fn create_validator(schema: *const u8, schema_len: usize, handle: *mut usize) -&gt; Result&lt;()&gt; {
+    let schema = json_from_raw_parts(schema, schema_len)?;
+
+    let compiled = JSONSchema::compile(&amp;schema)
+        .map_err(|error| Error::new(E_INVALIDARG, error.to_string().into()))?;
+
+    if handle.is_null() {
+        return Err(E_POINTER.into());
+    }
+
+    *handle = Box::into_raw(Box::new(compiled)) as usize;
+
+    Ok(())
+}
+<span class="boring">}</span></code></pre></pre>
+<p>The JSON value, in this case the JSON schema, is passed to <code>JSONSchema::compile</code> to produce the compiled representation. While the value is known to be JSON at this point, it may not in fact be a valid JSON schema. In such cases, we'll return <code>E_INVALIDARG</code> and include the error message from the JSON schema compiler to aid in debugging. Finally, provided the handle pointer is not null, we can go ahead and box the compiled representation and return it as the "handle".</p>
+<p>Now let's move on to the <code>CloseJsonValidator</code> function since it's closely related to the boxing code above. Boxing just means to move the value on to the heap. The <code>CloseJsonValidator</code> function therefore needs to "drop" the object and free that heap allocation:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[no_mangle]
+unsafe extern "system" fn CloseJsonValidator(handle: usize) {
+    if handle != 0 {
+        _ = Box::from_raw(handle as *mut JSONSchema);
+    }
+}
+<span class="boring">}</span></code></pre></pre>
+<p>We can add a little safeguard if a zero handle is provided. This is a pretty standard convenience feature to simplify generic programming for callers, but a caller can generally avoid the indirection cost of calling <code>CloseJsonValidator</code> if they know the handle is zero.</p>
+<p>Finally, let's consider the <code>ValidateJson</code> function's implementation:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>#[no_mangle]
+unsafe extern "system" fn ValidateJson(
+    handle: usize,
+    value: *const u8,
+    value_len: usize,
+    sanitized_value: *mut *mut u8,
+    sanitized_value_len: *mut usize,
+) -&gt; HRESULT {
+    validate(
+        handle,
+        value,
+        value_len,
+        sanitized_value,
+        sanitized_value_len,
+    )
+    .into()
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Here again the implementation forwards to a <code>Result</code>-returning function for convenience:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>unsafe fn validate(
+    handle: usize,
+    value: *const u8,
+    value_len: usize,
+    sanitized_value: *mut *mut u8,
+    sanitized_value_len: *mut usize,
+) -&gt; Result&lt;()&gt; {
+    // ...
+}
+<span class="boring">}</span></code></pre></pre>
+<p>First up, we need to ensure that we even have a valid handle, before transforming it into a <code>JSONSchema</code> object reference:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if handle == 0 {
+    return Err(E_HANDLE.into());
+}
+
+let schema = &amp;*(handle as *const JSONSchema);
+<span class="boring">}</span></code></pre></pre>
+<p>This looks a bit tricky but we're just turning the opaque handle into a <code>JSONSchema</code> pointer and then returning a reference to avoid taking ownership of it.</p>
+<p>Next, we need to parse the provided JSON value:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let value = json_from_raw_parts(value, value_len)?;
+<span class="boring">}</span></code></pre></pre>
+<p>Here again we use the handy <code>json_from_raw_parts</code> helper function and allow error propagation to be handled automatically via the <code>?</code> operator.</p>
+<p>At this point we can perform schema validation, optionally returning a sanitized copy of the JSON value:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>if schema.is_valid(&amp;value) {
+    if !sanitized_value.is_null() &amp;&amp; !sanitized_value_len.is_null() {
+        let value = value.to_string();
+
+        *sanitized_value = CoTaskMemAlloc(value.len()) as _;
+
+        if (*sanitized_value).is_null() {
+            return Err(E_OUTOFMEMORY.into());
+        }
+
+        (*sanitized_value).copy_from(value.as_ptr(), value.len());
+        *sanitized_value_len = value.len();
+    }
+
+    Ok(())
+} else {
+    // ...
+}
+<span class="boring">}</span></code></pre></pre>
+<p>Assuming the JSON value checks out against the compiled schema, we see whether the caller provided pointers to return a sanitized copy of the JSON value. In that case, we call <code>to_string</code> to return a string representation straight from the JSON parser, use <code>CoTaskMemAlloc</code> to allocate a buffer to return to the caller and copy the resulting UTF-8 string into this buffer.</p>
+<p>If things don't go well, we can get the compiled schema to produce a handy error message before returning <code>E_INVALIDARG</code> to the caller:</p>
+<pre><pre class="playground"><code class="language-rust"><span class="boring">#![allow(unused)]
+</span><span class="boring">fn main() {
+</span>let mut message = String::new();
+
+if let Some(error) = schema.validate(&amp;value).unwrap_err().next() {
+    message = error.to_string();
+}
+
+Err(Error::new(E_INVALIDARG, message.into()))
+<span class="boring">}</span></code></pre></pre>
+<p>The <code>validate</code> method returns a collection of errors. We'll just return the first for simplicity.</p>
+<p>And that's it! Your first Win32-style API in Rust. You can <a href="https://github.com/microsoft/windows-rs/tree/master/crates/samples/components/json_validator">find the complete example here</a>.</p>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../rust-getting-started/creating-your-first-dll.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../rust-getting-started/string-tutorial.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../rust-getting-started/creating-your-first-dll.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../rust-getting-started/string-tutorial.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../elasticlunr.min.js"></script>
+        <script src="../mark.min.js"></script>
+        <script src="../searcher.js"></script>
+
+        <script src="../clipboard.min.js"></script>
+        <script src="../highlight.js"></script>
+        <script src="../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
