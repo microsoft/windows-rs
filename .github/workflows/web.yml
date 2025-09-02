@@ -18,10 +18,8 @@ on:
   workflow_dispatch:
 
 jobs:
-  web:
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     steps:
       - name: Get sources
         uses: actions/checkout@v4
@@ -61,7 +59,12 @@ jobs:
         with:
           path: ./web/.build
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    if: github.event_name != 'pull_request' || github.event_name == 'workflow_dispatch'
+    steps:
       - name: Deploy to GitHub Pages
-        if: github.event_name != 'pull_request'
-        id: deployment
         uses: actions/deploy-pages@v4
