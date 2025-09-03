@@ -10,10 +10,10 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-link]
-version = "0.1"
+version = "0.2"
 
 [build-dependencies.windows-bindgen]
-version = "0.62"
+version = "0.63"
 ```
 
 Generate Rust bindings in a build script as follows:

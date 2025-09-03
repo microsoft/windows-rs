@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-collections]
-version = "0.2"
+version = "0.3"
 ```
 
 Use the Windows collection types as needed:

@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-registry]
-version = "0.5"
+version = "0.6"
 ```
 
 Read and write registry keys and values as needed:

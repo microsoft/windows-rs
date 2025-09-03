@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-strings]
-version = "0.4"
+version = "0.5"
 ```
 
 Use the Windows string types as needed:
