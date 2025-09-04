@@ -1,12 +1,12 @@
 use windows_core::*;
-use windows_webview as wv;
+use windows_webview::*;
 
 use windows_sys::{
     Win32::Foundation::*, Win32::Graphics::Gdi::ValidateRect,
     Win32::System::LibraryLoader::GetModuleHandleA, Win32::UI::WindowsAndMessaging::*,
 };
 
-fn main() {
+fn main() -> Result<()> {
     unsafe {
         let instance = GetModuleHandleA(std::ptr::null());
         debug_assert!(!instance.is_null());
@@ -29,7 +29,7 @@ fn main() {
         let atom = RegisterClassA(&wc);
         debug_assert!(atom != 0);
 
-        let window_handle = wv::HWND(CreateWindowExA(
+        let window_handle = CreateWindowExA(
             0,
             window_class.0,
             s!("This is a sample window").0,
@@ -42,75 +42,36 @@ fn main() {
             core::ptr::null_mut(),
             instance,
             std::ptr::null(),
-        ));
+        );
 
-        // TODO: these callbacks should be like windows-future's when with a single Result parameter like Result<ICoreWebView2Controller> and the HRESULT being made
-        // available through the Err variant. This should work for all of the XxxxCompletedHandler callbacks and the XxxEventHandler callbacks would have two
-        // parameters as usual.
+        let environment = create_environment()?;
+        let controller = environment.create_controller(window_handle)?;
 
-        println!("CreateCoreWebView2Environment");
+        SetWindowLongPtrA(window_handle, GWLP_USERDATA, &controller as *const _ as _);
 
-        wv::CreateCoreWebView2Environment(
-            (&wv::ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler::new(
-                move |result, environment| {
-                    println!("ICoreWebView2CreateCoreWebView2EnvironmentCompletedHandler {result} {environment:?}");
-                    result.unwrap();
+        let mut rect = Default::default();
+        GetClientRect(window_handle, &mut rect);
 
-                    let window_handle = window_handle;
+        controller.set_bounds(Rect {
+            left: rect.left,
+            top: rect.top,
+            right: rect.right,
+            bottom: rect.bottom,
+        })?;
 
-                    environment
-                        .unwrap()
-                        .CreateCoreWebView2Controller(
-                            window_handle,
-                            &wv::ICoreWebView2CreateCoreWebView2ControllerCompletedHandler::new(
-                                move |result, controller| {
-                                    println!("ICoreWebView2CreateCoreWebView2ControllerCompletedHandler {result} {controller:?}");
+        let view = controller.view()?;
+        view.navigate("https://github.com/microsoft/windows-rs")?;
 
-                                    let window_handle = window_handle;
-
-                                    result.unwrap();
-
-                                                    let mut rect = Default::default();
-                GetClientRect(window_handle.0, &mut rect);
-
-                                    controller.unwrap().                        SetBounds(wv::RECT {
-                            left: rect.left,
-                            top: rect.top,
-                            right: rect.right,
-                            bottom: rect.bottom,
-                        }).unwrap();
-
-                                    let view = controller.unwrap().CoreWebView2().unwrap();
-                                    view.Navigate(w!("https://github.com/microsoft/windows-rs")).unwrap();
-
-                                    *CONTROLLER.write().unwrap() = Some(Controller(controller.unwrap().clone()));
-
-                                    Ok(())
-                                },
-                            ),
-                        )
-                        .unwrap();
-
-                    Ok(())
-                },
-            ))
-                .into(),
-        )
-        .unwrap();
 
         let mut message = std::mem::zeroed();
 
         while GetMessageA(&mut message, core::ptr::null_mut(), 0, 0) != 0 {
             DispatchMessageA(&message);
         }
+
+        Ok(())
     }
 }
-
-struct Controller(wv::ICoreWebView2Controller);
-unsafe impl Send for Controller {}
-unsafe impl Sync for Controller {}
-
-static CONTROLLER: std::sync::RwLock<Option<Controller>> = std::sync::RwLock::new(None);
 
 extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: LPARAM) -> LRESULT {
     unsafe {
@@ -126,13 +87,16 @@ extern "system" fn wndproc(window: HWND, message: u32, wparam: WPARAM, lparam: L
                 0
             }
             WM_SIZE => {
-                let mut rect = Default::default();
-                GetClientRect(window, &mut rect);
-                let controller = CONTROLLER.read().unwrap();
-                if let Some(controller) = controller.as_ref() {
+                let controller = GetWindowLongPtrA(window, GWLP_USERDATA) as *const Controller;
+
+                if !controller.is_null() {
+                    let controller  = &*controller;
+                    
+                    let mut rect = Default::default();
+                    GetClientRect(window, &mut rect);
+
                     controller
-                        .0
-                        .SetBounds(wv::RECT {
+                        .set_bounds(Rect {
                             left: rect.left,
                             top: rect.top,
                             right: rect.right,

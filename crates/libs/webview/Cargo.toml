@@ -14,6 +14,9 @@ categories = ["os::windows-apis"]
 windows-link = { workspace = true }
 windows-core = { workspace = true }
 windows-strings = { workspace = true }
+windows-result = { workspace = true }
+windows-future = { workspace = true }
+windows-threading = { workspace = true }
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
