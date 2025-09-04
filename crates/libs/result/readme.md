@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-result]
-version = "0.3"
+version = "0.4"
 ```
 
 Use the `HRESULT`, `Error`, and specialized `Result` types as needed:

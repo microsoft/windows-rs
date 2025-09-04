@@ -1,6 +1,6 @@
 [package]
 name = "windows-bindgen"
-version = "0.62.1"
+version = "0.63.0"
 edition = "2021"
 rust-version = "1.82"
 license = "MIT OR Apache-2.0"

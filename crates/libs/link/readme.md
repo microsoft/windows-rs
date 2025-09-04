@@ -10,7 +10,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows-link]
-version = "0.1"
+version = "0.2"
 ```
 
 Use the `link` macro to define the external functions you wish to call:
