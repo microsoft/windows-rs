@@ -40,8 +40,22 @@ impl MethodDef {
             .next()
     }
 
-    pub fn module_name(&self) -> &'static str {
-        self.impl_map().map_or("", |map| map.scope().name())
+    pub fn module_name(&self) -> String {
+        const combase_functions: [&str; 5] = [
+            "CoCreateFreeThreadedMarshaler",
+            "CoIncrementMTAUsage",
+            "CoTaskMemAlloc",
+            "CoTaskMemFree",
+            "RoGetAgileReference",
+        ];
+
+        if combase_functions.contains(&self.name()) {
+            "combase.dll".to_string()
+        } else {
+            self.impl_map()
+                .map_or("", |map| map.scope().name())
+                .to_lowercase()
+        }
     }
 
     pub fn calling_convention(&self) -> &'static str {

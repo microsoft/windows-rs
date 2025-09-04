@@ -28,7 +28,7 @@ impl CppFn {
     }
 
     pub fn write_link(&self, config: &Config, underlying_types: bool) -> TokenStream {
-        let library = self.method.module_name().to_lowercase();
+        let library = self.method.module_name();
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
         let abi = self.method.calling_convention();
