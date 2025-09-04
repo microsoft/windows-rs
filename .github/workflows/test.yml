@@ -22,6 +22,10 @@ jobs:
           - version: stable
             host: x86_64-pc-windows-msvc
             target: x86_64-pc-windows-msvc
+            runner: windows-2019
+          - version: stable
+            host: x86_64-pc-windows-msvc
+            target: x86_64-pc-windows-msvc
             runner: windows-2025
           - version: nightly
             host: x86_64-pc-windows-msvc
