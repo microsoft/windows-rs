@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for ITest {
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
-    pub fn Input<P0>(&self, input: P0) -> windows_core::Result<i32>
+    pub fn Input<P0>(&self, input: P0) -> windows_result::Result<i32>
     where
         P0: windows_core::Param<ITest>,
     {
@@ -28,7 +28,7 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn Output(&self, value: i32, output: &mut Option<ITest>) -> windows_core::Result<()> {
+    pub fn Output(&self, value: i32, output: &mut Option<ITest>) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Output)(
@@ -39,7 +39,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Current(&self) -> windows_core::Result<i32> {
+    pub fn Current(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -50,7 +50,7 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn SetCurrent(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetCurrent(&self, value: i32) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetCurrent)(
@@ -65,10 +65,11 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn Input(&self, input: windows_core::Ref<ITest>) -> windows_core::Result<i32>;
-    fn Output(&self, value: i32, output: windows_core::OutRef<ITest>) -> windows_core::Result<()>;
-    fn Current(&self) -> windows_core::Result<i32>;
-    fn SetCurrent(&self, value: i32) -> windows_core::Result<()>;
+    fn Input(&self, input: windows_core::Ref<ITest>) -> windows_result::Result<i32>;
+    fn Output(&self, value: i32, output: windows_core::OutRef<ITest>)
+        -> windows_result::Result<()>;
+    fn Current(&self) -> windows_result::Result<i32>;
+    fn SetCurrent(&self, value: i32) -> windows_result::Result<()>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {

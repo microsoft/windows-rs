@@ -13,6 +13,7 @@ windows-bindgen = { workspace = true }
 
 [dependencies]
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 windows = { workspace = true, features = ["Foundation", "Win32_Foundation"] }
 test_activation = { path = "../activation" }
 

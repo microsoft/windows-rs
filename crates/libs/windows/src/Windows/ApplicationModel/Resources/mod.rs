@@ -83,21 +83,21 @@ pub struct IResourceLoaderStatics4_Vtbl {
 pub struct ResourceLoader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ResourceLoader, windows_core::IUnknown, windows_core::IInspectable);
 impl ResourceLoader {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GetString(&self, resource: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetString(&self, resource: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetString)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(resource), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetStringForUri<P0>(&self, uri: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetStringForUri<P0>(&self, uri: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -107,13 +107,13 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetStringForUri)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn CreateResourceLoaderByName(name: &windows_core::HSTRING) -> windows_result::Result<ResourceLoader> {
         Self::IResourceLoaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateResourceLoaderByName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetStringForReference<P0>(uri: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetStringForReference<P0>(uri: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -122,32 +122,32 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetStringForReference)(windows_core::Interface::as_raw(this), uri.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ResourceLoader> {
+    pub fn GetForCurrentView() -> windows_result::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentViewWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn GetForCurrentViewWithName(name: &windows_core::HSTRING) -> windows_result::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentViewWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForViewIndependentUse() -> windows_core::Result<ResourceLoader> {
+    pub fn GetForViewIndependentUse() -> windows_result::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUse)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForViewIndependentUseWithName(name: &windows_core::HSTRING) -> windows_core::Result<ResourceLoader> {
+    pub fn GetForViewIndependentUseWithName(name: &windows_core::HSTRING) -> windows_result::Result<ResourceLoader> {
         Self::IResourceLoaderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForViewIndependentUseWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "UI")]
-    pub fn GetForUIContext<P0>(context: P0) -> windows_core::Result<ResourceLoader>
+    pub fn GetForUIContext<P0>(context: P0) -> windows_result::Result<ResourceLoader>
     where
         P0: windows_core::Param<super::super::UI::UIContext>,
     {
@@ -156,29 +156,29 @@ impl ResourceLoader {
             (windows_core::Interface::vtable(this).GetForUIContext)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultPriPath(packagefullname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDefaultPriPath(packagefullname: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         Self::IResourceLoaderStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultPriPath)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefullname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IResourceLoaderFactory<R, F: FnOnce(&IResourceLoaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderFactory<R, F: FnOnce(&IResourceLoaderFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceLoaderStatics<R, F: FnOnce(&IResourceLoaderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics<R, F: FnOnce(&IResourceLoaderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceLoaderStatics2<R, F: FnOnce(&IResourceLoaderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics2<R, F: FnOnce(&IResourceLoaderStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceLoaderStatics3<R, F: FnOnce(&IResourceLoaderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics3<R, F: FnOnce(&IResourceLoaderStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IResourceLoaderStatics4<R, F: FnOnce(&IResourceLoaderStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IResourceLoaderStatics4<R, F: FnOnce(&IResourceLoaderStatics4) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ResourceLoader, IResourceLoaderStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

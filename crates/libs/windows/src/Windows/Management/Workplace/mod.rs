@@ -33,41 +33,41 @@ pub struct IWorkplaceSettingsStatics_Vtbl {
 }
 pub struct MdmPolicy;
 impl MdmPolicy {
-    pub fn IsBrowserAllowed() -> windows_core::Result<bool> {
+    pub fn IsBrowserAllowed() -> windows_result::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBrowserAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsCameraAllowed() -> windows_core::Result<bool> {
+    pub fn IsCameraAllowed() -> windows_result::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCameraAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsMicrosoftAccountAllowed() -> windows_core::Result<bool> {
+    pub fn IsMicrosoftAccountAllowed() -> windows_result::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMicrosoftAccountAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsStoreAllowed() -> windows_core::Result<bool> {
+    pub fn IsStoreAllowed() -> windows_result::Result<bool> {
         Self::IMdmAllowPolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsStoreAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GetMessagingSyncPolicy() -> windows_core::Result<MessagingSyncPolicy> {
+    pub fn GetMessagingSyncPolicy() -> windows_result::Result<MessagingSyncPolicy> {
         Self::IMdmPolicyStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMessagingSyncPolicy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmAllowPolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MdmPolicy, IMdmPolicyStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -91,13 +91,13 @@ impl windows_core::RuntimeType for MessagingSyncPolicy {
 }
 pub struct WorkplaceSettings;
 impl WorkplaceSettings {
-    pub fn IsMicrosoftAccountOptional() -> windows_core::Result<bool> {
+    pub fn IsMicrosoftAccountOptional() -> windows_result::Result<bool> {
         Self::IWorkplaceSettingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMicrosoftAccountOptional)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

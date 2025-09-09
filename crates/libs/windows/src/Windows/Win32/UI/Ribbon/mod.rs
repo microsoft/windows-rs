@@ -1,19 +1,19 @@
 windows_core::imp::define_interface!(IUIApplication, IUIApplication_Vtbl, 0xd428903c_729a_491d_910d_682a08ff2522);
 windows_core::imp::interface_hierarchy!(IUIApplication, windows_core::IUnknown);
 impl IUIApplication {
-    pub unsafe fn OnViewChanged<P2>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P2, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>
+    pub unsafe fn OnViewChanged<P2>(&self, viewid: u32, typeid: UI_VIEWTYPE, view: P2, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_result::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).OnViewChanged)(windows_core::Interface::as_raw(self), viewid, typeid, view.param().abi(), verb, ureasoncode).ok() }
     }
-    pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler> {
+    pub unsafe fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_result::Result<IUICommandHandler> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OnCreateUICommand)(windows_core::Interface::as_raw(self), commandid, typeid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_core::Result<()>
+    pub unsafe fn OnDestroyUICommand<P2>(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: P2) -> windows_result::Result<()>
     where
         P2: windows_core::Param<IUICommandHandler>,
     {
@@ -29,9 +29,9 @@ pub struct IUIApplication_Vtbl {
     pub OnDestroyUICommand: unsafe extern "system" fn(*mut core::ffi::c_void, u32, UI_COMMANDTYPE, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIApplication_Impl: windows_core::IUnknownImpl {
-    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: windows_core::Ref<windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_core::Result<()>;
-    fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_core::Result<IUICommandHandler>;
-    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: windows_core::Ref<IUICommandHandler>) -> windows_core::Result<()>;
+    fn OnViewChanged(&self, viewid: u32, typeid: UI_VIEWTYPE, view: windows_core::Ref<windows_core::IUnknown>, verb: UI_VIEWVERB, ureasoncode: i32) -> windows_result::Result<()>;
+    fn OnCreateUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE) -> windows_result::Result<IUICommandHandler>;
+    fn OnDestroyUICommand(&self, commandid: u32, typeid: UI_COMMANDTYPE, commandhandler: windows_core::Ref<IUICommandHandler>) -> windows_result::Result<()>;
 }
 impl IUIApplication_Vtbl {
     pub const fn new<Identity: IUIApplication_Impl, const OFFSET: isize>() -> Self {
@@ -74,40 +74,40 @@ impl windows_core::RuntimeName for IUIApplication {}
 windows_core::imp::define_interface!(IUICollection, IUICollection_Vtbl, 0xdf4f45bf_6f9d_4dd7_9d68_d8f9cd18c4db);
 windows_core::imp::interface_hierarchy!(IUICollection, windows_core::IUnknown);
 impl IUICollection {
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCount(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn GetItem(&self, index: u32) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetItem)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, item: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, item: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), item.param().abi()).ok() }
     }
-    pub unsafe fn Insert<P1>(&self, index: u32, item: P1) -> windows_core::Result<()>
+    pub unsafe fn Insert<P1>(&self, index: u32, item: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).Insert)(windows_core::Interface::as_raw(self), index, item.param().abi()).ok() }
     }
-    pub unsafe fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAt(&self, index: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAt)(windows_core::Interface::as_raw(self), index).ok() }
     }
-    pub unsafe fn Replace<P1>(&self, indexreplaced: u32, itemreplacewith: P1) -> windows_core::Result<()>
+    pub unsafe fn Replace<P1>(&self, indexreplaced: u32, itemreplacewith: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).Replace)(windows_core::Interface::as_raw(self), indexreplaced, itemreplacewith.param().abi()).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -124,13 +124,13 @@ pub struct IUICollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUICollection_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<u32>;
-    fn GetItem(&self, index: u32) -> windows_core::Result<windows_core::IUnknown>;
-    fn Add(&self, item: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Insert(&self, index: u32, item: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn RemoveAt(&self, index: u32) -> windows_core::Result<()>;
-    fn Replace(&self, indexreplaced: u32, itemreplacewith: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn GetCount(&self) -> windows_result::Result<u32>;
+    fn GetItem(&self, index: u32) -> windows_result::Result<windows_core::IUnknown>;
+    fn Add(&self, item: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn Insert(&self, index: u32, item: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn RemoveAt(&self, index: u32) -> windows_result::Result<()>;
+    fn Replace(&self, indexreplaced: u32, itemreplacewith: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn Clear(&self) -> windows_result::Result<()>;
 }
 impl IUICollection_Vtbl {
     pub const fn new<Identity: IUICollection_Impl, const OFFSET: isize>() -> Self {
@@ -207,7 +207,7 @@ impl windows_core::RuntimeName for IUICollection {}
 windows_core::imp::define_interface!(IUICollectionChangedEvent, IUICollectionChangedEvent_Vtbl, 0x6502ae91_a14d_44b5_bbd0_62aacc581d52);
 windows_core::imp::interface_hierarchy!(IUICollectionChangedEvent, windows_core::IUnknown);
 impl IUICollectionChangedEvent {
-    pub unsafe fn OnChanged<P2, P4>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P2, newindex: u32, newitem: P4) -> windows_core::Result<()>
+    pub unsafe fn OnChanged<P2, P4>(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: P2, newindex: u32, newitem: P4) -> windows_result::Result<()>
     where
         P2: windows_core::Param<windows_core::IUnknown>,
         P4: windows_core::Param<windows_core::IUnknown>,
@@ -222,7 +222,7 @@ pub struct IUICollectionChangedEvent_Vtbl {
     pub OnChanged: unsafe extern "system" fn(*mut core::ffi::c_void, UI_COLLECTIONCHANGE, u32, *mut core::ffi::c_void, u32, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUICollectionChangedEvent_Impl: windows_core::IUnknownImpl {
-    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: windows_core::Ref<windows_core::IUnknown>, newindex: u32, newitem: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn OnChanged(&self, action: UI_COLLECTIONCHANGE, oldindex: u32, olditem: windows_core::Ref<windows_core::IUnknown>, newindex: u32, newitem: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
 }
 impl IUICollectionChangedEvent_Vtbl {
     pub const fn new<Identity: IUICollectionChangedEvent_Impl, const OFFSET: isize>() -> Self {
@@ -243,14 +243,14 @@ windows_core::imp::define_interface!(IUICommandHandler, IUICommandHandler_Vtbl, 
 windows_core::imp::interface_hierarchy!(IUICommandHandler, windows_core::IUnknown);
 impl IUICommandHandler {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::super::Foundation::PROPERTYKEY>, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P4) -> windows_core::Result<()>
+    pub unsafe fn Execute<P4>(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: Option<*const super::super::Foundation::PROPERTYKEY>, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>, commandexecutionproperties: P4) -> windows_result::Result<()>
     where
         P4: windows_core::Param<IUISimplePropertySet>,
     {
         unsafe { (windows_core::Interface::vtable(self).Execute)(windows_core::Interface::as_raw(self), commandid, verb, key.unwrap_or(core::mem::zeroed()) as _, currentvalue.unwrap_or(core::mem::zeroed()) as _, commandexecutionproperties.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UpdateProperty)(windows_core::Interface::as_raw(self), commandid, key, currentvalue.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| core::mem::transmute(result__))
@@ -272,8 +272,8 @@ pub struct IUICommandHandler_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUICommandHandler_Impl: windows_core::IUnknownImpl {
-    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: windows_core::Ref<IUISimplePropertySet>) -> windows_core::Result<()>;
-    fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn Execute(&self, commandid: u32, verb: UI_EXECUTIONVERB, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, commandexecutionproperties: windows_core::Ref<IUISimplePropertySet>) -> windows_result::Result<()>;
+    fn UpdateProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, currentvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IUICommandHandler_Vtbl {
@@ -311,7 +311,7 @@ impl windows_core::RuntimeName for IUICommandHandler {}
 windows_core::imp::define_interface!(IUIContextualUI, IUIContextualUI_Vtbl, 0xeea11f37_7c46_437c_8e55_b52122b29293);
 windows_core::imp::interface_hierarchy!(IUIContextualUI, windows_core::IUnknown);
 impl IUIContextualUI {
-    pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> windows_core::Result<()> {
+    pub unsafe fn ShowAtLocation(&self, x: i32, y: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShowAtLocation)(windows_core::Interface::as_raw(self), x, y).ok() }
     }
 }
@@ -322,7 +322,7 @@ pub struct IUIContextualUI_Vtbl {
     pub ShowAtLocation: unsafe extern "system" fn(*mut core::ffi::c_void, i32, i32) -> windows_core::HRESULT,
 }
 pub trait IUIContextualUI_Impl: windows_core::IUnknownImpl {
-    fn ShowAtLocation(&self, x: i32, y: i32) -> windows_core::Result<()>;
+    fn ShowAtLocation(&self, x: i32, y: i32) -> windows_result::Result<()>;
 }
 impl IUIContextualUI_Vtbl {
     pub const fn new<Identity: IUIContextualUI_Impl, const OFFSET: isize>() -> Self {
@@ -373,7 +373,7 @@ impl windows_core::RuntimeName for IUIEventLogger {}
 windows_core::imp::define_interface!(IUIEventingManager, IUIEventingManager_Vtbl, 0x3be6ea7f_9a9b_4198_9368_9b0f923bd534);
 windows_core::imp::interface_hierarchy!(IUIEventingManager, windows_core::IUnknown);
 impl IUIEventingManager {
-    pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> windows_core::Result<()>
+    pub unsafe fn SetEventLogger<P0>(&self, eventlogger: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IUIEventLogger>,
     {
@@ -387,7 +387,7 @@ pub struct IUIEventingManager_Vtbl {
     pub SetEventLogger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IUIEventingManager_Impl: windows_core::IUnknownImpl {
-    fn SetEventLogger(&self, eventlogger: windows_core::Ref<IUIEventLogger>) -> windows_core::Result<()>;
+    fn SetEventLogger(&self, eventlogger: windows_core::Ref<IUIEventLogger>) -> windows_result::Result<()>;
 }
 impl IUIEventingManager_Vtbl {
     pub const fn new<Identity: IUIEventingManager_Impl, const OFFSET: isize>() -> Self {
@@ -407,42 +407,42 @@ impl windows_core::RuntimeName for IUIEventingManager {}
 windows_core::imp::define_interface!(IUIFramework, IUIFramework_Vtbl, 0xf4f0385d_6872_43a8_ad09_4c339cb3f5c5);
 windows_core::imp::interface_hierarchy!(IUIFramework, windows_core::IUnknown);
 impl IUIFramework {
-    pub unsafe fn Initialize<P1>(&self, framewnd: super::super::Foundation::HWND, application: P1) -> windows_core::Result<()>
+    pub unsafe fn Initialize<P1>(&self, framewnd: super::super::Foundation::HWND, application: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IUIApplication>,
     {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), framewnd, application.param().abi()).ok() }
     }
-    pub unsafe fn Destroy(&self) -> windows_core::Result<()> {
+    pub unsafe fn Destroy(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Destroy)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn LoadUI<P1>(&self, instance: super::super::Foundation::HINSTANCE, resourcename: P1) -> windows_core::Result<()>
+    pub unsafe fn LoadUI<P1>(&self, instance: super::super::Foundation::HINSTANCE, resourcename: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadUI)(windows_core::Interface::as_raw(self), instance, resourcename.param().abi()).ok() }
     }
-    pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetView)(windows_core::Interface::as_raw(self), viewid, riid, ppv as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUICommandProperty)(windows_core::Interface::as_raw(self), commandid, key, core::mem::transmute(value)).ok() }
     }
-    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_core::Result<()> {
+    pub unsafe fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: Option<*const super::super::Foundation::PROPERTYKEY>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InvalidateUICommand)(windows_core::Interface::as_raw(self), commandid, flags, key.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn FlushPendingInvalidations(&self) -> windows_core::Result<()> {
+    pub unsafe fn FlushPendingInvalidations(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FlushPendingInvalidations)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetModes(&self, imodes: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetModes(&self, imodes: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetModes)(windows_core::Interface::as_raw(self), imodes).ok() }
     }
 }
@@ -468,15 +468,15 @@ pub struct IUIFramework_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUIFramework_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: windows_core::Ref<IUIApplication>) -> windows_core::Result<()>;
-    fn Destroy(&self) -> windows_core::Result<()>;
-    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
-    fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_core::Result<()>;
-    fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<()>;
-    fn FlushPendingInvalidations(&self) -> windows_core::Result<()>;
-    fn SetModes(&self, imodes: i32) -> windows_core::Result<()>;
+    fn Initialize(&self, framewnd: super::super::Foundation::HWND, application: windows_core::Ref<IUIApplication>) -> windows_result::Result<()>;
+    fn Destroy(&self) -> windows_result::Result<()>;
+    fn LoadUI(&self, instance: super::super::Foundation::HINSTANCE, resourcename: &windows_core::PCWSTR) -> windows_result::Result<()>;
+    fn GetView(&self, viewid: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn GetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn SetUICommandProperty(&self, commandid: u32, key: *const super::super::Foundation::PROPERTYKEY, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> windows_result::Result<()>;
+    fn InvalidateUICommand(&self, commandid: u32, flags: UI_INVALIDATIONS, key: *const super::super::Foundation::PROPERTYKEY) -> windows_result::Result<()>;
+    fn FlushPendingInvalidations(&self) -> windows_result::Result<()>;
+    fn SetModes(&self, imodes: i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IUIFramework_Vtbl {
@@ -564,7 +564,7 @@ windows_core::imp::define_interface!(IUIImage, IUIImage_Vtbl, 0x23c8c838_4de6_43
 windows_core::imp::interface_hierarchy!(IUIImage, windows_core::IUnknown);
 impl IUIImage {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetBitmap(&self) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
+    pub unsafe fn GetBitmap(&self) -> windows_result::Result<super::super::Graphics::Gdi::HBITMAP> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBitmap)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -582,7 +582,7 @@ pub struct IUIImage_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImage_Impl: windows_core::IUnknownImpl {
-    fn GetBitmap(&self) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
+    fn GetBitmap(&self) -> windows_result::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IUIImage_Vtbl {
@@ -611,7 +611,7 @@ windows_core::imp::define_interface!(IUIImageFromBitmap, IUIImageFromBitmap_Vtbl
 windows_core::imp::interface_hierarchy!(IUIImageFromBitmap, windows_core::IUnknown);
 impl IUIImageFromBitmap {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_core::Result<IUIImage> {
+    pub unsafe fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_result::Result<IUIImage> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateImage)(windows_core::Interface::as_raw(self), bitmap, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -629,7 +629,7 @@ pub struct IUIImageFromBitmap_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IUIImageFromBitmap_Impl: windows_core::IUnknownImpl {
-    fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_core::Result<IUIImage>;
+    fn CreateImage(&self, bitmap: super::super::Graphics::Gdi::HBITMAP, options: UI_OWNERSHIP) -> windows_result::Result<IUIImage>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IUIImageFromBitmap_Vtbl {
@@ -657,21 +657,21 @@ impl windows_core::RuntimeName for IUIImageFromBitmap {}
 windows_core::imp::define_interface!(IUIRibbon, IUIRibbon_Vtbl, 0x803982ab_370a_4f7e_a9e7_8784036a6e26);
 windows_core::imp::interface_hierarchy!(IUIRibbon, windows_core::IUnknown);
 impl IUIRibbon {
-    pub unsafe fn GetHeight(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetHeight(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
+    pub unsafe fn LoadSettingsFromStream<P0>(&self, pstream: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadSettingsFromStream)(windows_core::Interface::as_raw(self), pstream.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> windows_core::Result<()>
+    pub unsafe fn SaveSettingsToStream<P0>(&self, pstream: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Com::IStream>,
     {
@@ -694,9 +694,9 @@ pub struct IUIRibbon_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IUIRibbon_Impl: windows_core::IUnknownImpl {
-    fn GetHeight(&self) -> windows_core::Result<u32>;
-    fn LoadSettingsFromStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
-    fn SaveSettingsToStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_core::Result<()>;
+    fn GetHeight(&self) -> windows_result::Result<u32>;
+    fn LoadSettingsFromStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_result::Result<()>;
+    fn SaveSettingsToStream(&self, pstream: windows_core::Ref<super::super::System::Com::IStream>) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IUIRibbon_Vtbl {
@@ -742,7 +742,7 @@ windows_core::imp::define_interface!(IUISimplePropertySet, IUISimplePropertySet_
 windows_core::imp::interface_hierarchy!(IUISimplePropertySet, windows_core::IUnknown);
 impl IUISimplePropertySet {
     #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
+    pub unsafe fn GetValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetValue)(windows_core::Interface::as_raw(self), key, &mut result__).map(|| core::mem::transmute(result__))
@@ -760,7 +760,7 @@ pub struct IUISimplePropertySet_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 pub trait IUISimplePropertySet_Impl: windows_core::IUnknownImpl {
-    fn GetValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
+    fn GetValue(&self, key: *const super::super::Foundation::PROPERTYKEY) -> windows_result::Result<super::super::System::Com::StructuredStorage::PROPVARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 impl IUISimplePropertySet_Vtbl {

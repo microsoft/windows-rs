@@ -9,8 +9,9 @@ crate-type = ["cdylib"]
 doc = false
 doctest = false
 
-[dependencies.windows-core]
-workspace = true
+[dependencies]
+windows-core = { workspace = true }
+windows-result = { workspace = true }
 
 [dependencies.windows]
 workspace = true

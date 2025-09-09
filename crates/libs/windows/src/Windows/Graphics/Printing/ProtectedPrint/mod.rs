@@ -10,13 +10,13 @@ pub struct IWindowsProtectedPrintInfoStatics_Vtbl {
 }
 pub struct WindowsProtectedPrintInfo;
 impl WindowsProtectedPrintInfo {
-    pub fn IsProtectedPrintEnabled() -> windows_core::Result<bool> {
+    pub fn IsProtectedPrintEnabled() -> windows_result::Result<bool> {
         Self::IWindowsProtectedPrintInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsProtectedPrintEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IWindowsProtectedPrintInfoStatics<R, F: FnOnce(&IWindowsProtectedPrintInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowsProtectedPrintInfoStatics<R, F: FnOnce(&IWindowsProtectedPrintInfoStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowsProtectedPrintInfo, IWindowsProtectedPrintInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

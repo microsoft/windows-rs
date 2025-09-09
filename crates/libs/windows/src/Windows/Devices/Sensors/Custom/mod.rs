@@ -3,39 +3,39 @@
 pub struct CustomSensor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensor, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensor {
-    pub fn GetCurrentReading(&self) -> windows_core::Result<CustomSensorReading> {
+    pub fn GetCurrentReading(&self) -> windows_result::Result<CustomSensorReading> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCurrentReading)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MinimumReportInterval(&self) -> windows_core::Result<u32> {
+    pub fn MinimumReportInterval(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinimumReportInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReportInterval(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetReportInterval(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReportInterval)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReportInterval(&self) -> windows_core::Result<u32> {
+    pub fn ReportInterval(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadingChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CustomSensor, CustomSensorReadingChangedEventArgs>>,
     {
@@ -45,41 +45,41 @@ impl CustomSensor {
             (windows_core::Interface::vtable(this).ReadingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReadingChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReadingChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetReportLatency(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetReportLatency(&self, value: u32) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetReportLatency)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReportLatency(&self) -> windows_core::Result<u32> {
+    pub fn ReportLatency(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportLatency)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxBatchSize(&self) -> windows_core::Result<u32> {
+    pub fn MaxBatchSize(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<ICustomSensor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxBatchSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeviceSelector(interfaceid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(interfaceid: windows_core::GUID) -> windows_result::Result<windows_core::HSTRING> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), interfaceid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CustomSensor>> {
+    pub fn FromIdAsync(sensorid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<CustomSensor>> {
         Self::ICustomSensorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sensorid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICustomSensorStatics<R, F: FnOnce(&ICustomSensorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICustomSensorStatics<R, F: FnOnce(&ICustomSensorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CustomSensor, ICustomSensorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -101,21 +101,21 @@ unsafe impl Sync for CustomSensor {}
 pub struct CustomSensorReading(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensorReading, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensorReading {
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn Properties(&self) -> windows_result::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PerformanceCount(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
+    pub fn PerformanceCount(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::TimeSpan>> {
         let this = &windows_core::Interface::cast::<ICustomSensorReading2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -140,7 +140,7 @@ unsafe impl Sync for CustomSensorReading {}
 pub struct CustomSensorReadingChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CustomSensorReadingChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CustomSensorReadingChangedEventArgs {
-    pub fn Reading(&self) -> windows_core::Result<CustomSensorReading> {
+    pub fn Reading(&self) -> windows_result::Result<CustomSensorReading> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

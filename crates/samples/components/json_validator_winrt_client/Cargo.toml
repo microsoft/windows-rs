@@ -6,6 +6,7 @@ publish = false
 
 [dev-dependencies]
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 windows = { workspace = true, features = ["Win32_Foundation"] }
 
 [build-dependencies]

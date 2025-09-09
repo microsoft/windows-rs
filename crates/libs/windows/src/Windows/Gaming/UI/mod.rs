@@ -1,6 +1,6 @@
 pub struct GameBar;
 impl GameBar {
-    pub fn VisibilityChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn VisibilityChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -9,10 +9,10 @@ impl GameBar {
             (windows_core::Interface::vtable(this).VisibilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveVisibilityChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveVisibilityChanged(token: i64) -> windows_result::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveVisibilityChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn IsInputRedirectedChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn IsInputRedirectedChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -21,22 +21,22 @@ impl GameBar {
             (windows_core::Interface::vtable(this).IsInputRedirectedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveIsInputRedirectedChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsInputRedirectedChanged(token: i64) -> windows_result::Result<()> {
         Self::IGameBarStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveIsInputRedirectedChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn Visible() -> windows_core::Result<bool> {
+    pub fn Visible() -> windows_result::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsInputRedirected() -> windows_core::Result<bool> {
+    pub fn IsInputRedirected() -> windows_result::Result<bool> {
         Self::IGameBarStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInputRedirected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameBarStatics<R, F: FnOnce(&IGameBarStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameBar, IGameBarStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -62,35 +62,35 @@ impl windows_core::RuntimeType for GameChatMessageOrigin {
 pub struct GameChatMessageReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatMessageReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatMessageReceivedEventArgs {
-    pub fn AppId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppDisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SenderName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SenderName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SenderName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Message(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Message(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Message)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Origin(&self) -> windows_core::Result<GameChatMessageOrigin> {
+    pub fn Origin(&self) -> windows_result::Result<GameChatMessageOrigin> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -115,28 +115,28 @@ unsafe impl Sync for GameChatMessageReceivedEventArgs {}
 pub struct GameChatOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlay, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlay {
-    pub fn DesiredPosition(&self) -> windows_core::Result<GameChatOverlayPosition> {
+    pub fn DesiredPosition(&self) -> windows_result::Result<GameChatOverlayPosition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesiredPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> windows_core::Result<()> {
+    pub fn SetDesiredPosition(&self, value: GameChatOverlayPosition) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDesiredPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AddMessage(&self, sender: &windows_core::HSTRING, message: &windows_core::HSTRING, origin: GameChatMessageOrigin) -> windows_core::Result<()> {
+    pub fn AddMessage(&self, sender: &windows_core::HSTRING, message: &windows_core::HSTRING, origin: GameChatMessageOrigin) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sender), core::mem::transmute_copy(message), origin).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<GameChatOverlay> {
+    pub fn GetDefault() -> windows_result::Result<GameChatOverlay> {
         Self::IGameChatOverlayStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameChatOverlayStatics<R, F: FnOnce(&IGameChatOverlayStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameChatOverlay, IGameChatOverlayStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -158,14 +158,14 @@ unsafe impl Sync for GameChatOverlay {}
 pub struct GameChatOverlayMessageSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GameChatOverlayMessageSource, windows_core::IUnknown, windows_core::IInspectable);
 impl GameChatOverlayMessageSource {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameChatOverlayMessageSource, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MessageReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MessageReceived<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<GameChatOverlayMessageSource, GameChatMessageReceivedEventArgs>>,
     {
@@ -175,11 +175,11 @@ impl GameChatOverlayMessageSource {
             (windows_core::Interface::vtable(this).MessageReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMessageReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMessageReceived(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMessageReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelayBeforeClosingAfterMessageReceived(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDelayBeforeClosingAfterMessageReceived)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -225,21 +225,21 @@ windows_core::imp::interface_hierarchy!(GameUIProviderActivatedEventArgs, window
 windows_core::imp::required_hierarchy!(GameUIProviderActivatedEventArgs, super::super::ApplicationModel::Activation::IActivatedEventArgs);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl GameUIProviderActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> windows_result::Result<super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> windows_result::Result<super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> windows_result::Result<super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -247,7 +247,7 @@ impl GameUIProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GameUIArgs(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn GameUIArgs(&self) -> windows_result::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -255,7 +255,7 @@ impl GameUIProviderActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn ReportCompleted<P0>(&self, results: P0) -> windows_core::Result<()>
+    pub fn ReportCompleted<P0>(&self, results: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
     {

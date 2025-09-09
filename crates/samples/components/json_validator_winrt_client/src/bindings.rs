@@ -58,7 +58,7 @@ impl JsonValidator {
     pub fn Validate(
         &self,
         value: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -70,7 +70,7 @@ impl JsonValidator {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateInstance(schema: &windows_core::HSTRING) -> windows_core::Result<JsonValidator> {
+    pub fn CreateInstance(schema: &windows_core::HSTRING) -> windows_result::Result<JsonValidator> {
         Self::IJsonValidatorFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(
@@ -81,9 +81,9 @@ impl JsonValidator {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IJsonValidatorFactory<R, F: FnOnce(&IJsonValidatorFactory) -> windows_core::Result<R>>(
+    fn IJsonValidatorFactory<R, F: FnOnce(&IJsonValidatorFactory) -> windows_result::Result<R>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<JsonValidator, IJsonValidatorFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

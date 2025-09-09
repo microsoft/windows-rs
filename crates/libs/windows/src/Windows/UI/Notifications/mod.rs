@@ -20,46 +20,46 @@ pub struct AdaptiveNotificationText(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdaptiveNotificationText, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdaptiveNotificationText, IAdaptiveNotificationContent);
 impl AdaptiveNotificationText {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdaptiveNotificationText, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind> {
+    pub fn Kind(&self) -> windows_result::Result<AdaptiveNotificationContentKind> {
         let this = &windows_core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IAdaptiveNotificationContent>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Hints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -82,21 +82,21 @@ pub struct BadgeNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BadgeNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl BadgeNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -104,7 +104,7 @@ impl BadgeNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateBadgeNotification<P0>(content: P0) -> windows_core::Result<BadgeNotification>
+    pub fn CreateBadgeNotification<P0>(content: P0) -> windows_result::Result<BadgeNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -113,7 +113,7 @@ impl BadgeNotification {
             (windows_core::Interface::vtable(this).CreateBadgeNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeNotificationFactory<R, F: FnOnce(&IBadgeNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeNotification, IBadgeNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -145,33 +145,33 @@ impl windows_core::RuntimeType for BadgeTemplateType {
 }
 pub struct BadgeUpdateManager;
 impl BadgeUpdateManager {
-    pub fn CreateBadgeUpdaterForApplication() -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplication() -> windows_result::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateBadgeUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_result::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateBadgeUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_result::Result<BadgeUpdater> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBadgeUpdaterForSecondaryTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent(r#type: BadgeTemplateType) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent(r#type: BadgeTemplateType) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IBadgeUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTemplateContent)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<BadgeUpdateManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<BadgeUpdateManagerForUser>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -180,11 +180,11 @@ impl BadgeUpdateManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeUpdateManagerStatics<R, F: FnOnce(&IBadgeUpdateManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBadgeUpdateManagerStatics2<R, F: FnOnce(&IBadgeUpdateManagerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BadgeUpdateManager, IBadgeUpdateManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -197,21 +197,21 @@ impl windows_core::RuntimeName for BadgeUpdateManager {
 pub struct BadgeUpdateManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BadgeUpdateManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl BadgeUpdateManagerForUser {
-    pub fn CreateBadgeUpdaterForApplication(&self) -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplication(&self) -> windows_result::Result<BadgeUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBadgeUpdaterForApplication)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForApplicationWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<BadgeUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateBadgeUpdaterForApplicationWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<BadgeUpdater> {
+    pub fn CreateBadgeUpdaterForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_result::Result<BadgeUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -219,7 +219,7 @@ impl BadgeUpdateManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -244,32 +244,32 @@ unsafe impl Sync for BadgeUpdateManagerForUser {}
 pub struct BadgeUpdater(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BadgeUpdater, windows_core::IUnknown, windows_core::IInspectable);
 impl BadgeUpdater {
-    pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
+    pub fn Update<P0>(&self, notification: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<BadgeNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartPeriodicUpdate<P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdate<P0>(&self, badgecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), badgecontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, badgecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), badgecontent.param().abi(), starttime, requestedinterval).ok() }
     }
-    pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
+    pub fn StopPeriodicUpdate(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopPeriodicUpdate)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -292,14 +292,14 @@ impl windows_core::RuntimeType for IAdaptiveNotificationContent {
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveNotificationContent, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveNotificationContent {
-    pub fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind> {
+    pub fn Kind(&self) -> windows_result::Result<AdaptiveNotificationContentKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -311,8 +311,8 @@ impl windows_core::RuntimeName for IAdaptiveNotificationContent {
     const NAME: &'static str = "Windows.UI.Notifications.IAdaptiveNotificationContent";
 }
 pub trait IAdaptiveNotificationContent_Impl: windows_core::IUnknownImpl {
-    fn Kind(&self) -> windows_core::Result<AdaptiveNotificationContentKind>;
-    fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
+    fn Kind(&self) -> windows_result::Result<AdaptiveNotificationContentKind>;
+    fn Hints(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>;
 }
 impl IAdaptiveNotificationContent_Vtbl {
     pub const fn new<Identity: IAdaptiveNotificationContent_Impl, const OFFSET: isize>() -> Self {
@@ -1263,43 +1263,43 @@ pub struct IUserNotificationChangedEventArgs_Vtbl {
 }
 pub struct KnownAdaptiveNotificationHints;
 impl KnownAdaptiveNotificationHints {
-    pub fn Style() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Style() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Style)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Wrap() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Wrap() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Wrap)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn MaxLines() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MaxLines() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxLines)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn MinLines() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MinLines() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinLines)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TextStacking() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TextStacking() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextStacking)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Align() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Align() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationHintsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Align)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IKnownAdaptiveNotificationHintsStatics<R, F: FnOnce(&IKnownAdaptiveNotificationHintsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownAdaptiveNotificationHintsStatics<R, F: FnOnce(&IKnownAdaptiveNotificationHintsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownAdaptiveNotificationHints, IKnownAdaptiveNotificationHintsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1309,121 +1309,121 @@ impl windows_core::RuntimeName for KnownAdaptiveNotificationHints {
 }
 pub struct KnownAdaptiveNotificationTextStyles;
 impl KnownAdaptiveNotificationTextStyles {
-    pub fn Caption() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Caption() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Caption)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Body() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Body() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Body)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Base() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Base() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Base)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Subtitle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subtitle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subtitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Title() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Subheader() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subheader() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subheader)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Header() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Header() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Header)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TitleNumeral() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TitleNumeral() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TitleNumeral)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SubheaderNumeral() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SubheaderNumeral() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubheaderNumeral)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HeaderNumeral() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HeaderNumeral() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderNumeral)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CaptionSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CaptionSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaptionSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BodySubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BodySubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BodySubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BaseSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BaseSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaseSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SubtitleSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SubtitleSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubtitleSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TitleSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TitleSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TitleSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SubheaderSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SubheaderSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubheaderSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SubheaderNumeralSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SubheaderNumeralSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubheaderNumeralSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HeaderSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HeaderSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HeaderNumeralSubtle() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HeaderNumeralSubtle() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownAdaptiveNotificationTextStylesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderNumeralSubtle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IKnownAdaptiveNotificationTextStylesStatics<R, F: FnOnce(&IKnownAdaptiveNotificationTextStylesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownAdaptiveNotificationTextStylesStatics<R, F: FnOnce(&IKnownAdaptiveNotificationTextStylesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownAdaptiveNotificationTextStyles, IKnownAdaptiveNotificationTextStylesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1433,13 +1433,13 @@ impl windows_core::RuntimeName for KnownAdaptiveNotificationTextStyles {
 }
 pub struct KnownNotificationBindings;
 impl KnownNotificationBindings {
-    pub fn ToastGeneric() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToastGeneric() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKnownNotificationBindingsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ToastGeneric)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IKnownNotificationBindingsStatics<R, F: FnOnce(&IKnownNotificationBindingsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKnownNotificationBindingsStatics<R, F: FnOnce(&IKnownNotificationBindingsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KnownNotificationBindings, IKnownNotificationBindingsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1452,35 +1452,35 @@ impl windows_core::RuntimeName for KnownNotificationBindings {
 pub struct Notification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Notification, windows_core::IUnknown, windows_core::IInspectable);
 impl Notification {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Notification, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Visual(&self) -> windows_core::Result<NotificationVisual> {
+    pub fn Visual(&self) -> windows_result::Result<NotificationVisual> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Visual)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetVisual<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetVisual<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<NotificationVisual>,
     {
@@ -1505,36 +1505,36 @@ unsafe impl Sync for Notification {}
 pub struct NotificationBinding(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotificationBinding, windows_core::IUnknown, windows_core::IInspectable);
 impl NotificationBinding {
-    pub fn Template(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Template(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Template)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTemplate(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTemplate(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTemplate)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Hints(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Hints(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Hints)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetTextElements(&self) -> windows_core::Result<windows_collections::IVectorView<AdaptiveNotificationText>> {
+    pub fn GetTextElements(&self) -> windows_result::Result<windows_collections::IVectorView<AdaptiveNotificationText>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1559,32 +1559,32 @@ unsafe impl Sync for NotificationBinding {}
 pub struct NotificationData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotificationData, windows_core::IUnknown, windows_core::IInspectable);
 impl NotificationData {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NotificationData, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Values(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Values(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Values)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SequenceNumber(&self) -> windows_core::Result<u32> {
+    pub fn SequenceNumber(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SequenceNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSequenceNumber(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetSequenceNumber(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSequenceNumber)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> windows_core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValuesAndSequenceNumber<P0>(initialvalues: P0, sequencenumber: u32) -> windows_result::Result<NotificationData>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -1593,7 +1593,7 @@ impl NotificationData {
             (windows_core::Interface::vtable(this).CreateNotificationDataWithValuesAndSequenceNumber)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), sequencenumber, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_core::Result<NotificationData>
+    pub fn CreateNotificationDataWithValues<P0>(initialvalues: P0) -> windows_result::Result<NotificationData>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -1602,7 +1602,7 @@ impl NotificationData {
             (windows_core::Interface::vtable(this).CreateNotificationDataWithValues)(windows_core::Interface::as_raw(this), initialvalues.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INotificationDataFactory<R, F: FnOnce(&INotificationDataFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NotificationData, INotificationDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1713,25 +1713,25 @@ impl windows_core::RuntimeType for NotificationUpdateResult {
 pub struct NotificationVisual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NotificationVisual, windows_core::IUnknown, windows_core::IInspectable);
 impl NotificationVisual {
-    pub fn Language(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Language(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Language)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLanguage(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLanguage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Bindings(&self) -> windows_core::Result<windows_collections::IVector<NotificationBinding>> {
+    pub fn Bindings(&self) -> windows_result::Result<windows_collections::IVector<NotificationBinding>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bindings)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetBinding(&self, templatename: &windows_core::HSTRING) -> windows_core::Result<NotificationBinding> {
+    pub fn GetBinding(&self, templatename: &windows_core::HSTRING) -> windows_result::Result<NotificationBinding> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1773,50 +1773,50 @@ pub struct ScheduledTileNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScheduledTileNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl ScheduledTileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DeliveryTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeliveryTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1824,7 +1824,7 @@ impl ScheduledTileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_core::Result<ScheduledTileNotification>
+    pub fn CreateScheduledTileNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_result::Result<ScheduledTileNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1833,7 +1833,7 @@ impl ScheduledTileNotification {
             (windows_core::Interface::vtable(this).CreateScheduledTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IScheduledTileNotificationFactory<R, F: FnOnce(&IScheduledTileNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ScheduledTileNotification, IScheduledTileNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1856,108 +1856,108 @@ pub struct ScheduledToastNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScheduledToastNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl ScheduledToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeliveryTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn DeliveryTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeliveryTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SnoozeInterval(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
+    pub fn SnoozeInterval(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::TimeSpan>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SnoozeInterval)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaximumSnoozeCount(&self) -> windows_core::Result<u32> {
+    pub fn MaximumSnoozeCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaximumSnoozeCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Group(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSuppressPopup(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSuppressPopup(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSuppressPopup)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SuppressPopup(&self) -> windows_core::Result<bool> {
+    pub fn SuppressPopup(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuppressPopup)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NotificationMirroring(&self) -> windows_core::Result<NotificationMirroring> {
+    pub fn NotificationMirroring(&self) -> windows_result::Result<NotificationMirroring> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotificationMirroring)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> windows_core::Result<()> {
+    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNotificationMirroring)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RemoteId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IScheduledToastNotification4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
@@ -1965,7 +1965,7 @@ impl ScheduledToastNotification {
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotification<P0>(content: P0, deliverytime: super::super::Foundation::DateTime) -> windows_result::Result<ScheduledToastNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1975,7 +1975,7 @@ impl ScheduledToastNotification {
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> windows_core::Result<ScheduledToastNotification>
+    pub fn CreateScheduledToastNotificationRecurring<P0>(content: P0, deliverytime: super::super::Foundation::DateTime, snoozeinterval: super::super::Foundation::TimeSpan, maximumsnoozecount: u32) -> windows_result::Result<ScheduledToastNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -1984,7 +1984,7 @@ impl ScheduledToastNotification {
             (windows_core::Interface::vtable(this).CreateScheduledToastNotificationRecurring)(windows_core::Interface::as_raw(this), content.param().abi(), deliverytime, snoozeinterval, maximumsnoozecount, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IScheduledToastNotificationFactory<R, F: FnOnce(&IScheduledToastNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ScheduledToastNotification, IScheduledToastNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2006,25 +2006,25 @@ unsafe impl Sync for ScheduledToastNotification {}
 pub struct ScheduledToastNotificationShowingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ScheduledToastNotificationShowingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ScheduledToastNotificationShowingEventArgs {
-    pub fn Cancel(&self) -> windows_core::Result<bool> {
+    pub fn Cancel(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCancel(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCancel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ScheduledToastNotification(&self) -> windows_core::Result<ScheduledToastNotification> {
+    pub fn ScheduledToastNotification(&self) -> windows_result::Result<ScheduledToastNotification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScheduledToastNotification)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2049,7 +2049,7 @@ unsafe impl Sync for ScheduledToastNotificationShowingEventArgs {}
 pub struct ShownTileNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShownTileNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl ShownTileNotification {
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2075,21 +2075,21 @@ pub struct TileFlyoutNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileFlyoutNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl TileFlyoutNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2097,7 +2097,7 @@ impl TileFlyoutNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileFlyoutNotification<P0>(content: P0) -> windows_core::Result<TileFlyoutNotification>
+    pub fn CreateTileFlyoutNotification<P0>(content: P0) -> windows_result::Result<TileFlyoutNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2106,7 +2106,7 @@ impl TileFlyoutNotification {
             (windows_core::Interface::vtable(this).CreateTileFlyoutNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileFlyoutNotificationFactory<R, F: FnOnce(&ITileFlyoutNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileFlyoutNotification, ITileFlyoutNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2137,32 +2137,32 @@ impl windows_core::RuntimeType for TileFlyoutTemplateType {
 }
 pub struct TileFlyoutUpdateManager;
 impl TileFlyoutUpdateManager {
-    pub fn CreateTileFlyoutUpdaterForApplication() -> windows_core::Result<TileFlyoutUpdater> {
+    pub fn CreateTileFlyoutUpdaterForApplication() -> windows_result::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplication)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTileFlyoutUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<TileFlyoutUpdater> {
+    pub fn CreateTileFlyoutUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_result::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileFlyoutUpdaterForApplicationWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTileFlyoutUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_core::Result<TileFlyoutUpdater> {
+    pub fn CreateTileFlyoutUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_result::Result<TileFlyoutUpdater> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileFlyoutUpdaterForSecondaryTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent(r#type: TileFlyoutTemplateType) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent(r#type: TileFlyoutTemplateType) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileFlyoutUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTemplateContent)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITileFlyoutUpdateManagerStatics<R, F: FnOnce(&ITileFlyoutUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileFlyoutUpdateManagerStatics<R, F: FnOnce(&ITileFlyoutUpdateManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileFlyoutUpdateManager, ITileFlyoutUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2175,36 +2175,36 @@ impl windows_core::RuntimeName for TileFlyoutUpdateManager {
 pub struct TileFlyoutUpdater(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileFlyoutUpdater, windows_core::IUnknown, windows_core::IInspectable);
 impl TileFlyoutUpdater {
-    pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
+    pub fn Update<P0>(&self, notification: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<TileFlyoutNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartPeriodicUpdate<P0>(&self, tileflyoutcontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdate<P0>(&self, tileflyoutcontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), tileflyoutcontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, tileflyoutcontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), tileflyoutcontent.param().abi(), starttime, requestedinterval).ok() }
     }
-    pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
+    pub fn StopPeriodicUpdate(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopPeriodicUpdate)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Setting(&self) -> windows_core::Result<NotificationSetting> {
+    pub fn Setting(&self) -> windows_result::Result<NotificationSetting> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2228,32 +2228,32 @@ pub struct TileNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl TileNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2261,7 +2261,7 @@ impl TileNotification {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateTileNotification<P0>(content: P0) -> windows_core::Result<TileNotification>
+    pub fn CreateTileNotification<P0>(content: P0) -> windows_result::Result<TileNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -2270,7 +2270,7 @@ impl TileNotification {
             (windows_core::Interface::vtable(this).CreateTileNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileNotificationFactory<R, F: FnOnce(&ITileNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileNotification, ITileNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2426,33 +2426,33 @@ impl windows_core::RuntimeType for TileTemplateType {
 }
 pub struct TileUpdateManager;
 impl TileUpdateManager {
-    pub fn CreateTileUpdaterForApplication() -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplication() -> windows_result::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileUpdaterForApplication)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTileUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplicationWithId(applicationid: &windows_core::HSTRING) -> windows_result::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateTileUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForSecondaryTile(tileid: &windows_core::HSTRING) -> windows_result::Result<TileUpdater> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileUpdaterForSecondaryTile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent(r#type: TileTemplateType) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent(r#type: TileTemplateType) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::ITileUpdateManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTemplateContent)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<TileUpdateManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<TileUpdateManagerForUser>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -2461,11 +2461,11 @@ impl TileUpdateManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileUpdateManagerStatics<R, F: FnOnce(&ITileUpdateManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ITileUpdateManagerStatics2<R, F: FnOnce(&ITileUpdateManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITileUpdateManagerStatics2<R, F: FnOnce(&ITileUpdateManagerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TileUpdateManager, ITileUpdateManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2478,21 +2478,21 @@ impl windows_core::RuntimeName for TileUpdateManager {
 pub struct TileUpdateManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileUpdateManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl TileUpdateManagerForUser {
-    pub fn CreateTileUpdaterForApplication(&self) -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplication(&self) -> windows_result::Result<TileUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileUpdaterForApplication)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForApplicationWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<TileUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTileUpdaterForApplicationWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTileUpdaterForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<TileUpdater> {
+    pub fn CreateTileUpdaterForSecondaryTile(&self, tileid: &windows_core::HSTRING) -> windows_result::Result<TileUpdater> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2500,7 +2500,7 @@ impl TileUpdateManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2525,90 +2525,90 @@ unsafe impl Sync for TileUpdateManagerForUser {}
 pub struct TileUpdater(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TileUpdater, windows_core::IUnknown, windows_core::IInspectable);
 impl TileUpdater {
-    pub fn Update<P0>(&self, notification: P0) -> windows_core::Result<()>
+    pub fn Update<P0>(&self, notification: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<TileNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Update)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn EnableNotificationQueue(&self, enable: bool) -> windows_core::Result<()> {
+    pub fn EnableNotificationQueue(&self, enable: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).EnableNotificationQueue)(windows_core::Interface::as_raw(this), enable).ok() }
     }
-    pub fn Setting(&self) -> windows_core::Result<NotificationSetting> {
+    pub fn Setting(&self) -> windows_result::Result<NotificationSetting> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Setting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AddToSchedule<P0>(&self, scheduledtile: P0) -> windows_core::Result<()>
+    pub fn AddToSchedule<P0>(&self, scheduledtile: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ScheduledTileNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), scheduledtile.param().abi()).ok() }
     }
-    pub fn RemoveFromSchedule<P0>(&self, scheduledtile: P0) -> windows_core::Result<()>
+    pub fn RemoveFromSchedule<P0>(&self, scheduledtile: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ScheduledTileNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtile.param().abi()).ok() }
     }
-    pub fn GetScheduledTileNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledTileNotification>> {
+    pub fn GetScheduledTileNotifications(&self) -> windows_result::Result<windows_collections::IVectorView<ScheduledTileNotification>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetScheduledTileNotifications)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartPeriodicUpdate<P0>(&self, tilecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdate<P0>(&self, tilecontent: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdate)(windows_core::Interface::as_raw(this), tilecontent.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateAtTime<P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateAtTime<P0>(&self, tilecontent: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateAtTime)(windows_core::Interface::as_raw(this), tilecontent.param().abi(), starttime, requestedinterval).ok() }
     }
-    pub fn StopPeriodicUpdate(&self) -> windows_core::Result<()> {
+    pub fn StopPeriodicUpdate(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopPeriodicUpdate)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartPeriodicUpdateBatch<P0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateBatch<P0>(&self, tilecontents: P0, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatch)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), requestedinterval).ok() }
     }
-    pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_core::Result<()>
+    pub fn StartPeriodicUpdateBatchAtTime<P0>(&self, tilecontents: P0, starttime: super::super::Foundation::DateTime, requestedinterval: PeriodicUpdateRecurrence) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::Uri>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartPeriodicUpdateBatchAtTime)(windows_core::Interface::as_raw(this), tilecontents.param().abi(), starttime, requestedinterval).ok() }
     }
-    pub fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> windows_core::Result<()> {
+    pub fn EnableNotificationQueueForSquare150x150(&self, enable: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).EnableNotificationQueueForSquare150x150)(windows_core::Interface::as_raw(this), enable).ok() }
     }
-    pub fn EnableNotificationQueueForWide310x150(&self, enable: bool) -> windows_core::Result<()> {
+    pub fn EnableNotificationQueueForWide310x150(&self, enable: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).EnableNotificationQueueForWide310x150)(windows_core::Interface::as_raw(this), enable).ok() }
     }
-    pub fn EnableNotificationQueueForSquare310x310(&self, enable: bool) -> windows_core::Result<()> {
+    pub fn EnableNotificationQueueForSquare310x310(&self, enable: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<ITileUpdater2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).EnableNotificationQueueForSquare310x310)(windows_core::Interface::as_raw(this), enable).ok() }
     }
@@ -2630,7 +2630,7 @@ unsafe impl Sync for TileUpdater {}
 pub struct ToastActivatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastActivatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastActivatedEventArgs {
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2638,7 +2638,7 @@ impl ToastActivatedEventArgs {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn UserInput(&self) -> windows_result::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &windows_core::Interface::cast::<IToastActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2661,50 +2661,50 @@ impl windows_core::RuntimeName for ToastActivatedEventArgs {
 pub struct ToastCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastCollection, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastCollection {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn LaunchArgs(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LaunchArgs(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LaunchArgs)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLaunchArgs(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLaunchArgs(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLaunchArgs)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Icon(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn Icon(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetIcon<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_core::Result<ToastCollection>
+    pub fn CreateInstance<P3>(collectionid: &windows_core::HSTRING, displayname: &windows_core::HSTRING, launchargs: &windows_core::HSTRING, iconuri: P3) -> windows_result::Result<ToastCollection>
     where
         P3: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -2713,7 +2713,7 @@ impl ToastCollection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), core::mem::transmute_copy(displayname), core::mem::transmute_copy(launchargs), iconuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastCollectionFactory<R, F: FnOnce(&IToastCollectionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastCollection, IToastCollectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2735,7 +2735,7 @@ unsafe impl Sync for ToastCollection {}
 pub struct ToastCollectionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastCollectionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastCollectionManager {
-    pub fn SaveToastCollectionAsync<P0>(&self, collection: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SaveToastCollectionAsync<P0>(&self, collection: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<ToastCollection>,
     {
@@ -2745,28 +2745,28 @@ impl ToastCollectionManager {
             (windows_core::Interface::vtable(this).SaveToastCollectionAsync)(windows_core::Interface::as_raw(this), collection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FindAllToastCollectionsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ToastCollection>>> {
+    pub fn FindAllToastCollectionsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<ToastCollection>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllToastCollectionsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetToastCollectionAsync(&self, collectionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ToastCollection>> {
+    pub fn GetToastCollectionAsync(&self, collectionid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<ToastCollection>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetToastCollectionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveToastCollectionAsync(&self, collectionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn RemoveToastCollectionAsync(&self, collectionid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveToastCollectionAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveAllToastCollectionsAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn RemoveAllToastCollectionsAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2774,14 +2774,14 @@ impl ToastCollectionManager {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AppId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2820,7 +2820,7 @@ impl windows_core::RuntimeType for ToastDismissalReason {
 pub struct ToastDismissedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastDismissedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastDismissedEventArgs {
-    pub fn Reason(&self) -> windows_core::Result<ToastDismissalReason> {
+    pub fn Reason(&self) -> windows_result::Result<ToastDismissalReason> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2845,7 +2845,7 @@ unsafe impl Sync for ToastDismissedEventArgs {}
 pub struct ToastFailedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastFailedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastFailedEventArgs {
-    pub fn ErrorCode(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ErrorCode(&self) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2886,28 +2886,28 @@ pub struct ToastNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotification {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn Content(&self) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn Content(&self) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetExpirationTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExpirationTime)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Dismissed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Dismissed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, ToastDismissedEventArgs>>,
     {
@@ -2917,11 +2917,11 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).Dismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDismissed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDismissed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDismissed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Activated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, windows_core::IInspectable>>,
     {
@@ -2931,11 +2931,11 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveActivated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveActivated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Failed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Failed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotification, ToastFailedEventArgs>>,
     {
@@ -2945,103 +2945,103 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).Failed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFailed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFailed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFailed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTag(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetGroup(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Group(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Group(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetSuppressPopup(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSuppressPopup(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSuppressPopup)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SuppressPopup(&self) -> windows_core::Result<bool> {
+    pub fn SuppressPopup(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IToastNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuppressPopup)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NotificationMirroring(&self) -> windows_core::Result<NotificationMirroring> {
+    pub fn NotificationMirroring(&self) -> windows_result::Result<NotificationMirroring> {
         let this = &windows_core::Interface::cast::<IToastNotification3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotificationMirroring)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> windows_core::Result<()> {
+    pub fn SetNotificationMirroring(&self, value: NotificationMirroring) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetNotificationMirroring)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RemoteId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RemoteId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IToastNotification3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoteId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRemoteId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRemoteId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Data(&self) -> windows_core::Result<NotificationData> {
+    pub fn Data(&self) -> windows_result::Result<NotificationData> {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<NotificationData>,
     {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Priority(&self) -> windows_core::Result<ToastNotificationPriority> {
+    pub fn Priority(&self) -> windows_result::Result<ToastNotificationPriority> {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Priority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPriority(&self, value: ToastNotificationPriority) -> windows_core::Result<()> {
+    pub fn SetPriority(&self, value: ToastNotificationPriority) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPriority)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ExpiresOnReboot(&self) -> windows_core::Result<bool> {
+    pub fn ExpiresOnReboot(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IToastNotification6>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpiresOnReboot)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExpiresOnReboot(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetExpiresOnReboot(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotification6>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetExpiresOnReboot)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn CreateToastNotification<P0>(content: P0) -> windows_core::Result<ToastNotification>
+    pub fn CreateToastNotification<P0>(content: P0) -> windows_result::Result<ToastNotification>
     where
         P0: windows_core::Param<super::super::Data::Xml::Dom::XmlDocument>,
     {
@@ -3050,7 +3050,7 @@ impl ToastNotification {
             (windows_core::Interface::vtable(this).CreateToastNotification)(windows_core::Interface::as_raw(this), content.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationFactory<R, F: FnOnce(&IToastNotificationFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotification, IToastNotificationFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3072,7 +3072,7 @@ unsafe impl Sync for ToastNotification {}
 pub struct ToastNotificationActionTriggerDetail(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationActionTriggerDetail, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotificationActionTriggerDetail {
-    pub fn Argument(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Argument(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3080,7 +3080,7 @@ impl ToastNotificationActionTriggerDetail {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn UserInput(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn UserInput(&self) -> windows_result::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3103,42 +3103,42 @@ impl windows_core::RuntimeName for ToastNotificationActionTriggerDetail {
 pub struct ToastNotificationHistory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationHistory, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotificationHistory {
-    pub fn RemoveGroup(&self, group: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveGroup(&self, group: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGroup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(group)).ok() }
     }
-    pub fn RemoveGroupWithId(&self, group: &windows_core::HSTRING, applicationid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveGroupWithId(&self, group: &windows_core::HSTRING, applicationid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGroupWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(group), core::mem::transmute_copy(applicationid)).ok() }
     }
-    pub fn RemoveGroupedTagWithId(&self, tag: &windows_core::HSTRING, group: &windows_core::HSTRING, applicationid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveGroupedTagWithId(&self, tag: &windows_core::HSTRING, group: &windows_core::HSTRING, applicationid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGroupedTagWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tag), core::mem::transmute_copy(group), core::mem::transmute_copy(applicationid)).ok() }
     }
-    pub fn RemoveGroupedTag(&self, tag: &windows_core::HSTRING, group: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveGroupedTag(&self, tag: &windows_core::HSTRING, group: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGroupedTag)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tag), core::mem::transmute_copy(group)).ok() }
     }
-    pub fn Remove(&self, tag: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Remove(&self, tag: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tag)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ClearWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ClearWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid)).ok() }
     }
-    pub fn GetHistory(&self) -> windows_core::Result<windows_collections::IVectorView<ToastNotification>> {
+    pub fn GetHistory(&self) -> windows_result::Result<windows_collections::IVectorView<ToastNotification>> {
         let this = &windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHistory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetHistoryWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IVectorView<ToastNotification>> {
+    pub fn GetHistoryWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<windows_collections::IVectorView<ToastNotification>> {
         let this = &windows_core::Interface::cast::<IToastNotificationHistory2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3161,14 +3161,14 @@ impl windows_core::RuntimeName for ToastNotificationHistory {
 pub struct ToastNotificationHistoryChangedTriggerDetail(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationHistoryChangedTriggerDetail, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotificationHistoryChangedTriggerDetail {
-    pub fn ChangeType(&self) -> windows_core::Result<ToastHistoryChangedType> {
+    pub fn ChangeType(&self) -> windows_result::Result<ToastHistoryChangedType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CollectionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CollectionId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IToastNotificationHistoryChangedTriggerDetail2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3188,33 +3188,33 @@ impl windows_core::RuntimeName for ToastNotificationHistoryChangedTriggerDetail 
 }
 pub struct ToastNotificationManager;
 impl ToastNotificationManager {
-    pub fn CreateToastNotifier() -> windows_core::Result<ToastNotifier> {
+    pub fn CreateToastNotifier() -> windows_result::Result<ToastNotifier> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateToastNotifier)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateToastNotifierWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotifier> {
+    pub fn CreateToastNotifierWithId(applicationid: &windows_core::HSTRING) -> windows_result::Result<ToastNotifier> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateToastNotifierWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetTemplateContent(r#type: ToastTemplateType) -> windows_core::Result<super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetTemplateContent(r#type: ToastTemplateType) -> windows_result::Result<super::super::Data::Xml::Dom::XmlDocument> {
         Self::IToastNotificationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTemplateContent)(windows_core::Interface::as_raw(this), r#type, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn History() -> windows_core::Result<ToastNotificationHistory> {
+    pub fn History() -> windows_result::Result<ToastNotificationHistory> {
         Self::IToastNotificationManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).History)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<ToastNotificationManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<ToastNotificationManagerForUser>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -3223,28 +3223,28 @@ impl ToastNotificationManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> windows_core::Result<()> {
+    pub fn ConfigureNotificationMirroring(value: NotificationMirroring) -> windows_result::Result<()> {
         Self::IToastNotificationManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).ConfigureNotificationMirroring)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn GetDefault() -> windows_core::Result<ToastNotificationManagerForUser> {
+    pub fn GetDefault() -> windows_result::Result<ToastNotificationManagerForUser> {
         Self::IToastNotificationManagerStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IToastNotificationManagerStatics<R, F: FnOnce(&IToastNotificationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics<R, F: FnOnce(&IToastNotificationManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IToastNotificationManagerStatics2<R, F: FnOnce(&IToastNotificationManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics2<R, F: FnOnce(&IToastNotificationManagerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IToastNotificationManagerStatics4<R, F: FnOnce(&IToastNotificationManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics4<R, F: FnOnce(&IToastNotificationManagerStatics4) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IToastNotificationManagerStatics5<R, F: FnOnce(&IToastNotificationManagerStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IToastNotificationManagerStatics5<R, F: FnOnce(&IToastNotificationManagerStatics5) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ToastNotificationManager, IToastNotificationManagerStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3257,21 +3257,21 @@ impl windows_core::RuntimeName for ToastNotificationManager {
 pub struct ToastNotificationManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotificationManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotificationManagerForUser {
-    pub fn CreateToastNotifier(&self) -> windows_core::Result<ToastNotifier> {
+    pub fn CreateToastNotifier(&self) -> windows_result::Result<ToastNotifier> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateToastNotifier)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateToastNotifierWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<ToastNotifier> {
+    pub fn CreateToastNotifierWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<ToastNotifier> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateToastNotifierWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn History(&self) -> windows_core::Result<ToastNotificationHistory> {
+    pub fn History(&self) -> windows_result::Result<ToastNotificationHistory> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3279,49 +3279,49 @@ impl ToastNotificationManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetToastNotifierForToastCollectionIdAsync(&self, collectionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ToastNotifier>> {
+    pub fn GetToastNotifierForToastCollectionIdAsync(&self, collectionid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<ToastNotifier>> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetToastNotifierForToastCollectionIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetHistoryForToastCollectionIdAsync(&self, collectionid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<ToastNotificationHistory>> {
+    pub fn GetHistoryForToastCollectionIdAsync(&self, collectionid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<ToastNotificationHistory>> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHistoryForToastCollectionIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(collectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetToastCollectionManager(&self) -> windows_core::Result<ToastCollectionManager> {
+    pub fn GetToastCollectionManager(&self) -> windows_result::Result<ToastCollectionManager> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetToastCollectionManager)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetToastCollectionManagerWithAppId(&self, appid: &windows_core::HSTRING) -> windows_core::Result<ToastCollectionManager> {
+    pub fn GetToastCollectionManagerWithAppId(&self, appid: &windows_core::HSTRING) -> windows_result::Result<ToastCollectionManager> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetToastCollectionManagerWithAppId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NotificationMode(&self) -> windows_core::Result<ToastNotificationMode> {
+    pub fn NotificationMode(&self) -> windows_result::Result<ToastNotificationMode> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NotificationMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NotificationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn NotificationModeChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotificationManagerForUser, windows_core::IInspectable>>,
     {
@@ -3331,7 +3331,7 @@ impl ToastNotificationManagerForUser {
             (windows_core::Interface::vtable(this).NotificationModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveNotificationModeChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveNotificationModeChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotificationManagerForUser3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveNotificationModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -3380,49 +3380,49 @@ impl windows_core::RuntimeType for ToastNotificationPriority {
 pub struct ToastNotifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ToastNotifier, windows_core::IUnknown, windows_core::IInspectable);
 impl ToastNotifier {
-    pub fn Show<P0>(&self, notification: P0) -> windows_core::Result<()>
+    pub fn Show<P0>(&self, notification: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ToastNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
     }
-    pub fn Hide<P0>(&self, notification: P0) -> windows_core::Result<()>
+    pub fn Hide<P0>(&self, notification: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ToastNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this), notification.param().abi()).ok() }
     }
-    pub fn Setting(&self) -> windows_core::Result<NotificationSetting> {
+    pub fn Setting(&self) -> windows_result::Result<NotificationSetting> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Setting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AddToSchedule<P0>(&self, scheduledtoast: P0) -> windows_core::Result<()>
+    pub fn AddToSchedule<P0>(&self, scheduledtoast: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ScheduledToastNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddToSchedule)(windows_core::Interface::as_raw(this), scheduledtoast.param().abi()).ok() }
     }
-    pub fn RemoveFromSchedule<P0>(&self, scheduledtoast: P0) -> windows_core::Result<()>
+    pub fn RemoveFromSchedule<P0>(&self, scheduledtoast: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ScheduledToastNotification>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFromSchedule)(windows_core::Interface::as_raw(this), scheduledtoast.param().abi()).ok() }
     }
-    pub fn GetScheduledToastNotifications(&self) -> windows_core::Result<windows_collections::IVectorView<ScheduledToastNotification>> {
+    pub fn GetScheduledToastNotifications(&self) -> windows_result::Result<windows_collections::IVectorView<ScheduledToastNotification>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetScheduledToastNotifications)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateWithTagAndGroup<P0>(&self, data: P0, tag: &windows_core::HSTRING, group: &windows_core::HSTRING) -> windows_core::Result<NotificationUpdateResult>
+    pub fn UpdateWithTagAndGroup<P0>(&self, data: P0, tag: &windows_core::HSTRING, group: &windows_core::HSTRING) -> windows_result::Result<NotificationUpdateResult>
     where
         P0: windows_core::Param<NotificationData>,
     {
@@ -3432,7 +3432,7 @@ impl ToastNotifier {
             (windows_core::Interface::vtable(this).UpdateWithTagAndGroup)(windows_core::Interface::as_raw(this), data.param().abi(), core::mem::transmute_copy(tag), core::mem::transmute_copy(group), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateWithTag<P0>(&self, data: P0, tag: &windows_core::HSTRING) -> windows_core::Result<NotificationUpdateResult>
+    pub fn UpdateWithTag<P0>(&self, data: P0, tag: &windows_core::HSTRING) -> windows_result::Result<NotificationUpdateResult>
     where
         P0: windows_core::Param<NotificationData>,
     {
@@ -3442,7 +3442,7 @@ impl ToastNotifier {
             (windows_core::Interface::vtable(this).UpdateWithTag)(windows_core::Interface::as_raw(this), data.param().abi(), core::mem::transmute_copy(tag), &mut result__).map(|| result__)
         }
     }
-    pub fn ScheduledToastNotificationShowing<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ScheduledToastNotificationShowing<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ToastNotifier, ScheduledToastNotificationShowingEventArgs>>,
     {
@@ -3452,7 +3452,7 @@ impl ToastNotifier {
             (windows_core::Interface::vtable(this).ScheduledToastNotificationShowing)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveScheduledToastNotificationShowing(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveScheduledToastNotificationShowing(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IToastNotifier3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveScheduledToastNotificationShowing)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -3493,7 +3493,7 @@ impl windows_core::RuntimeType for ToastTemplateType {
 pub struct UserNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl UserNotification {
-    pub fn Notification(&self) -> windows_core::Result<Notification> {
+    pub fn Notification(&self) -> windows_result::Result<Notification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3501,21 +3501,21 @@ impl UserNotification {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn AppInfo(&self) -> windows_core::Result<super::super::ApplicationModel::AppInfo> {
+    pub fn AppInfo(&self) -> windows_result::Result<super::super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn CreationTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3540,14 +3540,14 @@ unsafe impl Sync for UserNotification {}
 pub struct UserNotificationChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserNotificationChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl UserNotificationChangedEventArgs {
-    pub fn ChangeKind(&self) -> windows_core::Result<UserNotificationChangedKind> {
+    pub fn ChangeKind(&self) -> windows_result::Result<UserNotificationChangedKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChangeKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserNotificationId(&self) -> windows_core::Result<u32> {
+    pub fn UserNotificationId(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

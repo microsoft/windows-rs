@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()> {
+pub unsafe fn AddStroke(hrc: HRECOCONTEXT, ppacketdesc: *const PACKET_DESCRIPTION, cbpacket: u32, ppacket: *const u8, pxform: *const super::super::Graphics::Gdi::XFORM) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn AddStroke(hrc : HRECOCONTEXT, ppacketdesc : *const PACKET_DESCRIPTION, cbpacket : u32, ppacket : *const u8, pxform : *const super::super::Graphics::Gdi:: XFORM) -> windows_core::HRESULT);
     unsafe { AddStroke(hrc, ppacketdesc, cbpacket, ppacket, pxform).ok() }
 }
 #[inline]
-pub unsafe fn AddWordsToWordList<P1>(hwl: HRECOWORDLIST, pwcwords: P1) -> windows_core::Result<()>
+pub unsafe fn AddWordsToWordList<P1>(hwl: HRECOWORDLIST, pwcwords: P1) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -13,82 +13,82 @@ where
     unsafe { AddWordsToWordList(hwl, pwcwords.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_core::Result<()> {
+pub unsafe fn AdviseInkChange(hrc: HRECOCONTEXT, bnewstroke: bool) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn AdviseInkChange(hrc : HRECOCONTEXT, bnewstroke : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { AdviseInkChange(hrc, bnewstroke.into()).ok() }
 }
 #[inline]
-pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windows_core::Result<()> {
+pub unsafe fn CreateContext(hrec: HRECOGNIZER, phrc: *mut HRECOCONTEXT) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn CreateContext(hrec : HRECOGNIZER, phrc : *mut HRECOCONTEXT) -> windows_core::HRESULT);
     unsafe { CreateContext(hrec, phrc as _).ok() }
 }
 #[inline]
-pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HRECOGNIZER) -> windows_core::Result<()> {
+pub unsafe fn CreateRecognizer(pclsid: *mut windows_core::GUID, phrec: *mut HRECOGNIZER) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn CreateRecognizer(pclsid : *mut windows_core::GUID, phrec : *mut HRECOGNIZER) -> windows_core::HRESULT);
     unsafe { CreateRecognizer(pclsid as _, phrec as _).ok() }
 }
 #[inline]
-pub unsafe fn DestroyContext(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
+pub unsafe fn DestroyContext(hrc: HRECOCONTEXT) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn DestroyContext(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
     unsafe { DestroyContext(hrc).ok() }
 }
 #[inline]
-pub unsafe fn DestroyRecognizer(hrec: HRECOGNIZER) -> windows_core::Result<()> {
+pub unsafe fn DestroyRecognizer(hrec: HRECOGNIZER) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn DestroyRecognizer(hrec : HRECOGNIZER) -> windows_core::HRESULT);
     unsafe { DestroyRecognizer(hrec).ok() }
 }
 #[inline]
-pub unsafe fn DestroyWordList(hwl: HRECOWORDLIST) -> windows_core::Result<()> {
+pub unsafe fn DestroyWordList(hwl: HRECOWORDLIST) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn DestroyWordList(hwl : HRECOWORDLIST) -> windows_core::HRESULT);
     unsafe { DestroyWordList(hwl).ok() }
 }
 #[inline]
-pub unsafe fn EndInkInput(hrc: HRECOCONTEXT) -> windows_core::Result<()> {
+pub unsafe fn EndInkInput(hrc: HRECOCONTEXT) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn EndInkInput(hrc : HRECOCONTEXT) -> windows_core::HRESULT);
     unsafe { EndInkInput(hrc).ok() }
 }
 #[inline]
-pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetAllRecognizers(recognizerclsids: *mut *mut windows_core::GUID, count: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetAllRecognizers(recognizerclsids : *mut *mut windows_core::GUID, count : *mut u32) -> windows_core::HRESULT);
     unsafe { GetAllRecognizers(recognizerclsids as _, count as _).ok() }
 }
 #[inline]
-pub unsafe fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: Option<windows_core::PWSTR>) -> windows_core::Result<()> {
+pub unsafe fn GetBestResultString(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcbestresult: Option<windows_core::PWSTR>) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetBestResultString(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcbestresult : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { GetBestResultString(hrc, pcsize as _, pwcbestresult.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> windows_core::Result<()> {
+pub unsafe fn GetLatticePtr(hrc: HRECOCONTEXT, pplattice: *mut *mut RECO_LATTICE) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetLatticePtr(hrc : HRECOCONTEXT, pplattice : *mut *mut RECO_LATTICE) -> windows_core::HRESULT);
     unsafe { GetLatticePtr(hrc, pplattice as _).ok() }
 }
 #[inline]
-pub unsafe fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn GetLeftSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcleftseparator: windows_core::PWSTR) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetLeftSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcleftseparator : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { GetLeftSeparator(hrc, pcsize as _, core::mem::transmute(pwcleftseparator)).ok() }
 }
 #[inline]
-pub unsafe fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> windows_core::Result<()> {
+pub unsafe fn GetRecoAttributes(hrec: HRECOGNIZER, precoattrs: *mut RECO_ATTRS) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetRecoAttributes(hrec : HRECOGNIZER, precoattrs : *mut RECO_ATTRS) -> windows_core::HRESULT);
     unsafe { GetRecoAttributes(hrec, precoattrs as _).ok() }
 }
 #[inline]
-pub unsafe fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn GetResultPropertyList(hrec: HRECOGNIZER, ppropertycount: *mut u32, ppropertyguid: *mut windows_core::GUID) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetResultPropertyList(hrec : HRECOGNIZER, ppropertycount : *mut u32, ppropertyguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe { GetResultPropertyList(hrec, ppropertycount as _, ppropertyguid as _).ok() }
 }
 #[inline]
-pub unsafe fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: windows_core::PWSTR) -> windows_core::Result<()> {
+pub unsafe fn GetRightSeparator(hrc: HRECOCONTEXT, pcsize: *mut u32, pwcrightseparator: windows_core::PWSTR) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetRightSeparator(hrc : HRECOCONTEXT, pcsize : *mut u32, pwcrightseparator : windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe { GetRightSeparator(hrc, pcsize as _, core::mem::transmute(pwcrightseparator)).ok() }
 }
 #[inline]
-pub unsafe fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
+pub unsafe fn GetUnicodeRanges(hrec: HRECOGNIZER, pcranges: *mut u32, pcr: *mut CHARACTER_RANGE) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn GetUnicodeRanges(hrec : HRECOGNIZER, pcranges : *mut u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
     unsafe { GetUnicodeRanges(hrec, pcranges as _, pcr as _).ok() }
 }
 #[inline]
-pub unsafe fn IsStringSupported<P2>(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: P2) -> windows_core::Result<()>
+pub unsafe fn IsStringSupported<P2>(hrc: HRECOCONTEXT, wcstring: u32, pwcstring: P2) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -96,12 +96,12 @@ where
     unsafe { IsStringSupported(hrc, wcstring, pwcstring.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_core::Result<()> {
+pub unsafe fn LoadCachedAttributes(clsid: windows_core::GUID, precoattributes: *mut RECO_ATTRS) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn LoadCachedAttributes(clsid : windows_core::GUID, precoattributes : *mut RECO_ATTRS) -> windows_core::HRESULT);
     unsafe { LoadCachedAttributes(core::mem::transmute(clsid), precoattributes as _).ok() }
 }
 #[inline]
-pub unsafe fn MakeWordList<P1>(hrec: HRECOGNIZER, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> windows_core::Result<()>
+pub unsafe fn MakeWordList<P1>(hrec: HRECOGNIZER, pbuffer: P1, phwl: *mut HRECOWORDLIST) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -109,17 +109,17 @@ where
     unsafe { MakeWordList(hrec, pbuffer.param().abi(), phwl as _).ok() }
 }
 #[inline]
-pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn Process(hrc: HRECOCONTEXT, pbpartialprocessing: *mut windows_core::BOOL) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn Process(hrc : HRECOCONTEXT, pbpartialprocessing : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { Process(hrc, pbpartialprocessing as _).ok() }
 }
 #[inline]
-pub unsafe fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> windows_core::Result<()> {
+pub unsafe fn SetEnabledUnicodeRanges(hrc: HRECOCONTEXT, cranges: u32, pcr: *mut CHARACTER_RANGE) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn SetEnabledUnicodeRanges(hrc : HRECOCONTEXT, cranges : u32, pcr : *mut CHARACTER_RANGE) -> windows_core::HRESULT);
     unsafe { SetEnabledUnicodeRanges(hrc, cranges, pcr as _).ok() }
 }
 #[inline]
-pub unsafe fn SetFactoid<P2>(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: P2) -> windows_core::Result<()>
+pub unsafe fn SetFactoid<P2>(hrc: HRECOCONTEXT, cwcfactoid: u32, pwcfactoid: P2) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -127,22 +127,22 @@ where
     unsafe { SetFactoid(hrc, cwcfactoid, pwcfactoid.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn SetFlags(hrc: HRECOCONTEXT, dwflags: u32) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn SetFlags(hrc : HRECOCONTEXT, dwflags : u32) -> windows_core::HRESULT);
     unsafe { SetFlags(hrc, dwflags).ok() }
 }
 #[inline]
-pub unsafe fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> windows_core::Result<()> {
+pub unsafe fn SetGuide(hrc: HRECOCONTEXT, pguide: *const RECO_GUIDE, iindex: u32) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn SetGuide(hrc : HRECOCONTEXT, pguide : *const RECO_GUIDE, iindex : u32) -> windows_core::HRESULT);
     unsafe { SetGuide(hrc, pguide, iindex).ok() }
 }
 #[inline]
-pub unsafe fn SetTextContext(hrc: HRECOCONTEXT, pwcbefore: &[u16], pwcafter: &[u16]) -> windows_core::Result<()> {
+pub unsafe fn SetTextContext(hrc: HRECOCONTEXT, pwcbefore: &[u16], pwcafter: &[u16]) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn SetTextContext(hrc : HRECOCONTEXT, cwcbefore : u32, pwcbefore : windows_core::PCWSTR, cwcafter : u32, pwcafter : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { SetTextContext(hrc, pwcbefore.len().try_into().unwrap(), core::mem::transmute(pwcbefore.as_ptr()), pwcafter.len().try_into().unwrap(), core::mem::transmute(pwcafter.as_ptr())).ok() }
 }
 #[inline]
-pub unsafe fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> windows_core::Result<()> {
+pub unsafe fn SetWordList(hrc: HRECOCONTEXT, hwl: HRECOWORDLIST) -> windows_result::Result<()> {
     windows_link::link!("inkobjcore.dll" "system" fn SetWordList(hrc : HRECOCONTEXT, hwl : HRECOWORDLIST) -> windows_core::HRESULT);
     unsafe { SetWordList(hrc, hwl).ok() }
 }
@@ -1238,72 +1238,72 @@ pub const IDT_Segment: InkDivisionType = InkDivisionType(0i32);
 windows_core::imp::define_interface!(IDynamicRenderer, IDynamicRenderer_Vtbl, 0xa079468e_7165_46f9_b7af_98ad01a93009);
 windows_core::imp::interface_hierarchy!(IDynamicRenderer, windows_core::IUnknown);
 impl IDynamicRenderer {
-    pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, benabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, benabled: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), benabled.into()).ok() }
     }
-    pub unsafe fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR> {
+    pub unsafe fn HWND(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HWND)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), hwnd).ok() }
     }
-    pub unsafe fn ClipRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn ClipRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClipRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClipRectangle(&self, prccliprect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetClipRectangle(&self, prccliprect: *const super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetClipRectangle)(windows_core::Interface::as_raw(self), prccliprect).ok() }
     }
-    pub unsafe fn ClipRegion(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR> {
+    pub unsafe fn ClipRegion(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClipRegion)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetClipRegion)(windows_core::Interface::as_raw(self), hcliprgn).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_DrawingAttributes<P0>(&self, pida: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DrawingAttributes<P0>(&self, pida: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), pida.param().abi()).ok() }
     }
-    pub unsafe fn DataCacheEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn DataCacheEnabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataCacheEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDataCacheEnabled(&self, fcachedata: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetDataCacheEnabled(&self, fcachedata: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDataCacheEnabled)(windows_core::Interface::as_raw(self), fcachedata.into()).ok() }
     }
-    pub unsafe fn ReleaseCachedData(&self, strokeid: u32) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseCachedData(&self, strokeid: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseCachedData)(windows_core::Interface::as_raw(self), strokeid).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Draw(&self, hdc: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+    pub unsafe fn Draw(&self, hdc: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc).ok() }
     }
 }
@@ -1335,21 +1335,21 @@ pub struct IDynamicRenderer_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IDynamicRenderer_Impl: windows_core::IUnknownImpl {
-    fn Enabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetEnabled(&self, benabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR>;
-    fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
-    fn ClipRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SetClipRectangle(&self, prccliprect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn ClipRegion(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR>;
-    fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, pida: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn DataCacheEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetDataCacheEnabled(&self, fcachedata: windows_core::BOOL) -> windows_core::Result<()>;
-    fn ReleaseCachedData(&self, strokeid: u32) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn Draw(&self, hdc: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, benabled: windows_core::BOOL) -> windows_result::Result<()>;
+    fn HWND(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR>;
+    fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()>;
+    fn ClipRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT>;
+    fn SetClipRectangle(&self, prccliprect: *const super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn ClipRegion(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR>;
+    fn SetClipRegion(&self, hcliprgn: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()>;
+    fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DrawingAttributes(&self, pida: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn DataCacheEnabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetDataCacheEnabled(&self, fcachedata: windows_core::BOOL) -> windows_result::Result<()>;
+    fn ReleaseCachedData(&self, strokeid: u32) -> windows_result::Result<()>;
+    fn Refresh(&self) -> windows_result::Result<()>;
+    fn Draw(&self, hdc: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IDynamicRenderer_Vtbl {
@@ -1559,28 +1559,28 @@ pub const IES_Recognizing: InkEditStatus = InkEditStatus(2i32);
 windows_core::imp::define_interface!(IGestureRecognizer, IGestureRecognizer_Vtbl, 0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
 windows_core::imp::interface_hierarchy!(IGestureRecognizer, windows_core::IUnknown);
 impl IGestureRecognizer {
-    pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, fenabled: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenabled.into()).ok() }
     }
-    pub unsafe fn MaxStrokeCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaxStrokeCount(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxStrokeCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxStrokeCount(&self, cstrokes: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxStrokeCount(&self, cstrokes: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxStrokeCount)(windows_core::Interface::as_raw(self), cstrokes).ok() }
     }
-    pub unsafe fn EnableGestures(&self, pgestures: &[i32]) -> windows_core::Result<()> {
+    pub unsafe fn EnableGestures(&self, pgestures: &[i32]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableGestures)(windows_core::Interface::as_raw(self), pgestures.len().try_into().unwrap(), core::mem::transmute(pgestures.as_ptr())).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1596,12 +1596,12 @@ pub struct IGestureRecognizer_Vtbl {
     pub Reset: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IGestureRecognizer_Impl: windows_core::IUnknownImpl {
-    fn Enabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetEnabled(&self, fenabled: windows_core::BOOL) -> windows_core::Result<()>;
-    fn MaxStrokeCount(&self) -> windows_core::Result<i32>;
-    fn SetMaxStrokeCount(&self, cstrokes: i32) -> windows_core::Result<()>;
-    fn EnableGestures(&self, cgestures: u32, pgestures: *const i32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, fenabled: windows_core::BOOL) -> windows_result::Result<()>;
+    fn MaxStrokeCount(&self) -> windows_result::Result<i32>;
+    fn SetMaxStrokeCount(&self, cstrokes: i32) -> windows_result::Result<()>;
+    fn EnableGestures(&self, cgestures: u32, pgestures: *const i32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
 }
 impl IGestureRecognizer_Vtbl {
     pub const fn new<Identity: IGestureRecognizer_Impl, const OFFSET: isize>() -> Self {
@@ -1672,11 +1672,11 @@ windows_core::imp::define_interface!(IHandwrittenTextInsertion, IHandwrittenText
 windows_core::imp::interface_hierarchy!(IHandwrittenTextInsertion, windows_core::IUnknown);
 impl IHandwrittenTextInsertion {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_core::Result<()> {
+    pub unsafe fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InsertRecognitionResultsArray)(windows_core::Interface::as_raw(self), psaalternates, locale, falternatecontainsautospacinginformation.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn InsertInkRecognitionResult<P0>(&self, piinkrecoresult: P0, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_core::Result<()>
+    pub unsafe fn InsertInkRecognitionResult<P0>(&self, piinkrecoresult: P0, locale: u32, falternatecontainsautospacinginformation: bool) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRecognitionResult>,
     {
@@ -1698,8 +1698,8 @@ pub struct IHandwrittenTextInsertion_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IHandwrittenTextInsertion_Impl: windows_core::IUnknownImpl {
-    fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
-    fn InsertInkRecognitionResult(&self, piinkrecoresult: windows_core::Ref<IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_core::Result<()>;
+    fn InsertRecognitionResultsArray(&self, psaalternates: *const super::super::System::Com::SAFEARRAY, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_result::Result<()>;
+    fn InsertInkRecognitionResult(&self, piinkrecoresult: windows_core::Ref<IInkRecognitionResult>, locale: u32, falternatecontainsautospacinginformation: windows_core::BOOL) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IHandwrittenTextInsertion_Vtbl {
@@ -1771,207 +1771,207 @@ impl core::ops::Deref for IInkCollector {
 windows_core::imp::interface_hierarchy!(IInkCollector, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCollector {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    pub unsafe fn hWnd(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()> {
+    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SethWnd)(windows_core::Interface::as_raw(self), newwindow).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting).ok() }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn Renderer(&self) -> windows_result::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRenderer>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
     }
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw).ok() }
     }
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()> {
+    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn MousePointer(&self) -> windows_result::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()> {
+    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer).ok() }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn Cursors(&self) -> windows_result::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginX(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx).ok() }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginY(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy).ok() }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn Tablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support).ok() }
     }
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), gesture, listen).ok() }
     }
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGestureStatus)(windows_core::Interface::as_raw(self), gesture, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()> {
+    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)).ok() }
     }
-    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
     }
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
     }
-    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTablet>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
     }
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), eventid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), eventid, listen).ok() }
     }
 }
@@ -2038,46 +2038,46 @@ pub struct IInkCollector_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCollector_Impl: super::super::System::Com::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn hWnd(&self) -> windows_result::Result<isize>;
+    fn SethWnd(&self, newwindow: isize) -> windows_result::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn Renderer(&self) -> windows_result::Result<IInkRenderer>;
+    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_result::Result<()>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_result::Result<()>;
+    fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode>;
+    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()>;
+    fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
+    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn MousePointer(&self) -> windows_result::Result<InkMousePointer>;
+    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()>;
+    fn Cursors(&self) -> windows_result::Result<IInkCursors>;
+    fn MarginX(&self) -> windows_result::Result<i32>;
+    fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()>;
+    fn MarginY(&self) -> windows_result::Result<i32>;
+    fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()>;
+    fn Tablet(&self) -> windows_result::Result<IInkTablet>;
+    fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<()>;
+    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCollector_Vtbl {
@@ -2499,43 +2499,43 @@ impl core::ops::Deref for IInkCursor {
 windows_core::imp::interface_hierarchy!(IInkCursor, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursor {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Id(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Inverted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Inverted(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Inverted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DrawingAttributes<P0>(&self, attributes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DrawingAttributes<P0>(&self, attributes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), attributes.param().abi()).ok() }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn Tablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Buttons(&self) -> windows_core::Result<IInkCursorButtons> {
+    pub unsafe fn Buttons(&self) -> windows_result::Result<IInkCursorButtons> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Buttons)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2557,13 +2557,13 @@ pub struct IInkCursor_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursor_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Id(&self) -> windows_core::Result<i32>;
-    fn Inverted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, attributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn Buttons(&self) -> windows_core::Result<IInkCursorButtons>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Id(&self) -> windows_result::Result<i32>;
+    fn Inverted(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DrawingAttributes(&self, attributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn Tablet(&self) -> windows_result::Result<IInkTablet>;
+    fn Buttons(&self) -> windows_result::Result<IInkCursorButtons>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursor_Vtbl {
@@ -2676,19 +2676,19 @@ impl core::ops::Deref for IInkCursorButton {
 windows_core::imp::interface_hierarchy!(IInkCursorButton, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursorButton {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Id(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<InkCursorButtonState> {
+    pub unsafe fn State(&self) -> windows_result::Result<InkCursorButtonState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2706,9 +2706,9 @@ pub struct IInkCursorButton_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursorButton_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn State(&self) -> windows_core::Result<InkCursorButtonState>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Id(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn State(&self) -> windows_result::Result<InkCursorButtonState>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursorButton_Vtbl {
@@ -2775,20 +2775,20 @@ impl core::ops::Deref for IInkCursorButtons {
 windows_core::imp::interface_hierarchy!(IInkCursorButtons, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursorButtons {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkCursorButton> {
+    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkCursorButton> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2809,9 +2809,9 @@ pub struct IInkCursorButtons_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursorButtons_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkCursorButton>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkCursorButton>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursorButtons_Vtbl {
@@ -2878,19 +2878,19 @@ impl core::ops::Deref for IInkCursors {
 windows_core::imp::interface_hierarchy!(IInkCursors, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCursors {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkCursor> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkCursor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2908,9 +2908,9 @@ pub struct IInkCursors_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCursors_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkCursor>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkCursor>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCursors_Vtbl {
@@ -2977,36 +2977,36 @@ impl core::ops::Deref for IInkCustomStrokes {
 windows_core::imp::interface_hierarchy!(IInkCustomStrokes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkCustomStrokes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P1>(&self, name: &windows_core::BSTR, strokes: P1) -> windows_core::Result<()>
+    pub unsafe fn Add<P1>(&self, name: &windows_core::BSTR, strokes: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name), strokes.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3030,12 +3030,12 @@ pub struct IInkCustomStrokes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkCustomStrokes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes>;
-    fn Add(&self, name: &windows_core::BSTR, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokes>;
+    fn Add(&self, name: &windows_core::BSTR, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Clear(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkCustomStrokes_Vtbl {
@@ -3123,52 +3123,52 @@ impl core::ops::Deref for IInkDisp {
 windows_core::imp::interface_hierarchy!(IInkDisp, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDisp {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Dirty(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Dirty(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Dirty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDirty)(windows_core::Interface::as_raw(self), dirty).ok() }
     }
-    pub unsafe fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes> {
+    pub unsafe fn CustomStrokes(&self) -> windows_result::Result<IInkCustomStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CustomStrokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoundingBox)(windows_core::Interface::as_raw(self), boundingboxmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DeleteStrokes<P0>(&self, strokes: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteStrokes<P0>(&self, strokes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
     }
-    pub unsafe fn DeleteStroke<P0>(&self, stroke: P0) -> windows_core::Result<()>
+    pub unsafe fn DeleteStroke<P0>(&self, stroke: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).DeleteStroke)(windows_core::Interface::as_raw(self), stroke.param().abi()).ok() }
     }
-    pub unsafe fn ExtractStrokes<P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
+    pub unsafe fn ExtractStrokes<P0>(&self, strokes: P0, extractflags: InkExtractFlags) -> windows_result::Result<IInkDisp>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -3177,7 +3177,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).ExtractStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi(), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtractWithRectangle<P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>
+    pub unsafe fn ExtractWithRectangle<P0>(&self, rectangle: P0, extractflags: InkExtractFlags) -> windows_result::Result<IInkDisp>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
@@ -3186,25 +3186,25 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).ExtractWithRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi(), extractflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HitTestCircle)(windows_core::Interface::as_raw(self), x, y, radius, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn HitTestWithRectangle<P0>(&self, selectionrectangle: P0, intersectpercent: f32) -> windows_core::Result<IInkStrokes>
+    pub unsafe fn HitTestWithRectangle<P0>(&self, selectionrectangle: P0, intersectpercent: f32) -> windows_result::Result<IInkStrokes>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
@@ -3214,20 +3214,20 @@ impl IInkDisp {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: Option<*mut super::super::System::Variant::VARIANT>, strokes: *mut Option<IInkStrokes>) -> windows_core::Result<()> {
+    pub unsafe fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: Option<*mut super::super::System::Variant::VARIANT>, strokes: *mut Option<IInkStrokes>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).HitTestWithLasso)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), intersectpercent, lassopoints.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(strokes)).ok() }
     }
-    pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut Option<IInkStrokeDisp>) -> windows_core::Result<()> {
+    pub unsafe fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: *mut Option<IInkStrokeDisp>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NearestPoint)(windows_core::Interface::as_raw(self), x, y, pointonstroke as _, distancefrompacket as _, core::mem::transmute(stroke)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStrokes)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strokeids), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddStrokesAtRectangle<P0, P1>(&self, sourcestrokes: P0, targetrectangle: P1) -> windows_core::Result<()>
+    pub unsafe fn AddStrokesAtRectangle<P0, P1>(&self, sourcestrokes: P0, targetrectangle: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
         P1: windows_core::Param<IInkRectangle>,
@@ -3235,24 +3235,24 @@ impl IInkDisp {
         unsafe { (windows_core::Interface::vtable(self).AddStrokesAtRectangle)(windows_core::Interface::as_raw(self), sourcestrokes.param().abi(), targetrectangle.param().abi()).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Save)(windows_core::Interface::as_raw(self), persistenceformat, compressionmode, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Load(&self, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Load(&self, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Load)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokeDisp> {
+    pub unsafe fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokeDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateStroke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetdata), core::mem::transmute_copy(packetdescription), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ClipboardCopyWithRectangle<P0>(&self, rectangle: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>
+    pub unsafe fn ClipboardCopyWithRectangle<P0>(&self, rectangle: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_result::Result<super::super::System::Com::IDataObject>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
@@ -3261,7 +3261,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).ClipboardCopyWithRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi(), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ClipboardCopy<P0>(&self, strokes: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>
+    pub unsafe fn ClipboardCopy<P0>(&self, strokes: P0, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_result::Result<super::super::System::Com::IDataObject>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -3270,7 +3270,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).ClipboardCopy)(windows_core::Interface::as_raw(self), strokes.param().abi(), clipboardformats, clipboardmodes, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CanPaste<P0>(&self, dataobject: P0) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn CanPaste<P0>(&self, dataobject: P0) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P0: windows_core::Param<super::super::System::Com::IDataObject>,
     {
@@ -3279,7 +3279,7 @@ impl IInkDisp {
             (windows_core::Interface::vtable(self).CanPaste)(windows_core::Interface::as_raw(self), dataobject.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ClipboardPaste<P2>(&self, x: i32, y: i32, dataobject: P2) -> windows_core::Result<IInkStrokes>
+    pub unsafe fn ClipboardPaste<P2>(&self, x: i32, y: i32, dataobject: P2) -> windows_result::Result<IInkStrokes>
     where
         P2: windows_core::Param<super::super::System::Com::IDataObject>,
     {
@@ -3337,31 +3337,31 @@ pub struct IInkDisp_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDisp_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
-    fn Dirty(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CustomStrokes(&self) -> windows_core::Result<IInkCustomStrokes>;
-    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn DeleteStrokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn DeleteStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn ExtractStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
-    fn ExtractWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, extractflags: InkExtractFlags) -> windows_core::Result<IInkDisp>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IInkDisp>;
-    fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<IInkStrokes>;
-    fn HitTestWithRectangle(&self, selectionrectangle: windows_core::Ref<IInkRectangle>, intersectpercent: f32) -> windows_core::Result<IInkStrokes>;
-    fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Variant::VARIANT, strokes: windows_core::OutRef<IInkStrokes>) -> windows_core::Result<()>;
-    fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokes>;
-    fn AddStrokesAtRectangle(&self, sourcestrokes: windows_core::Ref<IInkStrokes>, targetrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Load(&self, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkStrokeDisp>;
-    fn ClipboardCopyWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn ClipboardCopy(&self, strokes: windows_core::Ref<IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_core::Result<super::super::System::Com::IDataObject>;
-    fn CanPaste(&self, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ClipboardPaste(&self, x: i32, y: i32, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_core::Result<IInkStrokes>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties>;
+    fn Dirty(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDirty(&self, dirty: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn CustomStrokes(&self) -> windows_result::Result<IInkCustomStrokes>;
+    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle>;
+    fn DeleteStrokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn DeleteStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn ExtractStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, extractflags: InkExtractFlags) -> windows_result::Result<IInkDisp>;
+    fn ExtractWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, extractflags: InkExtractFlags) -> windows_result::Result<IInkDisp>;
+    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IInkDisp>;
+    fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_result::Result<IInkStrokes>;
+    fn HitTestWithRectangle(&self, selectionrectangle: windows_core::Ref<IInkRectangle>, intersectpercent: f32) -> windows_result::Result<IInkStrokes>;
+    fn HitTestWithLasso(&self, points: &super::super::System::Variant::VARIANT, intersectpercent: f32, lassopoints: *mut super::super::System::Variant::VARIANT, strokes: windows_core::OutRef<IInkStrokes>) -> windows_result::Result<()>;
+    fn NearestPoint(&self, x: i32, y: i32, pointonstroke: *mut f32, distancefrompacket: *mut f32, stroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn CreateStrokes(&self, strokeids: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokes>;
+    fn AddStrokesAtRectangle(&self, sourcestrokes: windows_core::Ref<IInkStrokes>, targetrectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn Save(&self, persistenceformat: InkPersistenceFormat, compressionmode: InkPersistenceCompressionMode) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Load(&self, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn CreateStroke(&self, packetdata: &super::super::System::Variant::VARIANT, packetdescription: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkStrokeDisp>;
+    fn ClipboardCopyWithRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_result::Result<super::super::System::Com::IDataObject>;
+    fn ClipboardCopy(&self, strokes: windows_core::Ref<IInkStrokes>, clipboardformats: InkClipboardFormats, clipboardmodes: InkClipboardModes) -> windows_result::Result<super::super::System::Com::IDataObject>;
+    fn CanPaste(&self, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn ClipboardPaste(&self, x: i32, y: i32, dataobject: windows_core::Ref<super::super::System::Com::IDataObject>) -> windows_result::Result<IInkStrokes>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDisp_Vtbl {
@@ -3666,40 +3666,40 @@ impl core::ops::Deref for IInkDivider {
 windows_core::imp::interface_hierarchy!(IInkDivider, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivider {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Strokes<P0>(&self, strokes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Strokes<P0>(&self, strokes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
     }
-    pub unsafe fn RecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext> {
+    pub unsafe fn RecognizerContext(&self) -> windows_result::Result<IInkRecognizerContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecognizerContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_RecognizerContext<P0>(&self, recognizercontext: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_RecognizerContext<P0>(&self, recognizercontext: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRecognizerContext>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_RecognizerContext)(windows_core::Interface::as_raw(self), recognizercontext.param().abi()).ok() }
     }
-    pub unsafe fn LineHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LineHeight(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LineHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLineHeight(&self, lineheight: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLineHeight(&self, lineheight: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLineHeight)(windows_core::Interface::as_raw(self), lineheight).ok() }
     }
-    pub unsafe fn Divide(&self) -> windows_core::Result<IInkDivisionResult> {
+    pub unsafe fn Divide(&self) -> windows_result::Result<IInkDivisionResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Divide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3721,13 +3721,13 @@ pub struct IInkDivider_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivider_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn RecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext>;
-    fn putref_RecognizerContext(&self, recognizercontext: windows_core::Ref<IInkRecognizerContext>) -> windows_core::Result<()>;
-    fn LineHeight(&self) -> windows_core::Result<i32>;
-    fn SetLineHeight(&self, lineheight: i32) -> windows_core::Result<()>;
-    fn Divide(&self) -> windows_core::Result<IInkDivisionResult>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn RecognizerContext(&self) -> windows_result::Result<IInkRecognizerContext>;
+    fn putref_RecognizerContext(&self, recognizercontext: windows_core::Ref<IInkRecognizerContext>) -> windows_result::Result<()>;
+    fn LineHeight(&self) -> windows_result::Result<i32>;
+    fn SetLineHeight(&self, lineheight: i32) -> windows_result::Result<()>;
+    fn Divide(&self) -> windows_result::Result<IInkDivisionResult>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivider_Vtbl {
@@ -3828,13 +3828,13 @@ impl core::ops::Deref for IInkDivisionResult {
 windows_core::imp::interface_hierarchy!(IInkDivisionResult, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionResult {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ResultByType(&self, divisiontype: InkDivisionType) -> windows_core::Result<IInkDivisionUnits> {
+    pub unsafe fn ResultByType(&self, divisiontype: InkDivisionType) -> windows_result::Result<IInkDivisionUnits> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResultByType)(windows_core::Interface::as_raw(self), divisiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3851,8 +3851,8 @@ pub struct IInkDivisionResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionResult_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn ResultByType(&self, divisiontype: InkDivisionType) -> windows_core::Result<IInkDivisionUnits>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn ResultByType(&self, divisiontype: InkDivisionType) -> windows_result::Result<IInkDivisionUnits>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionResult_Vtbl {
@@ -3906,25 +3906,25 @@ impl core::ops::Deref for IInkDivisionUnit {
 windows_core::imp::interface_hierarchy!(IInkDivisionUnit, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionUnit {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DivisionType(&self) -> windows_core::Result<InkDivisionType> {
+    pub unsafe fn DivisionType(&self) -> windows_result::Result<InkDivisionType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DivisionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RecognizedString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RecognizedString(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecognizedString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RotationTransform(&self) -> windows_core::Result<IInkTransform> {
+    pub unsafe fn RotationTransform(&self) -> windows_result::Result<IInkTransform> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RotationTransform)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3943,10 +3943,10 @@ pub struct IInkDivisionUnit_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionUnit_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn DivisionType(&self) -> windows_core::Result<InkDivisionType>;
-    fn RecognizedString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RotationTransform(&self) -> windows_core::Result<IInkTransform>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn DivisionType(&self) -> windows_result::Result<InkDivisionType>;
+    fn RecognizedString(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn RotationTransform(&self) -> windows_result::Result<IInkTransform>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionUnit_Vtbl {
@@ -4026,19 +4026,19 @@ impl core::ops::Deref for IInkDivisionUnits {
 windows_core::imp::interface_hierarchy!(IInkDivisionUnits, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDivisionUnits {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkDivisionUnit> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkDivisionUnit> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4056,9 +4056,9 @@ pub struct IInkDivisionUnits_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDivisionUnits_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkDivisionUnit>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkDivisionUnit>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDivisionUnits_Vtbl {
@@ -4125,94 +4125,94 @@ impl core::ops::Deref for IInkDrawingAttributes {
 windows_core::imp::interface_hierarchy!(IInkDrawingAttributes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkDrawingAttributes {
-    pub unsafe fn Color(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Color(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Color)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColor(&self, newcolor: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetColor(&self, newcolor: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColor)(windows_core::Interface::as_raw(self), newcolor).ok() }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<f32> {
+    pub unsafe fn Width(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWidth(&self, newwidth: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetWidth(&self, newwidth: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWidth)(windows_core::Interface::as_raw(self), newwidth).ok() }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<f32> {
+    pub unsafe fn Height(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHeight(&self, newheight: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetHeight(&self, newheight: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHeight)(windows_core::Interface::as_raw(self), newheight).ok() }
     }
-    pub unsafe fn FitToCurve(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn FitToCurve(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FitToCurve)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFitToCurve)(windows_core::Interface::as_raw(self), flag).ok() }
     }
-    pub unsafe fn IgnorePressure(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IgnorePressure(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IgnorePressure)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetIgnorePressure)(windows_core::Interface::as_raw(self), flag).ok() }
     }
-    pub unsafe fn AntiAliased(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AntiAliased(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AntiAliased)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAntiAliased)(windows_core::Interface::as_raw(self), flag).ok() }
     }
-    pub unsafe fn Transparency(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Transparency(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Transparency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTransparency(&self, newtransparency: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetTransparency(&self, newtransparency: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransparency)(windows_core::Interface::as_raw(self), newtransparency).ok() }
     }
-    pub unsafe fn RasterOperation(&self) -> windows_core::Result<InkRasterOperation> {
+    pub unsafe fn RasterOperation(&self) -> windows_result::Result<InkRasterOperation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RasterOperation)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::Result<()> {
+    pub unsafe fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRasterOperation)(windows_core::Interface::as_raw(self), newrasteroperation).ok() }
     }
-    pub unsafe fn PenTip(&self) -> windows_core::Result<InkPenTip> {
+    pub unsafe fn PenTip(&self) -> windows_result::Result<InkPenTip> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PenTip)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPenTip(&self, newpentip: InkPenTip) -> windows_core::Result<()> {
+    pub unsafe fn SetPenTip(&self, newpentip: InkPenTip) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPenTip)(windows_core::Interface::as_raw(self), newpentip).ok() }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4247,26 +4247,26 @@ pub struct IInkDrawingAttributes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkDrawingAttributes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Color(&self) -> windows_core::Result<i32>;
-    fn SetColor(&self, newcolor: i32) -> windows_core::Result<()>;
-    fn Width(&self) -> windows_core::Result<f32>;
-    fn SetWidth(&self, newwidth: f32) -> windows_core::Result<()>;
-    fn Height(&self) -> windows_core::Result<f32>;
-    fn SetHeight(&self, newheight: f32) -> windows_core::Result<()>;
-    fn FitToCurve(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn IgnorePressure(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn AntiAliased(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Transparency(&self) -> windows_core::Result<i32>;
-    fn SetTransparency(&self, newtransparency: i32) -> windows_core::Result<()>;
-    fn RasterOperation(&self) -> windows_core::Result<InkRasterOperation>;
-    fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_core::Result<()>;
-    fn PenTip(&self) -> windows_core::Result<InkPenTip>;
-    fn SetPenTip(&self, newpentip: InkPenTip) -> windows_core::Result<()>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
-    fn Clone(&self) -> windows_core::Result<IInkDrawingAttributes>;
+    fn Color(&self) -> windows_result::Result<i32>;
+    fn SetColor(&self, newcolor: i32) -> windows_result::Result<()>;
+    fn Width(&self) -> windows_result::Result<f32>;
+    fn SetWidth(&self, newwidth: f32) -> windows_result::Result<()>;
+    fn Height(&self) -> windows_result::Result<f32>;
+    fn SetHeight(&self, newheight: f32) -> windows_result::Result<()>;
+    fn FitToCurve(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetFitToCurve(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn IgnorePressure(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetIgnorePressure(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn AntiAliased(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAntiAliased(&self, flag: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Transparency(&self) -> windows_result::Result<i32>;
+    fn SetTransparency(&self, newtransparency: i32) -> windows_result::Result<()>;
+    fn RasterOperation(&self) -> windows_result::Result<InkRasterOperation>;
+    fn SetRasterOperation(&self, newrasteroperation: InkRasterOperation) -> windows_result::Result<()>;
+    fn PenTip(&self) -> windows_result::Result<InkPenTip>;
+    fn SetPenTip(&self, newpentip: InkPenTip) -> windows_result::Result<()>;
+    fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties>;
+    fn Clone(&self) -> windows_result::Result<IInkDrawingAttributes>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkDrawingAttributes_Vtbl {
@@ -4500,388 +4500,388 @@ impl core::ops::Deref for IInkEdit {
 windows_core::imp::interface_hierarchy!(IInkEdit, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkEdit {
-    pub unsafe fn Status(&self) -> windows_core::Result<InkEditStatus> {
+    pub unsafe fn Status(&self) -> windows_result::Result<InkEditStatus> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UseMouseForInput(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn UseMouseForInput(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UseMouseForInput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUseMouseForInput)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn InkMode(&self) -> windows_core::Result<InkMode> {
+    pub unsafe fn InkMode(&self) -> windows_result::Result<InkMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InkMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetInkMode(&self, newval: InkMode) -> windows_core::Result<()> {
+    pub unsafe fn SetInkMode(&self, newval: InkMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInkMode)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn InkInsertMode(&self) -> windows_core::Result<InkInsertMode> {
+    pub unsafe fn InkInsertMode(&self) -> windows_result::Result<InkInsertMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InkInsertMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetInkInsertMode(&self, newval: InkInsertMode) -> windows_core::Result<()> {
+    pub unsafe fn SetInkInsertMode(&self, newval: InkInsertMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInkInsertMode)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DrawingAttributes<P0>(&self, newval: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DrawingAttributes<P0>(&self, newval: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), newval.param().abi()).ok() }
     }
-    pub unsafe fn RecognitionTimeout(&self) -> windows_core::Result<i32> {
+    pub unsafe fn RecognitionTimeout(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecognitionTimeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRecognitionTimeout(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRecognitionTimeout(&self, newval: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRecognitionTimeout)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Recognizer(&self) -> windows_core::Result<IInkRecognizer> {
+    pub unsafe fn Recognizer(&self) -> windows_result::Result<IInkRecognizer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Recognizer<P0>(&self, newval: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Recognizer<P0>(&self, newval: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRecognizer>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Recognizer)(windows_core::Interface::as_raw(self), newval.param().abi()).ok() }
     }
-    pub unsafe fn Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Factoid(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Factoid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFactoid(&self, newval: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFactoid(&self, newval: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFactoid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newval)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelInks(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelInks(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelInks)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelInks(&self, selink: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelInks(&self, selink: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelInks)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(selink)).ok() }
     }
-    pub unsafe fn SelInksDisplayMode(&self) -> windows_core::Result<InkDisplayMode> {
+    pub unsafe fn SelInksDisplayMode(&self) -> windows_result::Result<InkDisplayMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelInksDisplayMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> windows_core::Result<()> {
+    pub unsafe fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelInksDisplayMode)(windows_core::Interface::as_raw(self), inkdisplaymode).ok() }
     }
-    pub unsafe fn Recognize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Recognize(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Recognize)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGestureStatus)(windows_core::Interface::as_raw(self), gesture, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), gesture, listen).ok() }
     }
-    pub unsafe fn SetBackColor(&self, clr: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColor(&self, clr: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), clr).ok() }
     }
-    pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColor(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Appearance(&self) -> windows_core::Result<AppearanceConstants> {
+    pub unsafe fn Appearance(&self) -> windows_result::Result<AppearanceConstants> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Appearance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAppearance(&self, pappearance: AppearanceConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetAppearance(&self, pappearance: AppearanceConstants) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAppearance)(windows_core::Interface::as_raw(self), pappearance).ok() }
     }
-    pub unsafe fn BorderStyle(&self) -> windows_core::Result<BorderStyleConstants> {
+    pub unsafe fn BorderStyle(&self) -> windows_result::Result<BorderStyleConstants> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BorderStyle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBorderStyle)(windows_core::Interface::as_raw(self), pborderstyle).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn Hwnd(&self) -> windows_core::Result<super::super::System::Ole::OLE_HANDLE> {
+    pub unsafe fn Hwnd(&self) -> windows_result::Result<super::super::System::Ole::OLE_HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Hwnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn Font(&self) -> windows_core::Result<super::super::System::Ole::IFontDisp> {
+    pub unsafe fn Font(&self) -> windows_result::Result<super::super::System::Ole::IFontDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Font)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_Font<P0>(&self, ppfont: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Font<P0>(&self, ppfont: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IFontDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Font)(windows_core::Interface::as_raw(self), ppfont.param().abi()).ok() }
     }
-    pub unsafe fn Text(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Text(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Text)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetText(&self, pbstrtext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetText(&self, pbstrtext: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrtext)).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn MousePointer(&self) -> windows_result::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()> {
+    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer).ok() }
     }
-    pub unsafe fn Locked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Locked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Locked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocked)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn MaxLength(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaxLength(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxLength(&self, lmaxlength: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxLength(&self, lmaxlength: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxLength)(windows_core::Interface::as_raw(self), lmaxlength).ok() }
     }
-    pub unsafe fn MultiLine(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MultiLine(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MultiLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMultiLine)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn ScrollBars(&self) -> windows_core::Result<ScrollBarsConstants> {
+    pub unsafe fn ScrollBars(&self) -> windows_result::Result<ScrollBarsConstants> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ScrollBars)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetScrollBars(&self, newval: ScrollBarsConstants) -> windows_core::Result<()> {
+    pub unsafe fn SetScrollBars(&self, newval: ScrollBarsConstants) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetScrollBars)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn DisableNoScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DisableNoScroll(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisableNoScroll)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisableNoScroll)(windows_core::Interface::as_raw(self), newval).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelAlignment(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelAlignment(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelAlignment)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelAlignment)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselalignment)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelBold(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelBold(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelBold)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelBold(&self, pvarselbold: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelBold(&self, pvarselbold: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelBold)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselbold)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelItalic(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelItalic(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelItalic)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelItalic(&self, pvarselitalic: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelItalic(&self, pvarselitalic: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelItalic)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselitalic)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelUnderline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelUnderline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelUnderline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelUnderline)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselunderline)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelColor(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelColor(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelColor(&self, pvarselcolor: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelColor(&self, pvarselcolor: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelColor)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselcolor)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelFontName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelFontName(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelFontName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelFontName(&self, pvarselfontname: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelFontName(&self, pvarselfontname: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelFontName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselfontname)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelFontSize(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelFontSize(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelFontSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelFontSize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselfontsize)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelCharOffset(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelCharOffset(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelCharOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelCharOffset)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pvarselcharoffset)).ok() }
     }
-    pub unsafe fn TextRTF(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TextRTF(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TextRTF)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetTextRTF(&self, pbstrtextrtf: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetTextRTF(&self, pbstrtextrtf: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTextRTF)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrtextrtf)).ok() }
     }
-    pub unsafe fn SelStart(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SelStart(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelStart)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelStart(&self, plselstart: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetSelStart(&self, plselstart: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelStart)(windows_core::Interface::as_raw(self), plselstart).ok() }
     }
-    pub unsafe fn SelLength(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SelLength(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelLength)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSelLength(&self, plsellength: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetSelLength(&self, plsellength: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelLength)(windows_core::Interface::as_raw(self), plsellength).ok() }
     }
-    pub unsafe fn SelText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SelText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSelText(&self, pbstrseltext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSelText(&self, pbstrseltext: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrseltext)).ok() }
     }
-    pub unsafe fn SelRTF(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SelRTF(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelRTF)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSelRTF(&self, pbstrselrtf: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSelRTF(&self, pbstrselrtf: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSelRTF)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(pbstrselrtf)).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -5042,83 +5042,83 @@ pub struct IInkEdit_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkEdit_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Status(&self) -> windows_core::Result<InkEditStatus>;
-    fn UseMouseForInput(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn InkMode(&self) -> windows_core::Result<InkMode>;
-    fn SetInkMode(&self, newval: InkMode) -> windows_core::Result<()>;
-    fn InkInsertMode(&self) -> windows_core::Result<InkInsertMode>;
-    fn SetInkInsertMode(&self, newval: InkInsertMode) -> windows_core::Result<()>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, newval: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn RecognitionTimeout(&self) -> windows_core::Result<i32>;
-    fn SetRecognitionTimeout(&self, newval: i32) -> windows_core::Result<()>;
-    fn Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
-    fn putref_Recognizer(&self, newval: windows_core::Ref<IInkRecognizer>) -> windows_core::Result<()>;
-    fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFactoid(&self, newval: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SelInks(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelInks(&self, selink: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelInksDisplayMode(&self) -> windows_core::Result<InkDisplayMode>;
-    fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> windows_core::Result<()>;
-    fn Recognize(&self) -> windows_core::Result<()>;
-    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetBackColor(&self, clr: u32) -> windows_core::Result<()>;
-    fn BackColor(&self) -> windows_core::Result<u32>;
-    fn Appearance(&self) -> windows_core::Result<AppearanceConstants>;
-    fn SetAppearance(&self, pappearance: AppearanceConstants) -> windows_core::Result<()>;
-    fn BorderStyle(&self) -> windows_core::Result<BorderStyleConstants>;
-    fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> windows_core::Result<()>;
-    fn Hwnd(&self) -> windows_core::Result<super::super::System::Ole::OLE_HANDLE>;
-    fn Font(&self) -> windows_core::Result<super::super::System::Ole::IFontDisp>;
-    fn putref_Font(&self, ppfont: windows_core::Ref<super::super::System::Ole::IFontDisp>) -> windows_core::Result<()>;
-    fn Text(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetText(&self, pbstrtext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn Locked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MaxLength(&self) -> windows_core::Result<i32>;
-    fn SetMaxLength(&self, lmaxlength: i32) -> windows_core::Result<()>;
-    fn MultiLine(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ScrollBars(&self) -> windows_core::Result<ScrollBarsConstants>;
-    fn SetScrollBars(&self, newval: ScrollBarsConstants) -> windows_core::Result<()>;
-    fn DisableNoScroll(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SelAlignment(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelBold(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelBold(&self, pvarselbold: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelItalic(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelItalic(&self, pvarselitalic: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelUnderline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelColor(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelColor(&self, pvarselcolor: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelFontName(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelFontName(&self, pvarselfontname: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelFontSize(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn SelCharOffset(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn TextRTF(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetTextRTF(&self, pbstrtextrtf: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SelStart(&self) -> windows_core::Result<i32>;
-    fn SetSelStart(&self, plselstart: i32) -> windows_core::Result<()>;
-    fn SelLength(&self) -> windows_core::Result<i32>;
-    fn SetSelLength(&self, plsellength: i32) -> windows_core::Result<()>;
-    fn SelText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSelText(&self, pbstrseltext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SelRTF(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSelRTF(&self, pbstrselrtf: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
+    fn Status(&self) -> windows_result::Result<InkEditStatus>;
+    fn UseMouseForInput(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetUseMouseForInput(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn InkMode(&self) -> windows_result::Result<InkMode>;
+    fn SetInkMode(&self, newval: InkMode) -> windows_result::Result<()>;
+    fn InkInsertMode(&self) -> windows_result::Result<InkInsertMode>;
+    fn SetInkInsertMode(&self, newval: InkInsertMode) -> windows_result::Result<()>;
+    fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DrawingAttributes(&self, newval: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn RecognitionTimeout(&self) -> windows_result::Result<i32>;
+    fn SetRecognitionTimeout(&self, newval: i32) -> windows_result::Result<()>;
+    fn Recognizer(&self) -> windows_result::Result<IInkRecognizer>;
+    fn putref_Recognizer(&self, newval: windows_core::Ref<IInkRecognizer>) -> windows_result::Result<()>;
+    fn Factoid(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetFactoid(&self, newval: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SelInks(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelInks(&self, selink: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelInksDisplayMode(&self) -> windows_result::Result<InkDisplayMode>;
+    fn SetSelInksDisplayMode(&self, inkdisplaymode: InkDisplayMode) -> windows_result::Result<()>;
+    fn Recognize(&self) -> windows_result::Result<()>;
+    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetBackColor(&self, clr: u32) -> windows_result::Result<()>;
+    fn BackColor(&self) -> windows_result::Result<u32>;
+    fn Appearance(&self) -> windows_result::Result<AppearanceConstants>;
+    fn SetAppearance(&self, pappearance: AppearanceConstants) -> windows_result::Result<()>;
+    fn BorderStyle(&self) -> windows_result::Result<BorderStyleConstants>;
+    fn SetBorderStyle(&self, pborderstyle: BorderStyleConstants) -> windows_result::Result<()>;
+    fn Hwnd(&self) -> windows_result::Result<super::super::System::Ole::OLE_HANDLE>;
+    fn Font(&self) -> windows_result::Result<super::super::System::Ole::IFontDisp>;
+    fn putref_Font(&self, ppfont: windows_core::Ref<super::super::System::Ole::IFontDisp>) -> windows_result::Result<()>;
+    fn Text(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetText(&self, pbstrtext: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
+    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn MousePointer(&self) -> windows_result::Result<InkMousePointer>;
+    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()>;
+    fn Locked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetLocked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn MaxLength(&self) -> windows_result::Result<i32>;
+    fn SetMaxLength(&self, lmaxlength: i32) -> windows_result::Result<()>;
+    fn MultiLine(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetMultiLine(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn ScrollBars(&self) -> windows_result::Result<ScrollBarsConstants>;
+    fn SetScrollBars(&self, newval: ScrollBarsConstants) -> windows_result::Result<()>;
+    fn DisableNoScroll(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDisableNoScroll(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SelAlignment(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelAlignment(&self, pvarselalignment: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelBold(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelBold(&self, pvarselbold: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelItalic(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelItalic(&self, pvarselitalic: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelUnderline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelUnderline(&self, pvarselunderline: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelColor(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelColor(&self, pvarselcolor: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelFontName(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelFontName(&self, pvarselfontname: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelFontSize(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelFontSize(&self, pvarselfontsize: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn SelCharOffset(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetSelCharOffset(&self, pvarselcharoffset: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn TextRTF(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetTextRTF(&self, pbstrtextrtf: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SelStart(&self) -> windows_result::Result<i32>;
+    fn SetSelStart(&self, plselstart: i32) -> windows_result::Result<()>;
+    fn SelLength(&self) -> windows_result::Result<i32>;
+    fn SetSelLength(&self, plsellength: i32) -> windows_result::Result<()>;
+    fn SelText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetSelText(&self, pbstrseltext: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SelRTF(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetSelRTF(&self, pbstrselrtf: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Refresh(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkEdit_Vtbl {
@@ -5913,40 +5913,40 @@ impl core::ops::Deref for IInkExtendedProperties {
 windows_core::imp::interface_hierarchy!(IInkExtendedProperties, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkExtendedProperties {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkExtendedProperty> {
+    pub unsafe fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkExtendedProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Add(&self, guid: &windows_core::BSTR, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkExtendedProperty> {
+    pub unsafe fn Add(&self, guid: &windows_core::BSTR, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkExtendedProperty> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(guid), core::mem::transmute_copy(data), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(identifier)).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn DoesPropertyExist(&self, guid: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DoesPropertyExist(&self, guid: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DoesPropertyExist)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(guid), &mut result__).map(|| result__)
@@ -5977,13 +5977,13 @@ pub struct IInkExtendedProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkExtendedProperties_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkExtendedProperty>;
-    fn Add(&self, guid: &windows_core::BSTR, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<IInkExtendedProperty>;
-    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn DoesPropertyExist(&self, guid: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Item(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkExtendedProperty>;
+    fn Add(&self, guid: &windows_core::BSTR, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<IInkExtendedProperty>;
+    fn Remove(&self, identifier: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Clear(&self) -> windows_result::Result<()>;
+    fn DoesPropertyExist(&self, guid: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkExtendedProperties_Vtbl {
@@ -6090,21 +6090,21 @@ impl core::ops::Deref for IInkExtendedProperty {
 windows_core::imp::interface_hierarchy!(IInkExtendedProperty, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkExtendedProperty {
-    pub unsafe fn Guid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Guid(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Guid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Data(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Data(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetData(&self, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetData(&self, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(data)).ok() }
     }
 }
@@ -6125,9 +6125,9 @@ pub struct IInkExtendedProperty_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkExtendedProperty_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Guid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Data(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetData(&self, data: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn Guid(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Data(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetData(&self, data: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkExtendedProperty_Vtbl {
@@ -6188,19 +6188,19 @@ impl core::ops::Deref for IInkGesture {
 windows_core::imp::interface_hierarchy!(IInkGesture, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkGesture {
-    pub unsafe fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn Confidence(&self) -> windows_result::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<InkApplicationGesture> {
+    pub unsafe fn Id(&self) -> windows_result::Result<InkApplicationGesture> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetHotPoint)(windows_core::Interface::as_raw(self), x as _, y as _).ok() }
     }
 }
@@ -6215,9 +6215,9 @@ pub struct IInkGesture_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkGesture_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Id(&self) -> windows_core::Result<InkApplicationGesture>;
-    fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
+    fn Confidence(&self) -> windows_result::Result<InkRecognitionConfidence>;
+    fn Id(&self) -> windows_result::Result<InkApplicationGesture>;
+    fn GetHotPoint(&self, x: *mut i32, y: *mut i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkGesture_Vtbl {
@@ -6268,28 +6268,28 @@ impl windows_core::RuntimeName for IInkGesture {}
 windows_core::imp::define_interface!(IInkLineInfo, IInkLineInfo_Vtbl, 0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
 windows_core::imp::interface_hierarchy!(IInkLineInfo, windows_core::IUnknown);
 impl IInkLineInfo {
-    pub unsafe fn SetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()> {
+    pub unsafe fn SetFormat(&self, pim: *const INKMETRIC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFormat)(windows_core::Interface::as_raw(self), pim).ok() }
     }
-    pub unsafe fn GetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()> {
+    pub unsafe fn GetFormat(&self, pim: *const INKMETRIC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetFormat)(windows_core::Interface::as_raw(self), pim).ok() }
     }
-    pub unsafe fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> windows_core::Result<()> {
+    pub unsafe fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetInkExtent)(windows_core::Interface::as_raw(self), pim, pnwidth).ok() }
     }
-    pub unsafe fn GetCandidate<P1>(&self, ncandidatenum: u32, pwcrecogword: P1, pcwcrecogword: *const u32, dwflags: u32) -> windows_core::Result<()>
+    pub unsafe fn GetCandidate<P1>(&self, ncandidatenum: u32, pwcrecogword: P1, pcwcrecogword: *const u32, dwflags: u32) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, pwcrecogword.param().abi(), pcwcrecogword, dwflags).ok() }
     }
-    pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: u32, strrecogword: P1) -> windows_core::Result<()>
+    pub unsafe fn SetCandidate<P1>(&self, ncandidatenum: u32, strrecogword: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCandidate)(windows_core::Interface::as_raw(self), ncandidatenum, strrecogword.param().abi()).ok() }
     }
-    pub unsafe fn Recognize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Recognize(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Recognize)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -6305,12 +6305,12 @@ pub struct IInkLineInfo_Vtbl {
     pub Recognize: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInkLineInfo_Impl: windows_core::IUnknownImpl {
-    fn SetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()>;
-    fn GetFormat(&self, pim: *const INKMETRIC) -> windows_core::Result<()>;
-    fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> windows_core::Result<()>;
-    fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: &windows_core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> windows_core::Result<()>;
-    fn SetCandidate(&self, ncandidatenum: u32, strrecogword: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn Recognize(&self) -> windows_core::Result<()>;
+    fn SetFormat(&self, pim: *const INKMETRIC) -> windows_result::Result<()>;
+    fn GetFormat(&self, pim: *const INKMETRIC) -> windows_result::Result<()>;
+    fn GetInkExtent(&self, pim: *const INKMETRIC, pnwidth: *const u32) -> windows_result::Result<()>;
+    fn GetCandidate(&self, ncandidatenum: u32, pwcrecogword: &windows_core::PCWSTR, pcwcrecogword: *const u32, dwflags: u32) -> windows_result::Result<()>;
+    fn SetCandidate(&self, ncandidatenum: u32, strrecogword: &windows_core::PCWSTR) -> windows_result::Result<()>;
+    fn Recognize(&self) -> windows_result::Result<()>;
 }
 impl IInkLineInfo_Vtbl {
     pub const fn new<Identity: IInkLineInfo_Impl, const OFFSET: isize>() -> Self {
@@ -6378,276 +6378,276 @@ impl core::ops::Deref for IInkOverlay {
 windows_core::imp::interface_hierarchy!(IInkOverlay, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkOverlay {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    pub unsafe fn hWnd(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()> {
+    pub unsafe fn SethWnd(&self, newwindow: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SethWnd)(windows_core::Interface::as_raw(self), newwindow).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), collecting).ok() }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn Renderer(&self) -> windows_result::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRenderer>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
     }
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw).ok() }
     }
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()> {
+    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn MousePointer(&self) -> windows_result::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()> {
+    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer).ok() }
     }
-    pub unsafe fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
+    pub unsafe fn EditingMode(&self) -> windows_result::Result<InkOverlayEditingMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()> {
+    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEditingMode)(windows_core::Interface::as_raw(self), editingmode).ok() }
     }
-    pub unsafe fn Selection(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Selection(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()).ok() }
     }
-    pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
+    pub unsafe fn EraserMode(&self) -> windows_result::Result<InkOverlayEraserMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()> {
+    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEraserMode)(windows_core::Interface::as_raw(self), erasermode).ok() }
     }
-    pub unsafe fn EraserWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EraserWidth(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth).ok() }
     }
-    pub unsafe fn AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode> {
+    pub unsafe fn AttachMode(&self) -> windows_result::Result<InkOverlayAttachMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachMode)(windows_core::Interface::as_raw(self), attachmode).ok() }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn Cursors(&self) -> windows_result::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginX(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx).ok() }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginY(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy).ok() }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn Tablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support).ok() }
     }
-    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support).ok() }
     }
-    pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
+    pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_result::Result<SelectionHitResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HitTestSelection)(windows_core::Interface::as_raw(self), x, y, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Draw<P0>(&self, rect: P0) -> windows_core::Result<()>
+    pub unsafe fn Draw<P0>(&self, rect: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), rect.param().abi()).ok() }
     }
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), gesture, listen).ok() }
     }
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGestureStatus)(windows_core::Interface::as_raw(self), gesture, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()> {
+    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)).ok() }
     }
-    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
     }
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
     }
-    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTablet>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
     }
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), eventid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), eventid, listen).ok() }
     }
 }
@@ -6728,60 +6728,60 @@ pub struct IInkOverlay_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkOverlay_Impl: super::super::System::Com::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn SethWnd(&self, newwindow: isize) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
-    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
-    fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
-    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
-    fn EraserWidth(&self) -> windows_core::Result<i32>;
-    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
-    fn AttachMode(&self) -> windows_core::Result<InkOverlayAttachMode>;
-    fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_core::Result<()>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult>;
-    fn Draw(&self, rect: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn hWnd(&self) -> windows_result::Result<isize>;
+    fn SethWnd(&self, newwindow: isize) -> windows_result::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn Renderer(&self) -> windows_result::Result<IInkRenderer>;
+    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_result::Result<()>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_result::Result<()>;
+    fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode>;
+    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()>;
+    fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
+    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn MousePointer(&self) -> windows_result::Result<InkMousePointer>;
+    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()>;
+    fn EditingMode(&self) -> windows_result::Result<InkOverlayEditingMode>;
+    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_result::Result<()>;
+    fn Selection(&self) -> windows_result::Result<IInkStrokes>;
+    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn EraserMode(&self) -> windows_result::Result<InkOverlayEraserMode>;
+    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_result::Result<()>;
+    fn EraserWidth(&self) -> windows_result::Result<i32>;
+    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_result::Result<()>;
+    fn AttachMode(&self) -> windows_result::Result<InkOverlayAttachMode>;
+    fn SetAttachMode(&self, attachmode: InkOverlayAttachMode) -> windows_result::Result<()>;
+    fn Cursors(&self) -> windows_result::Result<IInkCursors>;
+    fn MarginX(&self) -> windows_result::Result<i32>;
+    fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()>;
+    fn MarginY(&self) -> windows_result::Result<i32>;
+    fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()>;
+    fn Tablet(&self) -> windows_result::Result<IInkTablet>;
+    fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SupportHighContrastSelectionUI(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn HitTestSelection(&self, x: i32, y: i32) -> windows_result::Result<SelectionHitResult>;
+    fn Draw(&self, rect: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<()>;
+    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkOverlay_Vtbl {
@@ -7343,306 +7343,306 @@ impl core::ops::Deref for IInkPicture {
 windows_core::imp::interface_hierarchy!(IInkPicture, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkPicture {
-    pub unsafe fn hWnd(&self) -> windows_core::Result<isize> {
+    pub unsafe fn hWnd(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).hWnd)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DefaultDrawingAttributes<P0>(&self, newattributes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DefaultDrawingAttributes)(windows_core::Interface::as_raw(self), newattributes.param().abi()).ok() }
     }
-    pub unsafe fn Renderer(&self) -> windows_core::Result<IInkRenderer> {
+    pub unsafe fn Renderer(&self) -> windows_result::Result<IInkRenderer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Renderer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Renderer<P0>(&self, newinkrenderer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRenderer>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Renderer)(windows_core::Interface::as_raw(self), newinkrenderer.param().abi()).ok() }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Ink<P0>(&self, newink: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Ink)(windows_core::Interface::as_raw(self), newink.param().abi()).ok() }
     }
-    pub unsafe fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoRedraw)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoRedraw)(windows_core::Interface::as_raw(self), autoredraw).ok() }
     }
-    pub unsafe fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectingInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode> {
+    pub unsafe fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CollectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()> {
+    pub unsafe fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCollectionMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DynamicRendering)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDynamicRendering)(windows_core::Interface::as_raw(self), enabled).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DesiredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetguids)).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MouseIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn SetMouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetMouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_MouseIcon<P0>(&self, mouseicon: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_MouseIcon)(windows_core::Interface::as_raw(self), mouseicon.param().abi()).ok() }
     }
-    pub unsafe fn MousePointer(&self) -> windows_core::Result<InkMousePointer> {
+    pub unsafe fn MousePointer(&self) -> windows_result::Result<InkMousePointer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MousePointer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()> {
+    pub unsafe fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMousePointer)(windows_core::Interface::as_raw(self), mousepointer).ok() }
     }
-    pub unsafe fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode> {
+    pub unsafe fn EditingMode(&self) -> windows_result::Result<InkOverlayEditingMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EditingMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()> {
+    pub unsafe fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEditingMode)(windows_core::Interface::as_raw(self), editingmode).ok() }
     }
-    pub unsafe fn Selection(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Selection(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Selection)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSelection<P0>(&self, selection: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSelection)(windows_core::Interface::as_raw(self), selection.param().abi()).ok() }
     }
-    pub unsafe fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode> {
+    pub unsafe fn EraserMode(&self) -> windows_result::Result<InkOverlayEraserMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EraserMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()> {
+    pub unsafe fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEraserMode)(windows_core::Interface::as_raw(self), erasermode).ok() }
     }
-    pub unsafe fn EraserWidth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EraserWidth(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EraserWidth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEraserWidth)(windows_core::Interface::as_raw(self), neweraserwidth).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn putref_Picture<P0>(&self, ppicture: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Picture<P0>(&self, ppicture: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Picture)(windows_core::Interface::as_raw(self), ppicture.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn SetPicture<P0>(&self, ppicture: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPicture<P0>(&self, ppicture: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::System::Ole::IPictureDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPicture)(windows_core::Interface::as_raw(self), ppicture.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn Picture(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn Picture(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Picture)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::Result<()> {
+    pub unsafe fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSizeMode)(windows_core::Interface::as_raw(self), smnewsizemode).ok() }
     }
-    pub unsafe fn SizeMode(&self) -> windows_core::Result<InkPictureSizeMode> {
+    pub unsafe fn SizeMode(&self) -> windows_result::Result<InkPictureSizeMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SizeMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBackColor(&self, newcolor: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetBackColor(&self, newcolor: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackColor)(windows_core::Interface::as_raw(self), newcolor).ok() }
     }
-    pub unsafe fn BackColor(&self) -> windows_core::Result<u32> {
+    pub unsafe fn BackColor(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BackColor)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Cursors(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn Cursors(&self) -> windows_result::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cursors)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MarginX(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginX(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginX)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginX)(windows_core::Interface::as_raw(self), marginx).ok() }
     }
-    pub unsafe fn MarginY(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MarginY(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MarginY)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMarginY)(windows_core::Interface::as_raw(self), marginy).ok() }
     }
-    pub unsafe fn Tablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn Tablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Tablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportHighContrastInk)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastInk)(windows_core::Interface::as_raw(self), support).ok() }
     }
-    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SupportHighContrastSelectionUI(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSupportHighContrastSelectionUI)(windows_core::Interface::as_raw(self), support).ok() }
     }
-    pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult> {
+    pub unsafe fn HitTestSelection(&self, x: i32, y: i32) -> windows_result::Result<SelectionHitResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HitTestSelection)(windows_core::Interface::as_raw(self), x, y, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGestureStatus)(windows_core::Interface::as_raw(self), gesture, listen).ok() }
     }
-    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetGestureStatus)(windows_core::Interface::as_raw(self), gesture, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_core::Result<()> {
+    pub unsafe fn GetWindowInputRectangle(&self, windowinputrectangle: *mut Option<IInkRectangle>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetWindowInputRectangle)(windows_core::Interface::as_raw(self), core::mem::transmute(windowinputrectangle)).ok() }
     }
-    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWindowInputRectangle<P0>(&self, windowinputrectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), windowinputrectangle.param().abi()).ok() }
     }
-    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), usemouseforinput).ok() }
     }
-    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSingleTabletIntegratedMode<P0>(&self, tablet: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTablet>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSingleTabletIntegratedMode)(windows_core::Interface::as_raw(self), tablet.param().abi()).ok() }
     }
-    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetEventInterest)(windows_core::Interface::as_raw(self), eventid, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventInterest)(windows_core::Interface::as_raw(self), eventid, listen).ok() }
     }
-    pub unsafe fn InkEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn InkEnabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InkEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInkEnabled)(windows_core::Interface::as_raw(self), collecting).ok() }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), vbool).ok() }
     }
 }
@@ -7737,65 +7737,65 @@ pub struct IInkPicture_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkPicture_Impl: super::super::System::Com::IDispatch_Impl {
-    fn hWnd(&self) -> windows_core::Result<isize>;
-    fn DefaultDrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Renderer(&self) -> windows_core::Result<IInkRenderer>;
-    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn AutoRedraw(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn CollectingInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn CollectionMode(&self) -> windows_core::Result<InkCollectionMode>;
-    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_core::Result<()>;
-    fn DynamicRendering(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn DesiredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn MouseIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn MousePointer(&self) -> windows_core::Result<InkMousePointer>;
-    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_core::Result<()>;
-    fn EditingMode(&self) -> windows_core::Result<InkOverlayEditingMode>;
-    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_core::Result<()>;
-    fn Selection(&self) -> windows_core::Result<IInkStrokes>;
-    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn EraserMode(&self) -> windows_core::Result<InkOverlayEraserMode>;
-    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_core::Result<()>;
-    fn EraserWidth(&self) -> windows_core::Result<i32>;
-    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_core::Result<()>;
-    fn putref_Picture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn SetPicture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_core::Result<()>;
-    fn Picture(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
-    fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_core::Result<()>;
-    fn SizeMode(&self) -> windows_core::Result<InkPictureSizeMode>;
-    fn SetBackColor(&self, newcolor: u32) -> windows_core::Result<()>;
-    fn BackColor(&self) -> windows_core::Result<u32>;
-    fn Cursors(&self) -> windows_core::Result<IInkCursors>;
-    fn MarginX(&self) -> windows_core::Result<i32>;
-    fn SetMarginX(&self, marginx: i32) -> windows_core::Result<()>;
-    fn MarginY(&self) -> windows_core::Result<i32>;
-    fn SetMarginY(&self, marginy: i32) -> windows_core::Result<()>;
-    fn Tablet(&self) -> windows_core::Result<IInkTablet>;
-    fn SupportHighContrastInk(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SupportHighContrastSelectionUI(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn HitTestSelection(&self, x: i32, y: i32) -> windows_core::Result<SelectionHitResult>;
-    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn InkEnabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn hWnd(&self) -> windows_result::Result<isize>;
+    fn DefaultDrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DefaultDrawingAttributes(&self, newattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn Renderer(&self) -> windows_result::Result<IInkRenderer>;
+    fn putref_Renderer(&self, newinkrenderer: windows_core::Ref<IInkRenderer>) -> windows_result::Result<()>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn putref_Ink(&self, newink: windows_core::Ref<IInkDisp>) -> windows_result::Result<()>;
+    fn AutoRedraw(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoRedraw(&self, autoredraw: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn CollectingInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn CollectionMode(&self) -> windows_result::Result<InkCollectionMode>;
+    fn SetCollectionMode(&self, mode: InkCollectionMode) -> windows_result::Result<()>;
+    fn DynamicRendering(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetDynamicRendering(&self, enabled: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn DesiredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetDesiredPacketDescription(&self, packetguids: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn MouseIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
+    fn SetMouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn putref_MouseIcon(&self, mouseicon: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn MousePointer(&self) -> windows_result::Result<InkMousePointer>;
+    fn SetMousePointer(&self, mousepointer: InkMousePointer) -> windows_result::Result<()>;
+    fn EditingMode(&self) -> windows_result::Result<InkOverlayEditingMode>;
+    fn SetEditingMode(&self, editingmode: InkOverlayEditingMode) -> windows_result::Result<()>;
+    fn Selection(&self) -> windows_result::Result<IInkStrokes>;
+    fn SetSelection(&self, selection: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn EraserMode(&self) -> windows_result::Result<InkOverlayEraserMode>;
+    fn SetEraserMode(&self, erasermode: InkOverlayEraserMode) -> windows_result::Result<()>;
+    fn EraserWidth(&self) -> windows_result::Result<i32>;
+    fn SetEraserWidth(&self, neweraserwidth: i32) -> windows_result::Result<()>;
+    fn putref_Picture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn SetPicture(&self, ppicture: windows_core::Ref<super::super::System::Ole::IPictureDisp>) -> windows_result::Result<()>;
+    fn Picture(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
+    fn SetSizeMode(&self, smnewsizemode: InkPictureSizeMode) -> windows_result::Result<()>;
+    fn SizeMode(&self) -> windows_result::Result<InkPictureSizeMode>;
+    fn SetBackColor(&self, newcolor: u32) -> windows_result::Result<()>;
+    fn BackColor(&self) -> windows_result::Result<u32>;
+    fn Cursors(&self) -> windows_result::Result<IInkCursors>;
+    fn MarginX(&self) -> windows_result::Result<i32>;
+    fn SetMarginX(&self, marginx: i32) -> windows_result::Result<()>;
+    fn MarginY(&self) -> windows_result::Result<i32>;
+    fn SetMarginY(&self, marginy: i32) -> windows_result::Result<()>;
+    fn Tablet(&self) -> windows_result::Result<IInkTablet>;
+    fn SupportHighContrastInk(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSupportHighContrastInk(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SupportHighContrastSelectionUI(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetSupportHighContrastSelectionUI(&self, support: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn HitTestSelection(&self, x: i32, y: i32) -> windows_result::Result<SelectionHitResult>;
+    fn SetGestureStatus(&self, gesture: InkApplicationGesture, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn GetGestureStatus(&self, gesture: InkApplicationGesture) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetWindowInputRectangle(&self, windowinputrectangle: windows_core::OutRef<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetWindowInputRectangle(&self, windowinputrectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn SetAllTabletsMode(&self, usemouseforinput: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetSingleTabletIntegratedMode(&self, tablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<()>;
+    fn GetEventInterest(&self, eventid: InkCollectorEventInterest) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEventInterest(&self, eventid: InkCollectorEventInterest, listen: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn InkEnabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetInkEnabled(&self, collecting: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, vbool: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkPicture_Vtbl {
@@ -8410,71 +8410,71 @@ impl core::ops::Deref for IInkRecognitionAlternate {
 windows_core::imp::interface_hierarchy!(IInkRecognitionAlternate, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionAlternate {
-    pub unsafe fn String(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn String(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).String)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn Confidence(&self) -> windows_result::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Confidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Baseline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Baseline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Baseline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Midline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Midline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Ascender(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Ascender(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ascender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Descender(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Descender(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Descender)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn LineNumber(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LineNumber(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LineNumber)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn LineAlternates(&self) -> windows_result::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LineAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn ConfidenceAlternates(&self) -> windows_result::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConfidenceAlternates)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetStrokesFromStrokeRanges<P0>(&self, strokes: P0) -> windows_core::Result<IInkStrokes>
+    pub unsafe fn GetStrokesFromStrokeRanges<P0>(&self, strokes: P0) -> windows_result::Result<IInkStrokes>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -8483,23 +8483,23 @@ impl IInkRecognitionAlternate {
             (windows_core::Interface::vtable(self).GetStrokesFromStrokeRanges)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut Option<IInkStrokes>) -> windows_core::Result<()> {
+    pub unsafe fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: *mut Option<IInkStrokes>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStrokesFromTextRange)(windows_core::Interface::as_raw(self), selectionstart as _, selectionlength as _, core::mem::transmute(getstrokesfromtextrange)).ok() }
     }
-    pub unsafe fn GetTextRangeFromStrokes<P0>(&self, strokes: P0, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<()>
+    pub unsafe fn GetTextRangeFromStrokes<P0>(&self, strokes: P0, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetTextRangeFromStrokes)(windows_core::Interface::as_raw(self), strokes.param().abi(), selectionstart as _, selectionlength as _).ok() }
     }
-    pub unsafe fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_result::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternatesWithConstantPropertyValues)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertytype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPropertyValue)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertytype), &mut result__).map(|| core::mem::transmute(result__))
@@ -8544,21 +8544,21 @@ pub struct IInkRecognitionAlternate_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionAlternate_Impl: super::super::System::Com::IDispatch_Impl {
-    fn String(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Confidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Baseline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Midline(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Ascender(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Descender(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn LineNumber(&self) -> windows_core::Result<i32>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn LineAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn ConfidenceAlternates(&self) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn GetStrokesFromStrokeRanges(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkStrokes>;
-    fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: windows_core::OutRef<IInkStrokes>) -> windows_core::Result<()>;
-    fn GetTextRangeFromStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_core::Result<()>;
-    fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn String(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Confidence(&self) -> windows_result::Result<InkRecognitionConfidence>;
+    fn Baseline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Midline(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Ascender(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Descender(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn LineNumber(&self) -> windows_result::Result<i32>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn LineAlternates(&self) -> windows_result::Result<IInkRecognitionAlternates>;
+    fn ConfidenceAlternates(&self) -> windows_result::Result<IInkRecognitionAlternates>;
+    fn GetStrokesFromStrokeRanges(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<IInkStrokes>;
+    fn GetStrokesFromTextRange(&self, selectionstart: *mut i32, selectionlength: *mut i32, getstrokesfromtextrange: windows_core::OutRef<IInkStrokes>) -> windows_result::Result<()>;
+    fn GetTextRangeFromStrokes(&self, strokes: windows_core::Ref<IInkStrokes>, selectionstart: *mut i32, selectionlength: *mut i32) -> windows_result::Result<()>;
+    fn AlternatesWithConstantPropertyValues(&self, propertytype: &windows_core::BSTR) -> windows_result::Result<IInkRecognitionAlternates>;
+    fn GetPropertyValue(&self, propertytype: &windows_core::BSTR) -> windows_result::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionAlternate_Vtbl {
@@ -8769,25 +8769,25 @@ impl core::ops::Deref for IInkRecognitionAlternates {
 windows_core::imp::interface_hierarchy!(IInkRecognitionAlternates, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionAlternates {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkRecognitionAlternate> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkRecognitionAlternate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -8806,10 +8806,10 @@ pub struct IInkRecognitionAlternates_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionAlternates_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkRecognitionAlternate>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkRecognitionAlternate>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionAlternates_Vtbl {
@@ -8889,43 +8889,43 @@ impl core::ops::Deref for IInkRecognitionResult {
 windows_core::imp::interface_hierarchy!(IInkRecognitionResult, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognitionResult {
-    pub unsafe fn TopString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn TopString(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TopString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate> {
+    pub unsafe fn TopAlternate(&self) -> windows_result::Result<IInkRecognitionAlternate> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TopAlternate)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence> {
+    pub unsafe fn TopConfidence(&self) -> windows_result::Result<InkRecognitionConfidence> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TopConfidence)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_core::Result<IInkRecognitionAlternates> {
+    pub unsafe fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_result::Result<IInkRecognitionAlternates> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AlternatesFromSelection)(windows_core::Interface::as_raw(self), selectionstart, selectionlength, maximumalternates, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ModifyTopAlternate<P0>(&self, alternate: P0) -> windows_core::Result<()>
+    pub unsafe fn ModifyTopAlternate<P0>(&self, alternate: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRecognitionAlternate>,
     {
         unsafe { (windows_core::Interface::vtable(self).ModifyTopAlternate)(windows_core::Interface::as_raw(self), alternate.param().abi()).ok() }
     }
-    pub unsafe fn SetResultOnStrokes(&self) -> windows_core::Result<()> {
+    pub unsafe fn SetResultOnStrokes(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResultOnStrokes)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -8944,13 +8944,13 @@ pub struct IInkRecognitionResult_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognitionResult_Impl: super::super::System::Com::IDispatch_Impl {
-    fn TopString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn TopAlternate(&self) -> windows_core::Result<IInkRecognitionAlternate>;
-    fn TopConfidence(&self) -> windows_core::Result<InkRecognitionConfidence>;
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_core::Result<IInkRecognitionAlternates>;
-    fn ModifyTopAlternate(&self, alternate: windows_core::Ref<IInkRecognitionAlternate>) -> windows_core::Result<()>;
-    fn SetResultOnStrokes(&self) -> windows_core::Result<()>;
+    fn TopString(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn TopAlternate(&self) -> windows_result::Result<IInkRecognitionAlternate>;
+    fn TopConfidence(&self) -> windows_result::Result<InkRecognitionConfidence>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn AlternatesFromSelection(&self, selectionstart: i32, selectionlength: i32, maximumalternates: i32) -> windows_result::Result<IInkRecognitionAlternates>;
+    fn ModifyTopAlternate(&self, alternate: windows_core::Ref<IInkRecognitionAlternate>) -> windows_result::Result<()>;
+    fn SetResultOnStrokes(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognitionResult_Vtbl {
@@ -9057,46 +9057,46 @@ impl core::ops::Deref for IInkRecognizer {
 windows_core::imp::interface_hierarchy!(IInkRecognizer, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Vendor(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Vendor(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Vendor)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities> {
+    pub unsafe fn Capabilities(&self) -> windows_result::Result<InkRecognizerCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Capabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Languages(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn Languages(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Languages)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SupportedProperties(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SupportedProperties(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SupportedProperties)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PreferredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PreferredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredPacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn CreateRecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext> {
+    pub unsafe fn CreateRecognizerContext(&self) -> windows_result::Result<IInkRecognizerContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateRecognizerContext)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -9127,13 +9127,13 @@ pub struct IInkRecognizer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizer_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Vendor(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Capabilities(&self) -> windows_core::Result<InkRecognizerCapabilities>;
-    fn Languages(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SupportedProperties(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn PreferredPacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn CreateRecognizerContext(&self) -> windows_core::Result<IInkRecognizerContext>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Vendor(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Capabilities(&self) -> windows_result::Result<InkRecognizerCapabilities>;
+    fn Languages(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SupportedProperties(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn PreferredPacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn CreateRecognizerContext(&self) -> windows_result::Result<IInkRecognizerContext>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizer_Vtbl {
@@ -9252,14 +9252,14 @@ impl core::ops::Deref for IInkRecognizer2 {
 windows_core::imp::interface_hierarchy!(IInkRecognizer2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizer2 {
-    pub unsafe fn Id(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Id(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn UnicodeRanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn UnicodeRanges(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -9279,8 +9279,8 @@ pub struct IInkRecognizer2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizer2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UnicodeRanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
+    fn Id(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn UnicodeRanges(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizer2_Vtbl {
@@ -9334,117 +9334,117 @@ impl core::ops::Deref for IInkRecognizerContext {
 windows_core::imp::interface_hierarchy!(IInkRecognizerContext, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext {
-    pub unsafe fn Strokes(&self) -> windows_core::Result<IInkStrokes> {
+    pub unsafe fn Strokes(&self) -> windows_result::Result<IInkStrokes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Strokes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Strokes<P0>(&self, strokes: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Strokes<P0>(&self, strokes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Strokes)(windows_core::Interface::as_raw(self), strokes.param().abi()).ok() }
     }
-    pub unsafe fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode> {
+    pub unsafe fn CharacterAutoCompletionMode(&self) -> windows_result::Result<InkRecognizerCharacterAutoCompletionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::Result<()> {
+    pub unsafe fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCharacterAutoCompletionMode)(windows_core::Interface::as_raw(self), mode).ok() }
     }
-    pub unsafe fn Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Factoid(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Factoid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFactoid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(factoid)).ok() }
     }
-    pub unsafe fn Guide(&self) -> windows_core::Result<IInkRecognizerGuide> {
+    pub unsafe fn Guide(&self) -> windows_result::Result<IInkRecognizerGuide> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Guide)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_Guide<P0>(&self, recognizerguide: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Guide<P0>(&self, recognizerguide: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRecognizerGuide>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_Guide)(windows_core::Interface::as_raw(self), recognizerguide.param().abi()).ok() }
     }
-    pub unsafe fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PrefixText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrefixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPrefixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(prefix)).ok() }
     }
-    pub unsafe fn SuffixText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SuffixText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SuffixText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSuffixText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(suffix)).ok() }
     }
-    pub unsafe fn RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes> {
+    pub unsafe fn RecognitionFlags(&self) -> windows_result::Result<InkRecognitionModes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecognitionFlags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::Result<()> {
+    pub unsafe fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRecognitionFlags)(windows_core::Interface::as_raw(self), modes).ok() }
     }
-    pub unsafe fn WordList(&self) -> windows_core::Result<IInkWordList> {
+    pub unsafe fn WordList(&self) -> windows_result::Result<IInkWordList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WordList)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_WordList<P0>(&self, wordlist: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_WordList<P0>(&self, wordlist: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkWordList>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_WordList)(windows_core::Interface::as_raw(self), wordlist.param().abi()).ok() }
     }
-    pub unsafe fn Recognizer(&self) -> windows_core::Result<IInkRecognizer> {
+    pub unsafe fn Recognizer(&self) -> windows_result::Result<IInkRecognizer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Recognizer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: *mut Option<IInkRecognitionResult>) -> windows_core::Result<()> {
+    pub unsafe fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: *mut Option<IInkRecognitionResult>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Recognize)(windows_core::Interface::as_raw(self), recognitionstatus as _, core::mem::transmute(recognitionresult)).ok() }
     }
-    pub unsafe fn StopBackgroundRecognition(&self) -> windows_core::Result<()> {
+    pub unsafe fn StopBackgroundRecognition(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopBackgroundRecognition)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EndInkInput(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndInkInput(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndInkInput)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BackgroundRecognize(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn BackgroundRecognize(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BackgroundRecognize)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(customdata)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BackgroundRecognizeWithAlternates)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(customdata)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IInkRecognizerContext> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IInkRecognizerContext> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsStringSupported(&self, string: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsStringSupported(&self, string: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsStringSupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(string), &mut result__).map(|| result__)
@@ -9489,30 +9489,30 @@ pub struct IInkRecognizerContext_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerContext_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Strokes(&self) -> windows_core::Result<IInkStrokes>;
-    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn CharacterAutoCompletionMode(&self) -> windows_core::Result<InkRecognizerCharacterAutoCompletionMode>;
-    fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_core::Result<()>;
-    fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Guide(&self) -> windows_core::Result<IInkRecognizerGuide>;
-    fn putref_Guide(&self, recognizerguide: windows_core::Ref<IInkRecognizerGuide>) -> windows_core::Result<()>;
-    fn PrefixText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SuffixText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RecognitionFlags(&self) -> windows_core::Result<InkRecognitionModes>;
-    fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_core::Result<()>;
-    fn WordList(&self) -> windows_core::Result<IInkWordList>;
-    fn putref_WordList(&self, wordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
-    fn Recognizer(&self) -> windows_core::Result<IInkRecognizer>;
-    fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: windows_core::OutRef<IInkRecognitionResult>) -> windows_core::Result<()>;
-    fn StopBackgroundRecognition(&self) -> windows_core::Result<()>;
-    fn EndInkInput(&self) -> windows_core::Result<()>;
-    fn BackgroundRecognize(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IInkRecognizerContext>;
-    fn IsStringSupported(&self, string: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Strokes(&self) -> windows_result::Result<IInkStrokes>;
+    fn putref_Strokes(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn CharacterAutoCompletionMode(&self) -> windows_result::Result<InkRecognizerCharacterAutoCompletionMode>;
+    fn SetCharacterAutoCompletionMode(&self, mode: InkRecognizerCharacterAutoCompletionMode) -> windows_result::Result<()>;
+    fn Factoid(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Guide(&self) -> windows_result::Result<IInkRecognizerGuide>;
+    fn putref_Guide(&self, recognizerguide: windows_core::Ref<IInkRecognizerGuide>) -> windows_result::Result<()>;
+    fn PrefixText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetPrefixText(&self, prefix: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SuffixText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetSuffixText(&self, suffix: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn RecognitionFlags(&self) -> windows_result::Result<InkRecognitionModes>;
+    fn SetRecognitionFlags(&self, modes: InkRecognitionModes) -> windows_result::Result<()>;
+    fn WordList(&self) -> windows_result::Result<IInkWordList>;
+    fn putref_WordList(&self, wordlist: windows_core::Ref<IInkWordList>) -> windows_result::Result<()>;
+    fn Recognizer(&self) -> windows_result::Result<IInkRecognizer>;
+    fn Recognize(&self, recognitionstatus: *mut InkRecognitionStatus, recognitionresult: windows_core::OutRef<IInkRecognitionResult>) -> windows_result::Result<()>;
+    fn StopBackgroundRecognition(&self) -> windows_result::Result<()>;
+    fn EndInkInput(&self) -> windows_result::Result<()>;
+    fn BackgroundRecognize(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn BackgroundRecognizeWithAlternates(&self, customdata: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IInkRecognizerContext>;
+    fn IsStringSupported(&self, string: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerContext_Vtbl {
@@ -9775,14 +9775,14 @@ windows_core::imp::interface_hierarchy!(IInkRecognizerContext2, windows_core::IU
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerContext2 {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EnabledUnicodeRanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn EnabledUnicodeRanges(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnabledUnicodeRanges)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabledUnicodeRanges)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(unicoderanges)).ok() }
     }
 }
@@ -9802,8 +9802,8 @@ pub struct IInkRecognizerContext2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerContext2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn EnabledUnicodeRanges(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
+    fn EnabledUnicodeRanges(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetEnabledUnicodeRanges(&self, unicoderanges: &super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerContext2_Vtbl {
@@ -9851,61 +9851,61 @@ impl core::ops::Deref for IInkRecognizerGuide {
 windows_core::imp::interface_hierarchy!(IInkRecognizerGuide, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizerGuide {
-    pub unsafe fn WritingBox(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn WritingBox(&self) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WritingBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetWritingBox<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetWritingBox<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetWritingBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn DrawnBox(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn DrawnBox(&self) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DrawnBox)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDrawnBox<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn SetDrawnBox<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetDrawnBox)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn Rows(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Rows(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Rows)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRows(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRows(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRows)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Columns(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Columns(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Columns)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetColumns(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetColumns(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColumns)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Midline(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Midline(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Midline)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMidline(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMidline(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMidline)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn GuideData(&self, precoguide: *mut InkRecoGuide) -> windows_core::Result<()> {
+    pub unsafe fn GuideData(&self, precoguide: *mut InkRecoGuide) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GuideData)(windows_core::Interface::as_raw(self), precoguide as _).ok() }
     }
-    pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> windows_core::Result<()> {
+    pub unsafe fn SetGuideData(&self, recoguide: InkRecoGuide) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetGuideData)(windows_core::Interface::as_raw(self), core::mem::transmute(recoguide)).ok() }
     }
 }
@@ -9929,18 +9929,18 @@ pub struct IInkRecognizerGuide_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizerGuide_Impl: super::super::System::Com::IDispatch_Impl {
-    fn WritingBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetWritingBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn DrawnBox(&self) -> windows_core::Result<IInkRectangle>;
-    fn SetDrawnBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Rows(&self) -> windows_core::Result<i32>;
-    fn SetRows(&self, units: i32) -> windows_core::Result<()>;
-    fn Columns(&self) -> windows_core::Result<i32>;
-    fn SetColumns(&self, units: i32) -> windows_core::Result<()>;
-    fn Midline(&self) -> windows_core::Result<i32>;
-    fn SetMidline(&self, units: i32) -> windows_core::Result<()>;
-    fn GuideData(&self, precoguide: *mut InkRecoGuide) -> windows_core::Result<()>;
-    fn SetGuideData(&self, recoguide: &InkRecoGuide) -> windows_core::Result<()>;
+    fn WritingBox(&self) -> windows_result::Result<IInkRectangle>;
+    fn SetWritingBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn DrawnBox(&self) -> windows_result::Result<IInkRectangle>;
+    fn SetDrawnBox(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn Rows(&self) -> windows_result::Result<i32>;
+    fn SetRows(&self, units: i32) -> windows_result::Result<()>;
+    fn Columns(&self) -> windows_result::Result<i32>;
+    fn SetColumns(&self, units: i32) -> windows_result::Result<()>;
+    fn Midline(&self) -> windows_result::Result<i32>;
+    fn SetMidline(&self, units: i32) -> windows_result::Result<()>;
+    fn GuideData(&self, precoguide: *mut InkRecoGuide) -> windows_result::Result<()>;
+    fn SetGuideData(&self, recoguide: &InkRecoGuide) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizerGuide_Vtbl {
@@ -10082,25 +10082,25 @@ impl core::ops::Deref for IInkRecognizers {
 windows_core::imp::interface_hierarchy!(IInkRecognizers, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRecognizers {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetDefaultRecognizer(&self, lcid: i32) -> windows_core::Result<IInkRecognizer> {
+    pub unsafe fn GetDefaultRecognizer(&self, lcid: i32) -> windows_result::Result<IInkRecognizer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultRecognizer)(windows_core::Interface::as_raw(self), lcid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkRecognizer> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkRecognizer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10119,10 +10119,10 @@ pub struct IInkRecognizers_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRecognizers_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn GetDefaultRecognizer(&self, lcid: i32) -> windows_core::Result<IInkRecognizer>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkRecognizer>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn GetDefaultRecognizer(&self, lcid: i32) -> windows_result::Result<IInkRecognizer>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkRecognizer>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRecognizers_Vtbl {
@@ -10202,55 +10202,55 @@ impl core::ops::Deref for IInkRectangle {
 windows_core::imp::interface_hierarchy!(IInkRectangle, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRectangle {
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Top(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTop(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetTop(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTop)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Left(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLeft(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetLeft(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLeft)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Bottom(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Bottom(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Bottom)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBottom(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetBottom(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBottom)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Right(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Right(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Right)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRight(&self, units: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRight(&self, units: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRight)(windows_core::Interface::as_raw(self), units).ok() }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn Data(&self) -> windows_result::Result<super::super::Foundation::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetData(&self, rect: super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetData(&self, rect: super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(rect)).ok() }
     }
-    pub unsafe fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRectangle)(windows_core::Interface::as_raw(self), top as _, left as _, bottom as _, right as _).ok() }
     }
-    pub unsafe fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRectangle)(windows_core::Interface::as_raw(self), top, left, bottom, right).ok() }
     }
 }
@@ -10274,18 +10274,18 @@ pub struct IInkRectangle_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRectangle_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Top(&self) -> windows_core::Result<i32>;
-    fn SetTop(&self, units: i32) -> windows_core::Result<()>;
-    fn Left(&self) -> windows_core::Result<i32>;
-    fn SetLeft(&self, units: i32) -> windows_core::Result<()>;
-    fn Bottom(&self) -> windows_core::Result<i32>;
-    fn SetBottom(&self, units: i32) -> windows_core::Result<()>;
-    fn Right(&self) -> windows_core::Result<i32>;
-    fn SetRight(&self, units: i32) -> windows_core::Result<()>;
-    fn Data(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SetData(&self, rect: &super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_core::Result<()>;
-    fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> windows_core::Result<()>;
+    fn Top(&self) -> windows_result::Result<i32>;
+    fn SetTop(&self, units: i32) -> windows_result::Result<()>;
+    fn Left(&self) -> windows_result::Result<i32>;
+    fn SetLeft(&self, units: i32) -> windows_result::Result<()>;
+    fn Bottom(&self) -> windows_result::Result<i32>;
+    fn SetBottom(&self, units: i32) -> windows_result::Result<()>;
+    fn Right(&self) -> windows_result::Result<i32>;
+    fn SetRight(&self, units: i32) -> windows_result::Result<()>;
+    fn Data(&self) -> windows_result::Result<super::super::Foundation::RECT>;
+    fn SetData(&self, rect: &super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn GetRectangle(&self, top: *mut i32, left: *mut i32, bottom: *mut i32, right: *mut i32) -> windows_result::Result<()>;
+    fn SetRectangle(&self, top: i32, left: i32, bottom: i32, right: i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRectangle_Vtbl {
@@ -10427,58 +10427,58 @@ impl core::ops::Deref for IInkRenderer {
 windows_core::imp::interface_hierarchy!(IInkRenderer, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkRenderer {
-    pub unsafe fn GetViewTransform<P0>(&self, viewtransform: P0) -> windows_core::Result<()>
+    pub unsafe fn GetViewTransform<P0>(&self, viewtransform: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetViewTransform)(windows_core::Interface::as_raw(self), viewtransform.param().abi()).ok() }
     }
-    pub unsafe fn SetViewTransform<P0>(&self, viewtransform: P0) -> windows_core::Result<()>
+    pub unsafe fn SetViewTransform<P0>(&self, viewtransform: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetViewTransform)(windows_core::Interface::as_raw(self), viewtransform.param().abi()).ok() }
     }
-    pub unsafe fn GetObjectTransform<P0>(&self, objecttransform: P0) -> windows_core::Result<()>
+    pub unsafe fn GetObjectTransform<P0>(&self, objecttransform: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetObjectTransform)(windows_core::Interface::as_raw(self), objecttransform.param().abi()).ok() }
     }
-    pub unsafe fn SetObjectTransform<P0>(&self, objecttransform: P0) -> windows_core::Result<()>
+    pub unsafe fn SetObjectTransform<P0>(&self, objecttransform: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetObjectTransform)(windows_core::Interface::as_raw(self), objecttransform.param().abi()).ok() }
     }
-    pub unsafe fn Draw<P1>(&self, hdc: isize, strokes: P1) -> windows_core::Result<()>
+    pub unsafe fn Draw<P1>(&self, hdc: isize, strokes: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).Draw)(windows_core::Interface::as_raw(self), hdc, strokes.param().abi()).ok() }
     }
-    pub unsafe fn DrawStroke<P1, P2>(&self, hdc: isize, stroke: P1, drawingattributes: P2) -> windows_core::Result<()>
+    pub unsafe fn DrawStroke<P1, P2>(&self, hdc: isize, stroke: P1, drawingattributes: P2) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IInkStrokeDisp>,
         P2: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).DrawStroke)(windows_core::Interface::as_raw(self), hdc, stroke.param().abi(), drawingattributes.param().abi()).ok() }
     }
-    pub unsafe fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PixelToInkSpace)(windows_core::Interface::as_raw(self), hdc, x as _, y as _).ok() }
     }
-    pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixel)(windows_core::Interface::as_raw(self), hdcdisplay, x as _, y as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PixelToInkSpaceFromPoints)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute(points)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InkSpaceToPixelFromPoints)(windows_core::Interface::as_raw(self), hdc, core::mem::transmute(points)).ok() }
     }
-    pub unsafe fn Measure<P0>(&self, strokes: P0) -> windows_core::Result<IInkRectangle>
+    pub unsafe fn Measure<P0>(&self, strokes: P0) -> windows_result::Result<IInkRectangle>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -10487,7 +10487,7 @@ impl IInkRenderer {
             (windows_core::Interface::vtable(self).Measure)(windows_core::Interface::as_raw(self), strokes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn MeasureStroke<P0, P1>(&self, stroke: P0, drawingattributes: P1) -> windows_core::Result<IInkRectangle>
+    pub unsafe fn MeasureStroke<P0, P1>(&self, stroke: P0, drawingattributes: P1) -> windows_result::Result<IInkRectangle>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
         P1: windows_core::Param<IInkDrawingAttributes>,
@@ -10497,13 +10497,13 @@ impl IInkRenderer {
             (windows_core::Interface::vtable(self).MeasureStroke)(windows_core::Interface::as_raw(self), stroke.param().abi(), drawingattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
+    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees, x, y).ok() }
     }
-    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier, applyonpenwidth).ok() }
     }
 }
@@ -10536,21 +10536,21 @@ pub struct IInkRenderer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkRenderer_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn SetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn GetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn SetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_core::Result<()>;
-    fn Draw(&self, hdc: isize, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn DrawStroke(&self, hdc: isize, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
-    fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_core::Result<()>;
-    fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Measure(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<IInkRectangle>;
-    fn MeasureStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<IInkRectangle>;
-    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
-    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn GetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_result::Result<()>;
+    fn SetViewTransform(&self, viewtransform: windows_core::Ref<IInkTransform>) -> windows_result::Result<()>;
+    fn GetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_result::Result<()>;
+    fn SetObjectTransform(&self, objecttransform: windows_core::Ref<IInkTransform>) -> windows_result::Result<()>;
+    fn Draw(&self, hdc: isize, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn DrawStroke(&self, hdc: isize, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn PixelToInkSpace(&self, hdc: isize, x: *mut i32, y: *mut i32) -> windows_result::Result<()>;
+    fn InkSpaceToPixel(&self, hdcdisplay: isize, x: *mut i32, y: *mut i32) -> windows_result::Result<()>;
+    fn PixelToInkSpaceFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn InkSpaceToPixelFromPoints(&self, hdc: isize, points: *mut super::super::System::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Measure(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<IInkRectangle>;
+    fn MeasureStroke(&self, stroke: windows_core::Ref<IInkStrokeDisp>, drawingattributes: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<IInkRectangle>;
+    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()>;
+    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()>;
+    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkRenderer_Vtbl {
@@ -10695,97 +10695,97 @@ impl core::ops::Deref for IInkStrokeDisp {
 windows_core::imp::interface_hierarchy!(IInkStrokeDisp, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkStrokeDisp {
-    pub unsafe fn ID(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ID(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ID)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BezierPoints(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn BezierPoints(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BezierPoints)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes> {
+    pub unsafe fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DrawingAttributes)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_DrawingAttributes<P0>(&self, drawattrs: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_DrawingAttributes<P0>(&self, drawattrs: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_DrawingAttributes)(windows_core::Interface::as_raw(self), drawattrs.param().abi()).ok() }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties> {
+    pub unsafe fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExtendedProperties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PolylineCusps(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PolylineCusps(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PolylineCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn BezierCusps(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn BezierCusps(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BezierCusps)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SelfIntersections(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn SelfIntersections(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SelfIntersections)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PacketCount(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PacketCount(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PacketCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PacketSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PacketSize(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PacketSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn PacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn PacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PacketDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Deleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Deleted(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Deleted)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoundingBox)(windows_core::Interface::as_raw(self), boundingboxmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn FindIntersections<P0>(&self, strokes: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn FindIntersections<P0>(&self, strokes: P0) -> windows_result::Result<super::super::System::Variant::VARIANT>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
@@ -10795,7 +10795,7 @@ impl IInkStrokeDisp {
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetRectangleIntersections<P0>(&self, rectangle: P0) -> windows_core::Result<super::super::System::Variant::VARIANT>
+    pub unsafe fn GetRectangleIntersections<P0>(&self, rectangle: P0) -> windows_result::Result<super::super::System::Variant::VARIANT>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
@@ -10804,94 +10804,94 @@ impl IInkStrokeDisp {
             (windows_core::Interface::vtable(self).GetRectangleIntersections)(windows_core::Interface::as_raw(self), rectangle.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HitTestCircle)(windows_core::Interface::as_raw(self), x, y, radius, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NearestPoint)(windows_core::Interface::as_raw(self), x, y, distance as _, point as _).ok() }
     }
-    pub unsafe fn Split(&self, splitat: f32) -> windows_core::Result<IInkStrokeDisp> {
+    pub unsafe fn Split(&self, splitat: f32) -> windows_result::Result<IInkStrokeDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Split)(windows_core::Interface::as_raw(self), splitat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPacketDescriptionPropertyMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), minimum as _, maximum as _, units as _, resolution as _).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPoints(&self, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetPoints(&self, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPoints)(windows_core::Interface::as_raw(self), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetPoints(&self, points: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn SetPoints(&self, points: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetPoints)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(points), index, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetPacketData(&self, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPacketData)(windows_core::Interface::as_raw(self), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPacketValuesByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), index, count, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_core::Result<i32> {
+    pub unsafe fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SetPacketValuesByProperty)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpropertyname), core::mem::transmute_copy(packetvalues), index, count, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_core::Result<super::super::System::Variant::VARIANT> {
+    pub unsafe fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_result::Result<super::super::System::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFlattenedBezierPoints)(windows_core::Interface::as_raw(self), fittingerror, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth).ok() }
     }
-    pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
+    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees, x, y).ok() }
     }
-    pub unsafe fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()> {
+    pub unsafe fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shear)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok() }
     }
-    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()> {
+    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok() }
     }
 }
@@ -10975,39 +10975,39 @@ pub struct IInkStrokeDisp_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkStrokeDisp_Impl: super::super::System::Com::IDispatch_Impl {
-    fn ID(&self) -> windows_core::Result<i32>;
-    fn BezierPoints(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn DrawingAttributes(&self) -> windows_core::Result<IInkDrawingAttributes>;
-    fn putref_DrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn ExtendedProperties(&self) -> windows_core::Result<IInkExtendedProperties>;
-    fn PolylineCusps(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn BezierCusps(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SelfIntersections(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn PacketCount(&self) -> windows_core::Result<i32>;
-    fn PacketSize(&self) -> windows_core::Result<i32>;
-    fn PacketDescription(&self) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Deleted(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn FindIntersections(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetRectangleIntersections(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_core::Result<()>;
-    fn Split(&self, splitat: f32) -> windows_core::Result<IInkStrokeDisp>;
-    fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::Result<()>;
-    fn GetPoints(&self, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetPoints(&self, points: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_core::Result<i32>;
-    fn GetPacketData(&self, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_core::Result<i32>;
-    fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_core::Result<super::super::System::Variant::VARIANT>;
-    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
-    fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
-    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
+    fn ID(&self) -> windows_result::Result<i32>;
+    fn BezierPoints(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn DrawingAttributes(&self) -> windows_result::Result<IInkDrawingAttributes>;
+    fn putref_DrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn ExtendedProperties(&self) -> windows_result::Result<IInkExtendedProperties>;
+    fn PolylineCusps(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn BezierCusps(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SelfIntersections(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn PacketCount(&self) -> windows_result::Result<i32>;
+    fn PacketSize(&self) -> windows_result::Result<i32>;
+    fn PacketDescription(&self) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Deleted(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle>;
+    fn FindIntersections(&self, strokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn GetRectangleIntersections(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn HitTestCircle(&self, x: i32, y: i32, radius: f32) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn NearestPoint(&self, x: i32, y: i32, distance: *mut f32, point: *mut f32) -> windows_result::Result<()>;
+    fn Split(&self, splitat: f32) -> windows_result::Result<IInkStrokeDisp>;
+    fn GetPacketDescriptionPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_result::Result<()>;
+    fn GetPoints(&self, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetPoints(&self, points: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_result::Result<i32>;
+    fn GetPacketData(&self, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn GetPacketValuesByProperty(&self, propertyname: &windows_core::BSTR, index: i32, count: i32) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn SetPacketValuesByProperty(&self, bstrpropertyname: &windows_core::BSTR, packetvalues: &super::super::System::Variant::VARIANT, index: i32, count: i32) -> windows_result::Result<i32>;
+    fn GetFlattenedBezierPoints(&self, fittingerror: i32) -> windows_result::Result<super::super::System::Variant::VARIANT>;
+    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()>;
+    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()>;
+    fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()>;
+    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkStrokeDisp_Vtbl {
@@ -11404,109 +11404,109 @@ impl core::ops::Deref for IInkStrokes {
 windows_core::imp::interface_hierarchy!(IInkStrokes, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkStrokes {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult> {
+    pub unsafe fn RecognitionResult(&self) -> windows_result::Result<IInkRecognitionResult> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RecognitionResult)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ToString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ToString(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ToString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkStrokeDisp> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkStrokeDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Add<P0>(&self, inkstroke: P0) -> windows_core::Result<()>
+    pub unsafe fn Add<P0>(&self, inkstroke: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).Add)(windows_core::Interface::as_raw(self), inkstroke.param().abi()).ok() }
     }
-    pub unsafe fn AddStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
+    pub unsafe fn AddStrokes<P0>(&self, inkstrokes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
     }
-    pub unsafe fn Remove<P0>(&self, inkstroke: P0) -> windows_core::Result<()>
+    pub unsafe fn Remove<P0>(&self, inkstroke: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokeDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).Remove)(windows_core::Interface::as_raw(self), inkstroke.param().abi()).ok() }
     }
-    pub unsafe fn RemoveStrokes<P0>(&self, inkstrokes: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveStrokes<P0>(&self, inkstrokes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkStrokes>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveStrokes)(windows_core::Interface::as_raw(self), inkstrokes.param().abi()).ok() }
     }
-    pub unsafe fn ModifyDrawingAttributes<P0>(&self, drawattrs: P0) -> windows_core::Result<()>
+    pub unsafe fn ModifyDrawingAttributes<P0>(&self, drawattrs: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDrawingAttributes>,
     {
         unsafe { (windows_core::Interface::vtable(self).ModifyDrawingAttributes)(windows_core::Interface::as_raw(self), drawattrs.param().abi()).ok() }
     }
-    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetBoundingBox)(windows_core::Interface::as_raw(self), boundingboxmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>
+    pub unsafe fn Transform<P0>(&self, transform: P0, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTransform>,
     {
         unsafe { (windows_core::Interface::vtable(self).Transform)(windows_core::Interface::as_raw(self), transform.param().abi(), applyonpenwidth).ok() }
     }
-    pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn ScaleToRectangle<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).ScaleToRectangle)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
+    pub unsafe fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Move)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees, x, y).ok() }
     }
-    pub unsafe fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()> {
+    pub unsafe fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shear)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok() }
     }
-    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()> {
+    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok() }
     }
-    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_core::Result<()>
+    pub unsafe fn Clip<P0>(&self, rectangle: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkRectangle>,
     {
         unsafe { (windows_core::Interface::vtable(self).Clip)(windows_core::Interface::as_raw(self), rectangle.param().abi()).ok() }
     }
-    pub unsafe fn RemoveRecognitionResult(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveRecognitionResult(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveRecognitionResult)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -11538,26 +11538,26 @@ pub struct IInkStrokes_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkStrokes_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn RecognitionResult(&self) -> windows_core::Result<IInkRecognitionResult>;
-    fn ToString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkStrokeDisp>;
-    fn Add(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn AddStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn Remove(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn RemoveStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_core::Result<()>;
-    fn ModifyDrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_core::Result<()>;
-    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_core::Result<IInkRectangle>;
-    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
-    fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
-    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
-    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_core::Result<()>;
-    fn RemoveRecognitionResult(&self) -> windows_core::Result<()>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn RecognitionResult(&self) -> windows_result::Result<IInkRecognitionResult>;
+    fn ToString(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkStrokeDisp>;
+    fn Add(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn AddStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn Remove(&self, inkstroke: windows_core::Ref<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn RemoveStrokes(&self, inkstrokes: windows_core::Ref<IInkStrokes>) -> windows_result::Result<()>;
+    fn ModifyDrawingAttributes(&self, drawattrs: windows_core::Ref<IInkDrawingAttributes>) -> windows_result::Result<()>;
+    fn GetBoundingBox(&self, boundingboxmode: InkBoundingBoxMode) -> windows_result::Result<IInkRectangle>;
+    fn Transform(&self, transform: windows_core::Ref<IInkTransform>, applyonpenwidth: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn ScaleToRectangle(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn Move(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()>;
+    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()>;
+    fn Shear(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()>;
+    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()>;
+    fn Clip(&self, rectangle: windows_core::Ref<IInkRectangle>) -> windows_result::Result<()>;
+    fn RemoveRecognitionResult(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkStrokes_Vtbl {
@@ -11767,37 +11767,37 @@ impl core::ops::Deref for IInkTablet {
 windows_core::imp::interface_hierarchy!(IInkTablet, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PlugAndPlayId(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PlugAndPlayId)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle> {
+    pub unsafe fn MaximumInputRectangle(&self) -> windows_result::Result<IInkRectangle> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumInputRectangle)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities> {
+    pub unsafe fn HardwareCapabilities(&self) -> windows_result::Result<TabletHardwareCapabilities> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HardwareCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPacketPropertySupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetpropertyname), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn GetPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPropertyMetrics)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), minimum as _, maximum as _, units as _, resolution as _).ok() }
     }
 }
@@ -11815,12 +11815,12 @@ pub struct IInkTablet_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn PlugAndPlayId(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MaximumInputRectangle(&self) -> windows_core::Result<IInkRectangle>;
-    fn HardwareCapabilities(&self) -> windows_core::Result<TabletHardwareCapabilities>;
-    fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_core::Result<()>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn PlugAndPlayId(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn MaximumInputRectangle(&self) -> windows_result::Result<IInkRectangle>;
+    fn HardwareCapabilities(&self) -> windows_result::Result<TabletHardwareCapabilities>;
+    fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetPropertyMetrics(&self, propertyname: &windows_core::BSTR, minimum: *mut i32, maximum: *mut i32, units: *mut TabletPropertyMetricUnit, resolution: *mut f32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet_Vtbl {
@@ -11920,7 +11920,7 @@ impl core::ops::Deref for IInkTablet2 {
 windows_core::imp::interface_hierarchy!(IInkTablet2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet2 {
-    pub unsafe fn DeviceKind(&self) -> windows_core::Result<TabletDeviceKind> {
+    pub unsafe fn DeviceKind(&self) -> windows_result::Result<TabletDeviceKind> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DeviceKind)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11936,7 +11936,7 @@ pub struct IInkTablet2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn DeviceKind(&self) -> windows_core::Result<TabletDeviceKind>;
+    fn DeviceKind(&self) -> windows_result::Result<TabletDeviceKind>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet2_Vtbl {
@@ -11974,13 +11974,13 @@ impl core::ops::Deref for IInkTablet3 {
 windows_core::imp::interface_hierarchy!(IInkTablet3, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablet3 {
-    pub unsafe fn IsMultiTouch(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsMultiTouch(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsMultiTouch)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MaximumCursors(&self) -> windows_core::Result<u32> {
+    pub unsafe fn MaximumCursors(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaximumCursors)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11997,8 +11997,8 @@ pub struct IInkTablet3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablet3_Impl: super::super::System::Com::IDispatch_Impl {
-    fn IsMultiTouch(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn MaximumCursors(&self) -> windows_core::Result<u32>;
+    fn IsMultiTouch(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn MaximumCursors(&self) -> windows_result::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablet3_Vtbl {
@@ -12052,31 +12052,31 @@ impl core::ops::Deref for IInkTablets {
 windows_core::imp::interface_hierarchy!(IInkTablets, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTablets {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn DefaultTablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn DefaultTablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultTablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Item(&self, index: i32) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn Item(&self, index: i32) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Item)(windows_core::Interface::as_raw(self), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsPacketPropertySupported)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(packetpropertyname), &mut result__).map(|| result__)
@@ -12096,11 +12096,11 @@ pub struct IInkTablets_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTablets_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn DefaultTablet(&self) -> windows_core::Result<IInkTablet>;
-    fn Item(&self, index: i32) -> windows_core::Result<IInkTablet>;
-    fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn DefaultTablet(&self) -> windows_result::Result<IInkTablet>;
+    fn Item(&self, index: i32) -> windows_result::Result<IInkTablet>;
+    fn IsPacketPropertySupported(&self, packetpropertyname: &windows_core::BSTR) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTablets_Vtbl {
@@ -12193,90 +12193,90 @@ impl core::ops::Deref for IInkTransform {
 windows_core::imp::interface_hierarchy!(IInkTransform, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkTransform {
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
+    pub unsafe fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Translate)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
     }
-    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()> {
+    pub unsafe fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Rotate)(windows_core::Interface::as_raw(self), degrees, x, y).ok() }
     }
-    pub unsafe fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reflect)(windows_core::Interface::as_raw(self), horizontally, vertically).ok() }
     }
-    pub unsafe fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()> {
+    pub unsafe fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shear)(windows_core::Interface::as_raw(self), horizontalcomponent, verticalcomponent).ok() }
     }
-    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()> {
+    pub unsafe fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ScaleTransform)(windows_core::Interface::as_raw(self), horizontalmultiplier, verticalmultiplier).ok() }
     }
-    pub unsafe fn GetTransform(&self, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn GetTransform(&self, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTransform)(windows_core::Interface::as_raw(self), em11 as _, em12 as _, em21 as _, em22 as _, edx as _, edy as _).ok() }
     }
-    pub unsafe fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTransform)(windows_core::Interface::as_raw(self), em11, em12, em21, em22, edx, edy).ok() }
     }
-    pub unsafe fn eM11(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eM11(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eM11)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM11(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteM11(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteM11)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn eM12(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eM12(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eM12)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM12(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteM12(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteM12)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn eM21(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eM21(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eM21)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM21(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteM21(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteM21)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn eM22(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eM22(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eM22)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteM22(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteM22(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteM22)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn eDx(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eDx(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eDx)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteDx(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteDx(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteDx)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn eDy(&self) -> windows_core::Result<f32> {
+    pub unsafe fn eDy(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).eDy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SeteDy(&self, value: f32) -> windows_core::Result<()> {
+    pub unsafe fn SeteDy(&self, value: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SeteDy)(windows_core::Interface::as_raw(self), value).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()> {
+    pub unsafe fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), xform as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn SetData(&self, xform: super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()> {
+    pub unsafe fn SetData(&self, xform: super::super::Graphics::Gdi::XFORM) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute(xform)).ok() }
     }
 }
@@ -12316,28 +12316,28 @@ pub struct IInkTransform_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkTransform_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
-    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_core::Result<()>;
-    fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_core::Result<()>;
-    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_core::Result<()>;
-    fn GetTransform(&self, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> windows_core::Result<()>;
-    fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_core::Result<()>;
-    fn eM11(&self) -> windows_core::Result<f32>;
-    fn SeteM11(&self, value: f32) -> windows_core::Result<()>;
-    fn eM12(&self) -> windows_core::Result<f32>;
-    fn SeteM12(&self, value: f32) -> windows_core::Result<()>;
-    fn eM21(&self) -> windows_core::Result<f32>;
-    fn SeteM21(&self, value: f32) -> windows_core::Result<()>;
-    fn eM22(&self) -> windows_core::Result<f32>;
-    fn SeteM22(&self, value: f32) -> windows_core::Result<()>;
-    fn eDx(&self) -> windows_core::Result<f32>;
-    fn SeteDx(&self, value: f32) -> windows_core::Result<()>;
-    fn eDy(&self) -> windows_core::Result<f32>;
-    fn SeteDy(&self, value: f32) -> windows_core::Result<()>;
-    fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()>;
-    fn SetData(&self, xform: &super::super::Graphics::Gdi::XFORM) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Translate(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()>;
+    fn Rotate(&self, degrees: f32, x: f32, y: f32) -> windows_result::Result<()>;
+    fn Reflect(&self, horizontally: super::super::Foundation::VARIANT_BOOL, vertically: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Shear(&self, horizontalcomponent: f32, verticalcomponent: f32) -> windows_result::Result<()>;
+    fn ScaleTransform(&self, horizontalmultiplier: f32, verticalmultiplier: f32) -> windows_result::Result<()>;
+    fn GetTransform(&self, em11: *mut f32, em12: *mut f32, em21: *mut f32, em22: *mut f32, edx: *mut f32, edy: *mut f32) -> windows_result::Result<()>;
+    fn SetTransform(&self, em11: f32, em12: f32, em21: f32, em22: f32, edx: f32, edy: f32) -> windows_result::Result<()>;
+    fn eM11(&self) -> windows_result::Result<f32>;
+    fn SeteM11(&self, value: f32) -> windows_result::Result<()>;
+    fn eM12(&self) -> windows_result::Result<f32>;
+    fn SeteM12(&self, value: f32) -> windows_result::Result<()>;
+    fn eM21(&self) -> windows_result::Result<f32>;
+    fn SeteM21(&self, value: f32) -> windows_result::Result<()>;
+    fn eM22(&self) -> windows_result::Result<f32>;
+    fn SeteM22(&self, value: f32) -> windows_result::Result<()>;
+    fn eDx(&self) -> windows_result::Result<f32>;
+    fn SeteDx(&self, value: f32) -> windows_result::Result<()>;
+    fn eDy(&self) -> windows_result::Result<f32>;
+    fn SeteDy(&self, value: f32) -> windows_result::Result<()>;
+    fn Data(&self, xform: *mut super::super::Graphics::Gdi::XFORM) -> windows_result::Result<()>;
+    fn SetData(&self, xform: &super::super::Graphics::Gdi::XFORM) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkTransform_Vtbl {
@@ -12555,13 +12555,13 @@ impl core::ops::Deref for IInkWordList {
 windows_core::imp::interface_hierarchy!(IInkWordList, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList {
-    pub unsafe fn AddWord(&self, newword: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddWord(&self, newword: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddWord)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newword)).ok() }
     }
-    pub unsafe fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveWord)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(removeword)).ok() }
     }
-    pub unsafe fn Merge<P0>(&self, mergewordlist: P0) -> windows_core::Result<()>
+    pub unsafe fn Merge<P0>(&self, mergewordlist: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkWordList>,
     {
@@ -12579,9 +12579,9 @@ pub struct IInkWordList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkWordList_Impl: super::super::System::Com::IDispatch_Impl {
-    fn AddWord(&self, newword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Merge(&self, mergewordlist: windows_core::Ref<IInkWordList>) -> windows_core::Result<()>;
+    fn AddWord(&self, newword: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn RemoveWord(&self, removeword: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Merge(&self, mergewordlist: windows_core::Ref<IInkWordList>) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkWordList_Vtbl {
@@ -12630,7 +12630,7 @@ impl core::ops::Deref for IInkWordList2 {
 windows_core::imp::interface_hierarchy!(IInkWordList2, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IInkWordList2 {
-    pub unsafe fn AddWords(&self, newwords: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddWords(&self, newwords: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddWords)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(newwords)).ok() }
     }
 }
@@ -12643,7 +12643,7 @@ pub struct IInkWordList2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IInkWordList2_Impl: super::super::System::Com::IDispatch_Impl {
-    fn AddWords(&self, newwords: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn AddWords(&self, newwords: &windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IInkWordList2_Vtbl {
@@ -12665,22 +12665,22 @@ impl windows_core::RuntimeName for IInkWordList2 {}
 windows_core::imp::define_interface!(IInputPanelWindowHandle, IInputPanelWindowHandle_Vtbl, 0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
 windows_core::imp::interface_hierarchy!(IInputPanelWindowHandle, windows_core::IUnknown);
 impl IInputPanelWindowHandle {
-    pub unsafe fn AttachedEditWindow32(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AttachedEditWindow32(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachedEditWindow32)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachedEditWindow32(&self, attachededitwindow: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachedEditWindow32(&self, attachededitwindow: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachedEditWindow32)(windows_core::Interface::as_raw(self), attachededitwindow).ok() }
     }
-    pub unsafe fn AttachedEditWindow64(&self) -> windows_core::Result<i64> {
+    pub unsafe fn AttachedEditWindow64(&self) -> windows_result::Result<i64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachedEditWindow64)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachedEditWindow64(&self, attachededitwindow: i64) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachedEditWindow64(&self, attachededitwindow: i64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachedEditWindow64)(windows_core::Interface::as_raw(self), attachededitwindow).ok() }
     }
 }
@@ -12694,10 +12694,10 @@ pub struct IInputPanelWindowHandle_Vtbl {
     pub SetAttachedEditWindow64: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 pub trait IInputPanelWindowHandle_Impl: windows_core::IUnknownImpl {
-    fn AttachedEditWindow32(&self) -> windows_core::Result<i32>;
-    fn SetAttachedEditWindow32(&self, attachededitwindow: i32) -> windows_core::Result<()>;
-    fn AttachedEditWindow64(&self) -> windows_core::Result<i64>;
-    fn SetAttachedEditWindow64(&self, attachededitwindow: i64) -> windows_core::Result<()>;
+    fn AttachedEditWindow32(&self) -> windows_result::Result<i32>;
+    fn SetAttachedEditWindow32(&self, attachededitwindow: i32) -> windows_result::Result<()>;
+    fn AttachedEditWindow64(&self) -> windows_result::Result<i64>;
+    fn SetAttachedEditWindow64(&self, attachededitwindow: i64) -> windows_result::Result<()>;
 }
 impl IInputPanelWindowHandle_Vtbl {
     pub const fn new<Identity: IInputPanelWindowHandle_Impl, const OFFSET: isize>() -> Self {
@@ -12788,65 +12788,65 @@ impl core::ops::Deref for IMathInputControl {
 windows_core::imp::interface_hierarchy!(IMathInputControl, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IMathInputControl {
-    pub unsafe fn Show(&self) -> windows_core::Result<()> {
+    pub unsafe fn Show(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Hide(&self) -> windows_core::Result<()> {
+    pub unsafe fn Hide(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Hide)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn IsVisible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsVisible(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsVisible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPosition(&self, left: *mut i32, top: *mut i32, right: *mut i32, bottom: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetPosition(&self, left: *mut i32, top: *mut i32, right: *mut i32, bottom: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPosition)(windows_core::Interface::as_raw(self), left as _, top as _, right as _, bottom as _).ok() }
     }
-    pub unsafe fn SetPosition(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPosition(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPosition)(windows_core::Interface::as_raw(self), left, top, right, bottom).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCustomPaint)(windows_core::Interface::as_raw(self), element, paint).ok() }
     }
-    pub unsafe fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCaptionText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(captiontext)).ok() }
     }
-    pub unsafe fn LoadInk<P0>(&self, ink: P0) -> windows_core::Result<()>
+    pub unsafe fn LoadInk<P0>(&self, ink: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDisp>,
     {
         unsafe { (windows_core::Interface::vtable(self).LoadInk)(windows_core::Interface::as_raw(self), ink.param().abi()).ok() }
     }
-    pub unsafe fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_core::Result<()> {
+    pub unsafe fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOwnerWindow)(windows_core::Interface::as_raw(self), ownerwindow).ok() }
     }
-    pub unsafe fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableExtendedButtons)(windows_core::Interface::as_raw(self), extended).ok() }
     }
-    pub unsafe fn GetPreviewHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn GetPreviewHeight(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPreviewHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreviewHeight(&self, height: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPreviewHeight(&self, height: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPreviewHeight)(windows_core::Interface::as_raw(self), height).ok() }
     }
-    pub unsafe fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableAutoGrow)(windows_core::Interface::as_raw(self), autogrow).ok() }
     }
-    pub unsafe fn AddFunctionName(&self, functionname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AddFunctionName(&self, functionname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddFunctionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(functionname)).ok() }
     }
-    pub unsafe fn RemoveFunctionName(&self, functionname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn RemoveFunctionName(&self, functionname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveFunctionName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(functionname)).ok() }
     }
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn GetHoverIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp> {
+    pub unsafe fn GetHoverIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetHoverIcon)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -12881,23 +12881,23 @@ pub struct IMathInputControl_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IMathInputControl_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Show(&self) -> windows_core::Result<()>;
-    fn Hide(&self) -> windows_core::Result<()>;
-    fn IsVisible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetPosition(&self, left: *mut i32, top: *mut i32, right: *mut i32, bottom: *mut i32) -> windows_core::Result<()>;
-    fn SetPosition(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
-    fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LoadInk(&self, ink: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
-    fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_core::Result<()>;
-    fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn GetPreviewHeight(&self) -> windows_core::Result<i32>;
-    fn SetPreviewHeight(&self, height: i32) -> windows_core::Result<()>;
-    fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn AddFunctionName(&self, functionname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn RemoveFunctionName(&self, functionname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetHoverIcon(&self) -> windows_core::Result<super::super::System::Ole::IPictureDisp>;
+    fn Show(&self) -> windows_result::Result<()>;
+    fn Hide(&self) -> windows_result::Result<()>;
+    fn IsVisible(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetPosition(&self, left: *mut i32, top: *mut i32, right: *mut i32, bottom: *mut i32) -> windows_result::Result<()>;
+    fn SetPosition(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_result::Result<()>;
+    fn Clear(&self) -> windows_result::Result<()>;
+    fn SetCustomPaint(&self, element: i32, paint: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SetCaptionText(&self, captiontext: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn LoadInk(&self, ink: windows_core::Ref<IInkDisp>) -> windows_result::Result<()>;
+    fn SetOwnerWindow(&self, ownerwindow: isize) -> windows_result::Result<()>;
+    fn EnableExtendedButtons(&self, extended: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn GetPreviewHeight(&self) -> windows_result::Result<i32>;
+    fn SetPreviewHeight(&self, height: i32) -> windows_result::Result<()>;
+    fn EnableAutoGrow(&self, autogrow: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn AddFunctionName(&self, functionname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn RemoveFunctionName(&self, functionname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn GetHoverIcon(&self) -> windows_result::Result<super::super::System::Ole::IPictureDisp>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IMathInputControl_Vtbl {
@@ -13108,118 +13108,118 @@ impl core::ops::Deref for IPenInputPanel {
 windows_core::imp::interface_hierarchy!(IPenInputPanel, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IPenInputPanel {
-    pub unsafe fn Busy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Busy(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Busy)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Factoid(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Factoid(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Factoid)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFactoid)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(factoid)).ok() }
     }
-    pub unsafe fn AttachedEditWindow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AttachedEditWindow(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachedEditWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachedEditWindow)(windows_core::Interface::as_raw(self), attachededitwindow).ok() }
     }
-    pub unsafe fn CurrentPanel(&self) -> windows_core::Result<PanelType> {
+    pub unsafe fn CurrentPanel(&self) -> windows_result::Result<PanelType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentPanel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCurrentPanel(&self, currentpanel: PanelType) -> windows_core::Result<()> {
+    pub unsafe fn SetCurrentPanel(&self, currentpanel: PanelType) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCurrentPanel)(windows_core::Interface::as_raw(self), currentpanel).ok() }
     }
-    pub unsafe fn DefaultPanel(&self) -> windows_core::Result<PanelType> {
+    pub unsafe fn DefaultPanel(&self) -> windows_result::Result<PanelType> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultPanel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDefaultPanel(&self, defaultpanel: PanelType) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultPanel(&self, defaultpanel: PanelType) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultPanel)(windows_core::Interface::as_raw(self), defaultpanel).ok() }
     }
-    pub unsafe fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Visible(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Visible)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVisible)(windows_core::Interface::as_raw(self), visible).ok() }
     }
-    pub unsafe fn Top(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Top(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Top)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Left(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Left(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Left)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Width(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Height(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn VerticalOffset(&self) -> windows_core::Result<i32> {
+    pub unsafe fn VerticalOffset(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VerticalOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetVerticalOffset(&self, verticaloffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetVerticalOffset(&self, verticaloffset: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetVerticalOffset)(windows_core::Interface::as_raw(self), verticaloffset).ok() }
     }
-    pub unsafe fn HorizontalOffset(&self) -> windows_core::Result<i32> {
+    pub unsafe fn HorizontalOffset(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HorizontalOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHorizontalOffset(&self, horizontaloffset: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetHorizontalOffset(&self, horizontaloffset: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHorizontalOffset)(windows_core::Interface::as_raw(self), horizontaloffset).ok() }
     }
-    pub unsafe fn AutoShow(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AutoShow(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AutoShow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAutoShow)(windows_core::Interface::as_raw(self), autoshow).ok() }
     }
-    pub unsafe fn MoveTo(&self, left: i32, top: i32) -> windows_core::Result<()> {
+    pub unsafe fn MoveTo(&self, left: i32, top: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MoveTo)(windows_core::Interface::as_raw(self), left, top).ok() }
     }
-    pub unsafe fn CommitPendingInput(&self) -> windows_core::Result<()> {
+    pub unsafe fn CommitPendingInput(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CommitPendingInput)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableTsf)(windows_core::Interface::as_raw(self), enable).ok() }
     }
 }
@@ -13256,31 +13256,31 @@ pub struct IPenInputPanel_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IPenInputPanel_Impl: super::super::System::Com::IDispatch_Impl {
-    fn Busy(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Factoid(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AttachedEditWindow(&self) -> windows_core::Result<i32>;
-    fn SetAttachedEditWindow(&self, attachededitwindow: i32) -> windows_core::Result<()>;
-    fn CurrentPanel(&self) -> windows_core::Result<PanelType>;
-    fn SetCurrentPanel(&self, currentpanel: PanelType) -> windows_core::Result<()>;
-    fn DefaultPanel(&self) -> windows_core::Result<PanelType>;
-    fn SetDefaultPanel(&self, defaultpanel: PanelType) -> windows_core::Result<()>;
-    fn Visible(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Top(&self) -> windows_core::Result<i32>;
-    fn Left(&self) -> windows_core::Result<i32>;
-    fn Width(&self) -> windows_core::Result<i32>;
-    fn Height(&self) -> windows_core::Result<i32>;
-    fn VerticalOffset(&self) -> windows_core::Result<i32>;
-    fn SetVerticalOffset(&self, verticaloffset: i32) -> windows_core::Result<()>;
-    fn HorizontalOffset(&self) -> windows_core::Result<i32>;
-    fn SetHorizontalOffset(&self, horizontaloffset: i32) -> windows_core::Result<()>;
-    fn AutoShow(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn MoveTo(&self, left: i32, top: i32) -> windows_core::Result<()>;
-    fn CommitPendingInput(&self) -> windows_core::Result<()>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Busy(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Factoid(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetFactoid(&self, factoid: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn AttachedEditWindow(&self) -> windows_result::Result<i32>;
+    fn SetAttachedEditWindow(&self, attachededitwindow: i32) -> windows_result::Result<()>;
+    fn CurrentPanel(&self) -> windows_result::Result<PanelType>;
+    fn SetCurrentPanel(&self, currentpanel: PanelType) -> windows_result::Result<()>;
+    fn DefaultPanel(&self) -> windows_result::Result<PanelType>;
+    fn SetDefaultPanel(&self, defaultpanel: PanelType) -> windows_result::Result<()>;
+    fn Visible(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetVisible(&self, visible: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Top(&self) -> windows_result::Result<i32>;
+    fn Left(&self) -> windows_result::Result<i32>;
+    fn Width(&self) -> windows_result::Result<i32>;
+    fn Height(&self) -> windows_result::Result<i32>;
+    fn VerticalOffset(&self) -> windows_result::Result<i32>;
+    fn SetVerticalOffset(&self, verticaloffset: i32) -> windows_result::Result<()>;
+    fn HorizontalOffset(&self) -> windows_result::Result<i32>;
+    fn SetHorizontalOffset(&self, horizontaloffset: i32) -> windows_result::Result<()>;
+    fn AutoShow(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetAutoShow(&self, autoshow: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn MoveTo(&self, left: i32, top: i32) -> windows_result::Result<()>;
+    fn CommitPendingInput(&self) -> windows_result::Result<()>;
+    fn Refresh(&self) -> windows_result::Result<()>;
+    fn EnableTsf(&self, enable: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IPenInputPanel_Vtbl {
@@ -13618,118 +13618,118 @@ pub const IRS_SetWordListFailed: InkRecognitionStatus = InkRecognitionStatus(512
 windows_core::imp::define_interface!(IRealTimeStylus, IRealTimeStylus_Vtbl, 0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
 windows_core::imp::interface_hierarchy!(IRealTimeStylus, windows_core::IUnknown);
 impl IRealTimeStylus {
-    pub unsafe fn Enabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, fenable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
-    pub unsafe fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR> {
+    pub unsafe fn HWND(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).HWND)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()> {
+    pub unsafe fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetHWND)(windows_core::Interface::as_raw(self), hwnd).ok() }
     }
-    pub unsafe fn WindowInputRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn WindowInputRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).WindowInputRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetWindowInputRectangle(&self, prcwndinputrect: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn SetWindowInputRectangle(&self, prcwndinputrect: *const super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetWindowInputRectangle)(windows_core::Interface::as_raw(self), prcwndinputrect).ok() }
     }
-    pub unsafe fn AddStylusSyncPlugin<P1>(&self, iindex: u32, piplugin: P1) -> windows_core::Result<()>
+    pub unsafe fn AddStylusSyncPlugin<P1>(&self, iindex: u32, piplugin: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IStylusSyncPlugin>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, piplugin.param().abi()).ok() }
     }
-    pub unsafe fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusSyncPlugin>) -> windows_core::Result<()> {
+    pub unsafe fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusSyncPlugin>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute(ppiplugin)).ok() }
     }
-    pub unsafe fn RemoveAllStylusSyncPlugins(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAllStylusSyncPlugins(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllStylusSyncPlugins)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetStylusSyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusSyncPlugin> {
+    pub unsafe fn GetStylusSyncPlugin(&self, iindex: u32) -> windows_result::Result<IStylusSyncPlugin> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStylusSyncPlugin)(windows_core::Interface::as_raw(self), iindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetStylusSyncPluginCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStylusSyncPluginCount(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStylusSyncPluginCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AddStylusAsyncPlugin<P1>(&self, iindex: u32, piplugin: P1) -> windows_core::Result<()>
+    pub unsafe fn AddStylusAsyncPlugin<P1>(&self, iindex: u32, piplugin: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<IStylusAsyncPlugin>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, piplugin.param().abi()).ok() }
     }
-    pub unsafe fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusAsyncPlugin>) -> windows_core::Result<()> {
+    pub unsafe fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: *mut Option<IStylusAsyncPlugin>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, core::mem::transmute(ppiplugin)).ok() }
     }
-    pub unsafe fn RemoveAllStylusAsyncPlugins(&self) -> windows_core::Result<()> {
+    pub unsafe fn RemoveAllStylusAsyncPlugins(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveAllStylusAsyncPlugins)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetStylusAsyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusAsyncPlugin> {
+    pub unsafe fn GetStylusAsyncPlugin(&self, iindex: u32) -> windows_result::Result<IStylusAsyncPlugin> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStylusAsyncPlugin)(windows_core::Interface::as_raw(self), iindex, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetStylusAsyncPluginCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetStylusAsyncPluginCount(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStylusAsyncPluginCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ChildRealTimeStylusPlugin(&self) -> windows_core::Result<IRealTimeStylus> {
+    pub unsafe fn ChildRealTimeStylusPlugin(&self) -> windows_result::Result<IRealTimeStylus> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn putref_ChildRealTimeStylusPlugin<P0>(&self, pirts: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_ChildRealTimeStylusPlugin<P0>(&self, pirts: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).putref_ChildRealTimeStylusPlugin)(windows_core::Interface::as_raw(self), pirts.param().abi()).ok() }
     }
-    pub unsafe fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_core::Result<()> {
+    pub unsafe fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddCustomStylusDataToQueue)(windows_core::Interface::as_raw(self), sq, pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
-    pub unsafe fn ClearStylusQueues(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearStylusQueues(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearStylusQueues)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetAllTabletsMode(&self, fusemouseforinput: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetAllTabletsMode(&self, fusemouseforinput: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllTabletsMode)(windows_core::Interface::as_raw(self), fusemouseforinput.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn SetSingleTabletMode<P0>(&self, pitablet: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSingleTabletMode<P0>(&self, pitablet: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkTablet>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSingleTabletMode)(windows_core::Interface::as_raw(self), pitablet.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTablet(&self) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn GetTablet(&self) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTablet)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTabletContextIdFromTablet<P0>(&self, pitablet: P0) -> windows_core::Result<u32>
+    pub unsafe fn GetTabletContextIdFromTablet<P0>(&self, pitablet: P0) -> windows_result::Result<u32>
     where
         P0: windows_core::Param<IInkTablet>,
     {
@@ -13739,36 +13739,36 @@ impl IRealTimeStylus {
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetTabletFromTabletContextId(&self, tcid: u32) -> windows_core::Result<IInkTablet> {
+    pub unsafe fn GetTabletFromTabletContextId(&self, tcid: u32) -> windows_result::Result<IInkTablet> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTabletFromTabletContextId)(windows_core::Interface::as_raw(self), tcid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetAllTabletContextIds(&self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetAllTabletContextIds(&self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAllTabletContextIds)(windows_core::Interface::as_raw(self), pctcidcount as _, pptcids as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStyluses(&self) -> windows_core::Result<IInkCursors> {
+    pub unsafe fn GetStyluses(&self) -> windows_result::Result<IInkCursors> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStyluses)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn GetStylusForId(&self, sid: u32) -> windows_core::Result<IInkCursor> {
+    pub unsafe fn GetStylusForId(&self, sid: u32) -> windows_result::Result<IInkCursor> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetStylusForId)(windows_core::Interface::as_raw(self), sid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetDesiredPacketDescription(&self, ppropertyguids: &[windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn SetDesiredPacketDescription(&self, ppropertyguids: &[windows_core::GUID]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesiredPacketDescription)(windows_core::Interface::as_raw(self), ppropertyguids.len().try_into().unwrap(), core::mem::transmute(ppropertyguids.as_ptr())).ok() }
     }
-    pub unsafe fn GetDesiredPacketDescription(&self, pcproperties: *mut u32, pppropertyguids: *mut *mut windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn GetDesiredPacketDescription(&self, pcproperties: *mut u32, pppropertyguids: *mut *mut windows_core::GUID) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesiredPacketDescription)(windows_core::Interface::as_raw(self), pcproperties as _, pppropertyguids as _).ok() }
     }
-    pub unsafe fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: Option<*mut f32>, pfinktodevicescaley: Option<*mut f32>, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_core::Result<()> {
+    pub unsafe fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: Option<*mut f32>, pfinktodevicescaley: Option<*mut f32>, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPacketDescriptionData)(windows_core::Interface::as_raw(self), tcid, pfinktodevicescalex.unwrap_or(core::mem::zeroed()) as _, pfinktodevicescaley.unwrap_or(core::mem::zeroed()) as _, pcpacketproperties as _, pppacketproperties as _).ok() }
     }
 }
@@ -13828,37 +13828,37 @@ pub struct IRealTimeStylus_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRealTimeStylus_Impl: windows_core::IUnknownImpl {
-    fn Enabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetEnabled(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn HWND(&self) -> windows_core::Result<super::super::Foundation::HANDLE_PTR>;
-    fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_core::Result<()>;
-    fn WindowInputRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn SetWindowInputRectangle(&self, prcwndinputrect: *const super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn AddStylusSyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusSyncPlugin>) -> windows_core::Result<()>;
-    fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusSyncPlugin>) -> windows_core::Result<()>;
-    fn RemoveAllStylusSyncPlugins(&self) -> windows_core::Result<()>;
-    fn GetStylusSyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusSyncPlugin>;
-    fn GetStylusSyncPluginCount(&self) -> windows_core::Result<u32>;
-    fn AddStylusAsyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusAsyncPlugin>) -> windows_core::Result<()>;
-    fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusAsyncPlugin>) -> windows_core::Result<()>;
-    fn RemoveAllStylusAsyncPlugins(&self) -> windows_core::Result<()>;
-    fn GetStylusAsyncPlugin(&self, iindex: u32) -> windows_core::Result<IStylusAsyncPlugin>;
-    fn GetStylusAsyncPluginCount(&self) -> windows_core::Result<u32>;
-    fn ChildRealTimeStylusPlugin(&self) -> windows_core::Result<IRealTimeStylus>;
-    fn putref_ChildRealTimeStylusPlugin(&self, pirts: windows_core::Ref<IRealTimeStylus>) -> windows_core::Result<()>;
-    fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::Result<()>;
-    fn ClearStylusQueues(&self) -> windows_core::Result<()>;
-    fn SetAllTabletsMode(&self, fusemouseforinput: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetSingleTabletMode(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn GetTablet(&self) -> windows_core::Result<IInkTablet>;
-    fn GetTabletContextIdFromTablet(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<u32>;
-    fn GetTabletFromTabletContextId(&self, tcid: u32) -> windows_core::Result<IInkTablet>;
-    fn GetAllTabletContextIds(&self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> windows_core::Result<()>;
-    fn GetStyluses(&self) -> windows_core::Result<IInkCursors>;
-    fn GetStylusForId(&self, sid: u32) -> windows_core::Result<IInkCursor>;
-    fn SetDesiredPacketDescription(&self, cproperties: u32, ppropertyguids: *const windows_core::GUID) -> windows_core::Result<()>;
-    fn GetDesiredPacketDescription(&self, pcproperties: *mut u32, pppropertyguids: *mut *mut windows_core::GUID) -> windows_core::Result<()>;
-    fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: *mut f32, pfinktodevicescaley: *mut f32, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_core::Result<()>;
+    fn Enabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetEnabled(&self, fenable: windows_core::BOOL) -> windows_result::Result<()>;
+    fn HWND(&self) -> windows_result::Result<super::super::Foundation::HANDLE_PTR>;
+    fn SetHWND(&self, hwnd: super::super::Foundation::HANDLE_PTR) -> windows_result::Result<()>;
+    fn WindowInputRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT>;
+    fn SetWindowInputRectangle(&self, prcwndinputrect: *const super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn AddStylusSyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusSyncPlugin>) -> windows_result::Result<()>;
+    fn RemoveStylusSyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusSyncPlugin>) -> windows_result::Result<()>;
+    fn RemoveAllStylusSyncPlugins(&self) -> windows_result::Result<()>;
+    fn GetStylusSyncPlugin(&self, iindex: u32) -> windows_result::Result<IStylusSyncPlugin>;
+    fn GetStylusSyncPluginCount(&self) -> windows_result::Result<u32>;
+    fn AddStylusAsyncPlugin(&self, iindex: u32, piplugin: windows_core::Ref<IStylusAsyncPlugin>) -> windows_result::Result<()>;
+    fn RemoveStylusAsyncPlugin(&self, iindex: u32, ppiplugin: windows_core::OutRef<IStylusAsyncPlugin>) -> windows_result::Result<()>;
+    fn RemoveAllStylusAsyncPlugins(&self) -> windows_result::Result<()>;
+    fn GetStylusAsyncPlugin(&self, iindex: u32) -> windows_result::Result<IStylusAsyncPlugin>;
+    fn GetStylusAsyncPluginCount(&self) -> windows_result::Result<u32>;
+    fn ChildRealTimeStylusPlugin(&self) -> windows_result::Result<IRealTimeStylus>;
+    fn putref_ChildRealTimeStylusPlugin(&self, pirts: windows_core::Ref<IRealTimeStylus>) -> windows_result::Result<()>;
+    fn AddCustomStylusDataToQueue(&self, sq: StylusQueue, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_result::Result<()>;
+    fn ClearStylusQueues(&self) -> windows_result::Result<()>;
+    fn SetAllTabletsMode(&self, fusemouseforinput: windows_core::BOOL) -> windows_result::Result<()>;
+    fn SetSingleTabletMode(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<()>;
+    fn GetTablet(&self) -> windows_result::Result<IInkTablet>;
+    fn GetTabletContextIdFromTablet(&self, pitablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<u32>;
+    fn GetTabletFromTabletContextId(&self, tcid: u32) -> windows_result::Result<IInkTablet>;
+    fn GetAllTabletContextIds(&self, pctcidcount: *mut u32, pptcids: *mut *mut u32) -> windows_result::Result<()>;
+    fn GetStyluses(&self) -> windows_result::Result<IInkCursors>;
+    fn GetStylusForId(&self, sid: u32) -> windows_result::Result<IInkCursor>;
+    fn SetDesiredPacketDescription(&self, cproperties: u32, ppropertyguids: *const windows_core::GUID) -> windows_result::Result<()>;
+    fn GetDesiredPacketDescription(&self, pcproperties: *mut u32, pppropertyguids: *mut *mut windows_core::GUID) -> windows_result::Result<()>;
+    fn GetPacketDescriptionData(&self, tcid: u32, pfinktodevicescalex: *mut f32, pfinktodevicescaley: *mut f32, pcpacketproperties: *mut u32, pppacketproperties: *mut *mut PACKET_PROPERTY) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRealTimeStylus_Vtbl {
@@ -14171,13 +14171,13 @@ impl windows_core::RuntimeName for IRealTimeStylus {}
 windows_core::imp::define_interface!(IRealTimeStylus2, IRealTimeStylus2_Vtbl, 0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
 windows_core::imp::interface_hierarchy!(IRealTimeStylus2, windows_core::IUnknown);
 impl IRealTimeStylus2 {
-    pub unsafe fn FlicksEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn FlicksEnabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FlicksEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFlicksEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetFlicksEnabled(&self, fenable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFlicksEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
 }
@@ -14189,8 +14189,8 @@ pub struct IRealTimeStylus2_Vtbl {
     pub SetFlicksEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IRealTimeStylus2_Impl: windows_core::IUnknownImpl {
-    fn FlicksEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetFlicksEnabled(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn FlicksEnabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetFlicksEnabled(&self, fenable: windows_core::BOOL) -> windows_result::Result<()>;
 }
 impl IRealTimeStylus2_Vtbl {
     pub const fn new<Identity: IRealTimeStylus2_Impl, const OFFSET: isize>() -> Self {
@@ -14226,13 +14226,13 @@ impl windows_core::RuntimeName for IRealTimeStylus2 {}
 windows_core::imp::define_interface!(IRealTimeStylus3, IRealTimeStylus3_Vtbl, 0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
 windows_core::imp::interface_hierarchy!(IRealTimeStylus3, windows_core::IUnknown);
 impl IRealTimeStylus3 {
-    pub unsafe fn MultiTouchEnabled(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn MultiTouchEnabled(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MultiTouchEnabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMultiTouchEnabled(&self, fenable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetMultiTouchEnabled(&self, fenable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMultiTouchEnabled)(windows_core::Interface::as_raw(self), fenable.into()).ok() }
     }
 }
@@ -14244,8 +14244,8 @@ pub struct IRealTimeStylus3_Vtbl {
     pub SetMultiTouchEnabled: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IRealTimeStylus3_Impl: windows_core::IUnknownImpl {
-    fn MultiTouchEnabled(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetMultiTouchEnabled(&self, fenable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn MultiTouchEnabled(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetMultiTouchEnabled(&self, fenable: windows_core::BOOL) -> windows_result::Result<()>;
 }
 impl IRealTimeStylus3_Vtbl {
     pub const fn new<Identity: IRealTimeStylus3_Impl, const OFFSET: isize>() -> Self {
@@ -14281,10 +14281,10 @@ impl windows_core::RuntimeName for IRealTimeStylus3 {}
 windows_core::imp::define_interface!(IRealTimeStylusSynchronization, IRealTimeStylusSynchronization_Vtbl, 0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
 windows_core::imp::interface_hierarchy!(IRealTimeStylusSynchronization, windows_core::IUnknown);
 impl IRealTimeStylusSynchronization {
-    pub unsafe fn AcquireLock(&self, lock: RealTimeStylusLockType) -> windows_core::Result<()> {
+    pub unsafe fn AcquireLock(&self, lock: RealTimeStylusLockType) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AcquireLock)(windows_core::Interface::as_raw(self), lock).ok() }
     }
-    pub unsafe fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseLock)(windows_core::Interface::as_raw(self), lock).ok() }
     }
 }
@@ -14296,8 +14296,8 @@ pub struct IRealTimeStylusSynchronization_Vtbl {
     pub ReleaseLock: unsafe extern "system" fn(*mut core::ffi::c_void, RealTimeStylusLockType) -> windows_core::HRESULT,
 }
 pub trait IRealTimeStylusSynchronization_Impl: windows_core::IUnknownImpl {
-    fn AcquireLock(&self, lock: RealTimeStylusLockType) -> windows_core::Result<()>;
-    fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> windows_core::Result<()>;
+    fn AcquireLock(&self, lock: RealTimeStylusLockType) -> windows_result::Result<()>;
+    fn ReleaseLock(&self, lock: RealTimeStylusLockType) -> windows_result::Result<()>;
 }
 impl IRealTimeStylusSynchronization_Vtbl {
     pub const fn new<Identity: IRealTimeStylusSynchronization_Impl, const OFFSET: isize>() -> Self {
@@ -14370,29 +14370,29 @@ windows_core::imp::define_interface!(IStrokeBuilder, IStrokeBuilder_Vtbl, 0xa5fd
 windows_core::imp::interface_hierarchy!(IStrokeBuilder, windows_core::IUnknown);
 impl IStrokeBuilder {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn CreateStroke(&self, ppackets: &[i32], ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut Option<IInkStrokeDisp>) -> windows_core::Result<()> {
+    pub unsafe fn CreateStroke(&self, ppackets: &[i32], ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: *mut Option<IInkStrokeDisp>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CreateStroke)(windows_core::Interface::as_raw(self), ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, core::mem::transmute(ppiinkstroke)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: Option<*mut Option<IInkStrokeDisp>>) -> windows_core::Result<()> {
+    pub unsafe fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, ppacketproperties: &[PACKET_PROPERTY], finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: Option<*mut Option<IInkStrokeDisp>>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BeginStroke)(windows_core::Interface::as_raw(self), tcid, sid, ppacket, ppacketproperties.len().try_into().unwrap(), core::mem::transmute(ppacketproperties.as_ptr()), finktodevicescalex, finktodevicescaley, ppiinkstroke.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> windows_core::Result<()> {
+    pub unsafe fn AppendPackets(&self, tcid: u32, sid: u32, ppackets: &[i32]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AppendPackets)(windows_core::Interface::as_raw(self), tcid, sid, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr())).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: *mut Option<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: *mut Option<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndStroke)(windows_core::Interface::as_raw(self), tcid, sid, core::mem::transmute(ppiinkstroke), pdirtyrect as _).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Ink(&self) -> windows_core::Result<IInkDisp> {
+    pub unsafe fn Ink(&self) -> windows_result::Result<IInkDisp> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Ink)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn putref_Ink<P0>(&self, piinkobj: P0) -> windows_core::Result<()>
+    pub unsafe fn putref_Ink<P0>(&self, piinkobj: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkDisp>,
     {
@@ -14427,12 +14427,12 @@ pub struct IStrokeBuilder_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStrokeBuilder_Impl: windows_core::IUnknownImpl {
-    fn CreateStroke(&self, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_core::Result<()>;
-    fn AppendPackets(&self, tcid: u32, sid: u32, cpktbufflength: u32, ppackets: *const i32) -> windows_core::Result<()>;
-    fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn Ink(&self) -> windows_core::Result<IInkDisp>;
-    fn putref_Ink(&self, piinkobj: windows_core::Ref<IInkDisp>) -> windows_core::Result<()>;
+    fn CreateStroke(&self, cpktbufflength: u32, ppackets: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn BeginStroke(&self, tcid: u32, sid: u32, ppacket: *const i32, cpacketproperties: u32, ppacketproperties: *const PACKET_PROPERTY, finktodevicescalex: f32, finktodevicescaley: f32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>) -> windows_result::Result<()>;
+    fn AppendPackets(&self, tcid: u32, sid: u32, cpktbufflength: u32, ppackets: *const i32) -> windows_result::Result<()>;
+    fn EndStroke(&self, tcid: u32, sid: u32, ppiinkstroke: windows_core::OutRef<IInkStrokeDisp>, pdirtyrect: *mut super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn Ink(&self) -> windows_result::Result<IInkDisp>;
+    fn putref_Ink(&self, piinkobj: windows_core::Ref<IInkDisp>) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStrokeBuilder_Vtbl {
@@ -14524,106 +14524,106 @@ impl windows_core::RuntimeName for IStylusAsyncPlugin {}
 windows_core::imp::define_interface!(IStylusPlugin, IStylusPlugin_Vtbl, 0xa81436d8_4757_4fd1_a185_133f97c6c545);
 windows_core::imp::interface_hierarchy!(IStylusPlugin, windows_core::IUnknown);
 impl IStylusPlugin {
-    pub unsafe fn RealTimeStylusEnabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> windows_core::Result<()>
+    pub unsafe fn RealTimeStylusEnabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).RealTimeStylusEnabled)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
     }
-    pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> windows_core::Result<()>
+    pub unsafe fn RealTimeStylusDisabled<P0>(&self, pirtssrc: P0, ptcids: &[u32]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).RealTimeStylusDisabled)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), ptcids.len().try_into().unwrap(), core::mem::transmute(ptcids.as_ptr())).ok() }
     }
-    pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_core::Result<()>
+    pub unsafe fn StylusInRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusInRange)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid).ok() }
     }
-    pub unsafe fn StylusOutOfRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_core::Result<()>
+    pub unsafe fn StylusOutOfRange<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusOutOfRange)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid).ok() }
     }
-    pub unsafe fn StylusDown<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>
+    pub unsafe fn StylusDown<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusDown)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
     }
-    pub unsafe fn StylusUp<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>
+    pub unsafe fn StylusUp<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, ppacket: &[i32], ppinoutpkt: *mut *mut i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusUp)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, ppacket.len().try_into().unwrap(), core::mem::transmute(ppacket.as_ptr()), ppinoutpkt as _).ok() }
     }
-    pub unsafe fn StylusButtonDown<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>
+    pub unsafe fn StylusButtonDown<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusButtonDown)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), sid, pguidstylusbutton, pstyluspos as _).ok() }
     }
-    pub unsafe fn StylusButtonUp<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>
+    pub unsafe fn StylusButtonUp<P0>(&self, pirtssrc: P0, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).StylusButtonUp)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), sid, pguidstylusbutton, pstyluspos as _).ok() }
     }
-    pub unsafe fn InAirPackets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>
+    pub unsafe fn InAirPackets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).InAirPackets)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
     }
-    pub unsafe fn Packets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>
+    pub unsafe fn Packets<P0>(&self, pirtssrc: P0, pstylusinfo: *const StylusInfo, cpktcount: u32, ppackets: &[i32], pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).Packets)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pstylusinfo, cpktcount, ppackets.len().try_into().unwrap(), core::mem::transmute(ppackets.as_ptr()), pcinoutpkts as _, ppinoutpkts as _).ok() }
     }
-    pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_core::Result<()>
+    pub unsafe fn CustomStylusDataAdded<P0>(&self, pirtssrc: P0, pguidid: *const windows_core::GUID, pbdata: Option<&[u8]>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).CustomStylusDataAdded)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pguidid, pbdata.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pbdata.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
     }
-    pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> windows_core::Result<()>
+    pub unsafe fn SystemEvent<P0>(&self, pirtssrc: P0, tcid: u32, sid: u32, event: u16, eventdata: SYSTEM_EVENT_DATA) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).SystemEvent)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), tcid, sid, event, core::mem::transmute(eventdata)).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TabletAdded<P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> windows_core::Result<()>
+    pub unsafe fn TabletAdded<P0, P1>(&self, pirtssrc: P0, pitablet: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
         P1: windows_core::Param<IInkTablet>,
     {
         unsafe { (windows_core::Interface::vtable(self).TabletAdded)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), pitablet.param().abi()).ok() }
     }
-    pub unsafe fn TabletRemoved<P0>(&self, pirtssrc: P0, itabletindex: i32) -> windows_core::Result<()>
+    pub unsafe fn TabletRemoved<P0>(&self, pirtssrc: P0, itabletindex: i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).TabletRemoved)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), itabletindex).ok() }
     }
-    pub unsafe fn Error<P0, P1>(&self, pirtssrc: P0, piplugin: P1, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>
+    pub unsafe fn Error<P0, P1>(&self, pirtssrc: P0, piplugin: P1, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
         P1: windows_core::Param<IStylusPlugin>,
     {
         unsafe { (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), pirtssrc.param().abi(), piplugin.param().abi(), datainterest, hrerrorcode, lptrkey as _).ok() }
     }
-    pub unsafe fn UpdateMapping<P0>(&self, pirtssrc: P0) -> windows_core::Result<()>
+    pub unsafe fn UpdateMapping<P0>(&self, pirtssrc: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRealTimeStylus>,
     {
         unsafe { (windows_core::Interface::vtable(self).UpdateMapping)(windows_core::Interface::as_raw(self), pirtssrc.param().abi()).ok() }
     }
-    pub unsafe fn DataInterest(&self) -> windows_core::Result<RealTimeStylusDataInterest> {
+    pub unsafe fn DataInterest(&self) -> windows_result::Result<RealTimeStylusDataInterest> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DataInterest)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14657,23 +14657,23 @@ pub struct IStylusPlugin_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IStylusPlugin_Impl: windows_core::IUnknownImpl {
-    fn RealTimeStylusEnabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
-    fn RealTimeStylusDisabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_core::Result<()>;
-    fn StylusInRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
-    fn StylusOutOfRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_core::Result<()>;
-    fn StylusDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
-    fn StylusUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_core::Result<()>;
-    fn StylusButtonDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn StylusButtonUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_core::Result<()>;
-    fn InAirPackets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
-    fn Packets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_core::Result<()>;
-    fn CustomStylusDataAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_core::Result<()>;
-    fn SystemEvent(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: &SYSTEM_EVENT_DATA) -> windows_core::Result<()>;
-    fn TabletAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pitablet: windows_core::Ref<IInkTablet>) -> windows_core::Result<()>;
-    fn TabletRemoved(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, itabletindex: i32) -> windows_core::Result<()>;
-    fn Error(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, piplugin: windows_core::Ref<IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_core::Result<()>;
-    fn UpdateMapping(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>) -> windows_core::Result<()>;
-    fn DataInterest(&self) -> windows_core::Result<RealTimeStylusDataInterest>;
+    fn RealTimeStylusEnabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_result::Result<()>;
+    fn RealTimeStylusDisabled(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, ctcidcount: u32, ptcids: *const u32) -> windows_result::Result<()>;
+    fn StylusInRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_result::Result<()>;
+    fn StylusOutOfRange(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32) -> windows_result::Result<()>;
+    fn StylusDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_result::Result<()>;
+    fn StylusUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpropcountperpkt: u32, ppacket: *const i32, ppinoutpkt: *mut *mut i32) -> windows_result::Result<()>;
+    fn StylusButtonDown(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_result::Result<()>;
+    fn StylusButtonUp(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, sid: u32, pguidstylusbutton: *const windows_core::GUID, pstyluspos: *mut super::super::Foundation::POINT) -> windows_result::Result<()>;
+    fn InAirPackets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_result::Result<()>;
+    fn Packets(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pstylusinfo: *const StylusInfo, cpktcount: u32, cpktbufflength: u32, ppackets: *const i32, pcinoutpkts: *mut u32, ppinoutpkts: *mut *mut i32) -> windows_result::Result<()>;
+    fn CustomStylusDataAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pguidid: *const windows_core::GUID, cbdata: u32, pbdata: *const u8) -> windows_result::Result<()>;
+    fn SystemEvent(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, tcid: u32, sid: u32, event: u16, eventdata: &SYSTEM_EVENT_DATA) -> windows_result::Result<()>;
+    fn TabletAdded(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, pitablet: windows_core::Ref<IInkTablet>) -> windows_result::Result<()>;
+    fn TabletRemoved(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, itabletindex: i32) -> windows_result::Result<()>;
+    fn Error(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>, piplugin: windows_core::Ref<IStylusPlugin>, datainterest: RealTimeStylusDataInterest, hrerrorcode: windows_core::HRESULT, lptrkey: *mut isize) -> windows_result::Result<()>;
+    fn UpdateMapping(&self, pirtssrc: windows_core::Ref<IRealTimeStylus>) -> windows_result::Result<()>;
+    fn DataInterest(&self) -> windows_result::Result<RealTimeStylusDataInterest>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IStylusPlugin_Vtbl {
@@ -14842,121 +14842,121 @@ impl windows_core::RuntimeName for IStylusSyncPlugin {}
 windows_core::imp::define_interface!(ITextInputPanel, ITextInputPanel_Vtbl, 0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
 windows_core::imp::interface_hierarchy!(ITextInputPanel, windows_core::IUnknown);
 impl ITextInputPanel {
-    pub unsafe fn AttachedEditWindow(&self) -> windows_core::Result<super::super::Foundation::HWND> {
+    pub unsafe fn AttachedEditWindow(&self) -> windows_result::Result<super::super::Foundation::HWND> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttachedEditWindow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: super::super::Foundation::HWND) -> windows_core::Result<()> {
+    pub unsafe fn SetAttachedEditWindow(&self, attachededitwindow: super::super::Foundation::HWND) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttachedEditWindow)(windows_core::Interface::as_raw(self), attachededitwindow).ok() }
     }
-    pub unsafe fn CurrentInteractionMode(&self) -> windows_core::Result<InteractionMode> {
+    pub unsafe fn CurrentInteractionMode(&self) -> windows_result::Result<InteractionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentInteractionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultInPlaceState(&self) -> windows_core::Result<InPlaceState> {
+    pub unsafe fn DefaultInPlaceState(&self) -> windows_result::Result<InPlaceState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultInPlaceState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDefaultInPlaceState(&self, state: InPlaceState) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultInPlaceState(&self, state: InPlaceState) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultInPlaceState)(windows_core::Interface::as_raw(self), state).ok() }
     }
-    pub unsafe fn CurrentInPlaceState(&self) -> windows_core::Result<InPlaceState> {
+    pub unsafe fn CurrentInPlaceState(&self) -> windows_result::Result<InPlaceState> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentInPlaceState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn DefaultInputArea(&self) -> windows_core::Result<PanelInputArea> {
+    pub unsafe fn DefaultInputArea(&self) -> windows_result::Result<PanelInputArea> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DefaultInputArea)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetDefaultInputArea(&self, area: PanelInputArea) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultInputArea(&self, area: PanelInputArea) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultInputArea)(windows_core::Interface::as_raw(self), area).ok() }
     }
-    pub unsafe fn CurrentInputArea(&self) -> windows_core::Result<PanelInputArea> {
+    pub unsafe fn CurrentInputArea(&self) -> windows_result::Result<PanelInputArea> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentInputArea)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentCorrectionMode(&self) -> windows_core::Result<CorrectionMode> {
+    pub unsafe fn CurrentCorrectionMode(&self) -> windows_result::Result<CorrectionMode> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentCorrectionMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PreferredInPlaceDirection(&self) -> windows_core::Result<InPlaceDirection> {
+    pub unsafe fn PreferredInPlaceDirection(&self) -> windows_result::Result<InPlaceDirection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredInPlaceDirection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> windows_core::Result<()> {
+    pub unsafe fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPreferredInPlaceDirection)(windows_core::Interface::as_raw(self), direction).ok() }
     }
-    pub unsafe fn ExpandPostInsertionCorrection(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn ExpandPostInsertionCorrection(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ExpandPostInsertionCorrection)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetExpandPostInsertionCorrection(&self, expand: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetExpandPostInsertionCorrection(&self, expand: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetExpandPostInsertionCorrection)(windows_core::Interface::as_raw(self), expand.into()).ok() }
     }
-    pub unsafe fn InPlaceVisibleOnFocus(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn InPlaceVisibleOnFocus(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetInPlaceVisibleOnFocus(&self, visible: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetInPlaceVisibleOnFocus(&self, visible: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInPlaceVisibleOnFocus)(windows_core::Interface::as_raw(self), visible.into()).ok() }
     }
-    pub unsafe fn InPlaceBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT> {
+    pub unsafe fn InPlaceBoundingRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InPlaceBoundingRectangle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PopUpCorrectionHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PopUpCorrectionHeight(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PopUpCorrectionHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PopDownCorrectionHeight(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PopDownCorrectionHeight(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PopDownCorrectionHeight)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CommitPendingInput(&self) -> windows_core::Result<()> {
+    pub unsafe fn CommitPendingInput(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CommitPendingInput)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetInPlaceVisibility(&self, visible: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetInPlaceVisibility(&self, visible: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInPlaceVisibility)(windows_core::Interface::as_raw(self), visible.into()).ok() }
     }
-    pub unsafe fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_core::Result<()> {
+    pub unsafe fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInPlacePosition)(windows_core::Interface::as_raw(self), xposition, yposition, position).ok() }
     }
-    pub unsafe fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetInPlaceHoverTargetPosition)(windows_core::Interface::as_raw(self), xposition, yposition).ok() }
     }
-    pub unsafe fn Advise<P0>(&self, eventsink: P0, eventmask: u32) -> windows_core::Result<()>
+    pub unsafe fn Advise<P0>(&self, eventsink: P0, eventmask: u32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ITextInputPanelEventSink>,
     {
         unsafe { (windows_core::Interface::vtable(self).Advise)(windows_core::Interface::as_raw(self), eventsink.param().abi(), eventmask).ok() }
     }
-    pub unsafe fn Unadvise<P0>(&self, eventsink: P0) -> windows_core::Result<()>
+    pub unsafe fn Unadvise<P0>(&self, eventsink: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ITextInputPanelEventSink>,
     {
@@ -14994,31 +14994,31 @@ pub struct ITextInputPanel_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait ITextInputPanel_Impl: windows_core::IUnknownImpl {
-    fn AttachedEditWindow(&self) -> windows_core::Result<super::super::Foundation::HWND>;
-    fn SetAttachedEditWindow(&self, attachededitwindow: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn CurrentInteractionMode(&self) -> windows_core::Result<InteractionMode>;
-    fn DefaultInPlaceState(&self) -> windows_core::Result<InPlaceState>;
-    fn SetDefaultInPlaceState(&self, state: InPlaceState) -> windows_core::Result<()>;
-    fn CurrentInPlaceState(&self) -> windows_core::Result<InPlaceState>;
-    fn DefaultInputArea(&self) -> windows_core::Result<PanelInputArea>;
-    fn SetDefaultInputArea(&self, area: PanelInputArea) -> windows_core::Result<()>;
-    fn CurrentInputArea(&self) -> windows_core::Result<PanelInputArea>;
-    fn CurrentCorrectionMode(&self) -> windows_core::Result<CorrectionMode>;
-    fn PreferredInPlaceDirection(&self) -> windows_core::Result<InPlaceDirection>;
-    fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> windows_core::Result<()>;
-    fn ExpandPostInsertionCorrection(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetExpandPostInsertionCorrection(&self, expand: windows_core::BOOL) -> windows_core::Result<()>;
-    fn InPlaceVisibleOnFocus(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn SetInPlaceVisibleOnFocus(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
-    fn InPlaceBoundingRectangle(&self) -> windows_core::Result<super::super::Foundation::RECT>;
-    fn PopUpCorrectionHeight(&self) -> windows_core::Result<i32>;
-    fn PopDownCorrectionHeight(&self) -> windows_core::Result<i32>;
-    fn CommitPendingInput(&self) -> windows_core::Result<()>;
-    fn SetInPlaceVisibility(&self, visible: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_core::Result<()>;
-    fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> windows_core::Result<()>;
-    fn Advise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>, eventmask: u32) -> windows_core::Result<()>;
-    fn Unadvise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>) -> windows_core::Result<()>;
+    fn AttachedEditWindow(&self) -> windows_result::Result<super::super::Foundation::HWND>;
+    fn SetAttachedEditWindow(&self, attachededitwindow: super::super::Foundation::HWND) -> windows_result::Result<()>;
+    fn CurrentInteractionMode(&self) -> windows_result::Result<InteractionMode>;
+    fn DefaultInPlaceState(&self) -> windows_result::Result<InPlaceState>;
+    fn SetDefaultInPlaceState(&self, state: InPlaceState) -> windows_result::Result<()>;
+    fn CurrentInPlaceState(&self) -> windows_result::Result<InPlaceState>;
+    fn DefaultInputArea(&self) -> windows_result::Result<PanelInputArea>;
+    fn SetDefaultInputArea(&self, area: PanelInputArea) -> windows_result::Result<()>;
+    fn CurrentInputArea(&self) -> windows_result::Result<PanelInputArea>;
+    fn CurrentCorrectionMode(&self) -> windows_result::Result<CorrectionMode>;
+    fn PreferredInPlaceDirection(&self) -> windows_result::Result<InPlaceDirection>;
+    fn SetPreferredInPlaceDirection(&self, direction: InPlaceDirection) -> windows_result::Result<()>;
+    fn ExpandPostInsertionCorrection(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetExpandPostInsertionCorrection(&self, expand: windows_core::BOOL) -> windows_result::Result<()>;
+    fn InPlaceVisibleOnFocus(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn SetInPlaceVisibleOnFocus(&self, visible: windows_core::BOOL) -> windows_result::Result<()>;
+    fn InPlaceBoundingRectangle(&self) -> windows_result::Result<super::super::Foundation::RECT>;
+    fn PopUpCorrectionHeight(&self) -> windows_result::Result<i32>;
+    fn PopDownCorrectionHeight(&self) -> windows_result::Result<i32>;
+    fn CommitPendingInput(&self) -> windows_result::Result<()>;
+    fn SetInPlaceVisibility(&self, visible: windows_core::BOOL) -> windows_result::Result<()>;
+    fn SetInPlacePosition(&self, xposition: i32, yposition: i32, position: CorrectionPosition) -> windows_result::Result<()>;
+    fn SetInPlaceHoverTargetPosition(&self, xposition: i32, yposition: i32) -> windows_result::Result<()>;
+    fn Advise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>, eventmask: u32) -> windows_result::Result<()>;
+    fn Unadvise(&self, eventsink: windows_core::Ref<ITextInputPanelEventSink>) -> windows_result::Result<()>;
 }
 impl ITextInputPanel_Vtbl {
     pub const fn new<Identity: ITextInputPanel_Impl, const OFFSET: isize>() -> Self {
@@ -15287,42 +15287,42 @@ impl windows_core::RuntimeName for ITextInputPanel {}
 windows_core::imp::define_interface!(ITextInputPanelEventSink, ITextInputPanelEventSink_Vtbl, 0x27560408_8e64_4fe1_804e_421201584b31);
 windows_core::imp::interface_hierarchy!(ITextInputPanelEventSink, windows_core::IUnknown);
 impl ITextInputPanelEventSink {
-    pub unsafe fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceStateChanging)(windows_core::Interface::as_raw(self), oldinplacestate, newinplacestate).ok() }
     }
-    pub unsafe fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceStateChanged)(windows_core::Interface::as_raw(self), oldinplacestate, newinplacestate).ok() }
     }
-    pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceSizeChanging(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanging)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)).ok() }
     }
-    pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceSizeChanged(&self, oldboundingrectangle: super::super::Foundation::RECT, newboundingrectangle: super::super::Foundation::RECT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceSizeChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(oldboundingrectangle), core::mem::transmute(newboundingrectangle)).ok() }
     }
-    pub unsafe fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::Result<()> {
+    pub unsafe fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InputAreaChanging)(windows_core::Interface::as_raw(self), oldinputarea, newinputarea).ok() }
     }
-    pub unsafe fn InputAreaChanged(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::Result<()> {
+    pub unsafe fn InputAreaChanged(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InputAreaChanged)(windows_core::Interface::as_raw(self), oldinputarea, newinputarea).ok() }
     }
-    pub unsafe fn CorrectionModeChanging(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_core::Result<()> {
+    pub unsafe fn CorrectionModeChanging(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CorrectionModeChanging)(windows_core::Interface::as_raw(self), oldcorrectionmode, newcorrectionmode).ok() }
     }
-    pub unsafe fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_core::Result<()> {
+    pub unsafe fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CorrectionModeChanged)(windows_core::Interface::as_raw(self), oldcorrectionmode, newcorrectionmode).ok() }
     }
-    pub unsafe fn InPlaceVisibilityChanging(&self, oldvisible: bool, newvisible: bool) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceVisibilityChanging(&self, oldvisible: bool, newvisible: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceVisibilityChanging)(windows_core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok() }
     }
-    pub unsafe fn InPlaceVisibilityChanged(&self, oldvisible: bool, newvisible: bool) -> windows_core::Result<()> {
+    pub unsafe fn InPlaceVisibilityChanged(&self, oldvisible: bool, newvisible: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InPlaceVisibilityChanged)(windows_core::Interface::as_raw(self), oldvisible.into(), newvisible.into()).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TextInserting(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn TextInserting(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TextInserting)(windows_core::Interface::as_raw(self), ink).ok() }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn TextInserted(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
+    pub unsafe fn TextInserted(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TextInserted)(windows_core::Interface::as_raw(self), ink).ok() }
     }
 }
@@ -15351,18 +15351,18 @@ pub struct ITextInputPanelEventSink_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait ITextInputPanelEventSink_Impl: windows_core::IUnknownImpl {
-    fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()>;
-    fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_core::Result<()>;
-    fn InPlaceSizeChanging(&self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn InPlaceSizeChanged(&self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> windows_core::Result<()>;
-    fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::Result<()>;
-    fn InputAreaChanged(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_core::Result<()>;
-    fn CorrectionModeChanging(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_core::Result<()>;
-    fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_core::Result<()>;
-    fn InPlaceVisibilityChanging(&self, oldvisible: windows_core::BOOL, newvisible: windows_core::BOOL) -> windows_core::Result<()>;
-    fn InPlaceVisibilityChanged(&self, oldvisible: windows_core::BOOL, newvisible: windows_core::BOOL) -> windows_core::Result<()>;
-    fn TextInserting(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
-    fn TextInserted(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_core::Result<()>;
+    fn InPlaceStateChanging(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_result::Result<()>;
+    fn InPlaceStateChanged(&self, oldinplacestate: InPlaceState, newinplacestate: InPlaceState) -> windows_result::Result<()>;
+    fn InPlaceSizeChanging(&self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn InPlaceSizeChanged(&self, oldboundingrectangle: &super::super::Foundation::RECT, newboundingrectangle: &super::super::Foundation::RECT) -> windows_result::Result<()>;
+    fn InputAreaChanging(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_result::Result<()>;
+    fn InputAreaChanged(&self, oldinputarea: PanelInputArea, newinputarea: PanelInputArea) -> windows_result::Result<()>;
+    fn CorrectionModeChanging(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_result::Result<()>;
+    fn CorrectionModeChanged(&self, oldcorrectionmode: CorrectionMode, newcorrectionmode: CorrectionMode) -> windows_result::Result<()>;
+    fn InPlaceVisibilityChanging(&self, oldvisible: windows_core::BOOL, newvisible: windows_core::BOOL) -> windows_result::Result<()>;
+    fn InPlaceVisibilityChanged(&self, oldvisible: windows_core::BOOL, newvisible: windows_core::BOOL) -> windows_result::Result<()>;
+    fn TextInserting(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_result::Result<()>;
+    fn TextInserted(&self, ink: *const super::super::System::Com::SAFEARRAY) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl ITextInputPanelEventSink_Vtbl {
@@ -15464,7 +15464,7 @@ impl windows_core::RuntimeName for ITextInputPanelEventSink {}
 windows_core::imp::define_interface!(ITextInputPanelRunInfo, ITextInputPanelRunInfo_Vtbl, 0x9f424568_1920_48cc_9811_a993cbf5adba);
 windows_core::imp::interface_hierarchy!(ITextInputPanelRunInfo, windows_core::IUnknown);
 impl ITextInputPanelRunInfo {
-    pub unsafe fn IsTipRunning(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsTipRunning(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTipRunning)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15478,7 +15478,7 @@ pub struct ITextInputPanelRunInfo_Vtbl {
     pub IsTipRunning: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITextInputPanelRunInfo_Impl: windows_core::IUnknownImpl {
-    fn IsTipRunning(&self) -> windows_core::Result<windows_core::BOOL>;
+    fn IsTipRunning(&self) -> windows_result::Result<windows_core::BOOL>;
 }
 impl ITextInputPanelRunInfo_Vtbl {
     pub const fn new<Identity: ITextInputPanelRunInfo_Impl, const OFFSET: isize>() -> Self {
@@ -15504,25 +15504,25 @@ impl windows_core::RuntimeName for ITextInputPanelRunInfo {}
 windows_core::imp::define_interface!(ITipAutoCompleteClient, ITipAutoCompleteClient_Vtbl, 0x5e078e03_8265_4bbe_9487_d242edbef910);
 windows_core::imp::interface_hierarchy!(ITipAutoCompleteClient, windows_core::IUnknown);
 impl ITipAutoCompleteClient {
-    pub unsafe fn AdviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_core::Result<()>
+    pub unsafe fn AdviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
         unsafe { (windows_core::Interface::vtable(self).AdviseProvider)(windows_core::Interface::as_raw(self), hwndfield, piprovider.param().abi()).ok() }
     }
-    pub unsafe fn UnadviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_core::Result<()>
+    pub unsafe fn UnadviseProvider<P1>(&self, hwndfield: super::super::Foundation::HWND, piprovider: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ITipAutoCompleteProvider>,
     {
         unsafe { (windows_core::Interface::vtable(self).UnadviseProvider)(windows_core::Interface::as_raw(self), hwndfield, piprovider.param().abi()).ok() }
     }
-    pub unsafe fn UserSelection(&self) -> windows_core::Result<()> {
+    pub unsafe fn UserSelection(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UserSelection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut windows_core::BOOL) -> windows_core::Result<()> {
+    pub unsafe fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut windows_core::BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PreferredRects)(windows_core::Interface::as_raw(self), prcaclist, prcfield, prcmodifiedaclist as _, pfshownabovetip as _).ok() }
     }
-    pub unsafe fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RequestShowUI)(windows_core::Interface::as_raw(self), hwndlist, &mut result__).map(|| result__)
@@ -15540,11 +15540,11 @@ pub struct ITipAutoCompleteClient_Vtbl {
     pub RequestShowUI: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::HWND, *mut windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITipAutoCompleteClient_Impl: windows_core::IUnknownImpl {
-    fn AdviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_core::Result<()>;
-    fn UnadviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_core::Result<()>;
-    fn UserSelection(&self) -> windows_core::Result<()>;
-    fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut windows_core::BOOL) -> windows_core::Result<()>;
-    fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_core::Result<windows_core::BOOL>;
+    fn AdviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_result::Result<()>;
+    fn UnadviseProvider(&self, hwndfield: super::super::Foundation::HWND, piprovider: windows_core::Ref<ITipAutoCompleteProvider>) -> windows_result::Result<()>;
+    fn UserSelection(&self) -> windows_result::Result<()>;
+    fn PreferredRects(&self, prcaclist: *const super::super::Foundation::RECT, prcfield: *const super::super::Foundation::RECT, prcmodifiedaclist: *mut super::super::Foundation::RECT, pfshownabovetip: *mut windows_core::BOOL) -> windows_result::Result<()>;
+    fn RequestShowUI(&self, hwndlist: super::super::Foundation::HWND) -> windows_result::Result<windows_core::BOOL>;
 }
 impl ITipAutoCompleteClient_Vtbl {
     pub const fn new<Identity: ITipAutoCompleteClient_Impl, const OFFSET: isize>() -> Self {
@@ -15601,10 +15601,10 @@ impl windows_core::RuntimeName for ITipAutoCompleteClient {}
 windows_core::imp::define_interface!(ITipAutoCompleteProvider, ITipAutoCompleteProvider_Vtbl, 0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
 windows_core::imp::interface_hierarchy!(ITipAutoCompleteProvider, windows_core::IUnknown);
 impl ITipAutoCompleteProvider {
-    pub unsafe fn UpdatePendingText(&self, bstrpendingtext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn UpdatePendingText(&self, bstrpendingtext: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdatePendingText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpendingtext)).ok() }
     }
-    pub unsafe fn Show(&self, fshow: bool) -> windows_core::Result<()> {
+    pub unsafe fn Show(&self, fshow: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self), fshow.into()).ok() }
     }
 }
@@ -15616,8 +15616,8 @@ pub struct ITipAutoCompleteProvider_Vtbl {
     pub Show: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait ITipAutoCompleteProvider_Impl: windows_core::IUnknownImpl {
-    fn UpdatePendingText(&self, bstrpendingtext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Show(&self, fshow: windows_core::BOOL) -> windows_core::Result<()>;
+    fn UpdatePendingText(&self, bstrpendingtext: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Show(&self, fshow: windows_core::BOOL) -> windows_result::Result<()>;
 }
 impl ITipAutoCompleteProvider_Vtbl {
     pub const fn new<Identity: ITipAutoCompleteProvider_Impl, const OFFSET: isize>() -> Self {

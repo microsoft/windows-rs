@@ -4,25 +4,25 @@ pub mod DragDrop;
 pub mod ShareTarget;
 pub struct Clipboard;
 impl Clipboard {
-    pub fn GetContent() -> windows_core::Result<DataPackageView> {
+    pub fn GetContent() -> windows_result::Result<DataPackageView> {
         Self::IClipboardStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetContent<P0>(content: P0) -> windows_core::Result<()>
+    pub fn SetContent<P0>(content: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DataPackage>,
     {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetContent)(windows_core::Interface::as_raw(this), content.param().abi()).ok() })
     }
-    pub fn Flush() -> windows_core::Result<()> {
+    pub fn Flush() -> windows_result::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).Flush)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn Clear() -> windows_core::Result<()> {
+    pub fn Clear() -> windows_result::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ContentChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ContentChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -31,22 +31,22 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).ContentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveContentChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveContentChanged(token: i64) -> windows_result::Result<()> {
         Self::IClipboardStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveContentChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn GetHistoryItemsAsync() -> windows_core::Result<windows_future::IAsyncOperation<ClipboardHistoryItemsResult>> {
+    pub fn GetHistoryItemsAsync() -> windows_result::Result<windows_future::IAsyncOperation<ClipboardHistoryItemsResult>> {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetHistoryItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ClearHistory() -> windows_core::Result<bool> {
+    pub fn ClearHistory() -> windows_result::Result<bool> {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClearHistory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DeleteItemFromHistory<P0>(item: P0) -> windows_core::Result<bool>
+    pub fn DeleteItemFromHistory<P0>(item: P0) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<ClipboardHistoryItem>,
     {
@@ -55,7 +55,7 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).DeleteItemFromHistory)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn SetHistoryItemAsContent<P0>(item: P0) -> windows_core::Result<SetHistoryItemAsContentStatus>
+    pub fn SetHistoryItemAsContent<P0>(item: P0) -> windows_result::Result<SetHistoryItemAsContentStatus>
     where
         P0: windows_core::Param<ClipboardHistoryItem>,
     {
@@ -64,19 +64,19 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).SetHistoryItemAsContent)(windows_core::Interface::as_raw(this), item.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn IsHistoryEnabled() -> windows_core::Result<bool> {
+    pub fn IsHistoryEnabled() -> windows_result::Result<bool> {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsHistoryEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsRoamingEnabled() -> windows_core::Result<bool> {
+    pub fn IsRoamingEnabled() -> windows_result::Result<bool> {
         Self::IClipboardStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRoamingEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SetContentWithOptions<P0, P1>(content: P0, options: P1) -> windows_core::Result<bool>
+    pub fn SetContentWithOptions<P0, P1>(content: P0, options: P1) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<DataPackage>,
         P1: windows_core::Param<ClipboardContentOptions>,
@@ -86,7 +86,7 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).SetContentWithOptions)(windows_core::Interface::as_raw(this), content.param().abi(), options.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn HistoryChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn HistoryChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<ClipboardHistoryChangedEventArgs>>,
     {
@@ -95,10 +95,10 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).HistoryChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveHistoryChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveHistoryChanged(token: i64) -> windows_result::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHistoryChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RoamingEnabledChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RoamingEnabledChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -107,10 +107,10 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).RoamingEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRoamingEnabledChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRoamingEnabledChanged(token: i64) -> windows_result::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRoamingEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn HistoryEnabledChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn HistoryEnabledChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -119,14 +119,14 @@ impl Clipboard {
             (windows_core::Interface::vtable(this).HistoryEnabledChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveHistoryEnabledChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveHistoryEnabledChanged(token: i64) -> windows_result::Result<()> {
         Self::IClipboardStatics2(|this| unsafe { (windows_core::Interface::vtable(this).RemoveHistoryEnabledChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IClipboardStatics<R, F: FnOnce(&IClipboardStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClipboardStatics<R, F: FnOnce(&IClipboardStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Clipboard, IClipboardStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IClipboardStatics2<R, F: FnOnce(&IClipboardStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IClipboardStatics2<R, F: FnOnce(&IClipboardStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Clipboard, IClipboardStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -139,43 +139,43 @@ impl windows_core::RuntimeName for Clipboard {
 pub struct ClipboardContentOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardContentOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardContentOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ClipboardContentOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn IsRoamable(&self) -> windows_core::Result<bool> {
+    pub fn IsRoamable(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRoamable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsRoamable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsRoamable(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsRoamable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsAllowedInHistory(&self) -> windows_core::Result<bool> {
+    pub fn IsAllowedInHistory(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAllowedInHistory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsAllowedInHistory(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsAllowedInHistory(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsAllowedInHistory)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RoamingFormats(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn RoamingFormats(&self) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RoamingFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HistoryFormats(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn HistoryFormats(&self) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -217,21 +217,21 @@ unsafe impl Sync for ClipboardHistoryChangedEventArgs {}
 pub struct ClipboardHistoryItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryItem, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardHistoryItem {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Content(&self) -> windows_core::Result<DataPackageView> {
+    pub fn Content(&self) -> windows_result::Result<DataPackageView> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -256,14 +256,14 @@ unsafe impl Sync for ClipboardHistoryItem {}
 pub struct ClipboardHistoryItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ClipboardHistoryItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl ClipboardHistoryItemsResult {
-    pub fn Status(&self) -> windows_core::Result<ClipboardHistoryItemsResultStatus> {
+    pub fn Status(&self) -> windows_result::Result<ClipboardHistoryItemsResultStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Items(&self) -> windows_core::Result<windows_collections::IVectorView<ClipboardHistoryItem>> {
+    pub fn Items(&self) -> windows_result::Result<windows_collections::IVectorView<ClipboardHistoryItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -302,39 +302,39 @@ impl windows_core::RuntimeType for ClipboardHistoryItemsResultStatus {
 pub struct DataPackage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackage, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPackage {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataPackage, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn GetView(&self) -> windows_core::Result<DataPackageView> {
+    pub fn GetView(&self) -> windows_result::Result<DataPackageView> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Properties(&self) -> windows_core::Result<DataPackagePropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<DataPackagePropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestedOperation(&self) -> windows_core::Result<DataPackageOperation> {
+    pub fn RequestedOperation(&self) -> windows_result::Result<DataPackageOperation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestedOperation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRequestedOperation(&self, value: DataPackageOperation) -> windows_core::Result<()> {
+    pub fn SetRequestedOperation(&self, value: DataPackageOperation) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequestedOperation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OperationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn OperationCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, OperationCompletedEventArgs>>,
     {
@@ -344,11 +344,11 @@ impl DataPackage {
             (windows_core::Interface::vtable(this).OperationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveOperationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveOperationCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveOperationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Destroyed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Destroyed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, windows_core::IInspectable>>,
     {
@@ -358,53 +358,53 @@ impl DataPackage {
             (windows_core::Interface::vtable(this).Destroyed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDestroyed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDestroyed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDestroyed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SetData<P1>(&self, formatid: &windows_core::HSTRING, value: P1) -> windows_core::Result<()>
+    pub fn SetData<P1>(&self, formatid: &windows_core::HSTRING, value: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), value.param().abi()).ok() }
     }
-    pub fn SetDataProvider<P1>(&self, formatid: &windows_core::HSTRING, delayrenderer: P1) -> windows_core::Result<()>
+    pub fn SetDataProvider<P1>(&self, formatid: &windows_core::HSTRING, delayrenderer: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<DataProviderHandler>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), delayrenderer.param().abi()).ok() }
     }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SetHtmlFormat(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetHtmlFormat(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHtmlFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ResourceMap(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn ResourceMap(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResourceMap)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRtf(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetRtf(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRtf)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetBitmap<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBitmap<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
     {
@@ -412,7 +412,7 @@ impl DataPackage {
         unsafe { (windows_core::Interface::vtable(this).SetBitmap)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
-    pub fn SetStorageItemsReadOnly<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetStorageItemsReadOnly<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
     {
@@ -420,28 +420,28 @@ impl DataPackage {
         unsafe { (windows_core::Interface::vtable(this).SetStorageItemsReadOnly)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
-    pub fn SetStorageItems<P0>(&self, value: P0, readonly: bool) -> windows_core::Result<()>
+    pub fn SetStorageItems<P0>(&self, value: P0, readonly: bool) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Storage::IStorageItem>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStorageItems)(windows_core::Interface::as_raw(this), value.param().abi(), readonly).ok() }
     }
-    pub fn SetApplicationLink<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetApplicationLink<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetApplicationLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SetWebLink<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetWebLink<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackage2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetWebLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ShareCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ShareCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, ShareCompletedEventArgs>>,
     {
@@ -451,11 +451,11 @@ impl DataPackage {
             (windows_core::Interface::vtable(this).ShareCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveShareCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveShareCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackage3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveShareCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ShareCanceled<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ShareCanceled<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataPackage, windows_core::IInspectable>>,
     {
@@ -465,7 +465,7 @@ impl DataPackage {
             (windows_core::Interface::vtable(this).ShareCanceled)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveShareCanceled(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveShareCanceled(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackage4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveShareCanceled)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -536,30 +536,30 @@ pub struct DataPackagePropertySet(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySet, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( DataPackagePropertySet , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMap < windows_core::HSTRING , windows_core::IInspectable > );
 impl DataPackagePropertySet {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -567,86 +567,86 @@ impl DataPackagePropertySet {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetThumbnail<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetThumbnail<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetThumbnail)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn FileTypes(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn FileTypes(&self) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApplicationName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ApplicationName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetApplicationName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetApplicationName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetApplicationName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ApplicationListingUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ApplicationListingUri(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationListingUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetApplicationListingUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetApplicationListingUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetApplicationListingUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ContentSourceWebLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ContentSourceWebLink(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSourceWebLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetContentSourceWebLink<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetContentSourceWebLink<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetContentSourceWebLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ContentSourceApplicationLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ContentSourceApplicationLink(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSourceApplicationLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetContentSourceApplicationLink<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetContentSourceApplicationLink<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetContentSourceApplicationLink)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageFamilyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPackageFamilyName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPackageFamilyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Square30x30Logo(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Square30x30Logo(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -654,7 +654,7 @@ impl DataPackagePropertySet {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetSquare30x30Logo<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetSquare30x30Logo<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -662,7 +662,7 @@ impl DataPackagePropertySet {
         unsafe { (windows_core::Interface::vtable(this).SetSquare30x30Logo)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn LogoBackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn LogoBackgroundColor(&self) -> windows_result::Result<super::super::UI::Color> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -670,68 +670,68 @@ impl DataPackagePropertySet {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetLogoBackgroundColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetLogoBackgroundColor(&self, value: super::super::UI::Color) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetLogoBackgroundColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EnterpriseId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetEnterpriseId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetEnterpriseId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetEnterpriseId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ContentSourceUserActivityJson(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContentSourceUserActivityJson(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSourceUserActivityJson)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetContentSourceUserActivityJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetContentSourceUserActivityJson(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySet4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetContentSourceUserActivityJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_result::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
+    pub fn GetView(&self) -> windows_result::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> windows_core::Result<bool>
+    pub fn Insert<P1>(&self, key: &windows_core::HSTRING, value: P1) -> windows_result::Result<bool>
     where
         P1: windows_core::Param<windows_core::IInspectable>,
     {
@@ -741,11 +741,11 @@ impl DataPackagePropertySet {
             (windows_core::Interface::vtable(this).Insert)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Remove(&self, key: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMap<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -782,14 +782,14 @@ pub struct DataPackagePropertySetView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackagePropertySetView, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy ! ( DataPackagePropertySetView , windows_collections:: IIterable < windows_collections:: IKeyValuePair < windows_core::HSTRING , windows_core::IInspectable > > , windows_collections:: IMapView < windows_core::HSTRING , windows_core::IInspectable > );
 impl DataPackagePropertySetView {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -797,49 +797,49 @@ impl DataPackagePropertySetView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FileTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn FileTypes(&self) -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ApplicationName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ApplicationName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ApplicationListingUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ApplicationListingUri(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationListingUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PackageFamilyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContentSourceWebLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ContentSourceWebLink(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSourceWebLink)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContentSourceApplicationLink(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn ContentSourceApplicationLink(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -847,7 +847,7 @@ impl DataPackagePropertySetView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Square30x30Logo(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Square30x30Logo(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -855,63 +855,63 @@ impl DataPackagePropertySetView {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn LogoBackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn LogoBackgroundColor(&self) -> windows_result::Result<super::super::UI::Color> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LogoBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EnterpriseId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EnterpriseId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnterpriseId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContentSourceUserActivityJson(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContentSourceUserActivityJson(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentSourceUserActivityJson)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsFromRoamingClipboard(&self) -> windows_core::Result<bool> {
+    pub fn IsFromRoamingClipboard(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IDataPackagePropertySetView5>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFromRoamingClipboard)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::IInspectable>>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Lookup(&self, key: &windows_core::HSTRING) -> windows_result::Result<windows_core::IInspectable> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Lookup)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn HasKey(&self, key: &windows_core::HSTRING) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasKey)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key), &mut result__).map(|| result__)
         }
     }
-    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_core::Result<()> {
+    pub fn Split(&self, first: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>, second: &mut Option<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IMapView<windows_core::HSTRING, windows_core::IInspectable>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Split)(windows_core::Interface::as_raw(this), first as *mut _ as _, second as *mut _ as _).ok() }
     }
@@ -947,67 +947,67 @@ impl IntoIterator for &DataPackagePropertySetView {
 pub struct DataPackageView(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataPackageView, windows_core::IUnknown, windows_core::IInspectable);
 impl DataPackageView {
-    pub fn Properties(&self) -> windows_core::Result<DataPackagePropertySetView> {
+    pub fn Properties(&self) -> windows_result::Result<DataPackagePropertySetView> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestedOperation(&self) -> windows_core::Result<DataPackageOperation> {
+    pub fn RequestedOperation(&self) -> windows_result::Result<DataPackageOperation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestedOperation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReportOperationCompleted(&self, value: DataPackageOperation) -> windows_core::Result<()> {
+    pub fn ReportOperationCompleted(&self, value: DataPackageOperation) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportOperationCompleted)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AvailableFormats(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn AvailableFormats(&self) -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Contains(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn Contains(&self, formatid: &windows_core::HSTRING) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contains)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDataAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::IInspectable>> {
+    pub fn GetDataAsync(&self, formatid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::IInspectable>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDataAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetTextAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetTextAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTextAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCustomTextAsync(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetCustomTextAsync(&self, formatid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCustomTextAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetUriAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetUriAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUriAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetHtmlFormatAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetHtmlFormatAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1015,14 +1015,14 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetResourceMapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>> {
+    pub fn GetResourceMapAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, super::super::Storage::Streams::RandomAccessStreamReference>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetResourceMapAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRtfAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetRtfAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1030,7 +1030,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetBitmapAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
+    pub fn GetBitmapAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Storage::Streams::RandomAccessStreamReference>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1038,21 +1038,21 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Storage")]
-    pub fn GetStorageItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::super::Storage::IStorageItem>>> {
+    pub fn GetStorageItemsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::super::Storage::IStorageItem>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStorageItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetApplicationLinkAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetApplicationLinkAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &windows_core::Interface::cast::<IDataPackageView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetApplicationLinkAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetWebLinkAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
+    pub fn GetWebLinkAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Foundation::Uri>> {
         let this = &windows_core::Interface::cast::<IDataPackageView2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1060,7 +1060,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Security_EnterpriseData")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &windows_core::Interface::cast::<IDataPackageView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1068,7 +1068,7 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Security_EnterpriseData")]
-    pub fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
+    pub fn RequestAccessWithEnterpriseIdAsync(&self, enterpriseid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult>> {
         let this = &windows_core::Interface::cast::<IDataPackageView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1076,14 +1076,14 @@ impl DataPackageView {
         }
     }
     #[cfg(feature = "Security_EnterpriseData")]
-    pub fn UnlockAndAssumeEnterpriseIdentity(&self) -> windows_core::Result<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult> {
+    pub fn UnlockAndAssumeEnterpriseIdentity(&self) -> windows_result::Result<super::super::Security::EnterpriseData::ProtectionPolicyEvaluationResult> {
         let this = &windows_core::Interface::cast::<IDataPackageView3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnlockAndAssumeEnterpriseIdentity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAcceptedFormatId(&self, formatid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetAcceptedFormatId(&self, formatid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataPackageView4>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAcceptedFormatId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(formatid)).ok() }
     }
@@ -1105,7 +1105,7 @@ unsafe impl Sync for DataPackageView {}
 pub struct DataProviderDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProviderDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProviderDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1127,11 +1127,11 @@ impl windows_core::RuntimeType for DataProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DataProviderHandler {
-    pub fn new<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DataProviderHandlerBox { vtable: &DataProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, request: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, request: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DataProviderRequest>,
     {
@@ -1146,12 +1146,12 @@ pub struct DataProviderHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, request: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DataProviderHandlerBox<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> {
+struct DataProviderHandlerBox<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const DataProviderHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_result::Result<()> + Send + 'static> DataProviderHandlerBox<F> {
     const VTABLE: DataProviderHandler_Vtbl = DataProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -1203,28 +1203,28 @@ impl<F: Fn(windows_core::Ref<DataProviderRequest>) -> windows_core::Result<()> +
 pub struct DataProviderRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataProviderRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl DataProviderRequest {
-    pub fn FormatId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FormatId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FormatId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<DataProviderDeferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<DataProviderDeferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -1249,32 +1249,32 @@ unsafe impl Sync for DataProviderRequest {}
 pub struct DataRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequest {
-    pub fn Data(&self) -> windows_core::Result<DataPackage> {
+    pub fn Data(&self) -> windows_result::Result<DataPackage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetData<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DataPackage>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Deadline)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FailWithDisplayText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn FailWithDisplayText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).FailWithDisplayText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<DataRequestDeferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<DataRequestDeferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1299,7 +1299,7 @@ unsafe impl Sync for DataRequest {}
 pub struct DataRequestDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequestDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequestDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1321,7 +1321,7 @@ unsafe impl Sync for DataRequestDeferral {}
 pub struct DataRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DataRequestedEventArgs {
-    pub fn Request(&self) -> windows_core::Result<DataRequest> {
+    pub fn Request(&self) -> windows_result::Result<DataRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1346,7 +1346,7 @@ unsafe impl Sync for DataRequestedEventArgs {}
 pub struct DataTransferManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DataTransferManager, windows_core::IUnknown, windows_core::IInspectable);
 impl DataTransferManager {
-    pub fn DataRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DataRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, DataRequestedEventArgs>>,
     {
@@ -1356,11 +1356,11 @@ impl DataTransferManager {
             (windows_core::Interface::vtable(this).DataRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDataRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDataRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDataRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TargetApplicationChosen<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TargetApplicationChosen<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, TargetApplicationChosenEventArgs>>,
     {
@@ -1370,11 +1370,11 @@ impl DataTransferManager {
             (windows_core::Interface::vtable(this).TargetApplicationChosen)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTargetApplicationChosen(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTargetApplicationChosen(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTargetApplicationChosen)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ShareProvidersRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ShareProvidersRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DataTransferManager, ShareProvidersRequestedEventArgs>>,
     {
@@ -1384,40 +1384,40 @@ impl DataTransferManager {
             (windows_core::Interface::vtable(this).ShareProvidersRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveShareProvidersRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveShareProvidersRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IDataTransferManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveShareProvidersRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ShowShareUI() -> windows_core::Result<()> {
+    pub fn ShowShareUI() -> windows_result::Result<()> {
         Self::IDataTransferManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn GetForCurrentView() -> windows_core::Result<DataTransferManager> {
+    pub fn GetForCurrentView() -> windows_result::Result<DataTransferManager> {
         Self::IDataTransferManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IDataTransferManagerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ShowShareUIWithOptions<P0>(options: P0) -> windows_core::Result<()>
+    pub fn ShowShareUIWithOptions<P0>(options: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ShareUIOptions>,
     {
         Self::IDataTransferManagerStatics3(|this| unsafe { (windows_core::Interface::vtable(this).ShowShareUIWithOptions)(windows_core::Interface::as_raw(this), options.param().abi()).ok() })
     }
-    fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics<R, F: FnOnce(&IDataTransferManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IDataTransferManagerStatics2<R, F: FnOnce(&IDataTransferManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics2<R, F: FnOnce(&IDataTransferManagerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IDataTransferManagerStatics3<R, F: FnOnce(&IDataTransferManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDataTransferManagerStatics3<R, F: FnOnce(&IDataTransferManagerStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DataTransferManager, IDataTransferManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1434,19 +1434,19 @@ impl windows_core::RuntimeName for DataTransferManager {
 }
 pub struct HtmlFormatHelper;
 impl HtmlFormatHelper {
-    pub fn GetStaticFragment(htmlformat: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetStaticFragment(htmlformat: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         Self::IHtmlFormatHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStaticFragment)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(htmlformat), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CreateHtmlFormat(htmlfragment: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CreateHtmlFormat(htmlfragment: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         Self::IHtmlFormatHelperStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateHtmlFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(htmlfragment), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IHtmlFormatHelperStatics<R, F: FnOnce(&IHtmlFormatHelperStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHtmlFormatHelperStatics<R, F: FnOnce(&IHtmlFormatHelperStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HtmlFormatHelper, IHtmlFormatHelperStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2134,14 +2134,14 @@ pub struct ITargetApplicationChosenEventArgs_Vtbl {
 pub struct OperationCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(OperationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl OperationCompletedEventArgs {
-    pub fn Operation(&self) -> windows_core::Result<DataPackageOperation> {
+    pub fn Operation(&self) -> windows_result::Result<DataPackageOperation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AcceptedFormatId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AcceptedFormatId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IOperationCompletedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2180,7 +2180,7 @@ impl windows_core::RuntimeType for SetHistoryItemAsContentStatus {
 pub struct ShareCompletedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareCompletedEventArgs {
-    pub fn ShareTarget(&self) -> windows_core::Result<ShareTargetInfo> {
+    pub fn ShareTarget(&self) -> windows_result::Result<ShareTargetInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2205,7 +2205,7 @@ unsafe impl Sync for ShareCompletedEventArgs {}
 pub struct ShareProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProvider {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2213,7 +2213,7 @@ impl ShareProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DisplayIcon(&self) -> windows_core::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
+    pub fn DisplayIcon(&self) -> windows_result::Result<super::super::Storage::Streams::RandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2221,21 +2221,21 @@ impl ShareProvider {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn BackgroundColor(&self) -> windows_result::Result<super::super::UI::Color> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTag<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -2243,7 +2243,7 @@ impl ShareProvider {
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(all(feature = "Storage_Streams", feature = "UI"))]
-    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_core::Result<ShareProvider>
+    pub fn Create<P1, P3>(title: &windows_core::HSTRING, displayicon: P1, backgroundcolor: super::super::UI::Color, handler: P3) -> windows_result::Result<ShareProvider>
     where
         P1: windows_core::Param<super::super::Storage::Streams::RandomAccessStreamReference>,
         P3: windows_core::Param<ShareProviderHandler>,
@@ -2253,7 +2253,7 @@ impl ShareProvider {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(title), displayicon.param().abi(), backgroundcolor, handler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShareProviderFactory<R, F: FnOnce(&IShareProviderFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShareProvider, IShareProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2275,11 +2275,11 @@ impl windows_core::RuntimeType for ShareProviderHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl ShareProviderHandler {
-    pub fn new<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = ShareProviderHandlerBox { vtable: &ShareProviderHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, operation: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, operation: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ShareProviderOperation>,
     {
@@ -2294,12 +2294,12 @@ pub struct ShareProviderHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, operation: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct ShareProviderHandlerBox<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> {
+struct ShareProviderHandlerBox<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const ShareProviderHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()> + Send + 'static> ShareProviderHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_result::Result<()> + Send + 'static> ShareProviderHandlerBox<F> {
     const VTABLE: ShareProviderHandler_Vtbl = ShareProviderHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -2351,21 +2351,21 @@ impl<F: Fn(windows_core::Ref<ShareProviderOperation>) -> windows_core::Result<()
 pub struct ShareProviderOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProviderOperation {
-    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
+    pub fn Data(&self) -> windows_result::Result<DataPackageView> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Provider(&self) -> windows_core::Result<ShareProvider> {
+    pub fn Provider(&self) -> windows_result::Result<ShareProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Provider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -2387,21 +2387,21 @@ unsafe impl Sync for ShareProviderOperation {}
 pub struct ShareProvidersRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareProvidersRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareProvidersRequestedEventArgs {
-    pub fn Providers(&self) -> windows_core::Result<windows_collections::IVector<ShareProvider>> {
+    pub fn Providers(&self) -> windows_result::Result<windows_collections::IVector<ShareProvider>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Providers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Data(&self) -> windows_core::Result<DataPackageView> {
+    pub fn Data(&self) -> windows_result::Result<DataPackageView> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2426,14 +2426,14 @@ unsafe impl Sync for ShareProvidersRequestedEventArgs {}
 pub struct ShareTargetInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareTargetInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareTargetInfo {
-    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppUserModelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ShareProvider(&self) -> windows_core::Result<ShareProvider> {
+    pub fn ShareProvider(&self) -> windows_result::Result<ShareProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2458,32 +2458,32 @@ unsafe impl Sync for ShareTargetInfo {}
 pub struct ShareUIOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareUIOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareUIOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShareUIOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Theme(&self) -> windows_core::Result<ShareUITheme> {
+    pub fn Theme(&self) -> windows_result::Result<ShareUITheme> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Theme)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTheme(&self, value: ShareUITheme) -> windows_core::Result<()> {
+    pub fn SetTheme(&self, value: ShareUITheme) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTheme)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SelectionRect(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
+    pub fn SelectionRect(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionRect)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetSelectionRect<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::Rect>>,
     {
@@ -2520,7 +2520,7 @@ impl windows_core::RuntimeType for ShareUITheme {
 pub struct SharedStorageAccessManager;
 impl SharedStorageAccessManager {
     #[cfg(feature = "Storage_Streams")]
-    pub fn AddFile<P0>(file: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn AddFile<P0>(file: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -2530,16 +2530,16 @@ impl SharedStorageAccessManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>> {
+    pub fn RedeemTokenForFileAsync(token: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Storage::StorageFile>> {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RedeemTokenForFileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RemoveFile(token: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn RemoveFile(token: &windows_core::HSTRING) -> windows_result::Result<()> {
         Self::ISharedStorageAccessManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveFile)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token)).ok() })
     }
-    fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISharedStorageAccessManagerStatics<R, F: FnOnce(&ISharedStorageAccessManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SharedStorageAccessManager, ISharedStorageAccessManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2549,69 +2549,69 @@ impl windows_core::RuntimeName for SharedStorageAccessManager {
 }
 pub struct StandardDataFormats;
 impl StandardDataFormats {
-    pub fn Text() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Uri() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Uri() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Html() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Html() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Html)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rtf() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rtf() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rtf)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Bitmap() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Bitmap() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bitmap)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn StorageItems() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn StorageItems() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageItems)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn WebLink() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn WebLink() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WebLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ApplicationLink() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ApplicationLink() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ApplicationLink)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn UserActivityJsonArray() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserActivityJsonArray() -> windows_result::Result<windows_core::HSTRING> {
         Self::IStandardDataFormatsStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserActivityJsonArray)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics<R, F: FnOnce(&IStandardDataFormatsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics2<R, F: FnOnce(&IStandardDataFormatsStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IStandardDataFormatsStatics3<R, F: FnOnce(&IStandardDataFormatsStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<StandardDataFormats, IStandardDataFormatsStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2624,7 +2624,7 @@ impl windows_core::RuntimeName for StandardDataFormats {
 pub struct TargetApplicationChosenEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TargetApplicationChosenEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TargetApplicationChosenEventArgs {
-    pub fn ApplicationName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ApplicationName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

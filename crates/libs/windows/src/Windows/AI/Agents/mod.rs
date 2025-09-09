@@ -18,14 +18,14 @@ impl windows_core::RuntimeType for AgentAuthorizationResponse {
 pub struct AgentContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AgentContext, windows_core::IUnknown, windows_core::IInspectable);
 impl AgentContext {
-    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppUserModelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RequestResourceAccess<P0>(&self, resource: P0, description: &windows_core::HSTRING, reasonforasking: &windows_core::HSTRING) -> windows_core::Result<AgentAuthorizationResponse>
+    pub fn RequestResourceAccess<P0>(&self, resource: P0, description: &windows_core::HSTRING, reasonforasking: &windows_core::HSTRING) -> windows_result::Result<AgentAuthorizationResponse>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -35,13 +35,13 @@ impl AgentContext {
             (windows_core::Interface::vtable(this).RequestResourceAccess)(windows_core::Interface::as_raw(this), resource.param().abi(), core::mem::transmute_copy(description), core::mem::transmute_copy(reasonforasking), &mut result__).map(|| result__)
         }
     }
-    pub fn GetContextForCaller() -> windows_core::Result<AgentContext> {
+    pub fn GetContextForCaller() -> windows_result::Result<AgentContext> {
         Self::IAgentContextStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetContextForCaller)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAgentContextStatics<R, F: FnOnce(&IAgentContextStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAgentContextStatics<R, F: FnOnce(&IAgentContextStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AgentContext, IAgentContextStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -63,21 +63,21 @@ unsafe impl Sync for AgentContext {}
 pub struct AgentInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AgentInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl AgentInfo {
-    pub fn Id(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -85,7 +85,7 @@ impl AgentInfo {
         }
     }
     #[cfg(feature = "ApplicationModel")]
-    pub fn GetPackage(&self) -> windows_core::Result<super::super::ApplicationModel::Package> {
+    pub fn GetPackage(&self) -> windows_result::Result<super::super::ApplicationModel::Package> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -107,55 +107,55 @@ unsafe impl Send for AgentInfo {}
 unsafe impl Sync for AgentInfo {}
 pub struct AgentResources;
 impl AgentResources {
-    pub fn FileSystemRead() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FileSystemRead() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSystemRead)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FileSystemWrite() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FileSystemWrite() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSystemWrite)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FileSystemDelete() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FileSystemDelete() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSystemDelete)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FileSystemCreate() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FileSystemCreate() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileSystemCreate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HttpGet() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HttpGet() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HttpGet)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HttpPost() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HttpPost() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HttpPost)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HttpPut() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HttpPut() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HttpPut)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HttpDelete() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HttpDelete() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAgentResourcesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HttpDelete)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IAgentResourcesStatics<R, F: FnOnce(&IAgentResourcesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAgentResourcesStatics<R, F: FnOnce(&IAgentResourcesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AgentResources, IAgentResourcesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

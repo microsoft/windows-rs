@@ -66,7 +66,7 @@ pub unsafe fn MagSetImageScalingCallback(hwnd: super::super::Foundation::HWND, c
     unsafe { MagSetImageScalingCallback(hwnd, callback) }
 }
 #[inline]
-pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_core::Result<()> {
+pub unsafe fn MagSetInputTransform(fenabled: bool, prectsource: *const super::super::Foundation::RECT, prectdest: *const super::super::Foundation::RECT) -> windows_result::Result<()> {
     windows_link::link!("magnification.dll" "system" fn MagSetInputTransform(fenabled : windows_core::BOOL, prectsource : *const super::super::Foundation:: RECT, prectdest : *const super::super::Foundation:: RECT) -> windows_core::BOOL);
     unsafe { MagSetInputTransform(fenabled.into(), prectsource, prectdest).ok() }
 }

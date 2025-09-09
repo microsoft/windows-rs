@@ -239,14 +239,14 @@ pub struct ITouchCapabilities_Vtbl {
 pub struct KeyboardCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardCapabilities {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyboardCapabilities, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn KeyboardPresent(&self) -> windows_core::Result<i32> {
+    pub fn KeyboardPresent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,42 +271,42 @@ unsafe impl Sync for KeyboardCapabilities {}
 pub struct MouseCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseCapabilities {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MouseCapabilities, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MousePresent(&self) -> windows_core::Result<i32> {
+    pub fn MousePresent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MousePresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VerticalWheelPresent(&self) -> windows_core::Result<i32> {
+    pub fn VerticalWheelPresent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VerticalWheelPresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HorizontalWheelPresent(&self) -> windows_core::Result<i32> {
+    pub fn HorizontalWheelPresent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HorizontalWheelPresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SwapButtons(&self) -> windows_core::Result<i32> {
+    pub fn SwapButtons(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SwapButtons)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NumberOfButtons(&self) -> windows_core::Result<u32> {
+    pub fn NumberOfButtons(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -343,7 +343,7 @@ impl windows_core::RuntimeType for MouseDelta {
 pub struct MouseDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseDevice {
-    pub fn MouseMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MouseMoved<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<MouseDevice, MouseEventArgs>>,
     {
@@ -353,17 +353,17 @@ impl MouseDevice {
             (windows_core::Interface::vtable(this).MouseMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMouseMoved(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveMouseMoved(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMouseMoved)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<MouseDevice> {
+    pub fn GetForCurrentView() -> windows_result::Result<MouseDevice> {
         Self::IMouseDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMouseDeviceStatics<R, F: FnOnce(&IMouseDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MouseDevice, IMouseDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -383,7 +383,7 @@ impl windows_core::RuntimeName for MouseDevice {
 pub struct MouseEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MouseEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl MouseEventArgs {
-    pub fn MouseDelta(&self) -> windows_core::Result<MouseDelta> {
+    pub fn MouseDelta(&self) -> windows_result::Result<MouseDelta> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -406,14 +406,14 @@ impl windows_core::RuntimeName for MouseEventArgs {
 pub struct PenButtonListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenButtonListener, windows_core::IUnknown, windows_core::IInspectable);
 impl PenButtonListener {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, windows_core::IInspectable>>,
     {
@@ -423,11 +423,11 @@ impl PenButtonListener {
             (windows_core::Interface::vtable(this).IsSupportedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsSupportedChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsSupportedChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsSupportedChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TailButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TailButtonClicked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonClickedEventArgs>>,
     {
@@ -437,11 +437,11 @@ impl PenButtonListener {
             (windows_core::Interface::vtable(this).TailButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTailButtonClicked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTailButtonClicked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTailButtonClicked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TailButtonDoubleClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TailButtonDoubleClicked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonDoubleClickedEventArgs>>,
     {
@@ -451,11 +451,11 @@ impl PenButtonListener {
             (windows_core::Interface::vtable(this).TailButtonDoubleClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTailButtonDoubleClicked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTailButtonDoubleClicked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTailButtonDoubleClicked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TailButtonLongPressed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TailButtonLongPressed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenButtonListener, PenTailButtonLongPressedEventArgs>>,
     {
@@ -465,17 +465,17 @@ impl PenButtonListener {
             (windows_core::Interface::vtable(this).TailButtonLongPressed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTailButtonLongPressed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTailButtonLongPressed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTailButtonLongPressed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<PenButtonListener> {
+    pub fn GetDefault() -> windows_result::Result<PenButtonListener> {
         Self::IPenButtonListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenButtonListenerStatics<R, F: FnOnce(&IPenButtonListenerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenButtonListener, IPenButtonListenerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -497,7 +497,7 @@ unsafe impl Sync for PenButtonListener {}
 pub struct PenDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl PenDevice {
-    pub fn PenId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn PenId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -505,20 +505,20 @@ impl PenDevice {
         }
     }
     #[cfg(feature = "Devices_Haptics")]
-    pub fn SimpleHapticsController(&self) -> windows_core::Result<super::Haptics::SimpleHapticsController> {
+    pub fn SimpleHapticsController(&self) -> windows_result::Result<super::Haptics::SimpleHapticsController> {
         let this = &windows_core::Interface::cast::<IPenDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SimpleHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFromPointerId(pointerid: u32) -> windows_core::Result<PenDevice> {
+    pub fn GetFromPointerId(pointerid: u32) -> windows_result::Result<PenDevice> {
         Self::IPenDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFromPointerId)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenDeviceStatics<R, F: FnOnce(&IPenDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenDevice, IPenDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -540,14 +540,14 @@ unsafe impl Sync for PenDevice {}
 pub struct PenDockListener(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PenDockListener, windows_core::IUnknown, windows_core::IInspectable);
 impl PenDockListener {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsSupportedChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, windows_core::IInspectable>>,
     {
@@ -557,11 +557,11 @@ impl PenDockListener {
             (windows_core::Interface::vtable(this).IsSupportedChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsSupportedChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsSupportedChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsSupportedChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Docked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Docked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, PenDockedEventArgs>>,
     {
@@ -571,11 +571,11 @@ impl PenDockListener {
             (windows_core::Interface::vtable(this).Docked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDocked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDocked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDocked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Undocked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Undocked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PenDockListener, PenUndockedEventArgs>>,
     {
@@ -585,17 +585,17 @@ impl PenDockListener {
             (windows_core::Interface::vtable(this).Undocked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUndocked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUndocked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUndocked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<PenDockListener> {
+    pub fn GetDefault() -> windows_result::Result<PenDockListener> {
         Self::IPenDockListenerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPenDockListenerStatics<R, F: FnOnce(&IPenDockListenerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PenDockListener, IPenDockListenerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -702,68 +702,68 @@ unsafe impl Sync for PenUndockedEventArgs {}
 pub struct PointerDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PointerDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl PointerDevice {
-    pub fn PointerDeviceType(&self) -> windows_core::Result<PointerDeviceType> {
+    pub fn PointerDeviceType(&self) -> windows_result::Result<PointerDeviceType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PointerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsIntegrated(&self) -> windows_core::Result<bool> {
+    pub fn IsIntegrated(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIntegrated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxContacts(&self) -> windows_core::Result<u32> {
+    pub fn MaxContacts(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxContacts)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PhysicalDeviceRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn PhysicalDeviceRect(&self) -> windows_result::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhysicalDeviceRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ScreenRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn ScreenRect(&self) -> windows_result::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScreenRect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedUsages(&self) -> windows_core::Result<windows_collections::IVectorView<PointerDeviceUsage>> {
+    pub fn SupportedUsages(&self) -> windows_result::Result<windows_collections::IVectorView<PointerDeviceUsage>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedUsages)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaxPointersWithZDistance(&self) -> windows_core::Result<u32> {
+    pub fn MaxPointersWithZDistance(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<IPointerDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPointersWithZDistance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetPointerDevice(pointerid: u32) -> windows_core::Result<PointerDevice> {
+    pub fn GetPointerDevice(pointerid: u32) -> windows_result::Result<PointerDevice> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPointerDevice)(windows_core::Interface::as_raw(this), pointerid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPointerDevices() -> windows_core::Result<windows_collections::IVectorView<PointerDevice>> {
+    pub fn GetPointerDevices() -> windows_result::Result<windows_collections::IVectorView<PointerDevice>> {
         Self::IPointerDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPointerDevices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPointerDeviceStatics<R, F: FnOnce(&IPointerDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PointerDevice, IPointerDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -816,21 +816,21 @@ impl windows_core::RuntimeType for PointerDeviceUsage {
 pub struct TouchCapabilities(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TouchCapabilities, windows_core::IUnknown, windows_core::IInspectable);
 impl TouchCapabilities {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TouchCapabilities, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn TouchPresent(&self) -> windows_core::Result<i32> {
+    pub fn TouchPresent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TouchPresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Contacts(&self) -> windows_core::Result<u32> {
+    pub fn Contacts(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

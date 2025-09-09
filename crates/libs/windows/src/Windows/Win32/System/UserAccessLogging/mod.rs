@@ -1,11 +1,11 @@
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalInstrument(data: *const UAL_DATA_BLOB) -> windows_result::Result<()> {
     windows_link::link!("ualapi.dll" "system" fn UalInstrument(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
     unsafe { UalInstrument(data).ok() }
 }
 #[inline]
-pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_core::Result<()>
+pub unsafe fn UalRegisterProduct<P0, P1, P2>(wszproductname: P0, wszrolename: P1, wszguid: P2) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -16,13 +16,13 @@ where
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalStart(data: *const UAL_DATA_BLOB) -> windows_result::Result<()> {
     windows_link::link!("ualapi.dll" "system" fn UalStart(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
     unsafe { UalStart(data).ok() }
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_core::Result<()> {
+pub unsafe fn UalStop(data: *const UAL_DATA_BLOB) -> windows_result::Result<()> {
     windows_link::link!("ualapi.dll" "system" fn UalStop(data : *const UAL_DATA_BLOB) -> windows_core::HRESULT);
     unsafe { UalStop(data).ok() }
 }

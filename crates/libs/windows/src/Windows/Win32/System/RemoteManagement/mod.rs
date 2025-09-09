@@ -773,7 +773,7 @@ impl core::ops::Deref for IWSMan {
 windows_core::imp::interface_hierarchy!(IWSMan, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSMan {
-    pub unsafe fn CreateSession<P2>(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: P2) -> windows_core::Result<super::Com::IDispatch>
+    pub unsafe fn CreateSession<P2>(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: P2) -> windows_result::Result<super::Com::IDispatch>
     where
         P2: windows_core::Param<super::Com::IDispatch>,
     {
@@ -782,19 +782,19 @@ impl IWSMan {
             (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(connection), flags, connectionoptions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateConnectionOptions(&self) -> windows_core::Result<super::Com::IDispatch> {
+    pub unsafe fn CreateConnectionOptions(&self) -> windows_result::Result<super::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateConnectionOptions)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CommandLine(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CommandLine(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CommandLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Error(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Error(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -813,10 +813,10 @@ pub struct IWSMan_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSMan_Impl: super::Com::IDispatch_Impl {
-    fn CreateSession(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<super::Com::IDispatch>;
-    fn CreateConnectionOptions(&self) -> windows_core::Result<super::Com::IDispatch>;
-    fn CommandLine(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn CreateSession(&self, connection: &windows_core::BSTR, flags: i32, connectionoptions: windows_core::Ref<super::Com::IDispatch>) -> windows_result::Result<super::Com::IDispatch>;
+    fn CreateConnectionOptions(&self) -> windows_result::Result<super::Com::IDispatch>;
+    fn CommandLine(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Error(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSMan_Vtbl {
@@ -896,16 +896,16 @@ impl core::ops::Deref for IWSManConnectionOptions {
 windows_core::imp::interface_hierarchy!(IWSManConnectionOptions, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptions {
-    pub unsafe fn UserName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetUserName(&self, name: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetUserName(&self, name: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(name)).ok() }
     }
-    pub unsafe fn SetPassword(&self, password: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPassword(&self, password: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPassword)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(password)).ok() }
     }
 }
@@ -920,9 +920,9 @@ pub struct IWSManConnectionOptions_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManConnectionOptions_Impl: super::Com::IDispatch_Impl {
-    fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetUserName(&self, name: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetPassword(&self, password: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn UserName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetUserName(&self, name: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SetPassword(&self, password: &windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManConnectionOptions_Vtbl {
@@ -977,13 +977,13 @@ impl core::ops::Deref for IWSManConnectionOptionsEx {
 windows_core::imp::interface_hierarchy!(IWSManConnectionOptionsEx, windows_core::IUnknown, super::Com::IDispatch, IWSManConnectionOptions);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx {
-    pub unsafe fn CertificateThumbprint(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CertificateThumbprint(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CertificateThumbprint)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCertificateThumbprint)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(thumbprint)).ok() }
     }
 }
@@ -997,8 +997,8 @@ pub struct IWSManConnectionOptionsEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManConnectionOptionsEx_Impl: IWSManConnectionOptions_Impl {
-    fn CertificateThumbprint(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn CertificateThumbprint(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetCertificateThumbprint(&self, thumbprint: &windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManConnectionOptionsEx_Vtbl {
@@ -1046,46 +1046,46 @@ impl core::ops::Deref for IWSManConnectionOptionsEx2 {
 windows_core::imp::interface_hierarchy!(IWSManConnectionOptionsEx2, windows_core::IUnknown, super::Com::IDispatch, IWSManConnectionOptions, IWSManConnectionOptionsEx);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManConnectionOptionsEx2 {
-    pub unsafe fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetProxy)(windows_core::Interface::as_raw(self), accesstype, authenticationmechanism, core::mem::transmute_copy(username), core::mem::transmute_copy(password)).ok() }
     }
-    pub unsafe fn ProxyIEConfig(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyIEConfig(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyIEConfig)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyWinHttpConfig(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyWinHttpConfig(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyWinHttpConfig)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyAutoDetect(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyAutoDetect(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyAutoDetect)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyNoProxyServer(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyNoProxyServer(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyNoProxyServer)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyAuthenticationUseNegotiate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyAuthenticationUseNegotiate(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyAuthenticationUseNegotiate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyAuthenticationUseBasic(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyAuthenticationUseBasic(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyAuthenticationUseBasic)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ProxyAuthenticationUseDigest(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProxyAuthenticationUseDigest(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProxyAuthenticationUseDigest)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1108,14 +1108,14 @@ pub struct IWSManConnectionOptionsEx2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManConnectionOptionsEx2_Impl: IWSManConnectionOptionsEx_Impl {
-    fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ProxyIEConfig(&self) -> windows_core::Result<i32>;
-    fn ProxyWinHttpConfig(&self) -> windows_core::Result<i32>;
-    fn ProxyAutoDetect(&self) -> windows_core::Result<i32>;
-    fn ProxyNoProxyServer(&self) -> windows_core::Result<i32>;
-    fn ProxyAuthenticationUseNegotiate(&self) -> windows_core::Result<i32>;
-    fn ProxyAuthenticationUseBasic(&self) -> windows_core::Result<i32>;
-    fn ProxyAuthenticationUseDigest(&self) -> windows_core::Result<i32>;
+    fn SetProxy(&self, accesstype: i32, authenticationmechanism: i32, username: &windows_core::BSTR, password: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn ProxyIEConfig(&self) -> windows_result::Result<i32>;
+    fn ProxyWinHttpConfig(&self) -> windows_result::Result<i32>;
+    fn ProxyAutoDetect(&self) -> windows_result::Result<i32>;
+    fn ProxyNoProxyServer(&self) -> windows_result::Result<i32>;
+    fn ProxyAuthenticationUseNegotiate(&self) -> windows_result::Result<i32>;
+    fn ProxyAuthenticationUseBasic(&self) -> windows_result::Result<i32>;
+    fn ProxyAuthenticationUseDigest(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManConnectionOptionsEx2_Vtbl {
@@ -1241,19 +1241,19 @@ impl core::ops::Deref for IWSManEnumerator {
 windows_core::imp::interface_hierarchy!(IWSManEnumerator, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEnumerator {
-    pub unsafe fn ReadItem(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReadItem(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReadItem)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AtEndOfStream(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn AtEndOfStream(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AtEndOfStream)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Error(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Error(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -1271,9 +1271,9 @@ pub struct IWSManEnumerator_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManEnumerator_Impl: super::Com::IDispatch_Impl {
-    fn ReadItem(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AtEndOfStream(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn ReadItem(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn AtEndOfStream(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Error(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManEnumerator_Vtbl {
@@ -1340,121 +1340,121 @@ impl core::ops::Deref for IWSManEx {
 windows_core::imp::interface_hierarchy!(IWSManEx, windows_core::IUnknown, super::Com::IDispatch, IWSMan);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx {
-    pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch> {
+    pub unsafe fn CreateResourceLocator(&self, strresourcelocator: &windows_core::BSTR) -> windows_result::Result<super::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateResourceLocator)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(strresourcelocator), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SessionFlagUTF8(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUTF8(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUTF8)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagCredUsernamePassword(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagCredUsernamePassword(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagCredUsernamePassword)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagSkipCACheck(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagSkipCACheck(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagSkipCACheck)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagSkipCNCheck(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagSkipCNCheck(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagSkipCNCheck)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseDigest(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseDigest(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseDigest)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseNegotiate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseNegotiate(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseNegotiate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseBasic(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseBasic(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseBasic)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseKerberos(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseKerberos(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseKerberos)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagNoEncryption(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagNoEncryption(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagNoEncryption)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagEnableSPNServerPort(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagEnableSPNServerPort(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagEnableSPNServerPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseNoAuthentication(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseNoAuthentication(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseNoAuthentication)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagNonXmlText(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagNonXmlText(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagNonXmlText)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagReturnEPR(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagReturnEPR(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagReturnEPR)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagReturnObjectAndEPR(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagReturnObjectAndEPR(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagReturnObjectAndEPR)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetErrorMessage(&self, errornumber: u32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetErrorMessage(&self, errornumber: u32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetErrorMessage)(windows_core::Interface::as_raw(self), errornumber, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EnumerationFlagHierarchyDeep(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagHierarchyDeep(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagHierarchyDeep)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagHierarchyShallow(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagHierarchyShallow(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagHierarchyShallow)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagHierarchyDeepBasePropsOnly)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagReturnObject(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagReturnObject(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagReturnObject)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1489,26 +1489,26 @@ pub struct IWSManEx_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManEx_Impl: IWSMan_Impl {
-    fn CreateResourceLocator(&self, strresourcelocator: &windows_core::BSTR) -> windows_core::Result<super::Com::IDispatch>;
-    fn SessionFlagUTF8(&self) -> windows_core::Result<i32>;
-    fn SessionFlagCredUsernamePassword(&self) -> windows_core::Result<i32>;
-    fn SessionFlagSkipCACheck(&self) -> windows_core::Result<i32>;
-    fn SessionFlagSkipCNCheck(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseDigest(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseNegotiate(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseBasic(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseKerberos(&self) -> windows_core::Result<i32>;
-    fn SessionFlagNoEncryption(&self) -> windows_core::Result<i32>;
-    fn SessionFlagEnableSPNServerPort(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseNoAuthentication(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagNonXmlText(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagReturnEPR(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagReturnObjectAndEPR(&self) -> windows_core::Result<i32>;
-    fn GetErrorMessage(&self, errornumber: u32) -> windows_core::Result<windows_core::BSTR>;
-    fn EnumerationFlagHierarchyDeep(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagHierarchyShallow(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagReturnObject(&self) -> windows_core::Result<i32>;
+    fn CreateResourceLocator(&self, strresourcelocator: &windows_core::BSTR) -> windows_result::Result<super::Com::IDispatch>;
+    fn SessionFlagUTF8(&self) -> windows_result::Result<i32>;
+    fn SessionFlagCredUsernamePassword(&self) -> windows_result::Result<i32>;
+    fn SessionFlagSkipCACheck(&self) -> windows_result::Result<i32>;
+    fn SessionFlagSkipCNCheck(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseDigest(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseNegotiate(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseBasic(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseKerberos(&self) -> windows_result::Result<i32>;
+    fn SessionFlagNoEncryption(&self) -> windows_result::Result<i32>;
+    fn SessionFlagEnableSPNServerPort(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseNoAuthentication(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagNonXmlText(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagReturnEPR(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagReturnObjectAndEPR(&self) -> windows_result::Result<i32>;
+    fn GetErrorMessage(&self, errornumber: u32) -> windows_result::Result<windows_core::BSTR>;
+    fn EnumerationFlagHierarchyDeep(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagHierarchyShallow(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagHierarchyDeepBasePropsOnly(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagReturnObject(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManEx_Vtbl {
@@ -1796,7 +1796,7 @@ impl core::ops::Deref for IWSManEx2 {
 windows_core::imp::interface_hierarchy!(IWSManEx2, windows_core::IUnknown, super::Com::IDispatch, IWSMan, IWSManEx);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx2 {
-    pub unsafe fn SessionFlagUseClientCertificate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseClientCertificate(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseClientCertificate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1812,7 +1812,7 @@ pub struct IWSManEx2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManEx2_Impl: IWSManEx_Impl {
-    fn SessionFlagUseClientCertificate(&self) -> windows_core::Result<i32>;
+    fn SessionFlagUseClientCertificate(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManEx2_Vtbl {
@@ -1850,43 +1850,43 @@ impl core::ops::Deref for IWSManEx3 {
 windows_core::imp::interface_hierarchy!(IWSManEx3, windows_core::IUnknown, super::Com::IDispatch, IWSMan, IWSManEx, IWSManEx2);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManEx3 {
-    pub unsafe fn SessionFlagUTF16(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUTF16(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUTF16)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseCredSsp(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseCredSsp(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseCredSsp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagAssociationInstance(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagAssociationInstance(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagAssociationInstance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EnumerationFlagAssociatedInstance(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EnumerationFlagAssociatedInstance(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerationFlagAssociatedInstance)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagSkipRevocationCheck(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagSkipRevocationCheck(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagSkipRevocationCheck)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagAllowNegotiateImplicitCredentials)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SessionFlagUseSsl(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionFlagUseSsl(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionFlagUseSsl)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1908,13 +1908,13 @@ pub struct IWSManEx3_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManEx3_Impl: IWSManEx2_Impl {
-    fn SessionFlagUTF16(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseCredSsp(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagAssociationInstance(&self) -> windows_core::Result<i32>;
-    fn EnumerationFlagAssociatedInstance(&self) -> windows_core::Result<i32>;
-    fn SessionFlagSkipRevocationCheck(&self) -> windows_core::Result<i32>;
-    fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> windows_core::Result<i32>;
-    fn SessionFlagUseSsl(&self) -> windows_core::Result<i32>;
+    fn SessionFlagUTF16(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseCredSsp(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagAssociationInstance(&self) -> windows_result::Result<i32>;
+    fn EnumerationFlagAssociatedInstance(&self) -> windows_result::Result<i32>;
+    fn SessionFlagSkipRevocationCheck(&self) -> windows_result::Result<i32>;
+    fn SessionFlagAllowNegotiateImplicitCredentials(&self) -> windows_result::Result<i32>;
+    fn SessionFlagUseSsl(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManEx3_Vtbl {
@@ -2034,7 +2034,7 @@ windows_core::imp::interface_hierarchy!(IWSManInternal, windows_core::IUnknown, 
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManInternal {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn ConfigSDDL<P0>(&self, session: P0, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>
+    pub unsafe fn ConfigSDDL<P0>(&self, session: P0, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<windows_core::BSTR>
     where
         P0: windows_core::Param<super::Com::IDispatch>,
     {
@@ -2056,7 +2056,7 @@ pub struct IWSManInternal_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManInternal_Impl: super::Com::IDispatch_Impl {
-    fn ConfigSDDL(&self, session: windows_core::Ref<super::Com::IDispatch>, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>;
+    fn ConfigSDDL(&self, session: windows_core::Ref<super::Com::IDispatch>, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManInternal_Vtbl {
@@ -2094,57 +2094,57 @@ impl core::ops::Deref for IWSManResourceLocator {
 windows_core::imp::interface_hierarchy!(IWSManResourceLocator, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManResourceLocator {
-    pub unsafe fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResourceURI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(uri)).ok() }
     }
-    pub unsafe fn ResourceURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ResourceURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ResourceURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddSelector)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceselname), core::mem::transmute_copy(selvalue)).ok() }
     }
-    pub unsafe fn ClearSelectors(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearSelectors(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearSelectors)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn FragmentPath(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FragmentPath(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FragmentPath)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFragmentPath)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)).ok() }
     }
-    pub unsafe fn FragmentDialect(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn FragmentDialect(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FragmentDialect)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFragmentDialect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(text)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: bool) -> windows_core::Result<()> {
+    pub unsafe fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddOption)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(optionname), core::mem::transmute_copy(optionvalue), mustcomply.into()).ok() }
     }
-    pub unsafe fn SetMustUnderstandOptions(&self, mustunderstand: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetMustUnderstandOptions(&self, mustunderstand: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMustUnderstandOptions)(windows_core::Interface::as_raw(self), mustunderstand.into()).ok() }
     }
-    pub unsafe fn MustUnderstandOptions(&self) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn MustUnderstandOptions(&self) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MustUnderstandOptions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ClearOptions(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearOptions(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearOptions)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Error(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Error(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -2178,19 +2178,19 @@ pub struct IWSManResourceLocator_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManResourceLocator_Impl: super::Com::IDispatch_Impl {
-    fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ResourceURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn ClearSelectors(&self) -> windows_core::Result<()>;
-    fn FragmentPath(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn FragmentDialect(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetMustUnderstandOptions(&self, mustunderstand: windows_core::BOOL) -> windows_core::Result<()>;
-    fn MustUnderstandOptions(&self) -> windows_core::Result<windows_core::BOOL>;
-    fn ClearOptions(&self) -> windows_core::Result<()>;
-    fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn SetResourceURI(&self, uri: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn ResourceURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn AddSelector(&self, resourceselname: &windows_core::BSTR, selvalue: &super::Variant::VARIANT) -> windows_result::Result<()>;
+    fn ClearSelectors(&self) -> windows_result::Result<()>;
+    fn FragmentPath(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetFragmentPath(&self, text: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn FragmentDialect(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetFragmentDialect(&self, text: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn AddOption(&self, optionname: &windows_core::BSTR, optionvalue: &super::Variant::VARIANT, mustcomply: windows_core::BOOL) -> windows_result::Result<()>;
+    fn SetMustUnderstandOptions(&self, mustunderstand: windows_core::BOOL) -> windows_result::Result<()>;
+    fn MustUnderstandOptions(&self) -> windows_result::Result<windows_core::BOOL>;
+    fn ClearOptions(&self) -> windows_result::Result<()>;
+    fn Error(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManResourceLocator_Vtbl {
@@ -2357,72 +2357,72 @@ windows_core::imp::interface_hierarchy!(IWSManSession, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IWSManSession {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Get(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Get(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Get)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Put(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Put(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Put)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(resource), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Create(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Create(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Create)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(resource), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Delete(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<()> {
+    pub unsafe fn Delete(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Delete)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), flags).ok() }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &super::Variant::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &super::Variant::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(actionuri), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(parameters), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Enumerate(&self, resourceuri: &super::Variant::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::Com::IDispatch> {
+    pub unsafe fn Enumerate(&self, resourceuri: &super::Variant::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_result::Result<super::Com::IDispatch> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enumerate)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(resourceuri), core::mem::transmute_copy(filter), core::mem::transmute_copy(dialect), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Identify(&self, flags: i32) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Identify(&self, flags: i32) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Identify)(windows_core::Interface::as_raw(self), flags, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Error(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Error(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Error)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn BatchItems(&self) -> windows_core::Result<i32> {
+    pub unsafe fn BatchItems(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).BatchItems)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetBatchItems(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetBatchItems(&self, value: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBatchItems)(windows_core::Interface::as_raw(self), value).ok() }
     }
-    pub unsafe fn Timeout(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Timeout(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Timeout)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTimeout(&self, value: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetTimeout(&self, value: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTimeout)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -2464,18 +2464,18 @@ pub struct IWSManSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IWSManSession_Impl: super::Com::IDispatch_Impl {
-    fn Get(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Put(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Create(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Delete(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_core::Result<()>;
-    fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &super::Variant::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Enumerate(&self, resourceuri: &super::Variant::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_core::Result<super::Com::IDispatch>;
-    fn Identify(&self, flags: i32) -> windows_core::Result<windows_core::BSTR>;
-    fn Error(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn BatchItems(&self) -> windows_core::Result<i32>;
-    fn SetBatchItems(&self, value: i32) -> windows_core::Result<()>;
-    fn Timeout(&self) -> windows_core::Result<i32>;
-    fn SetTimeout(&self, value: i32) -> windows_core::Result<()>;
+    fn Get(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<windows_core::BSTR>;
+    fn Put(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR>;
+    fn Create(&self, resourceuri: &super::Variant::VARIANT, resource: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR>;
+    fn Delete(&self, resourceuri: &super::Variant::VARIANT, flags: i32) -> windows_result::Result<()>;
+    fn Invoke(&self, actionuri: &windows_core::BSTR, resourceuri: &super::Variant::VARIANT, parameters: &windows_core::BSTR, flags: i32) -> windows_result::Result<windows_core::BSTR>;
+    fn Enumerate(&self, resourceuri: &super::Variant::VARIANT, filter: &windows_core::BSTR, dialect: &windows_core::BSTR, flags: i32) -> windows_result::Result<super::Com::IDispatch>;
+    fn Identify(&self, flags: i32) -> windows_result::Result<windows_core::BSTR>;
+    fn Error(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn BatchItems(&self) -> windows_result::Result<i32>;
+    fn SetBatchItems(&self, value: i32) -> windows_result::Result<()>;
+    fn Timeout(&self) -> windows_result::Result<i32>;
+    fn SetTimeout(&self, value: i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IWSManSession_Vtbl {

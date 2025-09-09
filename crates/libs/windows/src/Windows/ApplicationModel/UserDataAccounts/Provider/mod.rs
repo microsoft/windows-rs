@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for IUserDataAccountProviderOperation {
 }
 windows_core::imp::interface_hierarchy!(IUserDataAccountProviderOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl IUserDataAccountProviderOperation {
-    pub fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind> {
+    pub fn Kind(&self) -> windows_result::Result<UserDataAccountProviderOperationKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -40,7 +40,7 @@ impl windows_core::RuntimeName for IUserDataAccountProviderOperation {
     const NAME: &'static str = "Windows.ApplicationModel.UserDataAccounts.Provider.IUserDataAccountProviderOperation";
 }
 pub trait IUserDataAccountProviderOperation_Impl: windows_core::IUnknownImpl {
-    fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind>;
+    fn Kind(&self) -> windows_result::Result<UserDataAccountProviderOperationKind>;
 }
 impl IUserDataAccountProviderOperation_Vtbl {
     pub const fn new<Identity: IUserDataAccountProviderOperation_Impl, const OFFSET: isize>() -> Self {
@@ -95,21 +95,21 @@ pub struct IUserDataAccountProviderSettingsOperation_Vtbl {
 pub struct UserDataAccountPartnerAccountInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountPartnerAccountInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl UserDataAccountPartnerAccountInfo {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Priority(&self) -> windows_core::Result<u32> {
+    pub fn Priority(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Priority)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AccountKind(&self) -> windows_core::Result<UserDataAccountProviderPartnerAccountKind> {
+    pub fn AccountKind(&self) -> windows_result::Result<UserDataAccountProviderPartnerAccountKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -135,25 +135,25 @@ pub struct UserDataAccountProviderAddAccountOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderAddAccountOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderAddAccountOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderAddAccountOperation {
-    pub fn ContentKinds(&self) -> windows_core::Result<super::UserDataAccountContentKinds> {
+    pub fn ContentKinds(&self) -> windows_result::Result<super::UserDataAccountContentKinds> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentKinds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PartnerAccountInfos(&self) -> windows_core::Result<windows_collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
+    pub fn PartnerAccountInfos(&self) -> windows_result::Result<windows_collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PartnerAccountInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompleted(&self, userdataaccountid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self, userdataaccountid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(userdataaccountid)).ok() }
     }
-    pub fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind> {
+    pub fn Kind(&self) -> windows_result::Result<UserDataAccountProviderOperationKind> {
         let this = &windows_core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -206,21 +206,21 @@ pub struct UserDataAccountProviderResolveErrorsOperation(windows_core::IUnknown)
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderResolveErrorsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderResolveErrorsOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderResolveErrorsOperation {
-    pub fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind> {
+    pub fn Kind(&self) -> windows_result::Result<UserDataAccountProviderOperationKind> {
         let this = &windows_core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserDataAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDataAccountId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDataAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -243,21 +243,21 @@ pub struct UserDataAccountProviderSettingsOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(UserDataAccountProviderSettingsOperation, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(UserDataAccountProviderSettingsOperation, IUserDataAccountProviderOperation);
 impl UserDataAccountProviderSettingsOperation {
-    pub fn Kind(&self) -> windows_core::Result<UserDataAccountProviderOperationKind> {
+    pub fn Kind(&self) -> windows_result::Result<UserDataAccountProviderOperationKind> {
         let this = &windows_core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserDataAccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDataAccountId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDataAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }

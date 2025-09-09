@@ -14,14 +14,14 @@ impl AutomationConnection {
             result__
         }
     }
-    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppUserModelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ExecutableFileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ExecutableFileName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -46,7 +46,7 @@ unsafe impl Sync for AutomationConnection {}
 pub struct AutomationConnectionBoundObject(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AutomationConnectionBoundObject, windows_core::IUnknown, windows_core::IInspectable);
 impl AutomationConnectionBoundObject {
-    pub fn Connection(&self) -> windows_core::Result<AutomationConnection> {
+    pub fn Connection(&self) -> windows_result::Result<AutomationConnection> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -80,14 +80,14 @@ impl AutomationElement {
             result__
         }
     }
-    pub fn AppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppUserModelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ExecutableFileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ExecutableFileName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

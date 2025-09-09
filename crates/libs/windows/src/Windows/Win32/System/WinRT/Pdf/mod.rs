@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
-pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> windows_core::Result<IPdfRendererNative>
+pub unsafe fn PdfCreateRenderer<P0>(pdevice: P0) -> windows_result::Result<IPdfRendererNative>
 where
     P0: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGIDevice>,
 {
@@ -14,7 +14,7 @@ windows_core::imp::define_interface!(IPdfRendererNative, IPdfRendererNative_Vtbl
 windows_core::imp::interface_hierarchy!(IPdfRendererNative, windows_core::IUnknown);
 impl IPdfRendererNative {
     #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
-    pub unsafe fn RenderPageToSurface<P0, P1>(&self, pdfpage: P0, psurface: P1, offset: super::super::super::Foundation::POINT, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::Result<()>
+    pub unsafe fn RenderPageToSurface<P0, P1>(&self, pdfpage: P0, psurface: P1, offset: super::super::super::Foundation::POINT, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::super::Graphics::Dxgi::IDXGISurface>,
@@ -22,7 +22,7 @@ impl IPdfRendererNative {
         unsafe { (windows_core::Interface::vtable(self).RenderPageToSurface)(windows_core::Interface::as_raw(self), pdfpage.param().abi(), psurface.param().abi(), core::mem::transmute(offset), prenderparams.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
-    pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_core::Result<()>
+    pub unsafe fn RenderPageToDeviceContext<P0, P1>(&self, pdfpage: P0, pd2ddevicecontext: P1, prenderparams: Option<*const PDF_RENDER_PARAMS>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>,
@@ -45,8 +45,8 @@ pub struct IPdfRendererNative_Vtbl {
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 pub trait IPdfRendererNative_Impl: windows_core::IUnknownImpl {
-    fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, psurface: windows_core::Ref<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
-    fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_core::Result<()>;
+    fn RenderPageToSurface(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, psurface: windows_core::Ref<super::super::super::Graphics::Dxgi::IDXGISurface>, offset: &super::super::super::Foundation::POINT, prenderparams: *const PDF_RENDER_PARAMS) -> windows_result::Result<()>;
+    fn RenderPageToDeviceContext(&self, pdfpage: windows_core::Ref<windows_core::IUnknown>, pd2ddevicecontext: windows_core::Ref<super::super::super::Graphics::Direct2D::ID2D1DeviceContext>, prenderparams: *const PDF_RENDER_PARAMS) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Direct2D_Common", feature = "Win32_Graphics_Dxgi"))]
 impl IPdfRendererNative_Vtbl {

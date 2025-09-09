@@ -8,17 +8,12 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-core]
-workspace = true
-
-[dependencies.windows-numerics]
-workspace = true
-
-[dependencies.windows-collections]
-workspace = true
-
-[dependencies.windows-future]
-workspace = true
+[dependencies]
+windows-core = { workspace = true }
+windows-result = { workspace = true }
+windows-numerics = { workspace = true }
+windows-collections = { workspace = true }
+windows-future = { workspace = true }
 
 [dependencies.windows]
 workspace = true

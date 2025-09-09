@@ -3,7 +3,7 @@
 pub struct AcousticEchoCancellationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AcousticEchoCancellationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl AcousticEchoCancellationConfiguration {
-    pub fn SetEchoCancellationRenderEndpoint(&self, deviceid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetEchoCancellationRenderEndpoint(&self, deviceid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEchoCancellationRenderEndpoint)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid)).ok() }
     }
@@ -25,7 +25,7 @@ unsafe impl Sync for AcousticEchoCancellationConfiguration {}
 pub struct AudioCaptureEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioCaptureEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioCaptureEffectsManager {
-    pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioCaptureEffectsChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioCaptureEffectsManager, windows_core::IInspectable>>,
     {
@@ -35,11 +35,11 @@ impl AudioCaptureEffectsManager {
             (windows_core::Interface::vtable(this).AudioCaptureEffectsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioCaptureEffectsChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAudioCaptureEffectsChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioCaptureEffectsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetAudioCaptureEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
+    pub fn GetAudioCaptureEffects(&self) -> windows_result::Result<windows_collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -64,35 +64,35 @@ unsafe impl Sync for AudioCaptureEffectsManager {}
 pub struct AudioEffect(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioEffect, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioEffect {
-    pub fn AudioEffectType(&self) -> windows_core::Result<AudioEffectType> {
+    pub fn AudioEffectType(&self) -> windows_result::Result<AudioEffectType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioEffectType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AcousticEchoCancellationConfiguration(&self) -> windows_core::Result<AcousticEchoCancellationConfiguration> {
+    pub fn AcousticEchoCancellationConfiguration(&self) -> windows_result::Result<AcousticEchoCancellationConfiguration> {
         let this = &windows_core::Interface::cast::<IAudioEffect2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AcousticEchoCancellationConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanSetState(&self) -> windows_core::Result<bool> {
+    pub fn CanSetState(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IAudioEffect2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanSetState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn State(&self) -> windows_core::Result<AudioEffectState> {
+    pub fn State(&self) -> windows_result::Result<AudioEffectState> {
         let this = &windows_core::Interface::cast::<IAudioEffect2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetState(&self, newstate: AudioEffectState) -> windows_core::Result<()> {
+    pub fn SetState(&self, newstate: AudioEffectState) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IAudioEffect2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetState)(windows_core::Interface::as_raw(this), newstate).ok() }
     }
@@ -114,7 +114,7 @@ unsafe impl Sync for AudioEffect {}
 pub struct AudioEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IAudioEffectDefinition);
 impl AudioEffectDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -122,21 +122,21 @@ impl AudioEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<AudioEffectDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_result::Result<AudioEffectDefinition> {
         Self::IAudioEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<AudioEffectDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_result::Result<AudioEffectDefinition>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -145,7 +145,7 @@ impl AudioEffectDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEffectDefinitionFactory<R, F: FnOnce(&IAudioEffectDefinitionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectDefinition, IAudioEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -209,34 +209,34 @@ impl windows_core::RuntimeType for AudioEffectType {
 pub struct AudioEffectsManager;
 impl AudioEffectsManager {
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManager(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory) -> windows_core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManager(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory) -> windows_result::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAudioRenderEffectsManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Render")]
-    pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> windows_core::Result<AudioRenderEffectsManager> {
+    pub fn CreateAudioRenderEffectsManagerWithMode(deviceid: &windows_core::HSTRING, category: super::Render::AudioRenderCategory, mode: super::AudioProcessing) -> windows_result::Result<AudioRenderEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAudioRenderEffectsManagerWithMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManager(deviceid: &windows_core::HSTRING, category: super::Capture::MediaCategory) -> windows_core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManager(deviceid: &windows_core::HSTRING, category: super::Capture::MediaCategory) -> windows_result::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAudioCaptureEffectsManager)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Media_Capture")]
-    pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &windows_core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> windows_core::Result<AudioCaptureEffectsManager> {
+    pub fn CreateAudioCaptureEffectsManagerWithMode(deviceid: &windows_core::HSTRING, category: super::Capture::MediaCategory, mode: super::AudioProcessing) -> windows_result::Result<AudioCaptureEffectsManager> {
         Self::IAudioEffectsManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAudioCaptureEffectsManagerWithMode)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), category, mode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAudioEffectsManagerStatics<R, F: FnOnce(&IAudioEffectsManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AudioEffectsManager, IAudioEffectsManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -249,7 +249,7 @@ impl windows_core::RuntimeName for AudioEffectsManager {
 pub struct AudioRenderEffectsManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AudioRenderEffectsManager, windows_core::IUnknown, windows_core::IInspectable);
 impl AudioRenderEffectsManager {
-    pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AudioRenderEffectsChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AudioRenderEffectsManager, windows_core::IInspectable>>,
     {
@@ -259,11 +259,11 @@ impl AudioRenderEffectsManager {
             (windows_core::Interface::vtable(this).AudioRenderEffectsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAudioRenderEffectsChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAudioRenderEffectsChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAudioRenderEffectsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetAudioRenderEffects(&self) -> windows_core::Result<windows_collections::IVectorView<AudioEffect>> {
+    pub fn GetAudioRenderEffects(&self) -> windows_result::Result<windows_collections::IVectorView<AudioEffect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -271,21 +271,21 @@ impl AudioRenderEffectsManager {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn EffectsProviderThumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+    pub fn EffectsProviderThumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = &windows_core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EffectsProviderThumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EffectsProviderSettingsLabel(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EffectsProviderSettingsLabel(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EffectsProviderSettingsLabel)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ShowSettingsUI(&self) -> windows_core::Result<()> {
+    pub fn ShowSettingsUI(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IAudioRenderEffectsManager2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ShowSettingsUI)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -308,21 +308,21 @@ pub struct CompositeVideoFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositeVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl CompositeVideoFrameContext {
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn SurfacesToOverlay(&self) -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
+    pub fn SurfacesToOverlay(&self) -> windows_result::Result<windows_collections::IVectorView<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SurfacesToOverlay)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BackgroundFrame(&self) -> windows_core::Result<super::VideoFrame> {
+    pub fn BackgroundFrame(&self) -> windows_result::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OutputFrame(&self) -> windows_core::Result<super::VideoFrame> {
+    pub fn OutputFrame(&self) -> windows_result::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -330,7 +330,7 @@ impl CompositeVideoFrameContext {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_Editing"))]
-    pub fn GetOverlayForSurface<P0>(&self, surfacetooverlay: P0) -> windows_core::Result<super::Editing::MediaOverlay>
+    pub fn GetOverlayForSurface<P0>(&self, surfacetooverlay: P0) -> windows_result::Result<super::Editing::MediaOverlay>
     where
         P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
@@ -404,7 +404,7 @@ impl windows_core::RuntimeType for IAudioEffectDefinition {
 }
 windows_core::imp::interface_hierarchy!(IAudioEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IAudioEffectDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -412,7 +412,7 @@ impl IAudioEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -426,8 +426,8 @@ impl windows_core::RuntimeName for IAudioEffectDefinition {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IAudioEffectDefinition_Impl: windows_core::IUnknownImpl {
-    fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IAudioEffectDefinition_Vtbl {
@@ -551,7 +551,7 @@ impl windows_core::RuntimeType for IBasicAudioEffect {
 windows_core::imp::interface_hierarchy!(IBasicAudioEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBasicAudioEffect, super::IMediaExtension);
 impl IBasicAudioEffect {
-    pub fn UseInputFrameForOutput(&self) -> windows_core::Result<bool> {
+    pub fn UseInputFrameForOutput(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -559,7 +559,7 @@ impl IBasicAudioEffect {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
+    pub fn SupportedEncodingProperties(&self) -> windows_result::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -567,30 +567,30 @@ impl IBasicAudioEffect {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetEncodingProperties<P0>(&self, encodingproperties: P0) -> windows_core::Result<()>
+    pub fn SetEncodingProperties<P0>(&self, encodingproperties: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProperties::AudioEncodingProperties>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.param().abi()).ok() }
     }
-    pub fn ProcessFrame<P0>(&self, context: P0) -> windows_core::Result<()>
+    pub fn ProcessFrame<P0>(&self, context: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProcessAudioFrameContext>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this), reason).ok() }
     }
-    pub fn DiscardQueuedFrames(&self) -> windows_core::Result<()> {
+    pub fn DiscardQueuedFrames(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DiscardQueuedFrames)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
+    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -604,12 +604,12 @@ impl windows_core::RuntimeName for IBasicAudioEffect {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 pub trait IBasicAudioEffect_Impl: super::IMediaExtension_Impl {
-    fn UseInputFrameForOutput(&self) -> windows_core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::AudioEncodingProperties>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<ProcessAudioFrameContext>) -> windows_core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
+    fn UseInputFrameForOutput(&self) -> windows_result::Result<bool>;
+    fn SupportedEncodingProperties(&self) -> windows_result::Result<windows_collections::IVectorView<super::MediaProperties::AudioEncodingProperties>>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::AudioEncodingProperties>) -> windows_result::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessAudioFrameContext>) -> windows_result::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()>;
+    fn DiscardQueuedFrames(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Media_MediaProperties"))]
 impl IBasicAudioEffect_Vtbl {
@@ -701,21 +701,21 @@ impl windows_core::RuntimeType for IBasicVideoEffect {
 windows_core::imp::interface_hierarchy!(IBasicVideoEffect, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IBasicVideoEffect, super::IMediaExtension);
 impl IBasicVideoEffect {
-    pub fn IsReadOnly(&self) -> windows_core::Result<bool> {
+    pub fn IsReadOnly(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsReadOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes> {
+    pub fn SupportedMemoryTypes(&self) -> windows_result::Result<MediaMemoryTypes> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedMemoryTypes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TimeIndependent(&self) -> windows_core::Result<bool> {
+    pub fn TimeIndependent(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -723,7 +723,7 @@ impl IBasicVideoEffect {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
+    pub fn SupportedEncodingProperties(&self) -> windows_result::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -731,7 +731,7 @@ impl IBasicVideoEffect {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<P0, P1>(&self, encodingproperties: P0, device: P1) -> windows_core::Result<()>
+    pub fn SetEncodingProperties<P0, P1>(&self, encodingproperties: P0, device: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProperties::VideoEncodingProperties>,
         P1: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
@@ -739,23 +739,23 @@ impl IBasicVideoEffect {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), encodingproperties.param().abi(), device.param().abi()).ok() }
     }
-    pub fn ProcessFrame<P0>(&self, context: P0) -> windows_core::Result<()>
+    pub fn ProcessFrame<P0>(&self, context: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProcessVideoFrameContext>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ProcessFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this), reason).ok() }
     }
-    pub fn DiscardQueuedFrames(&self) -> windows_core::Result<()> {
+    pub fn DiscardQueuedFrames(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DiscardQueuedFrames)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
+    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -769,14 +769,14 @@ impl windows_core::RuntimeName for IBasicVideoEffect {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IBasicVideoEffect_Impl: super::IMediaExtension_Impl {
-    fn IsReadOnly(&self) -> windows_core::Result<bool>;
-    fn SupportedMemoryTypes(&self) -> windows_core::Result<MediaMemoryTypes>;
-    fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SupportedEncodingProperties(&self) -> windows_core::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
-    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn ProcessFrame(&self, context: windows_core::Ref<ProcessVideoFrameContext>) -> windows_core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
+    fn IsReadOnly(&self) -> windows_result::Result<bool>;
+    fn SupportedMemoryTypes(&self) -> windows_result::Result<MediaMemoryTypes>;
+    fn TimeIndependent(&self) -> windows_result::Result<bool>;
+    fn SupportedEncodingProperties(&self) -> windows_result::Result<windows_collections::IVectorView<super::MediaProperties::VideoEncodingProperties>>;
+    fn SetEncodingProperties(&self, encodingProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_result::Result<()>;
+    fn ProcessFrame(&self, context: windows_core::Ref<ProcessVideoFrameContext>) -> windows_result::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()>;
+    fn DiscardQueuedFrames(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl IBasicVideoEffect_Vtbl {
@@ -937,7 +937,7 @@ impl windows_core::RuntimeType for IVideoCompositor {
 windows_core::imp::interface_hierarchy!(IVideoCompositor, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IVideoCompositor, super::IMediaExtension);
 impl IVideoCompositor {
-    pub fn TimeIndependent(&self) -> windows_core::Result<bool> {
+    pub fn TimeIndependent(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -945,7 +945,7 @@ impl IVideoCompositor {
         }
     }
     #[cfg(all(feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
-    pub fn SetEncodingProperties<P0, P1>(&self, backgroundproperties: P0, device: P1) -> windows_core::Result<()>
+    pub fn SetEncodingProperties<P0, P1>(&self, backgroundproperties: P0, device: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProperties::VideoEncodingProperties>,
         P1: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>,
@@ -953,23 +953,23 @@ impl IVideoCompositor {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEncodingProperties)(windows_core::Interface::as_raw(this), backgroundproperties.param().abi(), device.param().abi()).ok() }
     }
-    pub fn CompositeFrame<P0>(&self, context: P0) -> windows_core::Result<()>
+    pub fn CompositeFrame<P0>(&self, context: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<CompositeVideoFrameContext>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompositeFrame)(windows_core::Interface::as_raw(this), context.param().abi()).ok() }
     }
-    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()> {
+    pub fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this), reason).ok() }
     }
-    pub fn DiscardQueuedFrames(&self) -> windows_core::Result<()> {
+    pub fn DiscardQueuedFrames(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DiscardQueuedFrames)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_core::Result<()>
+    pub fn SetProperties<P0>(&self, configuration: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -983,11 +983,11 @@ impl windows_core::RuntimeName for IVideoCompositor {
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 pub trait IVideoCompositor_Impl: super::IMediaExtension_Impl {
-    fn TimeIndependent(&self) -> windows_core::Result<bool>;
-    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_core::Result<()>;
-    fn CompositeFrame(&self, context: windows_core::Ref<CompositeVideoFrameContext>) -> windows_core::Result<()>;
-    fn Close(&self, reason: MediaEffectClosedReason) -> windows_core::Result<()>;
-    fn DiscardQueuedFrames(&self) -> windows_core::Result<()>;
+    fn TimeIndependent(&self) -> windows_result::Result<bool>;
+    fn SetEncodingProperties(&self, backgroundProperties: windows_core::Ref<super::MediaProperties::VideoEncodingProperties>, device: windows_core::Ref<super::super::Graphics::DirectX::Direct3D11::IDirect3DDevice>) -> windows_result::Result<()>;
+    fn CompositeFrame(&self, context: windows_core::Ref<CompositeVideoFrameContext>) -> windows_result::Result<()>;
+    fn Close(&self, reason: MediaEffectClosedReason) -> windows_result::Result<()>;
+    fn DiscardQueuedFrames(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX_Direct3D11", feature = "Media_MediaProperties"))]
 impl IVideoCompositor_Vtbl {
@@ -1060,7 +1060,7 @@ impl windows_core::RuntimeType for IVideoCompositorDefinition {
 }
 windows_core::imp::interface_hierarchy!(IVideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoCompositorDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1068,7 +1068,7 @@ impl IVideoCompositorDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1082,8 +1082,8 @@ impl windows_core::RuntimeName for IVideoCompositorDefinition {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoCompositorDefinition_Impl: windows_core::IUnknownImpl {
-    fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoCompositorDefinition_Vtbl {
@@ -1154,7 +1154,7 @@ impl windows_core::RuntimeType for IVideoEffectDefinition {
 }
 windows_core::imp::interface_hierarchy!(IVideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable);
 impl IVideoEffectDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1162,7 +1162,7 @@ impl IVideoEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1176,8 +1176,8 @@ impl windows_core::RuntimeName for IVideoEffectDefinition {
 }
 #[cfg(feature = "Foundation_Collections")]
 pub trait IVideoEffectDefinition_Impl: windows_core::IUnknownImpl {
-    fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet>;
+    fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet>;
 }
 #[cfg(feature = "Foundation_Collections")]
 impl IVideoEffectDefinition_Vtbl {
@@ -1368,14 +1368,14 @@ impl windows_core::RuntimeType for MediaMemoryTypes {
 pub struct ProcessAudioFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessAudioFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessAudioFrameContext {
-    pub fn InputFrame(&self) -> windows_core::Result<super::AudioFrame> {
+    pub fn InputFrame(&self) -> windows_result::Result<super::AudioFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OutputFrame(&self) -> windows_core::Result<super::AudioFrame> {
+    pub fn OutputFrame(&self) -> windows_result::Result<super::AudioFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1400,14 +1400,14 @@ unsafe impl Sync for ProcessAudioFrameContext {}
 pub struct ProcessVideoFrameContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessVideoFrameContext, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessVideoFrameContext {
-    pub fn InputFrame(&self) -> windows_core::Result<super::VideoFrame> {
+    pub fn InputFrame(&self) -> windows_result::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputFrame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OutputFrame(&self) -> windows_core::Result<super::VideoFrame> {
+    pub fn OutputFrame(&self) -> windows_result::Result<super::VideoFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1432,7 +1432,7 @@ unsafe impl Sync for ProcessVideoFrameContext {}
 pub struct VideoCompositorDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoCompositorDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoCompositorDefinition);
 impl VideoCompositorDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1440,21 +1440,21 @@ impl VideoCompositorDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<VideoCompositorDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_result::Result<VideoCompositorDefinition> {
         Self::IVideoCompositorDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<VideoCompositorDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_result::Result<VideoCompositorDefinition>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -1463,7 +1463,7 @@ impl VideoCompositorDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IVideoCompositorDefinitionFactory<R, F: FnOnce(&IVideoCompositorDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoCompositorDefinitionFactory<R, F: FnOnce(&IVideoCompositorDefinitionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoCompositorDefinition, IVideoCompositorDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1485,7 +1485,7 @@ unsafe impl Sync for VideoCompositorDefinition {}
 pub struct VideoEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoEffectDefinition);
 impl VideoEffectDefinition {
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1493,21 +1493,21 @@ impl VideoEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_core::Result<VideoEffectDefinition> {
+    pub fn Create(activatableclassid: &windows_core::HSTRING) -> windows_result::Result<VideoEffectDefinition> {
         Self::IVideoEffectDefinitionFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_core::Result<VideoEffectDefinition>
+    pub fn CreateWithProperties<P1>(activatableclassid: &windows_core::HSTRING, props: P1) -> windows_result::Result<VideoEffectDefinition>
     where
         P1: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
@@ -1516,7 +1516,7 @@ impl VideoEffectDefinition {
             (windows_core::Interface::vtable(this).CreateWithProperties)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), props.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IVideoEffectDefinitionFactory<R, F: FnOnce(&IVideoEffectDefinitionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IVideoEffectDefinitionFactory<R, F: FnOnce(&IVideoEffectDefinitionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoEffectDefinition, IVideoEffectDefinitionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1538,14 +1538,14 @@ unsafe impl Sync for VideoEffectDefinition {}
 pub struct VideoTransformEffectDefinition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTransformEffectDefinition, windows_core::IUnknown, windows_core::IInspectable, IVideoEffectDefinition);
 impl VideoTransformEffectDefinition {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<VideoTransformEffectDefinition, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ActivatableClassId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActivatableClassId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1553,7 +1553,7 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::IPropertySet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1561,7 +1561,7 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn PaddingColor(&self) -> windows_core::Result<super::super::UI::Color> {
+    pub fn PaddingColor(&self) -> windows_result::Result<super::super::UI::Color> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1569,34 +1569,34 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn SetPaddingColor(&self, value: super::super::UI::Color) -> windows_core::Result<()> {
+    pub fn SetPaddingColor(&self, value: super::super::UI::Color) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPaddingColor)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OutputSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
+    pub fn OutputSize(&self) -> windows_result::Result<super::super::Foundation::Size> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OutputSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOutputSize(&self, value: super::super::Foundation::Size) -> windows_core::Result<()> {
+    pub fn SetOutputSize(&self, value: super::super::Foundation::Size) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetOutputSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CropRectangle(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn CropRectangle(&self) -> windows_result::Result<super::super::Foundation::Rect> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CropRectangle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCropRectangle(&self, value: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn SetCropRectangle(&self, value: super::super::Foundation::Rect) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCropRectangle)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn Rotation(&self) -> windows_core::Result<super::MediaProperties::MediaRotation> {
+    pub fn Rotation(&self) -> windows_result::Result<super::MediaProperties::MediaRotation> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1604,12 +1604,12 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> windows_core::Result<()> {
+    pub fn SetRotation(&self, value: super::MediaProperties::MediaRotation) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRotation)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn Mirror(&self) -> windows_core::Result<super::MediaProperties::MediaMirroringOptions> {
+    pub fn Mirror(&self) -> windows_result::Result<super::MediaProperties::MediaMirroringOptions> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1617,24 +1617,24 @@ impl VideoTransformEffectDefinition {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> windows_core::Result<()> {
+    pub fn SetMirror(&self, value: super::MediaProperties::MediaMirroringOptions) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetMirror)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_Transcoding")]
-    pub fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {
+    pub fn SetProcessingAlgorithm(&self, value: super::Transcoding::MediaVideoProcessingAlgorithm) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetProcessingAlgorithm)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_Transcoding")]
-    pub fn ProcessingAlgorithm(&self) -> windows_core::Result<super::Transcoding::MediaVideoProcessingAlgorithm> {
+    pub fn ProcessingAlgorithm(&self) -> windows_result::Result<super::Transcoding::MediaVideoProcessingAlgorithm> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessingAlgorithm)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SphericalProjection(&self) -> windows_core::Result<VideoTransformSphericalProjection> {
+    pub fn SphericalProjection(&self) -> windows_result::Result<VideoTransformSphericalProjection> {
         let this = &windows_core::Interface::cast::<IVideoTransformEffectDefinition2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1659,19 +1659,19 @@ unsafe impl Sync for VideoTransformEffectDefinition {}
 pub struct VideoTransformSphericalProjection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(VideoTransformSphericalProjection, windows_core::IUnknown, windows_core::IInspectable);
 impl VideoTransformSphericalProjection {
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn FrameFormat(&self) -> windows_core::Result<super::MediaProperties::SphericalVideoFrameFormat> {
+    pub fn FrameFormat(&self) -> windows_result::Result<super::MediaProperties::SphericalVideoFrameFormat> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1679,12 +1679,12 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> windows_core::Result<()> {
+    pub fn SetFrameFormat(&self, value: super::MediaProperties::SphericalVideoFrameFormat) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFrameFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Media_Playback")]
-    pub fn ProjectionMode(&self) -> windows_core::Result<super::Playback::SphericalVideoProjectionMode> {
+    pub fn ProjectionMode(&self) -> windows_result::Result<super::Playback::SphericalVideoProjectionMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1692,23 +1692,23 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Media_Playback")]
-    pub fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> windows_core::Result<()> {
+    pub fn SetProjectionMode(&self, value: super::Playback::SphericalVideoProjectionMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProjectionMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HorizontalFieldOfViewInDegrees(&self) -> windows_core::Result<f64> {
+    pub fn HorizontalFieldOfViewInDegrees(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HorizontalFieldOfViewInDegrees)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHorizontalFieldOfViewInDegrees(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetHorizontalFieldOfViewInDegrees(&self, value: f64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHorizontalFieldOfViewInDegrees)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn ViewOrientation(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
+    pub fn ViewOrientation(&self) -> windows_result::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1716,7 +1716,7 @@ impl VideoTransformSphericalProjection {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetViewOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()> {
+    pub fn SetViewOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetViewOrientation)(windows_core::Interface::as_raw(this), value).ok() }
     }

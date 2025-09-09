@@ -4,7 +4,7 @@ pub struct CoreAppWindowPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CoreAppWindowPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl CoreAppWindowPreview {
     #[cfg(feature = "UI_WindowManagement")]
-    pub fn GetIdFromWindow<P0>(window: P0) -> windows_core::Result<i32>
+    pub fn GetIdFromWindow<P0>(window: P0) -> windows_result::Result<i32>
     where
         P0: windows_core::Param<super::super::WindowManagement::AppWindow>,
     {
@@ -13,7 +13,7 @@ impl CoreAppWindowPreview {
             (windows_core::Interface::vtable(this).GetIdFromWindow)(windows_core::Interface::as_raw(this), window.param().abi(), &mut result__).map(|| result__)
         })
     }
-    fn ICoreAppWindowPreviewStatics<R, F: FnOnce(&ICoreAppWindowPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICoreAppWindowPreviewStatics<R, F: FnOnce(&ICoreAppWindowPreviewStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CoreAppWindowPreview, ICoreAppWindowPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -90,18 +90,18 @@ pub struct ISystemNavigationManagerPreviewStatics_Vtbl {
 pub struct SystemNavigationCloseRequestedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationCloseRequestedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemNavigationCloseRequestedPreviewEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -126,7 +126,7 @@ unsafe impl Sync for SystemNavigationCloseRequestedPreviewEventArgs {}
 pub struct SystemNavigationManagerPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemNavigationManagerPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemNavigationManagerPreview {
-    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<SystemNavigationCloseRequestedPreviewEventArgs>>,
     {
@@ -136,17 +136,17 @@ impl SystemNavigationManagerPreview {
             (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCloseRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCloseRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<SystemNavigationManagerPreview> {
+    pub fn GetForCurrentView() -> windows_result::Result<SystemNavigationManagerPreview> {
         Self::ISystemNavigationManagerPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISystemNavigationManagerPreviewStatics<R, F: FnOnce(&ISystemNavigationManagerPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemNavigationManagerPreviewStatics<R, F: FnOnce(&ISystemNavigationManagerPreviewStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemNavigationManagerPreview, ISystemNavigationManagerPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

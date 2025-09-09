@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(IRadialControllerConfigurationInterop, IRadialControllerConfigurationInterop_Vtbl, 0x787cdaac_3186_476d_87e4_b9374a7b9970);
 windows_core::imp::interface_hierarchy!(IRadialControllerConfigurationInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerConfigurationInterop {
-    pub unsafe fn GetForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn GetForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -16,7 +16,7 @@ pub struct IRadialControllerConfigurationInterop_Vtbl {
     pub GetForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRadialControllerConfigurationInterop_Impl: windows_core::IUnknownImpl {
-    fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl IRadialControllerConfigurationInterop_Vtbl {
     pub const fn new<Identity: IRadialControllerConfigurationInterop_Impl, const OFFSET: isize>() -> Self {
@@ -39,7 +39,7 @@ impl windows_core::RuntimeName for IRadialControllerConfigurationInterop {}
 windows_core::imp::define_interface!(IRadialControllerIndependentInputSourceInterop, IRadialControllerIndependentInputSourceInterop_Vtbl, 0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
 windows_core::imp::interface_hierarchy!(IRadialControllerIndependentInputSourceInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerIndependentInputSourceInterop {
-    pub unsafe fn CreateForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn CreateForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -54,7 +54,7 @@ pub struct IRadialControllerIndependentInputSourceInterop_Vtbl {
     pub CreateForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRadialControllerIndependentInputSourceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl IRadialControllerIndependentInputSourceInterop_Vtbl {
     pub const fn new<Identity: IRadialControllerIndependentInputSourceInterop_Impl, const OFFSET: isize>() -> Self {
@@ -77,7 +77,7 @@ impl windows_core::RuntimeName for IRadialControllerIndependentInputSourceIntero
 windows_core::imp::define_interface!(IRadialControllerInterop, IRadialControllerInterop_Vtbl, 0x1b0535c9_57ad_45c1_9d79_ad5c34360513);
 windows_core::imp::interface_hierarchy!(IRadialControllerInterop, windows_core::IUnknown, windows_core::IInspectable);
 impl IRadialControllerInterop {
-    pub unsafe fn CreateForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<T>
+    pub unsafe fn CreateForWindow<T>(&self, hwnd: super::super::super::Foundation::HWND) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -92,7 +92,7 @@ pub struct IRadialControllerInterop_Vtbl {
     pub CreateForWindow: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRadialControllerInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateForWindow(&self, hwnd: super::super::super::Foundation::HWND, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl IRadialControllerInterop_Vtbl {
     pub const fn new<Identity: IRadialControllerInterop_Impl, const OFFSET: isize>() -> Self {

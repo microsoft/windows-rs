@@ -22,7 +22,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IActivationFactory {
-    pub unsafe fn ActivateInstance(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub unsafe fn ActivateInstance(&self) -> windows_result::Result<windows_core::IInspectable> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActivateInstance)(
@@ -43,7 +43,7 @@ pub struct IActivationFactory_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait IActivationFactory_Impl: windows_core::IUnknownImpl {
-    fn ActivateInstance(&self) -> windows_core::Result<windows_core::IInspectable>;
+    fn ActivateInstance(&self) -> windows_result::Result<windows_core::IInspectable>;
 }
 impl IActivationFactory_Vtbl {
     pub const fn new<Identity: IActivationFactory_Impl, const OFFSET: isize>() -> Self {

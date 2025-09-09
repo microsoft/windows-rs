@@ -792,13 +792,13 @@ impl windows_core::RuntimeName for ID3DBlob {}
 windows_core::imp::define_interface!(ID3DDestructionNotifier, ID3DDestructionNotifier_Vtbl, 0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
 windows_core::imp::interface_hierarchy!(ID3DDestructionNotifier, windows_core::IUnknown);
 impl ID3DDestructionNotifier {
-    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32> {
+    pub unsafe fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RegisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackfn, pdata, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()> {
+    pub unsafe fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterDestructionCallback)(windows_core::Interface::as_raw(self), callbackid).ok() }
     }
 }
@@ -812,8 +812,8 @@ pub struct ID3DDestructionNotifier_Vtbl {
 unsafe impl Send for ID3DDestructionNotifier {}
 unsafe impl Sync for ID3DDestructionNotifier {}
 pub trait ID3DDestructionNotifier_Impl: windows_core::IUnknownImpl {
-    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_core::Result<u32>;
-    fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_core::Result<()>;
+    fn RegisterDestructionCallback(&self, callbackfn: PFN_DESTRUCTION_CALLBACK, pdata: *const core::ffi::c_void) -> windows_result::Result<u32>;
+    fn UnregisterDestructionCallback(&self, callbackid: u32) -> windows_result::Result<()>;
 }
 impl ID3DDestructionNotifier_Vtbl {
     pub const fn new<Identity: ID3DDestructionNotifier_Impl, const OFFSET: isize>() -> Self {
@@ -848,13 +848,13 @@ impl ID3DDestructionNotifier_Vtbl {
 impl windows_core::RuntimeName for ID3DDestructionNotifier {}
 windows_core::imp::define_interface!(ID3DInclude, ID3DInclude_Vtbl);
 impl ID3DInclude {
-    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>
+    pub unsafe fn Open<P1>(&self, includetype: D3D_INCLUDE_TYPE, pfilename: P1, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), includetype, pfilename.param().abi(), pparentdata, ppdata as _, pbytes as _).ok() }
     }
-    pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self, pdata: *const core::ffi::c_void) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self), pdata).ok() }
     }
 }
@@ -867,8 +867,8 @@ pub struct ID3DInclude_Vtbl {
 unsafe impl Send for ID3DInclude {}
 unsafe impl Sync for ID3DInclude {}
 pub trait ID3DInclude_Impl {
-    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_core::Result<()>;
-    fn Close(&self, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
+    fn Open(&self, includetype: D3D_INCLUDE_TYPE, pfilename: &windows_core::PCSTR, pparentdata: *const core::ffi::c_void, ppdata: *mut *mut core::ffi::c_void, pbytes: *mut u32) -> windows_result::Result<()>;
+    fn Close(&self, pdata: *const core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl ID3DInclude_Vtbl {
     pub const fn new<Identity: ID3DInclude_Impl>() -> Self {

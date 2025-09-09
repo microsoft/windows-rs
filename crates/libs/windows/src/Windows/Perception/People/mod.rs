@@ -3,7 +3,7 @@
 pub struct EyesPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EyesPose, windows_core::IUnknown, windows_core::IInspectable);
 impl EyesPose {
-    pub fn IsCalibrationValid(&self) -> windows_core::Result<bool> {
+    pub fn IsCalibrationValid(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11,34 +11,34 @@ impl EyesPose {
         }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn Gaze(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
+    pub fn Gaze(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Spatial::SpatialRay>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Gaze)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UpdateTimestamp(&self) -> windows_core::Result<super::PerceptionTimestamp> {
+    pub fn UpdateTimestamp(&self) -> windows_result::Result<super::PerceptionTimestamp> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateTimestamp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "UI_Input")]
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_result::Result<windows_future::IAsyncOperation<super::super::UI::Input::GazeInputAccessStatus>> {
         Self::IEyesPoseStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IEyesPoseStatics<R, F: FnOnce(&IEyesPoseStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEyesPoseStatics<R, F: FnOnce(&IEyesPoseStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EyesPose, IEyesPoseStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -98,32 +98,32 @@ pub struct HandMeshObserver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandMeshObserver, windows_core::IUnknown, windows_core::IInspectable);
 impl HandMeshObserver {
     #[cfg(feature = "UI_Input_Spatial")]
-    pub fn Source(&self) -> windows_core::Result<super::super::UI::Input::Spatial::SpatialInteractionSource> {
+    pub fn Source(&self) -> windows_result::Result<super::super::UI::Input::Spatial::SpatialInteractionSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TriangleIndexCount(&self) -> windows_core::Result<u32> {
+    pub fn TriangleIndexCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TriangleIndexCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VertexCount(&self) -> windows_core::Result<u32> {
+    pub fn VertexCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VertexCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetTriangleIndices(&self, indices: &mut [u16]) -> windows_core::Result<()> {
+    pub fn GetTriangleIndices(&self, indices: &mut [u16]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetTriangleIndices)(windows_core::Interface::as_raw(this), indices.len().try_into().unwrap(), indices.as_mut_ptr()).ok() }
     }
-    pub fn GetVertexStateForPose<P0>(&self, handpose: P0) -> windows_core::Result<HandMeshVertexState>
+    pub fn GetVertexStateForPose<P0>(&self, handpose: P0) -> windows_result::Result<HandMeshVertexState>
     where
         P0: windows_core::Param<HandPose>,
     {
@@ -133,21 +133,21 @@ impl HandMeshObserver {
             (windows_core::Interface::vtable(this).GetVertexStateForPose)(windows_core::Interface::as_raw(this), handpose.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NeutralPose(&self) -> windows_core::Result<HandPose> {
+    pub fn NeutralPose(&self) -> windows_result::Result<HandPose> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NeutralPose)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NeutralPoseVersion(&self) -> windows_core::Result<i32> {
+    pub fn NeutralPoseVersion(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NeutralPoseVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ModelId(&self) -> windows_core::Result<i32> {
+    pub fn ModelId(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -185,18 +185,18 @@ pub struct HandMeshVertexState(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandMeshVertexState, windows_core::IUnknown, windows_core::IInspectable);
 impl HandMeshVertexState {
     #[cfg(feature = "Perception_Spatial")]
-    pub fn CoordinateSystem(&self) -> windows_core::Result<super::Spatial::SpatialCoordinateSystem> {
+    pub fn CoordinateSystem(&self) -> windows_result::Result<super::Spatial::SpatialCoordinateSystem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> windows_core::Result<()> {
+    pub fn GetVertices(&self, vertices: &mut [HandMeshVertex]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetVertices)(windows_core::Interface::as_raw(this), vertices.len().try_into().unwrap(), vertices.as_mut_ptr()).ok() }
     }
-    pub fn UpdateTimestamp(&self) -> windows_core::Result<super::PerceptionTimestamp> {
+    pub fn UpdateTimestamp(&self) -> windows_result::Result<super::PerceptionTimestamp> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -222,7 +222,7 @@ pub struct HandPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HandPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HandPose {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoint<P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> windows_core::Result<bool>
+    pub fn TryGetJoint<P0>(&self, coordinatesystem: P0, joint: HandJointKind, jointpose: &mut JointPose) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<super::Spatial::SpatialCoordinateSystem>,
     {
@@ -233,7 +233,7 @@ impl HandPose {
         }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn TryGetJoints<P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> windows_core::Result<bool>
+    pub fn TryGetJoints<P0>(&self, coordinatesystem: P0, joints: &[HandJointKind], jointposes: &mut [JointPose]) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<super::Spatial::SpatialCoordinateSystem>,
     {
@@ -244,7 +244,7 @@ impl HandPose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> windows_core::Result<JointPose> {
+    pub fn GetRelativeJoint(&self, joint: HandJointKind, referencejoint: HandJointKind) -> windows_result::Result<JointPose> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -252,7 +252,7 @@ impl HandPose {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> windows_core::Result<()> {
+    pub fn GetRelativeJoints(&self, joints: &[HandJointKind], referencejoints: &[HandJointKind], jointposes: &mut [JointPose]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).GetRelativeJoints)(windows_core::Interface::as_raw(this), joints.len().try_into().unwrap(), joints.as_ptr(), referencejoints.len().try_into().unwrap(), referencejoints.as_ptr(), jointposes.len().try_into().unwrap(), jointposes.as_mut_ptr()).ok() }
     }
@@ -274,21 +274,21 @@ unsafe impl Sync for HandPose {}
 pub struct HeadPose(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HeadPose, windows_core::IUnknown, windows_core::IInspectable);
 impl HeadPose {
-    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn Position(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ForwardDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn ForwardDirection(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForwardDirection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UpDirection(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn UpDirection(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

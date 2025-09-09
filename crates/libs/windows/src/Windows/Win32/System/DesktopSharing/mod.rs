@@ -180,34 +180,34 @@ impl core::ops::Deref for IRDPSRAPIApplication {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIApplication, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplication {
-    pub unsafe fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList> {
+    pub unsafe fn Windows(&self) -> windows_result::Result<IRDPSRAPIWindowList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Id(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Id(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Shared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Shared(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shared)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Flags(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -228,12 +228,12 @@ pub struct IRDPSRAPIApplication_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplication_Impl: super::Com::IDispatch_Impl {
-    fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList>;
-    fn Id(&self) -> windows_core::Result<i32>;
-    fn Shared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Flags(&self) -> windows_core::Result<u32>;
+    fn Windows(&self) -> windows_result::Result<IRDPSRAPIWindowList>;
+    fn Id(&self) -> windows_result::Result<i32>;
+    fn Shared(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Flags(&self) -> windows_result::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplication_Vtbl {
@@ -333,25 +333,25 @@ impl core::ops::Deref for IRDPSRAPIApplicationFilter {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationFilter, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplicationFilter {
-    pub unsafe fn Applications(&self) -> windows_core::Result<IRDPSRAPIApplicationList> {
+    pub unsafe fn Applications(&self) -> windows_result::Result<IRDPSRAPIApplicationList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Applications)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList> {
+    pub unsafe fn Windows(&self) -> windows_result::Result<IRDPSRAPIWindowList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Windows)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Enabled)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEnabled)(windows_core::Interface::as_raw(self), newval).ok() }
     }
 }
@@ -367,10 +367,10 @@ pub struct IRDPSRAPIApplicationFilter_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplicationFilter_Impl: super::Com::IDispatch_Impl {
-    fn Applications(&self) -> windows_core::Result<IRDPSRAPIApplicationList>;
-    fn Windows(&self) -> windows_core::Result<IRDPSRAPIWindowList>;
-    fn Enabled(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn Applications(&self) -> windows_result::Result<IRDPSRAPIApplicationList>;
+    fn Windows(&self) -> windows_result::Result<IRDPSRAPIWindowList>;
+    fn Enabled(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetEnabled(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplicationFilter_Vtbl {
@@ -444,13 +444,13 @@ impl core::ops::Deref for IRDPSRAPIApplicationList {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIApplicationList, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIApplicationList {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIApplication> {
+    pub unsafe fn get_Item(&self, item: i32) -> windows_result::Result<IRDPSRAPIApplication> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -467,8 +467,8 @@ pub struct IRDPSRAPIApplicationList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIApplicationList_Impl: super::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIApplication>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: i32) -> windows_result::Result<IRDPSRAPIApplication>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIApplicationList_Vtbl {
@@ -518,43 +518,43 @@ impl core::ops::Deref for IRDPSRAPIAttendee {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendee, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendee {
-    pub unsafe fn Id(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Id(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RemoteName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RemoteName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RemoteName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ControlLevel(&self) -> windows_core::Result<CTRL_LEVEL> {
+    pub unsafe fn ControlLevel(&self) -> windows_result::Result<CTRL_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ControlLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> windows_core::Result<()> {
+    pub unsafe fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetControlLevel)(windows_core::Interface::as_raw(self), pnewval).ok() }
     }
-    pub unsafe fn Invitation(&self) -> windows_core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn Invitation(&self) -> windows_result::Result<IRDPSRAPIInvitation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Invitation)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TerminateConnection(&self) -> windows_core::Result<()> {
+    pub unsafe fn TerminateConnection(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).TerminateConnection)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Flags(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ConnectivityInfo(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn ConnectivityInfo(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectivityInfo)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -577,14 +577,14 @@ pub struct IRDPSRAPIAttendee_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendee_Impl: super::Com::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<i32>;
-    fn RemoteName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ControlLevel(&self) -> windows_core::Result<CTRL_LEVEL>;
-    fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> windows_core::Result<()>;
-    fn Invitation(&self) -> windows_core::Result<IRDPSRAPIInvitation>;
-    fn TerminateConnection(&self) -> windows_core::Result<()>;
-    fn Flags(&self) -> windows_core::Result<i32>;
-    fn ConnectivityInfo(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn Id(&self) -> windows_result::Result<i32>;
+    fn RemoteName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ControlLevel(&self) -> windows_result::Result<CTRL_LEVEL>;
+    fn SetControlLevel(&self, pnewval: CTRL_LEVEL) -> windows_result::Result<()>;
+    fn Invitation(&self) -> windows_result::Result<IRDPSRAPIInvitation>;
+    fn TerminateConnection(&self) -> windows_result::Result<()>;
+    fn Flags(&self) -> windows_result::Result<i32>;
+    fn ConnectivityInfo(&self) -> windows_result::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendee_Vtbl {
@@ -704,19 +704,19 @@ impl core::ops::Deref for IRDPSRAPIAttendeeDisconnectInfo {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeDisconnectInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendeeDisconnectInfo {
-    pub unsafe fn Attendee(&self) -> windows_core::Result<IRDPSRAPIAttendee> {
+    pub unsafe fn Attendee(&self) -> windows_result::Result<IRDPSRAPIAttendee> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Attendee)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Reason(&self) -> windows_core::Result<ATTENDEE_DISCONNECT_REASON> {
+    pub unsafe fn Reason(&self) -> windows_result::Result<ATTENDEE_DISCONNECT_REASON> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Reason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Code(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Code(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Code)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -734,9 +734,9 @@ pub struct IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendeeDisconnectInfo_Impl: super::Com::IDispatch_Impl {
-    fn Attendee(&self) -> windows_core::Result<IRDPSRAPIAttendee>;
-    fn Reason(&self) -> windows_core::Result<ATTENDEE_DISCONNECT_REASON>;
-    fn Code(&self) -> windows_core::Result<i32>;
+    fn Attendee(&self) -> windows_result::Result<IRDPSRAPIAttendee>;
+    fn Reason(&self) -> windows_result::Result<ATTENDEE_DISCONNECT_REASON>;
+    fn Code(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendeeDisconnectInfo_Vtbl {
@@ -803,13 +803,13 @@ impl core::ops::Deref for IRDPSRAPIAttendeeManager {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIAttendeeManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIAttendeeManager {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, id: i32) -> windows_core::Result<IRDPSRAPIAttendee> {
+    pub unsafe fn get_Item(&self, id: i32) -> windows_result::Result<IRDPSRAPIAttendee> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -826,8 +826,8 @@ pub struct IRDPSRAPIAttendeeManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIAttendeeManager_Impl: super::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, id: i32) -> windows_core::Result<IRDPSRAPIAttendee>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn get_Item(&self, id: i32) -> windows_result::Result<IRDPSRAPIAttendee>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIAttendeeManager_Vtbl {
@@ -867,22 +867,22 @@ impl windows_core::RuntimeName for IRDPSRAPIAttendeeManager {}
 windows_core::imp::define_interface!(IRDPSRAPIAudioStream, IRDPSRAPIAudioStream_Vtbl, 0xe3e30ef9_89c6_4541_ba3b_19336ac6d31c);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIAudioStream, windows_core::IUnknown);
 impl IRDPSRAPIAudioStream {
-    pub unsafe fn Initialize(&self) -> windows_core::Result<i64> {
+    pub unsafe fn Initialize(&self) -> windows_result::Result<i64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Start(&self) -> windows_core::Result<()> {
+    pub unsafe fn Start(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Start)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Stop(&self) -> windows_core::Result<()> {
+    pub unsafe fn Stop(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Stop)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetBuffer)(windows_core::Interface::as_raw(self), ppbdata as _, pcbdata as _, ptimestamp as _).ok() }
     }
-    pub unsafe fn FreeBuffer(&self) -> windows_core::Result<()> {
+    pub unsafe fn FreeBuffer(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -897,11 +897,11 @@ pub struct IRDPSRAPIAudioStream_Vtbl {
     pub FreeBuffer: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPIAudioStream_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self) -> windows_core::Result<i64>;
-    fn Start(&self) -> windows_core::Result<()>;
-    fn Stop(&self) -> windows_core::Result<()>;
-    fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_core::Result<()>;
-    fn FreeBuffer(&self) -> windows_core::Result<()>;
+    fn Initialize(&self) -> windows_result::Result<i64>;
+    fn Start(&self) -> windows_result::Result<()>;
+    fn Stop(&self) -> windows_result::Result<()>;
+    fn GetBuffer(&self, ppbdata: *mut *mut u8, pcbdata: *mut u32, ptimestamp: *mut u64) -> windows_result::Result<()>;
+    fn FreeBuffer(&self) -> windows_result::Result<()>;
 }
 impl IRDPSRAPIAudioStream_Vtbl {
     pub const fn new<Identity: IRDPSRAPIAudioStream_Impl, const OFFSET: isize>() -> Self {
@@ -959,7 +959,7 @@ windows_core::imp::define_interface!(IRDPSRAPIClipboardUseEvents, IRDPSRAPIClipb
 windows_core::imp::interface_hierarchy!(IRDPSRAPIClipboardUseEvents, windows_core::IUnknown);
 impl IRDPSRAPIClipboardUseEvents {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn OnPasteFromClipboard<P1>(&self, clipboardformat: u32, pattendee: P1) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>
+    pub unsafe fn OnPasteFromClipboard<P1>(&self, clipboardformat: u32, pattendee: P1) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>
     where
         P1: windows_core::Param<super::Com::IDispatch>,
     {
@@ -980,7 +980,7 @@ pub struct IRDPSRAPIClipboardUseEvents_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRDPSRAPIClipboardUseEvents_Impl: windows_core::IUnknownImpl {
-    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn OnPasteFromClipboard(&self, clipboardformat: u32, pattendee: windows_core::Ref<super::Com::IDispatch>) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIClipboardUseEvents_Vtbl {
@@ -1008,10 +1008,10 @@ impl windows_core::RuntimeName for IRDPSRAPIClipboardUseEvents {}
 windows_core::imp::define_interface!(IRDPSRAPIDebug, IRDPSRAPIDebug_Vtbl, 0xaa1e42b5_496d_4ca4_a690_348dcb2ec4ad);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIDebug, windows_core::IUnknown);
 impl IRDPSRAPIDebug {
-    pub unsafe fn SetCLXCmdLine(&self, clxcmdline: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCLXCmdLine(&self, clxcmdline: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCLXCmdLine)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(clxcmdline)).ok() }
     }
-    pub unsafe fn CLXCmdLine(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn CLXCmdLine(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CLXCmdLine)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -1026,8 +1026,8 @@ pub struct IRDPSRAPIDebug_Vtbl {
     pub CLXCmdLine: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPIDebug_Impl: windows_core::IUnknownImpl {
-    fn SetCLXCmdLine(&self, clxcmdline: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn CLXCmdLine(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn SetCLXCmdLine(&self, clxcmdline: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn CLXCmdLine(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 impl IRDPSRAPIDebug_Vtbl {
     pub const fn new<Identity: IRDPSRAPIDebug_Impl, const OFFSET: isize>() -> Self {
@@ -1073,25 +1073,25 @@ impl core::ops::Deref for IRDPSRAPIFrameBuffer {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIFrameBuffer, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIFrameBuffer {
-    pub unsafe fn Width(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Width(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Width)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Height(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Height(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Height)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Bpp(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Bpp(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Bpp)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> windows_core::Result<*mut super::Com::SAFEARRAY> {
+    pub unsafe fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> windows_result::Result<*mut super::Com::SAFEARRAY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetFrameBufferBits)(windows_core::Interface::as_raw(self), x, y, width, heigth, &mut result__).map(|| result__)
@@ -1110,10 +1110,10 @@ pub struct IRDPSRAPIFrameBuffer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIFrameBuffer_Impl: super::Com::IDispatch_Impl {
-    fn Width(&self) -> windows_core::Result<i32>;
-    fn Height(&self) -> windows_core::Result<i32>;
-    fn Bpp(&self) -> windows_core::Result<i32>;
-    fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> windows_core::Result<*mut super::Com::SAFEARRAY>;
+    fn Width(&self) -> windows_result::Result<i32>;
+    fn Height(&self) -> windows_result::Result<i32>;
+    fn Bpp(&self) -> windows_result::Result<i32>;
+    fn GetFrameBufferBits(&self, x: i32, y: i32, width: i32, heigth: i32) -> windows_result::Result<*mut super::Com::SAFEARRAY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIFrameBuffer_Vtbl {
@@ -1193,40 +1193,40 @@ impl core::ops::Deref for IRDPSRAPIInvitation {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitation, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitation {
-    pub unsafe fn ConnectionString(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ConnectionString(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ConnectionString)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GroupName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GroupName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GroupName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Password(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Password(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Password)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn AttendeeLimit(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AttendeeLimit(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AttendeeLimit)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAttendeeLimit(&self, newval: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAttendeeLimit)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Revoked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Revoked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Revoked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRevoked)(windows_core::Interface::as_raw(self), newval).ok() }
     }
 }
@@ -1245,13 +1245,13 @@ pub struct IRDPSRAPIInvitation_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIInvitation_Impl: super::Com::IDispatch_Impl {
-    fn ConnectionString(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GroupName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Password(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn AttendeeLimit(&self) -> windows_core::Result<i32>;
-    fn SetAttendeeLimit(&self, newval: i32) -> windows_core::Result<()>;
-    fn Revoked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn ConnectionString(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn GroupName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Password(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn AttendeeLimit(&self) -> windows_result::Result<i32>;
+    fn SetAttendeeLimit(&self, newval: i32) -> windows_result::Result<()>;
+    fn Revoked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetRevoked(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIInvitation_Vtbl {
@@ -1358,26 +1358,26 @@ impl core::ops::Deref for IRDPSRAPIInvitationManager {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIInvitationManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIInvitationManager {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_result::Result<IRDPSRAPIInvitation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(item), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateInvitation(&self, bstrauthstring: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, attendeelimit: i32) -> windows_core::Result<IRDPSRAPIInvitation> {
+    pub unsafe fn CreateInvitation(&self, bstrauthstring: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, attendeelimit: i32) -> windows_result::Result<IRDPSRAPIInvitation> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateInvitation)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrauthstring), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(bstrpassword), attendeelimit, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1399,10 +1399,10 @@ pub struct IRDPSRAPIInvitationManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIInvitationManager_Impl: super::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIInvitation>;
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn CreateInvitation(&self, bstrauthstring: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, attendeelimit: i32) -> windows_core::Result<IRDPSRAPIInvitation>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_result::Result<IRDPSRAPIInvitation>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn CreateInvitation(&self, bstrauthstring: &windows_core::BSTR, bstrgroupname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR, attendeelimit: i32) -> windows_result::Result<IRDPSRAPIInvitation>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIInvitationManager_Vtbl {
@@ -1472,7 +1472,7 @@ impl windows_core::RuntimeName for IRDPSRAPIInvitationManager {}
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLogger, IRDPSRAPIPerfCounterLogger_Vtbl, 0x071c2533_0fa4_4e8f_ae83_9c10b4305ab5);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLogger, windows_core::IUnknown);
 impl IRDPSRAPIPerfCounterLogger {
-    pub unsafe fn LogValue(&self, lvalue: i64) -> windows_core::Result<()> {
+    pub unsafe fn LogValue(&self, lvalue: i64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).LogValue)(windows_core::Interface::as_raw(self), lvalue).ok() }
     }
 }
@@ -1483,7 +1483,7 @@ pub struct IRDPSRAPIPerfCounterLogger_Vtbl {
     pub LogValue: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPIPerfCounterLogger_Impl: windows_core::IUnknownImpl {
-    fn LogValue(&self, lvalue: i64) -> windows_core::Result<()>;
+    fn LogValue(&self, lvalue: i64) -> windows_result::Result<()>;
 }
 impl IRDPSRAPIPerfCounterLogger_Vtbl {
     pub const fn new<Identity: IRDPSRAPIPerfCounterLogger_Impl, const OFFSET: isize>() -> Self {
@@ -1503,7 +1503,7 @@ impl windows_core::RuntimeName for IRDPSRAPIPerfCounterLogger {}
 windows_core::imp::define_interface!(IRDPSRAPIPerfCounterLoggingManager, IRDPSRAPIPerfCounterLoggingManager_Vtbl, 0x9a512c86_ac6e_4a8e_b1a4_fcef363f6e64);
 windows_core::imp::interface_hierarchy!(IRDPSRAPIPerfCounterLoggingManager, windows_core::IUnknown);
 impl IRDPSRAPIPerfCounterLoggingManager {
-    pub unsafe fn CreateLogger(&self, bstrcountername: &windows_core::BSTR) -> windows_core::Result<IRDPSRAPIPerfCounterLogger> {
+    pub unsafe fn CreateLogger(&self, bstrcountername: &windows_core::BSTR) -> windows_result::Result<IRDPSRAPIPerfCounterLogger> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateLogger)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcountername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1517,7 +1517,7 @@ pub struct IRDPSRAPIPerfCounterLoggingManager_Vtbl {
     pub CreateLogger: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPIPerfCounterLoggingManager_Impl: windows_core::IUnknownImpl {
-    fn CreateLogger(&self, bstrcountername: &windows_core::BSTR) -> windows_core::Result<IRDPSRAPIPerfCounterLogger>;
+    fn CreateLogger(&self, bstrcountername: &windows_core::BSTR) -> windows_result::Result<IRDPSRAPIPerfCounterLogger>;
 }
 impl IRDPSRAPIPerfCounterLoggingManager_Vtbl {
     pub const fn new<Identity: IRDPSRAPIPerfCounterLoggingManager_Impl, const OFFSET: isize>() -> Self {
@@ -1554,14 +1554,14 @@ windows_core::imp::interface_hierarchy!(IRDPSRAPISessionProperties, windows_core
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISessionProperties {
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_result::Result<super::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Property)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &super::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_Property)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(propertyname), core::mem::transmute_copy(newval)).ok() }
     }
 }
@@ -1581,8 +1581,8 @@ pub struct IRDPSRAPISessionProperties_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISessionProperties_Impl: super::Com::IDispatch_Impl {
-    fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_core::Result<super::Variant::VARIANT>;
-    fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &super::Variant::VARIANT) -> windows_core::Result<()>;
+    fn get_Property(&self, propertyname: &windows_core::BSTR) -> windows_result::Result<super::Variant::VARIANT>;
+    fn put_Property(&self, propertyname: &windows_core::BSTR, newval: &super::Variant::VARIANT) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISessionProperties_Vtbl {
@@ -1630,64 +1630,64 @@ impl core::ops::Deref for IRDPSRAPISharingSession {
 windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISharingSession {
-    pub unsafe fn Open(&self) -> windows_core::Result<()> {
+    pub unsafe fn Open(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetColorDepth(&self, colordepth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetColorDepth(&self, colordepth: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetColorDepth)(windows_core::Interface::as_raw(self), colordepth).ok() }
     }
-    pub unsafe fn ColorDepth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ColorDepth(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ColorDepth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Properties(&self) -> windows_core::Result<IRDPSRAPISessionProperties> {
+    pub unsafe fn Properties(&self) -> windows_result::Result<IRDPSRAPISessionProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Attendees(&self) -> windows_core::Result<IRDPSRAPIAttendeeManager> {
+    pub unsafe fn Attendees(&self) -> windows_result::Result<IRDPSRAPIAttendeeManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Attendees)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Invitations(&self) -> windows_core::Result<IRDPSRAPIInvitationManager> {
+    pub unsafe fn Invitations(&self) -> windows_result::Result<IRDPSRAPIInvitationManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Invitations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ApplicationFilter(&self) -> windows_core::Result<IRDPSRAPIApplicationFilter> {
+    pub unsafe fn ApplicationFilter(&self) -> windows_result::Result<IRDPSRAPIApplicationFilter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ApplicationFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn VirtualChannelManager(&self) -> windows_core::Result<IRDPSRAPIVirtualChannelManager> {
+    pub unsafe fn VirtualChannelManager(&self) -> windows_result::Result<IRDPSRAPIVirtualChannelManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VirtualChannelManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Pause(&self) -> windows_core::Result<()> {
+    pub unsafe fn Pause(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Pause)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Resume(&self) -> windows_core::Result<()> {
+    pub unsafe fn Resume(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Resume)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ConnectToClient(&self, bstrconnectionstring: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn ConnectToClient(&self, bstrconnectionstring: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectToClient)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectionstring)).ok() }
     }
-    pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDesktopSharedRect)(windows_core::Interface::as_raw(self), left, top, right, bottom).ok() }
     }
-    pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesktopSharedRect)(windows_core::Interface::as_raw(self), pleft as _, ptop as _, pright as _, pbottom as _).ok() }
     }
 }
@@ -1713,20 +1713,20 @@ pub struct IRDPSRAPISharingSession_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession_Impl: super::Com::IDispatch_Impl {
-    fn Open(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
-    fn SetColorDepth(&self, colordepth: i32) -> windows_core::Result<()>;
-    fn ColorDepth(&self) -> windows_core::Result<i32>;
-    fn Properties(&self) -> windows_core::Result<IRDPSRAPISessionProperties>;
-    fn Attendees(&self) -> windows_core::Result<IRDPSRAPIAttendeeManager>;
-    fn Invitations(&self) -> windows_core::Result<IRDPSRAPIInvitationManager>;
-    fn ApplicationFilter(&self) -> windows_core::Result<IRDPSRAPIApplicationFilter>;
-    fn VirtualChannelManager(&self) -> windows_core::Result<IRDPSRAPIVirtualChannelManager>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn ConnectToClient(&self, bstrconnectionstring: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_core::Result<()>;
-    fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_core::Result<()>;
+    fn Open(&self) -> windows_result::Result<()>;
+    fn Close(&self) -> windows_result::Result<()>;
+    fn SetColorDepth(&self, colordepth: i32) -> windows_result::Result<()>;
+    fn ColorDepth(&self) -> windows_result::Result<i32>;
+    fn Properties(&self) -> windows_result::Result<IRDPSRAPISessionProperties>;
+    fn Attendees(&self) -> windows_result::Result<IRDPSRAPIAttendeeManager>;
+    fn Invitations(&self) -> windows_result::Result<IRDPSRAPIInvitationManager>;
+    fn ApplicationFilter(&self) -> windows_result::Result<IRDPSRAPIApplicationFilter>;
+    fn VirtualChannelManager(&self) -> windows_result::Result<IRDPSRAPIVirtualChannelManager>;
+    fn Pause(&self) -> windows_result::Result<()>;
+    fn Resume(&self) -> windows_result::Result<()>;
+    fn ConnectToClient(&self, bstrconnectionstring: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SetDesktopSharedRect(&self, left: i32, top: i32, right: i32, bottom: i32) -> windows_result::Result<()>;
+    fn GetDesktopSharedRect(&self, pleft: *mut i32, ptop: *mut i32, pright: *mut i32, pbottom: *mut i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession_Vtbl {
@@ -1888,19 +1888,19 @@ impl core::ops::Deref for IRDPSRAPISharingSession2 {
 windows_core::imp::interface_hierarchy!(IRDPSRAPISharingSession2, windows_core::IUnknown, super::Com::IDispatch, IRDPSRAPISharingSession);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPISharingSession2 {
-    pub unsafe fn ConnectUsingTransportStream<P0>(&self, pstream: P0, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>
+    pub unsafe fn ConnectUsingTransportStream<P0>(&self, pstream: P0, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStream>,
     {
         unsafe { (windows_core::Interface::vtable(self).ConnectUsingTransportStream)(windows_core::Interface::as_raw(self), pstream.param().abi(), core::mem::transmute_copy(bstrgroup), core::mem::transmute_copy(bstrauthenticatedattendeename)).ok() }
     }
-    pub unsafe fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer> {
+    pub unsafe fn FrameBuffer(&self) -> windows_result::Result<IRDPSRAPIFrameBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).FrameBuffer)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SendControlLevelChangeResponse<P0>(&self, pattendee: P0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>
+    pub unsafe fn SendControlLevelChangeResponse<P0>(&self, pattendee: P0, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPIAttendee>,
     {
@@ -1918,9 +1918,9 @@ pub struct IRDPSRAPISharingSession2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPISharingSession2_Impl: IRDPSRAPISharingSession_Impl {
-    fn ConnectUsingTransportStream(&self, pstream: windows_core::Ref<IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn FrameBuffer(&self) -> windows_core::Result<IRDPSRAPIFrameBuffer>;
-    fn SendControlLevelChangeResponse(&self, pattendee: windows_core::Ref<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_core::Result<()>;
+    fn ConnectUsingTransportStream(&self, pstream: windows_core::Ref<IRDPSRAPITransportStream>, bstrgroup: &windows_core::BSTR, bstrauthenticatedattendeename: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn FrameBuffer(&self) -> windows_result::Result<IRDPSRAPIFrameBuffer>;
+    fn SendControlLevelChangeResponse(&self, pattendee: windows_core::Ref<IRDPSRAPIAttendee>, requestedlevel: CTRL_LEVEL, reasoncode: i32) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPISharingSession2_Vtbl {
@@ -1975,31 +1975,31 @@ impl core::ops::Deref for IRDPSRAPITcpConnectionInfo {
 windows_core::imp::interface_hierarchy!(IRDPSRAPITcpConnectionInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPITcpConnectionInfo {
-    pub unsafe fn Protocol(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Protocol(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Protocol)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LocalPort(&self) -> windows_core::Result<i32> {
+    pub unsafe fn LocalPort(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LocalIP(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LocalIP(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalIP)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PeerPort(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PeerPort(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PeerPort)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PeerIP(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PeerIP(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PeerIP)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -2019,11 +2019,11 @@ pub struct IRDPSRAPITcpConnectionInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPITcpConnectionInfo_Impl: super::Com::IDispatch_Impl {
-    fn Protocol(&self) -> windows_core::Result<i32>;
-    fn LocalPort(&self) -> windows_core::Result<i32>;
-    fn LocalIP(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn PeerPort(&self) -> windows_core::Result<i32>;
-    fn PeerIP(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Protocol(&self) -> windows_result::Result<i32>;
+    fn LocalPort(&self) -> windows_result::Result<i32>;
+    fn LocalIP(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn PeerPort(&self) -> windows_result::Result<i32>;
+    fn PeerIP(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPITcpConnectionInfo_Vtbl {
@@ -2106,37 +2106,37 @@ impl windows_core::RuntimeName for IRDPSRAPITcpConnectionInfo {}
 windows_core::imp::define_interface!(IRDPSRAPITransportStream, IRDPSRAPITransportStream_Vtbl, 0x36cfa065_43bb_4ef7_aed7_9b88a5053036);
 windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStream, windows_core::IUnknown);
 impl IRDPSRAPITransportStream {
-    pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> windows_core::Result<IRDPSRAPITransportStreamBuffer> {
+    pub unsafe fn AllocBuffer(&self, maxpayload: i32) -> windows_result::Result<IRDPSRAPITransportStreamBuffer> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllocBuffer)(windows_core::Interface::as_raw(self), maxpayload, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn FreeBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
+    pub unsafe fn FreeBuffer<P0>(&self, pbuffer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
         unsafe { (windows_core::Interface::vtable(self).FreeBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
     }
-    pub unsafe fn WriteBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
+    pub unsafe fn WriteBuffer<P0>(&self, pbuffer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
         unsafe { (windows_core::Interface::vtable(self).WriteBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
     }
-    pub unsafe fn ReadBuffer<P0>(&self, pbuffer: P0) -> windows_core::Result<()>
+    pub unsafe fn ReadBuffer<P0>(&self, pbuffer: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamBuffer>,
     {
         unsafe { (windows_core::Interface::vtable(self).ReadBuffer)(windows_core::Interface::as_raw(self), pbuffer.param().abi()).ok() }
     }
-    pub unsafe fn Open<P0>(&self, pcallbacks: P0) -> windows_core::Result<()>
+    pub unsafe fn Open<P0>(&self, pcallbacks: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRDPSRAPITransportStreamEvents>,
     {
         unsafe { (windows_core::Interface::vtable(self).Open)(windows_core::Interface::as_raw(self), pcallbacks.param().abi()).ok() }
     }
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -2152,12 +2152,12 @@ pub struct IRDPSRAPITransportStream_Vtbl {
     pub Close: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPITransportStream_Impl: windows_core::IUnknownImpl {
-    fn AllocBuffer(&self, maxpayload: i32) -> windows_core::Result<IRDPSRAPITransportStreamBuffer>;
-    fn FreeBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn WriteBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn ReadBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_core::Result<()>;
-    fn Open(&self, pcallbacks: windows_core::Ref<IRDPSRAPITransportStreamEvents>) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
+    fn AllocBuffer(&self, maxpayload: i32) -> windows_result::Result<IRDPSRAPITransportStreamBuffer>;
+    fn FreeBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_result::Result<()>;
+    fn WriteBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_result::Result<()>;
+    fn ReadBuffer(&self, pbuffer: windows_core::Ref<IRDPSRAPITransportStreamBuffer>) -> windows_result::Result<()>;
+    fn Open(&self, pcallbacks: windows_core::Ref<IRDPSRAPITransportStreamEvents>) -> windows_result::Result<()>;
+    fn Close(&self) -> windows_result::Result<()>;
 }
 impl IRDPSRAPITransportStream_Vtbl {
     pub const fn new<Identity: IRDPSRAPITransportStream_Impl, const OFFSET: isize>() -> Self {
@@ -2221,52 +2221,52 @@ impl windows_core::RuntimeName for IRDPSRAPITransportStream {}
 windows_core::imp::define_interface!(IRDPSRAPITransportStreamBuffer, IRDPSRAPITransportStreamBuffer_Vtbl, 0x81c80290_5085_44b0_b460_f865c39cb4a9);
 windows_core::imp::interface_hierarchy!(IRDPSRAPITransportStreamBuffer, windows_core::IUnknown);
 impl IRDPSRAPITransportStreamBuffer {
-    pub unsafe fn Storage(&self) -> windows_core::Result<*mut u8> {
+    pub unsafe fn Storage(&self) -> windows_result::Result<*mut u8> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Storage)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StorageSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StorageSize(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StorageSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn PayloadSize(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PayloadSize(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PayloadSize)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPayloadSize(&self, lval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPayloadSize(&self, lval: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPayloadSize)(windows_core::Interface::as_raw(self), lval).ok() }
     }
-    pub unsafe fn PayloadOffset(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PayloadOffset(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PayloadOffset)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPayloadOffset(&self, lretval: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetPayloadOffset(&self, lretval: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPayloadOffset)(windows_core::Interface::as_raw(self), lretval).ok() }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Flags(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetFlags(&self, lflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, lflags: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), lflags).ok() }
     }
-    pub unsafe fn Context(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn Context(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Context)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetContext<P0>(&self, pcontext: P0) -> windows_core::Result<()>
+    pub unsafe fn SetContext<P0>(&self, pcontext: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
@@ -2289,16 +2289,16 @@ pub struct IRDPSRAPITransportStreamBuffer_Vtbl {
     pub SetContext: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPSRAPITransportStreamBuffer_Impl: windows_core::IUnknownImpl {
-    fn Storage(&self) -> windows_core::Result<*mut u8>;
-    fn StorageSize(&self) -> windows_core::Result<i32>;
-    fn PayloadSize(&self) -> windows_core::Result<i32>;
-    fn SetPayloadSize(&self, lval: i32) -> windows_core::Result<()>;
-    fn PayloadOffset(&self) -> windows_core::Result<i32>;
-    fn SetPayloadOffset(&self, lretval: i32) -> windows_core::Result<()>;
-    fn Flags(&self) -> windows_core::Result<i32>;
-    fn SetFlags(&self, lflags: i32) -> windows_core::Result<()>;
-    fn Context(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn SetContext(&self, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
+    fn Storage(&self) -> windows_result::Result<*mut u8>;
+    fn StorageSize(&self) -> windows_result::Result<i32>;
+    fn PayloadSize(&self) -> windows_result::Result<i32>;
+    fn SetPayloadSize(&self, lval: i32) -> windows_result::Result<()>;
+    fn PayloadOffset(&self) -> windows_result::Result<i32>;
+    fn SetPayloadOffset(&self, lretval: i32) -> windows_result::Result<()>;
+    fn Flags(&self) -> windows_result::Result<i32>;
+    fn SetFlags(&self, lflags: i32) -> windows_result::Result<()>;
+    fn Context(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn SetContext(&self, pcontext: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
 }
 impl IRDPSRAPITransportStreamBuffer_Vtbl {
     pub const fn new<Identity: IRDPSRAPITransportStreamBuffer_Impl, const OFFSET: isize>() -> Self {
@@ -2494,67 +2494,67 @@ impl core::ops::Deref for IRDPSRAPIViewer {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIViewer, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIViewer {
-    pub unsafe fn Connect(&self, bstrconnectionstring: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Connect(&self, bstrconnectionstring: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Connect)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectionstring), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrpassword)).ok() }
     }
-    pub unsafe fn Disconnect(&self) -> windows_core::Result<()> {
+    pub unsafe fn Disconnect(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Disconnect)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Attendees(&self) -> windows_core::Result<IRDPSRAPIAttendeeManager> {
+    pub unsafe fn Attendees(&self) -> windows_result::Result<IRDPSRAPIAttendeeManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Attendees)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Invitations(&self) -> windows_core::Result<IRDPSRAPIInvitationManager> {
+    pub unsafe fn Invitations(&self) -> windows_result::Result<IRDPSRAPIInvitationManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Invitations)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ApplicationFilter(&self) -> windows_core::Result<IRDPSRAPIApplicationFilter> {
+    pub unsafe fn ApplicationFilter(&self) -> windows_result::Result<IRDPSRAPIApplicationFilter> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ApplicationFilter)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn VirtualChannelManager(&self) -> windows_core::Result<IRDPSRAPIVirtualChannelManager> {
+    pub unsafe fn VirtualChannelManager(&self) -> windows_result::Result<IRDPSRAPIVirtualChannelManager> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).VirtualChannelManager)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSmartSizing)(windows_core::Interface::as_raw(self), vbsmartsizing).ok() }
     }
-    pub unsafe fn SmartSizing(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn SmartSizing(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SmartSizing)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> windows_core::Result<()> {
+    pub unsafe fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RequestControl)(windows_core::Interface::as_raw(self), ctrllevel).ok() }
     }
-    pub unsafe fn SetDisconnectedText(&self, bstrdisconnectedtext: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDisconnectedText(&self, bstrdisconnectedtext: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDisconnectedText)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdisconnectedtext)).ok() }
     }
-    pub unsafe fn DisconnectedText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn DisconnectedText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).DisconnectedText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RequestColorDepthChange(&self, bpp: i32) -> windows_core::Result<()> {
+    pub unsafe fn RequestColorDepthChange(&self, bpp: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RequestColorDepthChange)(windows_core::Interface::as_raw(self), bpp).ok() }
     }
-    pub unsafe fn Properties(&self) -> windows_core::Result<IRDPSRAPISessionProperties> {
+    pub unsafe fn Properties(&self) -> windows_result::Result<IRDPSRAPISessionProperties> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Properties)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn StartReverseConnectListener(&self, bstrconnectionstring: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StartReverseConnectListener(&self, bstrconnectionstring: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StartReverseConnectListener)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrconnectionstring), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrpassword), &mut result__).map(|| core::mem::transmute(result__))
@@ -2583,20 +2583,20 @@ pub struct IRDPSRAPIViewer_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIViewer_Impl: super::Com::IDispatch_Impl {
-    fn Connect(&self, bstrconnectionstring: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Disconnect(&self) -> windows_core::Result<()>;
-    fn Attendees(&self) -> windows_core::Result<IRDPSRAPIAttendeeManager>;
-    fn Invitations(&self) -> windows_core::Result<IRDPSRAPIInvitationManager>;
-    fn ApplicationFilter(&self) -> windows_core::Result<IRDPSRAPIApplicationFilter>;
-    fn VirtualChannelManager(&self) -> windows_core::Result<IRDPSRAPIVirtualChannelManager>;
-    fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SmartSizing(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> windows_core::Result<()>;
-    fn SetDisconnectedText(&self, bstrdisconnectedtext: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn DisconnectedText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RequestColorDepthChange(&self, bpp: i32) -> windows_core::Result<()>;
-    fn Properties(&self) -> windows_core::Result<IRDPSRAPISessionProperties>;
-    fn StartReverseConnectListener(&self, bstrconnectionstring: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
+    fn Connect(&self, bstrconnectionstring: &windows_core::BSTR, bstrname: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Disconnect(&self) -> windows_result::Result<()>;
+    fn Attendees(&self) -> windows_result::Result<IRDPSRAPIAttendeeManager>;
+    fn Invitations(&self) -> windows_result::Result<IRDPSRAPIInvitationManager>;
+    fn ApplicationFilter(&self) -> windows_result::Result<IRDPSRAPIApplicationFilter>;
+    fn VirtualChannelManager(&self) -> windows_result::Result<IRDPSRAPIVirtualChannelManager>;
+    fn SetSmartSizing(&self, vbsmartsizing: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SmartSizing(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn RequestControl(&self, ctrllevel: CTRL_LEVEL) -> windows_result::Result<()>;
+    fn SetDisconnectedText(&self, bstrdisconnectedtext: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn DisconnectedText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn RequestColorDepthChange(&self, bpp: i32) -> windows_result::Result<()>;
+    fn Properties(&self) -> windows_result::Result<IRDPSRAPISessionProperties>;
+    fn StartReverseConnectListener(&self, bstrconnectionstring: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIViewer_Vtbl {
@@ -2770,25 +2770,25 @@ impl core::ops::Deref for IRDPSRAPIVirtualChannel {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannel, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannel {
-    pub unsafe fn SendData(&self, bstrdata: &windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendData(&self, bstrdata: &windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata), lattendeeid, channelsendflags).ok() }
     }
-    pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_core::Result<()> {
+    pub unsafe fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAccess)(windows_core::Interface::as_raw(self), lattendeeid, accesstype).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Flags(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Priority(&self) -> windows_core::Result<CHANNEL_PRIORITY> {
+    pub unsafe fn Priority(&self) -> windows_result::Result<CHANNEL_PRIORITY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Priority)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2808,11 +2808,11 @@ pub struct IRDPSRAPIVirtualChannel_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIVirtualChannel_Impl: super::Com::IDispatch_Impl {
-    fn SendData(&self, bstrdata: &windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> windows_core::Result<()>;
-    fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Flags(&self) -> windows_core::Result<i32>;
-    fn Priority(&self) -> windows_core::Result<CHANNEL_PRIORITY>;
+    fn SendData(&self, bstrdata: &windows_core::BSTR, lattendeeid: i32, channelsendflags: u32) -> windows_result::Result<()>;
+    fn SetAccess(&self, lattendeeid: i32, accesstype: CHANNEL_ACCESS_ENUM) -> windows_result::Result<()>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Flags(&self) -> windows_result::Result<i32>;
+    fn Priority(&self) -> windows_result::Result<CHANNEL_PRIORITY>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIVirtualChannel_Vtbl {
@@ -2893,20 +2893,20 @@ impl core::ops::Deref for IRDPSRAPIVirtualChannelManager {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIVirtualChannelManager, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIVirtualChannelManager {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIVirtualChannel> {
+    pub unsafe fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_result::Result<IRDPSRAPIVirtualChannel> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(item), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CreateVirtualChannel(&self, bstrchannelname: &windows_core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> windows_core::Result<IRDPSRAPIVirtualChannel> {
+    pub unsafe fn CreateVirtualChannel(&self, bstrchannelname: &windows_core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> windows_result::Result<IRDPSRAPIVirtualChannel> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateVirtualChannel)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrchannelname), priority, channelflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2927,9 +2927,9 @@ pub struct IRDPSRAPIVirtualChannelManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIVirtualChannelManager_Impl: super::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_core::Result<IRDPSRAPIVirtualChannel>;
-    fn CreateVirtualChannel(&self, bstrchannelname: &windows_core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> windows_core::Result<IRDPSRAPIVirtualChannel>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: &super::Variant::VARIANT) -> windows_result::Result<IRDPSRAPIVirtualChannel>;
+    fn CreateVirtualChannel(&self, bstrchannelname: &windows_core::BSTR, priority: CHANNEL_PRIORITY, channelflags: u32) -> windows_result::Result<IRDPSRAPIVirtualChannel>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIVirtualChannelManager_Vtbl {
@@ -2996,37 +2996,37 @@ impl core::ops::Deref for IRDPSRAPIWindow {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIWindow, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindow {
-    pub unsafe fn Id(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Id(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Id)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Application(&self) -> windows_core::Result<IRDPSRAPIApplication> {
+    pub unsafe fn Application(&self) -> windows_result::Result<IRDPSRAPIApplication> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Application)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Shared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Shared(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Shared)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetShared)(windows_core::Interface::as_raw(self), newval).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Show(&self) -> windows_core::Result<()> {
+    pub unsafe fn Show(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Show)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Flags(&self) -> windows_core::Result<u32> {
+    pub unsafe fn Flags(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Flags)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3048,13 +3048,13 @@ pub struct IRDPSRAPIWindow_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIWindow_Impl: super::Com::IDispatch_Impl {
-    fn Id(&self) -> windows_core::Result<i32>;
-    fn Application(&self) -> windows_core::Result<IRDPSRAPIApplication>;
-    fn Shared(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Show(&self) -> windows_core::Result<()>;
-    fn Flags(&self) -> windows_core::Result<u32>;
+    fn Id(&self) -> windows_result::Result<i32>;
+    fn Application(&self) -> windows_result::Result<IRDPSRAPIApplication>;
+    fn Shared(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetShared(&self, newval: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Show(&self) -> windows_result::Result<()>;
+    fn Flags(&self) -> windows_result::Result<u32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIWindow_Vtbl {
@@ -3161,13 +3161,13 @@ impl core::ops::Deref for IRDPSRAPIWindowList {
 windows_core::imp::interface_hierarchy!(IRDPSRAPIWindowList, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRDPSRAPIWindowList {
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIWindow> {
+    pub unsafe fn get_Item(&self, item: i32) -> windows_result::Result<IRDPSRAPIWindow> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), item, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3184,8 +3184,8 @@ pub struct IRDPSRAPIWindowList_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRDPSRAPIWindowList_Impl: super::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
-    fn get_Item(&self, item: i32) -> windows_core::Result<IRDPSRAPIWindow>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
+    fn get_Item(&self, item: i32) -> windows_result::Result<IRDPSRAPIWindow>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRDPSRAPIWindowList_Vtbl {
@@ -3225,28 +3225,28 @@ impl windows_core::RuntimeName for IRDPSRAPIWindowList {}
 windows_core::imp::define_interface!(IRDPViewerInputSink, IRDPViewerInputSink_Vtbl, 0xbb590853_a6c5_4a7b_8dd4_76b69eea12d5);
 windows_core::imp::interface_hierarchy!(IRDPViewerInputSink, windows_core::IUnknown);
 impl IRDPViewerInputSink {
-    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendMouseButtonEvent)(windows_core::Interface::as_raw(self), buttontype, vbbuttondown, xpos, ypos).ok() }
     }
-    pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendMouseMoveEvent)(windows_core::Interface::as_raw(self), xpos, ypos).ok() }
     }
-    pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> windows_core::Result<()> {
+    pub unsafe fn SendMouseWheelEvent(&self, wheelrotation: u16) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendMouseWheelEvent)(windows_core::Interface::as_raw(self), wheelrotation).ok() }
     }
-    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendKeyboardEvent)(windows_core::Interface::as_raw(self), codetype, keycode, vbkeyup, vbrepeat, vbextended).ok() }
     }
-    pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> windows_core::Result<()> {
+    pub unsafe fn SendSyncEvent(&self, syncflags: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendSyncEvent)(windows_core::Interface::as_raw(self), syncflags).ok() }
     }
-    pub unsafe fn BeginTouchFrame(&self) -> windows_core::Result<()> {
+    pub unsafe fn BeginTouchFrame(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).BeginTouchFrame)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> windows_core::Result<()> {
+    pub unsafe fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddTouchInput)(windows_core::Interface::as_raw(self), contactid, event, x, y).ok() }
     }
-    pub unsafe fn EndTouchFrame(&self) -> windows_core::Result<()> {
+    pub unsafe fn EndTouchFrame(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EndTouchFrame)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -3264,14 +3264,14 @@ pub struct IRDPViewerInputSink_Vtbl {
     pub EndTouchFrame: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRDPViewerInputSink_Impl: windows_core::IUnknownImpl {
-    fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_core::Result<()>;
-    fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> windows_core::Result<()>;
-    fn SendMouseWheelEvent(&self, wheelrotation: u16) -> windows_core::Result<()>;
-    fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SendSyncEvent(&self, syncflags: u32) -> windows_core::Result<()>;
-    fn BeginTouchFrame(&self) -> windows_core::Result<()>;
-    fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> windows_core::Result<()>;
-    fn EndTouchFrame(&self) -> windows_core::Result<()>;
+    fn SendMouseButtonEvent(&self, buttontype: RDPSRAPI_MOUSE_BUTTON_TYPE, vbbuttondown: super::super::Foundation::VARIANT_BOOL, xpos: u32, ypos: u32) -> windows_result::Result<()>;
+    fn SendMouseMoveEvent(&self, xpos: u32, ypos: u32) -> windows_result::Result<()>;
+    fn SendMouseWheelEvent(&self, wheelrotation: u16) -> windows_result::Result<()>;
+    fn SendKeyboardEvent(&self, codetype: RDPSRAPI_KBD_CODE_TYPE, keycode: u16, vbkeyup: super::super::Foundation::VARIANT_BOOL, vbrepeat: super::super::Foundation::VARIANT_BOOL, vbextended: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SendSyncEvent(&self, syncflags: u32) -> windows_result::Result<()>;
+    fn BeginTouchFrame(&self) -> windows_result::Result<()>;
+    fn AddTouchInput(&self, contactid: u32, event: u32, x: i32, y: i32) -> windows_result::Result<()>;
+    fn EndTouchFrame(&self) -> windows_result::Result<()>;
 }
 impl IRDPViewerInputSink_Vtbl {
     pub const fn new<Identity: IRDPViewerInputSink_Impl, const OFFSET: isize>() -> Self {

@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for ITest {
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
-    pub fn TestIterable<P0>(&self, collection: P0, values: &[i32]) -> windows_core::Result<()>
+    pub fn TestIterable<P0>(&self, collection: P0, values: &[i32]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<i32>>,
     {
@@ -31,7 +31,7 @@ impl ITest {
     pub fn GetIterable(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<windows_collections::IIterable<i32>> {
+    ) -> windows_result::Result<windows_collections::IIterable<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -47,7 +47,7 @@ impl ITest {
     pub fn GetMapView(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<
+    ) -> windows_result::Result<
         windows_collections::IMapView<i32, windows_collections::IVectorView<i32>>,
     > {
         let this = self;
@@ -71,15 +71,15 @@ pub trait ITest_Impl: windows_core::IUnknownImpl {
         &self,
         collection: windows_core::Ref<windows_collections::IIterable<i32>>,
         values: &[i32],
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn GetIterable(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<windows_collections::IIterable<i32>>;
+    ) -> windows_result::Result<windows_collections::IIterable<i32>>;
     fn GetMapView(
         &self,
         values: &[i32],
-    ) -> windows_core::Result<
+    ) -> windows_result::Result<
         windows_collections::IMapView<i32, windows_collections::IVectorView<i32>>,
     >;
 }

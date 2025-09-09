@@ -9,7 +9,7 @@ pub mod TraceReporting;
 pub struct DiagnosticActionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticActionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticActionResult {
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -17,7 +17,7 @@ impl DiagnosticActionResult {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Results(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn Results(&self) -> windows_result::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -61,7 +61,7 @@ pub struct DiagnosticInvoker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DiagnosticInvoker, windows_core::IUnknown, windows_core::IInspectable);
 impl DiagnosticInvoker {
     #[cfg(feature = "Data_Json")]
-    pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
+    pub fn RunDiagnosticActionAsync<P0>(&self, context: P0) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>>
     where
         P0: windows_core::Param<super::super::Data::Json::JsonObject>,
     {
@@ -71,20 +71,20 @@ impl DiagnosticInvoker {
             (windows_core::Interface::vtable(this).RunDiagnosticActionAsync)(windows_core::Interface::as_raw(this), context.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RunDiagnosticActionFromStringAsync(&self, context: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
+    pub fn RunDiagnosticActionFromStringAsync(&self, context: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<DiagnosticActionResult, DiagnosticActionState>> {
         let this = &windows_core::Interface::cast::<IDiagnosticInvoker2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunDiagnosticActionFromStringAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(context), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<DiagnosticInvoker> {
+    pub fn GetDefault() -> windows_result::Result<DiagnosticInvoker> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<DiagnosticInvoker>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<DiagnosticInvoker>
     where
         P0: windows_core::Param<super::User>,
     {
@@ -93,13 +93,13 @@ impl DiagnosticInvoker {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IDiagnosticInvokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDiagnosticInvokerStatics<R, F: FnOnce(&IDiagnosticInvokerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DiagnosticInvoker, IDiagnosticInvokerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -371,7 +371,7 @@ pub struct ISystemMemoryUsageReport_Vtbl {
 pub struct ProcessCpuUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessCpuUsage {
-    pub fn GetReport(&self) -> windows_core::Result<ProcessCpuUsageReport> {
+    pub fn GetReport(&self) -> windows_result::Result<ProcessCpuUsageReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -396,14 +396,14 @@ unsafe impl Sync for ProcessCpuUsage {}
 pub struct ProcessCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessCpuUsageReport {
-    pub fn KernelTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn KernelTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KernelTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn UserTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -428,92 +428,92 @@ unsafe impl Sync for ProcessCpuUsageReport {}
 pub struct ProcessDiagnosticInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiagnosticInfo {
-    pub fn ProcessId(&self) -> windows_core::Result<u32> {
+    pub fn ProcessId(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExecutableFileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ExecutableFileName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExecutableFileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Parent(&self) -> windows_core::Result<ProcessDiagnosticInfo> {
+    pub fn Parent(&self) -> windows_result::Result<ProcessDiagnosticInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessStartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ProcessStartTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DiskUsage(&self) -> windows_core::Result<ProcessDiskUsage> {
+    pub fn DiskUsage(&self) -> windows_result::Result<ProcessDiskUsage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DiskUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MemoryUsage(&self) -> windows_core::Result<ProcessMemoryUsage> {
+    pub fn MemoryUsage(&self) -> windows_result::Result<ProcessMemoryUsage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MemoryUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CpuUsage(&self) -> windows_core::Result<ProcessCpuUsage> {
+    pub fn CpuUsage(&self) -> windows_result::Result<ProcessCpuUsage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CpuUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppDiagnosticInfos(&self) -> windows_core::Result<windows_collections::IVector<super::AppDiagnosticInfo>> {
+    pub fn GetAppDiagnosticInfos(&self) -> windows_result::Result<windows_collections::IVector<super::AppDiagnosticInfo>> {
         let this = &windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAppDiagnosticInfos)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPackaged(&self) -> windows_core::Result<bool> {
+    pub fn IsPackaged(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IProcessDiagnosticInfo2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPackaged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetForProcesses() -> windows_core::Result<windows_collections::IVectorView<ProcessDiagnosticInfo>> {
+    pub fn GetForProcesses() -> windows_result::Result<windows_collections::IVectorView<ProcessDiagnosticInfo>> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForProcesses)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetForCurrentProcess() -> windows_core::Result<ProcessDiagnosticInfo> {
+    pub fn GetForCurrentProcess() -> windows_result::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentProcess)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryGetForProcessId(processid: u32) -> windows_core::Result<ProcessDiagnosticInfo> {
+    pub fn TryGetForProcessId(processid: u32) -> windows_result::Result<ProcessDiagnosticInfo> {
         Self::IProcessDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryGetForProcessId)(windows_core::Interface::as_raw(this), processid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProcessDiagnosticInfoStatics<R, F: FnOnce(&IProcessDiagnosticInfoStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IProcessDiagnosticInfoStatics2<R, F: FnOnce(&IProcessDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProcessDiagnosticInfoStatics2<R, F: FnOnce(&IProcessDiagnosticInfoStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProcessDiagnosticInfo, IProcessDiagnosticInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -535,7 +535,7 @@ unsafe impl Sync for ProcessDiagnosticInfo {}
 pub struct ProcessDiskUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiskUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiskUsage {
-    pub fn GetReport(&self) -> windows_core::Result<ProcessDiskUsageReport> {
+    pub fn GetReport(&self) -> windows_result::Result<ProcessDiskUsageReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -560,42 +560,42 @@ unsafe impl Sync for ProcessDiskUsage {}
 pub struct ProcessDiskUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessDiskUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessDiskUsageReport {
-    pub fn ReadOperationCount(&self) -> windows_core::Result<i64> {
+    pub fn ReadOperationCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadOperationCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteOperationCount(&self) -> windows_core::Result<i64> {
+    pub fn WriteOperationCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteOperationCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OtherOperationCount(&self) -> windows_core::Result<i64> {
+    pub fn OtherOperationCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OtherOperationCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BytesReadCount(&self) -> windows_core::Result<i64> {
+    pub fn BytesReadCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BytesReadCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BytesWrittenCount(&self) -> windows_core::Result<i64> {
+    pub fn BytesWrittenCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BytesWrittenCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn OtherBytesCount(&self) -> windows_core::Result<i64> {
+    pub fn OtherBytesCount(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -620,7 +620,7 @@ unsafe impl Sync for ProcessDiskUsageReport {}
 pub struct ProcessMemoryUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessMemoryUsage {
-    pub fn GetReport(&self) -> windows_core::Result<ProcessMemoryUsageReport> {
+    pub fn GetReport(&self) -> windows_result::Result<ProcessMemoryUsageReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -645,84 +645,84 @@ unsafe impl Sync for ProcessMemoryUsage {}
 pub struct ProcessMemoryUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProcessMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl ProcessMemoryUsageReport {
-    pub fn NonPagedPoolSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn NonPagedPoolSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NonPagedPoolSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PageFaultCount(&self) -> windows_core::Result<u32> {
+    pub fn PageFaultCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageFaultCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PageFileSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PageFileSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PageFileSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PagedPoolSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PagedPoolSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PagedPoolSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeakNonPagedPoolSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PeakNonPagedPoolSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakNonPagedPoolSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeakPageFileSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PeakPageFileSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakPageFileSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeakPagedPoolSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PeakPagedPoolSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakPagedPoolSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeakVirtualMemorySizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PeakVirtualMemorySizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakVirtualMemorySizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PeakWorkingSetSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PeakWorkingSetSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PeakWorkingSetSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PrivatePageCount(&self) -> windows_core::Result<u64> {
+    pub fn PrivatePageCount(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrivatePageCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VirtualMemorySizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn VirtualMemorySizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VirtualMemorySizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WorkingSetSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn WorkingSetSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -747,7 +747,7 @@ unsafe impl Sync for ProcessMemoryUsageReport {}
 pub struct SystemCpuUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCpuUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemCpuUsage {
-    pub fn GetReport(&self) -> windows_core::Result<SystemCpuUsageReport> {
+    pub fn GetReport(&self) -> windows_result::Result<SystemCpuUsageReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -772,21 +772,21 @@ unsafe impl Sync for SystemCpuUsage {}
 pub struct SystemCpuUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemCpuUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemCpuUsageReport {
-    pub fn KernelTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn KernelTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KernelTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn UserTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IdleTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn IdleTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -811,43 +811,43 @@ unsafe impl Sync for SystemCpuUsageReport {}
 pub struct SystemDiagnosticInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemDiagnosticInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemDiagnosticInfo {
-    pub fn MemoryUsage(&self) -> windows_core::Result<SystemMemoryUsage> {
+    pub fn MemoryUsage(&self) -> windows_result::Result<SystemMemoryUsage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MemoryUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CpuUsage(&self) -> windows_core::Result<SystemCpuUsage> {
+    pub fn CpuUsage(&self) -> windows_result::Result<SystemCpuUsage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CpuUsage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentSystem() -> windows_core::Result<SystemDiagnosticInfo> {
+    pub fn GetForCurrentSystem() -> windows_result::Result<SystemDiagnosticInfo> {
         Self::ISystemDiagnosticInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> windows_core::Result<bool> {
+    pub fn IsArchitectureSupported(r#type: super::ProcessorArchitecture) -> windows_result::Result<bool> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsArchitectureSupported)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| result__)
         })
     }
-    pub fn PreferredArchitecture() -> windows_core::Result<super::ProcessorArchitecture> {
+    pub fn PreferredArchitecture() -> windows_result::Result<super::ProcessorArchitecture> {
         Self::ISystemDiagnosticInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredArchitecture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemDiagnosticInfoStatics<R, F: FnOnce(&ISystemDiagnosticInfoStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ISystemDiagnosticInfoStatics2<R, F: FnOnce(&ISystemDiagnosticInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISystemDiagnosticInfoStatics2<R, F: FnOnce(&ISystemDiagnosticInfoStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SystemDiagnosticInfo, ISystemDiagnosticInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -869,7 +869,7 @@ unsafe impl Sync for SystemDiagnosticInfo {}
 pub struct SystemMemoryUsage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMemoryUsage, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMemoryUsage {
-    pub fn GetReport(&self) -> windows_core::Result<SystemMemoryUsageReport> {
+    pub fn GetReport(&self) -> windows_result::Result<SystemMemoryUsageReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -894,21 +894,21 @@ unsafe impl Sync for SystemMemoryUsage {}
 pub struct SystemMemoryUsageReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SystemMemoryUsageReport, windows_core::IUnknown, windows_core::IInspectable);
 impl SystemMemoryUsageReport {
-    pub fn TotalPhysicalSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn TotalPhysicalSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalPhysicalSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AvailableSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn AvailableSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CommittedSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn CommittedSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -4,7 +4,7 @@ impl windows_core::RuntimeType for II2cControllerProvider {
 }
 windows_core::imp::interface_hierarchy!(II2cControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl II2cControllerProvider {
-    pub fn GetDeviceProvider<P0>(&self, settings: P0) -> windows_core::Result<II2cDeviceProvider>
+    pub fn GetDeviceProvider<P0>(&self, settings: P0) -> windows_result::Result<II2cDeviceProvider>
     where
         P0: windows_core::Param<ProviderI2cConnectionSettings>,
     {
@@ -19,7 +19,7 @@ impl windows_core::RuntimeName for II2cControllerProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cControllerProvider";
 }
 pub trait II2cControllerProvider_Impl: windows_core::IUnknownImpl {
-    fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderI2cConnectionSettings>) -> windows_core::Result<II2cDeviceProvider>;
+    fn GetDeviceProvider(&self, settings: windows_core::Ref<ProviderI2cConnectionSettings>) -> windows_result::Result<II2cDeviceProvider>;
 }
 impl II2cControllerProvider_Vtbl {
     pub const fn new<Identity: II2cControllerProvider_Impl, const OFFSET: isize>() -> Self {
@@ -58,47 +58,47 @@ impl windows_core::RuntimeType for II2cDeviceProvider {
 windows_core::imp::interface_hierarchy!(II2cDeviceProvider, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(II2cDeviceProvider, super::super::super::Foundation::IClosable);
 impl II2cDeviceProvider {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Write(&self, buffer: &[u8]) -> windows_core::Result<()> {
+    pub fn Write(&self, buffer: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Write)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr()).ok() }
     }
-    pub fn WritePartial(&self, buffer: &[u8]) -> windows_core::Result<ProviderI2cTransferResult> {
+    pub fn WritePartial(&self, buffer: &[u8]) -> windows_result::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WritePartial)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn Read(&self, buffer: &mut [u8]) -> windows_core::Result<()> {
+    pub fn Read(&self, buffer: &mut [u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Read)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_mut_ptr()).ok() }
     }
-    pub fn ReadPartial(&self, buffer: &mut [u8]) -> windows_core::Result<ProviderI2cTransferResult> {
+    pub fn ReadPartial(&self, buffer: &mut [u8]) -> windows_result::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadPartial)(windows_core::Interface::as_raw(this), buffer.len().try_into().unwrap(), buffer.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<()> {
+    pub fn WriteRead(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).WriteRead)(windows_core::Interface::as_raw(this), writebuffer.len().try_into().unwrap(), writebuffer.as_ptr(), readbuffer.len().try_into().unwrap(), readbuffer.as_mut_ptr()).ok() }
     }
-    pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_core::Result<ProviderI2cTransferResult> {
+    pub fn WriteReadPartial(&self, writebuffer: &[u8], readbuffer: &mut [u8]) -> windows_result::Result<ProviderI2cTransferResult> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteReadPartial)(windows_core::Interface::as_raw(this), writebuffer.len().try_into().unwrap(), writebuffer.as_ptr(), readbuffer.len().try_into().unwrap(), readbuffer.as_mut_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -107,13 +107,13 @@ impl windows_core::RuntimeName for II2cDeviceProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cDeviceProvider";
 }
 pub trait II2cDeviceProvider_Impl: super::super::super::Foundation::IClosable_Impl {
-    fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn Write(&self, buffer: &[u8]) -> windows_core::Result<()>;
-    fn WritePartial(&self, buffer: &[u8]) -> windows_core::Result<ProviderI2cTransferResult>;
-    fn Read(&self, buffer: &mut [u8]) -> windows_core::Result<()>;
-    fn ReadPartial(&self, buffer: &mut [u8]) -> windows_core::Result<ProviderI2cTransferResult>;
-    fn WriteRead(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<()>;
-    fn WriteReadPartial(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_core::Result<ProviderI2cTransferResult>;
+    fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn Write(&self, buffer: &[u8]) -> windows_result::Result<()>;
+    fn WritePartial(&self, buffer: &[u8]) -> windows_result::Result<ProviderI2cTransferResult>;
+    fn Read(&self, buffer: &mut [u8]) -> windows_result::Result<()>;
+    fn ReadPartial(&self, buffer: &mut [u8]) -> windows_result::Result<ProviderI2cTransferResult>;
+    fn WriteRead(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_result::Result<()>;
+    fn WriteReadPartial(&self, writeBuffer: &[u8], readBuffer: &mut [u8]) -> windows_result::Result<ProviderI2cTransferResult>;
 }
 impl II2cDeviceProvider_Vtbl {
     pub const fn new<Identity: II2cDeviceProvider_Impl, const OFFSET: isize>() -> Self {
@@ -217,7 +217,7 @@ impl windows_core::RuntimeType for II2cProvider {
 }
 windows_core::imp::interface_hierarchy!(II2cProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl II2cProvider {
-    pub fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
+    pub fn GetControllersAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -229,7 +229,7 @@ impl windows_core::RuntimeName for II2cProvider {
     const NAME: &'static str = "Windows.Devices.I2c.Provider.II2cProvider";
 }
 pub trait II2cProvider_Impl: windows_core::IUnknownImpl {
-    fn GetControllersAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
+    fn GetControllersAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<II2cControllerProvider>>>;
 }
 impl II2cProvider_Vtbl {
     pub const fn new<Identity: II2cProvider_Impl, const OFFSET: isize>() -> Self {
@@ -291,36 +291,36 @@ impl windows_core::RuntimeType for ProviderI2cBusSpeed {
 pub struct ProviderI2cConnectionSettings(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProviderI2cConnectionSettings, windows_core::IUnknown, windows_core::IInspectable);
 impl ProviderI2cConnectionSettings {
-    pub fn SlaveAddress(&self) -> windows_core::Result<i32> {
+    pub fn SlaveAddress(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SlaveAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSlaveAddress(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetSlaveAddress(&self, value: i32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSlaveAddress)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BusSpeed(&self) -> windows_core::Result<ProviderI2cBusSpeed> {
+    pub fn BusSpeed(&self) -> windows_result::Result<ProviderI2cBusSpeed> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BusSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBusSpeed(&self, value: ProviderI2cBusSpeed) -> windows_core::Result<()> {
+    pub fn SetBusSpeed(&self, value: ProviderI2cBusSpeed) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBusSpeed)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SharingMode(&self) -> windows_core::Result<ProviderI2cSharingMode> {
+    pub fn SharingMode(&self) -> windows_result::Result<ProviderI2cSharingMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SharingMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSharingMode(&self, value: ProviderI2cSharingMode) -> windows_core::Result<()> {
+    pub fn SetSharingMode(&self, value: ProviderI2cSharingMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSharingMode)(windows_core::Interface::as_raw(this), value).ok() }
     }

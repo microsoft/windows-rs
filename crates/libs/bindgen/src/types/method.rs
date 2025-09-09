@@ -197,7 +197,7 @@ impl Method {
                 quote! { -> #return_type_tokens }
             }
         } else {
-            quote! { -> windows_core::Result<#return_type_tokens> }
+            quote! { -> windows_result::Result<#return_type_tokens> }
         };
 
         if has_this {
@@ -445,7 +445,7 @@ impl Method {
                 quote! { -> #return_type }
             }
         } else {
-            quote! { -> windows_core::Result<#return_type> }
+            quote! { -> windows_result::Result<#return_type> }
         };
 
         let vname = virtual_names.add(self.def);

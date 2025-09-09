@@ -2,7 +2,7 @@ windows_core::imp::define_interface!(IDisplayDeviceInterop, IDisplayDeviceIntero
 windows_core::imp::interface_hierarchy!(IDisplayDeviceInterop, windows_core::IUnknown);
 impl IDisplayDeviceInterop {
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>
+    pub unsafe fn CreateSharedHandle<P0>(&self, pobject: P0, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_result::Result<super::super::super::Foundation::HANDLE>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
@@ -11,7 +11,7 @@ impl IDisplayDeviceInterop {
             (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), psecurityattributes, access, core::mem::transmute_copy(name), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void> {
+    pub unsafe fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: windows_core::GUID) -> windows_result::Result<*mut core::ffi::c_void> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, core::mem::transmute(riid), &mut result__).map(|| result__)
@@ -30,8 +30,8 @@ pub struct IDisplayDeviceInterop_Vtbl {
 }
 #[cfg(feature = "Win32_Security")]
 pub trait IDisplayDeviceInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
-    fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &windows_core::GUID) -> windows_core::Result<*mut core::ffi::c_void>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<windows_core::IInspectable>, psecurityattributes: *const super::super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::HSTRING) -> windows_result::Result<super::super::super::Foundation::HANDLE>;
+    fn OpenSharedHandle(&self, nthandle: super::super::super::Foundation::HANDLE, riid: &windows_core::GUID) -> windows_result::Result<*mut core::ffi::c_void>;
 }
 #[cfg(feature = "Win32_Security")]
 impl IDisplayDeviceInterop_Vtbl {
@@ -75,13 +75,13 @@ impl windows_core::RuntimeName for IDisplayDeviceInterop {}
 windows_core::imp::define_interface!(IDisplayPathInterop, IDisplayPathInterop_Vtbl, 0xa6ba4205_e59e_4e71_b25b_4e436d21ee3d);
 windows_core::imp::interface_hierarchy!(IDisplayPathInterop, windows_core::IUnknown);
 impl IDisplayPathInterop {
-    pub unsafe fn CreateSourcePresentationHandle(&self) -> windows_core::Result<super::super::super::Foundation::HANDLE> {
+    pub unsafe fn CreateSourcePresentationHandle(&self) -> windows_result::Result<super::super::super::Foundation::HANDLE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateSourcePresentationHandle)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetSourceId(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetSourceId(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetSourceId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -96,8 +96,8 @@ pub struct IDisplayPathInterop_Vtbl {
     pub GetSourceId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
 }
 pub trait IDisplayPathInterop_Impl: windows_core::IUnknownImpl {
-    fn CreateSourcePresentationHandle(&self) -> windows_core::Result<super::super::super::Foundation::HANDLE>;
-    fn GetSourceId(&self) -> windows_core::Result<u32>;
+    fn CreateSourcePresentationHandle(&self) -> windows_result::Result<super::super::super::Foundation::HANDLE>;
+    fn GetSourceId(&self) -> windows_result::Result<u32>;
 }
 impl IDisplayPathInterop_Vtbl {
     pub const fn new<Identity: IDisplayPathInterop_Impl, const OFFSET: isize>() -> Self {

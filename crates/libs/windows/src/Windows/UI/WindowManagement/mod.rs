@@ -5,7 +5,7 @@ pub mod Preview;
 pub struct AppWindow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindow, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindow {
-    pub fn Content(&self) -> windows_core::Result<super::UIContentRoot> {
+    pub fn Content(&self) -> windows_result::Result<super::UIContentRoot> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -13,146 +13,146 @@ impl AppWindow {
         }
     }
     #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::System::DispatcherQueue> {
+    pub fn DispatcherQueue(&self) -> windows_result::Result<super::super::System::DispatcherQueue> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DispatcherQueue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Frame(&self) -> windows_core::Result<AppWindowFrame> {
+    pub fn Frame(&self) -> windows_result::Result<AppWindowFrame> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Frame)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsVisible(&self) -> windows_core::Result<bool> {
+    pub fn IsVisible(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsVisible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PersistedStateId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PersistedStateId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PersistedStateId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetPersistedStateId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetPersistedStateId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPersistedStateId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Presenter(&self) -> windows_core::Result<AppWindowPresenter> {
+    pub fn Presenter(&self) -> windows_result::Result<AppWindowPresenter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Presenter)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn TitleBar(&self) -> windows_core::Result<AppWindowTitleBar> {
+    pub fn TitleBar(&self) -> windows_result::Result<AppWindowTitleBar> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TitleBar)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UIContext(&self) -> windows_core::Result<super::UIContext> {
+    pub fn UIContext(&self) -> windows_result::Result<super::UIContext> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UIContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+    pub fn WindowingEnvironment(&self) -> windows_result::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CloseAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn CloseAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CloseAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPlacement(&self) -> windows_core::Result<AppWindowPlacement> {
+    pub fn GetPlacement(&self) -> windows_result::Result<AppWindowPlacement> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPlacement)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayRegion>> {
+    pub fn GetDisplayRegions(&self) -> windows_result::Result<windows_collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDisplayRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestMoveToDisplayRegion<P0>(&self, displayregion: P0) -> windows_core::Result<()>
+    pub fn RequestMoveToDisplayRegion<P0>(&self, displayregion: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DisplayRegion>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.param().abi()).ok() }
     }
-    pub fn RequestMoveAdjacentToCurrentView(&self) -> windows_core::Result<()> {
+    pub fn RequestMoveAdjacentToCurrentView(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveAdjacentToCurrentView)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RequestMoveAdjacentToWindow<P0>(&self, anchorwindow: P0) -> windows_core::Result<()>
+    pub fn RequestMoveAdjacentToWindow<P0>(&self, anchorwindow: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<AppWindow>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveAdjacentToWindow)(windows_core::Interface::as_raw(this), anchorwindow.param().abi()).ok() }
     }
-    pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> windows_core::Result<()>
+    pub fn RequestMoveRelativeToWindowContent<P0>(&self, anchorwindow: P0, contentoffset: super::super::Foundation::Point) -> windows_result::Result<()>
     where
         P0: windows_core::Param<AppWindow>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToWindowContent)(windows_core::Interface::as_raw(this), anchorwindow.param().abi(), contentoffset).ok() }
     }
-    pub fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: super::super::Foundation::Point) -> windows_core::Result<()> {
+    pub fn RequestMoveRelativeToCurrentViewContent(&self, contentoffset: super::super::Foundation::Point) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToCurrentViewContent)(windows_core::Interface::as_raw(this), contentoffset).ok() }
     }
-    pub fn RequestMoveRelativeToDisplayRegion<P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> windows_core::Result<()>
+    pub fn RequestMoveRelativeToDisplayRegion<P0>(&self, displayregion: P0, displayregionoffset: super::super::Foundation::Point) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DisplayRegion>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestMoveRelativeToDisplayRegion)(windows_core::Interface::as_raw(this), displayregion.param().abi(), displayregionoffset).ok() }
     }
-    pub fn RequestSize(&self, framesize: super::super::Foundation::Size) -> windows_core::Result<()> {
+    pub fn RequestSize(&self, framesize: super::super::Foundation::Size) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RequestSize)(windows_core::Interface::as_raw(this), framesize).ok() }
     }
-    pub fn TryShowAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryShowAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryShowAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>,
     {
@@ -162,11 +162,11 @@ impl AppWindow {
             (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Closed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Closed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>,
     {
@@ -176,11 +176,11 @@ impl AppWindow {
             (windows_core::Interface::vtable(this).Closed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveClosed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveClosed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CloseRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>,
     {
@@ -190,23 +190,23 @@ impl AppWindow {
             (windows_core::Interface::vtable(this).CloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCloseRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCloseRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCloseRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TryCreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<AppWindow>> {
+    pub fn TryCreateAsync() -> windows_result::Result<windows_future::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryCreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ClearAllPersistedState() -> windows_core::Result<()> {
+    pub fn ClearAllPersistedState() -> windows_result::Result<()> {
         Self::IAppWindowStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearAllPersistedState)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ClearPersistedState(key: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ClearPersistedState(key: &windows_core::HSTRING) -> windows_result::Result<()> {
         Self::IAppWindowStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearPersistedState)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(key)).ok() })
     }
-    fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppWindow, IAppWindowStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -228,56 +228,56 @@ unsafe impl Sync for AppWindow {}
 pub struct AppWindowChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowChangedEventArgs {
-    pub fn DidAvailableWindowPresentationsChange(&self) -> windows_core::Result<bool> {
+    pub fn DidAvailableWindowPresentationsChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidAvailableWindowPresentationsChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidDisplayRegionsChange(&self) -> windows_core::Result<bool> {
+    pub fn DidDisplayRegionsChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidDisplayRegionsChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidFrameChange(&self) -> windows_core::Result<bool> {
+    pub fn DidFrameChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidFrameChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidSizeChange(&self) -> windows_core::Result<bool> {
+    pub fn DidSizeChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidSizeChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidTitleBarChange(&self) -> windows_core::Result<bool> {
+    pub fn DidTitleBarChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidTitleBarChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidVisibilityChange(&self) -> windows_core::Result<bool> {
+    pub fn DidVisibilityChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidVisibilityChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidWindowingEnvironmentChange(&self) -> windows_core::Result<bool> {
+    pub fn DidWindowingEnvironmentChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DidWindowingEnvironmentChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DidWindowPresentationChange(&self) -> windows_core::Result<bool> {
+    pub fn DidWindowPresentationChange(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -302,18 +302,18 @@ unsafe impl Sync for AppWindowChangedEventArgs {}
 pub struct AppWindowCloseRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowCloseRequestedEventArgs {
-    pub fn Cancel(&self) -> windows_core::Result<bool> {
+    pub fn Cancel(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCancel(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCancel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -338,7 +338,7 @@ unsafe impl Sync for AppWindowCloseRequestedEventArgs {}
 pub struct AppWindowClosedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowClosedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowClosedEventArgs {
-    pub fn Reason(&self) -> windows_core::Result<AppWindowClosedReason> {
+    pub fn Reason(&self) -> windows_result::Result<AppWindowClosedReason> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -378,21 +378,21 @@ pub struct AppWindowFrame(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowFrame, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowFrame {
     #[cfg(feature = "UI_Composition")]
-    pub fn DragRegionVisuals(&self) -> windows_core::Result<windows_collections::IVector<super::Composition::IVisualElement>> {
+    pub fn DragRegionVisuals(&self) -> windows_result::Result<windows_collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DragRegionVisuals)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetFrameStyle(&self) -> windows_core::Result<AppWindowFrameStyle> {
+    pub fn GetFrameStyle(&self) -> windows_result::Result<AppWindowFrameStyle> {
         let this = &windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetFrameStyle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> windows_core::Result<()> {
+    pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetFrameStyle)(windows_core::Interface::as_raw(this), framestyle).ok() }
     }
@@ -427,21 +427,21 @@ impl windows_core::RuntimeType for AppWindowFrameStyle {
 pub struct AppWindowPlacement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPlacement, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPlacement {
-    pub fn DisplayRegion(&self) -> windows_core::Result<DisplayRegion> {
+    pub fn DisplayRegion(&self) -> windows_result::Result<DisplayRegion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayRegion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Offset(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn Offset(&self) -> windows_result::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Size(&self) -> windows_core::Result<super::super::Foundation::Size> {
+    pub fn Size(&self) -> windows_result::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -466,7 +466,7 @@ unsafe impl Sync for AppWindowPlacement {}
 pub struct AppWindowPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPresentationConfiguration {
-    pub fn Kind(&self) -> windows_core::Result<AppWindowPresentationKind> {
+    pub fn Kind(&self) -> windows_result::Result<AppWindowPresentationKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -505,21 +505,21 @@ impl windows_core::RuntimeType for AppWindowPresentationKind {
 pub struct AppWindowPresenter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowPresenter, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowPresenter {
-    pub fn GetConfiguration(&self) -> windows_core::Result<AppWindowPresentationConfiguration> {
+    pub fn GetConfiguration(&self) -> windows_result::Result<AppWindowPresentationConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> windows_core::Result<bool> {
+    pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPresentationSupported)(windows_core::Interface::as_raw(this), presentationkind, &mut result__).map(|| result__)
         }
     }
-    pub fn RequestPresentation<P0>(&self, configuration: P0) -> windows_core::Result<bool>
+    pub fn RequestPresentation<P0>(&self, configuration: P0) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<AppWindowPresentationConfiguration>,
     {
@@ -529,7 +529,7 @@ impl AppWindowPresenter {
             (windows_core::Interface::vtable(this).RequestPresentation)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> windows_core::Result<bool> {
+    pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -554,207 +554,207 @@ unsafe impl Sync for AppWindowPresenter {}
 pub struct AppWindowTitleBar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowTitleBar, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowTitleBar {
-    pub fn BackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn BackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonBackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonHoverBackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonHoverBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonHoverBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonHoverForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonHoverForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonHoverForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonHoverForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonInactiveBackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonInactiveBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonInactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonInactiveForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonInactiveForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonPressedBackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonPressedBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonPressedBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ButtonPressedForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ButtonPressedForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetButtonPressedForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetButtonPressedForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ExtendsContentIntoTitleBar(&self) -> windows_core::Result<bool> {
+    pub fn ExtendsContentIntoTitleBar(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendsContentIntoTitleBar)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExtendsContentIntoTitleBar)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn ForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InactiveBackgroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn InactiveBackgroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InactiveBackgroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInactiveBackgroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInactiveBackgroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn InactiveForegroundColor(&self) -> windows_core::Result<super::super::Foundation::IReference<super::Color>> {
+    pub fn InactiveForegroundColor(&self) -> windows_result::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InactiveForegroundColor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInactiveForegroundColor<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::Color>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInactiveForegroundColor)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IsVisible(&self) -> windows_core::Result<bool> {
+    pub fn IsVisible(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsVisible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetTitleBarOcclusions(&self) -> windows_core::Result<windows_collections::IVectorView<AppWindowTitleBarOcclusion>> {
+    pub fn GetTitleBarOcclusions(&self) -> windows_result::Result<windows_collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTitleBarOcclusions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPreferredVisibility(&self) -> windows_core::Result<AppWindowTitleBarVisibility> {
+    pub fn GetPreferredVisibility(&self) -> windows_result::Result<AppWindowTitleBarVisibility> {
         let this = &windows_core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPreferredVisibility)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> windows_core::Result<()> {
+    pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPreferredVisibility)(windows_core::Interface::as_raw(this), visibilitymode).ok() }
     }
@@ -776,7 +776,7 @@ unsafe impl Sync for AppWindowTitleBar {}
 pub struct AppWindowTitleBarOcclusion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppWindowTitleBarOcclusion, windows_core::IUnknown, windows_core::IInspectable);
 impl AppWindowTitleBarOcclusion {
-    pub fn OccludingRect(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn OccludingRect(&self) -> windows_result::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -815,14 +815,14 @@ pub struct CompactOverlayPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompactOverlayPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompactOverlayPresentationConfiguration, AppWindowPresentationConfiguration);
 impl CompactOverlayPresentationConfiguration {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CompactOverlayPresentationConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Kind(&self) -> windows_core::Result<AppWindowPresentationKind> {
+    pub fn Kind(&self) -> windows_result::Result<AppWindowPresentationKind> {
         let this = &windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -848,14 +848,14 @@ pub struct DefaultPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DefaultPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DefaultPresentationConfiguration, AppWindowPresentationConfiguration);
 impl DefaultPresentationConfiguration {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DefaultPresentationConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Kind(&self) -> windows_core::Result<AppWindowPresentationKind> {
+    pub fn Kind(&self) -> windows_result::Result<AppWindowPresentationKind> {
         let this = &windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -880,42 +880,42 @@ unsafe impl Sync for DefaultPresentationConfiguration {}
 pub struct DisplayRegion(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DisplayRegion, windows_core::IUnknown, windows_core::IInspectable);
 impl DisplayRegion {
-    pub fn DisplayMonitorDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayMonitorDeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayMonitorDeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsVisible(&self) -> windows_core::Result<bool> {
+    pub fn IsVisible(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsVisible)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WorkAreaOffset(&self) -> windows_core::Result<super::super::Foundation::Point> {
+    pub fn WorkAreaOffset(&self) -> windows_result::Result<super::super::Foundation::Point> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WorkAreaOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WorkAreaSize(&self) -> windows_core::Result<super::super::Foundation::Size> {
+    pub fn WorkAreaSize(&self) -> windows_result::Result<super::super::Foundation::Size> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WorkAreaSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+    pub fn WindowingEnvironment(&self) -> windows_result::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowingEnvironment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DisplayRegion, windows_core::IInspectable>>,
     {
@@ -925,7 +925,7 @@ impl DisplayRegion {
             (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -948,28 +948,28 @@ pub struct FullScreenPresentationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FullScreenPresentationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FullScreenPresentationConfiguration, AppWindowPresentationConfiguration);
 impl FullScreenPresentationConfiguration {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FullScreenPresentationConfiguration, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Kind(&self) -> windows_core::Result<AppWindowPresentationKind> {
+    pub fn Kind(&self) -> windows_result::Result<AppWindowPresentationKind> {
         let this = &windows_core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsExclusive(&self) -> windows_core::Result<bool> {
+    pub fn IsExclusive(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsExclusive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsExclusive(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsExclusive(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsExclusive)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1315,13 +1315,13 @@ pub struct IWindowingEnvironmentStatics_Vtbl {
 }
 pub struct WindowServices;
 impl WindowServices {
-    pub fn FindAllTopLevelWindowIds() -> windows_core::Result<windows_collections::IVectorView<super::WindowId>> {
+    pub fn FindAllTopLevelWindowIds() -> windows_result::Result<windows_collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllTopLevelWindowIds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowServices, IWindowServicesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1334,28 +1334,28 @@ impl windows_core::RuntimeName for WindowServices {
 pub struct WindowingEnvironment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironment, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironment {
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<WindowingEnvironmentKind> {
+    pub fn Kind(&self) -> windows_result::Result<WindowingEnvironmentKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDisplayRegions(&self) -> windows_core::Result<windows_collections::IVectorView<DisplayRegion>> {
+    pub fn GetDisplayRegions(&self) -> windows_result::Result<windows_collections::IVectorView<DisplayRegion>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDisplayRegions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Changed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Changed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>,
     {
@@ -1365,23 +1365,23 @@ impl WindowingEnvironment {
             (windows_core::Interface::vtable(this).Changed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FindAll() -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAll() -> windows_result::Result<windows_collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAll)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_core::Result<windows_collections::IVectorView<WindowingEnvironment>> {
+    pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> windows_result::Result<windows_collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllWithKind)(windows_core::Interface::as_raw(this), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1403,7 +1403,7 @@ unsafe impl Sync for WindowingEnvironment {}
 pub struct WindowingEnvironmentAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironmentAddedEventArgs {
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+    pub fn WindowingEnvironment(&self) -> windows_result::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1459,7 +1459,7 @@ impl windows_core::RuntimeType for WindowingEnvironmentKind {
 pub struct WindowingEnvironmentRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowingEnvironmentRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowingEnvironmentRemovedEventArgs {
-    pub fn WindowingEnvironment(&self) -> windows_core::Result<WindowingEnvironment> {
+    pub fn WindowingEnvironment(&self) -> windows_result::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

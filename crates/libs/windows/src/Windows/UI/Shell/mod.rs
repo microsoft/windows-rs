@@ -1,12 +1,12 @@
 pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
-    pub fn CreateAdaptiveCardFromJson(value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson(value: &windows_core::HSTRING) -> windows_result::Result<IAdaptiveCard> {
         Self::IAdaptiveCardBuilderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAdaptiveCardFromJson)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdaptiveCardBuilderStatics<R, F: FnOnce(&IAdaptiveCardBuilderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdaptiveCardBuilder, IAdaptiveCardBuilderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -19,14 +19,14 @@ impl windows_core::RuntimeName for AdaptiveCardBuilder {
 pub struct FocusSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSession, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSession {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn End(&self) -> windows_core::Result<()> {
+    pub fn End(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).End)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -48,39 +48,39 @@ unsafe impl Sync for FocusSession {}
 pub struct FocusSessionManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusSessionManager, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusSessionManager {
-    pub fn IsFocusActive(&self) -> windows_core::Result<bool> {
+    pub fn IsFocusActive(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFocusActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetSession(&self, id: &windows_core::HSTRING) -> windows_core::Result<FocusSession> {
+    pub fn GetSession(&self, id: &windows_core::HSTRING) -> windows_result::Result<FocusSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSession)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStartFocusSession(&self) -> windows_core::Result<FocusSession> {
+    pub fn TryStartFocusSession(&self) -> windows_result::Result<FocusSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartFocusSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> windows_core::Result<FocusSession> {
+    pub fn TryStartFocusSession2(&self, endtime: super::super::Foundation::DateTime) -> windows_result::Result<FocusSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartFocusSession2)(windows_core::Interface::as_raw(this), endtime, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeactivateFocus(&self) -> windows_core::Result<()> {
+    pub fn DeactivateFocus(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DeactivateFocus)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsFocusActiveChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<FocusSessionManager, windows_core::IInspectable>>,
     {
@@ -90,23 +90,23 @@ impl FocusSessionManager {
             (windows_core::Interface::vtable(this).IsFocusActiveChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsFocusActiveChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsFocusActiveChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsFocusActiveChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<FocusSessionManager> {
+    pub fn GetDefault() -> windows_result::Result<FocusSessionManager> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IFocusSessionManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFocusSessionManagerStatics<R, F: FnOnce(&IFocusSessionManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FocusSessionManager, IFocusSessionManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -129,7 +129,7 @@ impl windows_core::RuntimeType for IAdaptiveCard {
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCard, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveCard {
-    pub fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToJson(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -141,7 +141,7 @@ impl windows_core::RuntimeName for IAdaptiveCard {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCard";
 }
 pub trait IAdaptiveCard_Impl: windows_core::IUnknownImpl {
-    fn ToJson(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn ToJson(&self) -> windows_result::Result<windows_core::HSTRING>;
 }
 impl IAdaptiveCard_Vtbl {
     pub const fn new<Identity: IAdaptiveCard_Impl, const OFFSET: isize>() -> Self {
@@ -176,7 +176,7 @@ impl windows_core::RuntimeType for IAdaptiveCardBuilderStatics {
 }
 windows_core::imp::interface_hierarchy!(IAdaptiveCardBuilderStatics, windows_core::IUnknown, windows_core::IInspectable);
 impl IAdaptiveCardBuilderStatics {
-    pub fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard> {
+    pub fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_result::Result<IAdaptiveCard> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -188,7 +188,7 @@ impl windows_core::RuntimeName for IAdaptiveCardBuilderStatics {
     const NAME: &'static str = "Windows.UI.Shell.IAdaptiveCardBuilderStatics";
 }
 pub trait IAdaptiveCardBuilderStatics_Impl: windows_core::IUnknownImpl {
-    fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard>;
+    fn CreateAdaptiveCardFromJson(&self, value: &windows_core::HSTRING) -> windows_result::Result<IAdaptiveCard>;
 }
 impl IAdaptiveCardBuilderStatics_Vtbl {
     pub const fn new<Identity: IAdaptiveCardBuilderStatics_Impl, const OFFSET: isize>() -> Self {
@@ -535,14 +535,14 @@ impl windows_core::RuntimeType for SecurityAppKind {
 pub struct SecurityAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SecurityAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl SecurityAppManager {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SecurityAppManager, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Register<P2>(&self, kind: SecurityAppKind, displayname: &windows_core::HSTRING, detailsuri: P2, registerperuser: bool) -> windows_core::Result<windows_core::GUID>
+    pub fn Register<P2>(&self, kind: SecurityAppKind, displayname: &windows_core::HSTRING, detailsuri: P2, registerperuser: bool) -> windows_result::Result<windows_core::GUID>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -552,11 +552,11 @@ impl SecurityAppManager {
             (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), kind, core::mem::transmute_copy(displayname), detailsuri.param().abi(), registerperuser, &mut result__).map(|| result__)
         }
     }
-    pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn Unregister(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), kind, guidregistration).ok() }
     }
-    pub fn UpdateState<P4>(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: P4) -> windows_core::Result<()>
+    pub fn UpdateState<P4>(&self, kind: SecurityAppKind, guidregistration: windows_core::GUID, state: SecurityAppState, substatus: SecurityAppSubstatus, detailsuri: P4) -> windows_result::Result<()>
     where
         P4: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -623,21 +623,21 @@ impl windows_core::RuntimeType for ShareWindowCommand {
 pub struct ShareWindowCommandEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareWindowCommandEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareWindowCommandEventArgs {
-    pub fn WindowId(&self) -> windows_core::Result<super::WindowId> {
+    pub fn WindowId(&self) -> windows_result::Result<super::WindowId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Command(&self) -> windows_core::Result<ShareWindowCommand> {
+    pub fn Command(&self) -> windows_result::Result<ShareWindowCommand> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Command)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCommand(&self, value: ShareWindowCommand) -> windows_core::Result<()> {
+    pub fn SetCommand(&self, value: ShareWindowCommand) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCommand)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -659,19 +659,19 @@ unsafe impl Sync for ShareWindowCommandEventArgs {}
 pub struct ShareWindowCommandSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ShareWindowCommandSource, windows_core::IUnknown, windows_core::IInspectable);
 impl ShareWindowCommandSource {
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReportCommandChanged(&self) -> windows_core::Result<()> {
+    pub fn ReportCommandChanged(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCommandChanged)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CommandRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommandRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
     {
@@ -681,11 +681,11 @@ impl ShareWindowCommandSource {
             (windows_core::Interface::vtable(this).CommandRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCommandRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCommandRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommandRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CommandInvoked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommandInvoked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<ShareWindowCommandSource, ShareWindowCommandEventArgs>>,
     {
@@ -695,17 +695,17 @@ impl ShareWindowCommandSource {
             (windows_core::Interface::vtable(this).CommandInvoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCommandInvoked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCommandInvoked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommandInvoked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<ShareWindowCommandSource> {
+    pub fn GetForCurrentView() -> windows_result::Result<ShareWindowCommandSource> {
         Self::IShareWindowCommandSourceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IShareWindowCommandSourceStatics<R, F: FnOnce(&IShareWindowCommandSourceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ShareWindowCommandSource, IShareWindowCommandSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -727,21 +727,21 @@ unsafe impl Sync for ShareWindowCommandSource {}
 pub struct TaskbarManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TaskbarManager, windows_core::IUnknown, windows_core::IInspectable);
 impl TaskbarManager {
-    pub fn IsSupported(&self) -> windows_core::Result<bool> {
+    pub fn IsSupported(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsPinningAllowed(&self) -> windows_core::Result<bool> {
+    pub fn IsPinningAllowed(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPinningAllowed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCurrentAppPinnedAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn IsCurrentAppPinnedAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -749,7 +749,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn IsAppListEntryPinnedAsync<P0>(&self, applistentry: P0) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -759,7 +759,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).IsAppListEntryPinnedAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestPinCurrentAppAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RequestPinCurrentAppAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -767,7 +767,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn RequestPinAppListEntryAsync<P0>(&self, applistentry: P0) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Core::AppListEntry>,
     {
@@ -777,7 +777,7 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinAppListEntryAsync)(windows_core::Interface::as_raw(this), applistentry.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn IsSecondaryTilePinnedAsync(&self, tileid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -785,7 +785,7 @@ impl TaskbarManager {
         }
     }
     #[cfg(feature = "UI_StartScreen")]
-    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn RequestPinSecondaryTileAsync<P0>(&self, secondarytile: P0) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::StartScreen::SecondaryTile>,
     {
@@ -795,20 +795,20 @@ impl TaskbarManager {
             (windows_core::Interface::vtable(this).RequestPinSecondaryTileAsync)(windows_core::Interface::as_raw(this), secondarytile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn TryUnpinSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<ITaskbarManager2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryUnpinSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<TaskbarManager> {
+    pub fn GetDefault() -> windows_result::Result<TaskbarManager> {
         Self::ITaskbarManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITaskbarManagerStatics<R, F: FnOnce(&ITaskbarManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TaskbarManager, ITaskbarManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -830,78 +830,78 @@ unsafe impl Sync for TaskbarManager {}
 pub struct WindowTab(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTab, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTab {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTab, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Tag(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn Tag(&self) -> windows_result::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tag)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTag<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTag<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTag)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Icon(&self) -> windows_core::Result<WindowTabIcon> {
+    pub fn Icon(&self) -> windows_result::Result<WindowTabIcon> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetIcon<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTabIcon>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIcon)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn TreatAsSecondaryTileId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TreatAsSecondaryTileId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TreatAsSecondaryTileId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTreatAsSecondaryTileId(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTreatAsSecondaryTileId(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTreatAsSecondaryTileId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Group(&self) -> windows_core::Result<WindowTabGroup> {
+    pub fn Group(&self) -> windows_result::Result<WindowTabGroup> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Group)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetGroup<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetGroup<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTabGroup>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetGroup)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ReportThumbnailAvailable(&self) -> windows_core::Result<()> {
+    pub fn ReportThumbnailAvailable(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportThumbnailAvailable)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -923,7 +923,7 @@ unsafe impl Sync for WindowTab {}
 pub struct WindowTabCloseRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabCloseRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabCloseRequestedEventArgs {
-    pub fn Tab(&self) -> windows_core::Result<WindowTab> {
+    pub fn Tab(&self) -> windows_result::Result<WindowTab> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -949,35 +949,35 @@ pub struct WindowTabCollection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabCollection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(WindowTabCollection, windows_collections::IIterable<WindowTab>, windows_collections::IVector<WindowTab>);
 impl WindowTabCollection {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<WindowTab>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<WindowTab>> {
         let this = &windows_core::Interface::cast::<windows_collections::IIterable<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAt(&self, index: u32) -> windows_core::Result<WindowTab> {
+    pub fn GetAt(&self, index: u32) -> windows_result::Result<WindowTab> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAt)(windows_core::Interface::as_raw(this), index, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Size(&self) -> windows_core::Result<u32> {
+    pub fn Size(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Size)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetView(&self) -> windows_core::Result<windows_collections::IVectorView<WindowTab>> {
+    pub fn GetView(&self) -> windows_result::Result<windows_collections::IVectorView<WindowTab>> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_core::Result<bool>
+    pub fn IndexOf<P0>(&self, value: P0, index: &mut u32) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<WindowTab>,
     {
@@ -987,51 +987,51 @@ impl WindowTabCollection {
             (windows_core::Interface::vtable(this).IndexOf)(windows_core::Interface::as_raw(this), value.param().abi(), index, &mut result__).map(|| result__)
         }
     }
-    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    pub fn SetAt<P1>(&self, index: u32, value: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
-    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_core::Result<()>
+    pub fn InsertAt<P1>(&self, index: u32, value: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).InsertAt)(windows_core::Interface::as_raw(this), index, value.param().abi()).ok() }
     }
-    pub fn RemoveAt(&self, index: u32) -> windows_core::Result<()> {
+    pub fn RemoveAt(&self, index: u32) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAt)(windows_core::Interface::as_raw(this), index).ok() }
     }
-    pub fn Append<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn Append<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTab>,
     {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RemoveAtEnd(&self) -> windows_core::Result<()> {
+    pub fn RemoveAtEnd(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveAtEnd)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetMany(&self, startindex: u32, items: &mut [Option<WindowTab>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, startindex: u32, items: &mut [Option<WindowTab>]) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMany)(windows_core::Interface::as_raw(this), startindex, items.len().try_into().unwrap(), core::mem::transmute_copy(&items), &mut result__).map(|| result__)
         }
     }
-    pub fn ReplaceAll(&self, items: &[Option<WindowTab>]) -> windows_core::Result<()> {
+    pub fn ReplaceAll(&self, items: &[Option<WindowTab>]) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<windows_collections::IVector<WindowTab>>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReplaceAll)(windows_core::Interface::as_raw(this), items.len().try_into().unwrap(), core::mem::transmute(items.as_ptr())).ok() }
     }
-    pub fn MoveTab<P0>(&self, tab: P0, index: u32) -> windows_core::Result<()>
+    pub fn MoveTab<P0>(&self, tab: P0, index: u32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTab>,
     {
@@ -1070,32 +1070,32 @@ impl IntoIterator for &WindowTabCollection {
 pub struct WindowTabGroup(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabGroup, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabGroup {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTabGroup, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Icon(&self) -> windows_core::Result<WindowTabIcon> {
+    pub fn Icon(&self) -> windows_result::Result<WindowTabIcon> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetIcon<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetIcon<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTabIcon>,
     {
@@ -1120,13 +1120,13 @@ unsafe impl Sync for WindowTabGroup {}
 pub struct WindowTabIcon(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabIcon, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabIcon {
-    pub fn CreateFromFontGlyph(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_core::Result<WindowTabIcon> {
+    pub fn CreateFromFontGlyph(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING) -> windows_result::Result<WindowTabIcon> {
         Self::IWindowTabIconStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromFontGlyph)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(glyph), core::mem::transmute_copy(fontfamily), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromFontGlyphWithUri<P2>(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P2) -> windows_core::Result<WindowTabIcon>
+    pub fn CreateFromFontGlyphWithUri<P2>(glyph: &windows_core::HSTRING, fontfamily: &windows_core::HSTRING, fonturi: P2) -> windows_result::Result<WindowTabIcon>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -1136,7 +1136,7 @@ impl WindowTabIcon {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromImage<P0>(image: P0) -> windows_core::Result<WindowTabIcon>
+    pub fn CreateFromImage<P0>(image: P0) -> windows_result::Result<WindowTabIcon>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
@@ -1145,7 +1145,7 @@ impl WindowTabIcon {
             (windows_core::Interface::vtable(this).CreateFromImage)(windows_core::Interface::as_raw(this), image.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IWindowTabIconStatics<R, F: FnOnce(&IWindowTabIconStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowTabIconStatics<R, F: FnOnce(&IWindowTabIconStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTabIcon, IWindowTabIconStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1167,21 +1167,21 @@ unsafe impl Sync for WindowTabIcon {}
 pub struct WindowTabManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabManager, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabManager {
-    pub fn Tabs(&self) -> windows_core::Result<WindowTabCollection> {
+    pub fn Tabs(&self) -> windows_result::Result<WindowTabCollection> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tabs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetActiveTab<P0>(&self, tab: P0) -> windows_core::Result<()>
+    pub fn SetActiveTab<P0>(&self, tab: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<WindowTab>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetActiveTab)(windows_core::Interface::as_raw(this), tab.param().abi()).ok() }
     }
-    pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabSwitchRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabSwitchRequestedEventArgs>>,
     {
@@ -1191,11 +1191,11 @@ impl WindowTabManager {
             (windows_core::Interface::vtable(this).TabSwitchRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTabSwitchRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTabSwitchRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTabSwitchRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TabCloseRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabCloseRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabCloseRequestedEventArgs>>,
     {
@@ -1205,11 +1205,11 @@ impl WindowTabManager {
             (windows_core::Interface::vtable(this).TabCloseRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTabCloseRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTabCloseRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTabCloseRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TabTearOutRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabTearOutRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabTearOutRequestedEventArgs>>,
     {
@@ -1219,11 +1219,11 @@ impl WindowTabManager {
             (windows_core::Interface::vtable(this).TabTearOutRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTabTearOutRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTabTearOutRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTabTearOutRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TabThumbnailRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TabThumbnailRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowTabManager, WindowTabThumbnailRequestedEventArgs>>,
     {
@@ -1233,29 +1233,29 @@ impl WindowTabManager {
             (windows_core::Interface::vtable(this).TabThumbnailRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTabThumbnailRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTabThumbnailRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTabThumbnailRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForWindow(id: super::WindowId) -> windows_core::Result<WindowTabManager> {
+    pub fn GetForWindow(id: super::WindowId) -> windows_result::Result<WindowTabManager> {
         Self::IWindowTabManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForWindow)(windows_core::Interface::as_raw(this), id, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IWindowTabManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IsTabTearOutSupported() -> windows_core::Result<bool> {
+    pub fn IsTabTearOutSupported() -> windows_result::Result<bool> {
         Self::IWindowTabManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTabTearOutSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IWindowTabManagerStatics<R, F: FnOnce(&IWindowTabManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWindowTabManagerStatics<R, F: FnOnce(&IWindowTabManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowTabManager, IWindowTabManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1277,7 +1277,7 @@ unsafe impl Sync for WindowTabManager {}
 pub struct WindowTabSwitchRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabSwitchRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabSwitchRequestedEventArgs {
-    pub fn Tab(&self) -> windows_core::Result<WindowTab> {
+    pub fn Tab(&self) -> windows_result::Result<WindowTab> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1302,25 +1302,25 @@ unsafe impl Sync for WindowTabSwitchRequestedEventArgs {}
 pub struct WindowTabTearOutRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabTearOutRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabTearOutRequestedEventArgs {
-    pub fn Tab(&self) -> windows_core::Result<WindowTab> {
+    pub fn Tab(&self) -> windows_result::Result<WindowTab> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Tab)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WindowId(&self) -> windows_core::Result<u64> {
+    pub fn WindowId(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWindowId(&self, value: u64) -> windows_core::Result<()> {
+    pub fn SetWindowId(&self, value: u64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWindowId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1345,7 +1345,7 @@ unsafe impl Sync for WindowTabTearOutRequestedEventArgs {}
 pub struct WindowTabThumbnailRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(WindowTabThumbnailRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl WindowTabThumbnailRequestedEventArgs {
-    pub fn Tab(&self) -> windows_core::Result<WindowTab> {
+    pub fn Tab(&self) -> windows_result::Result<WindowTab> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1353,7 +1353,7 @@ impl WindowTabThumbnailRequestedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn RequestedSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn RequestedSize(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1361,7 +1361,7 @@ impl WindowTabThumbnailRequestedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Image(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Image(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1369,21 +1369,21 @@ impl WindowTabThumbnailRequestedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetImage<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetImage<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStreamReference>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetImage)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsCompositedOnWindow(&self) -> windows_core::Result<bool> {
+    pub fn IsCompositedOnWindow(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -11,13 +11,13 @@ pub const DEVICE_SCALE_FACTOR_INVALID: DEVICE_SCALE_FACTOR = DEVICE_SCALE_FACTOR
 windows_core::imp::define_interface!(IObjectArray, IObjectArray_Vtbl, 0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
 windows_core::imp::interface_hierarchy!(IObjectArray, windows_core::IUnknown);
 impl IObjectArray {
-    pub unsafe fn GetCount(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCount(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCount)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> windows_core::Result<T>
+    pub unsafe fn GetAt<T>(&self, uiindex: u32) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -33,8 +33,8 @@ pub struct IObjectArray_Vtbl {
     pub GetAt: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectArray_Impl: windows_core::IUnknownImpl {
-    fn GetCount(&self) -> windows_core::Result<u32>;
-    fn GetAt(&self, uiindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetCount(&self) -> windows_result::Result<u32>;
+    fn GetAt(&self, uiindex: u32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl IObjectArray_Vtbl {
     pub const fn new<Identity: IObjectArray_Impl, const OFFSET: isize>() -> Self {
@@ -72,22 +72,22 @@ impl core::ops::Deref for IObjectCollection {
 }
 windows_core::imp::interface_hierarchy!(IObjectCollection, windows_core::IUnknown, IObjectArray);
 impl IObjectCollection {
-    pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_core::Result<()>
+    pub unsafe fn AddObject<P0>(&self, punk: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddObject)(windows_core::Interface::as_raw(self), punk.param().abi()).ok() }
     }
-    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_core::Result<()>
+    pub unsafe fn AddFromArray<P0>(&self, poasource: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IObjectArray>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddFromArray)(windows_core::Interface::as_raw(self), poasource.param().abi()).ok() }
     }
-    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()> {
+    pub unsafe fn RemoveObjectAt(&self, uiindex: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveObjectAt)(windows_core::Interface::as_raw(self), uiindex).ok() }
     }
-    pub unsafe fn Clear(&self) -> windows_core::Result<()> {
+    pub unsafe fn Clear(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Clear)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -101,10 +101,10 @@ pub struct IObjectCollection_Vtbl {
     pub Clear: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IObjectCollection_Impl: IObjectArray_Impl {
-    fn AddObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn AddFromArray(&self, poasource: windows_core::Ref<IObjectArray>) -> windows_core::Result<()>;
-    fn RemoveObjectAt(&self, uiindex: u32) -> windows_core::Result<()>;
-    fn Clear(&self) -> windows_core::Result<()>;
+    fn AddObject(&self, punk: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn AddFromArray(&self, poasource: windows_core::Ref<IObjectArray>) -> windows_result::Result<()>;
+    fn RemoveObjectAt(&self, uiindex: u32) -> windows_result::Result<()>;
+    fn Clear(&self) -> windows_result::Result<()>;
 }
 impl IObjectCollection_Vtbl {
     pub const fn new<Identity: IObjectCollection_Impl, const OFFSET: isize>() -> Self {

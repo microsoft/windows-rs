@@ -89,13 +89,13 @@ pub unsafe fn PrintDlgA(ppd: *mut PRINTDLGA) -> windows_core::BOOL {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> windows_core::Result<()> {
+pub unsafe fn PrintDlgExA(ppd: *mut PRINTDLGEXA) -> windows_result::Result<()> {
     windows_link::link!("comdlg32.dll" "system" fn PrintDlgExA(ppd : *mut PRINTDLGEXA) -> windows_core::HRESULT);
     unsafe { PrintDlgExA(core::mem::transmute(ppd)).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_core::Result<()> {
+pub unsafe fn PrintDlgExW(ppd: *mut PRINTDLGEXW) -> windows_result::Result<()> {
     windows_link::link!("comdlg32.dll" "system" fn PrintDlgExW(ppd : *mut PRINTDLGEXW) -> windows_core::HRESULT);
     unsafe { PrintDlgExW(core::mem::transmute(ppd)).ok() }
 }
@@ -699,13 +699,13 @@ pub const HELPMSGSTRINGW: windows_core::PCWSTR = windows_core::w!("commdlg_help"
 windows_core::imp::define_interface!(IPrintDialogCallback, IPrintDialogCallback_Vtbl, 0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
 windows_core::imp::interface_hierarchy!(IPrintDialogCallback, windows_core::IUnknown);
 impl IPrintDialogCallback {
-    pub unsafe fn InitDone(&self) -> windows_core::Result<()> {
+    pub unsafe fn InitDone(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InitDone)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SelectionChange(&self) -> windows_core::Result<()> {
+    pub unsafe fn SelectionChange(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SelectionChange)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()> {
+    pub unsafe fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).HandleMessage)(windows_core::Interface::as_raw(self), hdlg, umsg, wparam, lparam, presult as _).ok() }
     }
 }
@@ -718,9 +718,9 @@ pub struct IPrintDialogCallback_Vtbl {
     pub HandleMessage: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::super::Foundation::HWND, u32, super::super::super::Foundation::WPARAM, super::super::super::Foundation::LPARAM, *mut super::super::super::Foundation::LRESULT) -> windows_core::HRESULT,
 }
 pub trait IPrintDialogCallback_Impl: windows_core::IUnknownImpl {
-    fn InitDone(&self) -> windows_core::Result<()>;
-    fn SelectionChange(&self) -> windows_core::Result<()>;
-    fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_core::Result<()>;
+    fn InitDone(&self) -> windows_result::Result<()>;
+    fn SelectionChange(&self) -> windows_result::Result<()>;
+    fn HandleMessage(&self, hdlg: super::super::super::Foundation::HWND, umsg: u32, wparam: super::super::super::Foundation::WPARAM, lparam: super::super::super::Foundation::LPARAM, presult: *mut super::super::super::Foundation::LRESULT) -> windows_result::Result<()>;
 }
 impl IPrintDialogCallback_Vtbl {
     pub const fn new<Identity: IPrintDialogCallback_Impl, const OFFSET: isize>() -> Self {
@@ -758,13 +758,13 @@ windows_core::imp::define_interface!(IPrintDialogServices, IPrintDialogServices_
 windows_core::imp::interface_hierarchy!(IPrintDialogServices, windows_core::IUnknown);
 impl IPrintDialogServices {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentDevMode)(windows_core::Interface::as_raw(self), pdevmode as _, pcbsize as _).ok() }
     }
-    pub unsafe fn GetCurrentPrinterName(&self, pprintername: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentPrinterName(&self, pprintername: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentPrinterName)(windows_core::Interface::as_raw(self), pprintername.unwrap_or(core::mem::zeroed()) as _, pcchsize as _).ok() }
     }
-    pub unsafe fn GetCurrentPortName(&self, pportname: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetCurrentPortName(&self, pportname: Option<windows_core::PWSTR>, pcchsize: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCurrentPortName)(windows_core::Interface::as_raw(self), pportname.unwrap_or(core::mem::zeroed()) as _, pcchsize as _).ok() }
     }
 }
@@ -781,9 +781,9 @@ pub struct IPrintDialogServices_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IPrintDialogServices_Impl: windows_core::IUnknownImpl {
-    fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_core::Result<()>;
-    fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()>;
-    fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut u32) -> windows_core::Result<()>;
+    fn GetCurrentDevMode(&self, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> windows_result::Result<()>;
+    fn GetCurrentPrinterName(&self, pprintername: windows_core::PWSTR, pcchsize: *mut u32) -> windows_result::Result<()>;
+    fn GetCurrentPortName(&self, pportname: windows_core::PWSTR, pcchsize: *mut u32) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IPrintDialogServices_Vtbl {

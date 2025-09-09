@@ -4,35 +4,35 @@ pub struct CastingConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CastingConnection, super::super::Foundation::IClosable);
 impl CastingConnection {
-    pub fn State(&self) -> windows_core::Result<CastingConnectionState> {
+    pub fn State(&self) -> windows_result::Result<CastingConnectionState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Device(&self) -> windows_core::Result<CastingDevice> {
+    pub fn Device(&self) -> windows_result::Result<CastingDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Source(&self) -> windows_core::Result<CastingSource> {
+    pub fn Source(&self) -> windows_result::Result<CastingSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSource<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetSource<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<CastingSource>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingConnection, windows_core::IInspectable>>,
     {
@@ -42,11 +42,11 @@ impl CastingConnection {
             (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ErrorOccurred<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingConnection, CastingConnectionErrorOccurredEventArgs>>,
     {
@@ -56,11 +56,11 @@ impl CastingConnection {
             (windows_core::Interface::vtable(this).ErrorOccurred)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveErrorOccurred(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveErrorOccurred(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveErrorOccurred)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn RequestStartCastingAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>>
+    pub fn RequestStartCastingAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>>
     where
         P0: windows_core::Param<CastingSource>,
     {
@@ -70,14 +70,14 @@ impl CastingConnection {
             (windows_core::Interface::vtable(this).RequestStartCastingAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisconnectAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>> {
+    pub fn DisconnectAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<CastingConnectionErrorStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisconnectAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -99,14 +99,14 @@ unsafe impl Sync for CastingConnection {}
 pub struct CastingConnectionErrorOccurredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingConnectionErrorOccurredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingConnectionErrorOccurredEventArgs {
-    pub fn ErrorStatus(&self) -> windows_core::Result<CastingConnectionErrorStatus> {
+    pub fn ErrorStatus(&self) -> windows_result::Result<CastingConnectionErrorStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Message(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Message(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -165,14 +165,14 @@ impl windows_core::RuntimeType for CastingConnectionState {
 pub struct CastingDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevice {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -180,34 +180,34 @@ impl CastingDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Icon(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
+    pub fn Icon(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Icon)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<CastingPlaybackTypes>> {
+    pub fn GetSupportedCastingPlaybackTypesAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<CastingPlaybackTypes>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedCastingPlaybackTypesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateCastingConnection(&self) -> windows_core::Result<CastingConnection> {
+    pub fn CreateCastingConnection(&self) -> windows_result::Result<CastingConnection> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateCastingConnection)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(r#type: CastingPlaybackTypes) -> windows_result::Result<windows_core::HSTRING> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), r#type, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromCastingSourceAsync<P0>(castingsource: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
+    pub fn GetDeviceSelectorFromCastingSourceAsync<P0>(castingsource: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>>
     where
         P0: windows_core::Param<CastingSource>,
     {
@@ -216,14 +216,14 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromCastingSourceAsync)(windows_core::Interface::as_raw(this), castingsource.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<CastingDevice>> {
+    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<CastingDevice>> {
         Self::ICastingDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn DeviceInfoSupportsCastingAsync<P0>(device: P0) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
@@ -232,7 +232,7 @@ impl CastingDevice {
             (windows_core::Interface::vtable(this).DeviceInfoSupportsCastingAsync)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICastingDeviceStatics<R, F: FnOnce(&ICastingDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICastingDeviceStatics<R, F: FnOnce(&ICastingDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CastingDevice, ICastingDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -254,14 +254,14 @@ unsafe impl Sync for CastingDevice {}
 pub struct CastingDevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePicker {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CastingDevicePicker, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Filter(&self) -> windows_core::Result<CastingDevicePickerFilter> {
+    pub fn Filter(&self) -> windows_result::Result<CastingDevicePickerFilter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -269,14 +269,14 @@ impl CastingDevicePicker {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn Appearance(&self) -> windows_core::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
+    pub fn Appearance(&self) -> windows_result::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appearance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CastingDeviceSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CastingDeviceSelected<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingDevicePicker, CastingDeviceSelectedEventArgs>>,
     {
@@ -286,11 +286,11 @@ impl CastingDevicePicker {
             (windows_core::Interface::vtable(this).CastingDeviceSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCastingDeviceSelected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCastingDeviceSelected(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCastingDeviceSelected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CastingDevicePickerDismissed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CastingDevicePickerDismissed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<CastingDevicePicker, windows_core::IInspectable>>,
     {
@@ -300,20 +300,20 @@ impl CastingDevicePicker {
             (windows_core::Interface::vtable(this).CastingDevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCastingDevicePickerDismissed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCastingDevicePickerDismissed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCastingDevicePickerDismissed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), selection).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<()> {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
-    pub fn Hide(&self) -> windows_core::Result<()> {
+    pub fn Hide(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -335,40 +335,40 @@ unsafe impl Sync for CastingDevicePicker {}
 pub struct CastingDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDevicePickerFilter {
-    pub fn SupportsAudio(&self) -> windows_core::Result<bool> {
+    pub fn SupportsAudio(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportsAudio)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSupportsAudio(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSupportsAudio(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSupportsAudio)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SupportsVideo(&self) -> windows_core::Result<bool> {
+    pub fn SupportsVideo(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportsVideo)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSupportsVideo(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSupportsVideo(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSupportsVideo)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SupportsPictures(&self) -> windows_core::Result<bool> {
+    pub fn SupportsPictures(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportsPictures)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSupportsPictures(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSupportsPictures(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSupportsPictures)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SupportedCastingSources(&self) -> windows_core::Result<windows_collections::IVector<CastingSource>> {
+    pub fn SupportedCastingSources(&self) -> windows_result::Result<windows_collections::IVector<CastingSource>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -393,7 +393,7 @@ unsafe impl Sync for CastingDevicePickerFilter {}
 pub struct CastingDeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingDeviceSelectedEventArgs {
-    pub fn SelectedCastingDevice(&self) -> windows_core::Result<CastingDevice> {
+    pub fn SelectedCastingDevice(&self) -> windows_result::Result<CastingDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -466,14 +466,14 @@ impl core::ops::Not for CastingPlaybackTypes {
 pub struct CastingSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CastingSource, windows_core::IUnknown, windows_core::IInspectable);
 impl CastingSource {
-    pub fn PreferredSourceUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn PreferredSourceUri(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredSourceUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPreferredSourceUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetPreferredSourceUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {

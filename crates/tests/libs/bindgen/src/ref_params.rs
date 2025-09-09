@@ -20,7 +20,7 @@ impl IDynamicConceptProviderConcept {
         conceptinterface: *mut Option<windows_core::IUnknown>,
         conceptmetadata: Option<*mut Option<IKeyStore>>,
         hasconcept: *mut bool,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -42,7 +42,7 @@ impl IDynamicConceptProviderConcept {
         conceptid: *const windows_core::GUID,
         conceptinterface: P2,
         conceptmetadata: P3,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
         P2: windows_core::Param<windows_core::IUnknown>,
@@ -59,7 +59,7 @@ impl IDynamicConceptProviderConcept {
             .ok()
         }
     }
-    pub unsafe fn NotifyParent<P0>(&self, parentmodel: P0) -> windows_core::Result<()>
+    pub unsafe fn NotifyParent<P0>(&self, parentmodel: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -71,7 +71,7 @@ impl IDynamicConceptProviderConcept {
             .ok()
         }
     }
-    pub unsafe fn NotifyParentChange<P0>(&self, parentmodel: P0) -> windows_core::Result<()>
+    pub unsafe fn NotifyParentChange<P0>(&self, parentmodel: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -83,7 +83,7 @@ impl IDynamicConceptProviderConcept {
             .ok()
         }
     }
-    pub unsafe fn NotifyDestruct(&self) -> windows_core::Result<()> {
+    pub unsafe fn NotifyDestruct(&self) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).NotifyDestruct)(windows_core::Interface::as_raw(
                 self,
@@ -129,23 +129,23 @@ pub trait IDynamicConceptProviderConcept_Impl: windows_core::IUnknownImpl {
         conceptinterface: windows_core::OutRef<windows_core::IUnknown>,
         conceptmetadata: windows_core::OutRef<IKeyStore>,
         hasconcept: *mut bool,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn SetConcept(
         &self,
         contextobject: windows_core::Ref<IModelObject>,
         conceptid: *const windows_core::GUID,
         conceptinterface: windows_core::Ref<windows_core::IUnknown>,
         conceptmetadata: windows_core::Ref<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn NotifyParent(
         &self,
         parentmodel: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn NotifyParentChange(
         &self,
         parentmodel: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
-    fn NotifyDestruct(&self) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
+    fn NotifyDestruct(&self) -> windows_result::Result<()>;
 }
 impl IDynamicConceptProviderConcept_Vtbl {
     pub const fn new<Identity: IDynamicConceptProviderConcept_Impl, const OFFSET: isize>() -> Self {
@@ -269,7 +269,7 @@ impl IKeyStore {
         key: P0,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -288,7 +288,7 @@ impl IKeyStore {
         key: P0,
         object: P1,
         metadata: P2,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
@@ -309,7 +309,7 @@ impl IKeyStore {
         key: P0,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -323,7 +323,7 @@ impl IKeyStore {
             .ok()
         }
     }
-    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
+    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
@@ -337,7 +337,7 @@ impl IKeyStore {
             .ok()
         }
     }
-    pub unsafe fn ClearKeys(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearKeys(&self) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ClearKeys)(windows_core::Interface::as_raw(self))
                 .ok()
@@ -379,25 +379,25 @@ pub trait IKeyStore_Impl: windows_core::IUnknownImpl {
         key: &windows_core::PCWSTR,
         object: windows_core::OutRef<IModelObject>,
         metadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::Ref<IModelObject>,
         metadata: windows_core::Ref<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn GetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::OutRef<IModelObject>,
         metadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
-    fn ClearKeys(&self) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
+    fn ClearKeys(&self) -> windows_result::Result<()>;
 }
 impl IKeyStore_Vtbl {
     pub const fn new<Identity: IKeyStore_Impl, const OFFSET: isize>() -> Self {
@@ -506,7 +506,7 @@ impl IModelObject {
         key: P0,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -520,7 +520,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_core::Result<()>
+    pub unsafe fn SetKeyValue<P0, P1>(&self, key: P0, object: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
@@ -534,7 +534,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn Dereference(&self) -> windows_core::Result<IModelObject> {
+    pub unsafe fn Dereference(&self) -> windows_result::Result<IModelObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Dereference)(
@@ -544,7 +544,7 @@ impl IModelObject {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject> {
+    pub unsafe fn TryCastToRuntimeType(&self) -> windows_result::Result<IModelObject> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TryCastToRuntimeType)(
@@ -559,7 +559,7 @@ impl IModelObject {
         conceptid: *const windows_core::GUID,
         conceptinterface: *mut Option<windows_core::IUnknown>,
         conceptmetadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()> {
+    ) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetConcept)(
                 windows_core::Interface::as_raw(self),
@@ -570,7 +570,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn GetNumberOfParentModels(&self) -> windows_core::Result<u64> {
+    pub unsafe fn GetNumberOfParentModels(&self) -> windows_result::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNumberOfParentModels)(
@@ -585,7 +585,7 @@ impl IModelObject {
         i: u64,
         model: *mut Option<IModelObject>,
         contextobject: *mut Option<IModelObject>,
-    ) -> windows_core::Result<()> {
+    ) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).GetParentModel)(
                 windows_core::Interface::as_raw(self),
@@ -601,7 +601,7 @@ impl IModelObject {
         model: P0,
         contextobject: P1,
         r#override: u8,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
         P1: windows_core::Param<IModelObject>,
@@ -616,7 +616,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn RemoveParentModel<P0>(&self, model: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveParentModel<P0>(&self, model: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -633,7 +633,7 @@ impl IModelObject {
         key: P0,
         object: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -652,7 +652,7 @@ impl IModelObject {
         key: P0,
         objectreference: Option<*mut Option<IModelObject>>,
         metadata: Option<*mut Option<IKeyStore>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -671,7 +671,7 @@ impl IModelObject {
         key: P0,
         object: P1,
         metadata: P2,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IModelObject>,
@@ -687,7 +687,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn ClearKeys(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearKeys(&self) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ClearKeys)(windows_core::Interface::as_raw(self))
                 .ok()
@@ -698,7 +698,7 @@ impl IModelObject {
         conceptid: *const windows_core::GUID,
         conceptinterface: P1,
         conceptmetadata: P2,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
         P2: windows_core::Param<IKeyStore>,
@@ -713,7 +713,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn ClearConcepts(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearConcepts(&self) -> windows_result::Result<()> {
         unsafe {
             (windows_core::Interface::vtable(self).ClearConcepts)(windows_core::Interface::as_raw(
                 self,
@@ -725,7 +725,7 @@ impl IModelObject {
         &self,
         datamodelobject: P0,
         context: P1,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -742,7 +742,7 @@ impl IModelObject {
     pub unsafe fn GetContextForDataModel<P0>(
         &self,
         datamodelobject: P0,
-    ) -> windows_core::Result<windows_core::IUnknown>
+    ) -> windows_result::Result<windows_core::IUnknown>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -760,7 +760,7 @@ impl IModelObject {
         &self,
         other: P0,
         ppresult: Option<*mut Option<IModelObject>>,
-    ) -> windows_core::Result<()>
+    ) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -773,7 +773,7 @@ impl IModelObject {
             .ok()
         }
     }
-    pub unsafe fn IsEqualTo<P0>(&self, other: P0) -> windows_core::Result<bool>
+    pub unsafe fn IsEqualTo<P0>(&self, other: P0) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<IModelObject>,
     {
@@ -902,76 +902,78 @@ pub trait IModelObject_Impl: windows_core::IUnknownImpl {
         key: &windows_core::PCWSTR,
         object: windows_core::OutRef<IModelObject>,
         metadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn SetKeyValue(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<()>;
-    fn Dereference(&self) -> windows_core::Result<IModelObject>;
-    fn TryCastToRuntimeType(&self) -> windows_core::Result<IModelObject>;
+    ) -> windows_result::Result<()>;
+    fn Dereference(&self) -> windows_result::Result<IModelObject>;
+    fn TryCastToRuntimeType(&self) -> windows_result::Result<IModelObject>;
     fn GetConcept(
         &self,
         conceptid: *const windows_core::GUID,
         conceptinterface: windows_core::OutRef<windows_core::IUnknown>,
         conceptmetadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
-    fn GetNumberOfParentModels(&self) -> windows_core::Result<u64>;
+    ) -> windows_result::Result<()>;
+    fn GetNumberOfParentModels(&self) -> windows_result::Result<u64>;
     fn GetParentModel(
         &self,
         i: u64,
         model: windows_core::OutRef<IModelObject>,
         contextobject: windows_core::OutRef<IModelObject>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn AddParentModel(
         &self,
         model: windows_core::Ref<IModelObject>,
         contextobject: windows_core::Ref<IModelObject>,
         r#override: u8,
-    ) -> windows_core::Result<()>;
-    fn RemoveParentModel(&self, model: windows_core::Ref<IModelObject>)
-        -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
+    fn RemoveParentModel(
+        &self,
+        model: windows_core::Ref<IModelObject>,
+    ) -> windows_result::Result<()>;
     fn GetKey(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::OutRef<IModelObject>,
         metadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn GetKeyReference(
         &self,
         key: &windows_core::PCWSTR,
         objectreference: windows_core::OutRef<IModelObject>,
         metadata: windows_core::OutRef<IKeyStore>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn SetKey(
         &self,
         key: &windows_core::PCWSTR,
         object: windows_core::Ref<IModelObject>,
         metadata: windows_core::Ref<IKeyStore>,
-    ) -> windows_core::Result<()>;
-    fn ClearKeys(&self) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
+    fn ClearKeys(&self) -> windows_result::Result<()>;
     fn SetConcept(
         &self,
         conceptid: *const windows_core::GUID,
         conceptinterface: windows_core::Ref<windows_core::IUnknown>,
         conceptmetadata: windows_core::Ref<IKeyStore>,
-    ) -> windows_core::Result<()>;
-    fn ClearConcepts(&self) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
+    fn ClearConcepts(&self) -> windows_result::Result<()>;
     fn SetContextForDataModel(
         &self,
         datamodelobject: windows_core::Ref<IModelObject>,
         context: windows_core::Ref<windows_core::IUnknown>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
     fn GetContextForDataModel(
         &self,
         datamodelobject: windows_core::Ref<IModelObject>,
-    ) -> windows_core::Result<windows_core::IUnknown>;
+    ) -> windows_result::Result<windows_core::IUnknown>;
     fn Compare(
         &self,
         other: windows_core::Ref<IModelObject>,
         ppresult: windows_core::OutRef<IModelObject>,
-    ) -> windows_core::Result<()>;
-    fn IsEqualTo(&self, other: windows_core::Ref<IModelObject>) -> windows_core::Result<bool>;
+    ) -> windows_result::Result<()>;
+    fn IsEqualTo(&self, other: windows_core::Ref<IModelObject>) -> windows_result::Result<bool>;
 }
 impl IModelObject_Vtbl {
     pub const fn new<Identity: IModelObject_Impl, const OFFSET: isize>() -> Self {

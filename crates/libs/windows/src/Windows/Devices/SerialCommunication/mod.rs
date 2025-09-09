@@ -3,7 +3,7 @@
 pub struct ErrorReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ErrorReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ErrorReceivedEventArgs {
-    pub fn Error(&self) -> windows_core::Result<SerialError> {
+    pub fn Error(&self) -> windows_result::Result<SerialError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,7 +109,7 @@ pub struct ISerialDeviceStatics_Vtbl {
 pub struct PinChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PinChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PinChangedEventArgs {
-    pub fn PinChange(&self) -> windows_core::Result<SerialPinChange> {
+    pub fn PinChange(&self) -> windows_result::Result<SerialPinChange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -135,171 +135,171 @@ pub struct SerialDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SerialDevice, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(SerialDevice, super::super::Foundation::IClosable);
 impl SerialDevice {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn BaudRate(&self) -> windows_core::Result<u32> {
+    pub fn BaudRate(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BaudRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBaudRate(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetBaudRate(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBaudRate)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BreakSignalState(&self) -> windows_core::Result<bool> {
+    pub fn BreakSignalState(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BreakSignalState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetBreakSignalState(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetBreakSignalState(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetBreakSignalState)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn BytesReceived(&self) -> windows_core::Result<u32> {
+    pub fn BytesReceived(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BytesReceived)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CarrierDetectState(&self) -> windows_core::Result<bool> {
+    pub fn CarrierDetectState(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CarrierDetectState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ClearToSendState(&self) -> windows_core::Result<bool> {
+    pub fn ClearToSendState(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClearToSendState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DataBits(&self) -> windows_core::Result<u16> {
+    pub fn DataBits(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataBits)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDataBits(&self, value: u16) -> windows_core::Result<()> {
+    pub fn SetDataBits(&self, value: u16) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDataBits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DataSetReadyState(&self) -> windows_core::Result<bool> {
+    pub fn DataSetReadyState(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataSetReadyState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Handshake(&self) -> windows_core::Result<SerialHandshake> {
+    pub fn Handshake(&self) -> windows_result::Result<SerialHandshake> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handshake)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandshake(&self, value: SerialHandshake) -> windows_core::Result<()> {
+    pub fn SetHandshake(&self, value: SerialHandshake) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandshake)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsDataTerminalReadyEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsDataTerminalReadyEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDataTerminalReadyEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsDataTerminalReadyEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsDataTerminalReadyEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsDataTerminalReadyEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsRequestToSendEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsRequestToSendEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsRequestToSendEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsRequestToSendEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsRequestToSendEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsRequestToSendEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Parity(&self) -> windows_core::Result<SerialParity> {
+    pub fn Parity(&self) -> windows_result::Result<SerialParity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Parity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetParity(&self, value: SerialParity) -> windows_core::Result<()> {
+    pub fn SetParity(&self, value: SerialParity) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetParity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PortName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PortName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PortName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReadTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ReadTimeout(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReadTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetReadTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReadTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn StopBits(&self) -> windows_core::Result<SerialStopBitCount> {
+    pub fn StopBits(&self) -> windows_result::Result<SerialStopBitCount> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopBits)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetStopBits(&self, value: SerialStopBitCount) -> windows_core::Result<()> {
+    pub fn SetStopBits(&self, value: SerialStopBitCount) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetStopBits)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UsbVendorId(&self) -> windows_core::Result<u16> {
+    pub fn UsbVendorId(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UsbVendorId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UsbProductId(&self) -> windows_core::Result<u16> {
+    pub fn UsbProductId(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UsbProductId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteTimeout(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn WriteTimeout(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWriteTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetWriteTimeout(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWriteTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn InputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IInputStream> {
+    pub fn InputStream(&self) -> windows_result::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -307,14 +307,14 @@ impl SerialDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn OutputStream(&self) -> windows_core::Result<super::super::Storage::Streams::IOutputStream> {
+    pub fn OutputStream(&self) -> windows_result::Result<super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ErrorReceived<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
+    pub fn ErrorReceived<P0>(&self, reporthandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SerialDevice, ErrorReceivedEventArgs>>,
     {
@@ -324,11 +324,11 @@ impl SerialDevice {
             (windows_core::Interface::vtable(this).ErrorReceived)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveErrorReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveErrorReceived(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveErrorReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PinChanged<P0>(&self, reporthandler: P0) -> windows_core::Result<i64>
+    pub fn PinChanged<P0>(&self, reporthandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SerialDevice, PinChangedEventArgs>>,
     {
@@ -338,35 +338,35 @@ impl SerialDevice {
             (windows_core::Interface::vtable(this).PinChanged)(windows_core::Interface::as_raw(this), reporthandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePinChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePinChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePinChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromPortName(portname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromPortName(portname: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromPortName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(portname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromUsbVidPid(vendorid: u16, productid: u16) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromUsbVidPid(vendorid: u16, productid: u16) -> windows_result::Result<windows_core::HSTRING> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromUsbVidPid)(windows_core::Interface::as_raw(this), vendorid, productid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<SerialDevice>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<SerialDevice>> {
         Self::ISerialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISerialDeviceStatics<R, F: FnOnce(&ISerialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISerialDeviceStatics<R, F: FnOnce(&ISerialDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SerialDevice, ISerialDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

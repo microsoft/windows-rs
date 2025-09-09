@@ -15,22 +15,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Compositor {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<
             Compositor,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual> {
+    pub fn CreateSpriteVisual(&self, brush: i32) -> windows_result::Result<SpriteVisual> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,7 +42,7 @@ impl Compositor {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual> {
+    pub fn CreateContainerVisual(&self, children: i32) -> windows_result::Result<ContainerVisual> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,7 +90,7 @@ impl ContainerVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> windows_result::Result<Compositor> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -128,8 +128,8 @@ impl windows_core::RuntimeName for ICompositor {
     const NAME: &'static str = "test_composable.ICompositor";
 }
 pub trait ICompositor_Impl: windows_core::IUnknownImpl {
-    fn CreateSpriteVisual(&self, brush: i32) -> windows_core::Result<SpriteVisual>;
-    fn CreateContainerVisual(&self, children: i32) -> windows_core::Result<ContainerVisual>;
+    fn CreateSpriteVisual(&self, brush: i32) -> windows_result::Result<SpriteVisual>;
+    fn CreateContainerVisual(&self, children: i32) -> windows_result::Result<ContainerVisual>;
 }
 impl ICompositor_Vtbl {
     pub const fn new<Identity: ICompositor_Impl, const OFFSET: isize>() -> Self {
@@ -331,7 +331,7 @@ impl windows_core::RuntimeName for IVisual {
     const NAME: &'static str = "test_composable.IVisual";
 }
 pub trait IVisual_Impl: windows_core::IUnknownImpl {
-    fn Compositor(&self) -> windows_core::Result<Compositor>;
+    fn Compositor(&self) -> windows_result::Result<Compositor>;
 }
 impl IVisual_Vtbl {
     pub const fn new<Identity: IVisual_Impl, const OFFSET: isize>() -> Self {
@@ -432,7 +432,7 @@ impl SpriteVisual {
             result__
         }
     }
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> windows_result::Result<Compositor> {
         let this = &windows_core::Interface::cast::<IVisual>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -462,7 +462,7 @@ unsafe impl Sync for SpriteVisual {}
 pub struct Visual(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Visual, windows_core::IUnknown, windows_core::IInspectable);
 impl Visual {
-    pub fn Compositor(&self) -> windows_core::Result<Compositor> {
+    pub fn Compositor(&self) -> windows_result::Result<Compositor> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

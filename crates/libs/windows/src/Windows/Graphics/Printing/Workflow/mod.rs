@@ -664,7 +664,7 @@ impl windows_core::RuntimeType for PrintWorkflowAttributesMergePolicy {
 pub struct PrintWorkflowBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSession {
-    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
+    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowBackgroundSetupRequestedEventArgs>>,
     {
@@ -674,11 +674,11 @@ impl PrintWorkflowBackgroundSession {
             (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSetupRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSetupRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSetupRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_core::Result<i64>
+    pub fn Submitted<P0>(&self, submittedeventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowBackgroundSession, PrintWorkflowSubmittedEventArgs>>,
     {
@@ -688,18 +688,18 @@ impl PrintWorkflowBackgroundSession {
             (windows_core::Interface::vtable(this).Submitted)(windows_core::Interface::as_raw(this), submittedeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSubmitted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSubmitted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSubmitted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -722,25 +722,25 @@ pub struct PrintWorkflowBackgroundSetupRequestedEventArgs(windows_core::IUnknown
 windows_core::imp::interface_hierarchy!(PrintWorkflowBackgroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowBackgroundSetupRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetUserPrintTicketAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUserPrintTicketAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetRequiresUI(&self) -> windows_core::Result<()> {
+    pub fn SetRequiresUI(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRequiresUI)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -765,28 +765,28 @@ unsafe impl Sync for PrintWorkflowBackgroundSetupRequestedEventArgs {}
 pub struct PrintWorkflowConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowConfiguration {
-    pub fn SourceAppDisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourceAppDisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceAppDisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn JobTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn JobTitle(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).JobTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SessionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SessionId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason) -> windows_core::Result<()> {
+    pub fn AbortPrintFlow(&self, reason: PrintWorkflowJobAbortReason) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowConfiguration2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AbortPrintFlow)(windows_core::Interface::as_raw(this), reason).ok() }
     }
@@ -808,7 +808,7 @@ unsafe impl Sync for PrintWorkflowConfiguration {}
 pub struct PrintWorkflowForegroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSession {
-    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_core::Result<i64>
+    pub fn SetupRequested<P0>(&self, setupeventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowForegroundSetupRequestedEventArgs>>,
     {
@@ -818,11 +818,11 @@ impl PrintWorkflowForegroundSession {
             (windows_core::Interface::vtable(this).SetupRequested)(windows_core::Interface::as_raw(this), setupeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSetupRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSetupRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSetupRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_core::Result<i64>
+    pub fn XpsDataAvailable<P0>(&self, xpsdataavailableeventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowForegroundSession, PrintWorkflowXpsDataAvailableEventArgs>>,
     {
@@ -832,18 +832,18 @@ impl PrintWorkflowForegroundSession {
             (windows_core::Interface::vtable(this).XpsDataAvailable)(windows_core::Interface::as_raw(this), xpsdataavailableeventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveXpsDataAvailable(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveXpsDataAvailable(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveXpsDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -866,21 +866,21 @@ pub struct PrintWorkflowForegroundSetupRequestedEventArgs(windows_core::IUnknown
 windows_core::imp::interface_hierarchy!(PrintWorkflowForegroundSetupRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowForegroundSetupRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetUserPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetUserPrintTicketAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUserPrintTicketAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -923,21 +923,21 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowJobActivatedEventArgs, wind
 windows_core::imp::required_hierarchy!(PrintWorkflowJobActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl PrintWorkflowJobActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -945,14 +945,14 @@ impl PrintWorkflowJobActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Session(&self) -> windows_core::Result<PrintWorkflowJobUISession> {
+    pub fn Session(&self) -> windows_result::Result<PrintWorkflowJobUISession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -982,14 +982,14 @@ unsafe impl Sync for PrintWorkflowJobActivatedEventArgs {}
 pub struct PrintWorkflowJobBackgroundSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobBackgroundSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobBackgroundSession {
-    pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn JobStarting<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobStarting<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobStartingEventArgs>>,
     {
@@ -999,11 +999,11 @@ impl PrintWorkflowJobBackgroundSession {
             (windows_core::Interface::vtable(this).JobStarting)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveJobStarting(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveJobStarting(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveJobStarting)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PdlModificationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PdlModificationRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowPdlModificationRequestedEventArgs>>,
     {
@@ -1013,15 +1013,15 @@ impl PrintWorkflowJobBackgroundSession {
             (windows_core::Interface::vtable(this).PdlModificationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePdlModificationRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePdlModificationRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePdlModificationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn JobIssueDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobIssueDetected<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobBackgroundSession, PrintWorkflowJobIssueDetectedEventArgs>>,
     {
@@ -1031,7 +1031,7 @@ impl PrintWorkflowJobBackgroundSession {
             (windows_core::Interface::vtable(this).JobIssueDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveJobIssueDetected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveJobIssueDetected(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobBackgroundSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveJobIssueDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1053,53 +1053,53 @@ unsafe impl Sync for PrintWorkflowJobBackgroundSession {}
 pub struct PrintWorkflowJobIssueDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobIssueDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobIssueDetectedEventArgs {
-    pub fn JobIssueKind(&self) -> windows_core::Result<PrintWorkflowJobIssueKind> {
+    pub fn JobIssueKind(&self) -> windows_result::Result<PrintWorkflowJobIssueKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).JobIssueKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SkipSystemErrorToast(&self) -> windows_core::Result<bool> {
+    pub fn SkipSystemErrorToast(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SkipSystemErrorToast)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSkipSystemErrorToast(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSkipSystemErrorToast(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSkipSystemErrorToast)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PrinterJob(&self) -> windows_core::Result<PrintWorkflowPrinterJob> {
+    pub fn PrinterJob(&self) -> windows_result::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterJob)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UILauncher(&self) -> windows_core::Result<PrintWorkflowUILauncher> {
+    pub fn UILauncher(&self) -> windows_result::Result<PrintWorkflowUILauncher> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UILauncher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1146,21 +1146,21 @@ impl windows_core::RuntimeType for PrintWorkflowJobIssueKind {
 pub struct PrintWorkflowJobNotificationEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobNotificationEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobNotificationEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrinterJob(&self) -> windows_core::Result<PrintWorkflowPrinterJob> {
+    pub fn PrinterJob(&self) -> windows_result::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterJob)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1185,7 +1185,7 @@ unsafe impl Sync for PrintWorkflowJobNotificationEventArgs {}
 pub struct PrintWorkflowJobStartingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobStartingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobStartingEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1193,43 +1193,43 @@ impl PrintWorkflowJobStartingEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSkipSystemRendering(&self) -> windows_core::Result<()> {
+    pub fn SetSkipSystemRendering(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSkipSystemRendering)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsIppCompressionEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsIppCompressionEnabled(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobStartingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsIppCompressionEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisableIppCompressionForJob(&self) -> windows_core::Result<()> {
+    pub fn DisableIppCompressionForJob(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobStartingEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).DisableIppCompressionForJob)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SkipSystemFaxUI(&self) -> windows_core::Result<bool> {
+    pub fn SkipSystemFaxUI(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobStartingEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SkipSystemFaxUI)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSkipSystemFaxUI(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSkipSystemFaxUI(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobStartingEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSkipSystemFaxUI)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1251,7 +1251,7 @@ unsafe impl Sync for PrintWorkflowJobStartingEventArgs {}
 pub struct PrintWorkflowJobTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobTriggerDetails {
-    pub fn PrintWorkflowJobSession(&self) -> windows_core::Result<PrintWorkflowJobBackgroundSession> {
+    pub fn PrintWorkflowJobSession(&self) -> windows_result::Result<PrintWorkflowJobBackgroundSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1276,14 +1276,14 @@ unsafe impl Sync for PrintWorkflowJobTriggerDetails {}
 pub struct PrintWorkflowJobUISession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowJobUISession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowJobUISession {
-    pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PdlDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PdlDataAvailable<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowPdlDataAvailableEventArgs>>,
     {
@@ -1293,11 +1293,11 @@ impl PrintWorkflowJobUISession {
             (windows_core::Interface::vtable(this).PdlDataAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePdlDataAvailable(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePdlDataAvailable(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePdlDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn JobNotification<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn JobNotification<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowJobNotificationEventArgs>>,
     {
@@ -1307,15 +1307,15 @@ impl PrintWorkflowJobUISession {
             (windows_core::Interface::vtable(this).JobNotification)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveJobNotification(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveJobNotification(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveJobNotification)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn VirtualPrinterUIDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VirtualPrinterUIDataAvailable<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowJobUISession, PrintWorkflowVirtualPrinterUIEventArgs>>,
     {
@@ -1325,7 +1325,7 @@ impl PrintWorkflowJobUISession {
             (windows_core::Interface::vtable(this).VirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveVirtualPrinterUIDataAvailable(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveVirtualPrinterUIDataAvailable(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintWorkflowJobUISession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveVirtualPrinterUIDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1348,7 +1348,7 @@ pub struct PrintWorkflowObjectModelSourceFileContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowObjectModelSourceFileContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowObjectModelSourceFileContent {
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateInstance<P0>(xpsstream: P0) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent>
+    pub fn CreateInstance<P0>(xpsstream: P0) -> windows_result::Result<PrintWorkflowObjectModelSourceFileContent>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
     {
@@ -1357,7 +1357,7 @@ impl PrintWorkflowObjectModelSourceFileContent {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), xpsstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintWorkflowObjectModelSourceFileContentFactory<R, F: FnOnce(&IPrintWorkflowObjectModelSourceFileContentFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintWorkflowObjectModelSourceFileContent, IPrintWorkflowObjectModelSourceFileContentFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1412,7 +1412,7 @@ pub struct PrintWorkflowPdlConverter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlConverter, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlConverter {
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ConvertPdlAsync<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1425,7 +1425,7 @@ impl PrintWorkflowPdlConverter {
         }
     }
     #[cfg(all(feature = "Graphics_Printing_PrintTicket", feature = "Storage_Streams"))]
-    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ConvertPdlAsync2<P0, P1, P2>(&self, printticket: P0, inputstream: P1, outputstream: P2, hostbasedprocessingoperations: PdlConversionHostBasedProcessingOperations) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IInputStream>,
@@ -1455,28 +1455,28 @@ unsafe impl Sync for PrintWorkflowPdlConverter {}
 pub struct PrintWorkflowPdlDataAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlDataAvailableEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrinterJob(&self) -> windows_core::Result<PrintWorkflowPrinterJob> {
+    pub fn PrinterJob(&self) -> windows_result::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterJob)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourceContent(&self) -> windows_core::Result<PrintWorkflowPdlSourceContent> {
+    pub fn SourceContent(&self) -> windows_result::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceContent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1501,35 +1501,35 @@ unsafe impl Sync for PrintWorkflowPdlDataAvailableEventArgs {}
 pub struct PrintWorkflowPdlModificationRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlModificationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlModificationRequestedEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrinterJob(&self) -> windows_core::Result<PrintWorkflowPrinterJob> {
+    pub fn PrinterJob(&self) -> windows_result::Result<PrintWorkflowPrinterJob> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterJob)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourceContent(&self) -> windows_core::Result<PrintWorkflowPdlSourceContent> {
+    pub fn SourceContent(&self) -> windows_result::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceContent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UILauncher(&self) -> windows_core::Result<PrintWorkflowUILauncher> {
+    pub fn UILauncher(&self) -> windows_result::Result<PrintWorkflowUILauncher> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UILauncher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateJobOnPrinter(&self, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream> {
+    pub fn CreateJobOnPrinter(&self, targetcontenttype: &windows_core::HSTRING) -> windows_result::Result<PrintWorkflowPdlTargetStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1537,7 +1537,7 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes<P0>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING) -> windows_result::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
@@ -1548,7 +1548,7 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer<P0>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING) -> windows_result::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1558,14 +1558,14 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
             (windows_core::Interface::vtable(this).CreateJobOnPrinterWithAttributesBuffer)(windows_core::Interface::as_raw(this), jobattributesbuffer.param().abi(), core::mem::transmute_copy(targetcontenttype), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
+    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_result::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPdlConverter)(windows_core::Interface::as_raw(this), conversiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1573,7 +1573,7 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn CreateJobOnPrinterWithAttributes2<P0, P2>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING, operationattributes: P2, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributes2<P0, P2>(&self, jobattributes: P0, targetcontenttype: &windows_core::HSTRING, operationattributes: P2, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_result::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
         P2: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
@@ -1585,7 +1585,7 @@ impl PrintWorkflowPdlModificationRequestedEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P2>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING, operationattributesbuffer: P2, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_core::Result<PrintWorkflowPdlTargetStream>
+    pub fn CreateJobOnPrinterWithAttributesBuffer2<P0, P2>(&self, jobattributesbuffer: P0, targetcontenttype: &windows_core::HSTRING, operationattributesbuffer: P2, jobattributesmergepolicy: PrintWorkflowAttributesMergePolicy, operationattributesmergepolicy: PrintWorkflowAttributesMergePolicy) -> windows_result::Result<PrintWorkflowPdlTargetStream>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1614,7 +1614,7 @@ unsafe impl Sync for PrintWorkflowPdlModificationRequestedEventArgs {}
 pub struct PrintWorkflowPdlSourceContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlSourceContent {
-    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContentType(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1622,7 +1622,7 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetInputStream(&self) -> windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
+    pub fn GetInputStream(&self) -> windows_result::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1630,7 +1630,7 @@ impl PrintWorkflowPdlSourceContent {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetContentFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetContentFileAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1656,14 +1656,14 @@ pub struct PrintWorkflowPdlTargetStream(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPdlTargetStream, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPdlTargetStream {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetOutputStream(&self) -> windows_core::Result<super::super::super::Storage::Streams::IOutputStream> {
+    pub fn GetOutputStream(&self) -> windows_result::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetOutputStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> windows_core::Result<()> {
+    pub fn CompleteStreamSubmission(&self, status: PrintWorkflowSubmittedStatus) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteStreamSubmission)(windows_core::Interface::as_raw(this), status).ok() }
     }
@@ -1685,7 +1685,7 @@ unsafe impl Sync for PrintWorkflowPdlTargetStream {}
 pub struct PrintWorkflowPrinterJob(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowPrinterJob, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowPrinterJob {
-    pub fn JobId(&self) -> windows_core::Result<i32> {
+    pub fn JobId(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1693,14 +1693,14 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetJobStatus(&self) -> windows_core::Result<PrintWorkflowPrinterJobStatus> {
+    pub fn GetJobStatus(&self) -> windows_result::Result<PrintWorkflowPrinterJobStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1708,7 +1708,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetJobPrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn GetJobPrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1716,7 +1716,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn GetJobAttributesAsBuffer<P0>(&self, attributenames: P0) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1727,7 +1727,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    pub fn GetJobAttributes<P0>(&self, attributenames: P0) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -1738,7 +1738,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Storage_Streams"))]
-    pub fn SetJobAttributesFromBuffer<P0>(&self, jobattributesbuffer: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributesFromBuffer<P0>(&self, jobattributesbuffer: P0) -> windows_result::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1749,7 +1749,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> windows_core::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
+    pub fn SetJobAttributes<P0>(&self, jobattributes: P0) -> windows_result::Result<super::super::super::Devices::Printers::IppSetAttributesResult>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>>,
     {
@@ -1760,7 +1760,7 @@ impl PrintWorkflowPrinterJob {
         }
     }
     #[cfg(all(feature = "Devices_Printers", feature = "Graphics_Printing_PrintTicket"))]
-    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printticket: P0, targetpdlformat: &windows_core::HSTRING) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
+    pub fn ConvertPrintTicketToJobAttributes<P0>(&self, printticket: P0, targetpdlformat: &windows_core::HSTRING) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, super::super::super::Devices::Printers::IppAttributeValue>>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
@@ -1820,21 +1820,21 @@ pub struct PrintWorkflowSourceContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSourceContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSourceContent {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetJobPrintTicketAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
+    pub fn GetJobPrintTicketAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::PrintTicket::WorkflowPrintTicket>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetJobPrintTicketAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSourceSpoolDataAsStreamContent(&self) -> windows_core::Result<PrintWorkflowSpoolStreamContent> {
+    pub fn GetSourceSpoolDataAsStreamContent(&self) -> windows_result::Result<PrintWorkflowSpoolStreamContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSourceSpoolDataAsStreamContent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetSourceSpoolDataAsXpsObjectModel(&self) -> windows_core::Result<PrintWorkflowObjectModelSourceFileContent> {
+    pub fn GetSourceSpoolDataAsXpsObjectModel(&self) -> windows_result::Result<PrintWorkflowObjectModelSourceFileContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1860,7 +1860,7 @@ pub struct PrintWorkflowSpoolStreamContent(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSpoolStreamContent, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSpoolStreamContent {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetInputStream(&self) -> windows_core::Result<super::super::super::Storage::Streams::IInputStream> {
+    pub fn GetInputStream(&self) -> windows_result::Result<super::super::super::Storage::Streams::IInputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1886,7 +1886,7 @@ pub struct PrintWorkflowStreamTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowStreamTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowStreamTarget {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetOutputStream(&self) -> windows_core::Result<super::super::super::Storage::Streams::IOutputStream> {
+    pub fn GetOutputStream(&self) -> windows_result::Result<super::super::super::Storage::Streams::IOutputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1911,7 +1911,7 @@ unsafe impl Sync for PrintWorkflowStreamTarget {}
 pub struct PrintWorkflowSubmittedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSubmittedEventArgs {
-    pub fn Operation(&self) -> windows_core::Result<PrintWorkflowSubmittedOperation> {
+    pub fn Operation(&self) -> windows_result::Result<PrintWorkflowSubmittedOperation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1919,7 +1919,7 @@ impl PrintWorkflowSubmittedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetTarget<P0>(&self, jobprintticket: P0) -> windows_core::Result<PrintWorkflowTarget>
+    pub fn GetTarget<P0>(&self, jobprintticket: P0) -> windows_result::Result<PrintWorkflowTarget>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
@@ -1929,7 +1929,7 @@ impl PrintWorkflowSubmittedEventArgs {
             (windows_core::Interface::vtable(this).GetTarget)(windows_core::Interface::as_raw(this), jobprintticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1954,18 +1954,18 @@ unsafe impl Sync for PrintWorkflowSubmittedEventArgs {}
 pub struct PrintWorkflowSubmittedOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowSubmittedOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowSubmittedOperation {
-    pub fn Complete(&self, status: PrintWorkflowSubmittedStatus) -> windows_core::Result<()> {
+    pub fn Complete(&self, status: PrintWorkflowSubmittedStatus) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this), status).ok() }
     }
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn XpsContent(&self) -> windows_core::Result<PrintWorkflowSourceContent> {
+    pub fn XpsContent(&self) -> windows_result::Result<PrintWorkflowSourceContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2004,14 +2004,14 @@ impl windows_core::RuntimeType for PrintWorkflowSubmittedStatus {
 pub struct PrintWorkflowTarget(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowTarget, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowTarget {
-    pub fn TargetAsStream(&self) -> windows_core::Result<PrintWorkflowStreamTarget> {
+    pub fn TargetAsStream(&self) -> windows_result::Result<PrintWorkflowStreamTarget> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TargetAsStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TargetAsXpsObjectModelPackage(&self) -> windows_core::Result<PrintWorkflowObjectModelTargetPackage> {
+    pub fn TargetAsXpsObjectModelPackage(&self) -> windows_result::Result<PrintWorkflowObjectModelTargetPackage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2036,7 +2036,7 @@ unsafe impl Sync for PrintWorkflowTarget {}
 pub struct PrintWorkflowTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowTriggerDetails {
-    pub fn PrintWorkflowSession(&self) -> windows_core::Result<PrintWorkflowBackgroundSession> {
+    pub fn PrintWorkflowSession(&self) -> windows_result::Result<PrintWorkflowBackgroundSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2066,21 +2066,21 @@ windows_core::imp::interface_hierarchy!(PrintWorkflowUIActivatedEventArgs, windo
 windows_core::imp::required_hierarchy!(PrintWorkflowUIActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl PrintWorkflowUIActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2088,14 +2088,14 @@ impl PrintWorkflowUIActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrintWorkflowSession(&self) -> windows_core::Result<PrintWorkflowForegroundSession> {
+    pub fn PrintWorkflowSession(&self) -> windows_result::Result<PrintWorkflowForegroundSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2140,14 +2140,14 @@ impl windows_core::RuntimeType for PrintWorkflowUICompletionStatus {
 pub struct PrintWorkflowUILauncher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowUILauncher, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowUILauncher {
-    pub fn IsUILaunchEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsUILaunchEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsUILaunchEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LaunchAndCompleteUIAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
+    pub fn LaunchAndCompleteUIAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<PrintWorkflowUICompletionStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2172,21 +2172,21 @@ unsafe impl Sync for PrintWorkflowUILauncher {}
 pub struct PrintWorkflowVirtualPrinterDataAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Configuration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourceContent(&self) -> windows_core::Result<PrintWorkflowPdlSourceContent> {
+    pub fn SourceContent(&self) -> windows_result::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceContent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UILauncher(&self) -> windows_core::Result<PrintWorkflowUILauncher> {
+    pub fn UILauncher(&self) -> windows_result::Result<PrintWorkflowUILauncher> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2194,14 +2194,14 @@ impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetJobPrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn GetJobPrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetJobPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_core::Result<PrintWorkflowPdlConverter> {
+    pub fn GetPdlConverter(&self, conversiontype: PrintWorkflowPdlConversionType) -> windows_result::Result<PrintWorkflowPdlConverter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2209,14 +2209,14 @@ impl PrintWorkflowVirtualPrinterDataAvailableEventArgs {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetTargetFileAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
+    pub fn GetTargetFileAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetTargetFileAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CompleteJob(&self, status: PrintWorkflowSubmittedStatus) -> windows_core::Result<()> {
+    pub fn CompleteJob(&self, status: PrintWorkflowSubmittedStatus) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteJob)(windows_core::Interface::as_raw(this), status).ok() }
     }
@@ -2238,7 +2238,7 @@ unsafe impl Sync for PrintWorkflowVirtualPrinterDataAvailableEventArgs {}
 pub struct PrintWorkflowVirtualPrinterSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowVirtualPrinterSession {
-    pub fn Status(&self) -> windows_core::Result<PrintWorkflowSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<PrintWorkflowSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2246,14 +2246,14 @@ impl PrintWorkflowVirtualPrinterSession {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VirtualPrinterDataAvailable<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn VirtualPrinterDataAvailable<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintWorkflowVirtualPrinterSession, PrintWorkflowVirtualPrinterDataAvailableEventArgs>>,
     {
@@ -2263,11 +2263,11 @@ impl PrintWorkflowVirtualPrinterSession {
             (windows_core::Interface::vtable(this).VirtualPrinterDataAvailable)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveVirtualPrinterDataAvailable(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveVirtualPrinterDataAvailable(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveVirtualPrinterDataAvailable)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -2289,7 +2289,7 @@ unsafe impl Sync for PrintWorkflowVirtualPrinterSession {}
 pub struct PrintWorkflowVirtualPrinterTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowVirtualPrinterTriggerDetails {
-    pub fn VirtualPrinterSession(&self) -> windows_core::Result<PrintWorkflowVirtualPrinterSession> {
+    pub fn VirtualPrinterSession(&self) -> windows_result::Result<PrintWorkflowVirtualPrinterSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2314,7 +2314,7 @@ unsafe impl Sync for PrintWorkflowVirtualPrinterTriggerDetails {}
 pub struct PrintWorkflowVirtualPrinterUIEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowVirtualPrinterUIEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowVirtualPrinterUIEventArgs {
-    pub fn Configuration(&self) -> windows_core::Result<PrintWorkflowConfiguration> {
+    pub fn Configuration(&self) -> windows_result::Result<PrintWorkflowConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2322,14 +2322,14 @@ impl PrintWorkflowVirtualPrinterUIEventArgs {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourceContent(&self) -> windows_core::Result<PrintWorkflowPdlSourceContent> {
+    pub fn SourceContent(&self) -> windows_result::Result<PrintWorkflowPdlSourceContent> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2337,14 +2337,14 @@ impl PrintWorkflowVirtualPrinterUIEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn GetJobPrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn GetJobPrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetJobPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2369,14 +2369,14 @@ unsafe impl Sync for PrintWorkflowVirtualPrinterUIEventArgs {}
 pub struct PrintWorkflowXpsDataAvailableEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintWorkflowXpsDataAvailableEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintWorkflowXpsDataAvailableEventArgs {
-    pub fn Operation(&self) -> windows_core::Result<PrintWorkflowSubmittedOperation> {
+    pub fn Operation(&self) -> windows_result::Result<PrintWorkflowSubmittedOperation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Operation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

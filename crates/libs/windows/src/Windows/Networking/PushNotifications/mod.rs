@@ -164,25 +164,25 @@ pub struct IRawNotification3_Vtbl {
 pub struct PushNotificationChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannel, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannel {
-    pub fn Uri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Uri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ExpirationTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn ExpirationTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn PushNotificationReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PushNotificationReceived<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PushNotificationChannel, PushNotificationReceivedEventArgs>>,
     {
@@ -192,7 +192,7 @@ impl PushNotificationChannel {
             (windows_core::Interface::vtable(this).PushNotificationReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePushNotificationReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePushNotificationReceived(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePushNotificationReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -211,26 +211,26 @@ unsafe impl Send for PushNotificationChannel {}
 unsafe impl Sync for PushNotificationChannel {}
 pub struct PushNotificationChannelManager;
 impl PushNotificationChannelManager {
-    pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsync() -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(applicationid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForSecondaryTileAsync(tileid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         Self::IPushNotificationChannelManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForSecondaryTileAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(tileid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<PushNotificationChannelManagerForUser>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<PushNotificationChannelManagerForUser>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -239,13 +239,13 @@ impl PushNotificationChannelManager {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<PushNotificationChannelManagerForUser> {
+    pub fn GetDefault() -> windows_result::Result<PushNotificationChannelManagerForUser> {
         Self::IPushNotificationChannelManagerStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ChannelsRevoked<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ChannelsRevoked<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<PushNotificationChannelsRevokedEventArgs>>,
     {
@@ -254,22 +254,22 @@ impl PushNotificationChannelManager {
             (windows_core::Interface::vtable(this).ChannelsRevoked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveChannelsRevoked(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveChannelsRevoked(token: i64) -> windows_result::Result<()> {
         Self::IPushNotificationChannelManagerStatics4(|this| unsafe { (windows_core::Interface::vtable(this).RemoveChannelsRevoked)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IPushNotificationChannelManagerStatics<R, F: FnOnce(&IPushNotificationChannelManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPushNotificationChannelManagerStatics<R, F: FnOnce(&IPushNotificationChannelManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPushNotificationChannelManagerStatics2<R, F: FnOnce(&IPushNotificationChannelManagerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPushNotificationChannelManagerStatics2<R, F: FnOnce(&IPushNotificationChannelManagerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPushNotificationChannelManagerStatics3<R, F: FnOnce(&IPushNotificationChannelManagerStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPushNotificationChannelManagerStatics3<R, F: FnOnce(&IPushNotificationChannelManagerStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPushNotificationChannelManagerStatics4<R, F: FnOnce(&IPushNotificationChannelManagerStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPushNotificationChannelManagerStatics4<R, F: FnOnce(&IPushNotificationChannelManagerStatics4) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PushNotificationChannelManager, IPushNotificationChannelManagerStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -282,21 +282,21 @@ impl windows_core::RuntimeName for PushNotificationChannelManager {
 pub struct PushNotificationChannelManagerForUser(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationChannelManagerForUser, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationChannelManagerForUser {
-    pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForApplicationAsyncWithId(&self, applicationid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePushNotificationChannelForApplicationAsyncWithId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(applicationid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
+    pub fn CreatePushNotificationChannelForSecondaryTileAsync(&self, tileid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -304,7 +304,7 @@ impl PushNotificationChannelManagerForUser {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -312,7 +312,7 @@ impl PushNotificationChannelManagerForUser {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsync<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -323,7 +323,7 @@ impl PushNotificationChannelManagerForUser {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING, appid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
+    pub fn CreateRawPushNotificationChannelWithAlternateKeyForApplicationAsyncWithId<P0>(&self, appserverkey: P0, channelid: &windows_core::HSTRING, appid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PushNotificationChannel>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -368,18 +368,18 @@ unsafe impl Sync for PushNotificationChannelsRevokedEventArgs {}
 pub struct PushNotificationReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PushNotificationReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PushNotificationReceivedEventArgs {
-    pub fn SetCancel(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCancel(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCancel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Cancel(&self) -> windows_core::Result<bool> {
+    pub fn Cancel(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn NotificationType(&self) -> windows_core::Result<PushNotificationType> {
+    pub fn NotificationType(&self) -> windows_result::Result<PushNotificationType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -387,7 +387,7 @@ impl PushNotificationReceivedEventArgs {
         }
     }
     #[cfg(feature = "UI_Notifications")]
-    pub fn ToastNotification(&self) -> windows_core::Result<super::super::UI::Notifications::ToastNotification> {
+    pub fn ToastNotification(&self) -> windows_result::Result<super::super::UI::Notifications::ToastNotification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -395,7 +395,7 @@ impl PushNotificationReceivedEventArgs {
         }
     }
     #[cfg(feature = "UI_Notifications")]
-    pub fn TileNotification(&self) -> windows_core::Result<super::super::UI::Notifications::TileNotification> {
+    pub fn TileNotification(&self) -> windows_result::Result<super::super::UI::Notifications::TileNotification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -403,14 +403,14 @@ impl PushNotificationReceivedEventArgs {
         }
     }
     #[cfg(feature = "UI_Notifications")]
-    pub fn BadgeNotification(&self) -> windows_core::Result<super::super::UI::Notifications::BadgeNotification> {
+    pub fn BadgeNotification(&self) -> windows_result::Result<super::super::UI::Notifications::BadgeNotification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BadgeNotification)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RawNotification(&self) -> windows_core::Result<RawNotification> {
+    pub fn RawNotification(&self) -> windows_result::Result<RawNotification> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -451,21 +451,21 @@ impl windows_core::RuntimeType for PushNotificationType {
 pub struct RawNotification(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RawNotification, windows_core::IUnknown, windows_core::IInspectable);
 impl RawNotification {
-    pub fn Content(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Content(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Content)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Headers(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn Headers(&self) -> windows_result::Result<windows_collections::IMapView<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IRawNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Headers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ChannelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChannelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IRawNotification2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -473,7 +473,7 @@ impl RawNotification {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ContentBytes(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn ContentBytes(&self) -> windows_result::Result<super::super::Storage::Streams::IBuffer> {
         let this = &windows_core::Interface::cast::<IRawNotification3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

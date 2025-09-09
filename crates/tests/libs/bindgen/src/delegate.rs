@@ -16,7 +16,7 @@ impl windows_core::RuntimeType for DeferralCompletedHandler {
         windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeferralCompletedHandler {
-    pub fn new<F: Fn() -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn() -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeferralCompletedHandlerBox {
             vtable: &DeferralCompletedHandlerBox::<F>::VTABLE,
             count: windows_core::imp::RefCount::new(1),
@@ -24,7 +24,7 @@ impl DeferralCompletedHandler {
         };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self) -> windows_core::Result<()> {
+    pub fn Invoke(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Invoke)(windows_core::Interface::as_raw(this))
@@ -39,12 +39,12 @@ pub struct DeferralCompletedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeferralCompletedHandlerBox<F: Fn() -> windows_core::Result<()> + Send + 'static> {
+struct DeferralCompletedHandlerBox<F: Fn() -> windows_result::Result<()> + Send + 'static> {
     vtable: *const DeferralCompletedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn() -> windows_core::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
+impl<F: Fn() -> windows_result::Result<()> + Send + 'static> DeferralCompletedHandlerBox<F> {
     const VTABLE: DeferralCompletedHandler_Vtbl = DeferralCompletedHandler_Vtbl {
         base__: windows_core::IUnknown_Vtbl {
             QueryInterface: Self::QueryInterface,

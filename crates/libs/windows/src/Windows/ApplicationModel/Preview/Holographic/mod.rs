@@ -1,13 +1,13 @@
 pub struct HolographicApplicationPreview;
 impl HolographicApplicationPreview {
-    pub fn IsCurrentViewPresentedOnHolographicDisplay() -> windows_core::Result<bool> {
+    pub fn IsCurrentViewPresentedOnHolographicDisplay() -> windows_result::Result<bool> {
         Self::IHolographicApplicationPreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentViewPresentedOnHolographicDisplay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "ApplicationModel_Activation")]
-    pub fn IsHolographicActivation<P0>(activatedeventargs: P0) -> windows_core::Result<bool>
+    pub fn IsHolographicActivation<P0>(activatedeventargs: P0) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<super::super::Activation::IActivatedEventArgs>,
     {
@@ -16,7 +16,7 @@ impl HolographicApplicationPreview {
             (windows_core::Interface::vtable(this).IsHolographicActivation)(windows_core::Interface::as_raw(this), activatedeventargs.param().abi(), &mut result__).map(|| result__)
         })
     }
-    fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicApplicationPreviewStatics<R, F: FnOnce(&IHolographicApplicationPreviewStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicApplicationPreview, IHolographicApplicationPreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -30,7 +30,7 @@ pub struct HolographicKeyboardPlacementOverridePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicKeyboardPlacementOverridePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicKeyboardPlacementOverridePreview {
     #[cfg(feature = "Perception_Spatial")]
-    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3) -> windows_core::Result<()>
+    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -38,24 +38,24 @@ impl HolographicKeyboardPlacementOverridePreview {
         unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal).ok() }
     }
     #[cfg(feature = "Perception_Spatial")]
-    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3, maxsize: windows_numerics::Vector2) -> windows_core::Result<()>
+    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, normal: windows_numerics::Vector3, maxsize: windows_numerics::Vector2) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, normal, maxsize).ok() }
     }
-    pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
+    pub fn ResetPlacementOverride(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetPlacementOverride)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<HolographicKeyboardPlacementOverridePreview> {
+    pub fn GetForCurrentView() -> windows_result::Result<HolographicKeyboardPlacementOverridePreview> {
         Self::IHolographicKeyboardPlacementOverridePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicKeyboardPlacementOverridePreviewStatics<R, F: FnOnce(&IHolographicKeyboardPlacementOverridePreviewStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicKeyboardPlacementOverridePreview, IHolographicKeyboardPlacementOverridePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

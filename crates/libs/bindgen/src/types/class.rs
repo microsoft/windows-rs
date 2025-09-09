@@ -67,12 +67,12 @@ impl Class {
 
         let new = self.has_default_constructor().then(||
             quote! {
-                pub fn new() -> windows_core::Result<Self> {
+                pub fn new() -> windows_result::Result<Self> {
                     Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
                 }
-                fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(
+                fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(
                     callback: F,
-                ) -> windows_core::Result<R> {
+                ) -> windows_result::Result<R> {
                     static SHARED: windows_core::imp::FactoryCache<#name, windows_core::imp::IGenericFactory> =
                         windows_core::imp::FactoryCache::new();
                     SHARED.call(callback)
@@ -96,9 +96,9 @@ impl Class {
 
                         Some(quote! {
                             #cfg
-                            fn #method_name<R, F: FnOnce(&#interface_type) -> windows_core::Result<R>>(
+                            fn #method_name<R, F: FnOnce(&#interface_type) -> windows_result::Result<R>>(
                                 callback: F,
-                            ) -> windows_core::Result<R> {
+                            ) -> windows_result::Result<R> {
                                 static SHARED: windows_core::imp::FactoryCache<#name, #interface_type> =
                                     windows_core::imp::FactoryCache::new();
                                 SHARED.call(callback)

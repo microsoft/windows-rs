@@ -7,7 +7,7 @@
 )]
 
 #[inline]
-pub unsafe fn EnableMouseInPointer(fenable: bool) -> windows_core::Result<()> {
+pub unsafe fn EnableMouseInPointer(fenable: bool) -> windows_result::Result<()> {
     windows_link::link!("user32.dll" "system" fn EnableMouseInPointer(fenable : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EnableMouseInPointer(fenable.into()).ok() }
 }

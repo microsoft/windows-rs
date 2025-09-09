@@ -28,7 +28,7 @@ impl windows_core::RuntimeType for IMcpNamedPipeConnectionServer {
 }
 windows_core::imp::interface_hierarchy!(IMcpNamedPipeConnectionServer, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpNamedPipeConnectionServer {
-    pub fn Connect<P0, P2>(&self, hostcontext: P0, pipename: &windows_core::HSTRING, connectionresult: P2) -> windows_core::Result<McpNamedPipeConnectionResult>
+    pub fn Connect<P0, P2>(&self, hostcontext: P0, pipename: &windows_core::HSTRING, connectionresult: P2) -> windows_result::Result<McpNamedPipeConnectionResult>
     where
         P0: windows_core::Param<super::AgentContext>,
         P2: windows_core::Param<McpNamedPipeConnectionResult>,
@@ -44,7 +44,7 @@ impl windows_core::RuntimeName for IMcpNamedPipeConnectionServer {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpNamedPipeConnectionServer";
 }
 pub trait IMcpNamedPipeConnectionServer_Impl: windows_core::IUnknownImpl {
-    fn Connect(&self, hostContext: windows_core::Ref<super::AgentContext>, pipeName: &windows_core::HSTRING, connectionResult: windows_core::Ref<McpNamedPipeConnectionResult>) -> windows_core::Result<McpNamedPipeConnectionResult>;
+    fn Connect(&self, hostContext: windows_core::Ref<super::AgentContext>, pipeName: &windows_core::HSTRING, connectionResult: windows_core::Ref<McpNamedPipeConnectionResult>) -> windows_result::Result<McpNamedPipeConnectionResult>;
 }
 impl IMcpNamedPipeConnectionServer_Vtbl {
     pub const fn new<Identity: IMcpNamedPipeConnectionServer_Impl, const OFFSET: isize>() -> Self {
@@ -103,7 +103,7 @@ impl windows_core::RuntimeType for IMcpSseConnectionServer {
 }
 windows_core::imp::interface_hierarchy!(IMcpSseConnectionServer, windows_core::IUnknown, windows_core::IInspectable);
 impl IMcpSseConnectionServer {
-    pub fn Connect<P0, P1>(&self, hostcontext: P0, connectionresult: P1) -> windows_core::Result<McpHttpConnectionResult>
+    pub fn Connect<P0, P1>(&self, hostcontext: P0, connectionresult: P1) -> windows_result::Result<McpHttpConnectionResult>
     where
         P0: windows_core::Param<super::AgentContext>,
         P1: windows_core::Param<McpHttpConnectionResult>,
@@ -119,7 +119,7 @@ impl windows_core::RuntimeName for IMcpSseConnectionServer {
     const NAME: &'static str = "Windows.AI.Agents.Mcp.IMcpSseConnectionServer";
 }
 pub trait IMcpSseConnectionServer_Impl: windows_core::IUnknownImpl {
-    fn Connect(&self, hostContext: windows_core::Ref<super::AgentContext>, connectionResult: windows_core::Ref<McpHttpConnectionResult>) -> windows_core::Result<McpHttpConnectionResult>;
+    fn Connect(&self, hostContext: windows_core::Ref<super::AgentContext>, connectionResult: windows_core::Ref<McpHttpConnectionResult>) -> windows_result::Result<McpHttpConnectionResult>;
 }
 impl IMcpSseConnectionServer_Vtbl {
     pub const fn new<Identity: IMcpSseConnectionServer_Impl, const OFFSET: isize>() -> Self {
@@ -165,14 +165,14 @@ pub struct IMcpStdioConnectionInfo_Vtbl {
 pub struct McpHttpConnectionResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(McpHttpConnectionResult, windows_core::IUnknown, windows_core::IInspectable);
 impl McpHttpConnectionResult {
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
@@ -180,7 +180,7 @@ impl McpHttpConnectionResult {
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Headers(&self) -> windows_core::Result<super::super::super::Foundation::Collections::ValueSet> {
+    pub fn Headers(&self) -> windows_result::Result<super::super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -222,7 +222,7 @@ unsafe impl Sync for McpNamedPipeConnectionResult {}
 pub struct McpServerRegistry(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(McpServerRegistry, windows_core::IUnknown, windows_core::IInspectable);
 impl McpServerRegistry {
-    pub fn GetAgentInfos(&self) -> windows_core::Result<windows_core::Array<super::AgentInfo>> {
+    pub fn GetAgentInfos(&self) -> windows_result::Result<windows_core::Array<super::AgentInfo>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -230,20 +230,20 @@ impl McpServerRegistry {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn GetMcpConnectionInfo(&self, agentid: windows_core::GUID, ownerwindowid: super::super::super::UI::WindowId) -> windows_core::Result<McpStdioConnectionInfo> {
+    pub fn GetMcpConnectionInfo(&self, agentid: windows_core::GUID, ownerwindowid: super::super::super::UI::WindowId) -> windows_result::Result<McpStdioConnectionInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetMcpConnectionInfo)(windows_core::Interface::as_raw(this), agentid, ownerwindowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<McpServerRegistry> {
+    pub fn GetDefault() -> windows_result::Result<McpServerRegistry> {
         Self::IMcpServerRegistryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMcpServerRegistryStatics<R, F: FnOnce(&IMcpServerRegistryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMcpServerRegistryStatics<R, F: FnOnce(&IMcpServerRegistryStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<McpServerRegistry, IMcpServerRegistryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -266,25 +266,25 @@ pub struct McpStdioConnectionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(McpStdioConnectionInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(McpStdioConnectionInfo, super::super::super::Foundation::IClosable);
 impl McpStdioConnectionInfo {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Command(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Command(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Command)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetCommandArguments(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
+    pub fn GetCommandArguments(&self) -> windows_result::Result<windows_core::Array<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetCommandArguments)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn Info(&self) -> windows_core::Result<super::AgentInfo> {
+    pub fn Info(&self) -> windows_result::Result<super::AgentInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

@@ -3,7 +3,7 @@
 pub struct ConnectionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConnectionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConnectionRequestedEventArgs {
-    pub fn PeerInformation(&self) -> windows_core::Result<PeerInformation> {
+    pub fn PeerInformation(&self) -> windows_result::Result<PeerInformation> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -28,11 +28,11 @@ impl windows_core::RuntimeType for DeviceArrivedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceArrivedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeviceArrivedEventHandlerBox { vtable: &DeviceArrivedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProximityDevice>,
     {
@@ -47,12 +47,12 @@ pub struct DeviceArrivedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeviceArrivedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct DeviceArrivedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const DeviceArrivedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceArrivedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static> DeviceArrivedEventHandlerBox<F> {
     const VTABLE: DeviceArrivedEventHandler_Vtbl = DeviceArrivedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -104,11 +104,11 @@ impl windows_core::RuntimeType for DeviceDepartedEventHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl DeviceDepartedEventHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = DeviceDepartedEventHandlerBox { vtable: &DeviceDepartedEventHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProximityDevice>,
     {
@@ -123,12 +123,12 @@ pub struct DeviceDepartedEventHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct DeviceDepartedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> {
+struct DeviceDepartedEventHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const DeviceDepartedEventHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_core::Result<()> + Send + 'static> DeviceDepartedEventHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<ProximityDevice>) -> windows_result::Result<()> + Send + 'static> DeviceDepartedEventHandlerBox<F> {
     const VTABLE: DeviceDepartedEventHandler_Vtbl = DeviceDepartedEventHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -372,11 +372,11 @@ impl windows_core::RuntimeType for MessageReceivedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageReceivedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageReceivedHandlerBox { vtable: &MessageReceivedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> windows_core::Result<()>
+    pub fn Invoke<P0, P1>(&self, sender: P0, message: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProximityDevice>,
         P1: windows_core::Param<ProximityMessage>,
@@ -392,12 +392,12 @@ pub struct MessageReceivedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, message: *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MessageReceivedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> {
+struct MessageReceivedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const MessageReceivedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_core::Result<()> + Send + 'static> MessageReceivedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<ProximityDevice>, windows_core::Ref<ProximityMessage>) -> windows_result::Result<()> + Send + 'static> MessageReceivedHandlerBox<F> {
     const VTABLE: MessageReceivedHandler_Vtbl = MessageReceivedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -449,11 +449,11 @@ impl windows_core::RuntimeType for MessageTransmittedHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl MessageTransmittedHandler {
-    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_result::Result<()> + Send + 'static>(invoke: F) -> Self {
         let com = MessageTransmittedHandlerBox { vtable: &MessageTransmittedHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> windows_core::Result<()>
+    pub fn Invoke<P0>(&self, sender: P0, messageid: i64) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ProximityDevice>,
     {
@@ -468,12 +468,12 @@ pub struct MessageTransmittedHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, sender: *mut core::ffi::c_void, messageid: i64) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct MessageTransmittedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> {
+struct MessageTransmittedHandlerBox<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_result::Result<()> + Send + 'static> {
     vtable: *const MessageTransmittedHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_core::Result<()> + Send + 'static> MessageTransmittedHandlerBox<F> {
+impl<F: Fn(windows_core::Ref<ProximityDevice>, i64) -> windows_result::Result<()> + Send + 'static> MessageTransmittedHandlerBox<F> {
     const VTABLE: MessageTransmittedHandler_Vtbl = MessageTransmittedHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {
@@ -569,64 +569,64 @@ impl core::ops::Not for PeerDiscoveryTypes {
 }
 pub struct PeerFinder;
 impl PeerFinder {
-    pub fn AllowBluetooth() -> windows_core::Result<bool> {
+    pub fn AllowBluetooth() -> windows_result::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowBluetooth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SetAllowBluetooth(value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowBluetooth(value: bool) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetAllowBluetooth)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn AllowInfrastructure() -> windows_core::Result<bool> {
+    pub fn AllowInfrastructure() -> windows_result::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowInfrastructure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SetAllowInfrastructure(value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowInfrastructure(value: bool) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetAllowInfrastructure)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn AllowWiFiDirect() -> windows_core::Result<bool> {
+    pub fn AllowWiFiDirect() -> windows_result::Result<bool> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllowWiFiDirect)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SetAllowWiFiDirect(value: bool) -> windows_core::Result<()> {
+    pub fn SetAllowWiFiDirect(value: bool) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetAllowWiFiDirect)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn DisplayName() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName() -> windows_result::Result<windows_core::HSTRING> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SetDisplayName(value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(value: &windows_core::HSTRING) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() })
     }
-    pub fn SupportedDiscoveryTypes() -> windows_core::Result<PeerDiscoveryTypes> {
+    pub fn SupportedDiscoveryTypes() -> windows_result::Result<PeerDiscoveryTypes> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedDiscoveryTypes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlternateIdentities() -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn AlternateIdentities() -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlternateIdentities)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Start() -> windows_core::Result<()> {
+    pub fn Start() -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn StartWithMessage(peermessage: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn StartWithMessage(peermessage: &windows_core::HSTRING) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).StartWithMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(peermessage)).ok() })
     }
-    pub fn Stop() -> windows_core::Result<()> {
+    pub fn Stop() -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn TriggeredConnectionStateChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn TriggeredConnectionStateChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, TriggeredConnectionStateChangedEventArgs>>,
     {
@@ -635,10 +635,10 @@ impl PeerFinder {
             (windows_core::Interface::vtable(this).TriggeredConnectionStateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveTriggeredConnectionStateChanged(cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveTriggeredConnectionStateChanged(cookie: i64) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveTriggeredConnectionStateChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    pub fn ConnectionRequested<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ConnectionRequested<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<windows_core::IInspectable, ConnectionRequestedEventArgs>>,
     {
@@ -647,17 +647,17 @@ impl PeerFinder {
             (windows_core::Interface::vtable(this).ConnectionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveConnectionRequested(cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveConnectionRequested(cookie: i64) -> windows_result::Result<()> {
         Self::IPeerFinderStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveConnectionRequested)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    pub fn FindAllPeersAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PeerInformation>>> {
+    pub fn FindAllPeersAsync() -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PeerInformation>>> {
         Self::IPeerFinderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllPeersAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn ConnectAsync<P0>(peerinformation: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::Sockets::StreamSocket>>
+    pub fn ConnectAsync<P0>(peerinformation: P0) -> windows_result::Result<windows_future::IAsyncOperation<super::Sockets::StreamSocket>>
     where
         P0: windows_core::Param<PeerInformation>,
     {
@@ -666,40 +666,40 @@ impl PeerFinder {
             (windows_core::Interface::vtable(this).ConnectAsync)(windows_core::Interface::as_raw(this), peerinformation.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Role() -> windows_core::Result<PeerRole> {
+    pub fn Role() -> windows_result::Result<PeerRole> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Role)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SetRole(value: PeerRole) -> windows_core::Result<()> {
+    pub fn SetRole(value: PeerRole) -> windows_result::Result<()> {
         Self::IPeerFinderStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetRole)(windows_core::Interface::as_raw(this), value).ok() })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DiscoveryData() -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DiscoveryData() -> windows_result::Result<super::super::Storage::Streams::IBuffer> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DiscoveryData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetDiscoveryData<P0>(value: P0) -> windows_core::Result<()>
+    pub fn SetDiscoveryData<P0>(value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
         Self::IPeerFinderStatics2(|this| unsafe { (windows_core::Interface::vtable(this).SetDiscoveryData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    pub fn CreateWatcher() -> windows_core::Result<PeerWatcher> {
+    pub fn CreateWatcher() -> windows_result::Result<PeerWatcher> {
         Self::IPeerFinderStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PeerFinder, IPeerFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PeerFinder, IPeerFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -712,14 +712,14 @@ impl windows_core::RuntimeName for PeerFinder {
 pub struct PeerInformation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerInformation, windows_core::IUnknown, windows_core::IInspectable);
 impl PeerInformation {
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -727,21 +727,21 @@ impl PeerInformation {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DiscoveryData(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn DiscoveryData(&self) -> windows_result::Result<super::super::Storage::Streams::IBuffer> {
         let this = &windows_core::Interface::cast::<IPeerInformation3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DiscoveryData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HostName(&self) -> windows_core::Result<super::HostName> {
+    pub fn HostName(&self) -> windows_result::Result<super::HostName> {
         let this = &windows_core::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HostName)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ServiceName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPeerInformationWithHostAndService>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -780,7 +780,7 @@ impl windows_core::RuntimeType for PeerRole {
 pub struct PeerWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PeerWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl PeerWatcher {
-    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Added<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
     {
@@ -790,11 +790,11 @@ impl PeerWatcher {
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAdded(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Removed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
     {
@@ -804,11 +804,11 @@ impl PeerWatcher {
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Updated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, PeerInformation>>,
     {
@@ -818,11 +818,11 @@ impl PeerWatcher {
             (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUpdated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, windows_core::IInspectable>>,
     {
@@ -832,11 +832,11 @@ impl PeerWatcher {
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Stopped<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Stopped<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PeerWatcher, windows_core::IInspectable>>,
     {
@@ -846,22 +846,22 @@ impl PeerWatcher {
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStopped(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStopped(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStopped)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Status(&self) -> windows_core::Result<PeerWatcherStatus> {
+    pub fn Status(&self) -> windows_result::Result<PeerWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -900,7 +900,7 @@ impl windows_core::RuntimeType for PeerWatcherStatus {
 pub struct ProximityDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl ProximityDevice {
-    pub fn SubscribeForMessage<P1>(&self, messagetype: &windows_core::HSTRING, messagereceivedhandler: P1) -> windows_core::Result<i64>
+    pub fn SubscribeForMessage<P1>(&self, messagetype: &windows_core::HSTRING, messagereceivedhandler: P1) -> windows_result::Result<i64>
     where
         P1: windows_core::Param<MessageReceivedHandler>,
     {
@@ -910,14 +910,14 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).SubscribeForMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), messagereceivedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PublishMessage(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_core::Result<i64> {
+    pub fn PublishMessage(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PublishMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), core::mem::transmute_copy(message), &mut result__).map(|| result__)
         }
     }
-    pub fn PublishMessageWithCallback<P2>(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING, messagetransmittedhandler: P2) -> windows_core::Result<i64>
+    pub fn PublishMessageWithCallback<P2>(&self, messagetype: &windows_core::HSTRING, message: &windows_core::HSTRING, messagetransmittedhandler: P2) -> windows_result::Result<i64>
     where
         P2: windows_core::Param<MessageTransmittedHandler>,
     {
@@ -928,7 +928,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessage<P1>(&self, messagetype: &windows_core::HSTRING, message: P1) -> windows_core::Result<i64>
+    pub fn PublishBinaryMessage<P1>(&self, messagetype: &windows_core::HSTRING, message: P1) -> windows_result::Result<i64>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
     {
@@ -939,7 +939,7 @@ impl ProximityDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn PublishBinaryMessageWithCallback<P1, P2>(&self, messagetype: &windows_core::HSTRING, message: P1, messagetransmittedhandler: P2) -> windows_core::Result<i64>
+    pub fn PublishBinaryMessageWithCallback<P1, P2>(&self, messagetype: &windows_core::HSTRING, message: P1, messagetransmittedhandler: P2) -> windows_result::Result<i64>
     where
         P1: windows_core::Param<super::super::Storage::Streams::IBuffer>,
         P2: windows_core::Param<MessageTransmittedHandler>,
@@ -950,7 +950,7 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).PublishBinaryMessageWithCallback)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(messagetype), message.param().abi(), messagetransmittedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PublishUriMessage<P0>(&self, message: P0) -> windows_core::Result<i64>
+    pub fn PublishUriMessage<P0>(&self, message: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -960,7 +960,7 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).PublishUriMessage)(windows_core::Interface::as_raw(this), message.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn PublishUriMessageWithCallback<P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> windows_core::Result<i64>
+    pub fn PublishUriMessageWithCallback<P0, P1>(&self, message: P0, messagetransmittedhandler: P1) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
         P1: windows_core::Param<MessageTransmittedHandler>,
@@ -971,15 +971,15 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).PublishUriMessageWithCallback)(windows_core::Interface::as_raw(this), message.param().abi(), messagetransmittedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn StopSubscribingForMessage(&self, subscriptionid: i64) -> windows_core::Result<()> {
+    pub fn StopSubscribingForMessage(&self, subscriptionid: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopSubscribingForMessage)(windows_core::Interface::as_raw(this), subscriptionid).ok() }
     }
-    pub fn StopPublishingMessage(&self, messageid: i64) -> windows_core::Result<()> {
+    pub fn StopPublishingMessage(&self, messageid: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopPublishingMessage)(windows_core::Interface::as_raw(this), messageid).ok() }
     }
-    pub fn DeviceArrived<P0>(&self, arrivedhandler: P0) -> windows_core::Result<i64>
+    pub fn DeviceArrived<P0>(&self, arrivedhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<DeviceArrivedEventHandler>,
     {
@@ -989,11 +989,11 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).DeviceArrived)(windows_core::Interface::as_raw(this), arrivedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDeviceArrived(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveDeviceArrived(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDeviceArrived)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn DeviceDeparted<P0>(&self, departedhandler: P0) -> windows_core::Result<i64>
+    pub fn DeviceDeparted<P0>(&self, departedhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<DeviceDepartedEventHandler>,
     {
@@ -1003,50 +1003,50 @@ impl ProximityDevice {
             (windows_core::Interface::vtable(this).DeviceDeparted)(windows_core::Interface::as_raw(this), departedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDeviceDeparted(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveDeviceDeparted(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDeviceDeparted)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn MaxMessageBytes(&self) -> windows_core::Result<u32> {
+    pub fn MaxMessageBytes(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxMessageBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BitsPerSecond(&self) -> windows_core::Result<u64> {
+    pub fn BitsPerSecond(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BitsPerSecond)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> windows_result::Result<windows_core::HSTRING> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDefault() -> windows_core::Result<ProximityDevice> {
+    pub fn GetDefault() -> windows_result::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_core::Result<ProximityDevice> {
+    pub fn FromId(deviceid: &windows_core::HSTRING) -> windows_result::Result<ProximityDevice> {
         Self::IProximityDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ProximityDevice, IProximityDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1068,14 +1068,14 @@ unsafe impl Sync for ProximityDevice {}
 pub struct ProximityMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ProximityMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl ProximityMessage {
-    pub fn MessageType(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn MessageType(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SubscriptionId(&self) -> windows_core::Result<i64> {
+    pub fn SubscriptionId(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1083,14 +1083,14 @@ impl ProximityMessage {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Data(&self) -> windows_core::Result<super::super::Storage::Streams::IBuffer> {
+    pub fn Data(&self) -> windows_result::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Data)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DataAsString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DataAsString(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1132,14 +1132,14 @@ impl windows_core::RuntimeType for TriggeredConnectState {
 pub struct TriggeredConnectionStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TriggeredConnectionStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TriggeredConnectionStateChangedEventArgs {
-    pub fn State(&self) -> windows_core::Result<TriggeredConnectState> {
+    pub fn State(&self) -> windows_result::Result<TriggeredConnectState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1147,7 +1147,7 @@ impl TriggeredConnectionStateChangedEventArgs {
         }
     }
     #[cfg(feature = "Networking_Sockets")]
-    pub fn Socket(&self) -> windows_core::Result<super::Sockets::StreamSocket> {
+    pub fn Socket(&self) -> windows_result::Result<super::Sockets::StreamSocket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

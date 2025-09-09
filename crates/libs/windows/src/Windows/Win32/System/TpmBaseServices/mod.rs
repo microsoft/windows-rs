@@ -1,10 +1,10 @@
 #[inline]
-pub unsafe fn GetDeviceID(pbwindowsaik: Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+pub unsafe fn GetDeviceID(pbwindowsaik: Option<&mut [u8]>, pcbresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_result::Result<()> {
     windows_link::link!("tbs.dll" "system" fn GetDeviceID(pbwindowsaik : *mut u8, cbwindowsaik : u32, pcbresult : *mut u32, pfprotectedbytpm : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { GetDeviceID(core::mem::transmute(pbwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pbwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcbresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn GetDeviceIDString(pszwindowsaik: Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+pub unsafe fn GetDeviceIDString(pszwindowsaik: Option<&mut [u16]>, pcchresult: *mut u32, pfprotectedbytpm: Option<*mut windows_core::BOOL>) -> windows_result::Result<()> {
     windows_link::link!("tbs.dll" "system" fn GetDeviceIDString(pszwindowsaik : windows_core::PWSTR, cchwindowsaik : u32, pcchresult : *mut u32, pfprotectedbytpm : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { GetDeviceIDString(core::mem::transmute(pszwindowsaik.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pszwindowsaik.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), pcchresult as _, pfprotectedbytpm.unwrap_or(core::mem::zeroed()) as _).ok() }
 }

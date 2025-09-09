@@ -3,21 +3,21 @@
 pub struct DeviceServicingDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceServicingDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceServicingDetails {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Arguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ExpectedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn ExpectedDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -42,14 +42,14 @@ unsafe impl Sync for DeviceServicingDetails {}
 pub struct DeviceUseDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DeviceUseDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DeviceUseDetails {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Arguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Arguments(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

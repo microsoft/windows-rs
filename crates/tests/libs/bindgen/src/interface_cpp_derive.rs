@@ -13,7 +13,7 @@ windows_core::imp::define_interface!(
 );
 windows_core::imp::interface_hierarchy!(IPersist, windows_core::IUnknown);
 impl IPersist {
-    pub unsafe fn GetClassID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetClassID(&self) -> windows_result::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetClassID)(
@@ -34,7 +34,7 @@ pub struct IPersist_Vtbl {
     ) -> windows_core::HRESULT,
 }
 pub trait IPersist_Impl: windows_core::IUnknownImpl {
-    fn GetClassID(&self) -> windows_core::Result<windows_core::GUID>;
+    fn GetClassID(&self) -> windows_result::Result<windows_core::GUID>;
 }
 impl IPersist_Vtbl {
     pub const fn new<Identity: IPersist_Impl, const OFFSET: isize>() -> Self {
@@ -82,7 +82,7 @@ impl IPersistFile {
             (windows_core::Interface::vtable(self).IsDirty)(windows_core::Interface::as_raw(self))
         }
     }
-    pub unsafe fn Save<P0>(&self, pszfilename: P0, fremember: bool) -> windows_core::Result<()>
+    pub unsafe fn Save<P0>(&self, pszfilename: P0, fremember: bool) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -95,7 +95,7 @@ impl IPersistFile {
             .ok()
         }
     }
-    pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_core::Result<()>
+    pub unsafe fn SaveCompleted<P0>(&self, pszfilename: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -107,7 +107,7 @@ impl IPersistFile {
             .ok()
         }
     }
-    pub unsafe fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR> {
+    pub unsafe fn GetCurFile(&self) -> windows_result::Result<windows_core::PWSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCurFile)(
@@ -144,9 +144,9 @@ pub trait IPersistFile_Impl: IPersist_Impl {
         &self,
         pszfilename: &windows_core::PCWSTR,
         fremember: windows_core::BOOL,
-    ) -> windows_core::Result<()>;
-    fn SaveCompleted(&self, pszfilename: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn GetCurFile(&self) -> windows_core::Result<windows_core::PWSTR>;
+    ) -> windows_result::Result<()>;
+    fn SaveCompleted(&self, pszfilename: &windows_core::PCWSTR) -> windows_result::Result<()>;
+    fn GetCurFile(&self) -> windows_result::Result<windows_core::PWSTR>;
 }
 impl IPersistFile_Vtbl {
     pub const fn new<Identity: IPersistFile_Impl, const OFFSET: isize>() -> Self {

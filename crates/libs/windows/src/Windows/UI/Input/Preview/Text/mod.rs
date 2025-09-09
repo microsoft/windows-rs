@@ -3,7 +3,7 @@
 pub struct ConversionModeChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ConversionModeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ConversionModeChangedEventArgs {
-    pub fn NewConversionMode(&self) -> windows_core::Result<TextConversionMode> {
+    pub fn NewConversionMode(&self) -> windows_result::Result<TextConversionMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -28,7 +28,7 @@ unsafe impl Sync for ConversionModeChangedEventArgs {}
 pub struct FocusEnteredEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FocusEnteredEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl FocusEnteredEventArgs {
-    pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
+    pub fn FocusedTextBoxInfo(&self) -> windows_result::Result<TextBoxInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -358,7 +358,7 @@ pub struct ITextInputServiceStatics_Vtbl {
 pub struct InputDelegationModeChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InputDelegationModeChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl InputDelegationModeChangedEventArgs {
-    pub fn DelegationOn(&self) -> windows_core::Result<bool> {
+    pub fn DelegationOn(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -400,7 +400,7 @@ pub struct KeyEventReceivedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyEventReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyEventReceivedEventArgs {
     #[cfg(feature = "System")]
-    pub fn VirtualKey(&self) -> windows_core::Result<super::super::super::super::System::VirtualKey> {
+    pub fn VirtualKey(&self) -> windows_result::Result<super::super::super::super::System::VirtualKey> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -408,21 +408,21 @@ impl KeyEventReceivedEventArgs {
         }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn KeyStatus(&self) -> windows_core::Result<super::super::super::Core::CorePhysicalKeyStatus> {
+    pub fn KeyStatus(&self) -> windows_result::Result<super::super::super::Core::CorePhysicalKeyStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Unicode(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Unicode(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Unicode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Source(&self) -> windows_core::Result<KeyEventDeviceType> {
+    pub fn Source(&self) -> windows_result::Result<KeyEventDeviceType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -430,7 +430,7 @@ impl KeyEventReceivedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn IsKeyPressed(&self, vkey: super::super::super::super::System::VirtualKey) -> windows_core::Result<bool> {
+    pub fn IsKeyPressed(&self, vkey: super::super::super::super::System::VirtualKey) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -438,28 +438,28 @@ impl KeyEventReceivedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn IsToggleKeyOn(&self, vkey: super::super::super::super::System::VirtualKey) -> windows_core::Result<bool> {
+    pub fn IsToggleKeyOn(&self, vkey: super::super::super::super::System::VirtualKey) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsToggleKeyOn)(windows_core::Interface::as_raw(this), vkey, &mut result__).map(|| result__)
         }
     }
-    pub fn EditSession(&self) -> windows_core::Result<TextEditSession> {
+    pub fn EditSession(&self) -> windows_result::Result<TextEditSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EditSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -481,74 +481,74 @@ unsafe impl Sync for KeyEventReceivedEventArgs {}
 pub struct KeyboardInputProcessor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyboardInputProcessor, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyboardInputProcessor {
-    pub fn InputProfile(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn InputProfile(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputProfile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsActive(&self) -> windows_core::Result<bool> {
+    pub fn IsActive(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsActive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasFocusedTextBox(&self) -> windows_core::Result<bool> {
+    pub fn HasFocusedTextBox(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasFocusedTextBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FocusedTextBoxId(&self) -> windows_core::Result<TextBoxId> {
+    pub fn FocusedTextBoxId(&self) -> windows_result::Result<TextBoxId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
+    pub fn FocusedTextBoxInfo(&self) -> windows_result::Result<TextBoxInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn FocusedTextBoxBounds(&self) -> windows_result::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxBounds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn SelectionBounds(&self) -> windows_result::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionBounds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConversionMode(&self) -> windows_core::Result<TextConversionMode> {
+    pub fn ConversionMode(&self) -> windows_result::Result<TextConversionMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConversionMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetConversionMode(&self, value: TextConversionMode) -> windows_core::Result<()> {
+    pub fn SetConversionMode(&self, value: TextConversionMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetConversionMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
+    pub fn CreateEditSession(&self) -> windows_result::Result<TextEditSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateEditSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Activated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Activated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
     {
@@ -558,11 +558,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).Activated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveActivated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveActivated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveActivated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Deactivated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Deactivated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
     {
@@ -572,11 +572,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).Deactivated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDeactivated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDeactivated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDeactivated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn KeyEventReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn KeyEventReceived<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, KeyEventReceivedEventArgs>>,
     {
@@ -586,11 +586,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).KeyEventReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveKeyEventReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveKeyEventReceived(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveKeyEventReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, FocusEnteredEventArgs>>,
     {
@@ -600,11 +600,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).FocusEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFocusEntered(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFocusEntered(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFocusEntered)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
     {
@@ -614,11 +614,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).FocusRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFocusRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ConversionModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ConversionModeChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ConversionModeChangedEventArgs>>,
     {
@@ -628,11 +628,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).ConversionModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveConversionModeChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveConversionModeChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveConversionModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxInfoChangedEventArgs>>,
     {
@@ -642,11 +642,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).TextBoxInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTextBoxInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, TextBoxContentChangedEventArgs>>,
     {
@@ -656,11 +656,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).TextBoxContentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTextBoxContentChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, windows_core::IInspectable>>,
     {
@@ -670,11 +670,11 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).CompositionTerminated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCompositionTerminated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<KeyboardInputProcessor, ReconversionRequestedEventArgs>>,
     {
@@ -684,7 +684,7 @@ impl KeyboardInputProcessor {
             (windows_core::Interface::vtable(this).ReconversionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReconversionRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -725,7 +725,7 @@ pub struct ReconversionRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReconversionRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ReconversionRequestedEventArgs {
     #[cfg(feature = "UI_Text_Core")]
-    pub fn Range(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextRange> {
+    pub fn Range(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -766,28 +766,28 @@ impl windows_core::RuntimeType for TextBoxContentAttribute {
 pub struct TextBoxContentChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextBoxContentChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TextBoxContentChangedEventArgs {
-    pub fn TextBoxId(&self) -> windows_core::Result<TextBoxId> {
+    pub fn TextBoxId(&self) -> windows_result::Result<TextBoxId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextBoxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Source(&self) -> windows_core::Result<TextChangeSource> {
+    pub fn Source(&self) -> windows_result::Result<TextChangeSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::Rect> {
+    pub fn SelectionBounds(&self) -> windows_result::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionBounds)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsContentAttributeChanged(&self, value: TextBoxContentAttribute) -> windows_core::Result<bool> {
+    pub fn IsContentAttributeChanged(&self, value: TextBoxContentAttribute) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -871,7 +871,7 @@ impl windows_core::RuntimeType for TextBoxId {
 pub struct TextBoxInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextBoxInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl TextBoxInfo {
-    pub fn Id(&self) -> windows_core::Result<TextBoxId> {
+    pub fn Id(&self) -> windows_result::Result<TextBoxId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -879,35 +879,35 @@ impl TextBoxInfo {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn InputScope(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextInputScope> {
+    pub fn InputScope(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextInputScope> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputScope)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Url(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Url(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Url)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Settings(&self) -> windows_core::Result<TextBoxSettings> {
+    pub fn Settings(&self) -> windows_result::Result<TextBoxSettings> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Settings)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisabledFeatures(&self) -> windows_core::Result<TextBoxFeatures> {
+    pub fn DisabledFeatures(&self) -> windows_result::Result<TextBoxFeatures> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -932,7 +932,7 @@ unsafe impl Sync for TextBoxInfo {}
 pub struct TextBoxInfoChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextBoxInfoChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl TextBoxInfoChangedEventArgs {
-    pub fn TextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
+    pub fn TextBoxInfo(&self) -> windows_result::Result<TextBoxInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1024,54 +1024,54 @@ impl windows_core::RuntimeType for TextChangeSource {
 pub struct TextComposition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextComposition, windows_core::IUnknown, windows_core::IInspectable);
 impl TextComposition {
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FirstSegment(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn FirstSegment(&self) -> windows_result::Result<TextCompositionSegment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FirstSegment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectedSegment(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn SelectedSegment(&self) -> windows_result::Result<TextCompositionSegment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedSegment)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CaretPosition(&self) -> windows_core::Result<u32> {
+    pub fn CaretPosition(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CaretPosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCaretPosition(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetCaretPosition(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCaretPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InsertText(&self, text: &windows_core::HSTRING) -> windows_core::Result<TextCompositionSegment> {
+    pub fn InsertText(&self, text: &windows_core::HSTRING) -> windows_result::Result<TextCompositionSegment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsertText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CompleteUnconverted(&self) -> windows_core::Result<()> {
+    pub fn CompleteUnconverted(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteUnconverted)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CompleteFirstSegment(&self) -> windows_core::Result<()> {
+    pub fn CompleteFirstSegment(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).CompleteFirstSegment)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1093,41 +1093,41 @@ unsafe impl Sync for TextComposition {}
 pub struct TextCompositionSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextCompositionSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl TextCompositionSegment {
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn ConvertedText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ConvertedText(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertedText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetConvertedText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetConvertedText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetConvertedText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn UnconvertedText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UnconvertedText(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnconvertedText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetUnconvertedText(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetUnconvertedText(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUnconvertedText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn Range(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextRange> {
+    pub fn Range(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1135,7 +1135,7 @@ impl TextCompositionSegment {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn ConversionState(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextFormatUpdatingReason> {
+    pub fn ConversionState(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextFormatUpdatingReason> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1143,18 +1143,18 @@ impl TextCompositionSegment {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn SetConversionState(&self, value: super::super::super::Text::Core::CoreTextFormatUpdatingReason) -> windows_core::Result<()> {
+    pub fn SetConversionState(&self, value: super::super::super::Text::Core::CoreTextFormatUpdatingReason) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetConversionState)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Next(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn Next(&self) -> windows_result::Result<TextCompositionSegment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Next)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Previous(&self) -> windows_core::Result<TextCompositionSegment> {
+    pub fn Previous(&self) -> windows_result::Result<TextCompositionSegment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1162,7 +1162,7 @@ impl TextCompositionSegment {
         }
     }
     #[cfg(feature = "UI_Text")]
-    pub fn GetTextStyle(&self) -> windows_core::Result<TextStyle> {
+    pub fn GetTextStyle(&self) -> windows_result::Result<TextStyle> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1170,7 +1170,7 @@ impl TextCompositionSegment {
         }
     }
     #[cfg(feature = "UI_Text")]
-    pub fn SetTextStyle(&self, value: TextStyle) -> windows_core::Result<()> {
+    pub fn SetTextStyle(&self, value: TextStyle) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTextStyle)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1215,14 +1215,14 @@ impl windows_core::RuntimeType for TextConversionMode {
 pub struct TextEditSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextEditSession, windows_core::IUnknown, windows_core::IInspectable);
 impl TextEditSession {
-    pub fn TextBoxId(&self) -> windows_core::Result<TextBoxId> {
+    pub fn TextBoxId(&self) -> windows_result::Result<TextBoxId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextBoxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TextLength(&self) -> windows_core::Result<i32> {
+    pub fn TextLength(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1230,7 +1230,7 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn PopulatedRange(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextRange> {
+    pub fn PopulatedRange(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1238,7 +1238,7 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn PopulateAsync(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1246,7 +1246,7 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn GetText(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetText(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1254,7 +1254,7 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn GetSelectedRange(&self) -> windows_core::Result<super::super::super::Text::Core::CoreTextRange> {
+    pub fn GetSelectedRange(&self) -> windows_result::Result<super::super::super::Text::Core::CoreTextRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1262,26 +1262,26 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn SetSelectedRange(&self, value: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<()> {
+    pub fn SetSelectedRange(&self, value: super::super::super::Text::Core::CoreTextRange) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSelectedRange)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn ReplaceText(&self, replacerange: super::super::super::Text::Core::CoreTextRange, text: &windows_core::HSTRING) -> windows_core::Result<super::super::super::Text::Core::CoreTextRange> {
+    pub fn ReplaceText(&self, replacerange: super::super::super::Text::Core::CoreTextRange, text: &windows_core::HSTRING) -> windows_result::Result<super::super::super::Text::Core::CoreTextRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplaceText)(windows_core::Interface::as_raw(this), replacerange, core::mem::transmute_copy(text), &mut result__).map(|| result__)
         }
     }
-    pub fn Composition(&self) -> windows_core::Result<TextComposition> {
+    pub fn Composition(&self) -> windows_result::Result<TextComposition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Composition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartComposition(&self) -> windows_core::Result<TextComposition> {
+    pub fn StartComposition(&self) -> windows_result::Result<TextComposition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1289,21 +1289,21 @@ impl TextEditSession {
         }
     }
     #[cfg(feature = "UI_Text_Core")]
-    pub fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_core::Result<TextComposition> {
+    pub fn StartReconversion(&self, range: super::super::super::Text::Core::CoreTextRange) -> windows_result::Result<TextComposition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartReconversion)(windows_core::Interface::as_raw(this), range, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubmitPayload(&self) -> windows_core::Result<bool> {
+    pub fn SubmitPayload(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubmitPayload)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SubmitPayloadAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<PayloadResult>> {
+    pub fn SubmitPayloadAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<PayloadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1328,71 +1328,71 @@ unsafe impl Sync for TextEditSession {}
 pub struct TextInputProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextInputProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl TextInputProvider {
-    pub fn GetSubscription(&self) -> windows_core::Result<TextInputServiceSubscription> {
+    pub fn GetSubscription(&self) -> windows_result::Result<TextInputServiceSubscription> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSubscription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSubscription(&self, subscription: TextInputServiceSubscription) -> windows_core::Result<()> {
+    pub fn SetSubscription(&self, subscription: TextInputServiceSubscription) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubscription)(windows_core::Interface::as_raw(this), subscription).ok() }
     }
-    pub fn HasFocusedTextBox(&self) -> windows_core::Result<bool> {
+    pub fn HasFocusedTextBox(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasFocusedTextBox)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FocusedTextBoxId(&self) -> windows_core::Result<TextBoxId> {
+    pub fn FocusedTextBoxId(&self) -> windows_result::Result<TextBoxId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FocusedTextBoxInfo(&self) -> windows_core::Result<TextBoxInfo> {
+    pub fn FocusedTextBoxInfo(&self) -> windows_result::Result<TextBoxInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FocusedTextBoxBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn FocusedTextBoxBounds(&self) -> windows_result::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FocusedTextBoxBounds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectionBounds(&self) -> windows_core::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
+    pub fn SelectionBounds(&self) -> windows_result::Result<super::super::super::super::Foundation::IReference<super::super::super::super::Foundation::Rect>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectionBounds)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateEditSession(&self) -> windows_core::Result<TextEditSession> {
+    pub fn CreateEditSession(&self) -> windows_result::Result<TextEditSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateEditSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryStartDelegation(&self) -> windows_core::Result<bool> {
+    pub fn TryStartDelegation(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TryStartDelegation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StopDelegation(&self) -> windows_core::Result<()> {
+    pub fn StopDelegation(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopDelegation)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusEntered<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, FocusEnteredEventArgs>>,
     {
@@ -1402,11 +1402,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).FocusEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFocusEntered(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFocusEntered(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFocusEntered)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn FocusRemoved<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, windows_core::IInspectable>>,
     {
@@ -1416,11 +1416,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).FocusRemoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveFocusRemoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveFocusRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxInfoChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxInfoChangedEventArgs>>,
     {
@@ -1430,11 +1430,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).TextBoxInfoChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTextBoxInfoChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTextBoxInfoChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextBoxContentChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, TextBoxContentChangedEventArgs>>,
     {
@@ -1444,11 +1444,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).TextBoxContentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTextBoxContentChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTextBoxContentChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CompositionTerminated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, windows_core::IInspectable>>,
     {
@@ -1458,11 +1458,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).CompositionTerminated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCompositionTerminated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCompositionTerminated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReconversionRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, ReconversionRequestedEventArgs>>,
     {
@@ -1472,11 +1472,11 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).ReconversionRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReconversionRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReconversionRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn InputDelegationModeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn InputDelegationModeChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::super::Foundation::TypedEventHandler<TextInputProvider, InputDelegationModeChangedEventArgs>>,
     {
@@ -1486,7 +1486,7 @@ impl TextInputProvider {
             (windows_core::Interface::vtable(this).InputDelegationModeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveInputDelegationModeChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveInputDelegationModeChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveInputDelegationModeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1508,27 +1508,27 @@ unsafe impl Sync for TextInputProvider {}
 pub struct TextInputService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextInputService, windows_core::IUnknown, windows_core::IInspectable);
 impl TextInputService {
-    pub fn CreateKeyboardInputProcessor(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<KeyboardInputProcessor> {
+    pub fn CreateKeyboardInputProcessor(&self, inputprofile: &windows_core::HSTRING) -> windows_result::Result<KeyboardInputProcessor> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateKeyboardInputProcessor)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTextInputProvider(&self, inputprofile: &windows_core::HSTRING) -> windows_core::Result<TextInputProvider> {
+    pub fn CreateTextInputProvider(&self, inputprofile: &windows_core::HSTRING) -> windows_result::Result<TextInputProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTextInputProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(inputprofile), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentThread() -> windows_core::Result<TextInputService> {
+    pub fn GetForCurrentThread() -> windows_result::Result<TextInputService> {
         Self::ITextInputServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ITextInputServiceStatics<R, F: FnOnce(&ITextInputServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ITextInputServiceStatics<R, F: FnOnce(&ITextInputServiceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<TextInputService, ITextInputServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

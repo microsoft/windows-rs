@@ -97,38 +97,38 @@ pub struct RemoteTextConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteTextConnection, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteTextConnection, super::super::super::Foundation::IClosable);
 impl RemoteTextConnection {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsEnabled(&self) -> windows_core::Result<bool> {
+    pub fn IsEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RegisterThread(&self, threadid: u32) -> windows_core::Result<()> {
+    pub fn RegisterThread(&self, threadid: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RegisterThread)(windows_core::Interface::as_raw(this), threadid).ok() }
     }
-    pub fn UnregisterThread(&self, threadid: u32) -> windows_core::Result<()> {
+    pub fn UnregisterThread(&self, threadid: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UnregisterThread)(windows_core::Interface::as_raw(this), threadid).ok() }
     }
-    pub fn ReportDataReceived(&self, pdudata: &[u8]) -> windows_core::Result<()> {
+    pub fn ReportDataReceived(&self, pdudata: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportDataReceived)(windows_core::Interface::as_raw(this), pdudata.len().try_into().unwrap(), pdudata.as_ptr()).ok() }
     }
-    pub fn ReportPredictedKeyEvent(&self, scancode: u16, attributes: RemoteKeyEventAttributes) -> windows_core::Result<()> {
+    pub fn ReportPredictedKeyEvent(&self, scancode: u16, attributes: RemoteKeyEventAttributes) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IRemoteTextConnection2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).ReportPredictedKeyEvent)(windows_core::Interface::as_raw(this), scancode, attributes).ok() }
     }
-    pub fn CreateInstance<P1>(connectionid: windows_core::GUID, pduforwarder: P1) -> windows_core::Result<RemoteTextConnection>
+    pub fn CreateInstance<P1>(connectionid: windows_core::GUID, pduforwarder: P1) -> windows_result::Result<RemoteTextConnection>
     where
         P1: windows_core::Param<RemoteTextConnectionDataHandler>,
     {
@@ -137,7 +137,7 @@ impl RemoteTextConnection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstance2<P1>(connectionid: windows_core::GUID, pduforwarder: P1, options: RemoteTextConnectionOptions) -> windows_core::Result<RemoteTextConnection>
+    pub fn CreateInstance2<P1>(connectionid: windows_core::GUID, pduforwarder: P1, options: RemoteTextConnectionOptions) -> windows_result::Result<RemoteTextConnection>
     where
         P1: windows_core::Param<RemoteTextConnectionDataHandler>,
     {
@@ -146,11 +146,11 @@ impl RemoteTextConnection {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), connectionid, pduforwarder.param().abi(), options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteTextConnectionFactory<R, F: FnOnce(&IRemoteTextConnectionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IRemoteTextConnectionFactory2<R, F: FnOnce(&IRemoteTextConnectionFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRemoteTextConnectionFactory2<R, F: FnOnce(&IRemoteTextConnectionFactory2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RemoteTextConnection, IRemoteTextConnectionFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -172,11 +172,11 @@ impl windows_core::RuntimeType for RemoteTextConnectionDataHandler {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
 }
 impl RemoteTextConnectionDataHandler {
-    pub fn new<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static>(invoke: F) -> Self {
+    pub fn new<F: Fn(&[u8]) -> windows_result::Result<bool> + Send + 'static>(invoke: F) -> Self {
         let com = RemoteTextConnectionDataHandlerBox { vtable: &RemoteTextConnectionDataHandlerBox::<F>::VTABLE, count: windows_core::imp::RefCount::new(1), invoke };
         unsafe { core::mem::transmute(windows_core::imp::Box::new(com)) }
     }
-    pub fn Invoke(&self, pdudata: &[u8]) -> windows_core::Result<bool> {
+    pub fn Invoke(&self, pdudata: &[u8]) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -191,12 +191,12 @@ pub struct RemoteTextConnectionDataHandler_Vtbl {
     Invoke: unsafe extern "system" fn(this: *mut core::ffi::c_void, pdudata_array_size: u32, pdudata: *const u8, result__: *mut bool) -> windows_core::HRESULT,
 }
 #[repr(C)]
-struct RemoteTextConnectionDataHandlerBox<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> {
+struct RemoteTextConnectionDataHandlerBox<F: Fn(&[u8]) -> windows_result::Result<bool> + Send + 'static> {
     vtable: *const RemoteTextConnectionDataHandler_Vtbl,
     invoke: F,
     count: windows_core::imp::RefCount,
 }
-impl<F: Fn(&[u8]) -> windows_core::Result<bool> + Send + 'static> RemoteTextConnectionDataHandlerBox<F> {
+impl<F: Fn(&[u8]) -> windows_result::Result<bool> + Send + 'static> RemoteTextConnectionDataHandlerBox<F> {
     const VTABLE: RemoteTextConnectionDataHandler_Vtbl = RemoteTextConnectionDataHandler_Vtbl { base__: windows_core::IUnknown_Vtbl { QueryInterface: Self::QueryInterface, AddRef: Self::AddRef, Release: Self::Release }, Invoke: Self::Invoke };
     unsafe extern "system" fn QueryInterface(this: *mut core::ffi::c_void, iid: *const windows_core::GUID, interface: *mut *mut core::ffi::c_void) -> windows_core::HRESULT {
         unsafe {

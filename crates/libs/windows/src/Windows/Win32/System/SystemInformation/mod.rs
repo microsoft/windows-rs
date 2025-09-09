@@ -12,12 +12,12 @@ pub unsafe fn EnumSystemFirmwareTables(firmwaretableprovidersignature: FIRMWARE_
     unsafe { EnumSystemFirmwareTables(firmwaretableprovidersignature, core::mem::transmute(pfirmwaretableenumbuffer.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pfirmwaretableenumbuffer.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
-pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetComputerNameExA(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Option<windows_core::PSTR>, nsize: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetComputerNameExA(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PSTR, nsize : *mut u32) -> windows_core::BOOL);
     unsafe { GetComputerNameExA(nametype, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _).ok() }
 }
 #[inline]
-pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetComputerNameExW(nametype: COMPUTER_NAME_FORMAT, lpbuffer: Option<windows_core::PWSTR>, nsize: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetComputerNameExW(nametype : COMPUTER_NAME_FORMAT, lpbuffer : windows_core::PWSTR, nsize : *mut u32) -> windows_core::BOOL);
     unsafe { GetComputerNameExW(nametype, lpbuffer.unwrap_or(core::mem::zeroed()) as _, nsize as _).ok() }
 }
@@ -27,12 +27,12 @@ pub unsafe fn GetDeveloperDriveEnablementState() -> DEVELOPER_DRIVE_ENABLEMENT_S
     unsafe { GetDeveloperDriveEnablementState() }
 }
 #[inline]
-pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> windows_core::Result<()> {
+pub unsafe fn GetFirmwareType(firmwaretype: *mut FIRMWARE_TYPE) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetFirmwareType(firmwaretype : *mut FIRMWARE_TYPE) -> windows_core::BOOL);
     unsafe { GetFirmwareType(firmwaretype as _).ok() }
 }
 #[inline]
-pub unsafe fn GetIntegratedDisplaySize() -> windows_core::Result<f64> {
+pub unsafe fn GetIntegratedDisplaySize() -> windows_result::Result<f64> {
     windows_link::link!("api-ms-win-core-sysinfo-l1-2-3.dll" "system" fn GetIntegratedDisplaySize(sizeininches : *mut f64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -49,12 +49,12 @@ pub unsafe fn GetLocalTime() -> super::super::Foundation::SYSTEMTIME {
     }
 }
 #[inline]
-pub unsafe fn GetLogicalProcessorInformation(buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetLogicalProcessorInformation(buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION>, returnedlength: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformation(buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION, returnedlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetLogicalProcessorInformation(buffer.unwrap_or(core::mem::zeroed()) as _, returnedlength as _).ok() }
 }
 #[inline]
-pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX>, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetLogicalProcessorInformationEx(relationshiptype: LOGICAL_PROCESSOR_RELATIONSHIP, buffer: Option<*mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX>, returnedlength: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetLogicalProcessorInformationEx(relationshiptype : LOGICAL_PROCESSOR_RELATIONSHIP, buffer : *mut SYSTEM_LOGICAL_PROCESSOR_INFORMATION_EX, returnedlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetLogicalProcessorInformationEx(relationshiptype, buffer.unwrap_or(core::mem::zeroed()) as _, returnedlength as _).ok() }
 }
@@ -74,12 +74,12 @@ pub unsafe fn GetOsSafeBootMode(flags: *mut u32) -> windows_core::BOOL {
     unsafe { GetOsSafeBootMode(flags as _) }
 }
 #[inline]
-pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> windows_core::Result<()> {
+pub unsafe fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes: *mut u64) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes : *mut u64) -> windows_core::BOOL);
     unsafe { GetPhysicallyInstalledSystemMemory(totalmemoryinkilobytes as _).ok() }
 }
 #[inline]
-pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: Option<*mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION>, returnedlength: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn GetProcessorSystemCycleTime(group: u16, buffer: Option<*mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION>, returnedlength: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetProcessorSystemCycleTime(group : u16, buffer : *mut SYSTEM_PROCESSOR_CYCLE_TIME_INFORMATION, returnedlength : *mut u32) -> windows_core::BOOL);
     unsafe { GetProcessorSystemCycleTime(group, buffer.unwrap_or(core::mem::zeroed()) as _, returnedlength as _).ok() }
 }
@@ -133,12 +133,12 @@ pub unsafe fn GetSystemTime() -> super::super::Foundation::SYSTEMTIME {
     }
 }
 #[inline]
-pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn GetSystemTimeAdjustment(lptimeadjustment: *mut u32, lptimeincrement: *mut u32, lptimeadjustmentdisabled: *mut windows_core::BOOL) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetSystemTimeAdjustment(lptimeadjustment : *mut u32, lptimeincrement : *mut u32, lptimeadjustmentdisabled : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSystemTimeAdjustment(lptimeadjustment as _, lptimeincrement as _, lptimeadjustmentdisabled as _).ok() }
 }
 #[inline]
-pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn GetSystemTimeAdjustmentPrecise(lptimeadjustment: *mut u64, lptimeincrement: *mut u64, lptimeadjustmentdisabled: *mut windows_core::BOOL) -> windows_result::Result<()> {
     windows_link::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn GetSystemTimeAdjustmentPrecise(lptimeadjustment : *mut u64, lptimeincrement : *mut u64, lptimeadjustmentdisabled : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { GetSystemTimeAdjustmentPrecise(lptimeadjustment as _, lptimeincrement as _, lptimeadjustmentdisabled as _).ok() }
 }
@@ -206,12 +206,12 @@ pub unsafe fn GetVersion() -> u32 {
     unsafe { GetVersion() }
 }
 #[inline]
-pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> windows_core::Result<()> {
+pub unsafe fn GetVersionExA(lpversioninformation: *mut OSVERSIONINFOA) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetVersionExA(lpversioninformation : *mut OSVERSIONINFOA) -> windows_core::BOOL);
     unsafe { GetVersionExA(lpversioninformation as _).ok() }
 }
 #[inline]
-pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> windows_core::Result<()> {
+pub unsafe fn GetVersionExW(lpversioninformation: *mut OSVERSIONINFOW) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GetVersionExW(lpversioninformation : *mut OSVERSIONINFOW) -> windows_core::BOOL);
     unsafe { GetVersionExW(lpversioninformation as _).ok() }
 }
@@ -231,7 +231,7 @@ pub unsafe fn GlobalMemoryStatus(lpbuffer: *mut MEMORYSTATUS) {
     unsafe { GlobalMemoryStatus(lpbuffer as _) }
 }
 #[inline]
-pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> windows_core::Result<()> {
+pub unsafe fn GlobalMemoryStatusEx(lpbuffer: *mut MEMORYSTATUSEX) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn GlobalMemoryStatusEx(lpbuffer : *mut MEMORYSTATUSEX) -> windows_core::BOOL);
     unsafe { GlobalMemoryStatusEx(lpbuffer as _).ok() }
 }
@@ -241,7 +241,7 @@ pub unsafe fn IsUserCetAvailableInEnvironment(usercetenvironment: USER_CET_ENVIR
     unsafe { IsUserCetAvailableInEnvironment(usercetenvironment) }
 }
 #[inline]
-pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn IsWow64GuestMachineSupported(wowguestmachine: IMAGE_FILE_MACHINE) -> windows_result::Result<windows_core::BOOL> {
     windows_link::link!("kernel32.dll" "system" fn IsWow64GuestMachineSupported(wowguestmachine : IMAGE_FILE_MACHINE, machineissupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -279,7 +279,7 @@ pub unsafe fn RtlSwitchedVVI(versioninfo: *const OSVERSIONINFOEXW, typemask: u32
     unsafe { RtlSwitchedVVI(versioninfo, typemask, conditionmask) }
 }
 #[inline]
-pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameA<P0>(lpcomputername: P0) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -295,7 +295,7 @@ where
     unsafe { SetComputerNameEx2W(nametype, flags, lpbuffer.param().abi()) }
 }
 #[inline]
-pub unsafe fn SetComputerNameExA<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameExA<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -303,7 +303,7 @@ where
     unsafe { SetComputerNameExA(nametype, lpbuffer.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SetComputerNameExW<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameExW<P1>(nametype: COMPUTER_NAME_FORMAT, lpbuffer: P1) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -311,7 +311,7 @@ where
     unsafe { SetComputerNameExW(nametype, lpbuffer.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> windows_core::Result<()>
+pub unsafe fn SetComputerNameW<P0>(lpcomputername: P0) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -319,22 +319,22 @@ where
     unsafe { SetComputerNameW(lpcomputername.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
+pub unsafe fn SetLocalTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetLocalTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
     unsafe { SetLocalTime(lpsystemtime).ok() }
 }
 #[inline]
-pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_core::Result<()> {
+pub unsafe fn SetSystemTime(lpsystemtime: *const super::super::Foundation::SYSTEMTIME) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetSystemTime(lpsystemtime : *const super::super::Foundation:: SYSTEMTIME) -> windows_core::BOOL);
     unsafe { SetSystemTime(lpsystemtime).ok() }
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: bool) -> windows_core::Result<()> {
+pub unsafe fn SetSystemTimeAdjustment(dwtimeadjustment: u32, btimeadjustmentdisabled: bool) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetSystemTimeAdjustment(dwtimeadjustment : u32, btimeadjustmentdisabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSystemTimeAdjustment(dwtimeadjustment, btimeadjustmentdisabled.into()).ok() }
 }
 #[inline]
-pub unsafe fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: bool) -> windows_core::Result<()> {
+pub unsafe fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment: u64, btimeadjustmentdisabled: bool) -> windows_result::Result<()> {
     windows_link::link!("api-ms-win-core-sysinfo-l1-2-4.dll" "system" fn SetSystemTimeAdjustmentPrecise(dwtimeadjustment : u64, btimeadjustmentdisabled : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { SetSystemTimeAdjustmentPrecise(dwtimeadjustment, btimeadjustmentdisabled.into()).ok() }
 }
@@ -344,12 +344,12 @@ pub unsafe fn VerSetConditionMask(conditionmask: u64, typemask: VER_FLAGS, condi
     unsafe { VerSetConditionMask(conditionmask, typemask, condition) }
 }
 #[inline]
-pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_core::Result<()> {
+pub unsafe fn VerifyVersionInfoA(lpversioninformation: *mut OSVERSIONINFOEXA, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn VerifyVersionInfoA(lpversioninformation : *mut OSVERSIONINFOEXA, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> windows_core::BOOL);
     unsafe { VerifyVersionInfoA(lpversioninformation as _, dwtypemask, dwlconditionmask).ok() }
 }
 #[inline]
-pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_core::Result<()> {
+pub unsafe fn VerifyVersionInfoW(lpversioninformation: *mut OSVERSIONINFOEXW, dwtypemask: VER_FLAGS, dwlconditionmask: u64) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn VerifyVersionInfoW(lpversioninformation : *mut OSVERSIONINFOEXW, dwtypemask : VER_FLAGS, dwlconditionmask : u64) -> windows_core::BOOL);
     unsafe { VerifyVersionInfoW(lpversioninformation as _, dwtypemask, dwlconditionmask).ok() }
 }

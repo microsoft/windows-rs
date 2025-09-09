@@ -426,21 +426,21 @@ pub struct ISpatialStationaryFrameOfReference_Vtbl {
 pub struct SpatialAnchor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchor, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchor {
-    pub fn CoordinateSystem(&self) -> windows_core::Result<SpatialCoordinateSystem> {
+    pub fn CoordinateSystem(&self) -> windows_result::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RawCoordinateSystem(&self) -> windows_core::Result<SpatialCoordinateSystem> {
+    pub fn RawCoordinateSystem(&self) -> windows_result::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RawCoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RawCoordinateSystemAdjusted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RawCoordinateSystemAdjusted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialAnchor, SpatialAnchorRawCoordinateSystemAdjustedEventArgs>>,
     {
@@ -450,18 +450,18 @@ impl SpatialAnchor {
             (windows_core::Interface::vtable(this).RawCoordinateSystemAdjusted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRawCoordinateSystemAdjusted(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveRawCoordinateSystemAdjusted(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRawCoordinateSystemAdjusted)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn RemovedByUser(&self) -> windows_core::Result<bool> {
+    pub fn RemovedByUser(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<ISpatialAnchor2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemovedByUser)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TryCreateRelativeTo<P0>(coordinatesystem: P0) -> windows_core::Result<SpatialAnchor>
+    pub fn TryCreateRelativeTo<P0>(coordinatesystem: P0) -> windows_result::Result<SpatialAnchor>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -470,7 +470,7 @@ impl SpatialAnchor {
             (windows_core::Interface::vtable(this).TryCreateRelativeTo)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn TryCreateWithPositionRelativeTo<P0>(coordinatesystem: P0, position: windows_numerics::Vector3) -> windows_core::Result<SpatialAnchor>
+    pub fn TryCreateWithPositionRelativeTo<P0>(coordinatesystem: P0, position: windows_numerics::Vector3) -> windows_result::Result<SpatialAnchor>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -480,7 +480,7 @@ impl SpatialAnchor {
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn TryCreateWithPositionAndOrientationRelativeTo<P0>(coordinatesystem: P0, position: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<SpatialAnchor>
+    pub fn TryCreateWithPositionAndOrientationRelativeTo<P0>(coordinatesystem: P0, position: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<SpatialAnchor>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -489,7 +489,7 @@ impl SpatialAnchor {
             (windows_core::Interface::vtable(this).TryCreateWithPositionAndOrientationRelativeTo)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), position, orientation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialAnchorStatics<R, F: FnOnce(&ISpatialAnchorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorStatics<R, F: FnOnce(&ISpatialAnchorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchor, ISpatialAnchorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -524,21 +524,21 @@ impl windows_core::RuntimeType for SpatialAnchorExportPurpose {
 pub struct SpatialAnchorExportSufficiency(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorExportSufficiency, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorExportSufficiency {
-    pub fn IsMinimallySufficient(&self) -> windows_core::Result<bool> {
+    pub fn IsMinimallySufficient(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsMinimallySufficient)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SufficiencyLevel(&self) -> windows_core::Result<f64> {
+    pub fn SufficiencyLevel(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SufficiencyLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RecommendedSufficiencyLevel(&self) -> windows_core::Result<f64> {
+    pub fn RecommendedSufficiencyLevel(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -563,7 +563,7 @@ unsafe impl Sync for SpatialAnchorExportSufficiency {}
 pub struct SpatialAnchorExporter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorExporter, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorExporter {
-    pub fn GetAnchorExportSufficiencyAsync<P0>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose) -> windows_core::Result<windows_future::IAsyncOperation<SpatialAnchorExportSufficiency>>
+    pub fn GetAnchorExportSufficiencyAsync<P0>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose) -> windows_result::Result<windows_future::IAsyncOperation<SpatialAnchorExportSufficiency>>
     where
         P0: windows_core::Param<SpatialAnchor>,
     {
@@ -574,7 +574,7 @@ impl SpatialAnchorExporter {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryExportAnchorAsync<P0, P2>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose, stream: P2) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryExportAnchorAsync<P0, P2>(&self, anchor: P0, purpose: SpatialAnchorExportPurpose, stream: P2) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<SpatialAnchor>,
         P2: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
@@ -585,19 +585,19 @@ impl SpatialAnchorExporter {
             (windows_core::Interface::vtable(this).TryExportAnchorAsync)(windows_core::Interface::as_raw(this), anchor.param().abi(), purpose, stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<SpatialAnchorExporter> {
+    pub fn GetDefault() -> windows_result::Result<SpatialAnchorExporter> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpatialPerceptionAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_result::Result<windows_future::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorExporterStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialAnchorExporterStatics<R, F: FnOnce(&ISpatialAnchorExporterStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorExporterStatics<R, F: FnOnce(&ISpatialAnchorExporterStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorExporter, ISpatialAnchorExporterStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -616,13 +616,13 @@ unsafe impl Send for SpatialAnchorExporter {}
 unsafe impl Sync for SpatialAnchorExporter {}
 pub struct SpatialAnchorManager;
 impl SpatialAnchorManager {
-    pub fn RequestStoreAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpatialAnchorStore>> {
+    pub fn RequestStoreAsync() -> windows_result::Result<windows_future::IAsyncOperation<SpatialAnchorStore>> {
         Self::ISpatialAnchorManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestStoreAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialAnchorManagerStatics<R, F: FnOnce(&ISpatialAnchorManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorManagerStatics<R, F: FnOnce(&ISpatialAnchorManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorManager, ISpatialAnchorManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -635,7 +635,7 @@ impl windows_core::RuntimeName for SpatialAnchorManager {
 pub struct SpatialAnchorRawCoordinateSystemAdjustedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorRawCoordinateSystemAdjustedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
-    pub fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> windows_core::Result<windows_numerics::Matrix4x4> {
+    pub fn OldRawCoordinateSystemToNewRawCoordinateSystemTransform(&self) -> windows_result::Result<windows_numerics::Matrix4x4> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -660,14 +660,14 @@ unsafe impl Sync for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
 pub struct SpatialAnchorStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialAnchorStore, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialAnchorStore {
-    pub fn GetAllSavedAnchors(&self) -> windows_core::Result<windows_collections::IMapView<windows_core::HSTRING, SpatialAnchor>> {
+    pub fn GetAllSavedAnchors(&self) -> windows_result::Result<windows_collections::IMapView<windows_core::HSTRING, SpatialAnchor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllSavedAnchors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TrySave<P1>(&self, id: &windows_core::HSTRING, anchor: P1) -> windows_core::Result<bool>
+    pub fn TrySave<P1>(&self, id: &windows_core::HSTRING, anchor: P1) -> windows_result::Result<bool>
     where
         P1: windows_core::Param<SpatialAnchor>,
     {
@@ -677,11 +677,11 @@ impl SpatialAnchorStore {
             (windows_core::Interface::vtable(this).TrySave)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), anchor.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn Remove(&self, id: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn Remove(&self, id: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Remove)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id)).ok() }
     }
-    pub fn Clear(&self) -> windows_core::Result<()> {
+    pub fn Clear(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Clear)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -701,7 +701,7 @@ unsafe impl Sync for SpatialAnchorStore {}
 pub struct SpatialAnchorTransferManager;
 impl SpatialAnchorTransferManager {
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryImportAnchorsAsync<P0>(stream: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, SpatialAnchor>>>
+    pub fn TryImportAnchorsAsync<P0>(stream: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, SpatialAnchor>>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IInputStream>,
     {
@@ -711,7 +711,7 @@ impl SpatialAnchorTransferManager {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn TryExportAnchorsAsync<P0, P1>(anchors: P0, stream: P1) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn TryExportAnchorsAsync<P0, P1>(anchors: P0, stream: P1) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, SpatialAnchor>>>,
         P1: windows_core::Param<super::super::Storage::Streams::IOutputStream>,
@@ -721,13 +721,13 @@ impl SpatialAnchorTransferManager {
             (windows_core::Interface::vtable(this).TryExportAnchorsAsync)(windows_core::Interface::as_raw(this), anchors.param().abi(), stream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn RequestAccessAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpatialPerceptionAccessStatus>> {
+    pub fn RequestAccessAsync() -> windows_result::Result<windows_future::IAsyncOperation<SpatialPerceptionAccessStatus>> {
         Self::ISpatialAnchorTransferManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialAnchorTransferManagerStatics<R, F: FnOnce(&ISpatialAnchorTransferManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialAnchorTransferManagerStatics<R, F: FnOnce(&ISpatialAnchorTransferManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialAnchorTransferManager, ISpatialAnchorTransferManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -793,7 +793,7 @@ impl windows_core::RuntimeType for SpatialBoundingSphere {
 pub struct SpatialBoundingVolume(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialBoundingVolume, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialBoundingVolume {
-    pub fn FromBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingBox) -> windows_core::Result<SpatialBoundingVolume>
+    pub fn FromBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingBox) -> windows_result::Result<SpatialBoundingVolume>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -803,7 +803,7 @@ impl SpatialBoundingVolume {
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn FromOrientedBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingOrientedBox) -> windows_core::Result<SpatialBoundingVolume>
+    pub fn FromOrientedBox<P0>(coordinatesystem: P0, r#box: SpatialBoundingOrientedBox) -> windows_result::Result<SpatialBoundingVolume>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -812,7 +812,7 @@ impl SpatialBoundingVolume {
             (windows_core::Interface::vtable(this).FromOrientedBox)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), r#box, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromSphere<P0>(coordinatesystem: P0, sphere: SpatialBoundingSphere) -> windows_core::Result<SpatialBoundingVolume>
+    pub fn FromSphere<P0>(coordinatesystem: P0, sphere: SpatialBoundingSphere) -> windows_result::Result<SpatialBoundingVolume>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -822,7 +822,7 @@ impl SpatialBoundingVolume {
         })
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn FromFrustum<P0>(coordinatesystem: P0, frustum: SpatialBoundingFrustum) -> windows_core::Result<SpatialBoundingVolume>
+    pub fn FromFrustum<P0>(coordinatesystem: P0, frustum: SpatialBoundingFrustum) -> windows_result::Result<SpatialBoundingVolume>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -831,7 +831,7 @@ impl SpatialBoundingVolume {
             (windows_core::Interface::vtable(this).FromFrustum)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), frustum, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialBoundingVolumeStatics<R, F: FnOnce(&ISpatialBoundingVolumeStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialBoundingVolumeStatics<R, F: FnOnce(&ISpatialBoundingVolumeStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialBoundingVolume, ISpatialBoundingVolumeStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -853,7 +853,7 @@ unsafe impl Sync for SpatialBoundingVolume {}
 pub struct SpatialCoordinateSystem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialCoordinateSystem, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialCoordinateSystem {
-    pub fn TryGetTransformTo<P0>(&self, target: P0) -> windows_core::Result<super::super::Foundation::IReference<windows_numerics::Matrix4x4>>
+    pub fn TryGetTransformTo<P0>(&self, target: P0) -> windows_result::Result<super::super::Foundation::IReference<windows_numerics::Matrix4x4>>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -881,14 +881,14 @@ unsafe impl Sync for SpatialCoordinateSystem {}
 pub struct SpatialEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntity, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntity {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Anchor(&self) -> windows_core::Result<SpatialAnchor> {
+    pub fn Anchor(&self) -> windows_result::Result<SpatialAnchor> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -896,14 +896,14 @@ impl SpatialEntity {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::ValueSet> {
+    pub fn Properties(&self) -> windows_result::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateWithSpatialAnchor<P0>(spatialanchor: P0) -> windows_core::Result<SpatialEntity>
+    pub fn CreateWithSpatialAnchor<P0>(spatialanchor: P0) -> windows_result::Result<SpatialEntity>
     where
         P0: windows_core::Param<SpatialAnchor>,
     {
@@ -913,7 +913,7 @@ impl SpatialEntity {
         })
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateWithSpatialAnchorAndProperties<P0, P1>(spatialanchor: P0, propertyset: P1) -> windows_core::Result<SpatialEntity>
+    pub fn CreateWithSpatialAnchorAndProperties<P0, P1>(spatialanchor: P0, propertyset: P1) -> windows_result::Result<SpatialEntity>
     where
         P0: windows_core::Param<SpatialAnchor>,
         P1: windows_core::Param<super::super::Foundation::Collections::ValueSet>,
@@ -923,7 +923,7 @@ impl SpatialEntity {
             (windows_core::Interface::vtable(this).CreateWithSpatialAnchorAndProperties)(windows_core::Interface::as_raw(this), spatialanchor.param().abi(), propertyset.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialEntityFactory<R, F: FnOnce(&ISpatialEntityFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialEntityFactory<R, F: FnOnce(&ISpatialEntityFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialEntity, ISpatialEntityFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -945,7 +945,7 @@ unsafe impl Sync for SpatialEntity {}
 pub struct SpatialEntityAddedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityAddedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityAddedEventArgs {
-    pub fn Entity(&self) -> windows_core::Result<SpatialEntity> {
+    pub fn Entity(&self) -> windows_result::Result<SpatialEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -970,7 +970,7 @@ unsafe impl Sync for SpatialEntityAddedEventArgs {}
 pub struct SpatialEntityRemovedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityRemovedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityRemovedEventArgs {
-    pub fn Entity(&self) -> windows_core::Result<SpatialEntity> {
+    pub fn Entity(&self) -> windows_result::Result<SpatialEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -995,7 +995,7 @@ unsafe impl Sync for SpatialEntityRemovedEventArgs {}
 pub struct SpatialEntityStore(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityStore, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityStore {
-    pub fn SaveAsync<P0>(&self, entity: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SaveAsync<P0>(&self, entity: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<SpatialEntity>,
     {
@@ -1005,7 +1005,7 @@ impl SpatialEntityStore {
             (windows_core::Interface::vtable(this).SaveAsync)(windows_core::Interface::as_raw(this), entity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemoveAsync<P0>(&self, entity: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn RemoveAsync<P0>(&self, entity: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<SpatialEntity>,
     {
@@ -1015,21 +1015,21 @@ impl SpatialEntityStore {
             (windows_core::Interface::vtable(this).RemoveAsync)(windows_core::Interface::as_raw(this), entity.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateEntityWatcher(&self) -> windows_core::Result<SpatialEntityWatcher> {
+    pub fn CreateEntityWatcher(&self) -> windows_result::Result<SpatialEntityWatcher> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateEntityWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::ISpatialEntityStoreStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
     #[cfg(feature = "System_RemoteSystems")]
-    pub fn TryGetForRemoteSystemSession<P0>(session: P0) -> windows_core::Result<SpatialEntityStore>
+    pub fn TryGetForRemoteSystemSession<P0>(session: P0) -> windows_result::Result<SpatialEntityStore>
     where
         P0: windows_core::Param<super::super::System::RemoteSystems::RemoteSystemSession>,
     {
@@ -1038,7 +1038,7 @@ impl SpatialEntityStore {
             (windows_core::Interface::vtable(this).TryGetForRemoteSystemSession)(windows_core::Interface::as_raw(this), session.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialEntityStoreStatics<R, F: FnOnce(&ISpatialEntityStoreStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialEntityStoreStatics<R, F: FnOnce(&ISpatialEntityStoreStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialEntityStore, ISpatialEntityStoreStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1060,7 +1060,7 @@ unsafe impl Sync for SpatialEntityStore {}
 pub struct SpatialEntityUpdatedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityUpdatedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityUpdatedEventArgs {
-    pub fn Entity(&self) -> windows_core::Result<SpatialEntity> {
+    pub fn Entity(&self) -> windows_result::Result<SpatialEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1085,14 +1085,14 @@ unsafe impl Sync for SpatialEntityUpdatedEventArgs {}
 pub struct SpatialEntityWatcher(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialEntityWatcher, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialEntityWatcher {
-    pub fn Status(&self) -> windows_core::Result<SpatialEntityWatcherStatus> {
+    pub fn Status(&self) -> windows_result::Result<SpatialEntityWatcherStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Added<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityAddedEventArgs>>,
     {
@@ -1102,11 +1102,11 @@ impl SpatialEntityWatcher {
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAdded(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Updated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityUpdatedEventArgs>>,
     {
@@ -1116,11 +1116,11 @@ impl SpatialEntityWatcher {
             (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUpdated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Removed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, SpatialEntityRemovedEventArgs>>,
     {
@@ -1130,11 +1130,11 @@ impl SpatialEntityWatcher {
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialEntityWatcher, windows_core::IInspectable>>,
     {
@@ -1144,15 +1144,15 @@ impl SpatialEntityWatcher {
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1207,7 +1207,7 @@ impl windows_core::RuntimeType for SpatialLocatability {
 pub struct SpatialLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocation {
-    pub fn Position(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn Position(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1215,21 +1215,21 @@ impl SpatialLocation {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn Orientation(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
+    pub fn Orientation(&self) -> windows_result::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Orientation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AbsoluteLinearVelocity(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn AbsoluteLinearVelocity(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AbsoluteLinearVelocity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AbsoluteLinearAcceleration(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn AbsoluteLinearAcceleration(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1237,7 +1237,7 @@ impl SpatialLocation {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn AbsoluteAngularVelocity(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
+    pub fn AbsoluteAngularVelocity(&self) -> windows_result::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1245,21 +1245,21 @@ impl SpatialLocation {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn AbsoluteAngularAcceleration(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
+    pub fn AbsoluteAngularAcceleration(&self) -> windows_result::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AbsoluteAngularAcceleration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AbsoluteAngularVelocityAxisAngle(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn AbsoluteAngularVelocityAxisAngle(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<ISpatialLocation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AbsoluteAngularVelocityAxisAngle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AbsoluteAngularAccelerationAxisAngle(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn AbsoluteAngularAccelerationAxisAngle(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = &windows_core::Interface::cast::<ISpatialLocation2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1284,14 +1284,14 @@ unsafe impl Sync for SpatialLocation {}
 pub struct SpatialLocator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocator, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocator {
-    pub fn Locatability(&self) -> windows_core::Result<SpatialLocatability> {
+    pub fn Locatability(&self) -> windows_result::Result<SpatialLocatability> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Locatability)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LocatabilityChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LocatabilityChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialLocator, windows_core::IInspectable>>,
     {
@@ -1301,11 +1301,11 @@ impl SpatialLocator {
             (windows_core::Interface::vtable(this).LocatabilityChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveLocatabilityChanged(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveLocatabilityChanged(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveLocatabilityChanged)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn PositionalTrackingDeactivating<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PositionalTrackingDeactivating<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<SpatialLocator, SpatialLocatorPositionalTrackingDeactivatingEventArgs>>,
     {
@@ -1315,11 +1315,11 @@ impl SpatialLocator {
             (windows_core::Interface::vtable(this).PositionalTrackingDeactivating)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePositionalTrackingDeactivating(&self, cookie: i64) -> windows_core::Result<()> {
+    pub fn RemovePositionalTrackingDeactivating(&self, cookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePositionalTrackingDeactivating)(windows_core::Interface::as_raw(this), cookie).ok() }
     }
-    pub fn TryLocateAtTimestamp<P0, P1>(&self, timestamp: P0, coordinatesystem: P1) -> windows_core::Result<SpatialLocation>
+    pub fn TryLocateAtTimestamp<P0, P1>(&self, timestamp: P0, coordinatesystem: P1) -> windows_result::Result<SpatialLocation>
     where
         P0: windows_core::Param<super::PerceptionTimestamp>,
         P1: windows_core::Param<SpatialCoordinateSystem>,
@@ -1330,14 +1330,14 @@ impl SpatialLocator {
             (windows_core::Interface::vtable(this).TryLocateAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.param().abi(), coordinatesystem.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
+    pub fn CreateAttachedFrameOfReferenceAtCurrentHeading(&self) -> windows_result::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeading)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&self, relativeposition: windows_numerics::Vector3) -> windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
+    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPosition(&self, relativeposition: windows_numerics::Vector3) -> windows_result::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1345,7 +1345,7 @@ impl SpatialLocator {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
+    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientation(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1353,21 +1353,21 @@ impl SpatialLocator {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> windows_core::Result<SpatialLocatorAttachedFrameOfReference> {
+    pub fn CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> windows_result::Result<SpatialLocatorAttachedFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAttachedFrameOfReferenceAtCurrentHeadingWithPositionAndOrientationAndRelativeHeading)(windows_core::Interface::as_raw(this), relativeposition, relativeorientation, relativeheadinginradians, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> windows_core::Result<SpatialStationaryFrameOfReference> {
+    pub fn CreateStationaryFrameOfReferenceAtCurrentLocation(&self) -> windows_result::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&self, relativeposition: windows_numerics::Vector3) -> windows_core::Result<SpatialStationaryFrameOfReference> {
+    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPosition(&self, relativeposition: windows_numerics::Vector3) -> windows_result::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1375,7 +1375,7 @@ impl SpatialLocator {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<SpatialStationaryFrameOfReference> {
+    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientation(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1383,20 +1383,20 @@ impl SpatialLocator {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> windows_core::Result<SpatialStationaryFrameOfReference> {
+    pub fn CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading(&self, relativeposition: windows_numerics::Vector3, relativeorientation: super::super::Foundation::Numerics::Quaternion, relativeheadinginradians: f64) -> windows_result::Result<SpatialStationaryFrameOfReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStationaryFrameOfReferenceAtCurrentLocationWithPositionAndOrientationAndRelativeHeading)(windows_core::Interface::as_raw(this), relativeposition, relativeorientation, relativeheadinginradians, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDefault() -> windows_core::Result<SpatialLocator> {
+    pub fn GetDefault() -> windows_result::Result<SpatialLocator> {
         Self::ISpatialLocatorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialLocatorStatics<R, F: FnOnce(&ISpatialLocatorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialLocatorStatics<R, F: FnOnce(&ISpatialLocatorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialLocator, ISpatialLocatorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1418,19 +1418,19 @@ unsafe impl Sync for SpatialLocator {}
 pub struct SpatialLocatorAttachedFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocatorAttachedFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocatorAttachedFrameOfReference {
-    pub fn RelativePosition(&self) -> windows_core::Result<windows_numerics::Vector3> {
+    pub fn RelativePosition(&self) -> windows_result::Result<windows_numerics::Vector3> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RelativePosition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRelativePosition(&self, value: windows_numerics::Vector3) -> windows_core::Result<()> {
+    pub fn SetRelativePosition(&self, value: windows_numerics::Vector3) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRelativePosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn RelativeOrientation(&self) -> windows_core::Result<super::super::Foundation::Numerics::Quaternion> {
+    pub fn RelativeOrientation(&self) -> windows_result::Result<super::super::Foundation::Numerics::Quaternion> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1438,15 +1438,15 @@ impl SpatialLocatorAttachedFrameOfReference {
         }
     }
     #[cfg(feature = "Foundation_Numerics")]
-    pub fn SetRelativeOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()> {
+    pub fn SetRelativeOrientation(&self, value: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRelativeOrientation)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AdjustHeading(&self, headingoffsetinradians: f64) -> windows_core::Result<()> {
+    pub fn AdjustHeading(&self, headingoffsetinradians: f64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AdjustHeading)(windows_core::Interface::as_raw(this), headingoffsetinradians).ok() }
     }
-    pub fn GetStationaryCoordinateSystemAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<SpatialCoordinateSystem>
+    pub fn GetStationaryCoordinateSystemAtTimestamp<P0>(&self, timestamp: P0) -> windows_result::Result<SpatialCoordinateSystem>
     where
         P0: windows_core::Param<super::PerceptionTimestamp>,
     {
@@ -1456,7 +1456,7 @@ impl SpatialLocatorAttachedFrameOfReference {
             (windows_core::Interface::vtable(this).GetStationaryCoordinateSystemAtTimestamp)(windows_core::Interface::as_raw(this), timestamp.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetRelativeHeadingAtTimestamp<P0>(&self, timestamp: P0) -> windows_core::Result<super::super::Foundation::IReference<f64>>
+    pub fn TryGetRelativeHeadingAtTimestamp<P0>(&self, timestamp: P0) -> windows_result::Result<super::super::Foundation::IReference<f64>>
     where
         P0: windows_core::Param<super::PerceptionTimestamp>,
     {
@@ -1484,14 +1484,14 @@ unsafe impl Sync for SpatialLocatorAttachedFrameOfReference {}
 pub struct SpatialLocatorPositionalTrackingDeactivatingEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialLocatorPositionalTrackingDeactivatingEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialLocatorPositionalTrackingDeactivatingEventArgs {
-    pub fn Canceled(&self) -> windows_core::Result<bool> {
+    pub fn Canceled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Canceled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCanceled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetCanceled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCanceled)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -1566,28 +1566,28 @@ impl windows_core::RuntimeType for SpatialRay {
 pub struct SpatialStageFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialStageFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialStageFrameOfReference {
-    pub fn CoordinateSystem(&self) -> windows_core::Result<SpatialCoordinateSystem> {
+    pub fn CoordinateSystem(&self) -> windows_result::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CoordinateSystem)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MovementRange(&self) -> windows_core::Result<SpatialMovementRange> {
+    pub fn MovementRange(&self) -> windows_result::Result<SpatialMovementRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MovementRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn LookDirectionRange(&self) -> windows_core::Result<SpatialLookDirectionRange> {
+    pub fn LookDirectionRange(&self) -> windows_result::Result<SpatialLookDirectionRange> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LookDirectionRange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetCoordinateSystemAtCurrentLocation<P0>(&self, locator: P0) -> windows_core::Result<SpatialCoordinateSystem>
+    pub fn GetCoordinateSystemAtCurrentLocation<P0>(&self, locator: P0) -> windows_result::Result<SpatialCoordinateSystem>
     where
         P0: windows_core::Param<SpatialLocator>,
     {
@@ -1597,7 +1597,7 @@ impl SpatialStageFrameOfReference {
             (windows_core::Interface::vtable(this).GetCoordinateSystemAtCurrentLocation)(windows_core::Interface::as_raw(this), locator.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TryGetMovementBounds<P0>(&self, coordinatesystem: P0) -> windows_core::Result<windows_core::Array<windows_numerics::Vector3>>
+    pub fn TryGetMovementBounds<P0>(&self, coordinatesystem: P0) -> windows_result::Result<windows_core::Array<windows_numerics::Vector3>>
     where
         P0: windows_core::Param<SpatialCoordinateSystem>,
     {
@@ -1607,13 +1607,13 @@ impl SpatialStageFrameOfReference {
             (windows_core::Interface::vtable(this).TryGetMovementBounds)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), windows_core::Array::<windows_numerics::Vector3>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn Current() -> windows_core::Result<SpatialStageFrameOfReference> {
+    pub fn Current() -> windows_result::Result<SpatialStageFrameOfReference> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CurrentChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn CurrentChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -1622,16 +1622,16 @@ impl SpatialStageFrameOfReference {
             (windows_core::Interface::vtable(this).CurrentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveCurrentChanged(cookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveCurrentChanged(cookie: i64) -> windows_result::Result<()> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveCurrentChanged)(windows_core::Interface::as_raw(this), cookie).ok() })
     }
-    pub fn RequestNewStageAsync() -> windows_core::Result<windows_future::IAsyncOperation<SpatialStageFrameOfReference>> {
+    pub fn RequestNewStageAsync() -> windows_result::Result<windows_future::IAsyncOperation<SpatialStageFrameOfReference>> {
         Self::ISpatialStageFrameOfReferenceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestNewStageAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISpatialStageFrameOfReferenceStatics<R, F: FnOnce(&ISpatialStageFrameOfReferenceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISpatialStageFrameOfReferenceStatics<R, F: FnOnce(&ISpatialStageFrameOfReferenceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SpatialStageFrameOfReference, ISpatialStageFrameOfReferenceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1653,7 +1653,7 @@ unsafe impl Sync for SpatialStageFrameOfReference {}
 pub struct SpatialStationaryFrameOfReference(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SpatialStationaryFrameOfReference, windows_core::IUnknown, windows_core::IInspectable);
 impl SpatialStationaryFrameOfReference {
-    pub fn CoordinateSystem(&self) -> windows_core::Result<SpatialCoordinateSystem> {
+    pub fn CoordinateSystem(&self) -> windows_result::Result<SpatialCoordinateSystem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

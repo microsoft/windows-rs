@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for IUriToStreamResolver {
 windows_core::imp::interface_hierarchy!(IUriToStreamResolver, windows_core::IUnknown, windows_core::IInspectable);
 impl IUriToStreamResolver {
     #[cfg(feature = "Storage_Streams")]
-    pub fn UriToStreamAsync<P0>(&self, uri: P0) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>
+    pub fn UriToStreamAsync<P0>(&self, uri: P0) -> windows_result::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>
     where
         P0: windows_core::Param<super::Foundation::Uri>,
     {
@@ -30,7 +30,7 @@ impl windows_core::RuntimeName for IUriToStreamResolver {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait IUriToStreamResolver_Impl: windows_core::IUnknownImpl {
-    fn UriToStreamAsync(&self, uri: windows_core::Ref<super::Foundation::Uri>) -> windows_core::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
+    fn UriToStreamAsync(&self, uri: windows_core::Ref<super::Foundation::Uri>) -> windows_result::Result<windows_future::IAsyncOperation<super::Storage::Streams::IInputStream>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl IUriToStreamResolver_Vtbl {
@@ -75,13 +75,13 @@ pub struct IWebErrorStatics_Vtbl {
 }
 pub struct WebError;
 impl WebError {
-    pub fn GetStatus(hresult: i32) -> windows_core::Result<WebErrorStatus> {
+    pub fn GetStatus(hresult: i32) -> windows_result::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), hresult, &mut result__).map(|| result__)
         })
     }
-    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WebError, IWebErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

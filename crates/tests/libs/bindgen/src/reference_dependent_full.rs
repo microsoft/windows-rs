@@ -23,7 +23,7 @@ pub mod Windows {
             windows_core::IInspectable
         );
         impl IClosable {
-            pub fn Close(&self) -> windows_core::Result<()> {
+            pub fn Close(&self) -> windows_result::Result<()> {
                 let this = self;
                 unsafe {
                     (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
@@ -37,7 +37,7 @@ pub mod Windows {
             const NAME: &'static str = "Windows.Foundation.IClosable";
         }
         pub trait IClosable_Impl: windows_core::IUnknownImpl {
-            fn Close(&self) -> windows_core::Result<()>;
+            fn Close(&self) -> windows_result::Result<()>;
         }
         impl IClosable_Vtbl {
             pub const fn new<Identity: IClosable_Impl, const OFFSET: isize>() -> Self {
@@ -83,7 +83,7 @@ pub mod Windows {
         impl IMemoryBuffer {
             pub fn CreateReference(
                 &self,
-            ) -> windows_core::Result<
+            ) -> windows_result::Result<
                 crate::reference_dependency_full::Windows::Foundation::IMemoryBufferReference,
             > {
                 let this = self;
@@ -96,7 +96,7 @@ pub mod Windows {
                     .and_then(|| windows_core::Type::from_abi(result__))
                 }
             }
-            pub fn Close(&self) -> windows_core::Result<()> {
+            pub fn Close(&self) -> windows_result::Result<()> {
                 let this = &windows_core::Interface::cast::<IClosable>(self)?;
                 unsafe {
                     (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(
@@ -112,7 +112,7 @@ pub mod Windows {
         pub trait IMemoryBuffer_Impl: IClosable_Impl {
             fn CreateReference(
                 &self,
-            ) -> windows_core::Result<
+            ) -> windows_result::Result<
                 crate::reference_dependency_full::Windows::Foundation::IMemoryBufferReference,
             >;
         }

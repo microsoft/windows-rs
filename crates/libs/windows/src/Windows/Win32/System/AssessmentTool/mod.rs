@@ -17,7 +17,7 @@ impl core::ops::Deref for IAccessibleWinSAT {
 windows_core::imp::interface_hierarchy!(IAccessibleWinSAT, windows_core::IUnknown, super::Com::IDispatch, super::super::UI::Accessibility::IAccessible);
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT {
-    pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_core::Result<()>
+    pub unsafe fn SetAccessiblityData<P0, P1, P2>(&self, wsname: P0, wsvalue: P1, wsdesc: P2) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<windows_core::PCWSTR>,
@@ -35,7 +35,7 @@ pub struct IAccessibleWinSAT_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
 pub trait IAccessibleWinSAT_Impl: super::super::UI::Accessibility::IAccessible_Impl {
-    fn SetAccessiblityData(&self, wsname: &windows_core::PCWSTR, wsvalue: &windows_core::PCWSTR, wsdesc: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn SetAccessiblityData(&self, wsname: &windows_core::PCWSTR, wsvalue: &windows_core::PCWSTR, wsdesc: &windows_core::PCWSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant", feature = "Win32_UI_Accessibility"))]
 impl IAccessibleWinSAT_Vtbl {
@@ -60,20 +60,20 @@ impl windows_core::RuntimeName for IAccessibleWinSAT {}
 windows_core::imp::define_interface!(IInitiateWinSATAssessment, IInitiateWinSATAssessment_Vtbl, 0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
 windows_core::imp::interface_hierarchy!(IInitiateWinSATAssessment, windows_core::IUnknown);
 impl IInitiateWinSATAssessment {
-    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
+    pub unsafe fn InitiateAssessment<P0, P1>(&self, cmdline: P0, pcallbacks: P1, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<IWinSATInitiateEvents>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitiateAssessment)(windows_core::Interface::as_raw(self), cmdline.param().abi(), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()>
+    pub unsafe fn InitiateFormalAssessment<P0>(&self, pcallbacks: P0, callerhwnd: Option<super::super::Foundation::HWND>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IWinSATInitiateEvents>,
     {
         unsafe { (windows_core::Interface::vtable(self).InitiateFormalAssessment)(windows_core::Interface::as_raw(self), pcallbacks.param().abi(), callerhwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn CancelAssessment(&self) -> windows_core::Result<()> {
+    pub unsafe fn CancelAssessment(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CancelAssessment)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -86,9 +86,9 @@ pub struct IInitiateWinSATAssessment_Vtbl {
     pub CancelAssessment: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInitiateWinSATAssessment_Impl: windows_core::IUnknownImpl {
-    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn InitiateFormalAssessment(&self, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_core::Result<()>;
-    fn CancelAssessment(&self) -> windows_core::Result<()>;
+    fn InitiateAssessment(&self, cmdline: &windows_core::PCWSTR, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_result::Result<()>;
+    fn InitiateFormalAssessment(&self, pcallbacks: windows_core::Ref<IWinSATInitiateEvents>, callerhwnd: super::super::Foundation::HWND) -> windows_result::Result<()>;
+    fn CancelAssessment(&self) -> windows_result::Result<()>;
 }
 impl IInitiateWinSATAssessment_Vtbl {
     pub const fn new<Identity: IInitiateWinSATAssessment_Impl, const OFFSET: isize>() -> Self {
@@ -135,19 +135,19 @@ impl core::ops::Deref for IProvideWinSATAssessmentInfo {
 windows_core::imp::interface_hierarchy!(IProvideWinSATAssessmentInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATAssessmentInfo {
-    pub unsafe fn Score(&self) -> windows_core::Result<f32> {
+    pub unsafe fn Score(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Score)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Title(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Title(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Title)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Description(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Description(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Description)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -165,9 +165,9 @@ pub struct IProvideWinSATAssessmentInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProvideWinSATAssessmentInfo_Impl: super::Com::IDispatch_Impl {
-    fn Score(&self) -> windows_core::Result<f32>;
-    fn Title(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Description(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Score(&self) -> windows_result::Result<f32>;
+    fn Title(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Description(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProvideWinSATAssessmentInfo_Vtbl {
@@ -234,32 +234,32 @@ impl core::ops::Deref for IProvideWinSATResultsInfo {
 windows_core::imp::interface_hierarchy!(IProvideWinSATResultsInfo, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IProvideWinSATResultsInfo {
-    pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_core::Result<IProvideWinSATAssessmentInfo> {
+    pub unsafe fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_result::Result<IProvideWinSATAssessmentInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAssessmentInfo)(windows_core::Interface::as_raw(self), assessment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AssessmentState(&self) -> windows_core::Result<WINSAT_ASSESSMENT_STATE> {
+    pub unsafe fn AssessmentState(&self) -> windows_result::Result<WINSAT_ASSESSMENT_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AssessmentState)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn AssessmentDateTime(&self) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn AssessmentDateTime(&self) -> windows_result::Result<super::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AssessmentDateTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SystemRating(&self) -> windows_core::Result<f32> {
+    pub unsafe fn SystemRating(&self) -> windows_result::Result<f32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SystemRating)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RatingStateDesc(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RatingStateDesc(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RatingStateDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -282,11 +282,11 @@ pub struct IProvideWinSATResultsInfo_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IProvideWinSATResultsInfo_Impl: super::Com::IDispatch_Impl {
-    fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_core::Result<IProvideWinSATAssessmentInfo>;
-    fn AssessmentState(&self) -> windows_core::Result<WINSAT_ASSESSMENT_STATE>;
-    fn AssessmentDateTime(&self) -> windows_core::Result<super::Variant::VARIANT>;
-    fn SystemRating(&self) -> windows_core::Result<f32>;
-    fn RatingStateDesc(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn GetAssessmentInfo(&self, assessment: WINSAT_ASSESSMENT_TYPE) -> windows_result::Result<IProvideWinSATAssessmentInfo>;
+    fn AssessmentState(&self) -> windows_result::Result<WINSAT_ASSESSMENT_STATE>;
+    fn AssessmentDateTime(&self) -> windows_result::Result<super::Variant::VARIANT>;
+    fn SystemRating(&self) -> windows_result::Result<f32>;
+    fn RatingStateDesc(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IProvideWinSATResultsInfo_Vtbl {
@@ -370,7 +370,7 @@ windows_core::imp::define_interface!(IProvideWinSATVisuals, IProvideWinSATVisual
 windows_core::imp::interface_hierarchy!(IProvideWinSATVisuals, windows_core::IUnknown);
 impl IProvideWinSATVisuals {
     #[cfg(feature = "Win32_Graphics_Gdi")]
-    pub unsafe fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP> {
+    pub unsafe fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_result::Result<super::super::Graphics::Gdi::HBITMAP> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Bitmap)(windows_core::Interface::as_raw(self), bitmapsize, state, rating, &mut result__).map(|| result__)
@@ -388,7 +388,7 @@ pub struct IProvideWinSATVisuals_Vtbl {
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub trait IProvideWinSATVisuals_Impl: windows_core::IUnknownImpl {
-    fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_core::Result<super::super::Graphics::Gdi::HBITMAP>;
+    fn get_Bitmap(&self, bitmapsize: WINSAT_BITMAP_SIZE, state: WINSAT_ASSESSMENT_STATE, rating: f32) -> windows_result::Result<super::super::Graphics::Gdi::HBITMAP>;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl IProvideWinSATVisuals_Vtbl {
@@ -427,7 +427,7 @@ windows_core::imp::interface_hierarchy!(IQueryAllWinSATAssessments, windows_core
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryAllWinSATAssessments {
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
-    pub unsafe fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
+    pub unsafe fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_result::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AllXML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -446,7 +446,7 @@ pub struct IQueryAllWinSATAssessments_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueryAllWinSATAssessments_Impl: super::Com::IDispatch_Impl {
-    fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
+    fn get_AllXML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_result::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IQueryAllWinSATAssessments_Vtbl {
@@ -474,7 +474,7 @@ impl windows_core::RuntimeName for IQueryAllWinSATAssessments {}
 windows_core::imp::define_interface!(IQueryOEMWinSATCustomization, IQueryOEMWinSATCustomization_Vtbl, 0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
 windows_core::imp::interface_hierarchy!(IQueryOEMWinSATCustomization, windows_core::IUnknown);
 impl IQueryOEMWinSATCustomization {
-    pub unsafe fn GetOEMPrePopulationInfo(&self) -> windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
+    pub unsafe fn GetOEMPrePopulationInfo(&self) -> windows_result::Result<WINSAT_OEM_CUSTOMIZATION_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetOEMPrePopulationInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -488,7 +488,7 @@ pub struct IQueryOEMWinSATCustomization_Vtbl {
     pub GetOEMPrePopulationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WINSAT_OEM_CUSTOMIZATION_STATE) -> windows_core::HRESULT,
 }
 pub trait IQueryOEMWinSATCustomization_Impl: windows_core::IUnknownImpl {
-    fn GetOEMPrePopulationInfo(&self) -> windows_core::Result<WINSAT_OEM_CUSTOMIZATION_STATE>;
+    fn GetOEMPrePopulationInfo(&self) -> windows_result::Result<WINSAT_OEM_CUSTOMIZATION_STATE>;
 }
 impl IQueryOEMWinSATCustomization_Vtbl {
     pub const fn new<Identity: IQueryOEMWinSATCustomization_Impl, const OFFSET: isize>() -> Self {
@@ -525,13 +525,13 @@ windows_core::imp::interface_hierarchy!(IQueryRecentWinSATAssessment, windows_co
 #[cfg(feature = "Win32_System_Com")]
 impl IQueryRecentWinSATAssessment {
     #[cfg(feature = "Win32_Data_Xml_MsXml")]
-    pub unsafe fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
+    pub unsafe fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_result::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_XML)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(xpath), core::mem::transmute_copy(namespaces), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Info(&self) -> windows_core::Result<IProvideWinSATResultsInfo> {
+    pub unsafe fn Info(&self) -> windows_result::Result<IProvideWinSATResultsInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -551,8 +551,8 @@ pub struct IQueryRecentWinSATAssessment_Vtbl {
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IQueryRecentWinSATAssessment_Impl: super::Com::IDispatch_Impl {
-    fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_core::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
-    fn Info(&self) -> windows_core::Result<IProvideWinSATResultsInfo>;
+    fn get_XML(&self, xpath: &windows_core::BSTR, namespaces: &windows_core::BSTR) -> windows_result::Result<super::super::Data::Xml::MsXml::IXMLDOMNodeList>;
+    fn Info(&self) -> windows_result::Result<IProvideWinSATResultsInfo>;
 }
 #[cfg(all(feature = "Win32_Data_Xml_MsXml", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IQueryRecentWinSATAssessment_Vtbl {
@@ -592,13 +592,13 @@ impl windows_core::RuntimeName for IQueryRecentWinSATAssessment {}
 windows_core::imp::define_interface!(IWinSATInitiateEvents, IWinSATInitiateEvents_Vtbl, 0x262a1918_ba0d_41d5_92c2_fab4633ee74f);
 windows_core::imp::interface_hierarchy!(IWinSATInitiateEvents, windows_core::IUnknown);
 impl IWinSATInitiateEvents {
-    pub unsafe fn WinSATComplete<P1>(&self, hresult: windows_core::HRESULT, strdescription: P1) -> windows_core::Result<()>
+    pub unsafe fn WinSATComplete<P1>(&self, hresult: windows_core::HRESULT, strdescription: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).WinSATComplete)(windows_core::Interface::as_raw(self), hresult, strdescription.param().abi()).ok() }
     }
-    pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_core::Result<()>
+    pub unsafe fn WinSATUpdate<P2>(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: P2) -> windows_result::Result<()>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -613,8 +613,8 @@ pub struct IWinSATInitiateEvents_Vtbl {
     pub WinSATUpdate: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, windows_core::PCWSTR) -> windows_core::HRESULT,
 }
 pub trait IWinSATInitiateEvents_Impl: windows_core::IUnknownImpl {
-    fn WinSATComplete(&self, hresult: windows_core::HRESULT, strdescription: &windows_core::PCWSTR) -> windows_core::Result<()>;
-    fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn WinSATComplete(&self, hresult: windows_core::HRESULT, strdescription: &windows_core::PCWSTR) -> windows_result::Result<()>;
+    fn WinSATUpdate(&self, ucurrenttick: u32, uticktotal: u32, strcurrentstate: &windows_core::PCWSTR) -> windows_result::Result<()>;
 }
 impl IWinSATInitiateEvents_Vtbl {
     pub const fn new<Identity: IWinSATInitiateEvents_Impl, const OFFSET: isize>() -> Self {

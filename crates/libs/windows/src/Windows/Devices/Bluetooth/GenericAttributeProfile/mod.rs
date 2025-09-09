@@ -3,67 +3,67 @@
 pub struct GattCharacteristic(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristic {
-    pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
+    pub fn GetDescriptors(&self, descriptoruuid: windows_core::GUID) -> windows_result::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptors)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CharacteristicProperties(&self) -> windows_core::Result<GattCharacteristicProperties> {
+    pub fn CharacteristicProperties(&self) -> windows_result::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UserDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDescription(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
+    pub fn AttributeHandle(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVectorView<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_result::Result<windows_collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -71,7 +71,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -82,7 +82,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueWithOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_result::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -92,21 +92,21 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
+    pub fn ReadClientCharacteristicConfigurationDescriptorAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattReadClientCharacteristicConfigurationDescriptorResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_result::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorAsync)(windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> windows_core::Result<i64>
+    pub fn ValueChanged<P0>(&self, valuechangedhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattCharacteristic, GattValueChangedEventArgs>>,
     {
@@ -116,46 +116,46 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).ValueChanged)(windows_core::Interface::as_raw(this), valuechangedhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveValueChanged(&self, valuechangedeventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveValueChanged(&self, valuechangedeventcookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveValueChanged)(windows_core::Interface::as_raw(this), valuechangedeventcookie).ok() }
     }
-    pub fn Service(&self) -> windows_core::Result<GattDeviceService> {
+    pub fn Service(&self) -> windows_result::Result<GattDeviceService> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Service)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllDescriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
+    pub fn GetAllDescriptors(&self) -> windows_result::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllDescriptors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidAsync(&self, descriptoruuid: windows_core::GUID) -> windows_result::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDescriptorsForUuidAsync)(windows_core::Interface::as_raw(this), descriptoruuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
+    pub fn GetDescriptorsForUuidWithCacheModeAsync(&self, descriptoruuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattDescriptorsResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -163,7 +163,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -174,7 +174,7 @@ impl GattCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAndOptionAsync<P0>(&self, value: P0, writeoption: GattWriteOption) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -184,20 +184,20 @@ impl GattCharacteristic {
             (windows_core::Interface::vtable(this).WriteValueWithResultAndOptionAsync)(windows_core::Interface::as_raw(this), value.param().abi(), writeoption, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
+    pub fn WriteClientCharacteristicConfigurationDescriptorWithResultAsync(&self, clientcharacteristicconfigurationdescriptorvalue: GattClientCharacteristicConfigurationDescriptorValue) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattCharacteristic3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteClientCharacteristicConfigurationDescriptorWithResultAsync)(windows_core::Interface::as_raw(this), clientcharacteristicconfigurationdescriptorvalue, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
+    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicStatics<R, F: FnOnce(&IGattCharacteristicStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristic, IGattCharacteristicStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -271,497 +271,497 @@ impl core::ops::Not for GattCharacteristicProperties {
 }
 pub struct GattCharacteristicUuids;
 impl GattCharacteristicUuids {
-    pub fn BatteryLevel() -> windows_core::Result<windows_core::GUID> {
+    pub fn BatteryLevel() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BloodPressureFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn BloodPressureFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BloodPressureFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BloodPressureMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn BloodPressureMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BloodPressureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BodySensorLocation() -> windows_core::Result<windows_core::GUID> {
+    pub fn BodySensorLocation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BodySensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CscFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn CscFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CscMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn CscMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GlucoseFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn GlucoseFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GlucoseFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GlucoseMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn GlucoseMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GlucoseMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GlucoseMeasurementContext() -> windows_core::Result<windows_core::GUID> {
+    pub fn GlucoseMeasurementContext() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GlucoseMeasurementContext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HeartRateControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn HeartRateControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeartRateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HeartRateMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn HeartRateMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeartRateMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IntermediateCuffPressure() -> windows_core::Result<windows_core::GUID> {
+    pub fn IntermediateCuffPressure() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IntermediateCuffPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IntermediateTemperature() -> windows_core::Result<windows_core::GUID> {
+    pub fn IntermediateTemperature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IntermediateTemperature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn MeasurementInterval() -> windows_core::Result<windows_core::GUID> {
+    pub fn MeasurementInterval() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MeasurementInterval)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecordAccessControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn RecordAccessControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecordAccessControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RscFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn RscFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RscFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RscMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn RscMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RscMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SCControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn SCControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SCControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SensorLocation() -> windows_core::Result<windows_core::GUID> {
+    pub fn SensorLocation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SensorLocation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TemperatureMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn TemperatureMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TemperatureMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TemperatureType() -> windows_core::Result<windows_core::GUID> {
+    pub fn TemperatureType() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TemperatureType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertCategoryId() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertCategoryId() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertCategoryId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertCategoryIdBitMask() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertCategoryIdBitMask() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertCategoryIdBitMask)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertLevel() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertLevel() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertNotificationControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertNotificationControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertNotificationControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertStatus() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertStatus() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GapAppearance() -> windows_core::Result<windows_core::GUID> {
+    pub fn GapAppearance() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GapAppearance)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BootKeyboardInputReport() -> windows_core::Result<windows_core::GUID> {
+    pub fn BootKeyboardInputReport() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BootKeyboardInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BootKeyboardOutputReport() -> windows_core::Result<windows_core::GUID> {
+    pub fn BootKeyboardOutputReport() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BootKeyboardOutputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BootMouseInputReport() -> windows_core::Result<windows_core::GUID> {
+    pub fn BootMouseInputReport() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BootMouseInputReport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CurrentTime() -> windows_core::Result<windows_core::GUID> {
+    pub fn CurrentTime() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingPowerControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingPowerControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingPowerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingPowerFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingPowerFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingPowerFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingPowerMeasurement() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingPowerMeasurement() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingPowerMeasurement)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingPowerVector() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingPowerVector() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingPowerVector)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DateTime() -> windows_core::Result<windows_core::GUID> {
+    pub fn DateTime() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DayDateTime() -> windows_core::Result<windows_core::GUID> {
+    pub fn DayDateTime() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DayDateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DayOfWeek() -> windows_core::Result<windows_core::GUID> {
+    pub fn DayOfWeek() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DayOfWeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GapDeviceName() -> windows_core::Result<windows_core::GUID> {
+    pub fn GapDeviceName() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GapDeviceName)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DstOffset() -> windows_core::Result<windows_core::GUID> {
+    pub fn DstOffset() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DstOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ExactTime256() -> windows_core::Result<windows_core::GUID> {
+    pub fn ExactTime256() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExactTime256)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FirmwareRevisionString() -> windows_core::Result<windows_core::GUID> {
+    pub fn FirmwareRevisionString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FirmwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HardwareRevisionString() -> windows_core::Result<windows_core::GUID> {
+    pub fn HardwareRevisionString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HidControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn HidControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HidControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HidInformation() -> windows_core::Result<windows_core::GUID> {
+    pub fn HidInformation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HidInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Ieee1107320601RegulatoryCertificationDataList() -> windows_core::Result<windows_core::GUID> {
+    pub fn Ieee1107320601RegulatoryCertificationDataList() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Ieee1107320601RegulatoryCertificationDataList)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LnControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn LnControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LnControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LnFeature() -> windows_core::Result<windows_core::GUID> {
+    pub fn LnFeature() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LnFeature)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LocalTimeInformation() -> windows_core::Result<windows_core::GUID> {
+    pub fn LocalTimeInformation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LocationAndSpeed() -> windows_core::Result<windows_core::GUID> {
+    pub fn LocationAndSpeed() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocationAndSpeed)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ManufacturerNameString() -> windows_core::Result<windows_core::GUID> {
+    pub fn ManufacturerNameString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManufacturerNameString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ModelNumberString() -> windows_core::Result<windows_core::GUID> {
+    pub fn ModelNumberString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModelNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Navigation() -> windows_core::Result<windows_core::GUID> {
+    pub fn Navigation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Navigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn NewAlert() -> windows_core::Result<windows_core::GUID> {
+    pub fn NewAlert() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NewAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GapPeripheralPreferredConnectionParameters() -> windows_core::Result<windows_core::GUID> {
+    pub fn GapPeripheralPreferredConnectionParameters() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GapPeripheralPreferredConnectionParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GapPeripheralPrivacyFlag() -> windows_core::Result<windows_core::GUID> {
+    pub fn GapPeripheralPrivacyFlag() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GapPeripheralPrivacyFlag)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PnpId() -> windows_core::Result<windows_core::GUID> {
+    pub fn PnpId() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PnpId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PositionQuality() -> windows_core::Result<windows_core::GUID> {
+    pub fn PositionQuality() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PositionQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ProtocolMode() -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtocolMode() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GapReconnectionAddress() -> windows_core::Result<windows_core::GUID> {
+    pub fn GapReconnectionAddress() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GapReconnectionAddress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ReferenceTimeInformation() -> windows_core::Result<windows_core::GUID> {
+    pub fn ReferenceTimeInformation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReferenceTimeInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Report() -> windows_core::Result<windows_core::GUID> {
+    pub fn Report() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Report)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ReportMap() -> windows_core::Result<windows_core::GUID> {
+    pub fn ReportMap() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportMap)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RingerControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn RingerControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RingerControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RingerSetting() -> windows_core::Result<windows_core::GUID> {
+    pub fn RingerSetting() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RingerSetting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ScanIntervalWindow() -> windows_core::Result<windows_core::GUID> {
+    pub fn ScanIntervalWindow() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScanIntervalWindow)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ScanRefresh() -> windows_core::Result<windows_core::GUID> {
+    pub fn ScanRefresh() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScanRefresh)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SerialNumberString() -> windows_core::Result<windows_core::GUID> {
+    pub fn SerialNumberString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SerialNumberString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GattServiceChanged() -> windows_core::Result<windows_core::GUID> {
+    pub fn GattServiceChanged() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GattServiceChanged)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SoftwareRevisionString() -> windows_core::Result<windows_core::GUID> {
+    pub fn SoftwareRevisionString() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SoftwareRevisionString)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SupportedNewAlertCategory() -> windows_core::Result<windows_core::GUID> {
+    pub fn SupportedNewAlertCategory() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedNewAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SupportUnreadAlertCategory() -> windows_core::Result<windows_core::GUID> {
+    pub fn SupportUnreadAlertCategory() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportUnreadAlertCategory)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SystemId() -> windows_core::Result<windows_core::GUID> {
+    pub fn SystemId() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeAccuracy() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeAccuracy() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeAccuracy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeSource() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeSource() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeSource)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeUpdateControlPoint() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeUpdateControlPoint() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeUpdateControlPoint)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeUpdateState() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeUpdateState() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeUpdateState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeWithDst() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeWithDst() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeWithDst)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TimeZone() -> windows_core::Result<windows_core::GUID> {
+    pub fn TimeZone() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TimeZone)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TxPowerLevel() -> windows_core::Result<windows_core::GUID> {
+    pub fn TxPowerLevel() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TxPowerLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UnreadAlertStatus() -> windows_core::Result<windows_core::GUID> {
+    pub fn UnreadAlertStatus() -> windows_result::Result<windows_core::GUID> {
         Self::IGattCharacteristicUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnreadAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicUuidsStatics<R, F: FnOnce(&IGattCharacteristicUuidsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGattCharacteristicUuidsStatics2<R, F: FnOnce(&IGattCharacteristicUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattCharacteristicUuidsStatics2<R, F: FnOnce(&IGattCharacteristicUuidsStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattCharacteristicUuids, IGattCharacteristicUuidsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -774,21 +774,21 @@ impl windows_core::RuntimeName for GattCharacteristicUuids {
 pub struct GattCharacteristicsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattCharacteristicsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattCharacteristicsResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
+    pub fn Characteristics(&self) -> windows_result::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -827,28 +827,28 @@ impl windows_core::RuntimeType for GattClientCharacteristicConfigurationDescript
 pub struct GattClientNotificationResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattClientNotificationResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattClientNotificationResult {
-    pub fn SubscribedClient(&self) -> windows_core::Result<GattSubscribedClient> {
+    pub fn SubscribedClient(&self) -> windows_result::Result<GattSubscribedClient> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubscribedClient)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BytesSent(&self) -> windows_core::Result<u16> {
+    pub fn BytesSent(&self) -> windows_result::Result<u16> {
         let this = &windows_core::Interface::cast::<IGattClientNotificationResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -888,39 +888,39 @@ impl windows_core::RuntimeType for GattCommunicationStatus {
 pub struct GattDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDescriptor {
-    pub fn ProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
+    pub fn AttributeHandle(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadValueAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValueAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattReadResult>> {
+    pub fn ReadValueWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattReadResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -928,7 +928,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
+    pub fn WriteValueAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<GattCommunicationStatus>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -939,7 +939,7 @@ impl GattDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>>
+    pub fn WriteValueWithResultAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -949,13 +949,13 @@ impl GattDescriptor {
             (windows_core::Interface::vtable(this).WriteValueWithResultAsync)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
+    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDescriptorStatics<R, F: FnOnce(&IGattDescriptorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDescriptor, IGattDescriptorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -974,43 +974,43 @@ unsafe impl Send for GattDescriptor {}
 unsafe impl Sync for GattDescriptor {}
 pub struct GattDescriptorUuids;
 impl GattDescriptorUuids {
-    pub fn CharacteristicAggregateFormat() -> windows_core::Result<windows_core::GUID> {
+    pub fn CharacteristicAggregateFormat() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicAggregateFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CharacteristicExtendedProperties() -> windows_core::Result<windows_core::GUID> {
+    pub fn CharacteristicExtendedProperties() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicExtendedProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CharacteristicPresentationFormat() -> windows_core::Result<windows_core::GUID> {
+    pub fn CharacteristicPresentationFormat() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicPresentationFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CharacteristicUserDescription() -> windows_core::Result<windows_core::GUID> {
+    pub fn CharacteristicUserDescription() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicUserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ClientCharacteristicConfiguration() -> windows_core::Result<windows_core::GUID> {
+    pub fn ClientCharacteristicConfiguration() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClientCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ServerCharacteristicConfiguration() -> windows_core::Result<windows_core::GUID> {
+    pub fn ServerCharacteristicConfiguration() -> windows_result::Result<windows_core::GUID> {
         Self::IGattDescriptorUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServerCharacteristicConfiguration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDescriptorUuidsStatics<R, F: FnOnce(&IGattDescriptorUuidsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDescriptorUuids, IGattDescriptorUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1023,21 +1023,21 @@ impl windows_core::RuntimeName for GattDescriptorUuids {
 pub struct GattDescriptorsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDescriptorsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDescriptorsResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattDescriptor>> {
+    pub fn Descriptors(&self) -> windows_result::Result<windows_collections::IVectorView<GattDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1063,67 +1063,67 @@ pub struct GattDeviceService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDeviceService, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattDeviceService, super::super::super::Foundation::IClosable);
 impl GattDeviceService {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
+    pub fn GetCharacteristics(&self, characteristicuuid: windows_core::GUID) -> windows_result::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristics)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn GetIncludedServices(&self, serviceuuid: windows_core::GUID) -> windows_result::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServices)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AttributeHandle(&self) -> windows_core::Result<u16> {
+    pub fn AttributeHandle(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Device(&self) -> windows_core::Result<super::BluetoothLEDevice> {
+    pub fn Device(&self) -> windows_result::Result<super::BluetoothLEDevice> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Device)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ParentServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn ParentServices(&self) -> windows_result::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ParentServices)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllCharacteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattCharacteristic>> {
+    pub fn GetAllCharacteristics(&self) -> windows_result::Result<windows_collections::IVectorView<GattCharacteristic>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAllCharacteristics)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAllIncludedServices(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn GetAllIncludedServices(&self) -> windows_result::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1131,21 +1131,21 @@ impl GattDeviceService {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceAccessInformation(&self) -> windows_core::Result<super::super::Enumeration::DeviceAccessInformation> {
+    pub fn DeviceAccessInformation(&self) -> windows_result::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceAccessInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Session(&self) -> windows_core::Result<GattSession> {
+    pub fn Session(&self) -> windows_result::Result<GattSession> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SharingMode(&self) -> windows_core::Result<GattSharingMode> {
+    pub fn SharingMode(&self) -> windows_result::Result<GattSharingMode> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1153,107 +1153,107 @@ impl GattDeviceService {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattOpenStatus>> {
+    pub fn OpenAsync(&self, sharingmode: GattSharingMode) -> windows_result::Result<windows_future::IAsyncOperation<GattOpenStatus>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAsync)(windows_core::Interface::as_raw(this), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidAsync(&self, characteristicuuid: windows_core::GUID) -> windows_result::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidAsync)(windows_core::Interface::as_raw(this), characteristicuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
+    pub fn GetCharacteristicsForUuidWithCacheModeAsync(&self, characteristicuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattCharacteristicsResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetCharacteristicsForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), characteristicuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesWithCacheModeAsync)(windows_core::Interface::as_raw(this), cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidAsync(&self, serviceuuid: windows_core::GUID) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
+    pub fn GetIncludedServicesForUuidWithCacheModeAsync(&self, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceServicesResult>> {
         let this = &windows_core::Interface::cast::<IGattDeviceService3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetIncludedServicesForUuidWithCacheModeAsync)(windows_core::Interface::as_raw(this), serviceuuid, cachemode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelectorFromUuid(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromUuid(serviceuuid: windows_core::GUID) -> windows_result::Result<windows_core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromUuid)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelectorFromShortId(serviceshortid: u16) -> windows_result::Result<windows_core::HSTRING> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelectorFromShortId)(windows_core::Interface::as_raw(this), serviceshortid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_core::Result<windows_core::GUID> {
+    pub fn ConvertShortIdToUuid(shortid: u16) -> windows_result::Result<windows_core::GUID> {
         Self::IGattDeviceServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConvertShortIdToUuid)(windows_core::Interface::as_raw(this), shortid, &mut result__).map(|| result__)
         })
     }
-    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_core::Result<windows_future::IAsyncOperation<GattDeviceService>> {
+    pub fn FromIdWithSharingModeAsync(deviceid: &windows_core::HSTRING, sharingmode: GattSharingMode) -> windows_result::Result<windows_future::IAsyncOperation<GattDeviceService>> {
         Self::IGattDeviceServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdWithSharingModeAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), sharingmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceId<P0>(bluetoothdeviceid: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceId<P0>(bluetoothdeviceid: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -1262,7 +1262,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceId)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<P0>(bluetoothdeviceid: P0, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceIdWithCacheMode<P0>(bluetoothdeviceid: P0, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -1271,7 +1271,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), cachemode, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuid<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -1280,7 +1280,7 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuid)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode<P0>(bluetoothdeviceid: P0, serviceuuid: windows_core::GUID, cachemode: super::BluetoothCacheMode) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -1289,11 +1289,11 @@ impl GattDeviceService {
             (windows_core::Interface::vtable(this).GetDeviceSelectorForBluetoothDeviceIdAndUuidWithCacheMode)(windows_core::Interface::as_raw(this), bluetoothdeviceid.param().abi(), serviceuuid, cachemode, &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDeviceServiceStatics<R, F: FnOnce(&IGattDeviceServiceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGattDeviceServiceStatics2<R, F: FnOnce(&IGattDeviceServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattDeviceServiceStatics2<R, F: FnOnce(&IGattDeviceServiceStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattDeviceService, IGattDeviceServiceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1315,21 +1315,21 @@ unsafe impl Sync for GattDeviceService {}
 pub struct GattDeviceServicesResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattDeviceServicesResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattDeviceServicesResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtocolError)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Services(&self) -> windows_core::Result<windows_collections::IVectorView<GattDeviceService>> {
+    pub fn Services(&self) -> windows_result::Result<windows_collections::IVectorView<GattDeviceService>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1354,7 +1354,7 @@ unsafe impl Sync for GattDeviceServicesResult {}
 pub struct GattLocalCharacteristic(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristic, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristic {
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1362,35 +1362,35 @@ impl GattLocalCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn StaticValue(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaticValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CharacteristicProperties(&self) -> windows_core::Result<GattCharacteristicProperties> {
+    pub fn CharacteristicProperties(&self) -> windows_result::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ReadProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn WriteProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalDescriptorResult>>
+    pub fn CreateDescriptorAsync<P1>(&self, descriptoruuid: windows_core::GUID, parameters: P1) -> windows_result::Result<windows_future::IAsyncOperation<GattLocalDescriptorResult>>
     where
         P1: windows_core::Param<GattLocalDescriptorParameters>,
     {
@@ -1400,35 +1400,35 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).CreateDescriptorAsync)(windows_core::Interface::as_raw(this), descriptoruuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Descriptors(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalDescriptor>> {
+    pub fn Descriptors(&self) -> windows_result::Result<windows_collections::IVectorView<GattLocalDescriptor>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Descriptors)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UserDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDescription(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVectorView<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_result::Result<windows_collections::IVectorView<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubscribedClients(&self) -> windows_core::Result<windows_collections::IVectorView<GattSubscribedClient>> {
+    pub fn SubscribedClients(&self) -> windows_result::Result<windows_collections::IVectorView<GattSubscribedClient>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubscribedClients)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SubscribedClientsChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, windows_core::IInspectable>>,
     {
@@ -1438,11 +1438,11 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).SubscribedClientsChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSubscribedClientsChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSubscribedClientsChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSubscribedClientsChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattReadRequestedEventArgs>>,
     {
@@ -1452,11 +1452,11 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReadRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalCharacteristic, GattWriteRequestedEventArgs>>,
     {
@@ -1466,12 +1466,12 @@ impl GattLocalCharacteristic {
             (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveWriteRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
+    pub fn NotifyValueAsync<P0>(&self, value: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<GattClientNotificationResult>>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1482,7 +1482,7 @@ impl GattLocalCharacteristic {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattClientNotificationResult>>
+    pub fn NotifyValueForSubscribedClientAsync<P0, P1>(&self, value: P0, subscribedclient: P1) -> windows_result::Result<windows_future::IAsyncOperation<GattClientNotificationResult>>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<GattSubscribedClient>,
@@ -1511,15 +1511,15 @@ unsafe impl Sync for GattLocalCharacteristic {}
 pub struct GattLocalCharacteristicParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristicParameters {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattLocalCharacteristicParameters, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStaticValue<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetStaticValue<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1527,58 +1527,58 @@ impl GattLocalCharacteristicParameters {
         unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn StaticValue(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaticValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetCharacteristicProperties(&self, value: GattCharacteristicProperties) -> windows_core::Result<()> {
+    pub fn SetCharacteristicProperties(&self, value: GattCharacteristicProperties) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetCharacteristicProperties)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CharacteristicProperties(&self) -> windows_core::Result<GattCharacteristicProperties> {
+    pub fn CharacteristicProperties(&self) -> windows_result::Result<GattCharacteristicProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicProperties)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReadProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReadProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ReadProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWriteProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn WriteProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn WriteProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUserDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetUserDescription(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUserDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn UserDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserDescription(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PresentationFormats(&self) -> windows_core::Result<windows_collections::IVector<GattPresentationFormat>> {
+    pub fn PresentationFormats(&self) -> windows_result::Result<windows_collections::IVector<GattPresentationFormat>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1603,14 +1603,14 @@ unsafe impl Sync for GattLocalCharacteristicParameters {}
 pub struct GattLocalCharacteristicResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalCharacteristicResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalCharacteristicResult {
-    pub fn Characteristic(&self) -> windows_core::Result<GattLocalCharacteristic> {
+    pub fn Characteristic(&self) -> windows_result::Result<GattLocalCharacteristic> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Characteristic)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1635,7 +1635,7 @@ unsafe impl Sync for GattLocalCharacteristicResult {}
 pub struct GattLocalDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptor {
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1643,28 +1643,28 @@ impl GattLocalDescriptor {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn StaticValue(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaticValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ReadProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn WriteProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn WriteProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReadRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattReadRequestedEventArgs>>,
     {
@@ -1674,11 +1674,11 @@ impl GattLocalDescriptor {
             (windows_core::Interface::vtable(this).ReadRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReadRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReadRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReadRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn WriteRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattLocalDescriptor, GattWriteRequestedEventArgs>>,
     {
@@ -1688,7 +1688,7 @@ impl GattLocalDescriptor {
             (windows_core::Interface::vtable(this).WriteRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveWriteRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveWriteRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveWriteRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1710,15 +1710,15 @@ unsafe impl Sync for GattLocalDescriptor {}
 pub struct GattLocalDescriptorParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptorParameters {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattLocalDescriptorParameters, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetStaticValue<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetStaticValue<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1726,29 +1726,29 @@ impl GattLocalDescriptorParameters {
         unsafe { (windows_core::Interface::vtable(this).SetStaticValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn StaticValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn StaticValue(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StaticValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetReadProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReadProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReadProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn ReadProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadProtectionLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> windows_core::Result<()> {
+    pub fn SetWriteProtectionLevel(&self, value: GattProtectionLevel) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetWriteProtectionLevel)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn WriteProtectionLevel(&self) -> windows_core::Result<GattProtectionLevel> {
+    pub fn WriteProtectionLevel(&self) -> windows_result::Result<GattProtectionLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1773,14 +1773,14 @@ unsafe impl Sync for GattLocalDescriptorParameters {}
 pub struct GattLocalDescriptorResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalDescriptorResult {
-    pub fn Descriptor(&self) -> windows_core::Result<GattLocalDescriptor> {
+    pub fn Descriptor(&self) -> windows_result::Result<GattLocalDescriptor> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Descriptor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1805,14 +1805,14 @@ unsafe impl Sync for GattLocalDescriptorResult {}
 pub struct GattLocalService(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattLocalService, windows_core::IUnknown, windows_core::IInspectable);
 impl GattLocalService {
-    pub fn Uuid(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Uuid(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uuid)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_core::Result<windows_future::IAsyncOperation<GattLocalCharacteristicResult>>
+    pub fn CreateCharacteristicAsync<P1>(&self, characteristicuuid: windows_core::GUID, parameters: P1) -> windows_result::Result<windows_future::IAsyncOperation<GattLocalCharacteristicResult>>
     where
         P1: windows_core::Param<GattLocalCharacteristicParameters>,
     {
@@ -1822,7 +1822,7 @@ impl GattLocalService {
             (windows_core::Interface::vtable(this).CreateCharacteristicAsync)(windows_core::Interface::as_raw(this), characteristicuuid, parameters.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Characteristics(&self) -> windows_core::Result<windows_collections::IVectorView<GattLocalCharacteristic>> {
+    pub fn Characteristics(&self) -> windows_result::Result<windows_collections::IVectorView<GattLocalCharacteristic>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1864,58 +1864,58 @@ impl windows_core::RuntimeType for GattOpenStatus {
 pub struct GattPresentationFormat(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattPresentationFormat, windows_core::IUnknown, windows_core::IInspectable);
 impl GattPresentationFormat {
-    pub fn FormatType(&self) -> windows_core::Result<u8> {
+    pub fn FormatType(&self) -> windows_result::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FormatType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Exponent(&self) -> windows_core::Result<i32> {
+    pub fn Exponent(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Exponent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Unit(&self) -> windows_core::Result<u16> {
+    pub fn Unit(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Unit)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Namespace(&self) -> windows_core::Result<u8> {
+    pub fn Namespace(&self) -> windows_result::Result<u8> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Namespace)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Description(&self) -> windows_core::Result<u16> {
+    pub fn Description(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BluetoothSigAssignedNumbers() -> windows_core::Result<u8> {
+    pub fn BluetoothSigAssignedNumbers() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BluetoothSigAssignedNumbers)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> windows_core::Result<GattPresentationFormat> {
+    pub fn FromParts(formattype: u8, exponent: i32, unit: u16, namespaceid: u8, description: u16) -> windows_result::Result<GattPresentationFormat> {
         Self::IGattPresentationFormatStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromParts)(windows_core::Interface::as_raw(this), formattype, exponent, unit, namespaceid, description, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGattPresentationFormatStatics<R, F: FnOnce(&IGattPresentationFormatStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatStatics<R, F: FnOnce(&IGattPresentationFormatStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGattPresentationFormatStatics2<R, F: FnOnce(&IGattPresentationFormatStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatStatics2<R, F: FnOnce(&IGattPresentationFormatStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormat, IGattPresentationFormatStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1934,169 +1934,169 @@ unsafe impl Send for GattPresentationFormat {}
 unsafe impl Sync for GattPresentationFormat {}
 pub struct GattPresentationFormatTypes;
 impl GattPresentationFormatTypes {
-    pub fn Boolean() -> windows_core::Result<u8> {
+    pub fn Boolean() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Boolean)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Bit2() -> windows_core::Result<u8> {
+    pub fn Bit2() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Bit2)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Nibble() -> windows_core::Result<u8> {
+    pub fn Nibble() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Nibble)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt8() -> windows_core::Result<u8> {
+    pub fn UInt8() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt8)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt12() -> windows_core::Result<u8> {
+    pub fn UInt12() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt12)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt16() -> windows_core::Result<u8> {
+    pub fn UInt16() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt16)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt24() -> windows_core::Result<u8> {
+    pub fn UInt24() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt24)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt32() -> windows_core::Result<u8> {
+    pub fn UInt32() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt32)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt48() -> windows_core::Result<u8> {
+    pub fn UInt48() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt48)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt64() -> windows_core::Result<u8> {
+    pub fn UInt64() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt64)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UInt128() -> windows_core::Result<u8> {
+    pub fn UInt128() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UInt128)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt8() -> windows_core::Result<u8> {
+    pub fn SInt8() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt8)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt12() -> windows_core::Result<u8> {
+    pub fn SInt12() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt12)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt16() -> windows_core::Result<u8> {
+    pub fn SInt16() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt16)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt24() -> windows_core::Result<u8> {
+    pub fn SInt24() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt24)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt32() -> windows_core::Result<u8> {
+    pub fn SInt32() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt32)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt48() -> windows_core::Result<u8> {
+    pub fn SInt48() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt48)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt64() -> windows_core::Result<u8> {
+    pub fn SInt64() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt64)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SInt128() -> windows_core::Result<u8> {
+    pub fn SInt128() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SInt128)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Float32() -> windows_core::Result<u8> {
+    pub fn Float32() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Float32)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Float64() -> windows_core::Result<u8> {
+    pub fn Float64() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Float64)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SFloat() -> windows_core::Result<u8> {
+    pub fn SFloat() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SFloat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Float() -> windows_core::Result<u8> {
+    pub fn Float() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Float)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DUInt16() -> windows_core::Result<u8> {
+    pub fn DUInt16() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DUInt16)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Utf8() -> windows_core::Result<u8> {
+    pub fn Utf8() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Utf8)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Utf16() -> windows_core::Result<u8> {
+    pub fn Utf16() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Utf16)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Struct() -> windows_core::Result<u8> {
+    pub fn Struct() -> windows_result::Result<u8> {
         Self::IGattPresentationFormatTypesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Struct)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGattPresentationFormatTypesStatics<R, F: FnOnce(&IGattPresentationFormatTypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattPresentationFormatTypesStatics<R, F: FnOnce(&IGattPresentationFormatTypesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattPresentationFormatTypes, IGattPresentationFormatTypesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2121,109 +2121,109 @@ impl windows_core::RuntimeType for GattProtectionLevel {
 }
 pub struct GattProtocolError;
 impl GattProtocolError {
-    pub fn InvalidHandle() -> windows_core::Result<u8> {
+    pub fn InvalidHandle() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvalidHandle)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ReadNotPermitted() -> windows_core::Result<u8> {
+    pub fn ReadNotPermitted() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadNotPermitted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn WriteNotPermitted() -> windows_core::Result<u8> {
+    pub fn WriteNotPermitted() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WriteNotPermitted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InvalidPdu() -> windows_core::Result<u8> {
+    pub fn InvalidPdu() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvalidPdu)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InsufficientAuthentication() -> windows_core::Result<u8> {
+    pub fn InsufficientAuthentication() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsufficientAuthentication)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RequestNotSupported() -> windows_core::Result<u8> {
+    pub fn RequestNotSupported() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestNotSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InvalidOffset() -> windows_core::Result<u8> {
+    pub fn InvalidOffset() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvalidOffset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InsufficientAuthorization() -> windows_core::Result<u8> {
+    pub fn InsufficientAuthorization() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsufficientAuthorization)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PrepareQueueFull() -> windows_core::Result<u8> {
+    pub fn PrepareQueueFull() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrepareQueueFull)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AttributeNotFound() -> windows_core::Result<u8> {
+    pub fn AttributeNotFound() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeNotFound)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AttributeNotLong() -> windows_core::Result<u8> {
+    pub fn AttributeNotLong() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AttributeNotLong)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InsufficientEncryptionKeySize() -> windows_core::Result<u8> {
+    pub fn InsufficientEncryptionKeySize() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsufficientEncryptionKeySize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InvalidAttributeValueLength() -> windows_core::Result<u8> {
+    pub fn InvalidAttributeValueLength() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvalidAttributeValueLength)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UnlikelyError() -> windows_core::Result<u8> {
+    pub fn UnlikelyError() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnlikelyError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InsufficientEncryption() -> windows_core::Result<u8> {
+    pub fn InsufficientEncryption() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsufficientEncryption)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn UnsupportedGroupType() -> windows_core::Result<u8> {
+    pub fn UnsupportedGroupType() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnsupportedGroupType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn InsufficientResources() -> windows_core::Result<u8> {
+    pub fn InsufficientResources() -> windows_result::Result<u8> {
         Self::IGattProtocolErrorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InsufficientResources)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGattProtocolErrorStatics<R, F: FnOnce(&IGattProtocolErrorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattProtocolErrorStatics<R, F: FnOnce(&IGattProtocolErrorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattProtocolError, IGattProtocolErrorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2236,21 +2236,21 @@ impl windows_core::RuntimeName for GattProtocolError {
 pub struct GattReadClientCharacteristicConfigurationDescriptorResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadClientCharacteristicConfigurationDescriptorResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadClientCharacteristicConfigurationDescriptorResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ClientCharacteristicConfigurationDescriptor(&self) -> windows_core::Result<GattClientCharacteristicConfigurationDescriptorValue> {
+    pub fn ClientCharacteristicConfigurationDescriptor(&self) -> windows_result::Result<GattClientCharacteristicConfigurationDescriptorValue> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClientCharacteristicConfigurationDescriptor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &windows_core::Interface::cast::<IGattReadClientCharacteristicConfigurationDescriptorResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2275,28 +2275,28 @@ unsafe impl Sync for GattReadClientCharacteristicConfigurationDescriptorResult {
 pub struct GattReadRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadRequest {
-    pub fn Offset(&self) -> windows_core::Result<u32> {
+    pub fn Offset(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Length(&self) -> windows_core::Result<u32> {
+    pub fn Length(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Length)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn State(&self) -> windows_core::Result<GattRequestState> {
+    pub fn State(&self) -> windows_result::Result<GattRequestState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattReadRequest, GattRequestStateChangedEventArgs>>,
     {
@@ -2306,19 +2306,19 @@ impl GattReadRequest {
             (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn RespondWithValue<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn RespondWithValue<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RespondWithValue)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RespondWithProtocolError(&self, protocolerror: u8) -> windows_core::Result<()> {
+    pub fn RespondWithProtocolError(&self, protocolerror: u8) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
@@ -2340,21 +2340,21 @@ unsafe impl Sync for GattReadRequest {}
 pub struct GattReadRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadRequestedEventArgs {
-    pub fn Session(&self) -> windows_core::Result<GattSession> {
+    pub fn Session(&self) -> windows_result::Result<GattSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattReadRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattReadRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2379,7 +2379,7 @@ unsafe impl Sync for GattReadRequestedEventArgs {}
 pub struct GattReadResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReadResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReadResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2387,14 +2387,14 @@ impl GattReadResult {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Value(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = &windows_core::Interface::cast::<IGattReadResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2419,15 +2419,15 @@ unsafe impl Sync for GattReadResult {}
 pub struct GattReliableWriteTransaction(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattReliableWriteTransaction, windows_core::IUnknown, windows_core::IInspectable);
 impl GattReliableWriteTransaction {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattReliableWriteTransaction, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn WriteValue<P0, P1>(&self, characteristic: P0, value: P1) -> windows_core::Result<()>
+    pub fn WriteValue<P0, P1>(&self, characteristic: P0, value: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<GattCharacteristic>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -2435,14 +2435,14 @@ impl GattReliableWriteTransaction {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).WriteValue)(windows_core::Interface::as_raw(this), characteristic.param().abi(), value.param().abi()).ok() }
     }
-    pub fn CommitAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
+    pub fn CommitAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattCommunicationStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommitAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CommitWithResultAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteResult>> {
+    pub fn CommitWithResultAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteResult>> {
         let this = &windows_core::Interface::cast::<IGattReliableWriteTransaction2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2481,14 +2481,14 @@ impl windows_core::RuntimeType for GattRequestState {
 pub struct GattRequestStateChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattRequestStateChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattRequestStateChangedEventArgs {
-    pub fn State(&self) -> windows_core::Result<GattRequestState> {
+    pub fn State(&self) -> windows_result::Result<GattRequestState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2513,21 +2513,21 @@ unsafe impl Sync for GattRequestStateChangedEventArgs {}
 pub struct GattServiceProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProvider {
-    pub fn Service(&self) -> windows_core::Result<GattLocalService> {
+    pub fn Service(&self) -> windows_result::Result<GattLocalService> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Service)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AdvertisementStatus(&self) -> windows_core::Result<GattServiceProviderAdvertisementStatus> {
+    pub fn AdvertisementStatus(&self) -> windows_result::Result<GattServiceProviderAdvertisementStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AdvertisementStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AdvertisementStatusChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattServiceProvider, GattServiceProviderAdvertisementStatusChangedEventArgs>>,
     {
@@ -2537,39 +2537,39 @@ impl GattServiceProvider {
             (windows_core::Interface::vtable(this).AdvertisementStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAdvertisementStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAdvertisementStatusChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdvertisementStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn StartAdvertising(&self) -> windows_core::Result<()> {
+    pub fn StartAdvertising(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn StartAdvertisingWithParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
+    pub fn StartAdvertisingWithParameters<P0>(&self, parameters: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<GattServiceProviderAdvertisingParameters>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartAdvertisingWithParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
     }
-    pub fn StopAdvertising(&self) -> windows_core::Result<()> {
+    pub fn StopAdvertising(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StopAdvertising)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn UpdateAdvertisingParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
+    pub fn UpdateAdvertisingParameters<P0>(&self, parameters: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<GattServiceProviderAdvertisingParameters>,
     {
         let this = &windows_core::Interface::cast::<IGattServiceProvider2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UpdateAdvertisingParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
     }
-    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_core::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
+    pub fn CreateAsync(serviceuuid: windows_core::GUID) -> windows_result::Result<windows_future::IAsyncOperation<GattServiceProviderResult>> {
         Self::IGattServiceProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), serviceuuid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGattServiceProviderStatics<R, F: FnOnce(&IGattServiceProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceProviderStatics<R, F: FnOnce(&IGattServiceProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceProvider, IGattServiceProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2607,14 +2607,14 @@ impl windows_core::RuntimeType for GattServiceProviderAdvertisementStatus {
 pub struct GattServiceProviderAdvertisementStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisementStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderAdvertisementStatusChangedEventArgs {
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Status(&self) -> windows_core::Result<GattServiceProviderAdvertisementStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattServiceProviderAdvertisementStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2639,29 +2639,29 @@ unsafe impl Sync for GattServiceProviderAdvertisementStatusChangedEventArgs {}
 pub struct GattServiceProviderAdvertisingParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderAdvertisingParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderAdvertisingParameters {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceProviderAdvertisingParameters, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetIsConnectable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsConnectable(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsConnectable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsConnectable(&self) -> windows_core::Result<bool> {
+    pub fn IsConnectable(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsConnectable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsDiscoverable(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsDiscoverable(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsDiscoverable)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsDiscoverable(&self) -> windows_core::Result<bool> {
+    pub fn IsDiscoverable(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2669,7 +2669,7 @@ impl GattServiceProviderAdvertisingParameters {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetServiceData<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetServiceData<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -2677,32 +2677,32 @@ impl GattServiceProviderAdvertisingParameters {
         unsafe { (windows_core::Interface::vtable(this).SetServiceData)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ServiceData(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ServiceData(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UseLowEnergyUncoded1MPhyAsSecondaryPhy(&self) -> windows_core::Result<bool> {
+    pub fn UseLowEnergyUncoded1MPhyAsSecondaryPhy(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseLowEnergyUncoded1MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUseLowEnergyUncoded1MPhyAsSecondaryPhy(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetUseLowEnergyUncoded1MPhyAsSecondaryPhy(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUseLowEnergyUncoded1MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn UseLowEnergyUncoded2MPhyAsSecondaryPhy(&self) -> windows_core::Result<bool> {
+    pub fn UseLowEnergyUncoded2MPhyAsSecondaryPhy(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UseLowEnergyUncoded2MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetUseLowEnergyUncoded2MPhyAsSecondaryPhy(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetUseLowEnergyUncoded2MPhyAsSecondaryPhy(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IGattServiceProviderAdvertisingParameters3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUseLowEnergyUncoded2MPhyAsSecondaryPhy)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -2724,14 +2724,14 @@ unsafe impl Sync for GattServiceProviderAdvertisingParameters {}
 pub struct GattServiceProviderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattServiceProviderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattServiceProviderResult {
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ServiceProvider(&self) -> windows_core::Result<GattServiceProvider> {
+    pub fn ServiceProvider(&self) -> windows_result::Result<GattServiceProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2753,143 +2753,143 @@ unsafe impl Send for GattServiceProviderResult {}
 unsafe impl Sync for GattServiceProviderResult {}
 pub struct GattServiceUuids;
 impl GattServiceUuids {
-    pub fn Battery() -> windows_core::Result<windows_core::GUID> {
+    pub fn Battery() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Battery)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BloodPressure() -> windows_core::Result<windows_core::GUID> {
+    pub fn BloodPressure() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BloodPressure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingSpeedAndCadence() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingSpeedAndCadence() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GenericAccess() -> windows_core::Result<windows_core::GUID> {
+    pub fn GenericAccess() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenericAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn GenericAttribute() -> windows_core::Result<windows_core::GUID> {
+    pub fn GenericAttribute() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenericAttribute)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn Glucose() -> windows_core::Result<windows_core::GUID> {
+    pub fn Glucose() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Glucose)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HealthThermometer() -> windows_core::Result<windows_core::GUID> {
+    pub fn HealthThermometer() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HealthThermometer)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HeartRate() -> windows_core::Result<windows_core::GUID> {
+    pub fn HeartRate() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeartRate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RunningSpeedAndCadence() -> windows_core::Result<windows_core::GUID> {
+    pub fn RunningSpeedAndCadence() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RunningSpeedAndCadence)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn AlertNotification() -> windows_core::Result<windows_core::GUID> {
+    pub fn AlertNotification() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlertNotification)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CurrentTime() -> windows_core::Result<windows_core::GUID> {
+    pub fn CurrentTime() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CyclingPower() -> windows_core::Result<windows_core::GUID> {
+    pub fn CyclingPower() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CyclingPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DeviceInformation() -> windows_core::Result<windows_core::GUID> {
+    pub fn DeviceInformation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceInformation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HumanInterfaceDevice() -> windows_core::Result<windows_core::GUID> {
+    pub fn HumanInterfaceDevice() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HumanInterfaceDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ImmediateAlert() -> windows_core::Result<windows_core::GUID> {
+    pub fn ImmediateAlert() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImmediateAlert)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LinkLoss() -> windows_core::Result<windows_core::GUID> {
+    pub fn LinkLoss() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LinkLoss)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LocationAndNavigation() -> windows_core::Result<windows_core::GUID> {
+    pub fn LocationAndNavigation() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocationAndNavigation)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn NextDstChange() -> windows_core::Result<windows_core::GUID> {
+    pub fn NextDstChange() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextDstChange)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PhoneAlertStatus() -> windows_core::Result<windows_core::GUID> {
+    pub fn PhoneAlertStatus() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhoneAlertStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ReferenceTimeUpdate() -> windows_core::Result<windows_core::GUID> {
+    pub fn ReferenceTimeUpdate() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReferenceTimeUpdate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ScanParameters() -> windows_core::Result<windows_core::GUID> {
+    pub fn ScanParameters() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ScanParameters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TxPower() -> windows_core::Result<windows_core::GUID> {
+    pub fn TxPower() -> windows_result::Result<windows_core::GUID> {
         Self::IGattServiceUuidsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TxPower)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceUuidsStatics<R, F: FnOnce(&IGattServiceUuidsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IGattServiceUuidsStatics2<R, F: FnOnce(&IGattServiceUuidsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattServiceUuidsStatics2<R, F: FnOnce(&IGattServiceUuidsStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattServiceUuids, IGattServiceUuidsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2903,50 +2903,50 @@ pub struct GattSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(GattSession, super::super::super::Foundation::IClosable);
 impl GattSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn DeviceId(&self) -> windows_core::Result<super::BluetoothDeviceId> {
+    pub fn DeviceId(&self) -> windows_result::Result<super::BluetoothDeviceId> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CanMaintainConnection(&self) -> windows_core::Result<bool> {
+    pub fn CanMaintainConnection(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanMaintainConnection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaintainConnection(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetMaintainConnection(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaintainConnection)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn MaintainConnection(&self) -> windows_core::Result<bool> {
+    pub fn MaintainConnection(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaintainConnection)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPduSize(&self) -> windows_core::Result<u16> {
+    pub fn MaxPduSize(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxPduSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionStatus(&self) -> windows_core::Result<GattSessionStatus> {
+    pub fn SessionStatus(&self) -> windows_result::Result<GattSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MaxPduSizeChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSession, windows_core::IInspectable>>,
     {
@@ -2956,11 +2956,11 @@ impl GattSession {
             (windows_core::Interface::vtable(this).MaxPduSizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMaxPduSizeChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMaxPduSizeChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMaxPduSizeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SessionStatusChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSession, GattSessionStatusChangedEventArgs>>,
     {
@@ -2970,11 +2970,11 @@ impl GattSession {
             (windows_core::Interface::vtable(this).SessionStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSessionStatusChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSessionStatusChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_core::Result<windows_future::IAsyncOperation<GattSession>>
+    pub fn FromDeviceIdAsync<P0>(deviceid: P0) -> windows_result::Result<windows_future::IAsyncOperation<GattSession>>
     where
         P0: windows_core::Param<super::BluetoothDeviceId>,
     {
@@ -2983,7 +2983,7 @@ impl GattSession {
             (windows_core::Interface::vtable(this).FromDeviceIdAsync)(windows_core::Interface::as_raw(this), deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGattSessionStatics<R, F: FnOnce(&IGattSessionStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GattSession, IGattSessionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3018,14 +3018,14 @@ impl windows_core::RuntimeType for GattSessionStatus {
 pub struct GattSessionStatusChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSessionStatusChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattSessionStatusChangedEventArgs {
-    pub fn Error(&self) -> windows_core::Result<super::BluetoothError> {
+    pub fn Error(&self) -> windows_result::Result<super::BluetoothError> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Error)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Status(&self) -> windows_core::Result<GattSessionStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattSessionStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3065,21 +3065,21 @@ impl windows_core::RuntimeType for GattSharingMode {
 pub struct GattSubscribedClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattSubscribedClient, windows_core::IUnknown, windows_core::IInspectable);
 impl GattSubscribedClient {
-    pub fn Session(&self) -> windows_core::Result<GattSession> {
+    pub fn Session(&self) -> windows_result::Result<GattSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MaxNotificationSize(&self) -> windows_core::Result<u16> {
+    pub fn MaxNotificationSize(&self) -> windows_result::Result<u16> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxNotificationSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn MaxNotificationSizeChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattSubscribedClient, windows_core::IInspectable>>,
     {
@@ -3089,7 +3089,7 @@ impl GattSubscribedClient {
             (windows_core::Interface::vtable(this).MaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveMaxNotificationSizeChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveMaxNotificationSizeChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveMaxNotificationSizeChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -3112,14 +3112,14 @@ pub struct GattValueChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattValueChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattValueChangedEventArgs {
     #[cfg(feature = "Storage_Streams")]
-    pub fn CharacteristicValue(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn CharacteristicValue(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CharacteristicValue)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Timestamp(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3158,35 +3158,35 @@ pub struct GattWriteRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteRequest {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Value(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn Value(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Value)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Offset(&self) -> windows_core::Result<u32> {
+    pub fn Offset(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Offset)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Option(&self) -> windows_core::Result<GattWriteOption> {
+    pub fn Option(&self) -> windows_result::Result<GattWriteOption> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Option)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn State(&self) -> windows_core::Result<GattRequestState> {
+    pub fn State(&self) -> windows_result::Result<GattRequestState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StateChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn StateChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GattWriteRequest, GattRequestStateChangedEventArgs>>,
     {
@@ -3196,15 +3196,15 @@ impl GattWriteRequest {
             (windows_core::Interface::vtable(this).StateChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveStateChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveStateChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveStateChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Respond(&self) -> windows_core::Result<()> {
+    pub fn Respond(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Respond)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn RespondWithProtocolError(&self, protocolerror: u8) -> windows_core::Result<()> {
+    pub fn RespondWithProtocolError(&self, protocolerror: u8) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RespondWithProtocolError)(windows_core::Interface::as_raw(this), protocolerror).ok() }
     }
@@ -3226,21 +3226,21 @@ unsafe impl Sync for GattWriteRequest {}
 pub struct GattWriteRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteRequestedEventArgs {
-    pub fn Session(&self) -> windows_core::Result<GattSession> {
+    pub fn Session(&self) -> windows_result::Result<GattSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetRequestAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<GattWriteRequest>> {
+    pub fn GetRequestAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<GattWriteRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3265,14 +3265,14 @@ unsafe impl Sync for GattWriteRequestedEventArgs {}
 pub struct GattWriteResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GattWriteResult, windows_core::IUnknown, windows_core::IInspectable);
 impl GattWriteResult {
-    pub fn Status(&self) -> windows_core::Result<GattCommunicationStatus> {
+    pub fn Status(&self) -> windows_result::Result<GattCommunicationStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtocolError(&self) -> windows_core::Result<super::super::super::Foundation::IReference<u8>> {
+    pub fn ProtocolError(&self) -> windows_result::Result<super::super::super::Foundation::IReference<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

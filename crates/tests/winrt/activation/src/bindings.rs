@@ -19,7 +19,7 @@ impl windows_core::RuntimeName for IInstance {
     const NAME: &'static str = "test_activation.One.IInstance";
 }
 pub trait IInstance_Impl: windows_core::IUnknownImpl {
-    fn Property(&self) -> windows_core::Result<i32>;
+    fn Property(&self) -> windows_result::Result<i32>;
 }
 impl IInstance_Vtbl {
     pub const fn new<Identity: IInstance_Impl, const OFFSET: isize>() -> Self {
@@ -68,7 +68,7 @@ impl windows_core::RuntimeName for IMissing {
     const NAME: &'static str = "test_activation.One.IMissing";
 }
 pub trait IMissing_Impl: windows_core::IUnknownImpl {
-    fn Method(&self) -> windows_core::Result<()>;
+    fn Method(&self) -> windows_result::Result<()>;
 }
 impl IMissing_Vtbl {
     pub const fn new<Identity: IMissing_Impl, const OFFSET: isize>() -> Self {
@@ -109,7 +109,7 @@ impl windows_core::RuntimeName for IStaticStatics {
     const NAME: &'static str = "test_activation.One.Two.Three.Four.IStaticStatics";
 }
 pub trait IStaticStatics_Impl: windows_core::IUnknownImpl {
-    fn Property(&self) -> windows_core::Result<i32>;
+    fn Property(&self) -> windows_result::Result<i32>;
 }
 impl IStaticStatics_Vtbl {
     pub const fn new<Identity: IStaticStatics_Impl, const OFFSET: isize>() -> Self {
@@ -154,22 +154,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Instance {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<
             Instance,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Property(&self) -> windows_core::Result<i32> {
+    pub fn Property(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -203,22 +203,22 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl Missing {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<
             Missing,
             windows_core::imp::IGenericFactory,
         > = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<()> {
+    pub fn Method(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Method)(windows_core::Interface::as_raw(this))
@@ -241,7 +241,7 @@ unsafe impl Send for Missing {}
 unsafe impl Sync for Missing {}
 pub struct Static;
 impl Static {
-    pub fn Property() -> windows_core::Result<i32> {
+    pub fn Property() -> windows_result::Result<i32> {
         Self::IStaticStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Property)(
@@ -251,9 +251,9 @@ impl Static {
             .map(|| result__)
         })
     }
-    fn IStaticStatics<R, F: FnOnce(&IStaticStatics) -> windows_core::Result<R>>(
+    fn IStaticStatics<R, F: FnOnce(&IStaticStatics) -> windows_result::Result<R>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Static, IStaticStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

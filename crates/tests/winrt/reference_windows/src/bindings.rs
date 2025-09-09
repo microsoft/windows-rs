@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for ITest {
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
-    pub fn Numerics(&self, n: windows_numerics::Vector2) -> windows_core::Result<()> {
+    pub fn Numerics(&self, n: windows_numerics::Vector2) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).Numerics)(
@@ -23,7 +23,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Collections<P0>(&self, c: P0) -> windows_core::Result<()>
+    pub fn Collections<P0>(&self, c: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IVector<i32>>,
     {
@@ -36,7 +36,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Async(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn Async(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -47,7 +47,7 @@ impl ITest {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Windows<P0>(&self, s: P0) -> windows_core::Result<()>
+    pub fn Windows<P0>(&self, s: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows::Foundation::IStringable>,
     {
@@ -65,16 +65,16 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn Numerics(&self, n: &windows_numerics::Vector2) -> windows_core::Result<()>;
+    fn Numerics(&self, n: &windows_numerics::Vector2) -> windows_result::Result<()>;
     fn Collections(
         &self,
         c: windows_core::Ref<windows_collections::IVector<i32>>,
-    ) -> windows_core::Result<()>;
-    fn Async(&self) -> windows_core::Result<windows_future::IAsyncAction>;
+    ) -> windows_result::Result<()>;
+    fn Async(&self) -> windows_result::Result<windows_future::IAsyncAction>;
     fn Windows(
         &self,
         s: windows_core::Ref<windows::Foundation::IStringable>,
-    ) -> windows_core::Result<()>;
+    ) -> windows_result::Result<()>;
 }
 impl ITest_Vtbl {
     pub const fn new<Identity: ITest_Impl, const OFFSET: isize>() -> Self {

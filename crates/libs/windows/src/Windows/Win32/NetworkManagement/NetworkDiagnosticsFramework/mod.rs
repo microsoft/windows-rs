@@ -1,20 +1,20 @@
 #[inline]
-pub unsafe fn NdfCancelIncident(handle: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn NdfCancelIncident(handle: *const core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfCancelIncident(handle : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { NdfCancelIncident(handle).ok() }
 }
 #[inline]
-pub unsafe fn NdfCloseIncident(handle: *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn NdfCloseIncident(handle: *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfCloseIncident(handle : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { NdfCloseIncident(handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn NdfCreateConnectivityIncident(handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfCreateConnectivityIncident(handle : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { NdfCreateConnectivityIncident(handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateDNSIncident<P0>(hostname: P0, querytype: u16, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateDNSIncident<P0>(hostname: P0, querytype: u16, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -23,7 +23,7 @@ where
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 #[inline]
-pub unsafe fn NdfCreateGroupingIncident<P0, P1, P2, P3, P5>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: Option<*const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P5, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateGroupingIncident<P0, P1, P2, P3, P5>(cloudname: P0, groupname: P1, identity: P2, invitation: P3, addresses: Option<*const super::super::Networking::WinSock::SOCKET_ADDRESS_LIST>, appid: P5, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -35,7 +35,7 @@ where
     unsafe { NdfCreateGroupingIncident(cloudname.param().abi(), groupname.param().abi(), identity.param().abi(), invitation.param().abi(), addresses.unwrap_or(core::mem::zeroed()) as _, appid.param().abi(), handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateIncident<P0>(helperclassname: P0, attributes: &[HELPER_ATTRIBUTE], handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -43,12 +43,12 @@ where
     unsafe { NdfCreateIncident(helperclassname.param().abi(), attributes.len().try_into().unwrap(), core::mem::transmute(attributes.as_ptr()), handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut core::ffi::c_void, id: windows_core::GUID) -> windows_core::Result<()> {
+pub unsafe fn NdfCreateNetConnectionIncident(handle: *mut *mut core::ffi::c_void, id: windows_core::GUID) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfCreateNetConnectionIncident(handle : *mut *mut core::ffi::c_void, id : windows_core::GUID) -> windows_core::HRESULT);
     unsafe { NdfCreateNetConnectionIncident(handle as _, core::mem::transmute(id)).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreatePnrpIncident<P0, P1, P3>(cloudname: P0, peername: P1, diagnosepublish: bool, appid: P3, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreatePnrpIncident<P0, P1, P3>(cloudname: P0, peername: P1, diagnosepublish: bool, appid: P3, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -58,7 +58,7 @@ where
     unsafe { NdfCreatePnrpIncident(cloudname.param().abi(), peername.param().abi(), diagnosepublish.into(), appid.param().abi(), handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateSharingIncident<P0>(uncpath: P0, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -66,7 +66,7 @@ where
     unsafe { NdfCreateSharingIncident(uncpath.param().abi(), handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateWebIncident<P0>(url: P0, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateWebIncident<P0>(url: P0, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -74,7 +74,7 @@ where
     unsafe { NdfCreateWebIncident(url.param().abi(), handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfCreateWebIncidentEx<P0, P2>(url: P0, usewinhttp: bool, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateWebIncidentEx<P0, P2>(url: P0, usewinhttp: bool, modulename: P2, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -84,7 +84,7 @@ where
 }
 #[cfg(all(feature = "Win32_Networking_WinSock", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn NdfCreateWinSockIncident<P1, P3>(sock: super::super::Networking::WinSock::SOCKET, host: P1, port: u16, appid: P3, userid: Option<*const super::super::Security::SID>, handle: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn NdfCreateWinSockIncident<P1, P3>(sock: super::super::Networking::WinSock::SOCKET, host: P1, port: u16, appid: P3, userid: Option<*const super::super::Security::SID>, handle: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
@@ -93,17 +93,17 @@ where
     unsafe { NdfCreateWinSockIncident(sock, host.param().abi(), port, appid.param().abi(), userid.unwrap_or(core::mem::zeroed()) as _, handle as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfDiagnoseIncident(handle: *const core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> windows_core::Result<()> {
+pub unsafe fn NdfDiagnoseIncident(handle: *const core::ffi::c_void, rootcausecount: *mut u32, rootcauses: *mut *mut RootCauseInfo, dwwait: u32, dwflags: u32) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfDiagnoseIncident(handle : *const core::ffi::c_void, rootcausecount : *mut u32, rootcauses : *mut *mut RootCauseInfo, dwwait : u32, dwflags : u32) -> windows_core::HRESULT);
     unsafe { NdfDiagnoseIncident(handle, rootcausecount as _, rootcauses as _, dwwait, dwflags).ok() }
 }
 #[inline]
-pub unsafe fn NdfExecuteDiagnosis(handle: *const core::ffi::c_void, hwnd: Option<super::super::Foundation::HWND>) -> windows_core::Result<()> {
+pub unsafe fn NdfExecuteDiagnosis(handle: *const core::ffi::c_void, hwnd: Option<super::super::Foundation::HWND>) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfExecuteDiagnosis(handle : *const core::ffi::c_void, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { NdfExecuteDiagnosis(handle, hwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core::Result<windows_core::PCWSTR> {
+pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_result::Result<windows_core::PCWSTR> {
     windows_link::link!("ndfapi.dll" "system" fn NdfGetTraceFile(handle : *const core::ffi::c_void, tracefilelocation : *mut windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -111,7 +111,7 @@ pub unsafe fn NdfGetTraceFile(handle: *const core::ffi::c_void) -> windows_core:
     }
 }
 #[inline]
-pub unsafe fn NdfRepairIncident(handle: *const core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> windows_core::Result<()> {
+pub unsafe fn NdfRepairIncident(handle: *const core::ffi::c_void, repairex: *const RepairInfoEx, dwwait: u32) -> windows_result::Result<()> {
     windows_link::link!("ndfapi.dll" "system" fn NdfRepairIncident(handle : *const core::ffi::c_void, repairex : *const RepairInfoEx, dwwait : u32) -> windows_core::HRESULT);
     unsafe { NdfRepairIncident(handle, repairex, dwwait).ok() }
 }
@@ -224,7 +224,7 @@ pub struct HypothesisResult {
 windows_core::imp::define_interface!(INetDiagExtensibleHelper, INetDiagExtensibleHelper_Vtbl, 0xc0b35748_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagExtensibleHelper, windows_core::IUnknown);
 impl INetDiagExtensibleHelper {
-    pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
+    pub unsafe fn ResolveAttributes(&self, rgkeyattributes: &[HELPER_ATTRIBUTE], pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ResolveAttributes)(windows_core::Interface::as_raw(self), rgkeyattributes.len().try_into().unwrap(), core::mem::transmute(rgkeyattributes.as_ptr()), pcelt as _, prgmatchvalues as _).ok() }
     }
 }
@@ -235,7 +235,7 @@ pub struct INetDiagExtensibleHelper_Vtbl {
     pub ResolveAttributes: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const HELPER_ATTRIBUTE, *mut u32, *mut *mut HELPER_ATTRIBUTE) -> windows_core::HRESULT,
 }
 pub trait INetDiagExtensibleHelper_Impl: windows_core::IUnknownImpl {
-    fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()>;
+    fn ResolveAttributes(&self, celt: u32, rgkeyattributes: *const HELPER_ATTRIBUTE, pcelt: *mut u32, prgmatchvalues: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()>;
 }
 impl INetDiagExtensibleHelper_Vtbl {
     pub const fn new<Identity: INetDiagExtensibleHelper_Impl, const OFFSET: isize>() -> Self {
@@ -255,73 +255,73 @@ impl windows_core::RuntimeName for INetDiagExtensibleHelper {}
 windows_core::imp::define_interface!(INetDiagHelper, INetDiagHelper_Vtbl, 0xc0b35746_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagHelper, windows_core::IUnknown);
 impl INetDiagHelper {
-    pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self, rgattributes: &[HELPER_ATTRIBUTE]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self), rgattributes.len().try_into().unwrap(), core::mem::transmute(rgattributes.as_ptr())).ok() }
     }
-    pub unsafe fn GetDiagnosticsInfo(&self) -> windows_core::Result<*mut DiagnosticsInfo> {
+    pub unsafe fn GetDiagnosticsInfo(&self) -> windows_result::Result<*mut DiagnosticsInfo> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDiagnosticsInfo)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
+    pub unsafe fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetKeyAttributes)(windows_core::Interface::as_raw(self), pcelt as _, pprgattributes as _).ok() }
     }
-    pub unsafe fn LowHealth<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>
+    pub unsafe fn LowHealth<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).LowHealth)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
     }
-    pub unsafe fn HighUtilization<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>
+    pub unsafe fn HighUtilization<P0>(&self, pwszinstancedescription: P0, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).HighUtilization)(windows_core::Interface::as_raw(self), pwszinstancedescription.param().abi(), ppwszdescription as _, pdeferredtime as _, pstatus as _).ok() }
     }
-    pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
+    pub unsafe fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLowerHypotheses)(windows_core::Interface::as_raw(self), pcelt as _, pprghypotheses as _).ok() }
     }
-    pub unsafe fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
+    pub unsafe fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDownStreamHypotheses)(windows_core::Interface::as_raw(self), pcelt as _, pprghypotheses as _).ok() }
     }
-    pub unsafe fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
+    pub unsafe fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetHigherHypotheses)(windows_core::Interface::as_raw(self), pcelt as _, pprghypotheses as _).ok() }
     }
-    pub unsafe fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()> {
+    pub unsafe fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetUpStreamHypotheses)(windows_core::Interface::as_raw(self), pcelt as _, pprghypotheses as _).ok() }
     }
-    pub unsafe fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Repair)(windows_core::Interface::as_raw(self), pinfo, pdeferredtime as _, pstatus as _).ok() }
     }
-    pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Validate)(windows_core::Interface::as_raw(self), problem, pdeferredtime as _, pstatus as _).ok() }
     }
-    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::Result<()> {
+    pub unsafe fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRepairInfo)(windows_core::Interface::as_raw(self), problem, pcelt as _, ppinfo as _).ok() }
     }
-    pub unsafe fn GetLifeTime(&self) -> windows_core::Result<LIFE_TIME> {
+    pub unsafe fn GetLifeTime(&self) -> windows_result::Result<LIFE_TIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetLifeTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> windows_core::Result<()> {
+    pub unsafe fn SetLifeTime(&self, lifetime: LIFE_TIME) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLifeTime)(windows_core::Interface::as_raw(self), core::mem::transmute(lifetime)).ok() }
     }
-    pub unsafe fn GetCacheTime(&self) -> windows_core::Result<super::super::Foundation::FILETIME> {
+    pub unsafe fn GetCacheTime(&self) -> windows_result::Result<super::super::Foundation::FILETIME> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCacheTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributes)(windows_core::Interface::as_raw(self), pcelt as _, pprgattributes as _).ok() }
     }
-    pub unsafe fn Cancel(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cancel(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cancel)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Cleanup(&self) -> windows_core::Result<()> {
+    pub unsafe fn Cleanup(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Cleanup)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -349,24 +349,24 @@ pub struct INetDiagHelper_Vtbl {
     pub Cleanup: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetDiagHelper_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_core::Result<()>;
-    fn GetDiagnosticsInfo(&self) -> windows_core::Result<*mut DiagnosticsInfo>;
-    fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()>;
-    fn LowHealth(&self, pwszinstancedescription: &windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn HighUtilization(&self, pwszinstancedescription: &windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()>;
-    fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()>;
-    fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()>;
-    fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_core::Result<()>;
-    fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()>;
-    fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_core::Result<()>;
-    fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_core::Result<()>;
-    fn GetLifeTime(&self) -> windows_core::Result<LIFE_TIME>;
-    fn SetLifeTime(&self, lifetime: &LIFE_TIME) -> windows_core::Result<()>;
-    fn GetCacheTime(&self) -> windows_core::Result<super::super::Foundation::FILETIME>;
-    fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_core::Result<()>;
-    fn Cancel(&self) -> windows_core::Result<()>;
-    fn Cleanup(&self) -> windows_core::Result<()>;
+    fn Initialize(&self, celt: u32, rgattributes: *const HELPER_ATTRIBUTE) -> windows_result::Result<()>;
+    fn GetDiagnosticsInfo(&self) -> windows_result::Result<*mut DiagnosticsInfo>;
+    fn GetKeyAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()>;
+    fn LowHealth(&self, pwszinstancedescription: &windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()>;
+    fn HighUtilization(&self, pwszinstancedescription: &windows_core::PCWSTR, ppwszdescription: *mut windows_core::PWSTR, pdeferredtime: *mut i32, pstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()>;
+    fn GetLowerHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()>;
+    fn GetDownStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()>;
+    fn GetHigherHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()>;
+    fn GetUpStreamHypotheses(&self, pcelt: *mut u32, pprghypotheses: *mut *mut HYPOTHESIS) -> windows_result::Result<()>;
+    fn Repair(&self, pinfo: *const RepairInfo, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_result::Result<()>;
+    fn Validate(&self, problem: PROBLEM_TYPE, pdeferredtime: *mut i32, pstatus: *mut REPAIR_STATUS) -> windows_result::Result<()>;
+    fn GetRepairInfo(&self, problem: PROBLEM_TYPE, pcelt: *mut u32, ppinfo: *mut *mut RepairInfo) -> windows_result::Result<()>;
+    fn GetLifeTime(&self) -> windows_result::Result<LIFE_TIME>;
+    fn SetLifeTime(&self, lifetime: &LIFE_TIME) -> windows_result::Result<()>;
+    fn GetCacheTime(&self) -> windows_result::Result<super::super::Foundation::FILETIME>;
+    fn GetAttributes(&self, pcelt: *mut u32, pprgattributes: *mut *mut HELPER_ATTRIBUTE) -> windows_result::Result<()>;
+    fn Cancel(&self) -> windows_result::Result<()>;
+    fn Cleanup(&self) -> windows_result::Result<()>;
 }
 impl INetDiagHelper_Vtbl {
     pub const fn new<Identity: INetDiagHelper_Impl, const OFFSET: isize>() -> Self {
@@ -526,16 +526,16 @@ impl windows_core::RuntimeName for INetDiagHelper {}
 windows_core::imp::define_interface!(INetDiagHelperEx, INetDiagHelperEx_Vtbl, 0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
 windows_core::imp::interface_hierarchy!(INetDiagHelperEx, windows_core::IUnknown);
 impl INetDiagHelperEx {
-    pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn ReconfirmLowHealth(&self, presults: &[HypothesisResult], ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReconfirmLowHealth)(windows_core::Interface::as_raw(self), presults.len().try_into().unwrap(), core::mem::transmute(presults.as_ptr()), ppwszupdateddescription as _, pupdatedstatus as _).ok() }
     }
-    pub unsafe fn SetUtilities<P0>(&self, putilities: P0) -> windows_core::Result<()>
+    pub unsafe fn SetUtilities<P0>(&self, putilities: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INetDiagHelperUtilFactory>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetUtilities)(windows_core::Interface::as_raw(self), putilities.param().abi()).ok() }
     }
-    pub unsafe fn ReproduceFailure(&self) -> windows_core::Result<()> {
+    pub unsafe fn ReproduceFailure(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReproduceFailure)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -548,9 +548,9 @@ pub struct INetDiagHelperEx_Vtbl {
     pub ReproduceFailure: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetDiagHelperEx_Impl: windows_core::IUnknownImpl {
-    fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_core::Result<()>;
-    fn SetUtilities(&self, putilities: windows_core::Ref<INetDiagHelperUtilFactory>) -> windows_core::Result<()>;
-    fn ReproduceFailure(&self) -> windows_core::Result<()>;
+    fn ReconfirmLowHealth(&self, celt: u32, presults: *const HypothesisResult, ppwszupdateddescription: *mut windows_core::PWSTR, pupdatedstatus: *mut DIAGNOSIS_STATUS) -> windows_result::Result<()>;
+    fn SetUtilities(&self, putilities: windows_core::Ref<INetDiagHelperUtilFactory>) -> windows_result::Result<()>;
+    fn ReproduceFailure(&self) -> windows_result::Result<()>;
 }
 impl INetDiagHelperEx_Vtbl {
     pub const fn new<Identity: INetDiagHelperEx_Impl, const OFFSET: isize>() -> Self {
@@ -587,7 +587,7 @@ impl windows_core::RuntimeName for INetDiagHelperEx {}
 windows_core::imp::define_interface!(INetDiagHelperInfo, INetDiagHelperInfo_Vtbl, 0xc0b35747_ebf5_11d8_bbe9_505054503030);
 windows_core::imp::interface_hierarchy!(INetDiagHelperInfo, windows_core::IUnknown);
 impl INetDiagHelperInfo {
-    pub unsafe fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::Result<()> {
+    pub unsafe fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetAttributeInfo)(windows_core::Interface::as_raw(self), pcelt as _, pprgattributeinfos as _).ok() }
     }
 }
@@ -598,7 +598,7 @@ pub struct INetDiagHelperInfo_Vtbl {
     pub GetAttributeInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut HelperAttributeInfo) -> windows_core::HRESULT,
 }
 pub trait INetDiagHelperInfo_Impl: windows_core::IUnknownImpl {
-    fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_core::Result<()>;
+    fn GetAttributeInfo(&self, pcelt: *mut u32, pprgattributeinfos: *mut *mut HelperAttributeInfo) -> windows_result::Result<()>;
 }
 impl INetDiagHelperInfo_Vtbl {
     pub const fn new<Identity: INetDiagHelperInfo_Impl, const OFFSET: isize>() -> Self {
@@ -618,7 +618,7 @@ impl windows_core::RuntimeName for INetDiagHelperInfo {}
 windows_core::imp::define_interface!(INetDiagHelperUtilFactory, INetDiagHelperUtilFactory_Vtbl, 0x104613fb_bc57_4178_95ba_88809698354a);
 windows_core::imp::interface_hierarchy!(INetDiagHelperUtilFactory, windows_core::IUnknown);
 impl INetDiagHelperUtilFactory {
-    pub unsafe fn CreateUtilityInstance<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn CreateUtilityInstance<T>(&self) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -633,7 +633,7 @@ pub struct INetDiagHelperUtilFactory_Vtbl {
     pub CreateUtilityInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INetDiagHelperUtilFactory_Impl: windows_core::IUnknownImpl {
-    fn CreateUtilityInstance(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateUtilityInstance(&self, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl INetDiagHelperUtilFactory_Vtbl {
     pub const fn new<Identity: INetDiagHelperUtilFactory_Impl, const OFFSET: isize>() -> Self {

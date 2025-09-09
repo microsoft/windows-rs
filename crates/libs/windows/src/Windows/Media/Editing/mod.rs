@@ -3,72 +3,72 @@
 pub struct BackgroundAudioTrack(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BackgroundAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 impl BackgroundAudioTrack {
-    pub fn TrimTimeFromStart(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimTimeFromStart(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimTimeFromStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimTimeFromStart)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TrimTimeFromEnd(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimTimeFromEnd(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimTimeFromEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimTimeFromEnd)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OriginalDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn OriginalDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OriginalDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TrimmedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimmedDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimmedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserData(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn UserData(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDelay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetVolume(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetVolume(&self, value: f64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVolume)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Volume(&self) -> windows_core::Result<f64> {
+    pub fn Volume(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Volume)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<BackgroundAudioTrack> {
+    pub fn Clone(&self) -> windows_result::Result<BackgroundAudioTrack> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -76,7 +76,7 @@ impl BackgroundAudioTrack {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetAudioEncodingProperties(&self) -> windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
+    pub fn GetAudioEncodingProperties(&self) -> windows_result::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -84,14 +84,14 @@ impl BackgroundAudioTrack {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn AudioEffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    pub fn AudioEffectDefinitions(&self) -> windows_result::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioEffectDefinitions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_core::Result<BackgroundAudioTrack>
+    pub fn CreateFromEmbeddedAudioTrack<P0>(embeddedaudiotrack: P0) -> windows_result::Result<BackgroundAudioTrack>
     where
         P0: windows_core::Param<EmbeddedAudioTrack>,
     {
@@ -101,7 +101,7 @@ impl BackgroundAudioTrack {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<BackgroundAudioTrack>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_result::Result<windows_future::IAsyncOperation<BackgroundAudioTrack>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -110,7 +110,7 @@ impl BackgroundAudioTrack {
             (windows_core::Interface::vtable(this).CreateFromFileAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundAudioTrackStatics<R, F: FnOnce(&IBackgroundAudioTrackStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundAudioTrack, IBackgroundAudioTrackStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -133,7 +133,7 @@ pub struct EmbeddedAudioTrack(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EmbeddedAudioTrack, windows_core::IUnknown, windows_core::IInspectable);
 impl EmbeddedAudioTrack {
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetAudioEncodingProperties(&self) -> windows_core::Result<super::MediaProperties::AudioEncodingProperties> {
+    pub fn GetAudioEncodingProperties(&self) -> windows_result::Result<super::MediaProperties::AudioEncodingProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -419,93 +419,93 @@ pub struct IMediaOverlayLayerFactory_Vtbl {
 pub struct MediaClip(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaClip, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaClip {
-    pub fn TrimTimeFromStart(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimTimeFromStart(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimTimeFromStart)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimTimeFromStart(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimTimeFromStart)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TrimTimeFromEnd(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimTimeFromEnd(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimTimeFromEnd)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimTimeFromEnd(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimTimeFromEnd)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn OriginalDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn OriginalDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OriginalDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TrimmedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimmedDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimmedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UserData(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn UserData(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaClip> {
+    pub fn Clone(&self) -> windows_result::Result<MediaClip> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StartTimeInComposition(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn StartTimeInComposition(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTimeInComposition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EndTimeInComposition(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EndTimeInComposition(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndTimeInComposition)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EmbeddedAudioTracks(&self) -> windows_core::Result<windows_collections::IVectorView<EmbeddedAudioTrack>> {
+    pub fn EmbeddedAudioTracks(&self) -> windows_result::Result<windows_collections::IVectorView<EmbeddedAudioTrack>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EmbeddedAudioTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SelectedEmbeddedAudioTrackIndex(&self) -> windows_core::Result<u32> {
+    pub fn SelectedEmbeddedAudioTrackIndex(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedEmbeddedAudioTrackIndex)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSelectedEmbeddedAudioTrackIndex(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetSelectedEmbeddedAudioTrackIndex(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSelectedEmbeddedAudioTrackIndex)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetVolume(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetVolume(&self, value: f64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetVolume)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Volume(&self) -> windows_core::Result<f64> {
+    pub fn Volume(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -513,7 +513,7 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn GetVideoEncodingProperties(&self) -> windows_core::Result<super::MediaProperties::VideoEncodingProperties> {
+    pub fn GetVideoEncodingProperties(&self) -> windows_result::Result<super::MediaProperties::VideoEncodingProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -521,7 +521,7 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn AudioEffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
+    pub fn AudioEffectDefinitions(&self) -> windows_result::Result<windows_collections::IVector<super::Effects::IAudioEffectDefinition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -529,7 +529,7 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn VideoEffectDefinitions(&self) -> windows_core::Result<windows_collections::IVector<super::Effects::IVideoEffectDefinition>> {
+    pub fn VideoEffectDefinitions(&self) -> windows_result::Result<windows_collections::IVector<super::Effects::IVideoEffectDefinition>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -537,14 +537,14 @@ impl MediaClip {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip> {
+    pub fn CreateFromColor(color: super::super::UI::Color, originalduration: super::super::Foundation::TimeSpan) -> windows_result::Result<MediaClip> {
         Self::IMediaClipStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromColor)(windows_core::Interface::as_raw(this), color, originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaClip>>
+    pub fn CreateFromFileAsync<P0>(file: P0) -> windows_result::Result<windows_future::IAsyncOperation<MediaClip>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -554,7 +554,7 @@ impl MediaClip {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<windows_future::IAsyncOperation<MediaClip>>
+    pub fn CreateFromImageFileAsync<P0>(file: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_result::Result<windows_future::IAsyncOperation<MediaClip>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -564,7 +564,7 @@ impl MediaClip {
         })
     }
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
-    pub fn CreateFromSurface<P0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_core::Result<MediaClip>
+    pub fn CreateFromSurface<P0>(surface: P0, originalduration: super::super::Foundation::TimeSpan) -> windows_result::Result<MediaClip>
     where
         P0: windows_core::Param<super::super::Graphics::DirectX::Direct3D11::IDirect3DSurface>,
     {
@@ -573,11 +573,11 @@ impl MediaClip {
             (windows_core::Interface::vtable(this).CreateFromSurface)(windows_core::Interface::as_raw(this), surface.param().abi(), originalduration, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaClipStatics<R, F: FnOnce(&IMediaClipStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaClip, IMediaClipStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMediaClipStatics2<R, F: FnOnce(&IMediaClipStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaClipStatics2<R, F: FnOnce(&IMediaClipStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaClip, IMediaClipStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -599,42 +599,42 @@ unsafe impl Sync for MediaClip {}
 pub struct MediaComposition(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaComposition, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaComposition {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaComposition, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Duration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Duration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Duration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Clips(&self) -> windows_core::Result<windows_collections::IVector<MediaClip>> {
+    pub fn Clips(&self) -> windows_result::Result<windows_collections::IVector<MediaClip>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clips)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn BackgroundAudioTracks(&self) -> windows_core::Result<windows_collections::IVector<BackgroundAudioTrack>> {
+    pub fn BackgroundAudioTracks(&self) -> windows_result::Result<windows_collections::IVector<BackgroundAudioTrack>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BackgroundAudioTracks)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn UserData(&self) -> windows_core::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
+    pub fn UserData(&self) -> windows_result::Result<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UserData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaComposition> {
+    pub fn Clone(&self) -> windows_result::Result<MediaComposition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -642,7 +642,7 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SaveAsync<P0>(&self, file: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SaveAsync<P0>(&self, file: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -653,7 +653,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailAsync(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_core::Result<windows_future::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
+    pub fn GetThumbnailAsync(&self, timefromstart: super::super::Foundation::TimeSpan, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_result::Result<windows_future::IAsyncOperation<super::super::Graphics::Imaging::ImageStream>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -661,7 +661,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Graphics_Imaging", feature = "Storage_Streams"))]
-    pub fn GetThumbnailsAsync<P0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
+    pub fn GetThumbnailsAsync<P0>(&self, timesfromstart: P0, scaledwidth: i32, scaledheight: i32, frameprecision: VideoFramePrecision) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<super::super::Graphics::Imaging::ImageStream>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Foundation::TimeSpan>>,
     {
@@ -672,7 +672,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage_Streams"))]
-    pub fn RenderToFileAsync<P0>(&self, destination: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileAsync<P0>(&self, destination: P0) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -683,7 +683,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Media_Transcoding", feature = "Storage_Streams"))]
-    pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithTrimmingPreferenceAsync<P0>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
     {
@@ -694,7 +694,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Media_Transcoding", feature = "Storage_Streams"))]
-    pub fn RenderToFileWithProfileAsync<P0, P2>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P2) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
+    pub fn RenderToFileWithProfileAsync<P0, P2>(&self, destination: P0, trimmingpreference: MediaTrimmingPreference, encodingprofile: P2) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<super::Transcoding::TranscodeFailureReason, f64>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P2: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
@@ -706,7 +706,7 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Media_MediaProperties")]
-    pub fn CreateDefaultEncodingProfile(&self) -> windows_core::Result<super::MediaProperties::MediaEncodingProfile> {
+    pub fn CreateDefaultEncodingProfile(&self) -> windows_result::Result<super::MediaProperties::MediaEncodingProfile> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -714,7 +714,7 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn GenerateMediaStreamSource(&self) -> windows_core::Result<super::Core::MediaStreamSource> {
+    pub fn GenerateMediaStreamSource(&self) -> windows_result::Result<super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -722,7 +722,7 @@ impl MediaComposition {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties"))]
-    pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingprofile: P0) -> windows_core::Result<super::Core::MediaStreamSource>
+    pub fn GenerateMediaStreamSourceWithProfile<P0>(&self, encodingprofile: P0) -> windows_result::Result<super::Core::MediaStreamSource>
     where
         P0: windows_core::Param<super::MediaProperties::MediaEncodingProfile>,
     {
@@ -733,14 +733,14 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> windows_core::Result<super::Core::MediaStreamSource> {
+    pub fn GeneratePreviewMediaStreamSource(&self, scaledwidth: i32, scaledheight: i32) -> windows_result::Result<super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GeneratePreviewMediaStreamSource)(windows_core::Interface::as_raw(this), scaledwidth, scaledheight, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OverlayLayers(&self) -> windows_core::Result<windows_collections::IVector<MediaOverlayLayer>> {
+    pub fn OverlayLayers(&self) -> windows_result::Result<windows_collections::IVector<MediaOverlayLayer>> {
         let this = &windows_core::Interface::cast::<IMediaComposition2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -748,7 +748,7 @@ impl MediaComposition {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn LoadAsync<P0>(file: P0) -> windows_core::Result<windows_future::IAsyncOperation<MediaComposition>>
+    pub fn LoadAsync<P0>(file: P0) -> windows_result::Result<windows_future::IAsyncOperation<MediaComposition>>
     where
         P0: windows_core::Param<super::super::Storage::StorageFile>,
     {
@@ -757,7 +757,7 @@ impl MediaComposition {
             (windows_core::Interface::vtable(this).LoadAsync)(windows_core::Interface::as_raw(this), file.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaCompositionStatics<R, F: FnOnce(&IMediaCompositionStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaComposition, IMediaCompositionStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -779,65 +779,65 @@ unsafe impl Sync for MediaComposition {}
 pub struct MediaOverlay(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaOverlay, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaOverlay {
-    pub fn Position(&self) -> windows_core::Result<super::super::Foundation::Rect> {
+    pub fn Position(&self) -> windows_result::Result<super::super::Foundation::Rect> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Position)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPosition(&self, value: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn SetPosition(&self, value: super::super::Foundation::Rect) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPosition)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetDelay(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDelay)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Delay(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn Delay(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Delay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Opacity(&self) -> windows_core::Result<f64> {
+    pub fn Opacity(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Opacity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetOpacity(&self, value: f64) -> windows_core::Result<()> {
+    pub fn SetOpacity(&self, value: f64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOpacity)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaOverlay> {
+    pub fn Clone(&self) -> windows_result::Result<MediaOverlay> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Clip(&self) -> windows_core::Result<MediaClip> {
+    pub fn Clip(&self) -> windows_result::Result<MediaClip> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clip)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn AudioEnabled(&self) -> windows_core::Result<bool> {
+    pub fn AudioEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AudioEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAudioEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAudioEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAudioEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Create<P0>(clip: P0) -> windows_core::Result<MediaOverlay>
+    pub fn Create<P0>(clip: P0) -> windows_result::Result<MediaOverlay>
     where
         P0: windows_core::Param<MediaClip>,
     {
@@ -846,7 +846,7 @@ impl MediaOverlay {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), clip.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_core::Result<MediaOverlay>
+    pub fn CreateWithPositionAndOpacity<P0>(clip: P0, position: super::super::Foundation::Rect, opacity: f64) -> windows_result::Result<MediaOverlay>
     where
         P0: windows_core::Param<MediaClip>,
     {
@@ -855,7 +855,7 @@ impl MediaOverlay {
             (windows_core::Interface::vtable(this).CreateWithPositionAndOpacity)(windows_core::Interface::as_raw(this), clip.param().abi(), position, opacity, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaOverlayFactory<R, F: FnOnce(&IMediaOverlayFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlay, IMediaOverlayFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -877,21 +877,21 @@ unsafe impl Sync for MediaOverlay {}
 pub struct MediaOverlayLayer(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaOverlayLayer, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaOverlayLayer {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlayLayer, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Clone(&self) -> windows_core::Result<MediaOverlayLayer> {
+    pub fn Clone(&self) -> windows_result::Result<MediaOverlayLayer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Clone)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Overlays(&self) -> windows_core::Result<windows_collections::IVector<MediaOverlay>> {
+    pub fn Overlays(&self) -> windows_result::Result<windows_collections::IVector<MediaOverlay>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -899,7 +899,7 @@ impl MediaOverlayLayer {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn CustomCompositorDefinition(&self) -> windows_core::Result<super::Effects::IVideoCompositorDefinition> {
+    pub fn CustomCompositorDefinition(&self) -> windows_result::Result<super::Effects::IVideoCompositorDefinition> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -907,7 +907,7 @@ impl MediaOverlayLayer {
         }
     }
     #[cfg(feature = "Media_Effects")]
-    pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_core::Result<MediaOverlayLayer>
+    pub fn CreateWithCompositorDefinition<P0>(compositordefinition: P0) -> windows_result::Result<MediaOverlayLayer>
     where
         P0: windows_core::Param<super::Effects::IVideoCompositorDefinition>,
     {
@@ -916,7 +916,7 @@ impl MediaOverlayLayer {
             (windows_core::Interface::vtable(this).CreateWithCompositorDefinition)(windows_core::Interface::as_raw(this), compositordefinition.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMediaOverlayLayerFactory<R, F: FnOnce(&IMediaOverlayLayerFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaOverlayLayer, IMediaOverlayLayerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

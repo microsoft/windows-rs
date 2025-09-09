@@ -11,7 +11,7 @@ pub unsafe fn DosDateTimeToVariantTime(wdosdate: u16, wdostime: u16, pvtime: *mu
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromBooleanArray(prgf: &[windows_core::BOOL]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromBooleanArray(prgf: &[windows_core::BOOL]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromBooleanArray(prgf : *const windows_core::BOOL, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -20,7 +20,7 @@ pub unsafe fn InitVariantFromBooleanArray(prgf: &[windows_core::BOOL]) -> window
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromBuffer(pv : *const core::ffi::c_void, cb : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -29,7 +29,7 @@ pub unsafe fn InitVariantFromBuffer(pv: *const core::ffi::c_void, cb: u32) -> wi
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromDoubleArray(prgn : *const f64, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -38,7 +38,7 @@ pub unsafe fn InitVariantFromDoubleArray(prgn: &[f64]) -> windows_core::Result<V
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromFileTime(pft: *const super::super::Foundation::FILETIME) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromFileTime(pft: *const super::super::Foundation::FILETIME) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTime(pft : *const super::super::Foundation:: FILETIME, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -47,7 +47,7 @@ pub unsafe fn InitVariantFromFileTime(pft: *const super::super::Foundation::FILE
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromFileTimeArray(prgft: Option<&[super::super::Foundation::FILETIME]>) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromFileTimeArray(prgft: Option<&[super::super::Foundation::FILETIME]>) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromFileTimeArray(prgft : *const super::super::Foundation:: FILETIME, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -56,7 +56,7 @@ pub unsafe fn InitVariantFromFileTimeArray(prgft: Option<&[super::super::Foundat
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromGUIDAsString(guid: *const windows_core::GUID) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromGUIDAsString(guid: *const windows_core::GUID) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromGUIDAsString(guid : *const windows_core::GUID, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -65,7 +65,7 @@ pub unsafe fn InitVariantFromGUIDAsString(guid: *const windows_core::GUID) -> wi
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromInt16Array(prgn : *const i16, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -74,7 +74,7 @@ pub unsafe fn InitVariantFromInt16Array(prgn: &[i16]) -> windows_core::Result<VA
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromInt32Array(prgn : *const i32, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -83,7 +83,7 @@ pub unsafe fn InitVariantFromInt32Array(prgn: &[i32]) -> windows_core::Result<VA
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromInt64Array(prgn : *const i64, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -92,7 +92,7 @@ pub unsafe fn InitVariantFromInt64Array(prgn: &[i64]) -> windows_core::Result<VA
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromResource(hinst: super::super::Foundation::HINSTANCE, id: u32) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromResource(hinst: super::super::Foundation::HINSTANCE, id: u32) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromResource(hinst : super::super::Foundation:: HINSTANCE, id : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -101,7 +101,7 @@ pub unsafe fn InitVariantFromResource(hinst: super::super::Foundation::HINSTANCE
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromStringArray(prgsz: &[windows_core::PCWSTR]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromStringArray(prgsz: &[windows_core::PCWSTR]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromStringArray(prgsz : *const windows_core::PCWSTR, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -110,7 +110,7 @@ pub unsafe fn InitVariantFromStringArray(prgsz: &[windows_core::PCWSTR]) -> wind
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt16Array(prgn : *const u16, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -119,7 +119,7 @@ pub unsafe fn InitVariantFromUInt16Array(prgn: &[u16]) -> windows_core::Result<V
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt32Array(prgn : *const u32, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -128,7 +128,7 @@ pub unsafe fn InitVariantFromUInt32Array(prgn: &[u32]) -> windows_core::Result<V
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromUInt64Array(prgn : *const u64, celems : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -137,7 +137,7 @@ pub unsafe fn InitVariantFromUInt64Array(prgn: &[u64]) -> windows_core::Result<V
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn InitVariantFromVariantArrayElem(varin: *const VARIANT, ielem: u32) -> windows_core::Result<VARIANT> {
+pub unsafe fn InitVariantFromVariantArrayElem(varin: *const VARIANT, ielem: u32) -> windows_result::Result<VARIANT> {
     windows_link::link!("propsys.dll" "system" fn InitVariantFromVariantArrayElem(varin : *const VARIANT, ielem : u32, pvar : *mut VARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -199,19 +199,19 @@ pub unsafe fn VARIANT_UserUnmarshal64(param0: *const u32, param1: *const u8, par
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantChangeType(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_core::Result<()> {
+pub unsafe fn VariantChangeType(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_result::Result<()> {
     windows_link::link!("oleaut32.dll" "system" fn VariantChangeType(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> windows_core::HRESULT);
     unsafe { VariantChangeType(core::mem::transmute(pvargdest), core::mem::transmute(pvarsrc), wflags, vt).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantChangeTypeEx(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, lcid: u32, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_core::Result<()> {
+pub unsafe fn VariantChangeTypeEx(pvargdest: *mut VARIANT, pvarsrc: *const VARIANT, lcid: u32, wflags: VAR_CHANGE_FLAGS, vt: VARENUM) -> windows_result::Result<()> {
     windows_link::link!("oleaut32.dll" "system" fn VariantChangeTypeEx(pvargdest : *mut VARIANT, pvarsrc : *const VARIANT, lcid : u32, wflags : VAR_CHANGE_FLAGS, vt : VARENUM) -> windows_core::HRESULT);
     unsafe { VariantChangeTypeEx(core::mem::transmute(pvargdest), core::mem::transmute(pvarsrc), lcid, wflags, vt).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantClear(pvarg: *mut VARIANT) -> windows_core::Result<()> {
+pub unsafe fn VariantClear(pvarg: *mut VARIANT) -> windows_result::Result<()> {
     windows_link::link!("oleaut32.dll" "system" fn VariantClear(pvarg : *mut VARIANT) -> windows_core::HRESULT);
     unsafe { VariantClear(core::mem::transmute(pvarg)).ok() }
 }
@@ -223,19 +223,19 @@ pub unsafe fn VariantCompare(var1: *const VARIANT, var2: *const VARIANT) -> i32 
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantCopy(pvargdest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_core::Result<()> {
+pub unsafe fn VariantCopy(pvargdest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_result::Result<()> {
     windows_link::link!("oleaut32.dll" "system" fn VariantCopy(pvargdest : *mut VARIANT, pvargsrc : *const VARIANT) -> windows_core::HRESULT);
     unsafe { VariantCopy(core::mem::transmute(pvargdest), core::mem::transmute(pvargsrc)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantCopyInd(pvardest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_core::Result<()> {
+pub unsafe fn VariantCopyInd(pvardest: *mut VARIANT, pvargsrc: *const VARIANT) -> windows_result::Result<()> {
     windows_link::link!("oleaut32.dll" "system" fn VariantCopyInd(pvardest : *mut VARIANT, pvargsrc : *const VARIANT) -> windows_core::HRESULT);
     unsafe { VariantCopyInd(core::mem::transmute(pvardest), core::mem::transmute(pvargsrc)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetBooleanElem(var: *const VARIANT, ielem: u32) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn VariantGetBooleanElem(var: *const VARIANT, ielem: u32) -> windows_result::Result<windows_core::BOOL> {
     windows_link::link!("propsys.dll" "system" fn VariantGetBooleanElem(var : *const VARIANT, ielem : u32, pfval : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -244,7 +244,7 @@ pub unsafe fn VariantGetBooleanElem(var: *const VARIANT, ielem: u32) -> windows_
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetDoubleElem(var: *const VARIANT, ielem: u32) -> windows_core::Result<f64> {
+pub unsafe fn VariantGetDoubleElem(var: *const VARIANT, ielem: u32) -> windows_result::Result<f64> {
     windows_link::link!("propsys.dll" "system" fn VariantGetDoubleElem(var : *const VARIANT, ielem : u32, pnval : *mut f64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -259,7 +259,7 @@ pub unsafe fn VariantGetElementCount(varin: *const VARIANT) -> u32 {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetInt16Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<i16> {
+pub unsafe fn VariantGetInt16Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<i16> {
     windows_link::link!("propsys.dll" "system" fn VariantGetInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut i16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -268,7 +268,7 @@ pub unsafe fn VariantGetInt16Elem(var: *const VARIANT, ielem: u32) -> windows_co
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetInt32Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<i32> {
+pub unsafe fn VariantGetInt32Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<i32> {
     windows_link::link!("propsys.dll" "system" fn VariantGetInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -277,7 +277,7 @@ pub unsafe fn VariantGetInt32Elem(var: *const VARIANT, ielem: u32) -> windows_co
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetInt64Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<i64> {
+pub unsafe fn VariantGetInt64Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<i64> {
     windows_link::link!("propsys.dll" "system" fn VariantGetInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -286,7 +286,7 @@ pub unsafe fn VariantGetInt64Elem(var: *const VARIANT, ielem: u32) -> windows_co
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetStringElem(var: *const VARIANT, ielem: u32) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn VariantGetStringElem(var: *const VARIANT, ielem: u32) -> windows_result::Result<windows_core::PWSTR> {
     windows_link::link!("propsys.dll" "system" fn VariantGetStringElem(var : *const VARIANT, ielem : u32, ppszval : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -295,7 +295,7 @@ pub unsafe fn VariantGetStringElem(var: *const VARIANT, ielem: u32) -> windows_c
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetUInt16Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<u16> {
+pub unsafe fn VariantGetUInt16Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<u16> {
     windows_link::link!("propsys.dll" "system" fn VariantGetUInt16Elem(var : *const VARIANT, ielem : u32, pnval : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -304,7 +304,7 @@ pub unsafe fn VariantGetUInt16Elem(var: *const VARIANT, ielem: u32) -> windows_c
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetUInt32Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<u32> {
+pub unsafe fn VariantGetUInt32Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<u32> {
     windows_link::link!("propsys.dll" "system" fn VariantGetUInt32Elem(var : *const VARIANT, ielem : u32, pnval : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -313,7 +313,7 @@ pub unsafe fn VariantGetUInt32Elem(var: *const VARIANT, ielem: u32) -> windows_c
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantGetUInt64Elem(var: *const VARIANT, ielem: u32) -> windows_core::Result<u64> {
+pub unsafe fn VariantGetUInt64Elem(var: *const VARIANT, ielem: u32) -> windows_result::Result<u64> {
     windows_link::link!("propsys.dll" "system" fn VariantGetUInt64Elem(var : *const VARIANT, ielem : u32, pnval : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -342,7 +342,7 @@ pub unsafe fn VariantTimeToSystemTime(vtime: f64, lpsystemtime: *mut super::supe
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_core::Result<windows_core::BOOL> {
+pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_result::Result<windows_core::BOOL> {
     windows_link::link!("propsys.dll" "system" fn VariantToBoolean(varin : *const VARIANT, pfret : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -351,13 +351,13 @@ pub unsafe fn VariantToBoolean(varin: *const VARIANT) -> windows_core::Result<wi
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanArray(var: *const VARIANT, prgf: &mut [windows_core::BOOL], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToBooleanArray(var: *const VARIANT, prgf: &mut [windows_core::BOOL], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToBooleanArray(var : *const VARIANT, prgf : *mut windows_core::BOOL, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToBooleanArray(core::mem::transmute(var), core::mem::transmute(prgf.as_ptr()), prgf.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut windows_core::BOOL, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToBooleanArrayAlloc(var: *const VARIANT, pprgf: *mut *mut windows_core::BOOL, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToBooleanArrayAlloc(var : *const VARIANT, pprgf : *mut *mut windows_core::BOOL, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToBooleanArrayAlloc(core::mem::transmute(var), pprgf as _, pcelem as _).ok() }
 }
@@ -369,19 +369,19 @@ pub unsafe fn VariantToBooleanWithDefault(varin: *const VARIANT, fdefault: bool)
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToBuffer(varin: *const VARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToBuffer(varin: *const VARIANT, pv: *mut core::ffi::c_void, cb: u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToBuffer(varin : *const VARIANT, pv : *mut core::ffi::c_void, cb : u32) -> windows_core::HRESULT);
     unsafe { VariantToBuffer(core::mem::transmute(varin), pv as _, cb).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToDosDateTime(varin: *const VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> windows_core::Result<()> {
+pub unsafe fn VariantToDosDateTime(varin: *const VARIANT, pwdate: *mut u16, pwtime: *mut u16) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToDosDateTime(varin : *const VARIANT, pwdate : *mut u16, pwtime : *mut u16) -> windows_core::HRESULT);
     unsafe { VariantToDosDateTime(core::mem::transmute(varin), pwdate as _, pwtime as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToDouble(varin: *const VARIANT) -> windows_core::Result<f64> {
+pub unsafe fn VariantToDouble(varin: *const VARIANT) -> windows_result::Result<f64> {
     windows_link::link!("propsys.dll" "system" fn VariantToDouble(varin : *const VARIANT, pdblret : *mut f64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -390,13 +390,13 @@ pub unsafe fn VariantToDouble(varin: *const VARIANT) -> windows_core::Result<f64
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToDoubleArray(var: *const VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToDoubleArray(var: *const VARIANT, prgn: &mut [f64], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToDoubleArray(var : *const VARIANT, prgn : *mut f64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToDoubleArray(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToDoubleArrayAlloc(var: *const VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToDoubleArrayAlloc(var: *const VARIANT, pprgn: *mut *mut f64, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToDoubleArrayAlloc(var : *const VARIANT, pprgn : *mut *mut f64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToDoubleArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -408,7 +408,7 @@ pub unsafe fn VariantToDoubleWithDefault(varin: *const VARIANT, dbldefault: f64)
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToFileTime(varin: *const VARIANT, stfout: PSTIME_FLAGS) -> windows_core::Result<super::super::Foundation::FILETIME> {
+pub unsafe fn VariantToFileTime(varin: *const VARIANT, stfout: PSTIME_FLAGS) -> windows_result::Result<super::super::Foundation::FILETIME> {
     windows_link::link!("propsys.dll" "system" fn VariantToFileTime(varin : *const VARIANT, stfout : PSTIME_FLAGS, pftout : *mut super::super::Foundation:: FILETIME) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -417,7 +417,7 @@ pub unsafe fn VariantToFileTime(varin: *const VARIANT, stfout: PSTIME_FLAGS) -> 
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToGUID(varin: *const VARIANT) -> windows_core::Result<windows_core::GUID> {
+pub unsafe fn VariantToGUID(varin: *const VARIANT) -> windows_result::Result<windows_core::GUID> {
     windows_link::link!("propsys.dll" "system" fn VariantToGUID(varin : *const VARIANT, pguid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -426,7 +426,7 @@ pub unsafe fn VariantToGUID(varin: *const VARIANT) -> windows_core::Result<windo
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt16(varin: *const VARIANT) -> windows_core::Result<i16> {
+pub unsafe fn VariantToInt16(varin: *const VARIANT) -> windows_result::Result<i16> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt16(varin : *const VARIANT, piret : *mut i16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -435,13 +435,13 @@ pub unsafe fn VariantToInt16(varin: *const VARIANT) -> windows_core::Result<i16>
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt16Array(var: *const VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt16Array(var: *const VARIANT, prgn: &mut [i16], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt16Array(var : *const VARIANT, prgn : *mut i16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt16Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i16, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i16, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt16ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -453,7 +453,7 @@ pub unsafe fn VariantToInt16WithDefault(varin: *const VARIANT, idefault: i16) ->
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt32(varin: *const VARIANT) -> windows_core::Result<i32> {
+pub unsafe fn VariantToInt32(varin: *const VARIANT) -> windows_result::Result<i32> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt32(varin : *const VARIANT, plret : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -462,13 +462,13 @@ pub unsafe fn VariantToInt32(varin: *const VARIANT) -> windows_core::Result<i32>
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt32Array(var: *const VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt32Array(var: *const VARIANT, prgn: &mut [i32], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt32Array(var : *const VARIANT, prgn : *mut i32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt32Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i32, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt32ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -480,7 +480,7 @@ pub unsafe fn VariantToInt32WithDefault(varin: *const VARIANT, ldefault: i32) ->
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt64(varin: *const VARIANT) -> windows_core::Result<i64> {
+pub unsafe fn VariantToInt64(varin: *const VARIANT) -> windows_result::Result<i64> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt64(varin : *const VARIANT, pllret : *mut i64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -489,13 +489,13 @@ pub unsafe fn VariantToInt64(varin: *const VARIANT) -> windows_core::Result<i64>
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt64Array(var: *const VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt64Array(var: *const VARIANT, prgn: &mut [i64], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt64Array(var : *const VARIANT, prgn : *mut i64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt64Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut i64, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut i64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToInt64ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -507,13 +507,13 @@ pub unsafe fn VariantToInt64WithDefault(varin: *const VARIANT, lldefault: i64) -
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToString(varin: *const VARIANT, pszbuf: &mut [u16]) -> windows_core::Result<()> {
+pub unsafe fn VariantToString(varin: *const VARIANT, pszbuf: &mut [u16]) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToString(varin : *const VARIANT, pszbuf : windows_core::PWSTR, cchbuf : u32) -> windows_core::HRESULT);
     unsafe { VariantToString(core::mem::transmute(varin), core::mem::transmute(pszbuf.as_ptr()), pszbuf.len().try_into().unwrap()).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToStringAlloc(varin: *const VARIANT) -> windows_core::Result<windows_core::PWSTR> {
+pub unsafe fn VariantToStringAlloc(varin: *const VARIANT) -> windows_result::Result<windows_core::PWSTR> {
     windows_link::link!("propsys.dll" "system" fn VariantToStringAlloc(varin : *const VARIANT, ppszbuf : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -522,13 +522,13 @@ pub unsafe fn VariantToStringAlloc(varin: *const VARIANT) -> windows_core::Resul
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToStringArray(var: *const VARIANT, prgsz: &mut [windows_core::PWSTR], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToStringArray(var: *const VARIANT, prgsz: &mut [windows_core::PWSTR], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToStringArray(var : *const VARIANT, prgsz : *mut windows_core::PWSTR, crgsz : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToStringArray(core::mem::transmute(var), core::mem::transmute(prgsz.as_ptr()), prgsz.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToStringArrayAlloc(var: *const VARIANT, pprgsz: *mut *mut windows_core::PWSTR, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToStringArrayAlloc(var: *const VARIANT, pprgsz: *mut *mut windows_core::PWSTR, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToStringArrayAlloc(var : *const VARIANT, pprgsz : *mut *mut windows_core::PWSTR, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToStringArrayAlloc(core::mem::transmute(var), pprgsz as _, pcelem as _).ok() }
 }
@@ -543,7 +543,7 @@ where
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt16(varin: *const VARIANT) -> windows_core::Result<u16> {
+pub unsafe fn VariantToUInt16(varin: *const VARIANT) -> windows_result::Result<u16> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt16(varin : *const VARIANT, puiret : *mut u16) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -552,13 +552,13 @@ pub unsafe fn VariantToUInt16(varin: *const VARIANT) -> windows_core::Result<u16
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt16Array(var: *const VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt16Array(var: *const VARIANT, prgn: &mut [u16], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt16Array(var : *const VARIANT, prgn : *mut u16, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt16Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt16ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u16, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt16ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u16, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt16ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -570,7 +570,7 @@ pub unsafe fn VariantToUInt16WithDefault(varin: *const VARIANT, uidefault: u16) 
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt32(varin: *const VARIANT) -> windows_core::Result<u32> {
+pub unsafe fn VariantToUInt32(varin: *const VARIANT) -> windows_result::Result<u32> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt32(varin : *const VARIANT, pulret : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -579,13 +579,13 @@ pub unsafe fn VariantToUInt32(varin: *const VARIANT) -> windows_core::Result<u32
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt32Array(var: *const VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt32Array(var: *const VARIANT, prgn: &mut [u32], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt32Array(var : *const VARIANT, prgn : *mut u32, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt32Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt32ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u32, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt32ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt32ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }
@@ -597,7 +597,7 @@ pub unsafe fn VariantToUInt32WithDefault(varin: *const VARIANT, uldefault: u32) 
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt64(varin: *const VARIANT) -> windows_core::Result<u64> {
+pub unsafe fn VariantToUInt64(varin: *const VARIANT) -> windows_result::Result<u64> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt64(varin : *const VARIANT, pullret : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -606,13 +606,13 @@ pub unsafe fn VariantToUInt64(varin: *const VARIANT) -> windows_core::Result<u64
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt64Array(var: *const VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt64Array(var: *const VARIANT, prgn: &mut [u64], pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt64Array(var : *const VARIANT, prgn : *mut u64, crgn : u32, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt64Array(core::mem::transmute(var), core::mem::transmute(prgn.as_ptr()), prgn.len().try_into().unwrap(), pcelem as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 #[inline]
-pub unsafe fn VariantToUInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn VariantToUInt64ArrayAlloc(var: *const VARIANT, pprgn: *mut *mut u64, pcelem: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("propsys.dll" "system" fn VariantToUInt64ArrayAlloc(var : *const VARIANT, pprgn : *mut *mut u64, pcelem : *mut u32) -> windows_core::HRESULT);
     unsafe { VariantToUInt64ArrayAlloc(core::mem::transmute(var), pprgn as _, pcelem as _).ok() }
 }

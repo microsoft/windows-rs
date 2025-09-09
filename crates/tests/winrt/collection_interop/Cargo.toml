@@ -8,21 +8,15 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-core]
-workspace = true
-
-[dependencies.windows-collections]
-workspace = true
-features = ["std"]
-
-[build-dependencies.windows-bindgen]
-workspace = true
+[dependencies]
+windows-result = { workspace = true }
+windows-core = { workspace = true }
+windows-collections = { workspace = true, features = ["std"] }
 
 [build-dependencies]
 cc = "1.0"
-
-[build-dependencies.cppwinrt]
-workspace = true
+cppwinrt = { workspace = true }
+windows-bindgen = { workspace = true }
 
 [lints]
 workspace = true

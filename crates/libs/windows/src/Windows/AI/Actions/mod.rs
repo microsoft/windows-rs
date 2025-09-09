@@ -8,28 +8,28 @@ pub struct ActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionEntity, super::super::Foundation::IClosable);
 impl ActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -52,14 +52,14 @@ pub struct ActionEntityDisplayInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionEntityDisplayInfo, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionEntityDisplayInfo, super::super::Foundation::IClosable);
 impl ActionEntityDisplayInfo {
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -82,35 +82,35 @@ pub struct ActionEntityFactory(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionEntityFactory, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionEntityFactory, super::super::Foundation::IClosable);
 impl ActionEntityFactory {
-    pub fn CreateFileEntity(&self, path: &windows_core::HSTRING) -> windows_core::Result<FileActionEntity> {
+    pub fn CreateFileEntity(&self, path: &windows_core::HSTRING) -> windows_result::Result<FileActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFileEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDocumentEntity(&self, path: &windows_core::HSTRING) -> windows_core::Result<DocumentActionEntity> {
+    pub fn CreateDocumentEntity(&self, path: &windows_core::HSTRING) -> windows_result::Result<DocumentActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateDocumentEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreatePhotoEntity(&self, path: &windows_core::HSTRING) -> windows_core::Result<PhotoActionEntity> {
+    pub fn CreatePhotoEntity(&self, path: &windows_core::HSTRING) -> windows_result::Result<PhotoActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePhotoEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(path), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTextEntity(&self, text: &windows_core::HSTRING) -> windows_core::Result<TextActionEntity> {
+    pub fn CreateTextEntity(&self, text: &windows_core::HSTRING) -> windows_result::Result<TextActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTextEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateRemoteFileEntity<P2>(&self, sourceid: &windows_core::HSTRING, filekind: RemoteFileKind, sourceuri: P2, fileid: &windows_core::HSTRING, contenttype: &windows_core::HSTRING, driveid: &windows_core::HSTRING, accountid: &windows_core::HSTRING, extension: &windows_core::HSTRING) -> windows_core::Result<RemoteFileActionEntity>
+    pub fn CreateRemoteFileEntity<P2>(&self, sourceid: &windows_core::HSTRING, filekind: RemoteFileKind, sourceuri: P2, fileid: &windows_core::HSTRING, contenttype: &windows_core::HSTRING, driveid: &windows_core::HSTRING, accountid: &windows_core::HSTRING, extension: &windows_core::HSTRING) -> windows_result::Result<RemoteFileActionEntity>
     where
         P2: windows_core::Param<super::super::Foundation::Uri>,
     {
@@ -120,21 +120,21 @@ impl ActionEntityFactory {
             (windows_core::Interface::vtable(this).CreateRemoteFileEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceid), filekind, sourceuri.param().abi(), core::mem::transmute_copy(fileid), core::mem::transmute_copy(contenttype), core::mem::transmute_copy(driveid), core::mem::transmute_copy(accountid), core::mem::transmute_copy(extension), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTextEntityWithTextFormat(&self, text: &windows_core::HSTRING, textformat: ActionEntityTextFormat) -> windows_core::Result<TextActionEntity> {
+    pub fn CreateTextEntityWithTextFormat(&self, text: &windows_core::HSTRING, textformat: ActionEntityTextFormat) -> windows_result::Result<TextActionEntity> {
         let this = &windows_core::Interface::cast::<IActionEntityFactory3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateTextEntityWithTextFormat)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text), textformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateStreamingTextActionEntityWriter(&self, textformat: ActionEntityTextFormat) -> windows_core::Result<StreamingTextActionEntityWriter> {
+    pub fn CreateStreamingTextActionEntityWriter(&self, textformat: ActionEntityTextFormat) -> windows_result::Result<StreamingTextActionEntityWriter> {
         let this = &windows_core::Interface::cast::<IActionEntityFactory3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateStreamingTextActionEntityWriter)(windows_core::Interface::as_raw(this), textformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateTableEntity(&self, data: &[windows_core::HSTRING], columncount: u32) -> windows_core::Result<TableActionEntity> {
+    pub fn CreateTableEntity(&self, data: &[windows_core::HSTRING], columncount: u32) -> windows_result::Result<TableActionEntity> {
         let this = &windows_core::Interface::cast::<IActionEntityFactory4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -142,7 +142,7 @@ impl ActionEntityFactory {
         }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn CreateContactEntity<P0>(&self, contact: P0) -> windows_core::Result<ContactActionEntity>
+    pub fn CreateContactEntity<P0>(&self, contact: P0) -> windows_result::Result<ContactActionEntity>
     where
         P0: windows_core::Param<super::super::ApplicationModel::Contacts::Contact>,
     {
@@ -152,7 +152,7 @@ impl ActionEntityFactory {
             (windows_core::Interface::vtable(this).CreateContactEntity)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -208,14 +208,14 @@ pub struct ActionFeedback(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionFeedback, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionFeedback, super::super::Foundation::IClosable);
 impl ActionFeedback {
-    pub fn FeedbackKind(&self) -> windows_core::Result<ActionFeedbackKind> {
+    pub fn FeedbackKind(&self) -> windows_result::Result<ActionFeedbackKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FeedbackKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -251,93 +251,93 @@ pub struct ActionInvocationContext(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionInvocationContext, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionInvocationContext, super::super::Foundation::IClosable);
 impl ActionInvocationContext {
-    pub fn EntityFactory(&self) -> windows_core::Result<ActionEntityFactory> {
+    pub fn EntityFactory(&self) -> windows_result::Result<ActionEntityFactory> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EntityFactory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInputEntity<P1>(&self, inputname: &windows_core::HSTRING, inputvalue: P1) -> windows_core::Result<()>
+    pub fn SetInputEntity<P1>(&self, inputname: &windows_core::HSTRING, inputvalue: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ActionEntity>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInputEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(inputname), inputvalue.param().abi()).ok() }
     }
-    pub fn GetInputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
+    pub fn GetInputEntities(&self) -> windows_result::Result<windows_core::Array<NamedActionEntity>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetInputEntities)(windows_core::Interface::as_raw(this), windows_core::Array::<NamedActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetOutputEntity<P1>(&self, outputname: &windows_core::HSTRING, outputvalue: P1) -> windows_core::Result<()>
+    pub fn SetOutputEntity<P1>(&self, outputname: &windows_core::HSTRING, outputvalue: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ActionEntity>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetOutputEntity)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(outputname), outputvalue.param().abi()).ok() }
     }
-    pub fn GetOutputEntities(&self) -> windows_core::Result<windows_core::Array<NamedActionEntity>> {
+    pub fn GetOutputEntities(&self) -> windows_result::Result<windows_core::Array<NamedActionEntity>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetOutputEntities)(windows_core::Interface::as_raw(this), windows_core::Array::<NamedActionEntity>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn Result(&self) -> windows_core::Result<ActionInvocationResult> {
+    pub fn Result(&self) -> windows_result::Result<ActionInvocationResult> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetResult(&self, value: ActionInvocationResult) -> windows_core::Result<()> {
+    pub fn SetResult(&self, value: ActionInvocationResult) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetResult)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExtendedError(&self, value: windows_core::HRESULT) -> windows_core::Result<()> {
+    pub fn SetExtendedError(&self, value: windows_core::HRESULT) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExtendedError)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "UI")]
-    pub fn InvokerWindowId(&self) -> windows_core::Result<super::super::UI::WindowId> {
+    pub fn InvokerWindowId(&self) -> windows_result::Result<super::super::UI::WindowId> {
         let this = &windows_core::Interface::cast::<IActionInvocationContext2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvokerWindowId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HelpDetails(&self) -> windows_core::Result<ActionInvocationHelpDetails> {
+    pub fn HelpDetails(&self) -> windows_result::Result<ActionInvocationHelpDetails> {
         let this = &windows_core::Interface::cast::<IActionInvocationContext2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HelpDetails)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ActionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ActionId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionInvocationContext2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InvokerAppUserModelId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn InvokerAppUserModelId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionInvocationContext2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InvokerAppUserModelId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -360,65 +360,65 @@ pub struct ActionInvocationHelpDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ActionInvocationHelpDetails, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ActionInvocationHelpDetails, super::super::Foundation::IClosable);
 impl ActionInvocationHelpDetails {
-    pub fn Kind(&self) -> windows_core::Result<ActionInvocationHelpKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionInvocationHelpKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetKind(&self, value: ActionInvocationHelpKind) -> windows_core::Result<()> {
+    pub fn SetKind(&self, value: ActionInvocationHelpKind) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetKind)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Title(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetTitle(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTitle)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDescription(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn HelpUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn HelpUri(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HelpUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetHelpUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetHelpUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHelpUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn HelpUriDescription(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HelpUriDescription(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HelpUriDescription)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetHelpUriDescription(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetHelpUriDescription(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHelpUriDescription)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -471,39 +471,39 @@ windows_core::imp::interface_hierarchy!(ActionRuntime, windows_core::IUnknown, w
 windows_core::imp::required_hierarchy!(ActionRuntime, super::super::Foundation::IClosable);
 impl ActionRuntime {
     #[cfg(feature = "AI_Actions_Hosting")]
-    pub fn ActionCatalog(&self) -> windows_core::Result<Hosting::ActionCatalog> {
+    pub fn ActionCatalog(&self) -> windows_result::Result<Hosting::ActionCatalog> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ActionCatalog)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EntityFactory(&self) -> windows_core::Result<ActionEntityFactory> {
+    pub fn EntityFactory(&self) -> windows_result::Result<ActionEntityFactory> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EntityFactory)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInvocationContext(&self, actionid: &windows_core::HSTRING) -> windows_core::Result<ActionInvocationContext> {
+    pub fn CreateInvocationContext(&self, actionid: &windows_core::HSTRING) -> windows_result::Result<ActionInvocationContext> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInvocationContext)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(actionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateActionFeedback(&self, feedbackkind: ActionFeedbackKind) -> windows_core::Result<ActionFeedback> {
+    pub fn CreateActionFeedback(&self, feedbackkind: ActionFeedbackKind) -> windows_result::Result<ActionFeedback> {
         let this = &windows_core::Interface::cast::<IActionRuntime2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateActionFeedback)(windows_core::Interface::as_raw(this), feedbackkind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetActionAvailability(&self, actionid: &windows_core::HSTRING, isavailable: bool) -> windows_core::Result<()> {
+    pub fn SetActionAvailability(&self, actionid: &windows_core::HSTRING, isavailable: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IActionRuntime2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetActionAvailability)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(actionid), isavailable).ok() }
     }
-    pub fn GetActionAvailability(&self, actionid: &windows_core::HSTRING) -> windows_core::Result<bool> {
+    pub fn GetActionAvailability(&self, actionid: &windows_core::HSTRING) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IActionRuntime2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -511,35 +511,35 @@ impl ActionRuntime {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn CreateInvocationContextWithWindowId(&self, actionid: &windows_core::HSTRING, invokerwindowid: super::super::UI::WindowId) -> windows_core::Result<ActionInvocationContext> {
+    pub fn CreateInvocationContextWithWindowId(&self, actionid: &windows_core::HSTRING, invokerwindowid: super::super::UI::WindowId) -> windows_result::Result<ActionInvocationContext> {
         let this = &windows_core::Interface::cast::<IActionRuntime3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInvocationContextWithWindowId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(actionid), invokerwindowid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetActionEntityById(&self, entityid: &windows_core::HSTRING) -> windows_core::Result<ActionEntity> {
+    pub fn GetActionEntityById(&self, entityid: &windows_core::HSTRING) -> windows_result::Result<ActionEntity> {
         let this = &windows_core::Interface::cast::<IActionRuntime3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActionEntityById)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(entityid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LatestSupportedSchemaVersion(&self) -> windows_core::Result<u32> {
+    pub fn LatestSupportedSchemaVersion(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<IActionRuntime3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LatestSupportedSchemaVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetActionInvocationContextFromToken(&self, token: &windows_core::HSTRING) -> windows_core::Result<ActionInvocationContext> {
+    pub fn GetActionInvocationContextFromToken(&self, token: &windows_core::HSTRING) -> windows_result::Result<ActionInvocationContext> {
         let this = &windows_core::Interface::cast::<IActionRuntime4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetActionInvocationContextFromToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(token), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -562,33 +562,33 @@ pub struct ContactActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(ContactActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl ContactActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(feature = "ApplicationModel_Contacts")]
-    pub fn Contact(&self) -> windows_core::Result<super::super::ApplicationModel::Contacts::Contact> {
+    pub fn Contact(&self) -> windows_result::Result<super::super::ApplicationModel::Contacts::Contact> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -614,32 +614,32 @@ pub struct DocumentActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DocumentActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(DocumentActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl DocumentActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FullPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FullPath(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -665,32 +665,32 @@ pub struct FileActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FileActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(FileActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl FileActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FullPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FullPath(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1070,29 +1070,29 @@ pub struct NamedActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NamedActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(NamedActionEntity, super::super::Foundation::IClosable);
 impl NamedActionEntity {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn Entity(&self) -> windows_core::Result<ActionEntity> {
+    pub fn Entity(&self) -> windows_result::Result<ActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Entity)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetEntity<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetEntity<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ActionEntity>,
     {
@@ -1118,32 +1118,32 @@ pub struct PhotoActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl PhotoActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FullPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FullPath(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1169,81 +1169,81 @@ pub struct RemoteFileActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoteFileActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(RemoteFileActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl RemoteFileActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SourceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FileKind(&self) -> windows_core::Result<RemoteFileKind> {
+    pub fn FileKind(&self) -> windows_result::Result<RemoteFileKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SourceUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+    pub fn SourceUri(&self) -> windows_result::Result<super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FileId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FileId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FileId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContentType(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContentType(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DriveId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DriveId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DriveId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AccountId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AccountId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Extension(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Extension(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1283,53 +1283,53 @@ pub struct StreamingTextActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamingTextActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamingTextActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl StreamingTextActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn IsComplete(&self) -> windows_core::Result<bool> {
+    pub fn IsComplete(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsComplete)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetText(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TextFormat(&self) -> windows_core::Result<ActionEntityTextFormat> {
+    pub fn TextFormat(&self) -> windows_result::Result<ActionEntityTextFormat> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TextChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn TextChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<StreamingTextActionEntity, StreamingTextActionEntityTextChangedArgs>>,
     {
@@ -1339,7 +1339,7 @@ impl StreamingTextActionEntity {
             (windows_core::Interface::vtable(this).TextChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveTextChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveTextChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveTextChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -1361,14 +1361,14 @@ unsafe impl Sync for StreamingTextActionEntity {}
 pub struct StreamingTextActionEntityTextChangedArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamingTextActionEntityTextChangedArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl StreamingTextActionEntityTextChangedArgs {
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn IsComplete(&self) -> windows_core::Result<bool> {
+    pub fn IsComplete(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1394,25 +1394,25 @@ pub struct StreamingTextActionEntityWriter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(StreamingTextActionEntityWriter, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(StreamingTextActionEntityWriter, super::super::Foundation::IClosable);
 impl StreamingTextActionEntityWriter {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReaderEntity(&self) -> windows_core::Result<StreamingTextActionEntity> {
+    pub fn ReaderEntity(&self) -> windows_result::Result<StreamingTextActionEntity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReaderEntity)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TextFormat(&self) -> windows_core::Result<ActionEntityTextFormat> {
+    pub fn TextFormat(&self) -> windows_result::Result<ActionEntityTextFormat> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetText(&self, text: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetText(&self, text: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetText)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(text)).ok() }
     }
@@ -1435,46 +1435,46 @@ pub struct TableActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TableActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TableActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl TableActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetTextContent(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
+    pub fn GetTextContent(&self) -> windows_result::Result<windows_core::Array<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetTextContent)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn RowCount(&self) -> windows_core::Result<u32> {
+    pub fn RowCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RowCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ColumnCount(&self) -> windows_core::Result<u32> {
+    pub fn ColumnCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1500,39 +1500,39 @@ pub struct TextActionEntity(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(TextActionEntity, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(TextActionEntity, super::super::Foundation::IClosable, ActionEntity);
 impl TextActionEntity {
-    pub fn Kind(&self) -> windows_core::Result<ActionEntityKind> {
+    pub fn Kind(&self) -> windows_result::Result<ActionEntityKind> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DisplayInfo(&self) -> windows_core::Result<ActionEntityDisplayInfo> {
+    pub fn DisplayInfo(&self) -> windows_result::Result<ActionEntityDisplayInfo> {
         let this = &windows_core::Interface::cast::<IActionEntity>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Text(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Text(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Text)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TextFormat(&self) -> windows_core::Result<ActionEntityTextFormat> {
+    pub fn TextFormat(&self) -> windows_result::Result<ActionEntityTextFormat> {
         let this = &windows_core::Interface::cast::<ITextActionEntity2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

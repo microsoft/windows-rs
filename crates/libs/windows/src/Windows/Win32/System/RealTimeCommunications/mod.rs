@@ -5,11 +5,11 @@ windows_core::imp::define_interface!(INetworkTransportSettings, INetworkTranspor
 windows_core::imp::interface_hierarchy!(INetworkTransportSettings, windows_core::IUnknown);
 impl INetworkTransportSettings {
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub unsafe fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), lengthout as _, valueout as _).ok() }
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub unsafe fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()> {
+    pub unsafe fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, valuein: &[u8], lengthout: *mut u32, valueout: *mut *mut u8) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), settingid, valuein.len().try_into().unwrap(), core::mem::transmute(valuein.as_ptr()), lengthout as _, valueout as _).ok() }
     }
 }
@@ -28,8 +28,8 @@ pub struct INetworkTransportSettings_Vtbl {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait INetworkTransportSettings_Impl: windows_core::IUnknownImpl {
-    fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()>;
-    fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_core::Result<()>;
+    fn ApplySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_result::Result<()>;
+    fn QuerySetting(&self, settingid: *const super::super::Networking::WinSock::TRANSPORT_SETTING_ID, lengthin: u32, valuein: *const u8, lengthout: *mut u32, valueout: *mut *mut u8) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl INetworkTransportSettings_Vtbl {
@@ -61,10 +61,10 @@ impl windows_core::RuntimeName for INetworkTransportSettings {}
 windows_core::imp::define_interface!(INotificationTransportSync, INotificationTransportSync_Vtbl, 0x79eb1402_0ab8_49c0_9e14_a1ae4ba93058);
 windows_core::imp::interface_hierarchy!(INotificationTransportSync, windows_core::IUnknown);
 impl INotificationTransportSync {
-    pub unsafe fn CompleteDelivery(&self) -> windows_core::Result<()> {
+    pub unsafe fn CompleteDelivery(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CompleteDelivery)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Flush(&self) -> windows_core::Result<()> {
+    pub unsafe fn Flush(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Flush)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -76,8 +76,8 @@ pub struct INotificationTransportSync_Vtbl {
     pub Flush: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait INotificationTransportSync_Impl: windows_core::IUnknownImpl {
-    fn CompleteDelivery(&self) -> windows_core::Result<()>;
-    fn Flush(&self) -> windows_core::Result<()>;
+    fn CompleteDelivery(&self) -> windows_result::Result<()>;
+    fn Flush(&self) -> windows_result::Result<()>;
 }
 impl INotificationTransportSync_Vtbl {
     pub const fn new<Identity: INotificationTransportSync_Impl, const OFFSET: isize>() -> Self {
@@ -113,13 +113,13 @@ impl core::ops::Deref for IRTCBuddy {
 }
 windows_core::imp::interface_hierarchy!(IRTCBuddy, windows_core::IUnknown, IRTCPresenceContact);
 impl IRTCBuddy {
-    pub unsafe fn Status(&self) -> windows_core::Result<RTC_PRESENCE_STATUS> {
+    pub unsafe fn Status(&self) -> windows_result::Result<RTC_PRESENCE_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Notes(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Notes(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Notes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -134,8 +134,8 @@ pub struct IRTCBuddy_Vtbl {
     pub Notes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCBuddy_Impl: IRTCPresenceContact_Impl {
-    fn Status(&self) -> windows_core::Result<RTC_PRESENCE_STATUS>;
-    fn Notes(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Status(&self) -> windows_result::Result<RTC_PRESENCE_STATUS>;
+    fn Notes(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 impl IRTCBuddy_Vtbl {
     pub const fn new<Identity: IRTCBuddy_Impl, const OFFSET: isize>() -> Self {
@@ -179,48 +179,48 @@ impl core::ops::Deref for IRTCBuddy2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCBuddy2, windows_core::IUnknown, IRTCPresenceContact, IRTCBuddy);
 impl IRTCBuddy2 {
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile2> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Refresh(&self) -> windows_core::Result<()> {
+    pub unsafe fn Refresh(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refresh)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups> {
+    pub unsafe fn EnumerateGroups(&self) -> windows_result::Result<IRTCEnumGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Groups(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Groups(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Groups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PresenceProperty)(windows_core::Interface::as_raw(self), enproperty, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn EnumeratePresenceDevices(&self) -> windows_core::Result<IRTCEnumPresenceDevices> {
+    pub unsafe fn EnumeratePresenceDevices(&self) -> windows_result::Result<IRTCEnumPresenceDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumeratePresenceDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn PresenceDevices(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn PresenceDevices(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PresenceDevices)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SubscriptionType(&self) -> windows_core::Result<RTC_BUDDY_SUBSCRIPTION_TYPE> {
+    pub unsafe fn SubscriptionType(&self) -> windows_result::Result<RTC_BUDDY_SUBSCRIPTION_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SubscriptionType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -248,14 +248,14 @@ pub struct IRTCBuddy2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddy2_Impl: IRTCBuddy_Impl {
-    fn Profile(&self) -> windows_core::Result<IRTCProfile2>;
-    fn Refresh(&self) -> windows_core::Result<()>;
-    fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups>;
-    fn Groups(&self) -> windows_core::Result<IRTCCollection>;
-    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
-    fn EnumeratePresenceDevices(&self) -> windows_core::Result<IRTCEnumPresenceDevices>;
-    fn PresenceDevices(&self) -> windows_core::Result<IRTCCollection>;
-    fn SubscriptionType(&self) -> windows_core::Result<RTC_BUDDY_SUBSCRIPTION_TYPE>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile2>;
+    fn Refresh(&self) -> windows_result::Result<()>;
+    fn EnumerateGroups(&self) -> windows_result::Result<IRTCEnumGroups>;
+    fn Groups(&self) -> windows_result::Result<IRTCCollection>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR>;
+    fn EnumeratePresenceDevices(&self) -> windows_result::Result<IRTCEnumPresenceDevices>;
+    fn PresenceDevices(&self) -> windows_result::Result<IRTCCollection>;
+    fn SubscriptionType(&self) -> windows_result::Result<RTC_BUDDY_SUBSCRIPTION_TYPE>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddy2_Vtbl {
@@ -381,7 +381,7 @@ impl core::ops::Deref for IRTCBuddyEvent {
 windows_core::imp::interface_hierarchy!(IRTCBuddyEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent {
-    pub unsafe fn Buddy(&self) -> windows_core::Result<IRTCBuddy> {
+    pub unsafe fn Buddy(&self) -> windows_result::Result<IRTCBuddy> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Buddy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -397,7 +397,7 @@ pub struct IRTCBuddyEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCBuddyEvent_Impl: super::Com::IDispatch_Impl {
-    fn Buddy(&self) -> windows_core::Result<IRTCBuddy>;
+    fn Buddy(&self) -> windows_result::Result<IRTCBuddy>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyEvent_Vtbl {
@@ -435,19 +435,19 @@ impl core::ops::Deref for IRTCBuddyEvent2 {
 windows_core::imp::interface_hierarchy!(IRTCBuddyEvent2, windows_core::IUnknown, super::Com::IDispatch, IRTCBuddyEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyEvent2 {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_BUDDY_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_BUDDY_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -465,9 +465,9 @@ pub struct IRTCBuddyEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCBuddyEvent2_Impl: IRTCBuddyEvent_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_BUDDY_EVENT_TYPE>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn EventType(&self) -> windows_result::Result<RTC_BUDDY_EVENT_TYPE>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyEvent2_Vtbl {
@@ -524,50 +524,50 @@ impl windows_core::RuntimeName for IRTCBuddyEvent2 {}
 windows_core::imp::define_interface!(IRTCBuddyGroup, IRTCBuddyGroup_Vtbl, 0x60361e68_9164_4389_a4c6_d0b3925bda5e);
 windows_core::imp::interface_hierarchy!(IRTCBuddyGroup, windows_core::IUnknown);
 impl IRTCBuddyGroup {
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname)).ok() }
     }
-    pub unsafe fn AddBuddy<P0>(&self, pbuddy: P0) -> windows_core::Result<()>
+    pub unsafe fn AddBuddy<P0>(&self, pbuddy: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
     }
-    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
     }
-    pub unsafe fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies> {
+    pub unsafe fn EnumerateBuddies(&self) -> windows_result::Result<IRTCEnumBuddies> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateBuddies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Buddies(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Buddies(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Buddies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Data(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata)).ok() }
     }
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile2> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -593,15 +593,15 @@ pub struct IRTCBuddyGroup_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCBuddyGroup_Impl: windows_core::IUnknownImpl {
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
-    fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
-    fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
-    fn Data(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Profile(&self) -> windows_core::Result<IRTCProfile2>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetName(&self, bstrgroupname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn AddBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_result::Result<()>;
+    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_result::Result<()>;
+    fn EnumerateBuddies(&self) -> windows_result::Result<IRTCEnumBuddies>;
+    fn Buddies(&self) -> windows_result::Result<IRTCCollection>;
+    fn Data(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile2>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroup_Vtbl {
@@ -722,25 +722,25 @@ impl core::ops::Deref for IRTCBuddyGroupEvent {
 windows_core::imp::interface_hierarchy!(IRTCBuddyGroupEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCBuddyGroupEvent {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_GROUP_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_GROUP_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Group(&self) -> windows_core::Result<IRTCBuddyGroup> {
+    pub unsafe fn Group(&self) -> windows_result::Result<IRTCBuddyGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Group)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Buddy(&self) -> windows_core::Result<IRTCBuddy2> {
+    pub unsafe fn Buddy(&self) -> windows_result::Result<IRTCBuddy2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Buddy)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -759,10 +759,10 @@ pub struct IRTCBuddyGroupEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCBuddyGroupEvent_Impl: super::Com::IDispatch_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_GROUP_EVENT_TYPE>;
-    fn Group(&self) -> windows_core::Result<IRTCBuddyGroup>;
-    fn Buddy(&self) -> windows_core::Result<IRTCBuddy2>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
+    fn EventType(&self) -> windows_result::Result<RTC_GROUP_EVENT_TYPE>;
+    fn Group(&self) -> windows_result::Result<IRTCBuddyGroup>;
+    fn Buddy(&self) -> windows_result::Result<IRTCBuddy2>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCBuddyGroupEvent_Vtbl {
@@ -832,40 +832,40 @@ impl windows_core::RuntimeName for IRTCBuddyGroupEvent {}
 windows_core::imp::define_interface!(IRTCClient, IRTCClient_Vtbl, 0x07829e45_9a34_408e_a011_bddf13487cd1);
 windows_core::imp::interface_hierarchy!(IRTCClient, windows_core::IUnknown);
 impl IRTCClient {
-    pub unsafe fn Initialize(&self) -> windows_core::Result<()> {
+    pub unsafe fn Initialize(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Initialize)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Shutdown(&self) -> windows_core::Result<()> {
+    pub unsafe fn Shutdown(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Shutdown)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PrepareForShutdown(&self) -> windows_core::Result<()> {
+    pub unsafe fn PrepareForShutdown(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PrepareForShutdown)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetEventFilter(&self, lfilter: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetEventFilter(&self, lfilter: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventFilter)(windows_core::Interface::as_raw(self), lfilter).ok() }
     }
-    pub unsafe fn EventFilter(&self) -> windows_core::Result<i32> {
+    pub unsafe fn EventFilter(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventFilter)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPreferredMediaTypes)(windows_core::Interface::as_raw(self), lmediatypes, fpersistent).ok() }
     }
-    pub unsafe fn PreferredMediaTypes(&self) -> windows_core::Result<i32> {
+    pub unsafe fn PreferredMediaTypes(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredMediaTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MediaCapabilities(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MediaCapabilities(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateSession<P2>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_core::Result<IRTCSession>
+    pub unsafe fn CreateSession<P2>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_result::Result<IRTCSession>
     where
         P2: windows_core::Param<IRTCProfile>,
     {
@@ -874,153 +874,153 @@ impl IRTCClient {
             (windows_core::Interface::vtable(self).CreateSession)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_core::Result<()> {
+    pub unsafe fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetListenForIncomingSessions)(windows_core::Interface::as_raw(self), enlisten).ok() }
     }
-    pub unsafe fn ListenForIncomingSessions(&self) -> windows_core::Result<RTC_LISTEN_MODE> {
+    pub unsafe fn ListenForIncomingSessions(&self) -> windows_result::Result<RTC_LISTEN_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ListenForIncomingSessions)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<super::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_NetworkAddresses)(windows_core::Interface::as_raw(self), ftcp, fexternal, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::Result<()> {
+    pub unsafe fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_Volume)(windows_core::Interface::as_raw(self), endevice, lvolume).ok() }
     }
-    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<i32> {
+    pub unsafe fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Volume)(windows_core::Interface::as_raw(self), endevice, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_AudioMuted)(windows_core::Interface::as_raw(self), endevice, fmuted).ok() }
     }
-    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AudioMuted)(windows_core::Interface::as_raw(self), endevice, &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com"))]
-    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> windows_core::Result<super::super::Media::DirectShow::IVideoWindow> {
+    pub unsafe fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> windows_result::Result<super::super::Media::DirectShow::IVideoWindow> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IVideoWindow)(windows_core::Interface::as_raw(self), endevice, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn put_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PreferredAudioDevice)(windows_core::Interface::as_raw(self), endevice, core::mem::transmute_copy(bstrdevicename)).ok() }
     }
-    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PreferredAudioDevice)(windows_core::Interface::as_raw(self), endevice, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::Result<()> {
+    pub unsafe fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PreferredVolume)(windows_core::Interface::as_raw(self), endevice, lvolume).ok() }
     }
-    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<i32> {
+    pub unsafe fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PreferredVolume)(windows_core::Interface::as_raw(self), endevice, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPreferredAEC)(windows_core::Interface::as_raw(self), benable).ok() }
     }
-    pub unsafe fn PreferredAEC(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn PreferredAEC(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredAEC)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPreferredVideoDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPreferredVideoDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPreferredVideoDevice)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdevicename)).ok() }
     }
-    pub unsafe fn PreferredVideoDevice(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PreferredVideoDevice(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PreferredVideoDevice)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ActiveMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ActiveMedia(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ActiveMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetMaxBitrate(&self, lmaxbitrate: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetMaxBitrate(&self, lmaxbitrate: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMaxBitrate)(windows_core::Interface::as_raw(self), lmaxbitrate).ok() }
     }
-    pub unsafe fn MaxBitrate(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MaxBitrate(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MaxBitrate)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetTemporalSpatialTradeOff)(windows_core::Interface::as_raw(self), lvalue).ok() }
     }
-    pub unsafe fn TemporalSpatialTradeOff(&self) -> windows_core::Result<i32> {
+    pub unsafe fn TemporalSpatialTradeOff(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).TemporalSpatialTradeOff)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn NetworkQuality(&self) -> windows_core::Result<i32> {
+    pub unsafe fn NetworkQuality(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).NetworkQuality)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> windows_core::Result<()> {
+    pub unsafe fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartT120Applet)(windows_core::Interface::as_raw(self), enapplet).ok() }
     }
-    pub unsafe fn StopT120Applets(&self) -> windows_core::Result<()> {
+    pub unsafe fn StopT120Applets(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopT120Applets)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_IsT120AppletRunning)(windows_core::Interface::as_raw(self), enapplet, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn LocalUserURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LocalUserURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalUserURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLocalUserURI(&self, bstruseruri: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLocalUserURI(&self, bstruseruri: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocalUserURI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstruseruri)).ok() }
     }
-    pub unsafe fn LocalUserName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn LocalUserName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).LocalUserName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetLocalUserName(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLocalUserName(&self, bstrusername: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocalUserName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrusername)).ok() }
     }
-    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PlayRing)(windows_core::Interface::as_raw(self), entype, bplay).ok() }
     }
-    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> windows_core::Result<()> {
+    pub unsafe fn SendDTMF(&self, endtmf: RTC_DTMF) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendDTMF)(windows_core::Interface::as_raw(self), endtmf).ok() }
     }
-    pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> windows_core::Result<()> {
+    pub unsafe fn InvokeTuningWizard(&self, hwndparent: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InvokeTuningWizard)(windows_core::Interface::as_raw(self), hwndparent).ok() }
     }
-    pub unsafe fn IsTuned(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsTuned(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsTuned)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -1082,48 +1082,48 @@ pub struct IRTCClient_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClient_Impl: windows_core::IUnknownImpl {
-    fn Initialize(&self) -> windows_core::Result<()>;
-    fn Shutdown(&self) -> windows_core::Result<()>;
-    fn PrepareForShutdown(&self) -> windows_core::Result<()>;
-    fn SetEventFilter(&self, lfilter: i32) -> windows_core::Result<()>;
-    fn EventFilter(&self) -> windows_core::Result<i32>;
-    fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn PreferredMediaTypes(&self) -> windows_core::Result<i32>;
-    fn MediaCapabilities(&self) -> windows_core::Result<i32>;
-    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession>;
-    fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_core::Result<()>;
-    fn ListenForIncomingSessions(&self) -> windows_core::Result<RTC_LISTEN_MODE>;
-    fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<super::Variant::VARIANT>;
-    fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::Result<()>;
-    fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<i32>;
-    fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> windows_core::Result<super::super::Media::DirectShow::IVideoWindow>;
-    fn put_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<windows_core::BSTR>;
-    fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_core::Result<()>;
-    fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_core::Result<i32>;
-    fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn PreferredAEC(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetPreferredVideoDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PreferredVideoDevice(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ActiveMedia(&self) -> windows_core::Result<i32>;
-    fn SetMaxBitrate(&self, lmaxbitrate: i32) -> windows_core::Result<()>;
-    fn MaxBitrate(&self) -> windows_core::Result<i32>;
-    fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> windows_core::Result<()>;
-    fn TemporalSpatialTradeOff(&self) -> windows_core::Result<i32>;
-    fn NetworkQuality(&self) -> windows_core::Result<i32>;
-    fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> windows_core::Result<()>;
-    fn StopT120Applets(&self) -> windows_core::Result<()>;
-    fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn LocalUserURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalUserURI(&self, bstruseruri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn LocalUserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetLocalUserName(&self, bstrusername: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn SendDTMF(&self, endtmf: RTC_DTMF) -> windows_core::Result<()>;
-    fn InvokeTuningWizard(&self, hwndparent: isize) -> windows_core::Result<()>;
-    fn IsTuned(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Initialize(&self) -> windows_result::Result<()>;
+    fn Shutdown(&self) -> windows_result::Result<()>;
+    fn PrepareForShutdown(&self) -> windows_result::Result<()>;
+    fn SetEventFilter(&self, lfilter: i32) -> windows_result::Result<()>;
+    fn EventFilter(&self) -> windows_result::Result<i32>;
+    fn SetPreferredMediaTypes(&self, lmediatypes: i32, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn PreferredMediaTypes(&self) -> windows_result::Result<i32>;
+    fn MediaCapabilities(&self) -> windows_result::Result<i32>;
+    fn CreateSession(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCSession>;
+    fn SetListenForIncomingSessions(&self, enlisten: RTC_LISTEN_MODE) -> windows_result::Result<()>;
+    fn ListenForIncomingSessions(&self) -> windows_result::Result<RTC_LISTEN_MODE>;
+    fn get_NetworkAddresses(&self, ftcp: super::super::Foundation::VARIANT_BOOL, fexternal: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<super::Variant::VARIANT>;
+    fn put_Volume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_result::Result<()>;
+    fn get_Volume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<i32>;
+    fn put_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE, fmuted: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn get_AudioMuted(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn get_IVideoWindow(&self, endevice: RTC_VIDEO_DEVICE) -> windows_result::Result<super::super::Media::DirectShow::IVideoWindow>;
+    fn put_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE, bstrdevicename: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn get_PreferredAudioDevice(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<windows_core::BSTR>;
+    fn put_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE, lvolume: i32) -> windows_result::Result<()>;
+    fn get_PreferredVolume(&self, endevice: RTC_AUDIO_DEVICE) -> windows_result::Result<i32>;
+    fn SetPreferredAEC(&self, benable: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn PreferredAEC(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPreferredVideoDevice(&self, bstrdevicename: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn PreferredVideoDevice(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ActiveMedia(&self) -> windows_result::Result<i32>;
+    fn SetMaxBitrate(&self, lmaxbitrate: i32) -> windows_result::Result<()>;
+    fn MaxBitrate(&self) -> windows_result::Result<i32>;
+    fn SetTemporalSpatialTradeOff(&self, lvalue: i32) -> windows_result::Result<()>;
+    fn TemporalSpatialTradeOff(&self) -> windows_result::Result<i32>;
+    fn NetworkQuality(&self) -> windows_result::Result<i32>;
+    fn StartT120Applet(&self, enapplet: RTC_T120_APPLET) -> windows_result::Result<()>;
+    fn StopT120Applets(&self) -> windows_result::Result<()>;
+    fn get_IsT120AppletRunning(&self, enapplet: RTC_T120_APPLET) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn LocalUserURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetLocalUserURI(&self, bstruseruri: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn LocalUserName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetLocalUserName(&self, bstrusername: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn PlayRing(&self, entype: RTC_RING_TYPE, bplay: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn SendDTMF(&self, endtmf: RTC_DTMF) -> windows_result::Result<()>;
+    fn InvokeTuningWizard(&self, hwndparent: isize) -> windows_result::Result<()>;
+    fn IsTuned(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClient_Vtbl {
@@ -1567,34 +1567,34 @@ impl core::ops::Deref for IRTCClient2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCClient2, windows_core::IUnknown, IRTCClient);
 impl IRTCClient2 {
-    pub unsafe fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_core::Result<()> {
+    pub unsafe fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_AnswerMode)(windows_core::Interface::as_raw(self), entype, enmode).ok() }
     }
-    pub unsafe fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> windows_core::Result<RTC_ANSWER_MODE> {
+    pub unsafe fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> windows_result::Result<RTC_ANSWER_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AnswerMode)(windows_core::Interface::as_raw(self), entype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InvokeTuningWizardEx)(windows_core::Interface::as_raw(self), hwndparent, fallowaudio, fallowvideo).ok() }
     }
-    pub unsafe fn Version(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Version(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Version)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetClientName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclientname)).ok() }
     }
-    pub unsafe fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetClientCurVer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrclientcurver)).ok() }
     }
-    pub unsafe fn InitializeEx(&self, lflags: i32) -> windows_core::Result<()> {
+    pub unsafe fn InitializeEx(&self, lflags: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InitializeEx)(windows_core::Interface::as_raw(self), lflags).ok() }
     }
-    pub unsafe fn CreateSessionWithDescription<P2>(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_core::Result<IRTCSession2>
+    pub unsafe fn CreateSessionWithDescription<P2>(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_result::Result<IRTCSession2>
     where
         P2: windows_core::Param<IRTCProfile>,
     {
@@ -1603,25 +1603,25 @@ impl IRTCClient2 {
             (windows_core::Interface::vtable(self).CreateSessionWithDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn SetSessionDescriptionManager<P0>(&self, psessiondescriptionmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetSessionDescriptionManager<P0>(&self, psessiondescriptionmanager: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCSessionDescriptionManager>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetSessionDescriptionManager)(windows_core::Interface::as_raw(self), psessiondescriptionmanager.param().abi()).ok() }
     }
-    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()> {
+    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, ensecuritylevel).ok() }
     }
-    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::Result<()> {
+    pub unsafe fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_AllowedPorts)(windows_core::Interface::as_raw(self), ltransport, enlistenmode).ok() }
     }
-    pub unsafe fn get_AllowedPorts(&self, ltransport: i32) -> windows_core::Result<RTC_LISTEN_MODE> {
+    pub unsafe fn get_AllowedPorts(&self, ltransport: i32) -> windows_result::Result<RTC_LISTEN_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_AllowedPorts)(windows_core::Interface::as_raw(self), ltransport, &mut result__).map(|| result__)
@@ -1648,19 +1648,19 @@ pub struct IRTCClient2_Vtbl {
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClient2_Impl: IRTCClient_Impl {
-    fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_core::Result<()>;
-    fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> windows_core::Result<RTC_ANSWER_MODE>;
-    fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn Version(&self) -> windows_core::Result<i32>;
-    fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn InitializeEx(&self, lflags: i32) -> windows_core::Result<()>;
-    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCSession2>;
-    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: windows_core::Ref<IRTCSessionDescriptionManager>) -> windows_core::Result<()>;
-    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()>;
-    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
-    fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_core::Result<()>;
-    fn get_AllowedPorts(&self, ltransport: i32) -> windows_core::Result<RTC_LISTEN_MODE>;
+    fn put_AnswerMode(&self, entype: RTC_SESSION_TYPE, enmode: RTC_ANSWER_MODE) -> windows_result::Result<()>;
+    fn get_AnswerMode(&self, entype: RTC_SESSION_TYPE) -> windows_result::Result<RTC_ANSWER_MODE>;
+    fn InvokeTuningWizardEx(&self, hwndparent: isize, fallowaudio: super::super::Foundation::VARIANT_BOOL, fallowvideo: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn Version(&self) -> windows_result::Result<i32>;
+    fn SetClientName(&self, bstrclientname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SetClientCurVer(&self, bstrclientcurver: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn InitializeEx(&self, lflags: i32) -> windows_result::Result<()>;
+    fn CreateSessionWithDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCSession2>;
+    fn SetSessionDescriptionManager(&self, psessiondescriptionmanager: windows_core::Ref<IRTCSessionDescriptionManager>) -> windows_result::Result<()>;
+    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_result::Result<()>;
+    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL>;
+    fn put_AllowedPorts(&self, ltransport: i32, enlistenmode: RTC_LISTEN_MODE) -> windows_result::Result<()>;
+    fn get_AllowedPorts(&self, ltransport: i32) -> windows_result::Result<RTC_LISTEN_MODE>;
 }
 #[cfg(all(feature = "Win32_Media_DirectShow", feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClient2_Vtbl {
@@ -1809,13 +1809,13 @@ impl core::ops::Deref for IRTCClientEvent {
 windows_core::imp::interface_hierarchy!(IRTCClientEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientEvent {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_CLIENT_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_CLIENT_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Client(&self) -> windows_core::Result<IRTCClient> {
+    pub unsafe fn Client(&self) -> windows_result::Result<IRTCClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Client)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1832,8 +1832,8 @@ pub struct IRTCClientEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClientEvent_Impl: super::Com::IDispatch_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_CLIENT_EVENT_TYPE>;
-    fn Client(&self) -> windows_core::Result<IRTCClient>;
+    fn EventType(&self) -> windows_result::Result<RTC_CLIENT_EVENT_TYPE>;
+    fn Client(&self) -> windows_result::Result<IRTCClient>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientEvent_Vtbl {
@@ -1873,13 +1873,13 @@ impl windows_core::RuntimeName for IRTCClientEvent {}
 windows_core::imp::define_interface!(IRTCClientPortManagement, IRTCClientPortManagement_Vtbl, 0xd5df3f03_4bde_4417_aefe_71177bdaea66);
 windows_core::imp::interface_hierarchy!(IRTCClientPortManagement, windows_core::IUnknown);
 impl IRTCClientPortManagement {
-    pub unsafe fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()> {
+    pub unsafe fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StartListenAddressAndPort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport).ok() }
     }
-    pub unsafe fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()> {
+    pub unsafe fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StopListenAddressAndPort)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport).ok() }
     }
-    pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPortRange)(windows_core::Interface::as_raw(self), enporttype, plminvalue as _, plmaxvalue as _).ok() }
     }
 }
@@ -1892,9 +1892,9 @@ pub struct IRTCClientPortManagement_Vtbl {
     pub GetPortRange: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_PORT_TYPE, *mut i32, *mut i32) -> windows_core::HRESULT,
 }
 pub trait IRTCClientPortManagement_Impl: windows_core::IUnknownImpl {
-    fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()>;
-    fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_core::Result<()>;
-    fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_core::Result<()>;
+    fn StartListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_result::Result<()>;
+    fn StopListenAddressAndPort(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32) -> windows_result::Result<()>;
+    fn GetPortRange(&self, enporttype: RTC_PORT_TYPE, plminvalue: *mut i32, plmaxvalue: *mut i32) -> windows_result::Result<()>;
 }
 impl IRTCClientPortManagement_Vtbl {
     pub const fn new<Identity: IRTCClientPortManagement_Impl, const OFFSET: isize>() -> Self {
@@ -1932,37 +1932,37 @@ windows_core::imp::define_interface!(IRTCClientPresence, IRTCClientPresence_Vtbl
 windows_core::imp::interface_hierarchy!(IRTCClientPresence, windows_core::IUnknown);
 impl IRTCClientPresence {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnablePresence)(windows_core::Interface::as_raw(self), fusestorage, core::mem::transmute_copy(varstorage)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Export(&self, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()> {
+    pub unsafe fn Export(&self, varstorage: &super::Variant::VARIANT) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Export)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varstorage)).ok() }
     }
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn Import(&self, varstorage: &super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn Import(&self, varstorage: &super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Import)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(varstorage), freplaceall).ok() }
     }
-    pub unsafe fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies> {
+    pub unsafe fn EnumerateBuddies(&self) -> windows_result::Result<IRTCEnumBuddies> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateBuddies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Buddies(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Buddies(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Buddies)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCBuddy> {
+    pub unsafe fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCBuddy> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Buddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddBuddy<P4>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P4, lflags: i32) -> windows_core::Result<IRTCBuddy>
+    pub unsafe fn AddBuddy<P4>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: P4, lflags: i32) -> windows_result::Result<IRTCBuddy>
     where
         P4: windows_core::Param<IRTCProfile>,
     {
@@ -1971,62 +1971,62 @@ impl IRTCClientPresence {
             (windows_core::Interface::vtable(self).AddBuddy)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fpersistent, pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveBuddy<P0>(&self, pbuddy: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCBuddy>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveBuddy)(windows_core::Interface::as_raw(self), pbuddy.param().abi()).ok() }
     }
-    pub unsafe fn EnumerateWatchers(&self) -> windows_core::Result<IRTCEnumWatchers> {
+    pub unsafe fn EnumerateWatchers(&self) -> windows_result::Result<IRTCEnumWatchers> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateWatchers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Watchers(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Watchers(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Watchers)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher> {
+    pub unsafe fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCWatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Watcher)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IRTCWatcher> {
+    pub unsafe fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<IRTCWatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddWatcher)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), fblocked, fpersistent, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveWatcher<P0>(&self, pwatcher: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCWatcher>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveWatcher)(windows_core::Interface::as_raw(self), pwatcher.param().abi()).ok() }
     }
-    pub unsafe fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetLocalPresenceInfo)(windows_core::Interface::as_raw(self), enstatus, core::mem::transmute_copy(bstrnotes)).ok() }
     }
-    pub unsafe fn OfferWatcherMode(&self) -> windows_core::Result<RTC_OFFER_WATCHER_MODE> {
+    pub unsafe fn OfferWatcherMode(&self) -> windows_result::Result<RTC_OFFER_WATCHER_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).OfferWatcherMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::Result<()> {
+    pub unsafe fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetOfferWatcherMode)(windows_core::Interface::as_raw(self), enmode).ok() }
     }
-    pub unsafe fn PrivacyMode(&self) -> windows_core::Result<RTC_PRIVACY_MODE> {
+    pub unsafe fn PrivacyMode(&self) -> windows_result::Result<RTC_PRIVACY_MODE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PrivacyMode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> windows_core::Result<()> {
+    pub unsafe fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPrivacyMode)(windows_core::Interface::as_raw(self), enmode).ok() }
     }
 }
@@ -2070,24 +2070,24 @@ pub struct IRTCClientPresence_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClientPresence_Impl: windows_core::IUnknownImpl {
-    fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Export(&self, varstorage: &super::Variant::VARIANT) -> windows_core::Result<()>;
-    fn Import(&self, varstorage: &super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
-    fn EnumerateBuddies(&self) -> windows_core::Result<IRTCEnumBuddies>;
-    fn Buddies(&self) -> windows_core::Result<IRTCCollection>;
-    fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCBuddy>;
-    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy>;
-    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_core::Result<()>;
-    fn EnumerateWatchers(&self) -> windows_core::Result<IRTCEnumWatchers>;
-    fn Watchers(&self) -> windows_core::Result<IRTCCollection>;
-    fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher>;
-    fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<IRTCWatcher>;
-    fn RemoveWatcher(&self, pwatcher: windows_core::Ref<IRTCWatcher>) -> windows_core::Result<()>;
-    fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn OfferWatcherMode(&self) -> windows_core::Result<RTC_OFFER_WATCHER_MODE>;
-    fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_core::Result<()>;
-    fn PrivacyMode(&self) -> windows_core::Result<RTC_PRIVACY_MODE>;
-    fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> windows_core::Result<()>;
+    fn EnablePresence(&self, fusestorage: super::super::Foundation::VARIANT_BOOL, varstorage: &super::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Export(&self, varstorage: &super::Variant::VARIANT) -> windows_result::Result<()>;
+    fn Import(&self, varstorage: &super::Variant::VARIANT, freplaceall: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
+    fn EnumerateBuddies(&self) -> windows_result::Result<IRTCEnumBuddies>;
+    fn Buddies(&self) -> windows_result::Result<IRTCCollection>;
+    fn get_Buddy(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCBuddy>;
+    fn AddBuddy(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCBuddy>;
+    fn RemoveBuddy(&self, pbuddy: windows_core::Ref<IRTCBuddy>) -> windows_result::Result<()>;
+    fn EnumerateWatchers(&self) -> windows_result::Result<IRTCEnumWatchers>;
+    fn Watchers(&self) -> windows_result::Result<IRTCCollection>;
+    fn get_Watcher(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCWatcher>;
+    fn AddWatcher(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fblocked: super::super::Foundation::VARIANT_BOOL, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<IRTCWatcher>;
+    fn RemoveWatcher(&self, pwatcher: windows_core::Ref<IRTCWatcher>) -> windows_result::Result<()>;
+    fn SetLocalPresenceInfo(&self, enstatus: RTC_PRESENCE_STATUS, bstrnotes: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn OfferWatcherMode(&self) -> windows_result::Result<RTC_OFFER_WATCHER_MODE>;
+    fn SetOfferWatcherMode(&self, enmode: RTC_OFFER_WATCHER_MODE) -> windows_result::Result<()>;
+    fn PrivacyMode(&self) -> windows_result::Result<RTC_PRIVACY_MODE>;
+    fn SetPrivacyMode(&self, enmode: RTC_PRIVACY_MODE) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence_Vtbl {
@@ -2298,16 +2298,16 @@ impl core::ops::Deref for IRTCClientPresence2 {
 windows_core::imp::interface_hierarchy!(IRTCClientPresence2, windows_core::IUnknown, IRTCClientPresence);
 impl IRTCClientPresence2 {
     #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn EnablePresenceEx<P0>(&self, pprofile: P0, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>
+    pub unsafe fn EnablePresenceEx<P0>(&self, pprofile: P0, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnablePresenceEx)(windows_core::Interface::as_raw(self), pprofile.param().abi(), core::mem::transmute_copy(varstorage), lflags).ok() }
     }
-    pub unsafe fn DisablePresence(&self) -> windows_core::Result<()> {
+    pub unsafe fn DisablePresence(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DisablePresence)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn AddGroup<P2>(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>
+    pub unsafe fn AddGroup<P2>(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_result::Result<IRTCBuddyGroup>
     where
         P2: windows_core::Param<IRTCProfile>,
     {
@@ -2316,32 +2316,32 @@ impl IRTCClientPresence2 {
             (windows_core::Interface::vtable(self).AddGroup)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), core::mem::transmute_copy(bstrdata), pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveGroup<P0>(&self, pgroup: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveGroup<P0>(&self, pgroup: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCBuddyGroup>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveGroup)(windows_core::Interface::as_raw(self), pgroup.param().abi()).ok() }
     }
-    pub unsafe fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups> {
+    pub unsafe fn EnumerateGroups(&self) -> windows_result::Result<IRTCEnumGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateGroups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Groups(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Groups(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Groups)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<IRTCBuddyGroup> {
+    pub unsafe fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_result::Result<IRTCBuddyGroup> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Group)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrgroupname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn AddWatcherEx<P6>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: P6, lflags: i32) -> windows_core::Result<IRTCWatcher2>
+    pub unsafe fn AddWatcherEx<P6>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: P6, lflags: i32) -> windows_result::Result<IRTCWatcher2>
     where
         P6: windows_core::Param<IRTCProfile>,
     {
@@ -2350,31 +2350,31 @@ impl IRTCClientPresence2 {
             (windows_core::Interface::vtable(self).AddWatcherEx)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri), core::mem::transmute_copy(bstrusername), core::mem::transmute_copy(bstrdata), enstate, fpersistent, enscope, pprofile.param().abi(), lflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher2> {
+    pub unsafe fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCWatcher2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_WatcherEx)(windows_core::Interface::as_raw(self), enmode, core::mem::transmute_copy(bstrpresentityuri), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PresenceProperty)(windows_core::Interface::as_raw(self), enproperty, core::mem::transmute_copy(bstrproperty)).ok() }
     }
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PresenceProperty)(windows_core::Interface::as_raw(self), enproperty, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPresenceData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrnamespace), core::mem::transmute_copy(bstrdata)).ok() }
     }
-    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPresenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrnamespace), core::mem::transmute(pbstrdata)).ok() }
     }
-    pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), penstatus as _, core::mem::transmute(pbstrnotes)).ok() }
     }
-    pub unsafe fn AddBuddyEx<P5>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P5, lflags: i32) -> windows_core::Result<IRTCBuddy2>
+    pub unsafe fn AddBuddyEx<P5>(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: P5, lflags: i32) -> windows_result::Result<IRTCBuddy2>
     where
         P5: windows_core::Param<IRTCProfile>,
     {
@@ -2412,21 +2412,21 @@ pub struct IRTCClientPresence2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCClientPresence2_Impl: IRTCClientPresence_Impl {
-    fn EnablePresenceEx(&self, pprofile: windows_core::Ref<IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_core::Result<()>;
-    fn DisablePresence(&self) -> windows_core::Result<()>;
-    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddyGroup>;
-    fn RemoveGroup(&self, pgroup: windows_core::Ref<IRTCBuddyGroup>) -> windows_core::Result<()>;
-    fn EnumerateGroups(&self) -> windows_core::Result<IRTCEnumGroups>;
-    fn Groups(&self) -> windows_core::Result<IRTCCollection>;
-    fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_core::Result<IRTCBuddyGroup>;
-    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCWatcher2>;
-    fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<IRTCWatcher2>;
-    fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()>;
-    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<IRTCBuddy2>;
+    fn EnablePresenceEx(&self, pprofile: windows_core::Ref<IRTCProfile>, varstorage: &super::Variant::VARIANT, lflags: i32) -> windows_result::Result<()>;
+    fn DisablePresence(&self) -> windows_result::Result<()>;
+    fn AddGroup(&self, bstrgroupname: &windows_core::BSTR, bstrdata: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCBuddyGroup>;
+    fn RemoveGroup(&self, pgroup: windows_core::Ref<IRTCBuddyGroup>) -> windows_result::Result<()>;
+    fn EnumerateGroups(&self) -> windows_result::Result<IRTCEnumGroups>;
+    fn Groups(&self) -> windows_result::Result<IRTCCollection>;
+    fn get_Group(&self, bstrgroupname: &windows_core::BSTR) -> windows_result::Result<IRTCBuddyGroup>;
+    fn AddWatcherEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, enstate: RTC_WATCHER_STATE, fpersistent: super::super::Foundation::VARIANT_BOOL, enscope: RTC_ACE_SCOPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCWatcher2>;
+    fn get_WatcherEx(&self, enmode: RTC_WATCHER_MATCH_MODE, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<IRTCWatcher2>;
+    fn put_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY, bstrproperty: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR>;
+    fn SetPresenceData(&self, bstrnamespace: &windows_core::BSTR, bstrdata: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()>;
+    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_result::Result<()>;
+    fn AddBuddyEx(&self, bstrpresentityuri: &windows_core::BSTR, bstrusername: &windows_core::BSTR, bstrdata: &windows_core::BSTR, fpersistent: super::super::Foundation::VARIANT_BOOL, ensubscriptiontype: RTC_BUDDY_SUBSCRIPTION_TYPE, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<IRTCBuddy2>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCClientPresence2_Vtbl {
@@ -2597,41 +2597,41 @@ impl windows_core::RuntimeName for IRTCClientPresence2 {}
 windows_core::imp::define_interface!(IRTCClientProvisioning, IRTCClientProvisioning_Vtbl, 0xb9f5cf06_65b9_4a80_a0e6_73cae3ef3822);
 windows_core::imp::interface_hierarchy!(IRTCClientProvisioning, windows_core::IUnknown);
 impl IRTCClientProvisioning {
-    pub unsafe fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_core::Result<IRTCProfile> {
+    pub unsafe fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_result::Result<IRTCProfile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrprofilexml), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EnableProfile<P0>(&self, pprofile: P0, lregisterflags: i32) -> windows_core::Result<()>
+    pub unsafe fn EnableProfile<P0>(&self, pprofile: P0, lregisterflags: i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
     {
         unsafe { (windows_core::Interface::vtable(self).EnableProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi(), lregisterflags).ok() }
     }
-    pub unsafe fn DisableProfile<P0>(&self, pprofile: P0) -> windows_core::Result<()>
+    pub unsafe fn DisableProfile<P0>(&self, pprofile: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
     {
         unsafe { (windows_core::Interface::vtable(self).DisableProfile)(windows_core::Interface::as_raw(self), pprofile.param().abi()).ok() }
     }
-    pub unsafe fn EnumerateProfiles(&self) -> windows_core::Result<IRTCEnumProfiles> {
+    pub unsafe fn EnumerateProfiles(&self) -> windows_result::Result<IRTCEnumProfiles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateProfiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Profiles(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Profiles(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profiles)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetProfile)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstruseraccount), core::mem::transmute_copy(bstruserpassword), core::mem::transmute_copy(bstruseruri), core::mem::transmute_copy(bstrserver), ltransport, lcookie).ok() }
     }
-    pub unsafe fn SessionCapabilities(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionCapabilities(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -2655,13 +2655,13 @@ pub struct IRTCClientProvisioning_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning_Impl: windows_core::IUnknownImpl {
-    fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_core::Result<IRTCProfile>;
-    fn EnableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32) -> windows_core::Result<()>;
-    fn DisableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>) -> windows_core::Result<()>;
-    fn EnumerateProfiles(&self) -> windows_core::Result<IRTCEnumProfiles>;
-    fn Profiles(&self) -> windows_core::Result<IRTCCollection>;
-    fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_core::Result<()>;
-    fn SessionCapabilities(&self) -> windows_core::Result<i32>;
+    fn CreateProfile(&self, bstrprofilexml: &windows_core::BSTR) -> windows_result::Result<IRTCProfile>;
+    fn EnableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32) -> windows_result::Result<()>;
+    fn DisableProfile(&self, pprofile: windows_core::Ref<IRTCProfile>) -> windows_result::Result<()>;
+    fn EnumerateProfiles(&self) -> windows_result::Result<IRTCEnumProfiles>;
+    fn Profiles(&self) -> windows_result::Result<IRTCCollection>;
+    fn GetProfile(&self, bstruseraccount: &windows_core::BSTR, bstruserpassword: &windows_core::BSTR, bstruseruri: &windows_core::BSTR, bstrserver: &windows_core::BSTR, ltransport: i32, lcookie: isize) -> windows_result::Result<()>;
+    fn SessionCapabilities(&self) -> windows_result::Result<i32>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning_Vtbl {
@@ -2758,7 +2758,7 @@ impl core::ops::Deref for IRTCClientProvisioning2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCClientProvisioning2, windows_core::IUnknown, IRTCClientProvisioning);
 impl IRTCClientProvisioning2 {
-    pub unsafe fn EnableProfileEx<P0>(&self, pprofile: P0, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>
+    pub unsafe fn EnableProfileEx<P0>(&self, pprofile: P0, lregisterflags: i32, lroamingflags: i32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCProfile>,
     {
@@ -2773,7 +2773,7 @@ pub struct IRTCClientProvisioning2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCClientProvisioning2_Impl: IRTCClientProvisioning_Impl {
-    fn EnableProfileEx(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_core::Result<()>;
+    fn EnableProfileEx(&self, pprofile: windows_core::Ref<IRTCProfile>, lregisterflags: i32, lroamingflags: i32) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCClientProvisioning2_Vtbl {
@@ -2805,20 +2805,20 @@ impl core::ops::Deref for IRTCCollection {
 windows_core::imp::interface_hierarchy!(IRTCCollection, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCCollection {
-    pub unsafe fn Count(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Count(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Count)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
     #[cfg(all(feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
-    pub unsafe fn get_Item(&self, index: i32) -> windows_core::Result<super::Variant::VARIANT> {
+    pub unsafe fn get_Item(&self, index: i32) -> windows_result::Result<super::Variant::VARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Item)(windows_core::Interface::as_raw(self), index, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2839,9 +2839,9 @@ pub struct IRTCCollection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCCollection_Impl: super::Com::IDispatch_Impl {
-    fn Count(&self) -> windows_core::Result<i32>;
-    fn get_Item(&self, index: i32) -> windows_core::Result<super::Variant::VARIANT>;
-    fn _NewEnum(&self) -> windows_core::Result<windows_core::IUnknown>;
+    fn Count(&self) -> windows_result::Result<i32>;
+    fn get_Item(&self, index: i32) -> windows_result::Result<super::Variant::VARIANT>;
+    fn _NewEnum(&self) -> windows_result::Result<windows_core::IUnknown>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCCollection_Vtbl {
@@ -2928,16 +2928,16 @@ impl windows_core::RuntimeName for IRTCDispatchEventNotification {}
 windows_core::imp::define_interface!(IRTCEnumBuddies, IRTCEnumBuddies_Vtbl, 0xf7296917_5569_4b3b_b3af_98d1144b2b87);
 windows_core::imp::interface_hierarchy!(IRTCEnumBuddies, windows_core::IUnknown);
 impl IRTCEnumBuddies {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddy>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddy>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumBuddies> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumBuddies> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2954,10 +2954,10 @@ pub struct IRTCEnumBuddies_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumBuddies_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddy>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumBuddies>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddy>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumBuddies>;
 }
 impl IRTCEnumBuddies_Vtbl {
     pub const fn new<Identity: IRTCEnumBuddies_Impl, const OFFSET: isize>() -> Self {
@@ -3007,16 +3007,16 @@ impl windows_core::RuntimeName for IRTCEnumBuddies {}
 windows_core::imp::define_interface!(IRTCEnumGroups, IRTCEnumGroups_Vtbl, 0x742378d6_a141_4415_8f27_35d99076cf5d);
 windows_core::imp::interface_hierarchy!(IRTCEnumGroups, windows_core::IUnknown);
 impl IRTCEnumGroups {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddyGroup>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCBuddyGroup>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumGroups> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumGroups> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3033,10 +3033,10 @@ pub struct IRTCEnumGroups_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumGroups_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumGroups>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCBuddyGroup>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumGroups>;
 }
 impl IRTCEnumGroups_Vtbl {
     pub const fn new<Identity: IRTCEnumGroups_Impl, const OFFSET: isize>() -> Self {
@@ -3086,16 +3086,16 @@ impl windows_core::RuntimeName for IRTCEnumGroups {}
 windows_core::imp::define_interface!(IRTCEnumParticipants, IRTCEnumParticipants_Vtbl, 0xfcd56f29_4a4f_41b2_ba5c_f5bccc060bf6);
 windows_core::imp::interface_hierarchy!(IRTCEnumParticipants, windows_core::IUnknown);
 impl IRTCEnumParticipants {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCParticipant>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCParticipant>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumParticipants> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumParticipants> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3112,10 +3112,10 @@ pub struct IRTCEnumParticipants_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumParticipants_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCParticipant>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumParticipants>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCParticipant>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumParticipants>;
 }
 impl IRTCEnumParticipants_Vtbl {
     pub const fn new<Identity: IRTCEnumParticipants_Impl, const OFFSET: isize>() -> Self {
@@ -3165,16 +3165,16 @@ impl windows_core::RuntimeName for IRTCEnumParticipants {}
 windows_core::imp::define_interface!(IRTCEnumPresenceDevices, IRTCEnumPresenceDevices_Vtbl, 0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
 windows_core::imp::interface_hierarchy!(IRTCEnumPresenceDevices, windows_core::IUnknown);
 impl IRTCEnumPresenceDevices {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCPresenceDevice>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCPresenceDevice>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumPresenceDevices> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumPresenceDevices> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3191,10 +3191,10 @@ pub struct IRTCEnumPresenceDevices_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumPresenceDevices_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumPresenceDevices>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCPresenceDevice>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumPresenceDevices>;
 }
 impl IRTCEnumPresenceDevices_Vtbl {
     pub const fn new<Identity: IRTCEnumPresenceDevices_Impl, const OFFSET: isize>() -> Self {
@@ -3244,16 +3244,16 @@ impl windows_core::RuntimeName for IRTCEnumPresenceDevices {}
 windows_core::imp::define_interface!(IRTCEnumProfiles, IRTCEnumProfiles_Vtbl, 0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
 windows_core::imp::interface_hierarchy!(IRTCEnumProfiles, windows_core::IUnknown);
 impl IRTCEnumProfiles {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCProfile>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCProfile>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumProfiles> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumProfiles> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3270,10 +3270,10 @@ pub struct IRTCEnumProfiles_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumProfiles_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCProfile>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumProfiles>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCProfile>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumProfiles>;
 }
 impl IRTCEnumProfiles_Vtbl {
     pub const fn new<Identity: IRTCEnumProfiles_Impl, const OFFSET: isize>() -> Self {
@@ -3323,16 +3323,16 @@ impl windows_core::RuntimeName for IRTCEnumProfiles {}
 windows_core::imp::define_interface!(IRTCEnumUserSearchResults, IRTCEnumUserSearchResults_Vtbl, 0x83d4d877_aa5d_4a5b_8d0e_002a8067e0e8);
 windows_core::imp::interface_hierarchy!(IRTCEnumUserSearchResults, windows_core::IUnknown);
 impl IRTCEnumUserSearchResults {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCUserSearchResult>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCUserSearchResult>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumUserSearchResults> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumUserSearchResults> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3349,10 +3349,10 @@ pub struct IRTCEnumUserSearchResults_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumUserSearchResults_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumUserSearchResults>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCUserSearchResult>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumUserSearchResults>;
 }
 impl IRTCEnumUserSearchResults_Vtbl {
     pub const fn new<Identity: IRTCEnumUserSearchResults_Impl, const OFFSET: isize>() -> Self {
@@ -3402,16 +3402,16 @@ impl windows_core::RuntimeName for IRTCEnumUserSearchResults {}
 windows_core::imp::define_interface!(IRTCEnumWatchers, IRTCEnumWatchers_Vtbl, 0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
 windows_core::imp::interface_hierarchy!(IRTCEnumWatchers, windows_core::IUnknown);
 impl IRTCEnumWatchers {
-    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCWatcher>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, ppelements: &mut [Option<IRTCWatcher>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), ppelements.len().try_into().unwrap(), core::mem::transmute(ppelements.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IRTCEnumWatchers> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IRTCEnumWatchers> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -3428,10 +3428,10 @@ pub struct IRTCEnumWatchers_Vtbl {
     pub Clone: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCEnumWatchers_Impl: windows_core::IUnknownImpl {
-    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCWatcher>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IRTCEnumWatchers>;
+    fn Next(&self, celt: u32, ppelements: *mut Option<IRTCWatcher>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IRTCEnumWatchers>;
 }
 impl IRTCEnumWatchers_Vtbl {
     pub const fn new<Identity: IRTCEnumWatchers_Impl, const OFFSET: isize>() -> Self {
@@ -3482,7 +3482,7 @@ windows_core::imp::define_interface!(IRTCEventNotification, IRTCEventNotificatio
 windows_core::imp::interface_hierarchy!(IRTCEventNotification, windows_core::IUnknown);
 impl IRTCEventNotification {
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Event<P1>(&self, rtcevent: RTC_EVENT, pevent: P1) -> windows_core::Result<()>
+    pub unsafe fn Event<P1>(&self, rtcevent: RTC_EVENT, pevent: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<super::Com::IDispatch>,
     {
@@ -3500,7 +3500,7 @@ pub struct IRTCEventNotification_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCEventNotification_Impl: windows_core::IUnknownImpl {
-    fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<super::Com::IDispatch>) -> windows_core::Result<()>;
+    fn Event(&self, rtcevent: RTC_EVENT, pevent: windows_core::Ref<super::Com::IDispatch>) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCEventNotification_Vtbl {
@@ -3532,25 +3532,25 @@ impl core::ops::Deref for IRTCInfoEvent {
 windows_core::imp::interface_hierarchy!(IRTCInfoEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCInfoEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession2> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Participant(&self) -> windows_core::Result<IRTCParticipant> {
+    pub unsafe fn Participant(&self) -> windows_result::Result<IRTCParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Info(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Info(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Info)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn InfoHeader(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn InfoHeader(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).InfoHeader)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -3569,10 +3569,10 @@ pub struct IRTCInfoEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCInfoEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession2>;
-    fn Participant(&self) -> windows_core::Result<IRTCParticipant>;
-    fn Info(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn InfoHeader(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Session(&self) -> windows_result::Result<IRTCSession2>;
+    fn Participant(&self) -> windows_result::Result<IRTCParticipant>;
+    fn Info(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn InfoHeader(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCInfoEvent_Vtbl {
@@ -3652,25 +3652,25 @@ impl core::ops::Deref for IRTCIntensityEvent {
 windows_core::imp::interface_hierarchy!(IRTCIntensityEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCIntensityEvent {
-    pub unsafe fn Level(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Level(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Level)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Min(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Min(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Min)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Max(&self) -> windows_core::Result<i32> {
+    pub unsafe fn Max(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Max)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Direction(&self) -> windows_core::Result<RTC_AUDIO_DEVICE> {
+    pub unsafe fn Direction(&self) -> windows_result::Result<RTC_AUDIO_DEVICE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Direction)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3689,10 +3689,10 @@ pub struct IRTCIntensityEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCIntensityEvent_Impl: super::Com::IDispatch_Impl {
-    fn Level(&self) -> windows_core::Result<i32>;
-    fn Min(&self) -> windows_core::Result<i32>;
-    fn Max(&self) -> windows_core::Result<i32>;
-    fn Direction(&self) -> windows_core::Result<RTC_AUDIO_DEVICE>;
+    fn Level(&self) -> windows_result::Result<i32>;
+    fn Min(&self) -> windows_result::Result<i32>;
+    fn Max(&self) -> windows_result::Result<i32>;
+    fn Direction(&self) -> windows_result::Result<RTC_AUDIO_DEVICE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCIntensityEvent_Vtbl {
@@ -3772,19 +3772,19 @@ impl core::ops::Deref for IRTCMediaEvent {
 windows_core::imp::interface_hierarchy!(IRTCMediaEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaEvent {
-    pub unsafe fn MediaType(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MediaType(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_MEDIA_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_MEDIA_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn EventReason(&self) -> windows_core::Result<RTC_MEDIA_EVENT_REASON> {
+    pub unsafe fn EventReason(&self) -> windows_result::Result<RTC_MEDIA_EVENT_REASON> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventReason)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3802,9 +3802,9 @@ pub struct IRTCMediaEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCMediaEvent_Impl: super::Com::IDispatch_Impl {
-    fn MediaType(&self) -> windows_core::Result<i32>;
-    fn EventType(&self) -> windows_core::Result<RTC_MEDIA_EVENT_TYPE>;
-    fn EventReason(&self) -> windows_core::Result<RTC_MEDIA_EVENT_REASON>;
+    fn MediaType(&self) -> windows_result::Result<i32>;
+    fn EventType(&self) -> windows_result::Result<RTC_MEDIA_EVENT_TYPE>;
+    fn EventReason(&self) -> windows_result::Result<RTC_MEDIA_EVENT_REASON>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMediaEvent_Vtbl {
@@ -3871,37 +3871,37 @@ impl core::ops::Deref for IRTCMediaRequestEvent {
 windows_core::imp::interface_hierarchy!(IRTCMediaRequestEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCMediaRequestEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession2> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ProposedMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn ProposedMedia(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProposedMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CurrentMedia(&self) -> windows_core::Result<i32> {
+    pub unsafe fn CurrentMedia(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CurrentMedia)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Accept(&self, lmediatypes: i32) -> windows_core::Result<()> {
+    pub unsafe fn Accept(&self, lmediatypes: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self), lmediatypes).ok() }
     }
-    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Reject(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reject(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_REINVITE_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_REINVITE_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -3923,13 +3923,13 @@ pub struct IRTCMediaRequestEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCMediaRequestEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession2>;
-    fn ProposedMedia(&self) -> windows_core::Result<i32>;
-    fn CurrentMedia(&self) -> windows_core::Result<i32>;
-    fn Accept(&self, lmediatypes: i32) -> windows_core::Result<()>;
-    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
-    fn Reject(&self) -> windows_core::Result<()>;
-    fn State(&self) -> windows_core::Result<RTC_REINVITE_STATE>;
+    fn Session(&self) -> windows_result::Result<IRTCSession2>;
+    fn ProposedMedia(&self) -> windows_result::Result<i32>;
+    fn CurrentMedia(&self) -> windows_result::Result<i32>;
+    fn Accept(&self, lmediatypes: i32) -> windows_result::Result<()>;
+    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL>;
+    fn Reject(&self) -> windows_result::Result<()>;
+    fn State(&self) -> windows_result::Result<RTC_REINVITE_STATE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMediaRequestEvent_Vtbl {
@@ -4036,37 +4036,37 @@ impl core::ops::Deref for IRTCMessagingEvent {
 windows_core::imp::interface_hierarchy!(IRTCMessagingEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCMessagingEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Participant(&self) -> windows_core::Result<IRTCParticipant> {
+    pub unsafe fn Participant(&self) -> windows_result::Result<IRTCParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_MESSAGING_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_MESSAGING_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Message(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Message(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Message)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn MessageHeader(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn MessageHeader(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MessageHeader)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserStatus(&self) -> windows_core::Result<RTC_MESSAGING_USER_STATUS> {
+    pub unsafe fn UserStatus(&self) -> windows_result::Result<RTC_MESSAGING_USER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4087,12 +4087,12 @@ pub struct IRTCMessagingEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCMessagingEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession>;
-    fn Participant(&self) -> windows_core::Result<IRTCParticipant>;
-    fn EventType(&self) -> windows_core::Result<RTC_MESSAGING_EVENT_TYPE>;
-    fn Message(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn MessageHeader(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserStatus(&self) -> windows_core::Result<RTC_MESSAGING_USER_STATUS>;
+    fn Session(&self) -> windows_result::Result<IRTCSession>;
+    fn Participant(&self) -> windows_result::Result<IRTCParticipant>;
+    fn EventType(&self) -> windows_result::Result<RTC_MESSAGING_EVENT_TYPE>;
+    fn Message(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn MessageHeader(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn UserStatus(&self) -> windows_result::Result<RTC_MESSAGING_USER_STATUS>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCMessagingEvent_Vtbl {
@@ -4188,31 +4188,31 @@ impl windows_core::RuntimeName for IRTCMessagingEvent {}
 windows_core::imp::define_interface!(IRTCParticipant, IRTCParticipant_Vtbl, 0xae86add5_26b1_4414_af1d_b94cd938d739);
 windows_core::imp::interface_hierarchy!(IRTCParticipant, windows_core::IUnknown);
 impl IRTCParticipant {
-    pub unsafe fn UserURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Removable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Removable(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Removable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_PARTICIPANT_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_PARTICIPANT_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -4230,11 +4230,11 @@ pub struct IRTCParticipant_Vtbl {
     pub Session: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCParticipant_Impl: windows_core::IUnknownImpl {
-    fn UserURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Removable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn State(&self) -> windows_core::Result<RTC_PARTICIPANT_STATE>;
-    fn Session(&self) -> windows_core::Result<IRTCSession>;
+    fn UserURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Removable(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn State(&self) -> windows_result::Result<RTC_PARTICIPANT_STATE>;
+    fn Session(&self) -> windows_result::Result<IRTCSession>;
 }
 impl IRTCParticipant_Vtbl {
     pub const fn new<Identity: IRTCParticipant_Impl, const OFFSET: isize>() -> Self {
@@ -4325,19 +4325,19 @@ impl core::ops::Deref for IRTCParticipantStateChangeEvent {
 windows_core::imp::interface_hierarchy!(IRTCParticipantStateChangeEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCParticipantStateChangeEvent {
-    pub unsafe fn Participant(&self) -> windows_core::Result<IRTCParticipant> {
+    pub unsafe fn Participant(&self) -> windows_result::Result<IRTCParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_PARTICIPANT_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_PARTICIPANT_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -4355,9 +4355,9 @@ pub struct IRTCParticipantStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCParticipantStateChangeEvent_Impl: super::Com::IDispatch_Impl {
-    fn Participant(&self) -> windows_core::Result<IRTCParticipant>;
-    fn State(&self) -> windows_core::Result<RTC_PARTICIPANT_STATE>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
+    fn Participant(&self) -> windows_result::Result<IRTCParticipant>;
+    fn State(&self) -> windows_result::Result<RTC_PARTICIPANT_STATE>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCParticipantStateChangeEvent_Vtbl {
@@ -4414,13 +4414,13 @@ impl windows_core::RuntimeName for IRTCParticipantStateChangeEvent {}
 windows_core::imp::define_interface!(IRTCPortManager, IRTCPortManager_Vtbl, 0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
 windows_core::imp::interface_hierarchy!(IRTCPortManager, windows_core::IUnknown);
 impl IRTCPortManager {
-    pub unsafe fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_core::Result<()> {
+    pub unsafe fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrremoteaddress), enporttype, core::mem::transmute(pbstrinternallocaladdress), plinternallocalport as _, core::mem::transmute(pbstrexternallocaladdress), plexternallocalport as _).ok() }
     }
-    pub unsafe fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_core::Result<()> {
+    pub unsafe fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UpdateRemoteAddress)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrremoteaddress), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, core::mem::transmute_copy(bstrexternallocaladdress), lexternallocalport).ok() }
     }
-    pub unsafe fn ReleaseMapping(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocaladdress: i32) -> windows_core::Result<()> {
+    pub unsafe fn ReleaseMapping(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocaladdress: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReleaseMapping)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinternallocaladdress), linternallocalport, core::mem::transmute_copy(bstrexternallocaladdress), lexternallocaladdress).ok() }
     }
 }
@@ -4433,9 +4433,9 @@ pub struct IRTCPortManager_Vtbl {
     pub ReleaseMapping: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, i32, *mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 pub trait IRTCPortManager_Impl: windows_core::IUnknownImpl {
-    fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_core::Result<()>;
-    fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_core::Result<()>;
-    fn ReleaseMapping(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocaladdress: i32) -> windows_core::Result<()>;
+    fn GetMapping(&self, bstrremoteaddress: &windows_core::BSTR, enporttype: RTC_PORT_TYPE, pbstrinternallocaladdress: *mut windows_core::BSTR, plinternallocalport: *mut i32, pbstrexternallocaladdress: *mut windows_core::BSTR, plexternallocalport: *mut i32) -> windows_result::Result<()>;
+    fn UpdateRemoteAddress(&self, bstrremoteaddress: &windows_core::BSTR, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocalport: i32) -> windows_result::Result<()>;
+    fn ReleaseMapping(&self, bstrinternallocaladdress: &windows_core::BSTR, linternallocalport: i32, bstrexternallocaladdress: &windows_core::BSTR, lexternallocaladdress: i32) -> windows_result::Result<()>;
 }
 impl IRTCPortManager_Vtbl {
     pub const fn new<Identity: IRTCPortManager_Impl, const OFFSET: isize>() -> Self {
@@ -4472,40 +4472,40 @@ impl windows_core::RuntimeName for IRTCPortManager {}
 windows_core::imp::define_interface!(IRTCPresenceContact, IRTCPresenceContact_Vtbl, 0x8b22f92c_cd90_42db_a733_212205c3e3df);
 windows_core::imp::interface_hierarchy!(IRTCPresenceContact, windows_core::IUnknown);
 impl IRTCPresenceContact {
-    pub unsafe fn PresentityURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn PresentityURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PresentityURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetPresentityURI(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetPresentityURI(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPresentityURI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrpresentityuri)).ok() }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname)).ok() }
     }
-    pub unsafe fn Data(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Data(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Data)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetData)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdata)).ok() }
     }
-    pub unsafe fn Persistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn Persistent(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Persistent)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPersistent)(windows_core::Interface::as_raw(self), fpersistent).ok() }
     }
 }
@@ -4523,14 +4523,14 @@ pub struct IRTCPresenceContact_Vtbl {
     pub SetPersistent: unsafe extern "system" fn(*mut core::ffi::c_void, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 pub trait IRTCPresenceContact_Impl: windows_core::IUnknownImpl {
-    fn PresentityURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetPresentityURI(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Data(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Persistent(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn PresentityURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetPresentityURI(&self, bstrpresentityuri: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetName(&self, bstrname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Data(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetData(&self, bstrdata: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Persistent(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn SetPersistent(&self, fpersistent: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 impl IRTCPresenceContact_Vtbl {
     pub const fn new<Identity: IRTCPresenceContact_Impl, const OFFSET: isize>() -> Self {
@@ -4636,19 +4636,19 @@ impl core::ops::Deref for IRTCPresenceDataEvent {
 windows_core::imp::interface_hierarchy!(IRTCPresenceDataEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceDataEvent {
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPresenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrnamespace), core::mem::transmute(pbstrdata)).ok() }
     }
 }
@@ -4663,9 +4663,9 @@ pub struct IRTCPresenceDataEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCPresenceDataEvent_Impl: super::Com::IDispatch_Impl {
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresenceDataEvent_Vtbl {
@@ -4716,25 +4716,25 @@ impl windows_core::RuntimeName for IRTCPresenceDataEvent {}
 windows_core::imp::define_interface!(IRTCPresenceDevice, IRTCPresenceDevice_Vtbl, 0xbc6a90dd_ad9a_48da_9b0c_2515e38521ad);
 windows_core::imp::interface_hierarchy!(IRTCPresenceDevice, windows_core::IUnknown);
 impl IRTCPresenceDevice {
-    pub unsafe fn Status(&self) -> windows_core::Result<RTC_PRESENCE_STATUS> {
+    pub unsafe fn Status(&self) -> windows_result::Result<RTC_PRESENCE_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Status)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Notes(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Notes(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Notes)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PresenceProperty)(windows_core::Interface::as_raw(self), enproperty, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPresenceData)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrnamespace), core::mem::transmute(pbstrdata)).ok() }
     }
 }
@@ -4748,10 +4748,10 @@ pub struct IRTCPresenceDevice_Vtbl {
     pub GetPresenceData: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCPresenceDevice_Impl: windows_core::IUnknownImpl {
-    fn Status(&self) -> windows_core::Result<RTC_PRESENCE_STATUS>;
-    fn Notes(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_core::Result<windows_core::BSTR>;
-    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Status(&self) -> windows_result::Result<RTC_PRESENCE_STATUS>;
+    fn Notes(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn get_PresenceProperty(&self, enproperty: RTC_PRESENCE_PROPERTY) -> windows_result::Result<windows_core::BSTR>;
+    fn GetPresenceData(&self, pbstrnamespace: *mut windows_core::BSTR, pbstrdata: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 impl IRTCPresenceDevice_Vtbl {
     pub const fn new<Identity: IRTCPresenceDevice_Impl, const OFFSET: isize>() -> Self {
@@ -4823,25 +4823,25 @@ impl core::ops::Deref for IRTCPresencePropertyEvent {
 windows_core::imp::interface_hierarchy!(IRTCPresencePropertyEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCPresencePropertyEvent {
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn PresenceProperty(&self) -> windows_core::Result<RTC_PRESENCE_PROPERTY> {
+    pub unsafe fn PresenceProperty(&self) -> windows_result::Result<RTC_PRESENCE_PROPERTY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).PresenceProperty)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Value(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Value(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Value)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -4860,10 +4860,10 @@ pub struct IRTCPresencePropertyEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCPresencePropertyEvent_Impl: super::Com::IDispatch_Impl {
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn PresenceProperty(&self) -> windows_core::Result<RTC_PRESENCE_PROPERTY>;
-    fn Value(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn PresenceProperty(&self) -> windows_result::Result<RTC_PRESENCE_PROPERTY>;
+    fn Value(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresencePropertyEvent_Vtbl {
@@ -4943,19 +4943,19 @@ impl core::ops::Deref for IRTCPresenceStatusEvent {
 windows_core::imp::interface_hierarchy!(IRTCPresenceStatusEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCPresenceStatusEvent {
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetLocalPresenceInfo)(windows_core::Interface::as_raw(self), penstatus as _, core::mem::transmute(pbstrnotes)).ok() }
     }
 }
@@ -4970,9 +4970,9 @@ pub struct IRTCPresenceStatusEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCPresenceStatusEvent_Impl: super::Com::IDispatch_Impl {
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn GetLocalPresenceInfo(&self, penstatus: *mut RTC_PRESENCE_STATUS, pbstrnotes: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCPresenceStatusEvent_Vtbl {
@@ -5023,106 +5023,106 @@ impl windows_core::RuntimeName for IRTCPresenceStatusEvent {}
 windows_core::imp::define_interface!(IRTCProfile, IRTCProfile_Vtbl, 0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
 windows_core::imp::interface_hierarchy!(IRTCProfile, windows_core::IUnknown);
 impl IRTCProfile {
-    pub unsafe fn Key(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Key(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Key)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Name(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Name(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Name)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn XML(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn XML(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).XML)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProviderName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProviderName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_ProviderURI)(windows_core::Interface::as_raw(self), enuri, &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ProviderData(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ProviderData(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ProviderData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClientName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClientBanner(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn ClientBanner(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientBanner)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn ClientMinVer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientMinVer(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientMinVer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClientCurVer(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientCurVer(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientCurVer)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClientUpdateURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientUpdateURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientUpdateURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ClientData(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ClientData(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ClientData)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn UserAccount(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).UserAccount)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetCredentials(&self, bstruseruri: &windows_core::BSTR, bstruseraccount: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetCredentials(&self, bstruseruri: &windows_core::BSTR, bstruseraccount: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCredentials)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstruseruri), core::mem::transmute_copy(bstruseraccount), core::mem::transmute_copy(bstrpassword)).ok() }
     }
-    pub unsafe fn SessionCapabilities(&self) -> windows_core::Result<i32> {
+    pub unsafe fn SessionCapabilities(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SessionCapabilities)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_REGISTRATION_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_REGISTRATION_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5153,24 +5153,24 @@ pub struct IRTCProfile_Vtbl {
     pub State: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_REGISTRATION_STATE) -> windows_core::HRESULT,
 }
 pub trait IRTCProfile_Impl: windows_core::IUnknownImpl {
-    fn Key(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Name(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn XML(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ProviderName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> windows_core::Result<windows_core::BSTR>;
-    fn ProviderData(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClientName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClientBanner(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn ClientMinVer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClientCurVer(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClientUpdateURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ClientData(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn UserAccount(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetCredentials(&self, bstruseruri: &windows_core::BSTR, bstruseraccount: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SessionCapabilities(&self) -> windows_core::Result<i32>;
-    fn State(&self) -> windows_core::Result<RTC_REGISTRATION_STATE>;
+    fn Key(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Name(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn XML(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ProviderName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn get_ProviderURI(&self, enuri: RTC_PROVIDER_URI) -> windows_result::Result<windows_core::BSTR>;
+    fn ProviderData(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ClientName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ClientBanner(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn ClientMinVer(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ClientCurVer(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ClientUpdateURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ClientData(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn UserURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn UserName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn UserAccount(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetCredentials(&self, bstruseruri: &windows_core::BSTR, bstruseraccount: &windows_core::BSTR, bstrpassword: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SessionCapabilities(&self) -> windows_result::Result<i32>;
+    fn State(&self) -> windows_result::Result<RTC_REGISTRATION_STATE>;
 }
 impl IRTCProfile_Vtbl {
     pub const fn new<Identity: IRTCProfile_Impl, const OFFSET: isize>() -> Self {
@@ -5420,22 +5420,22 @@ impl core::ops::Deref for IRTCProfile2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCProfile2, windows_core::IUnknown, IRTCProfile);
 impl IRTCProfile2 {
-    pub unsafe fn Realm(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn Realm(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Realm)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetRealm(&self, bstrrealm: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetRealm(&self, bstrrealm: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetRealm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrealm)).ok() }
     }
-    pub unsafe fn AllowedAuth(&self) -> windows_core::Result<i32> {
+    pub unsafe fn AllowedAuth(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AllowedAuth)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetAllowedAuth(&self, lallowedauth: i32) -> windows_core::Result<()> {
+    pub unsafe fn SetAllowedAuth(&self, lallowedauth: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetAllowedAuth)(windows_core::Interface::as_raw(self), lallowedauth).ok() }
     }
 }
@@ -5449,10 +5449,10 @@ pub struct IRTCProfile2_Vtbl {
     pub SetAllowedAuth: unsafe extern "system" fn(*mut core::ffi::c_void, i32) -> windows_core::HRESULT,
 }
 pub trait IRTCProfile2_Impl: IRTCProfile_Impl {
-    fn Realm(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetRealm(&self, bstrrealm: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn AllowedAuth(&self) -> windows_core::Result<i32>;
-    fn SetAllowedAuth(&self, lallowedauth: i32) -> windows_core::Result<()>;
+    fn Realm(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetRealm(&self, bstrrealm: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn AllowedAuth(&self) -> windows_result::Result<i32>;
+    fn SetAllowedAuth(&self, lallowedauth: i32) -> windows_result::Result<()>;
 }
 impl IRTCProfile2_Vtbl {
     pub const fn new<Identity: IRTCProfile2_Impl, const OFFSET: isize>() -> Self {
@@ -5518,19 +5518,19 @@ impl core::ops::Deref for IRTCProfileEvent {
 windows_core::imp::interface_hierarchy!(IRTCProfileEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent {
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cookie(&self) -> windows_core::Result<isize> {
+    pub unsafe fn Cookie(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5548,9 +5548,9 @@ pub struct IRTCProfileEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCProfileEvent_Impl: super::Com::IDispatch_Impl {
-    fn Profile(&self) -> windows_core::Result<IRTCProfile>;
-    fn Cookie(&self) -> windows_core::Result<isize>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile>;
+    fn Cookie(&self) -> windows_result::Result<isize>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCProfileEvent_Vtbl {
@@ -5617,7 +5617,7 @@ impl core::ops::Deref for IRTCProfileEvent2 {
 windows_core::imp::interface_hierarchy!(IRTCProfileEvent2, windows_core::IUnknown, super::Com::IDispatch, IRTCProfileEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCProfileEvent2 {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_PROFILE_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_PROFILE_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -5633,7 +5633,7 @@ pub struct IRTCProfileEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCProfileEvent2_Impl: IRTCProfileEvent_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_PROFILE_EVENT_TYPE>;
+    fn EventType(&self) -> windows_result::Result<RTC_PROFILE_EVENT_TYPE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCProfileEvent2_Vtbl {
@@ -5671,25 +5671,25 @@ impl core::ops::Deref for IRTCReInviteEvent {
 windows_core::imp::interface_hierarchy!(IRTCReInviteEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCReInviteEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession2> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Accept(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Accept(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription)).ok() }
     }
-    pub unsafe fn Reject(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reject(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_REINVITE_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_REINVITE_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRemoteSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcontenttype), core::mem::transmute(pbstrsessiondescription)).ok() }
     }
 }
@@ -5706,11 +5706,11 @@ pub struct IRTCReInviteEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCReInviteEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession2>;
-    fn Accept(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Reject(&self) -> windows_core::Result<()>;
-    fn State(&self) -> windows_core::Result<RTC_REINVITE_STATE>;
-    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Session(&self) -> windows_result::Result<IRTCSession2>;
+    fn Accept(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Reject(&self) -> windows_result::Result<()>;
+    fn State(&self) -> windows_result::Result<RTC_REINVITE_STATE>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCReInviteEvent_Vtbl {
@@ -5785,25 +5785,25 @@ impl core::ops::Deref for IRTCRegistrationStateChangeEvent {
 windows_core::imp::interface_hierarchy!(IRTCRegistrationStateChangeEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCRegistrationStateChangeEvent {
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_REGISTRATION_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_REGISTRATION_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5822,10 +5822,10 @@ pub struct IRTCRegistrationStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCRegistrationStateChangeEvent_Impl: super::Com::IDispatch_Impl {
-    fn Profile(&self) -> windows_core::Result<IRTCProfile>;
-    fn State(&self) -> windows_core::Result<RTC_REGISTRATION_STATE>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile>;
+    fn State(&self) -> windows_result::Result<RTC_REGISTRATION_STATE>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCRegistrationStateChangeEvent_Vtbl {
@@ -5905,25 +5905,25 @@ impl core::ops::Deref for IRTCRoamingEvent {
 windows_core::imp::interface_hierarchy!(IRTCRoamingEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCRoamingEvent {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_ROAMING_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_ROAMING_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile2> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -5942,10 +5942,10 @@ pub struct IRTCRoamingEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCRoamingEvent_Impl: super::Com::IDispatch_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_ROAMING_EVENT_TYPE>;
-    fn Profile(&self) -> windows_core::Result<IRTCProfile2>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn EventType(&self) -> windows_result::Result<RTC_ROAMING_EVENT_TYPE>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile2>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCRoamingEvent_Vtbl {
@@ -6015,101 +6015,101 @@ impl windows_core::RuntimeName for IRTCRoamingEvent {}
 windows_core::imp::define_interface!(IRTCSession, IRTCSession_Vtbl, 0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
 windows_core::imp::interface_hierarchy!(IRTCSession, windows_core::IUnknown);
 impl IRTCSession {
-    pub unsafe fn Client(&self) -> windows_core::Result<IRTCClient> {
+    pub unsafe fn Client(&self) -> windows_result::Result<IRTCClient> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Client)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_SESSION_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_SESSION_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Type(&self) -> windows_core::Result<RTC_SESSION_TYPE> {
+    pub unsafe fn Type(&self) -> windows_result::Result<RTC_SESSION_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Type)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
     #[cfg(feature = "Win32_System_Com")]
-    pub unsafe fn Participants(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Participants(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Participants)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Answer(&self) -> windows_core::Result<()> {
+    pub unsafe fn Answer(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Answer)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_core::Result<()> {
+    pub unsafe fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Terminate)(windows_core::Interface::as_raw(self), enreason).ok() }
     }
-    pub unsafe fn Redirect<P2>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_core::Result<()>
+    pub unsafe fn Redirect<P2>(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: P2, lflags: i32) -> windows_result::Result<()>
     where
         P2: windows_core::Param<IRTCProfile>,
     {
         unsafe { (windows_core::Interface::vtable(self).Redirect)(windows_core::Interface::as_raw(self), entype, core::mem::transmute_copy(bstrlocalphoneuri), pprofile.param().abi(), lflags).ok() }
     }
-    pub unsafe fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_core::Result<IRTCParticipant> {
+    pub unsafe fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_result::Result<IRTCParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AddParticipant)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstraddress), core::mem::transmute_copy(bstrname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn RemoveParticipant<P0>(&self, pparticipant: P0) -> windows_core::Result<()>
+    pub unsafe fn RemoveParticipant<P0>(&self, pparticipant: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCParticipant>,
     {
         unsafe { (windows_core::Interface::vtable(self).RemoveParticipant)(windows_core::Interface::as_raw(self), pparticipant.param().abi()).ok() }
     }
-    pub unsafe fn EnumerateParticipants(&self) -> windows_core::Result<IRTCEnumParticipants> {
+    pub unsafe fn EnumerateParticipants(&self) -> windows_result::Result<IRTCEnumParticipants> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateParticipants)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn CanAddParticipants(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn CanAddParticipants(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CanAddParticipants)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn RedirectedUserURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RedirectedUserURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RedirectedUserURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn RedirectedUserName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn RedirectedUserName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).RedirectedUserName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn NextRedirectedUser(&self) -> windows_core::Result<()> {
+    pub unsafe fn NextRedirectedUser(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NextRedirectedUser)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SendMessage(&self, bstrmessageheader: &windows_core::BSTR, bstrmessage: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn SendMessage(&self, bstrmessageheader: &windows_core::BSTR, bstrmessage: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendMessage)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrmessageheader), core::mem::transmute_copy(bstrmessage), lcookie).ok() }
     }
-    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendMessageStatus)(windows_core::Interface::as_raw(self), enuserstatus, lcookie).ok() }
     }
-    pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn AddStream(&self, lmediatype: i32, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddStream)(windows_core::Interface::as_raw(self), lmediatype, lcookie).ok() }
     }
-    pub unsafe fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RemoveStream)(windows_core::Interface::as_raw(self), lmediatype, lcookie).ok() }
     }
-    pub unsafe fn put_EncryptionKey(&self, lmediatype: i32, encryptionkey: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_EncryptionKey(&self, lmediatype: i32, encryptionkey: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_EncryptionKey)(windows_core::Interface::as_raw(self), lmediatype, core::mem::transmute_copy(encryptionkey)).ok() }
     }
 }
@@ -6143,26 +6143,26 @@ pub struct IRTCSession_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSession_Impl: windows_core::IUnknownImpl {
-    fn Client(&self) -> windows_core::Result<IRTCClient>;
-    fn State(&self) -> windows_core::Result<RTC_SESSION_STATE>;
-    fn Type(&self) -> windows_core::Result<RTC_SESSION_TYPE>;
-    fn Profile(&self) -> windows_core::Result<IRTCProfile>;
-    fn Participants(&self) -> windows_core::Result<IRTCCollection>;
-    fn Answer(&self) -> windows_core::Result<()>;
-    fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_core::Result<()>;
-    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_core::Result<()>;
-    fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_core::Result<IRTCParticipant>;
-    fn RemoveParticipant(&self, pparticipant: windows_core::Ref<IRTCParticipant>) -> windows_core::Result<()>;
-    fn EnumerateParticipants(&self) -> windows_core::Result<IRTCEnumParticipants>;
-    fn CanAddParticipants(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn RedirectedUserURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn RedirectedUserName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn NextRedirectedUser(&self) -> windows_core::Result<()>;
-    fn SendMessage(&self, bstrmessageheader: &windows_core::BSTR, bstrmessage: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()>;
-    fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_core::Result<()>;
-    fn AddStream(&self, lmediatype: i32, lcookie: isize) -> windows_core::Result<()>;
-    fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> windows_core::Result<()>;
-    fn put_EncryptionKey(&self, lmediatype: i32, encryptionkey: &windows_core::BSTR) -> windows_core::Result<()>;
+    fn Client(&self) -> windows_result::Result<IRTCClient>;
+    fn State(&self) -> windows_result::Result<RTC_SESSION_STATE>;
+    fn Type(&self) -> windows_result::Result<RTC_SESSION_TYPE>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile>;
+    fn Participants(&self) -> windows_result::Result<IRTCCollection>;
+    fn Answer(&self) -> windows_result::Result<()>;
+    fn Terminate(&self, enreason: RTC_TERMINATE_REASON) -> windows_result::Result<()>;
+    fn Redirect(&self, entype: RTC_SESSION_TYPE, bstrlocalphoneuri: &windows_core::BSTR, pprofile: windows_core::Ref<IRTCProfile>, lflags: i32) -> windows_result::Result<()>;
+    fn AddParticipant(&self, bstraddress: &windows_core::BSTR, bstrname: &windows_core::BSTR) -> windows_result::Result<IRTCParticipant>;
+    fn RemoveParticipant(&self, pparticipant: windows_core::Ref<IRTCParticipant>) -> windows_result::Result<()>;
+    fn EnumerateParticipants(&self) -> windows_result::Result<IRTCEnumParticipants>;
+    fn CanAddParticipants(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn RedirectedUserURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn RedirectedUserName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn NextRedirectedUser(&self) -> windows_result::Result<()>;
+    fn SendMessage(&self, bstrmessageheader: &windows_core::BSTR, bstrmessage: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()>;
+    fn SendMessageStatus(&self, enuserstatus: RTC_MESSAGING_USER_STATUS, lcookie: isize) -> windows_result::Result<()>;
+    fn AddStream(&self, lmediatype: i32, lcookie: isize) -> windows_result::Result<()>;
+    fn RemoveStream(&self, lmediatype: i32, lcookie: isize) -> windows_result::Result<()>;
+    fn put_EncryptionKey(&self, lmediatype: i32, encryptionkey: &windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSession_Vtbl {
@@ -6386,28 +6386,28 @@ impl core::ops::Deref for IRTCSession2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCSession2, windows_core::IUnknown, IRTCSession);
 impl IRTCSession2 {
-    pub unsafe fn SendInfo(&self, bstrinfoheader: &windows_core::BSTR, bstrinfo: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn SendInfo(&self, bstrinfoheader: &windows_core::BSTR, bstrinfo: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SendInfo)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrinfoheader), core::mem::transmute_copy(bstrinfo), lcookie).ok() }
     }
-    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()> {
+    pub unsafe fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_PreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, ensecuritylevel).ok() }
     }
-    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_PreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsSecurityEnabled)(windows_core::Interface::as_raw(self), ensecuritytype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AnswerWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn AnswerWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AnswerWithSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription)).ok() }
     }
-    pub unsafe fn ReInviteWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn ReInviteWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReInviteWithSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), lcookie).ok() }
     }
 }
@@ -6424,12 +6424,12 @@ pub struct IRTCSession2_Vtbl {
 }
 #[cfg(feature = "Win32_System_Com")]
 pub trait IRTCSession2_Impl: IRTCSession_Impl {
-    fn SendInfo(&self, bstrinfoheader: &windows_core::BSTR, bstrinfo: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()>;
-    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_core::Result<()>;
-    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
-    fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn AnswerWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReInviteWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, lcookie: isize) -> windows_core::Result<()>;
+    fn SendInfo(&self, bstrinfoheader: &windows_core::BSTR, bstrinfo: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()>;
+    fn put_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE, ensecuritylevel: RTC_SECURITY_LEVEL) -> windows_result::Result<()>;
+    fn get_PreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL>;
+    fn IsSecurityEnabled(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn AnswerWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn ReInviteWithSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, lcookie: isize) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSession2_Vtbl {
@@ -6501,37 +6501,37 @@ impl windows_core::RuntimeName for IRTCSession2 {}
 windows_core::imp::define_interface!(IRTCSessionCallControl, IRTCSessionCallControl_Vtbl, 0xe9a50d94_190b_4f82_9530_3b8ebf60758a);
 windows_core::imp::interface_hierarchy!(IRTCSessionCallControl, windows_core::IUnknown);
 impl IRTCSessionCallControl {
-    pub unsafe fn Hold(&self, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn Hold(&self, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Hold)(windows_core::Interface::as_raw(self), lcookie).ok() }
     }
-    pub unsafe fn UnHold(&self, lcookie: isize) -> windows_core::Result<()> {
+    pub unsafe fn UnHold(&self, lcookie: isize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnHold)(windows_core::Interface::as_raw(self), lcookie).ok() }
     }
-    pub unsafe fn Forward(&self, bstrforwardtouri: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Forward(&self, bstrforwardtouri: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Forward)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrforwardtouri)).ok() }
     }
-    pub unsafe fn Refer(&self, bstrrefertouri: &windows_core::BSTR, bstrrefercookie: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn Refer(&self, bstrrefertouri: &windows_core::BSTR, bstrrefercookie: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Refer)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrefertouri), core::mem::transmute_copy(bstrrefercookie)).ok() }
     }
-    pub unsafe fn SetReferredByURI(&self, bstrreferredbyuri: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetReferredByURI(&self, bstrreferredbyuri: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReferredByURI)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrreferredbyuri)).ok() }
     }
-    pub unsafe fn ReferredByURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReferredByURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferredByURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetReferCookie(&self, bstrrefercookie: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetReferCookie(&self, bstrrefercookie: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReferCookie)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrrefercookie)).ok() }
     }
-    pub unsafe fn ReferCookie(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReferCookie(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn IsReferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsReferred(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsReferred)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -6553,15 +6553,15 @@ pub struct IRTCSessionCallControl_Vtbl {
     pub IsReferred: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 pub trait IRTCSessionCallControl_Impl: windows_core::IUnknownImpl {
-    fn Hold(&self, lcookie: isize) -> windows_core::Result<()>;
-    fn UnHold(&self, lcookie: isize) -> windows_core::Result<()>;
-    fn Forward(&self, bstrforwardtouri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn Refer(&self, bstrrefertouri: &windows_core::BSTR, bstrrefercookie: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SetReferredByURI(&self, bstrreferredbyuri: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReferredByURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetReferCookie(&self, bstrrefercookie: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn ReferCookie(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn IsReferred(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn Hold(&self, lcookie: isize) -> windows_result::Result<()>;
+    fn UnHold(&self, lcookie: isize) -> windows_result::Result<()>;
+    fn Forward(&self, bstrforwardtouri: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn Refer(&self, bstrrefertouri: &windows_core::BSTR, bstrrefercookie: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SetReferredByURI(&self, bstrreferredbyuri: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn ReferredByURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetReferCookie(&self, bstrrefercookie: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn ReferCookie(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn IsReferred(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 impl IRTCSessionCallControl_Vtbl {
     pub const fn new<Identity: IRTCSessionCallControl_Impl, const OFFSET: isize>() -> Self {
@@ -6658,7 +6658,7 @@ impl windows_core::RuntimeName for IRTCSessionCallControl {}
 windows_core::imp::define_interface!(IRTCSessionDescriptionManager, IRTCSessionDescriptionManager_Vtbl, 0xba7f518e_d336_4070_93a6_865395c843f9);
 windows_core::imp::interface_hierarchy!(IRTCSessionDescriptionManager, windows_core::IUnknown);
 impl IRTCSessionDescriptionManager {
-    pub unsafe fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EvaluateSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrcontenttype), core::mem::transmute_copy(bstrsessiondescription), pfapplicationsession as _).ok() }
     }
 }
@@ -6669,7 +6669,7 @@ pub struct IRTCSessionDescriptionManager_Vtbl {
     pub EvaluateSessionDescription: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 pub trait IRTCSessionDescriptionManager_Impl: windows_core::IUnknownImpl {
-    fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn EvaluateSessionDescription(&self, bstrcontenttype: &windows_core::BSTR, bstrsessiondescription: &windows_core::BSTR, pfapplicationsession: *mut super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 impl IRTCSessionDescriptionManager_Vtbl {
     pub const fn new<Identity: IRTCSessionDescriptionManager_Impl, const OFFSET: isize>() -> Self {
@@ -6699,25 +6699,25 @@ impl core::ops::Deref for IRTCSessionOperationCompleteEvent {
 windows_core::imp::interface_hierarchy!(IRTCSessionOperationCompleteEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cookie(&self) -> windows_core::Result<isize> {
+    pub unsafe fn Cookie(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6736,10 +6736,10 @@ pub struct IRTCSessionOperationCompleteEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionOperationCompleteEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession>;
-    fn Cookie(&self) -> windows_core::Result<isize>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Session(&self) -> windows_result::Result<IRTCSession>;
+    fn Cookie(&self) -> windows_result::Result<isize>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionOperationCompleteEvent_Vtbl {
@@ -6819,13 +6819,13 @@ impl core::ops::Deref for IRTCSessionOperationCompleteEvent2 {
 windows_core::imp::interface_hierarchy!(IRTCSessionOperationCompleteEvent2, windows_core::IUnknown, super::Com::IDispatch, IRTCSessionOperationCompleteEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionOperationCompleteEvent2 {
-    pub unsafe fn Participant(&self) -> windows_core::Result<IRTCParticipant> {
+    pub unsafe fn Participant(&self) -> windows_result::Result<IRTCParticipant> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Participant)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRemoteSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcontenttype), core::mem::transmute(pbstrsessiondescription)).ok() }
     }
 }
@@ -6839,8 +6839,8 @@ pub struct IRTCSessionOperationCompleteEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionOperationCompleteEvent2_Impl: IRTCSessionOperationCompleteEvent_Impl {
-    fn Participant(&self) -> windows_core::Result<IRTCParticipant>;
-    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn Participant(&self) -> windows_result::Result<IRTCParticipant>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionOperationCompleteEvent2_Vtbl {
@@ -6878,7 +6878,7 @@ impl windows_core::RuntimeName for IRTCSessionOperationCompleteEvent2 {}
 windows_core::imp::define_interface!(IRTCSessionPortManagement, IRTCSessionPortManagement_Vtbl, 0xa072f1d6_0286_4e1f_85f2_17a2948456ec);
 windows_core::imp::interface_hierarchy!(IRTCSessionPortManagement, windows_core::IUnknown);
 impl IRTCSessionPortManagement {
-    pub unsafe fn SetPortManager<P0>(&self, pportmanager: P0) -> windows_core::Result<()>
+    pub unsafe fn SetPortManager<P0>(&self, pportmanager: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCPortManager>,
     {
@@ -6892,7 +6892,7 @@ pub struct IRTCSessionPortManagement_Vtbl {
     pub SetPortManager: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCSessionPortManagement_Impl: windows_core::IUnknownImpl {
-    fn SetPortManager(&self, pportmanager: windows_core::Ref<IRTCPortManager>) -> windows_core::Result<()>;
+    fn SetPortManager(&self, pportmanager: windows_core::Ref<IRTCPortManager>) -> windows_result::Result<()>;
 }
 impl IRTCSessionPortManagement_Vtbl {
     pub const fn new<Identity: IRTCSessionPortManagement_Impl, const OFFSET: isize>() -> Self {
@@ -6922,25 +6922,25 @@ impl core::ops::Deref for IRTCSessionReferStatusEvent {
 windows_core::imp::interface_hierarchy!(IRTCSessionReferStatusEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferStatusEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession2> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ReferStatus(&self) -> windows_core::Result<RTC_SESSION_REFER_STATUS> {
+    pub unsafe fn ReferStatus(&self) -> windows_result::Result<RTC_SESSION_REFER_STATUS> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferStatus)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -6959,10 +6959,10 @@ pub struct IRTCSessionReferStatusEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionReferStatusEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession2>;
-    fn ReferStatus(&self) -> windows_core::Result<RTC_SESSION_REFER_STATUS>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Session(&self) -> windows_result::Result<IRTCSession2>;
+    fn ReferStatus(&self) -> windows_result::Result<RTC_SESSION_REFER_STATUS>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionReferStatusEvent_Vtbl {
@@ -7042,37 +7042,37 @@ impl core::ops::Deref for IRTCSessionReferredEvent {
 windows_core::imp::interface_hierarchy!(IRTCSessionReferredEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionReferredEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession2> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ReferredByURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReferredByURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferredByURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ReferToURI(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReferToURI(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferToURI)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn ReferCookie(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn ReferCookie(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).ReferCookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn Accept(&self) -> windows_core::Result<()> {
+    pub unsafe fn Accept(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Accept)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Reject(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reject(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reject)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetReferredSessionState)(windows_core::Interface::as_raw(self), enstate).ok() }
     }
 }
@@ -7091,13 +7091,13 @@ pub struct IRTCSessionReferredEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionReferredEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession2>;
-    fn ReferredByURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ReferToURI(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn ReferCookie(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn Accept(&self) -> windows_core::Result<()>;
-    fn Reject(&self) -> windows_core::Result<()>;
-    fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> windows_core::Result<()>;
+    fn Session(&self) -> windows_result::Result<IRTCSession2>;
+    fn ReferredByURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ReferToURI(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn ReferCookie(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn Accept(&self) -> windows_result::Result<()>;
+    fn Reject(&self) -> windows_result::Result<()>;
+    fn SetReferredSessionState(&self, enstate: RTC_SESSION_STATE) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionReferredEvent_Vtbl {
@@ -7198,25 +7198,25 @@ impl core::ops::Deref for IRTCSessionStateChangeEvent {
 windows_core::imp::interface_hierarchy!(IRTCSessionStateChangeEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionStateChangeEvent {
-    pub unsafe fn Session(&self) -> windows_core::Result<IRTCSession> {
+    pub unsafe fn Session(&self) -> windows_result::Result<IRTCSession> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Session)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_SESSION_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_SESSION_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusText(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn StatusText(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusText)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -7235,10 +7235,10 @@ pub struct IRTCSessionStateChangeEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionStateChangeEvent_Impl: super::Com::IDispatch_Impl {
-    fn Session(&self) -> windows_core::Result<IRTCSession>;
-    fn State(&self) -> windows_core::Result<RTC_SESSION_STATE>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn StatusText(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn Session(&self) -> windows_result::Result<IRTCSession>;
+    fn State(&self) -> windows_result::Result<RTC_SESSION_STATE>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn StatusText(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionStateChangeEvent_Vtbl {
@@ -7318,25 +7318,25 @@ impl core::ops::Deref for IRTCSessionStateChangeEvent2 {
 windows_core::imp::interface_hierarchy!(IRTCSessionStateChangeEvent2, windows_core::IUnknown, super::Com::IDispatch, IRTCSessionStateChangeEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCSessionStateChangeEvent2 {
-    pub unsafe fn MediaTypes(&self) -> windows_core::Result<i32> {
+    pub unsafe fn MediaTypes(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MediaTypes)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL> {
+    pub unsafe fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_RemotePreferredSecurityLevel)(windows_core::Interface::as_raw(self), ensecuritytype, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsForked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsForked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsForked)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRemoteSessionDescription)(windows_core::Interface::as_raw(self), core::mem::transmute(pbstrcontenttype), core::mem::transmute(pbstrsessiondescription)).ok() }
     }
 }
@@ -7352,10 +7352,10 @@ pub struct IRTCSessionStateChangeEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCSessionStateChangeEvent2_Impl: IRTCSessionStateChangeEvent_Impl {
-    fn MediaTypes(&self) -> windows_core::Result<i32>;
-    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_core::Result<RTC_SECURITY_LEVEL>;
-    fn IsForked(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_core::Result<()>;
+    fn MediaTypes(&self) -> windows_result::Result<i32>;
+    fn get_RemotePreferredSecurityLevel(&self, ensecuritytype: RTC_SECURITY_TYPE) -> windows_result::Result<RTC_SECURITY_LEVEL>;
+    fn IsForked(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetRemoteSessionDescription(&self, pbstrcontenttype: *mut windows_core::BSTR, pbstrsessiondescription: *mut windows_core::BSTR) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCSessionStateChangeEvent2_Vtbl {
@@ -7419,13 +7419,13 @@ impl windows_core::RuntimeName for IRTCSessionStateChangeEvent2 {}
 windows_core::imp::define_interface!(IRTCUserSearch, IRTCUserSearch_Vtbl, 0xb619882b_860c_4db4_be1b_693b6505bbe5);
 windows_core::imp::interface_hierarchy!(IRTCUserSearch, windows_core::IUnknown);
 impl IRTCUserSearch {
-    pub unsafe fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery> {
+    pub unsafe fn CreateQuery(&self) -> windows_result::Result<IRTCUserSearchQuery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).CreateQuery)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn ExecuteSearch<P0, P1>(&self, pquery: P0, pprofile: P1, lcookie: isize) -> windows_core::Result<()>
+    pub unsafe fn ExecuteSearch<P0, P1>(&self, pquery: P0, pprofile: P1, lcookie: isize) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IRTCUserSearchQuery>,
         P1: windows_core::Param<IRTCProfile>,
@@ -7441,8 +7441,8 @@ pub struct IRTCUserSearch_Vtbl {
     pub ExecuteSearch: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, isize) -> windows_core::HRESULT,
 }
 pub trait IRTCUserSearch_Impl: windows_core::IUnknownImpl {
-    fn CreateQuery(&self) -> windows_core::Result<IRTCUserSearchQuery>;
-    fn ExecuteSearch(&self, pquery: windows_core::Ref<IRTCUserSearchQuery>, pprofile: windows_core::Ref<IRTCProfile>, lcookie: isize) -> windows_core::Result<()>;
+    fn CreateQuery(&self) -> windows_result::Result<IRTCUserSearchQuery>;
+    fn ExecuteSearch(&self, pquery: windows_core::Ref<IRTCUserSearchQuery>, pprofile: windows_core::Ref<IRTCProfile>, lcookie: isize) -> windows_result::Result<()>;
 }
 impl IRTCUserSearch_Vtbl {
     pub const fn new<Identity: IRTCUserSearch_Impl, const OFFSET: isize>() -> Self {
@@ -7478,34 +7478,34 @@ impl windows_core::RuntimeName for IRTCUserSearch {}
 windows_core::imp::define_interface!(IRTCUserSearchQuery, IRTCUserSearchQuery_Vtbl, 0x288300f5_d23a_4365_9a73_9985c98c2881);
 windows_core::imp::interface_hierarchy!(IRTCUserSearchQuery, windows_core::IUnknown);
 impl IRTCUserSearchQuery {
-    pub unsafe fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_SearchTerm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), core::mem::transmute_copy(bstrvalue)).ok() }
     }
-    pub unsafe fn get_SearchTerm(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_SearchTerm(&self, bstrname: &windows_core::BSTR) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_SearchTerm)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrname), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SearchTerms(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SearchTerms(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SearchTerms)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_core::Result<()> {
+    pub unsafe fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).put_SearchPreference)(windows_core::Interface::as_raw(self), enpreference, lvalue).ok() }
     }
-    pub unsafe fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> windows_core::Result<i32> {
+    pub unsafe fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_SearchPreference)(windows_core::Interface::as_raw(self), enpreference, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSearchDomain(&self, bstrdomain: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetSearchDomain(&self, bstrdomain: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSearchDomain)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(bstrdomain)).ok() }
     }
-    pub unsafe fn SearchDomain(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn SearchDomain(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).SearchDomain)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
@@ -7525,13 +7525,13 @@ pub struct IRTCUserSearchQuery_Vtbl {
     pub SearchDomain: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCUserSearchQuery_Impl: windows_core::IUnknownImpl {
-    fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn get_SearchTerm(&self, bstrname: &windows_core::BSTR) -> windows_core::Result<windows_core::BSTR>;
-    fn SearchTerms(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_core::Result<()>;
-    fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> windows_core::Result<i32>;
-    fn SetSearchDomain(&self, bstrdomain: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn SearchDomain(&self) -> windows_core::Result<windows_core::BSTR>;
+    fn put_SearchTerm(&self, bstrname: &windows_core::BSTR, bstrvalue: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn get_SearchTerm(&self, bstrname: &windows_core::BSTR) -> windows_result::Result<windows_core::BSTR>;
+    fn SearchTerms(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn put_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE, lvalue: i32) -> windows_result::Result<()>;
+    fn get_SearchPreference(&self, enpreference: RTC_USER_SEARCH_PREFERENCE) -> windows_result::Result<i32>;
+    fn SetSearchDomain(&self, bstrdomain: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn SearchDomain(&self) -> windows_result::Result<windows_core::BSTR>;
 }
 impl IRTCUserSearchQuery_Vtbl {
     pub const fn new<Identity: IRTCUserSearchQuery_Impl, const OFFSET: isize>() -> Self {
@@ -7620,7 +7620,7 @@ impl windows_core::RuntimeName for IRTCUserSearchQuery {}
 windows_core::imp::define_interface!(IRTCUserSearchResult, IRTCUserSearchResult_Vtbl, 0x851278b2_9592_480f_8db5_2de86b26b54d);
 windows_core::imp::interface_hierarchy!(IRTCUserSearchResult, windows_core::IUnknown);
 impl IRTCUserSearchResult {
-    pub unsafe fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).get_Value)(windows_core::Interface::as_raw(self), encolumn, &mut result__).map(|| core::mem::transmute(result__))
@@ -7634,7 +7634,7 @@ pub struct IRTCUserSearchResult_Vtbl {
     pub get_Value: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_USER_SEARCH_COLUMN, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IRTCUserSearchResult_Impl: windows_core::IUnknownImpl {
-    fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_core::Result<windows_core::BSTR>;
+    fn get_Value(&self, encolumn: RTC_USER_SEARCH_COLUMN) -> windows_result::Result<windows_core::BSTR>;
 }
 impl IRTCUserSearchResult_Vtbl {
     pub const fn new<Identity: IRTCUserSearchResult_Impl, const OFFSET: isize>() -> Self {
@@ -7670,43 +7670,43 @@ impl core::ops::Deref for IRTCUserSearchResultsEvent {
 windows_core::imp::interface_hierarchy!(IRTCUserSearchResultsEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCUserSearchResultsEvent {
-    pub unsafe fn EnumerateResults(&self) -> windows_core::Result<IRTCEnumUserSearchResults> {
+    pub unsafe fn EnumerateResults(&self) -> windows_result::Result<IRTCEnumUserSearchResults> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EnumerateResults)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Results(&self) -> windows_core::Result<IRTCCollection> {
+    pub unsafe fn Results(&self) -> windows_result::Result<IRTCCollection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Results)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile2> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Query(&self) -> windows_core::Result<IRTCUserSearchQuery> {
+    pub unsafe fn Query(&self) -> windows_result::Result<IRTCUserSearchQuery> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Query)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Cookie(&self) -> windows_core::Result<isize> {
+    pub unsafe fn Cookie(&self) -> windows_result::Result<isize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Cookie)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MoreAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn MoreAvailable(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).MoreAvailable)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7728,13 +7728,13 @@ pub struct IRTCUserSearchResultsEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCUserSearchResultsEvent_Impl: super::Com::IDispatch_Impl {
-    fn EnumerateResults(&self) -> windows_core::Result<IRTCEnumUserSearchResults>;
-    fn Results(&self) -> windows_core::Result<IRTCCollection>;
-    fn Profile(&self) -> windows_core::Result<IRTCProfile2>;
-    fn Query(&self) -> windows_core::Result<IRTCUserSearchQuery>;
-    fn Cookie(&self) -> windows_core::Result<isize>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
-    fn MoreAvailable(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn EnumerateResults(&self) -> windows_result::Result<IRTCEnumUserSearchResults>;
+    fn Results(&self) -> windows_result::Result<IRTCCollection>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile2>;
+    fn Query(&self) -> windows_result::Result<IRTCUserSearchQuery>;
+    fn Cookie(&self) -> windows_result::Result<isize>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
+    fn MoreAvailable(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCUserSearchResultsEvent_Vtbl {
@@ -7849,13 +7849,13 @@ impl core::ops::Deref for IRTCWatcher {
 }
 windows_core::imp::interface_hierarchy!(IRTCWatcher, windows_core::IUnknown, IRTCPresenceContact);
 impl IRTCWatcher {
-    pub unsafe fn State(&self) -> windows_core::Result<RTC_WATCHER_STATE> {
+    pub unsafe fn State(&self) -> windows_result::Result<RTC_WATCHER_STATE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).State)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> windows_core::Result<()> {
+    pub unsafe fn SetState(&self, enstate: RTC_WATCHER_STATE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetState)(windows_core::Interface::as_raw(self), enstate).ok() }
     }
 }
@@ -7867,8 +7867,8 @@ pub struct IRTCWatcher_Vtbl {
     pub SetState: unsafe extern "system" fn(*mut core::ffi::c_void, RTC_WATCHER_STATE) -> windows_core::HRESULT,
 }
 pub trait IRTCWatcher_Impl: IRTCPresenceContact_Impl {
-    fn State(&self) -> windows_core::Result<RTC_WATCHER_STATE>;
-    fn SetState(&self, enstate: RTC_WATCHER_STATE) -> windows_core::Result<()>;
+    fn State(&self) -> windows_result::Result<RTC_WATCHER_STATE>;
+    fn SetState(&self, enstate: RTC_WATCHER_STATE) -> windows_result::Result<()>;
 }
 impl IRTCWatcher_Vtbl {
     pub const fn new<Identity: IRTCWatcher_Impl, const OFFSET: isize>() -> Self {
@@ -7906,13 +7906,13 @@ impl core::ops::Deref for IRTCWatcher2 {
 }
 windows_core::imp::interface_hierarchy!(IRTCWatcher2, windows_core::IUnknown, IRTCPresenceContact, IRTCWatcher);
 impl IRTCWatcher2 {
-    pub unsafe fn Profile(&self) -> windows_core::Result<IRTCProfile2> {
+    pub unsafe fn Profile(&self) -> windows_result::Result<IRTCProfile2> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Profile)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Scope(&self) -> windows_core::Result<RTC_ACE_SCOPE> {
+    pub unsafe fn Scope(&self) -> windows_result::Result<RTC_ACE_SCOPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Scope)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -7927,8 +7927,8 @@ pub struct IRTCWatcher2_Vtbl {
     pub Scope: unsafe extern "system" fn(*mut core::ffi::c_void, *mut RTC_ACE_SCOPE) -> windows_core::HRESULT,
 }
 pub trait IRTCWatcher2_Impl: IRTCWatcher_Impl {
-    fn Profile(&self) -> windows_core::Result<IRTCProfile2>;
-    fn Scope(&self) -> windows_core::Result<RTC_ACE_SCOPE>;
+    fn Profile(&self) -> windows_result::Result<IRTCProfile2>;
+    fn Scope(&self) -> windows_result::Result<RTC_ACE_SCOPE>;
 }
 impl IRTCWatcher2_Vtbl {
     pub const fn new<Identity: IRTCWatcher2_Impl, const OFFSET: isize>() -> Self {
@@ -7976,7 +7976,7 @@ impl core::ops::Deref for IRTCWatcherEvent {
 windows_core::imp::interface_hierarchy!(IRTCWatcherEvent, windows_core::IUnknown, super::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent {
-    pub unsafe fn Watcher(&self) -> windows_core::Result<IRTCWatcher> {
+    pub unsafe fn Watcher(&self) -> windows_result::Result<IRTCWatcher> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Watcher)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -7992,7 +7992,7 @@ pub struct IRTCWatcherEvent_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCWatcherEvent_Impl: super::Com::IDispatch_Impl {
-    fn Watcher(&self) -> windows_core::Result<IRTCWatcher>;
+    fn Watcher(&self) -> windows_result::Result<IRTCWatcher>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCWatcherEvent_Vtbl {
@@ -8030,13 +8030,13 @@ impl core::ops::Deref for IRTCWatcherEvent2 {
 windows_core::imp::interface_hierarchy!(IRTCWatcherEvent2, windows_core::IUnknown, super::Com::IDispatch, IRTCWatcherEvent);
 #[cfg(feature = "Win32_System_Com")]
 impl IRTCWatcherEvent2 {
-    pub unsafe fn EventType(&self) -> windows_core::Result<RTC_WATCHER_EVENT_TYPE> {
+    pub unsafe fn EventType(&self) -> windows_result::Result<RTC_WATCHER_EVENT_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).EventType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn StatusCode(&self) -> windows_core::Result<i32> {
+    pub unsafe fn StatusCode(&self) -> windows_result::Result<i32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).StatusCode)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -8053,8 +8053,8 @@ pub struct IRTCWatcherEvent2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IRTCWatcherEvent2_Impl: IRTCWatcherEvent_Impl {
-    fn EventType(&self) -> windows_core::Result<RTC_WATCHER_EVENT_TYPE>;
-    fn StatusCode(&self) -> windows_core::Result<i32>;
+    fn EventType(&self) -> windows_result::Result<RTC_WATCHER_EVENT_TYPE>;
+    fn StatusCode(&self) -> windows_result::Result<i32>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IRTCWatcherEvent2_Vtbl {
@@ -8095,11 +8095,11 @@ windows_core::imp::define_interface!(ITransportSettingsInternal, ITransportSetti
 windows_core::imp::interface_hierarchy!(ITransportSettingsInternal, windows_core::IUnknown);
 impl ITransportSettingsInternal {
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub unsafe fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()> {
+    pub unsafe fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ApplySetting)(windows_core::Interface::as_raw(self), setting as _).ok() }
     }
     #[cfg(feature = "Win32_Networking_WinSock")]
-    pub unsafe fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()> {
+    pub unsafe fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).QuerySetting)(windows_core::Interface::as_raw(self), setting as _).ok() }
     }
 }
@@ -8118,8 +8118,8 @@ pub struct ITransportSettingsInternal_Vtbl {
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 pub trait ITransportSettingsInternal_Impl: windows_core::IUnknownImpl {
-    fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()>;
-    fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_core::Result<()>;
+    fn ApplySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_result::Result<()>;
+    fn QuerySetting(&self, setting: *mut TRANSPORT_SETTING) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Networking_WinSock")]
 impl ITransportSettingsInternal_Vtbl {

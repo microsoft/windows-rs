@@ -10,14 +10,14 @@ pub struct EnhancedWaypoint(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnhancedWaypoint, windows_core::IUnknown, windows_core::IInspectable);
 impl EnhancedWaypoint {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
+    pub fn Point(&self) -> windows_result::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Point)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<WaypointKind> {
+    pub fn Kind(&self) -> windows_result::Result<WaypointKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -25,7 +25,7 @@ impl EnhancedWaypoint {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<P0>(point: P0, kind: WaypointKind) -> windows_core::Result<EnhancedWaypoint>
+    pub fn Create<P0>(point: P0, kind: WaypointKind) -> windows_result::Result<EnhancedWaypoint>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -34,7 +34,7 @@ impl EnhancedWaypoint {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), point.param().abi(), kind, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEnhancedWaypointFactory<R, F: FnOnce(&IEnhancedWaypointFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EnhancedWaypoint, IEnhancedWaypointFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -557,14 +557,14 @@ pub struct IPlaceInfoStatics2_Vtbl {
 pub struct ManeuverWarning(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ManeuverWarning, windows_core::IUnknown, windows_core::IInspectable);
 impl ManeuverWarning {
-    pub fn Kind(&self) -> windows_core::Result<ManeuverWarningKind> {
+    pub fn Kind(&self) -> windows_result::Result<ManeuverWarningKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Severity(&self) -> windows_core::Result<ManeuverWarningSeverity> {
+    pub fn Severity(&self) -> windows_result::Result<ManeuverWarningSeverity> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -652,112 +652,112 @@ impl windows_core::RuntimeType for ManeuverWarningSeverity {
 pub struct MapAddress(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapAddress, windows_core::IUnknown, windows_core::IInspectable);
 impl MapAddress {
-    pub fn BuildingName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BuildingName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildingName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn BuildingFloor(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BuildingFloor(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildingFloor)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn BuildingRoom(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BuildingRoom(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildingRoom)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn BuildingWing(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BuildingWing(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildingWing)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn StreetNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn StreetNumber(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StreetNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Street(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Street(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Street)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Neighborhood(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Neighborhood(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Neighborhood)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn District(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn District(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).District)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Town(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Town(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Town)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Region(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Region(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Region)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RegionCode(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RegionCode(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RegionCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Country(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Country(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Country)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CountryCode(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CountryCode(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CountryCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn PostCode(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PostCode(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PostCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Continent(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Continent(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Continent)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FormattedAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FormattedAddress(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMapAddress2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -783,28 +783,28 @@ pub struct MapLocation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocation, windows_core::IUnknown, windows_core::IInspectable);
 impl MapLocation {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Point(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
+    pub fn Point(&self) -> windows_result::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Point)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Address(&self) -> windows_core::Result<MapAddress> {
+    pub fn Address(&self) -> windows_result::Result<MapAddress> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -840,7 +840,7 @@ impl windows_core::RuntimeType for MapLocationDesiredAccuracy {
 pub struct MapLocationFinder;
 impl MapLocationFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAtAsync<P0>(querypoint: P0) -> windows_core::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAtAsync<P0>(querypoint: P0) -> windows_result::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -850,7 +850,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_core::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1) -> windows_result::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -860,7 +860,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_core::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsWithMaxCountAsync<P1>(searchtext: &windows_core::HSTRING, referencepoint: P1, maxcount: u32) -> windows_result::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -870,7 +870,7 @@ impl MapLocationFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn FindLocationsAtWithAccuracyAsync<P0>(querypoint: P0, accuracy: MapLocationDesiredAccuracy) -> windows_core::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
+    pub fn FindLocationsAtWithAccuracyAsync<P0>(querypoint: P0, accuracy: MapLocationDesiredAccuracy) -> windows_result::Result<windows_future::IAsyncOperation<MapLocationFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -879,11 +879,11 @@ impl MapLocationFinder {
             (windows_core::Interface::vtable(this).FindLocationsAtWithAccuracyAsync)(windows_core::Interface::as_raw(this), querypoint.param().abi(), accuracy, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapLocationFinderStatics<R, F: FnOnce(&IMapLocationFinderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapLocationFinderStatics2<R, F: FnOnce(&IMapLocationFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapLocationFinderStatics2<R, F: FnOnce(&IMapLocationFinderStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapLocationFinder, IMapLocationFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -896,14 +896,14 @@ impl windows_core::RuntimeName for MapLocationFinder {
 pub struct MapLocationFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapLocationFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MapLocationFinderResult {
-    pub fn Locations(&self) -> windows_core::Result<windows_collections::IVectorView<MapLocation>> {
+    pub fn Locations(&self) -> windows_result::Result<windows_collections::IVectorView<MapLocation>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Locations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<MapLocationFinderStatus> {
+    pub fn Status(&self) -> windows_result::Result<MapLocationFinderStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -943,13 +943,13 @@ impl windows_core::RuntimeType for MapLocationFinderStatus {
 }
 pub struct MapManager;
 impl MapManager {
-    pub fn ShowDownloadedMapsUI() -> windows_core::Result<()> {
+    pub fn ShowDownloadedMapsUI() -> windows_result::Result<()> {
         Self::IMapManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowDownloadedMapsUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    pub fn ShowMapsUpdateUI() -> windows_core::Result<()> {
+    pub fn ShowMapsUpdateUI() -> windows_result::Result<()> {
         Self::IMapManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).ShowMapsUpdateUI)(windows_core::Interface::as_raw(this)).ok() })
     }
-    fn IMapManagerStatics<R, F: FnOnce(&IMapManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapManagerStatics<R, F: FnOnce(&IMapManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapManager, IMapManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1010,21 +1010,21 @@ pub struct MapRoute(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRoute, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRoute {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
+    pub fn BoundingBox(&self) -> windows_result::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BoundingBox)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
+    pub fn LengthInMeters(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LengthInMeters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EstimatedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EstimatedDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1032,56 +1032,56 @@ impl MapRoute {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Path(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopath> {
+    pub fn Path(&self) -> windows_result::Result<super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Legs(&self) -> windows_core::Result<windows_collections::IVectorView<MapRouteLeg>> {
+    pub fn Legs(&self) -> windows_result::Result<windows_collections::IVectorView<MapRouteLeg>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Legs)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsTrafficBased(&self) -> windows_core::Result<bool> {
+    pub fn IsTrafficBased(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsTrafficBased)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ViolatedRestrictions(&self) -> windows_core::Result<MapRouteRestrictions> {
+    pub fn ViolatedRestrictions(&self) -> windows_result::Result<MapRouteRestrictions> {
         let this = &windows_core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ViolatedRestrictions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn HasBlockedRoads(&self) -> windows_core::Result<bool> {
+    pub fn HasBlockedRoads(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IMapRoute2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasBlockedRoads)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DurationWithoutTraffic(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TrafficCongestion(&self) -> windows_core::Result<TrafficCongestion> {
+    pub fn TrafficCongestion(&self) -> windows_result::Result<TrafficCongestion> {
         let this = &windows_core::Interface::cast::<IMapRoute3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrafficCongestion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsScenic(&self) -> windows_core::Result<bool> {
+    pub fn IsScenic(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IMapRoute4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1106,68 +1106,68 @@ unsafe impl Sync for MapRoute {}
 pub struct MapRouteDrivingOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteDrivingOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteDrivingOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteDrivingOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MaxAlternateRouteCount(&self) -> windows_core::Result<u32> {
+    pub fn MaxAlternateRouteCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxAlternateRouteCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetMaxAlternateRouteCount(&self, value: u32) -> windows_core::Result<()> {
+    pub fn SetMaxAlternateRouteCount(&self, value: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxAlternateRouteCount)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn InitialHeading(&self) -> windows_core::Result<super::super::Foundation::IReference<f64>> {
+    pub fn InitialHeading(&self) -> windows_result::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InitialHeading)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetInitialHeading<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetInitialHeading<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<f64>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetInitialHeading)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn RouteOptimization(&self) -> windows_core::Result<MapRouteOptimization> {
+    pub fn RouteOptimization(&self) -> windows_result::Result<MapRouteOptimization> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RouteOptimization)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> windows_core::Result<()> {
+    pub fn SetRouteOptimization(&self, value: MapRouteOptimization) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRouteOptimization)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RouteRestrictions(&self) -> windows_core::Result<MapRouteRestrictions> {
+    pub fn RouteRestrictions(&self) -> windows_result::Result<MapRouteRestrictions> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RouteRestrictions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> windows_core::Result<()> {
+    pub fn SetRouteRestrictions(&self, value: MapRouteRestrictions) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetRouteRestrictions)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DepartureTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DepartureTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = &windows_core::Interface::cast::<IMapRouteDrivingOptions2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DepartureTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetDepartureTime<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetDepartureTime<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Foundation::IReference<super::super::Foundation::DateTime>>,
     {
@@ -1190,7 +1190,7 @@ unsafe impl Sync for MapRouteDrivingOptions {}
 pub struct MapRouteFinder;
 impl MapRouteFinder {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1201,7 +1201,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1212,7 +1212,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationAndRestrictionsAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1223,7 +1223,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptimizationRestrictionsAndHeadingAsync<P0, P1>(startpoint: P0, endpoint: P1, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1234,7 +1234,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1244,7 +1244,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<P0>(waypoints: P0, optimization: MapRouteOptimization) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsAndOptimizationAsync<P0>(waypoints: P0, optimization: MapRouteOptimization) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1254,7 +1254,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationAndRestrictionsAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1264,7 +1264,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromWaypointsOptimizationRestrictionsAndHeadingAsync<P0>(waypoints: P0, optimization: MapRouteOptimization, restrictions: MapRouteRestrictions, headingindegrees: f64) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1274,7 +1274,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetWalkingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetWalkingRouteAsync<P0, P1>(startpoint: P0, endpoint: P1) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1285,7 +1285,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetWalkingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetWalkingRouteFromWaypointsAsync<P0>(waypoints: P0) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<super::super::Devices::Geolocation::Geopoint>>,
     {
@@ -1295,7 +1295,7 @@ impl MapRouteFinder {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn GetDrivingRouteWithOptionsAsync<P0, P1, P2>(startpoint: P0, endpoint: P1, options: P2) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteWithOptionsAsync<P0, P1, P2>(startpoint: P0, endpoint: P1, options: P2) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
@@ -1306,7 +1306,7 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteWithOptionsAsync)(windows_core::Interface::as_raw(this), startpoint.param().abi(), endpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<P0>(waypoints: P0) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromEnhancedWaypointsAsync<P0>(waypoints: P0) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<EnhancedWaypoint>>,
     {
@@ -1315,7 +1315,7 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<P0, P1>(waypoints: P0, options: P1) -> windows_core::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
+    pub fn GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync<P0, P1>(waypoints: P0, options: P1) -> windows_result::Result<windows_future::IAsyncOperation<MapRouteFinderResult>>
     where
         P0: windows_core::Param<windows_collections::IIterable<EnhancedWaypoint>>,
         P1: windows_core::Param<MapRouteDrivingOptions>,
@@ -1325,15 +1325,15 @@ impl MapRouteFinder {
             (windows_core::Interface::vtable(this).GetDrivingRouteFromEnhancedWaypointsWithOptionsAsync)(windows_core::Interface::as_raw(this), waypoints.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics<R, F: FnOnce(&IMapRouteFinderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapRouteFinderStatics2<R, F: FnOnce(&IMapRouteFinderStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics2<R, F: FnOnce(&IMapRouteFinderStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapRouteFinderStatics3<R, F: FnOnce(&IMapRouteFinderStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapRouteFinderStatics3<R, F: FnOnce(&IMapRouteFinderStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapRouteFinder, IMapRouteFinderStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1346,21 +1346,21 @@ impl windows_core::RuntimeName for MapRouteFinder {
 pub struct MapRouteFinderResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteFinderResult, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteFinderResult {
-    pub fn Route(&self) -> windows_core::Result<MapRoute> {
+    pub fn Route(&self) -> windows_result::Result<MapRoute> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Route)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Status(&self) -> windows_core::Result<MapRouteFinderStatus> {
+    pub fn Status(&self) -> windows_result::Result<MapRouteFinderStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AlternateRoutes(&self) -> windows_core::Result<windows_collections::IVectorView<MapRoute>> {
+    pub fn AlternateRoutes(&self) -> windows_result::Result<windows_collections::IVectorView<MapRoute>> {
         let this = &windows_core::Interface::cast::<IMapRouteFinderResult2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1407,7 +1407,7 @@ pub struct MapRouteLeg(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteLeg, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteLeg {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn BoundingBox(&self) -> windows_core::Result<super::super::Devices::Geolocation::GeoboundingBox> {
+    pub fn BoundingBox(&self) -> windows_result::Result<super::super::Devices::Geolocation::GeoboundingBox> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1415,42 +1415,42 @@ impl MapRouteLeg {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Path(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopath> {
+    pub fn Path(&self) -> windows_result::Result<super::super::Devices::Geolocation::Geopath> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Path)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
+    pub fn LengthInMeters(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LengthInMeters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EstimatedDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn EstimatedDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EstimatedDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Maneuvers(&self) -> windows_core::Result<windows_collections::IVectorView<MapRouteManeuver>> {
+    pub fn Maneuvers(&self) -> windows_result::Result<windows_collections::IVectorView<MapRouteManeuver>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Maneuvers)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DurationWithoutTraffic(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn DurationWithoutTraffic(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = &windows_core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DurationWithoutTraffic)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TrafficCongestion(&self) -> windows_core::Result<TrafficCongestion> {
+    pub fn TrafficCongestion(&self) -> windows_result::Result<TrafficCongestion> {
         let this = &windows_core::Interface::cast::<IMapRouteLeg2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1476,70 +1476,70 @@ pub struct MapRouteManeuver(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MapRouteManeuver, windows_core::IUnknown, windows_core::IInspectable);
 impl MapRouteManeuver {
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn StartingPoint(&self) -> windows_core::Result<super::super::Devices::Geolocation::Geopoint> {
+    pub fn StartingPoint(&self) -> windows_result::Result<super::super::Devices::Geolocation::Geopoint> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartingPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LengthInMeters(&self) -> windows_core::Result<f64> {
+    pub fn LengthInMeters(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LengthInMeters)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn InstructionText(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn InstructionText(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstructionText)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Kind(&self) -> windows_core::Result<MapRouteManeuverKind> {
+    pub fn Kind(&self) -> windows_result::Result<MapRouteManeuverKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExitNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ExitNumber(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExitNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ManeuverNotices(&self) -> windows_core::Result<MapManeuverNotices> {
+    pub fn ManeuverNotices(&self) -> windows_result::Result<MapManeuverNotices> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ManeuverNotices)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StartHeading(&self) -> windows_core::Result<f64> {
+    pub fn StartHeading(&self) -> windows_result::Result<f64> {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartHeading)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EndHeading(&self) -> windows_core::Result<f64> {
+    pub fn EndHeading(&self) -> windows_result::Result<f64> {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EndHeading)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StreetName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn StreetName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StreetName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Warnings(&self) -> windows_core::Result<windows_collections::IVectorView<ManeuverWarning>> {
+    pub fn Warnings(&self) -> windows_result::Result<windows_collections::IVectorView<ManeuverWarning>> {
         let this = &windows_core::Interface::cast::<IMapRouteManeuver3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1663,49 +1663,49 @@ impl core::ops::Not for MapRouteRestrictions {
 }
 pub struct MapService;
 impl MapService {
-    pub fn SetServiceToken(value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetServiceToken(value: &windows_core::HSTRING) -> windows_result::Result<()> {
         Self::IMapServiceStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetServiceToken)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() })
     }
-    pub fn ServiceToken() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ServiceToken() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceToken)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn WorldViewRegionCode() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn WorldViewRegionCode() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).WorldViewRegionCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DataAttributions() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DataAttributions() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMapServiceStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataAttributions)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> windows_core::Result<()> {
+    pub fn SetDataUsagePreference(value: MapServiceDataUsagePreference) -> windows_result::Result<()> {
         Self::IMapServiceStatics4(|this| unsafe { (windows_core::Interface::vtable(this).SetDataUsagePreference)(windows_core::Interface::as_raw(this), value).ok() })
     }
-    pub fn DataUsagePreference() -> windows_core::Result<MapServiceDataUsagePreference> {
+    pub fn DataUsagePreference() -> windows_result::Result<MapServiceDataUsagePreference> {
         Self::IMapServiceStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DataUsagePreference)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IMapServiceStatics<R, F: FnOnce(&IMapServiceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics<R, F: FnOnce(&IMapServiceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapServiceStatics2<R, F: FnOnce(&IMapServiceStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics2<R, F: FnOnce(&IMapServiceStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapServiceStatics3<R, F: FnOnce(&IMapServiceStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics3<R, F: FnOnce(&IMapServiceStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IMapServiceStatics4<R, F: FnOnce(&IMapServiceStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMapServiceStatics4<R, F: FnOnce(&IMapServiceStatics4) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MapService, IMapServiceStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1731,30 +1731,30 @@ impl windows_core::RuntimeType for MapServiceDataUsagePreference {
 pub struct PlaceInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaceInfo {
-    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), selection).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowWithPreferredPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<()> {
+    pub fn ShowWithPreferredPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowWithPreferredPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
-    pub fn Identifier(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Identifier(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Identifier)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayAddress(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1762,7 +1762,7 @@ impl PlaceInfo {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Geoshape(&self) -> windows_core::Result<super::super::Devices::Geolocation::IGeoshape> {
+    pub fn Geoshape(&self) -> windows_result::Result<super::super::Devices::Geolocation::IGeoshape> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1770,7 +1770,7 @@ impl PlaceInfo {
         }
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn Create<P0>(referencepoint: P0) -> windows_core::Result<PlaceInfo>
+    pub fn Create<P0>(referencepoint: P0) -> windows_result::Result<PlaceInfo>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
     {
@@ -1780,7 +1780,7 @@ impl PlaceInfo {
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateWithGeopointAndOptions<P0, P1>(referencepoint: P0, options: P1) -> windows_core::Result<PlaceInfo>
+    pub fn CreateWithGeopointAndOptions<P0, P1>(referencepoint: P0, options: P1) -> windows_result::Result<PlaceInfo>
     where
         P0: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P1: windows_core::Param<PlaceInfoCreateOptions>,
@@ -1790,14 +1790,14 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateWithGeopointAndOptions)(windows_core::Interface::as_raw(this), referencepoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromIdentifier(identifier: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromIdentifier(identifier: &windows_core::HSTRING) -> windows_result::Result<PlaceInfo> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromIdentifier)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Geolocation")]
-    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromIdentifierWithOptions<P1, P2>(identifier: &windows_core::HSTRING, defaultpoint: P1, options: P2) -> windows_result::Result<PlaceInfo>
     where
         P1: windows_core::Param<super::super::Devices::Geolocation::Geopoint>,
         P2: windows_core::Param<PlaceInfoCreateOptions>,
@@ -1807,7 +1807,7 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateFromIdentifierWithOptions)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(identifier), defaultpoint.param().abi(), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromMapLocation<P0>(location: P0) -> windows_core::Result<PlaceInfo>
+    pub fn CreateFromMapLocation<P0>(location: P0) -> windows_result::Result<PlaceInfo>
     where
         P0: windows_core::Param<MapLocation>,
     {
@@ -1816,29 +1816,29 @@ impl PlaceInfo {
             (windows_core::Interface::vtable(this).CreateFromMapLocation)(windows_core::Interface::as_raw(this), location.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn IsShowSupported() -> windows_core::Result<bool> {
+    pub fn IsShowSupported() -> windows_result::Result<bool> {
         Self::IPlaceInfoStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsShowSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CreateFromAddress(displayaddress: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromAddress(displayaddress: &windows_core::HSTRING) -> windows_result::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateFromAddressWithName(displayaddress: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_core::Result<PlaceInfo> {
+    pub fn CreateFromAddressWithName(displayaddress: &windows_core::HSTRING, displayname: &windows_core::HSTRING) -> windows_result::Result<PlaceInfo> {
         Self::IPlaceInfoStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateFromAddressWithName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(displayaddress), core::mem::transmute_copy(displayname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaceInfoStatics<R, F: FnOnce(&IPlaceInfoStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlaceInfoStatics2<R, F: FnOnce(&IPlaceInfoStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlaceInfoStatics2<R, F: FnOnce(&IPlaceInfoStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfo, IPlaceInfoStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1860,29 +1860,29 @@ unsafe impl Sync for PlaceInfo {}
 pub struct PlaceInfoCreateOptions(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlaceInfoCreateOptions, windows_core::IUnknown, windows_core::IInspectable);
 impl PlaceInfoCreateOptions {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlaceInfoCreateOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayAddress(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayAddress(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayAddress)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DisplayAddress(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayAddress(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

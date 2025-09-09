@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_core::Result<()> {
+pub unsafe fn CertSelectionGetSerializedBlob(pcsi: *const CERT_SELECTUI_INPUT, ppoutbuffer: *mut *mut core::ffi::c_void, puloutbuffersize: *mut u32) -> windows_result::Result<()> {
     windows_link::link!("cryptui.dll" "system" fn CertSelectionGetSerializedBlob(pcsi : *const CERT_SELECTUI_INPUT, ppoutbuffer : *mut *mut core::ffi::c_void, puloutbuffersize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSelectionGetSerializedBlob(pcsi, ppoutbuffer as _, puloutbuffersize as _).ok() }
 }
@@ -19,13 +19,13 @@ where
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn CryptUIDlgViewCertificateA(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged: *mut windows_core::BOOL) -> windows_result::Result<()> {
     windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateA(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTA, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CryptUIDlgViewCertificateA(pcertviewinfo, pfpropertieschanged as _).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_Security_Cryptography_Catalog", feature = "Win32_Security_Cryptography_Sip", feature = "Win32_Security_WinTrust", feature = "Win32_UI_Controls", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
-pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut windows_core::BOOL) -> windows_core::Result<()> {
+pub unsafe fn CryptUIDlgViewCertificateW(pcertviewinfo: *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged: *mut windows_core::BOOL) -> windows_result::Result<()> {
     windows_link::link!("cryptui.dll" "system" fn CryptUIDlgViewCertificateW(pcertviewinfo : *const CRYPTUI_VIEWCERTIFICATE_STRUCTW, pfpropertieschanged : *mut windows_core::BOOL) -> windows_core::BOOL);
     unsafe { CryptUIDlgViewCertificateW(pcertviewinfo, pfpropertieschanged as _).ok() }
 }
@@ -46,7 +46,7 @@ where
     unsafe { CryptUIWizDigitalSign(dwflags, hwndparent.unwrap_or(core::mem::zeroed()) as _, pwszwizardtitle.param().abi(), pdigitalsigninfo, ppsigncontext.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
-pub unsafe fn CryptUIWizExport<P2>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Option<super::super::super::Foundation::HWND>, pwszwizardtitle: P2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: Option<*const core::ffi::c_void>) -> windows_core::Result<()>
+pub unsafe fn CryptUIWizExport<P2>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Option<super::super::super::Foundation::HWND>, pwszwizardtitle: P2, pexportinfo: *const CRYPTUI_WIZ_EXPORT_INFO, pvoid: Option<*const core::ffi::c_void>) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -59,7 +59,7 @@ pub unsafe fn CryptUIWizFreeDigitalSignContext(psigncontext: *const CRYPTUI_WIZ_
     unsafe { CryptUIWizFreeDigitalSignContext(psigncontext) }
 }
 #[inline]
-pub unsafe fn CryptUIWizImport<P2>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Option<super::super::super::Foundation::HWND>, pwszwizardtitle: P2, pimportsrc: Option<*const CRYPTUI_WIZ_IMPORT_SRC_INFO>, hdestcertstore: Option<super::HCERTSTORE>) -> windows_core::Result<()>
+pub unsafe fn CryptUIWizImport<P2>(dwflags: CRYPTUI_WIZ_FLAGS, hwndparent: Option<super::super::super::Foundation::HWND>, pwszwizardtitle: P2, pimportsrc: Option<*const CRYPTUI_WIZ_IMPORT_SRC_INFO>, hdestcertstore: Option<super::HCERTSTORE>) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {

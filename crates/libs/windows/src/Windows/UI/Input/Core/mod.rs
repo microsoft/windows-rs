@@ -43,7 +43,7 @@ pub struct IRadialControllerIndependentInputSourceStatics_Vtbl {
 pub struct RadialControllerIndependentInputSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RadialControllerIndependentInputSource, windows_core::IUnknown, windows_core::IInspectable);
 impl RadialControllerIndependentInputSource {
-    pub fn Controller(&self) -> windows_core::Result<super::RadialController> {
+    pub fn Controller(&self) -> windows_result::Result<super::RadialController> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -51,7 +51,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "UI_Core")]
-    pub fn Dispatcher(&self) -> windows_core::Result<super::super::Core::CoreDispatcher> {
+    pub fn Dispatcher(&self) -> windows_result::Result<super::super::Core::CoreDispatcher> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -59,7 +59,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "System")]
-    pub fn DispatcherQueue(&self) -> windows_core::Result<super::super::super::System::DispatcherQueue> {
+    pub fn DispatcherQueue(&self) -> windows_result::Result<super::super::super::System::DispatcherQueue> {
         let this = &windows_core::Interface::cast::<IRadialControllerIndependentInputSource2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -67,7 +67,7 @@ impl RadialControllerIndependentInputSource {
         }
     }
     #[cfg(feature = "ApplicationModel_Core")]
-    pub fn CreateForView<P0>(view: P0) -> windows_core::Result<RadialControllerIndependentInputSource>
+    pub fn CreateForView<P0>(view: P0) -> windows_result::Result<RadialControllerIndependentInputSource>
     where
         P0: windows_core::Param<super::super::super::ApplicationModel::Core::CoreApplicationView>,
     {
@@ -76,7 +76,7 @@ impl RadialControllerIndependentInputSource {
             (windows_core::Interface::vtable(this).CreateForView)(windows_core::Interface::as_raw(this), view.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IRadialControllerIndependentInputSourceStatics<R, F: FnOnce(&IRadialControllerIndependentInputSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IRadialControllerIndependentInputSourceStatics<R, F: FnOnce(&IRadialControllerIndependentInputSourceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<RadialControllerIndependentInputSource, IRadialControllerIndependentInputSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

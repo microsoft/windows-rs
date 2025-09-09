@@ -1,54 +1,54 @@
 pub struct BackgroundEnergyManager;
 impl BackgroundEnergyManager {
-    pub fn LowUsageLevel() -> windows_core::Result<u32> {
+    pub fn LowUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LowUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn NearMaxAcceptableUsageLevel() -> windows_core::Result<u32> {
+    pub fn NearMaxAcceptableUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn MaxAcceptableUsageLevel() -> windows_core::Result<u32> {
+    pub fn MaxAcceptableUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxAcceptableUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ExcessiveUsageLevel() -> windows_core::Result<u32> {
+    pub fn ExcessiveUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExcessiveUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn NearTerminationUsageLevel() -> windows_core::Result<u32> {
+    pub fn NearTerminationUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NearTerminationUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn TerminationUsageLevel() -> windows_core::Result<u32> {
+    pub fn TerminationUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TerminationUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsage() -> windows_core::Result<u32> {
+    pub fn RecentEnergyUsage() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecentEnergyUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsageLevel() -> windows_core::Result<u32> {
+    pub fn RecentEnergyUsageLevel() -> windows_result::Result<u32> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecentEnergyUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -57,10 +57,10 @@ impl BackgroundEnergyManager {
             (windows_core::Interface::vtable(this).RecentEnergyUsageIncreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRecentEnergyUsageIncreased(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRecentEnergyUsageIncreased(token: i64) -> windows_result::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -69,10 +69,10 @@ impl BackgroundEnergyManager {
             (windows_core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRecentEnergyUsageReturnedToLow(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRecentEnergyUsageReturnedToLow(token: i64) -> windows_result::Result<()> {
         Self::IBackgroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IBackgroundEnergyManagerStatics<R, F: FnOnce(&IBackgroundEnergyManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBackgroundEnergyManagerStatics<R, F: FnOnce(&IBackgroundEnergyManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<BackgroundEnergyManager, IBackgroundEnergyManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -111,43 +111,43 @@ impl windows_core::RuntimeType for EnergySaverStatus {
 }
 pub struct ForegroundEnergyManager;
 impl ForegroundEnergyManager {
-    pub fn LowUsageLevel() -> windows_core::Result<u32> {
+    pub fn LowUsageLevel() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LowUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn NearMaxAcceptableUsageLevel() -> windows_core::Result<u32> {
+    pub fn NearMaxAcceptableUsageLevel() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NearMaxAcceptableUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn MaxAcceptableUsageLevel() -> windows_core::Result<u32> {
+    pub fn MaxAcceptableUsageLevel() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxAcceptableUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn ExcessiveUsageLevel() -> windows_core::Result<u32> {
+    pub fn ExcessiveUsageLevel() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExcessiveUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsage() -> windows_core::Result<u32> {
+    pub fn RecentEnergyUsage() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecentEnergyUsage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsageLevel() -> windows_core::Result<u32> {
+    pub fn RecentEnergyUsageLevel() -> windows_result::Result<u32> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RecentEnergyUsageLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RecentEnergyUsageIncreased<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -156,10 +156,10 @@ impl ForegroundEnergyManager {
             (windows_core::Interface::vtable(this).RecentEnergyUsageIncreased)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRecentEnergyUsageIncreased(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRecentEnergyUsageIncreased(token: i64) -> windows_result::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageIncreased)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RecentEnergyUsageReturnedToLow<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -168,10 +168,10 @@ impl ForegroundEnergyManager {
             (windows_core::Interface::vtable(this).RecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRecentEnergyUsageReturnedToLow(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRecentEnergyUsageReturnedToLow(token: i64) -> windows_result::Result<()> {
         Self::IForegroundEnergyManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRecentEnergyUsageReturnedToLow)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IForegroundEnergyManagerStatics<R, F: FnOnce(&IForegroundEnergyManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IForegroundEnergyManagerStatics<R, F: FnOnce(&IForegroundEnergyManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ForegroundEnergyManager, IForegroundEnergyManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -245,13 +245,13 @@ pub struct IPowerManagerStatics_Vtbl {
 }
 pub struct PowerManager;
 impl PowerManager {
-    pub fn EnergySaverStatus() -> windows_core::Result<EnergySaverStatus> {
+    pub fn EnergySaverStatus() -> windows_result::Result<EnergySaverStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnergySaverStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn EnergySaverStatusChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn EnergySaverStatusChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -260,16 +260,16 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).EnergySaverStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveEnergySaverStatusChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnergySaverStatusChanged(token: i64) -> windows_result::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveEnergySaverStatusChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn BatteryStatus() -> windows_core::Result<BatteryStatus> {
+    pub fn BatteryStatus() -> windows_result::Result<BatteryStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn BatteryStatusChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn BatteryStatusChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -278,16 +278,16 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).BatteryStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveBatteryStatusChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveBatteryStatusChanged(token: i64) -> windows_result::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveBatteryStatusChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn PowerSupplyStatus() -> windows_core::Result<PowerSupplyStatus> {
+    pub fn PowerSupplyStatus() -> windows_result::Result<PowerSupplyStatus> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSupplyStatus)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PowerSupplyStatusChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn PowerSupplyStatusChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -296,16 +296,16 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).PowerSupplyStatusChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemovePowerSupplyStatusChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemovePowerSupplyStatusChanged(token: i64) -> windows_result::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemovePowerSupplyStatusChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RemainingChargePercent() -> windows_core::Result<i32> {
+    pub fn RemainingChargePercent() -> windows_result::Result<i32> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemainingChargePercent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RemainingChargePercentChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RemainingChargePercentChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -314,16 +314,16 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).RemainingChargePercentChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRemainingChargePercentChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemainingChargePercentChanged(token: i64) -> windows_result::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRemainingChargePercentChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    pub fn RemainingDischargeTime() -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn RemainingDischargeTime() -> windows_result::Result<super::super::Foundation::TimeSpan> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemainingDischargeTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RemainingDischargeTimeChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn RemainingDischargeTimeChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -332,10 +332,10 @@ impl PowerManager {
             (windows_core::Interface::vtable(this).RemainingDischargeTimeChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveRemainingDischargeTimeChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemainingDischargeTimeChanged(token: i64) -> windows_result::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveRemainingDischargeTimeChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PowerManager, IPowerManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -119,32 +119,32 @@ pub struct IPrintTaskConfigurationSaveRequestedEventArgs_Vtbl {
 pub struct Print3DWorkflow(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflow, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflow {
-    pub fn DeviceID(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceID(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceID)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetPrintModelPackage(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn GetPrintModelPackage(&self) -> windows_result::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPrintModelPackage)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsPrintReady(&self) -> windows_core::Result<bool> {
+    pub fn IsPrintReady(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsPrintReady)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsPrintReady(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsPrintReady(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsPrintReady)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn PrintRequested<P0>(&self, eventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrintRequestedEventArgs>>,
     {
@@ -154,11 +154,11 @@ impl Print3DWorkflow {
             (windows_core::Interface::vtable(this).PrintRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemovePrintRequested(&self, eventcookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePrintRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
-    pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn PrinterChanged<P0>(&self, eventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<Print3DWorkflow, Print3DWorkflowPrinterChangedEventArgs>>,
     {
@@ -168,7 +168,7 @@ impl Print3DWorkflow {
             (windows_core::Interface::vtable(this).PrinterChanged)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrinterChanged(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemovePrinterChanged(&self, eventcookie: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrint3DWorkflow2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePrinterChanged)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
@@ -208,25 +208,25 @@ impl windows_core::RuntimeType for Print3DWorkflowDetail {
 pub struct Print3DWorkflowPrintRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrintRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflowPrintRequestedEventArgs {
-    pub fn Status(&self) -> windows_core::Result<Print3DWorkflowStatus> {
+    pub fn Status(&self) -> windows_result::Result<Print3DWorkflowStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> windows_core::Result<()> {
+    pub fn SetExtendedStatus(&self, value: Print3DWorkflowDetail) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetExtendedStatus)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SetSource<P0>(&self, source: P0) -> windows_core::Result<()>
+    pub fn SetSource<P0>(&self, source: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSource)(windows_core::Interface::as_raw(this), source.param().abi()).ok() }
     }
-    pub fn SetSourceChanged(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetSourceChanged(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSourceChanged)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -248,7 +248,7 @@ unsafe impl Sync for Print3DWorkflowPrintRequestedEventArgs {}
 pub struct Print3DWorkflowPrinterChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Print3DWorkflowPrinterChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl Print3DWorkflowPrinterChangedEventArgs {
-    pub fn NewDeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NewDeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -286,13 +286,13 @@ impl windows_core::RuntimeType for Print3DWorkflowStatus {
 }
 pub struct PrintExtensionContext;
 impl PrintExtensionContext {
-    pub fn FromDeviceId(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn FromDeviceId(deviceid: &windows_core::HSTRING) -> windows_result::Result<windows_core::IInspectable> {
         Self::IPrintExtensionContextStatic(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromDeviceId)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -305,21 +305,21 @@ impl windows_core::RuntimeName for PrintExtensionContext {
 pub struct PrintNotificationEventDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintNotificationEventDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintNotificationEventDetails {
-    pub fn PrinterName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn PrinterName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn EventData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EventData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EventData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetEventData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetEventData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetEventData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -341,14 +341,14 @@ unsafe impl Sync for PrintNotificationEventDetails {}
 pub struct PrintTaskConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfiguration {
-    pub fn PrinterExtensionContext(&self) -> windows_core::Result<windows_core::IInspectable> {
+    pub fn PrinterExtensionContext(&self) -> windows_result::Result<windows_core::IInspectable> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrinterExtensionContext)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_core::Result<i64>
+    pub fn SaveRequested<P0>(&self, eventhandler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintTaskConfiguration, PrintTaskConfigurationSaveRequestedEventArgs>>,
     {
@@ -358,7 +358,7 @@ impl PrintTaskConfiguration {
             (windows_core::Interface::vtable(this).SaveRequested)(windows_core::Interface::as_raw(this), eventhandler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSaveRequested(&self, eventcookie: i64) -> windows_core::Result<()> {
+    pub fn RemoveSaveRequested(&self, eventcookie: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSaveRequested)(windows_core::Interface::as_raw(this), eventcookie).ok() }
     }
@@ -378,25 +378,25 @@ impl windows_core::RuntimeName for PrintTaskConfiguration {
 pub struct PrintTaskConfigurationSaveRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequest {
-    pub fn Cancel(&self) -> windows_core::Result<()> {
+    pub fn Cancel(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Cancel)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Save<P0>(&self, printerextensioncontext: P0) -> windows_core::Result<()>
+    pub fn Save<P0>(&self, printerextensioncontext: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IInspectable>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Save)(windows_core::Interface::as_raw(this), printerextensioncontext.param().abi()).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequestedDeferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<PrintTaskConfigurationSaveRequestedDeferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Deadline(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn Deadline(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -419,7 +419,7 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequest {
 pub struct PrintTaskConfigurationSaveRequestedDeferral(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedDeferral, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequestedDeferral {
-    pub fn Complete(&self) -> windows_core::Result<()> {
+    pub fn Complete(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Complete)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -439,7 +439,7 @@ impl windows_core::RuntimeName for PrintTaskConfigurationSaveRequestedDeferral {
 pub struct PrintTaskConfigurationSaveRequestedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintTaskConfigurationSaveRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintTaskConfigurationSaveRequestedEventArgs {
-    pub fn Request(&self) -> windows_core::Result<PrintTaskConfigurationSaveRequest> {
+    pub fn Request(&self) -> windows_result::Result<PrintTaskConfigurationSaveRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

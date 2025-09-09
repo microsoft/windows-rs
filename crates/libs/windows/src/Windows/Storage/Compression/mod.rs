@@ -25,25 +25,25 @@ windows_core::imp::interface_hierarchy!(Compressor, windows_core::IUnknown, wind
 windows_core::imp::required_hierarchy!(Compressor, super::super::Foundation::IClosable, super::Streams::IOutputStream);
 #[cfg(feature = "Storage_Streams")]
 impl Compressor {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn FinishAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn FinishAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FinishAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DetachStream(&self) -> windows_core::Result<super::Streams::IOutputStream> {
+    pub fn DetachStream(&self) -> windows_result::Result<super::Streams::IOutputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetachStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateCompressor<P0>(underlyingstream: P0) -> windows_core::Result<Compressor>
+    pub fn CreateCompressor<P0>(underlyingstream: P0) -> windows_result::Result<Compressor>
     where
         P0: windows_core::Param<super::Streams::IOutputStream>,
     {
@@ -52,7 +52,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).CreateCompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateCompressorEx<P0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> windows_core::Result<Compressor>
+    pub fn CreateCompressorEx<P0>(underlyingstream: P0, algorithm: CompressAlgorithm, blocksize: u32) -> windows_result::Result<Compressor>
     where
         P0: windows_core::Param<super::Streams::IOutputStream>,
     {
@@ -61,7 +61,7 @@ impl Compressor {
             (windows_core::Interface::vtable(this).CreateCompressorEx)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), algorithm, blocksize, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
+    pub fn WriteAsync<P0>(&self, buffer: P0) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<u32, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {
@@ -71,14 +71,14 @@ impl Compressor {
             (windows_core::Interface::vtable(this).WriteAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FlushAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn FlushAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = &windows_core::Interface::cast::<super::Streams::IOutputStream>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FlushAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICompressorFactory<R, F: FnOnce(&ICompressorFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Compressor, ICompressorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -110,18 +110,18 @@ windows_core::imp::interface_hierarchy!(Decompressor, windows_core::IUnknown, wi
 windows_core::imp::required_hierarchy!(Decompressor, super::super::Foundation::IClosable, super::Streams::IInputStream);
 #[cfg(feature = "Storage_Streams")]
 impl Decompressor {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn DetachStream(&self) -> windows_core::Result<super::Streams::IInputStream> {
+    pub fn DetachStream(&self) -> windows_result::Result<super::Streams::IInputStream> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DetachStream)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateDecompressor<P0>(underlyingstream: P0) -> windows_core::Result<Decompressor>
+    pub fn CreateDecompressor<P0>(underlyingstream: P0) -> windows_result::Result<Decompressor>
     where
         P0: windows_core::Param<super::Streams::IInputStream>,
     {
@@ -130,7 +130,7 @@ impl Decompressor {
             (windows_core::Interface::vtable(this).CreateDecompressor)(windows_core::Interface::as_raw(this), underlyingstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
+    pub fn ReadAsync<P0>(&self, buffer: P0, count: u32, options: super::Streams::InputStreamOptions) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>
     where
         P0: windows_core::Param<super::Streams::IBuffer>,
     {
@@ -140,7 +140,7 @@ impl Decompressor {
             (windows_core::Interface::vtable(this).ReadAsync)(windows_core::Interface::as_raw(this), buffer.param().abi(), count, options, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDecompressorFactory<R, F: FnOnce(&IDecompressorFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Decompressor, IDecompressorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

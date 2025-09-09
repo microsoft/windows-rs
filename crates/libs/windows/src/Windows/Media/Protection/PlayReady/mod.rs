@@ -37,21 +37,21 @@ impl windows_core::RuntimeType for INDClosedCaptionDataReceivedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(INDClosedCaptionDataReceivedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl INDClosedCaptionDataReceivedEventArgs {
-    pub fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat> {
+    pub fn ClosedCaptionDataFormat(&self) -> windows_result::Result<NDClosedCaptionFormat> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ClosedCaptionDataFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PresentationTimestamp(&self) -> windows_core::Result<i64> {
+    pub fn PresentationTimestamp(&self) -> windows_result::Result<i64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PresentationTimestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn ClosedCaptionData(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -63,9 +63,9 @@ impl windows_core::RuntimeName for INDClosedCaptionDataReceivedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDClosedCaptionDataReceivedEventArgs";
 }
 pub trait INDClosedCaptionDataReceivedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn ClosedCaptionDataFormat(&self) -> windows_core::Result<NDClosedCaptionFormat>;
-    fn PresentationTimestamp(&self) -> windows_core::Result<i64>;
-    fn ClosedCaptionData(&self) -> windows_core::Result<windows_core::Array<u8>>;
+    fn ClosedCaptionDataFormat(&self) -> windows_result::Result<NDClosedCaptionFormat>;
+    fn PresentationTimestamp(&self) -> windows_result::Result<i64>;
+    fn ClosedCaptionData(&self) -> windows_result::Result<windows_core::Array<u8>>;
 }
 impl INDClosedCaptionDataReceivedEventArgs_Vtbl {
     pub const fn new<Identity: INDClosedCaptionDataReceivedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -132,14 +132,14 @@ impl windows_core::RuntimeType for INDCustomData {
 }
 windows_core::imp::interface_hierarchy!(INDCustomData, windows_core::IUnknown, windows_core::IInspectable);
 impl INDCustomData {
-    pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn CustomDataTypeID(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).CustomDataTypeID)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn CustomData(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -151,8 +151,8 @@ impl windows_core::RuntimeName for INDCustomData {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDCustomData";
 }
 pub trait INDCustomData_Impl: windows_core::IUnknownImpl {
-    fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>>;
-    fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>>;
+    fn CustomDataTypeID(&self) -> windows_result::Result<windows_core::Array<u8>>;
+    fn CustomData(&self) -> windows_result::Result<windows_core::Array<u8>>;
 }
 impl INDCustomData_Vtbl {
     pub const fn new<Identity: INDCustomData_Impl, const OFFSET: isize>() -> Self {
@@ -217,51 +217,51 @@ impl windows_core::RuntimeType for INDDownloadEngine {
 }
 windows_core::imp::interface_hierarchy!(INDDownloadEngine, windows_core::IUnknown, windows_core::IInspectable);
 impl INDDownloadEngine {
-    pub fn Open<P0>(&self, uri: P0, sessionidbytes: &[u8]) -> windows_core::Result<()>
+    pub fn Open<P0>(&self, uri: P0, sessionidbytes: &[u8]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Open)(windows_core::Interface::as_raw(this), uri.param().abi(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr()).ok() }
     }
-    pub fn Pause(&self) -> windows_core::Result<()> {
+    pub fn Pause(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Pause)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Resume(&self) -> windows_core::Result<()> {
+    pub fn Resume(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Resume)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Seek(&self, startposition: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn Seek(&self, startposition: super::super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Seek)(windows_core::Interface::as_raw(this), startposition).ok() }
     }
-    pub fn CanSeek(&self) -> windows_core::Result<bool> {
+    pub fn CanSeek(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanSeek)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BufferFullMinThresholdInSamples(&self) -> windows_core::Result<u32> {
+    pub fn BufferFullMinThresholdInSamples(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BufferFullMinThresholdInSamples)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BufferFullMaxThresholdInSamples(&self) -> windows_core::Result<u32> {
+    pub fn BufferFullMaxThresholdInSamples(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BufferFullMaxThresholdInSamples)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Notifier(&self) -> windows_core::Result<NDDownloadEngineNotifier> {
+    pub fn Notifier(&self) -> windows_result::Result<NDDownloadEngineNotifier> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -273,15 +273,15 @@ impl windows_core::RuntimeName for INDDownloadEngine {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngine";
 }
 pub trait INDDownloadEngine_Impl: windows_core::IUnknownImpl {
-    fn Open(&self, uri: windows_core::Ref<super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_core::Result<()>;
-    fn Pause(&self) -> windows_core::Result<()>;
-    fn Resume(&self) -> windows_core::Result<()>;
-    fn Close(&self) -> windows_core::Result<()>;
-    fn Seek(&self, startPosition: &super::super::super::Foundation::TimeSpan) -> windows_core::Result<()>;
-    fn CanSeek(&self) -> windows_core::Result<bool>;
-    fn BufferFullMinThresholdInSamples(&self) -> windows_core::Result<u32>;
-    fn BufferFullMaxThresholdInSamples(&self) -> windows_core::Result<u32>;
-    fn Notifier(&self) -> windows_core::Result<NDDownloadEngineNotifier>;
+    fn Open(&self, uri: windows_core::Ref<super::super::super::Foundation::Uri>, sessionIDBytes: &[u8]) -> windows_result::Result<()>;
+    fn Pause(&self) -> windows_result::Result<()>;
+    fn Resume(&self) -> windows_result::Result<()>;
+    fn Close(&self) -> windows_result::Result<()>;
+    fn Seek(&self, startPosition: &super::super::super::Foundation::TimeSpan) -> windows_result::Result<()>;
+    fn CanSeek(&self) -> windows_result::Result<bool>;
+    fn BufferFullMinThresholdInSamples(&self) -> windows_result::Result<u32>;
+    fn BufferFullMaxThresholdInSamples(&self) -> windows_result::Result<u32>;
+    fn Notifier(&self) -> windows_result::Result<NDDownloadEngineNotifier>;
 }
 impl INDDownloadEngine_Vtbl {
     pub const fn new<Identity: INDDownloadEngine_Impl, const OFFSET: isize>() -> Self {
@@ -401,30 +401,30 @@ impl windows_core::RuntimeType for INDDownloadEngineNotifier {
 }
 windows_core::imp::interface_hierarchy!(INDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable);
 impl INDDownloadEngineNotifier {
-    pub fn OnStreamOpened(&self) -> windows_core::Result<()> {
+    pub fn OnStreamOpened(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnStreamOpened)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> windows_core::Result<()> {
+    pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
-    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
+    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
-    pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_core::Result<()> {
+    pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnDataReceived)(windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr(), bytesreceived).ok() }
     }
-    pub fn OnEndOfStream(&self) -> windows_core::Result<()> {
+    pub fn OnEndOfStream(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnEndOfStream)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn OnNetworkError(&self) -> windows_core::Result<()> {
+    pub fn OnNetworkError(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnNetworkError)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -433,12 +433,12 @@ impl windows_core::RuntimeName for INDDownloadEngineNotifier {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDDownloadEngineNotifier";
 }
 pub trait INDDownloadEngineNotifier_Impl: windows_core::IUnknownImpl {
-    fn OnStreamOpened(&self) -> windows_core::Result<()>;
-    fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
-    fn OnDataReceived(&self, dataBytes: &[u8], bytesReceived: u32) -> windows_core::Result<()>;
-    fn OnEndOfStream(&self) -> windows_core::Result<()>;
-    fn OnNetworkError(&self) -> windows_core::Result<()>;
+    fn OnStreamOpened(&self) -> windows_result::Result<()>;
+    fn OnPlayReadyObjectReceived(&self, dataBytes: &[u8]) -> windows_result::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_result::Result<()>;
+    fn OnDataReceived(&self, dataBytes: &[u8], bytesReceived: u32) -> windows_result::Result<()>;
+    fn OnEndOfStream(&self) -> windows_result::Result<()>;
+    fn OnNetworkError(&self) -> windows_result::Result<()>;
 }
 impl INDDownloadEngineNotifier_Vtbl {
     pub const fn new<Identity: INDDownloadEngineNotifier_Impl, const OFFSET: isize>() -> Self {
@@ -509,7 +509,7 @@ impl windows_core::RuntimeType for INDLicenseFetchCompletedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(INDLicenseFetchCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl INDLicenseFetchCompletedEventArgs {
-    pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -521,7 +521,7 @@ impl windows_core::RuntimeName for INDLicenseFetchCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchCompletedEventArgs";
 }
 pub trait INDLicenseFetchCompletedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
+    fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData>;
 }
 impl INDLicenseFetchCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDLicenseFetchCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -559,28 +559,28 @@ impl windows_core::RuntimeType for INDLicenseFetchDescriptor {
 }
 windows_core::imp::interface_hierarchy!(INDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable);
 impl INDLicenseFetchDescriptor {
-    pub fn ContentIDType(&self) -> windows_core::Result<NDContentIDType> {
+    pub fn ContentIDType(&self) -> windows_result::Result<NDContentIDType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentIDType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn ContentID(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).ContentID)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData> {
+    pub fn LicenseFetchChallengeCustomData(&self) -> windows_result::Result<INDCustomData> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
@@ -592,10 +592,10 @@ impl windows_core::RuntimeName for INDLicenseFetchDescriptor {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchDescriptor";
 }
 pub trait INDLicenseFetchDescriptor_Impl: windows_core::IUnknownImpl {
-    fn ContentIDType(&self) -> windows_core::Result<NDContentIDType>;
-    fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>>;
-    fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_core::Result<()>;
+    fn ContentIDType(&self) -> windows_result::Result<NDContentIDType>;
+    fn ContentID(&self) -> windows_result::Result<windows_core::Array<u8>>;
+    fn LicenseFetchChallengeCustomData(&self) -> windows_result::Result<INDCustomData>;
+    fn SetLicenseFetchChallengeCustomData(&self, licenseFetchChallengeCustomData: windows_core::Ref<INDCustomData>) -> windows_result::Result<()>;
 }
 impl INDLicenseFetchDescriptor_Vtbl {
     pub const fn new<Identity: INDLicenseFetchDescriptor_Impl, const OFFSET: isize>() -> Self {
@@ -681,7 +681,7 @@ impl windows_core::RuntimeType for INDLicenseFetchResult {
 }
 windows_core::imp::interface_hierarchy!(INDLicenseFetchResult, windows_core::IUnknown, windows_core::IInspectable);
 impl INDLicenseFetchResult {
-    pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -693,7 +693,7 @@ impl windows_core::RuntimeName for INDLicenseFetchResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDLicenseFetchResult";
 }
 pub trait INDLicenseFetchResult_Impl: windows_core::IUnknownImpl {
-    fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
+    fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData>;
 }
 impl INDLicenseFetchResult_Vtbl {
     pub const fn new<Identity: INDLicenseFetchResult_Impl, const OFFSET: isize>() -> Self {
@@ -731,28 +731,28 @@ impl windows_core::RuntimeType for INDMessenger {
 }
 windows_core::imp::interface_hierarchy!(INDMessenger, windows_core::IUnknown, windows_core::IInspectable);
 impl INDMessenger {
-    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -764,10 +764,10 @@ impl windows_core::RuntimeName for INDMessenger {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDMessenger";
 }
 pub trait INDMessenger_Impl: windows_core::IUnknownImpl {
-    fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
-    fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
-    fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendRegistrationRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionStartAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendProximityDetectionResponseAsync(&self, pdType: NDProximityDetectionType, transmitterChannelBytes: &[u8], sessionIDBytes: &[u8], responseDataBytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>>;
+    fn SendLicenseFetchRequestAsync(&self, sessionIDBytes: &[u8], challengeDataBytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>>;
 }
 impl INDMessenger_Vtbl {
     pub const fn new<Identity: INDMessenger_Impl, const OFFSET: isize>() -> Self {
@@ -850,7 +850,7 @@ impl windows_core::RuntimeType for INDProximityDetectionCompletedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(INDProximityDetectionCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl INDProximityDetectionCompletedEventArgs {
-    pub fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32> {
+    pub fn ProximityDetectionRetryCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -862,7 +862,7 @@ impl windows_core::RuntimeName for INDProximityDetectionCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDProximityDetectionCompletedEventArgs";
 }
 pub trait INDProximityDetectionCompletedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn ProximityDetectionRetryCount(&self) -> windows_core::Result<u32>;
+    fn ProximityDetectionRetryCount(&self) -> windows_result::Result<u32>;
 }
 impl INDProximityDetectionCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDProximityDetectionCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -899,28 +899,28 @@ impl windows_core::RuntimeType for INDRegistrationCompletedEventArgs {
 }
 windows_core::imp::interface_hierarchy!(INDRegistrationCompletedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl INDRegistrationCompletedEventArgs {
-    pub fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties> {
+    pub fn TransmitterProperties(&self) -> windows_result::Result<INDTransmitterProperties> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransmitterProperties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool> {
+    pub fn TransmitterCertificateAccepted(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TransmitterCertificateAccepted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()> {
+    pub fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTransmitterCertificateAccepted)(windows_core::Interface::as_raw(this), accept).ok() }
     }
@@ -929,10 +929,10 @@ impl windows_core::RuntimeName for INDRegistrationCompletedEventArgs {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDRegistrationCompletedEventArgs";
 }
 pub trait INDRegistrationCompletedEventArgs_Impl: windows_core::IUnknownImpl {
-    fn ResponseCustomData(&self) -> windows_core::Result<INDCustomData>;
-    fn TransmitterProperties(&self) -> windows_core::Result<INDTransmitterProperties>;
-    fn TransmitterCertificateAccepted(&self) -> windows_core::Result<bool>;
-    fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_core::Result<()>;
+    fn ResponseCustomData(&self) -> windows_result::Result<INDCustomData>;
+    fn TransmitterProperties(&self) -> windows_result::Result<INDTransmitterProperties>;
+    fn TransmitterCertificateAccepted(&self) -> windows_result::Result<bool>;
+    fn SetTransmitterCertificateAccepted(&self, accept: bool) -> windows_result::Result<()>;
 }
 impl INDRegistrationCompletedEventArgs_Vtbl {
     pub const fn new<Identity: INDRegistrationCompletedEventArgs_Impl, const OFFSET: isize>() -> Self {
@@ -1007,7 +1007,7 @@ impl windows_core::RuntimeType for INDSendResult {
 }
 windows_core::imp::interface_hierarchy!(INDSendResult, windows_core::IUnknown, windows_core::IInspectable);
 impl INDSendResult {
-    pub fn Response(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn Response(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -1019,7 +1019,7 @@ impl windows_core::RuntimeName for INDSendResult {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDSendResult";
 }
 pub trait INDSendResult_Impl: windows_core::IUnknownImpl {
-    fn Response(&self) -> windows_core::Result<windows_core::Array<u8>>;
+    fn Response(&self) -> windows_result::Result<windows_core::Array<u8>>;
 }
 impl INDSendResult_Vtbl {
     pub const fn new<Identity: INDSendResult_Impl, const OFFSET: isize>() -> Self {
@@ -1056,7 +1056,7 @@ impl windows_core::RuntimeType for INDStartResult {
 windows_core::imp::interface_hierarchy!(INDStartResult, windows_core::IUnknown, windows_core::IInspectable);
 impl INDStartResult {
     #[cfg(feature = "Media_Core")]
-    pub fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource> {
+    pub fn MediaStreamSource(&self) -> windows_result::Result<super::super::Core::MediaStreamSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1070,7 +1070,7 @@ impl windows_core::RuntimeName for INDStartResult {
 }
 #[cfg(feature = "Media_Core")]
 pub trait INDStartResult_Impl: windows_core::IUnknownImpl {
-    fn MediaStreamSource(&self) -> windows_core::Result<super::super::Core::MediaStreamSource>;
+    fn MediaStreamSource(&self) -> windows_result::Result<super::super::Core::MediaStreamSource>;
 }
 #[cfg(feature = "Media_Core")]
 impl INDStartResult_Vtbl {
@@ -1110,7 +1110,7 @@ impl windows_core::RuntimeType for INDStorageFileHelper {
 windows_core::imp::interface_hierarchy!(INDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable);
 impl INDStorageFileHelper {
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
+    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -1127,7 +1127,7 @@ impl windows_core::RuntimeName for INDStorageFileHelper {
 }
 #[cfg(feature = "Storage_Streams")]
 pub trait INDStorageFileHelper_Impl: windows_core::IUnknownImpl {
-    fn GetFileURLs(&self, file: windows_core::Ref<super::super::super::Storage::IStorageFile>) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>;
+    fn GetFileURLs(&self, file: windows_core::Ref<super::super::super::Storage::IStorageFile>) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>>;
 }
 #[cfg(feature = "Storage_Streams")]
 impl INDStorageFileHelper_Vtbl {
@@ -1166,12 +1166,12 @@ impl windows_core::RuntimeType for INDStreamParser {
 }
 windows_core::imp::interface_hierarchy!(INDStreamParser, windows_core::IUnknown, windows_core::IInspectable);
 impl INDStreamParser {
-    pub fn ParseData(&self, databytes: &[u8]) -> windows_core::Result<()> {
+    pub fn ParseData(&self, databytes: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ParseData)(windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn GetStreamInformation<P0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> windows_core::Result<u32>
+    pub fn GetStreamInformation<P0>(&self, descriptor: P0, streamtype: &mut NDMediaStreamType) -> windows_result::Result<u32>
     where
         P0: windows_core::Param<super::super::Core::IMediaStreamDescriptor>,
     {
@@ -1181,15 +1181,15 @@ impl INDStreamParser {
             (windows_core::Interface::vtable(this).GetStreamInformation)(windows_core::Interface::as_raw(this), descriptor.param().abi(), streamtype, &mut result__).map(|| result__)
         }
     }
-    pub fn BeginOfStream(&self) -> windows_core::Result<()> {
+    pub fn BeginOfStream(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).BeginOfStream)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn EndOfStream(&self) -> windows_core::Result<()> {
+    pub fn EndOfStream(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).EndOfStream)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Notifier(&self) -> windows_core::Result<NDStreamParserNotifier> {
+    pub fn Notifier(&self) -> windows_result::Result<NDStreamParserNotifier> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1203,11 +1203,11 @@ impl windows_core::RuntimeName for INDStreamParser {
 }
 #[cfg(feature = "Media_Core")]
 pub trait INDStreamParser_Impl: windows_core::IUnknownImpl {
-    fn ParseData(&self, dataBytes: &[u8]) -> windows_core::Result<()>;
-    fn GetStreamInformation(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_core::Result<u32>;
-    fn BeginOfStream(&self) -> windows_core::Result<()>;
-    fn EndOfStream(&self) -> windows_core::Result<()>;
-    fn Notifier(&self) -> windows_core::Result<NDStreamParserNotifier>;
+    fn ParseData(&self, dataBytes: &[u8]) -> windows_result::Result<()>;
+    fn GetStreamInformation(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, streamType: &mut NDMediaStreamType) -> windows_result::Result<u32>;
+    fn BeginOfStream(&self) -> windows_result::Result<()>;
+    fn EndOfStream(&self) -> windows_result::Result<()>;
+    fn Notifier(&self) -> windows_result::Result<NDStreamParserNotifier>;
 }
 #[cfg(feature = "Media_Core")]
 impl INDStreamParser_Vtbl {
@@ -1287,7 +1287,7 @@ impl windows_core::RuntimeType for INDStreamParserNotifier {
 }
 windows_core::imp::interface_hierarchy!(INDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable);
 impl INDStreamParserNotifier {
-    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
+    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
@@ -1295,7 +1295,7 @@ impl INDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
+    pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>,
         P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
@@ -1304,7 +1304,7 @@ impl INDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_core::Result<()>
+    pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_result::Result<()>
     where
         P2: windows_core::Param<super::super::Core::MediaStreamSample>,
     {
@@ -1312,7 +1312,7 @@ impl INDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_core::Result<()>
+    pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Core::IMediaStreamDescriptor>,
     {
@@ -1326,10 +1326,10 @@ impl windows_core::RuntimeName for INDStreamParserNotifier {
 }
 #[cfg(feature = "Media_Core")]
 pub trait INDStreamParserNotifier_Impl: windows_core::IUnknownImpl {
-    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_core::Result<()>;
-    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_core::Result<()>;
-    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_core::Result<()>;
-    fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_core::Result<()>;
+    fn OnContentIDReceived(&self, licenseFetchDescriptor: windows_core::Ref<INDLicenseFetchDescriptor>) -> windows_result::Result<()>;
+    fn OnMediaStreamDescriptorCreated(&self, audioStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>, videoStreamDescriptors: windows_core::Ref<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>) -> windows_result::Result<()>;
+    fn OnSampleParsed(&self, streamID: u32, streamType: NDMediaStreamType, streamSample: windows_core::Ref<super::super::Core::MediaStreamSample>, pts: i64, ccFormat: NDClosedCaptionFormat, ccDataBytes: &[u8]) -> windows_result::Result<()>;
+    fn OnBeginSetupDecryptor(&self, descriptor: windows_core::Ref<super::super::Core::IMediaStreamDescriptor>, keyID: &windows_core::GUID, proBytes: &[u8]) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Media_Core")]
 impl INDStreamParserNotifier_Vtbl {
@@ -1404,77 +1404,77 @@ impl windows_core::RuntimeType for INDTransmitterProperties {
 }
 windows_core::imp::interface_hierarchy!(INDTransmitterProperties, windows_core::IUnknown, windows_core::IInspectable);
 impl INDTransmitterProperties {
-    pub fn CertificateType(&self) -> windows_core::Result<NDCertificateType> {
+    pub fn CertificateType(&self) -> windows_result::Result<NDCertificateType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CertificateType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PlatformIdentifier(&self) -> windows_core::Result<NDCertificatePlatformID> {
+    pub fn PlatformIdentifier(&self) -> windows_result::Result<NDCertificatePlatformID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlatformIdentifier)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>> {
+    pub fn SupportedFeatures(&self) -> windows_result::Result<windows_core::Array<NDCertificateFeature>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).SupportedFeatures)(windows_core::Interface::as_raw(this), windows_core::Array::<NDCertificateFeature>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SecurityLevel(&self) -> windows_core::Result<u32> {
+    pub fn SecurityLevel(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecurityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SecurityVersion(&self) -> windows_core::Result<u32> {
+    pub fn SecurityVersion(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecurityVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn ExpirationDate(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ClientID(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn ClientID(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).ClientID)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn ModelDigest(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn ModelDigest(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).ModelDigest)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn ModelManufacturerName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ModelManufacturerName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModelManufacturerName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ModelName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ModelName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ModelName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ModelNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ModelNumber(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1486,17 +1486,17 @@ impl windows_core::RuntimeName for INDTransmitterProperties {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.INDTransmitterProperties";
 }
 pub trait INDTransmitterProperties_Impl: windows_core::IUnknownImpl {
-    fn CertificateType(&self) -> windows_core::Result<NDCertificateType>;
-    fn PlatformIdentifier(&self) -> windows_core::Result<NDCertificatePlatformID>;
-    fn SupportedFeatures(&self) -> windows_core::Result<windows_core::Array<NDCertificateFeature>>;
-    fn SecurityLevel(&self) -> windows_core::Result<u32>;
-    fn SecurityVersion(&self) -> windows_core::Result<u32>;
-    fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
-    fn ClientID(&self) -> windows_core::Result<windows_core::Array<u8>>;
-    fn ModelDigest(&self) -> windows_core::Result<windows_core::Array<u8>>;
-    fn ModelManufacturerName(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn ModelName(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn ModelNumber(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn CertificateType(&self) -> windows_result::Result<NDCertificateType>;
+    fn PlatformIdentifier(&self) -> windows_result::Result<NDCertificatePlatformID>;
+    fn SupportedFeatures(&self) -> windows_result::Result<windows_core::Array<NDCertificateFeature>>;
+    fn SecurityLevel(&self) -> windows_result::Result<u32>;
+    fn SecurityVersion(&self) -> windows_result::Result<u32>;
+    fn ExpirationDate(&self) -> windows_result::Result<super::super::super::Foundation::DateTime>;
+    fn ClientID(&self) -> windows_result::Result<windows_core::Array<u8>>;
+    fn ModelDigest(&self) -> windows_result::Result<windows_core::Array<u8>>;
+    fn ModelManufacturerName(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn ModelName(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn ModelNumber(&self) -> windows_result::Result<windows_core::HSTRING>;
 }
 impl INDTransmitterProperties_Vtbl {
     pub const fn new<Identity: INDTransmitterProperties_Impl, const OFFSET: isize>() -> Self {
@@ -1744,35 +1744,35 @@ impl windows_core::RuntimeType for IPlayReadyDomain {
 }
 windows_core::imp::interface_hierarchy!(IPlayReadyDomain, windows_core::IUnknown, windows_core::IInspectable);
 impl IPlayReadyDomain {
-    pub fn AccountId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn AccountId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Revision(&self) -> windows_core::Result<u32> {
+    pub fn Revision(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Revision)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DomainJoinUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn DomainJoinUrl(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1784,11 +1784,11 @@ impl windows_core::RuntimeName for IPlayReadyDomain {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyDomain";
 }
 pub trait IPlayReadyDomain_Impl: windows_core::IUnknownImpl {
-    fn AccountId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn ServiceId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn Revision(&self) -> windows_core::Result<u32>;
-    fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn DomainJoinUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri>;
+    fn AccountId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn ServiceId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn Revision(&self) -> windows_result::Result<u32>;
+    fn FriendlyName(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn DomainJoinUrl(&self) -> windows_result::Result<super::super::super::Foundation::Uri>;
 }
 impl IPlayReadyDomain_Vtbl {
     pub const fn new<Identity: IPlayReadyDomain_Impl, const OFFSET: isize>() -> Self {
@@ -1943,49 +1943,49 @@ impl windows_core::RuntimeType for IPlayReadyLicense {
 }
 windows_core::imp::interface_hierarchy!(IPlayReadyLicense, windows_core::IUnknown, windows_core::IInspectable);
 impl IPlayReadyLicense {
-    pub fn FullyEvaluated(&self) -> windows_core::Result<bool> {
+    pub fn FullyEvaluated(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FullyEvaluated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UsableForPlay(&self) -> windows_core::Result<bool> {
+    pub fn UsableForPlay(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UsableForPlay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ExpirationDate(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
+    pub fn ExpireAfterFirstPlay(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpireAfterFirstPlay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DomainAccountID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainAccountID(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainAccountID)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ChainDepth(&self) -> windows_core::Result<u32> {
+    pub fn ChainDepth(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChainDepth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> windows_core::Result<windows_core::GUID> {
+    pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1997,13 +1997,13 @@ impl windows_core::RuntimeName for IPlayReadyLicense {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicense";
 }
 pub trait IPlayReadyLicense_Impl: windows_core::IUnknownImpl {
-    fn FullyEvaluated(&self) -> windows_core::Result<bool>;
-    fn UsableForPlay(&self) -> windows_core::Result<bool>;
-    fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
-    fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32>;
-    fn DomainAccountID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn ChainDepth(&self) -> windows_core::Result<u32>;
-    fn GetKIDAtChainDepth(&self, chainDepth: u32) -> windows_core::Result<windows_core::GUID>;
+    fn FullyEvaluated(&self) -> windows_result::Result<bool>;
+    fn UsableForPlay(&self) -> windows_result::Result<bool>;
+    fn ExpirationDate(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>;
+    fn ExpireAfterFirstPlay(&self) -> windows_result::Result<u32>;
+    fn DomainAccountID(&self) -> windows_result::Result<windows_core::GUID>;
+    fn ChainDepth(&self) -> windows_result::Result<u32>;
+    fn GetKIDAtChainDepth(&self, chainDepth: u32) -> windows_result::Result<windows_core::GUID>;
 }
 impl IPlayReadyLicense_Vtbl {
     pub const fn new<Identity: IPlayReadyLicense_Impl, const OFFSET: isize>() -> Self {
@@ -2139,99 +2139,99 @@ impl windows_core::RuntimeType for IPlayReadyLicenseAcquisitionServiceRequest {
 windows_core::imp::interface_hierarchy!(IPlayReadyLicenseAcquisitionServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPlayReadyLicenseAcquisitionServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl IPlayReadyLicenseAcquisitionServiceRequest {
-    pub fn ContentHeader(&self) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn ContentHeader(&self) -> windows_result::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentHeader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetContentHeader<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetContentHeader<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainServiceId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2243,10 +2243,10 @@ impl windows_core::RuntimeName for IPlayReadyLicenseAcquisitionServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseAcquisitionServiceRequest";
 }
 pub trait IPlayReadyLicenseAcquisitionServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
-    fn ContentHeader(&self) -> windows_core::Result<PlayReadyContentHeader>;
-    fn SetContentHeader(&self, value: windows_core::Ref<PlayReadyContentHeader>) -> windows_core::Result<()>;
-    fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn SetDomainServiceId(&self, value: &windows_core::GUID) -> windows_core::Result<()>;
+    fn ContentHeader(&self) -> windows_result::Result<PlayReadyContentHeader>;
+    fn SetContentHeader(&self, value: windows_core::Ref<PlayReadyContentHeader>) -> windows_result::Result<()>;
+    fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn SetDomainServiceId(&self, value: &windows_core::GUID) -> windows_result::Result<()>;
 }
 impl IPlayReadyLicenseAcquisitionServiceRequest_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseAcquisitionServiceRequest_Impl, const OFFSET: isize>() -> Self {
@@ -2354,14 +2354,14 @@ impl windows_core::RuntimeType for IPlayReadyLicenseSession {
 }
 windows_core::imp::interface_hierarchy!(IPlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable);
 impl IPlayReadyLicenseSession {
-    pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
+    pub fn CreateLAServiceRequest(&self) -> windows_result::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLAServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_core::Result<()>
+    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
@@ -2373,8 +2373,8 @@ impl windows_core::RuntimeName for IPlayReadyLicenseSession {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession";
 }
 pub trait IPlayReadyLicenseSession_Impl: windows_core::IUnknownImpl {
-    fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
-    fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<super::MediaProtectionManager>) -> windows_core::Result<()>;
+    fn CreateLAServiceRequest(&self) -> windows_result::Result<IPlayReadyLicenseAcquisitionServiceRequest>;
+    fn ConfigureMediaProtectionManager(&self, mpm: windows_core::Ref<super::MediaProtectionManager>) -> windows_result::Result<()>;
 }
 impl IPlayReadyLicenseSession_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession_Impl, const OFFSET: isize>() -> Self {
@@ -2421,7 +2421,7 @@ impl windows_core::RuntimeType for IPlayReadyLicenseSession2 {
 windows_core::imp::interface_hierarchy!(IPlayReadyLicenseSession2, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPlayReadyLicenseSession2, IPlayReadyLicenseSession);
 impl IPlayReadyLicenseSession2 {
-    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
+    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_result::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -2431,14 +2431,14 @@ impl IPlayReadyLicenseSession2 {
             (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
+    pub fn CreateLAServiceRequest(&self) -> windows_result::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicenseSession>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLAServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_core::Result<()>
+    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
@@ -2450,7 +2450,7 @@ impl windows_core::RuntimeName for IPlayReadyLicenseSession2 {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyLicenseSession2";
 }
 pub trait IPlayReadyLicenseSession2_Impl: IPlayReadyLicenseSession_Impl {
-    fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>;
+    fn CreateLicenseIterable(&self, contentHeader: windows_core::Ref<PlayReadyContentHeader>, fullyEvaluated: bool) -> windows_result::Result<PlayReadyLicenseIterable>;
 }
 impl IPlayReadyLicenseSession2_Vtbl {
     pub const fn new<Identity: IPlayReadyLicenseSession2_Impl, const OFFSET: isize>() -> Self {
@@ -2532,109 +2532,109 @@ impl windows_core::RuntimeType for IPlayReadySecureStopServiceRequest {
 windows_core::imp::interface_hierarchy!(IPlayReadySecureStopServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPlayReadySecureStopServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl IPlayReadySecureStopServiceRequest {
-    pub fn SessionID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn SessionID(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionID)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn UpdateTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stopped(&self) -> windows_core::Result<bool> {
+    pub fn Stopped(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn PublisherCertificate(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).PublisherCertificate)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2646,11 +2646,11 @@ impl windows_core::RuntimeName for IPlayReadySecureStopServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadySecureStopServiceRequest";
 }
 pub trait IPlayReadySecureStopServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl + IPlayReadyServiceRequest_Impl {
-    fn SessionID(&self) -> windows_core::Result<windows_core::GUID>;
-    fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
-    fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime>;
-    fn Stopped(&self) -> windows_core::Result<bool>;
-    fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>>;
+    fn SessionID(&self) -> windows_result::Result<windows_core::GUID>;
+    fn StartTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime>;
+    fn UpdateTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime>;
+    fn Stopped(&self) -> windows_result::Result<bool>;
+    fn PublisherCertificate(&self) -> windows_result::Result<windows_core::Array<u8>>;
 }
 impl IPlayReadySecureStopServiceRequest_Vtbl {
     pub const fn new<Identity: IPlayReadySecureStopServiceRequest_Impl, const OFFSET: isize>() -> Self {
@@ -2757,74 +2757,74 @@ impl windows_core::RuntimeType for IPlayReadyServiceRequest {
 windows_core::imp::interface_hierarchy!(IPlayReadyServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(IPlayReadyServiceRequest, super::IMediaProtectionServiceRequest);
 impl IPlayReadyServiceRequest {
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(windows_core::Interface::as_raw(this), responsebytes.len().try_into().unwrap(), responsebytes.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2836,15 +2836,15 @@ impl windows_core::RuntimeName for IPlayReadyServiceRequest {
     const NAME: &'static str = "Windows.Media.Protection.PlayReady.IPlayReadyServiceRequest";
 }
 pub trait IPlayReadyServiceRequest_Impl: super::IMediaProtectionServiceRequest_Impl {
-    fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri>;
-    fn SetUri(&self, value: windows_core::Ref<super::super::super::Foundation::Uri>) -> windows_core::Result<()>;
-    fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction>;
-    fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest>;
-    fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage>;
-    fn ProcessManualEnablingResponse(&self, responseBytes: &[u8]) -> windows_core::Result<windows_core::HRESULT>;
+    fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri>;
+    fn SetUri(&self, value: windows_core::Ref<super::super::super::Foundation::Uri>) -> windows_result::Result<()>;
+    fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()>;
+    fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction>;
+    fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest>;
+    fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage>;
+    fn ProcessManualEnablingResponse(&self, responseBytes: &[u8]) -> windows_result::Result<windows_core::HRESULT>;
 }
 impl IPlayReadyServiceRequest_Vtbl {
     pub const fn new<Identity: IPlayReadyServiceRequest_Impl, const OFFSET: isize>() -> Self {
@@ -3127,7 +3127,7 @@ impl windows_core::RuntimeType for NDCertificateType {
 pub struct NDClient(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDClient, windows_core::IUnknown, windows_core::IInspectable);
 impl NDClient {
-    pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn RegistrationCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDRegistrationCompletedEventArgs>>,
     {
@@ -3137,11 +3137,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).RegistrationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRegistrationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRegistrationCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRegistrationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ProximityDetectionCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDProximityDetectionCompletedEventArgs>>,
     {
@@ -3151,11 +3151,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).ProximityDetectionCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveProximityDetectionCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveProximityDetectionCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveProximityDetectionCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn LicenseFetchCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDLicenseFetchCompletedEventArgs>>,
     {
@@ -3165,11 +3165,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).LicenseFetchCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveLicenseFetchCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveLicenseFetchCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveLicenseFetchCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReRegistrationNeeded<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, windows_core::IInspectable>>,
     {
@@ -3179,11 +3179,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).ReRegistrationNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReRegistrationNeeded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReRegistrationNeeded(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReRegistrationNeeded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ClosedCaptionDataReceived<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<NDClient, INDClosedCaptionDataReceivedEventArgs>>,
     {
@@ -3193,11 +3193,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).ClosedCaptionDataReceived)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveClosedCaptionDataReceived(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveClosedCaptionDataReceived(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveClosedCaptionDataReceived)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_core::Result<windows_future::IAsyncOperation<INDStartResult>>
+    pub fn StartAsync<P0, P2, P3>(&self, contenturl: P0, startasyncoptions: u32, registrationcustomdata: P2, licensefetchdescriptor: P3) -> windows_result::Result<windows_future::IAsyncOperation<INDStartResult>>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
         P2: windows_core::Param<INDCustomData>,
@@ -3209,7 +3209,7 @@ impl NDClient {
             (windows_core::Interface::vtable(this).StartAsync)(windows_core::Interface::as_raw(this), contenturl.param().abi(), startasyncoptions, registrationcustomdata.param().abi(), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<windows_future::IAsyncOperation<INDLicenseFetchResult>>
+    pub fn LicenseFetchAsync<P0>(&self, licensefetchdescriptor: P0) -> windows_result::Result<windows_future::IAsyncOperation<INDLicenseFetchResult>>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
@@ -3219,7 +3219,7 @@ impl NDClient {
             (windows_core::Interface::vtable(this).LicenseFetchAsync)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ReRegistrationAsync<P0>(&self, registrationcustomdata: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<INDCustomData>,
     {
@@ -3229,11 +3229,11 @@ impl NDClient {
             (windows_core::Interface::vtable(this).ReRegistrationAsync)(windows_core::Interface::as_raw(this), registrationcustomdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateInstance<P0, P1, P2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> windows_core::Result<NDClient>
+    pub fn CreateInstance<P0, P1, P2>(downloadengine: P0, streamparser: P1, pmessenger: P2) -> windows_result::Result<NDClient>
     where
         P0: windows_core::Param<INDDownloadEngine>,
         P1: windows_core::Param<INDStreamParser>,
@@ -3244,7 +3244,7 @@ impl NDClient {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), downloadengine.param().abi(), streamparser.param().abi(), pmessenger.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INDClientFactory<R, F: FnOnce(&INDClientFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INDClientFactory<R, F: FnOnce(&INDClientFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDClient, INDClientFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3292,27 +3292,27 @@ impl windows_core::RuntimeType for NDContentIDType {
 pub struct NDCustomData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDCustomData, windows_core::IUnknown, windows_core::IInspectable, INDCustomData);
 impl NDCustomData {
-    pub fn CustomDataTypeID(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn CustomDataTypeID(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).CustomDataTypeID)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CustomData(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn CustomData(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).CustomData)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> windows_core::Result<NDCustomData> {
+    pub fn CreateInstance(customdatatypeidbytes: &[u8], customdatabytes: &[u8]) -> windows_result::Result<NDCustomData> {
         Self::INDCustomDataFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), customdatatypeidbytes.len().try_into().unwrap(), customdatatypeidbytes.as_ptr(), customdatabytes.len().try_into().unwrap(), customdatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INDCustomDataFactory<R, F: FnOnce(&INDCustomDataFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INDCustomDataFactory<R, F: FnOnce(&INDCustomDataFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDCustomData, INDCustomDataFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3332,37 +3332,37 @@ impl windows_core::RuntimeName for NDCustomData {
 pub struct NDDownloadEngineNotifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDDownloadEngineNotifier, windows_core::IUnknown, windows_core::IInspectable, INDDownloadEngineNotifier);
 impl NDDownloadEngineNotifier {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDDownloadEngineNotifier, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn OnStreamOpened(&self) -> windows_core::Result<()> {
+    pub fn OnStreamOpened(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnStreamOpened)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> windows_core::Result<()> {
+    pub fn OnPlayReadyObjectReceived(&self, databytes: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnPlayReadyObjectReceived)(windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr()).ok() }
     }
-    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
+    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
-    pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_core::Result<()> {
+    pub fn OnDataReceived(&self, databytes: &[u8], bytesreceived: u32) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnDataReceived)(windows_core::Interface::as_raw(this), databytes.len().try_into().unwrap(), databytes.as_ptr(), bytesreceived).ok() }
     }
-    pub fn OnEndOfStream(&self) -> windows_core::Result<()> {
+    pub fn OnEndOfStream(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnEndOfStream)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn OnNetworkError(&self) -> windows_core::Result<()> {
+    pub fn OnNetworkError(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).OnNetworkError)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -3382,35 +3382,35 @@ impl windows_core::RuntimeName for NDDownloadEngineNotifier {
 pub struct NDLicenseFetchDescriptor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDLicenseFetchDescriptor, windows_core::IUnknown, windows_core::IInspectable, INDLicenseFetchDescriptor);
 impl NDLicenseFetchDescriptor {
-    pub fn ContentIDType(&self) -> windows_core::Result<NDContentIDType> {
+    pub fn ContentIDType(&self) -> windows_result::Result<NDContentIDType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentIDType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContentID(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn ContentID(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).ContentID)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn LicenseFetchChallengeCustomData(&self) -> windows_core::Result<INDCustomData> {
+    pub fn LicenseFetchChallengeCustomData(&self) -> windows_result::Result<INDCustomData> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_core::Result<()>
+    pub fn SetLicenseFetchChallengeCustomData<P0>(&self, licensefetchchallengecustomdata: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDCustomData>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLicenseFetchChallengeCustomData)(windows_core::Interface::as_raw(this), licensefetchchallengecustomdata.param().abi()).ok() }
     }
-    pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_core::Result<NDLicenseFetchDescriptor>
+    pub fn CreateInstance<P2>(contentidtype: NDContentIDType, contentidbytes: &[u8], licensefetchchallengecustomdata: P2) -> windows_result::Result<NDLicenseFetchDescriptor>
     where
         P2: windows_core::Param<INDCustomData>,
     {
@@ -3419,7 +3419,7 @@ impl NDLicenseFetchDescriptor {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), contentidtype, contentidbytes.len().try_into().unwrap(), contentidbytes.as_ptr(), licensefetchchallengecustomdata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INDLicenseFetchDescriptorFactory<R, F: FnOnce(&INDLicenseFetchDescriptorFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INDLicenseFetchDescriptorFactory<R, F: FnOnce(&INDLicenseFetchDescriptorFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDLicenseFetchDescriptor, INDLicenseFetchDescriptorFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3479,15 +3479,15 @@ impl windows_core::RuntimeType for NDStartAsyncOptions {
 pub struct NDStorageFileHelper(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDStorageFileHelper, windows_core::IUnknown, windows_core::IInspectable, INDStorageFileHelper);
 impl NDStorageFileHelper {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDStorageFileHelper, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>>
+    pub fn GetFileURLs<P0>(&self, file: P0) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>>
     where
         P0: windows_core::Param<super::super::super::Storage::IStorageFile>,
     {
@@ -3513,14 +3513,14 @@ impl windows_core::RuntimeName for NDStorageFileHelper {
 pub struct NDStreamParserNotifier(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDStreamParserNotifier, windows_core::IUnknown, windows_core::IInspectable, INDStreamParserNotifier);
 impl NDStreamParserNotifier {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDStreamParserNotifier, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_core::Result<()>
+    pub fn OnContentIDReceived<P0>(&self, licensefetchdescriptor: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<INDLicenseFetchDescriptor>,
     {
@@ -3528,7 +3528,7 @@ impl NDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnContentIDReceived)(windows_core::Interface::as_raw(this), licensefetchdescriptor.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_core::Result<()>
+    pub fn OnMediaStreamDescriptorCreated<P0, P1>(&self, audiostreamdescriptors: P0, videostreamdescriptors: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IVector<super::super::Core::AudioStreamDescriptor>>,
         P1: windows_core::Param<windows_collections::IVector<super::super::Core::VideoStreamDescriptor>>,
@@ -3537,7 +3537,7 @@ impl NDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnMediaStreamDescriptorCreated)(windows_core::Interface::as_raw(this), audiostreamdescriptors.param().abi(), videostreamdescriptors.param().abi()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_core::Result<()>
+    pub fn OnSampleParsed<P2>(&self, streamid: u32, streamtype: NDMediaStreamType, streamsample: P2, pts: i64, ccformat: NDClosedCaptionFormat, ccdatabytes: &[u8]) -> windows_result::Result<()>
     where
         P2: windows_core::Param<super::super::Core::MediaStreamSample>,
     {
@@ -3545,7 +3545,7 @@ impl NDStreamParserNotifier {
         unsafe { (windows_core::Interface::vtable(this).OnSampleParsed)(windows_core::Interface::as_raw(this), streamid, streamtype, streamsample.param().abi(), pts, ccformat, ccdatabytes.len().try_into().unwrap(), ccdatabytes.as_ptr()).ok() }
     }
     #[cfg(feature = "Media_Core")]
-    pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_core::Result<()>
+    pub fn OnBeginSetupDecryptor<P0>(&self, descriptor: P0, keyid: windows_core::GUID, probytes: &[u8]) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Core::IMediaStreamDescriptor>,
     {
@@ -3568,41 +3568,41 @@ impl windows_core::RuntimeName for NDStreamParserNotifier {
 pub struct NDTCPMessenger(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(NDTCPMessenger, windows_core::IUnknown, windows_core::IInspectable, INDMessenger);
 impl NDTCPMessenger {
-    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendRegistrationRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendRegistrationRequestAsync)(windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionStartAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionStartAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendProximityDetectionResponseAsync(&self, pdtype: NDProximityDetectionType, transmitterchannelbytes: &[u8], sessionidbytes: &[u8], responsedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendProximityDetectionResponseAsync)(windows_core::Interface::as_raw(this), pdtype, transmitterchannelbytes.len().try_into().unwrap(), transmitterchannelbytes.as_ptr(), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), responsedatabytes.len().try_into().unwrap(), responsedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_core::Result<windows_future::IAsyncOperation<INDSendResult>> {
+    pub fn SendLicenseFetchRequestAsync(&self, sessionidbytes: &[u8], challengedatabytes: &[u8]) -> windows_result::Result<windows_future::IAsyncOperation<INDSendResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendLicenseFetchRequestAsync)(windows_core::Interface::as_raw(this), sessionidbytes.len().try_into().unwrap(), sessionidbytes.as_ptr(), challengedatabytes.len().try_into().unwrap(), challengedatabytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(remotehostname: &windows_core::HSTRING, remotehostport: u32) -> windows_core::Result<NDTCPMessenger> {
+    pub fn CreateInstance(remotehostname: &windows_core::HSTRING, remotehostport: u32) -> windows_result::Result<NDTCPMessenger> {
         Self::INDTCPMessengerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(remotehostname), remotehostport, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn INDTCPMessengerFactory<R, F: FnOnce(&INDTCPMessengerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn INDTCPMessengerFactory<R, F: FnOnce(&INDTCPMessengerFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<NDTCPMessenger, INDTCPMessengerFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3622,91 +3622,91 @@ impl windows_core::RuntimeName for NDTCPMessenger {
 pub struct PlayReadyContentHeader(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyContentHeader, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayReadyContentHeader {
-    pub fn KeyId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn KeyId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn KeyIdString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn KeyIdString(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyIdString)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LicenseAcquisitionUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn LicenseAcquisitionUrl(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LicenseAcquisitionUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn LicenseAcquisitionUserInterfaceUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn LicenseAcquisitionUserInterfaceUrl(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LicenseAcquisitionUserInterfaceUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn EncryptionType(&self) -> windows_core::Result<PlayReadyEncryptionAlgorithm> {
+    pub fn EncryptionType(&self) -> windows_result::Result<PlayReadyEncryptionAlgorithm> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EncryptionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CustomAttributes(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CustomAttributes(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CustomAttributes)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DecryptorSetup(&self) -> windows_core::Result<PlayReadyDecryptorSetup> {
+    pub fn DecryptorSetup(&self) -> windows_result::Result<PlayReadyDecryptorSetup> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DecryptorSetup)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetSerializedHeader(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetSerializedHeader(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetSerializedHeader)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn HeaderWithEmbeddedUpdates(&self) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn HeaderWithEmbeddedUpdates(&self) -> windows_result::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeaderWithEmbeddedUpdates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn KeyIds(&self) -> windows_core::Result<windows_core::Array<windows_core::GUID>> {
+    pub fn KeyIds(&self) -> windows_result::Result<windows_core::Array<windows_core::GUID>> {
         let this = &windows_core::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).KeyIds)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::GUID>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn KeyIdStrings(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
+    pub fn KeyIdStrings(&self) -> windows_result::Result<windows_core::Array<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IPlayReadyContentHeader2>(self)?;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).KeyIdStrings)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstanceFromWindowsMediaDrmHeader<P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromWindowsMediaDrmHeader<P1, P2>(headerbytes: &[u8], licenseacquisitionurl: P1, licenseacquisitionuserinterfaceurl: P2, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_result::Result<PlayReadyContentHeader>
     where
         P1: windows_core::Param<super::super::super::Foundation::Uri>,
         P2: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3716,7 +3716,7 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).CreateInstanceFromWindowsMediaDrmHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromComponents<P3, P4>(contentkeyid: windows_core::GUID, contentkeyidstring: &windows_core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P3, licenseacquisitionuserinterfaceurl: P4, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents<P3, P4>(contentkeyid: windows_core::GUID, contentkeyidstring: &windows_core::HSTRING, contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P3, licenseacquisitionuserinterfaceurl: P4, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_result::Result<PlayReadyContentHeader>
     where
         P3: windows_core::Param<super::super::super::Foundation::Uri>,
         P4: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3726,13 +3726,13 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).CreateInstanceFromComponents)(windows_core::Interface::as_raw(this), contentkeyid, core::mem::transmute_copy(contentkeyidstring), contentencryptionalgorithm, licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn CreateInstanceFromPlayReadyHeader(headerbytes: &[u8]) -> windows_result::Result<PlayReadyContentHeader> {
         Self::IPlayReadyContentHeaderFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromPlayReadyHeader)(windows_core::Interface::as_raw(this), headerbytes.len().try_into().unwrap(), headerbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromComponents2<P4, P5>(dwflags: u32, contentkeyids: &[windows_core::GUID], contentkeyidstrings: &[windows_core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P4, licenseacquisitionuserinterfaceurl: P5, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_core::Result<PlayReadyContentHeader>
+    pub fn CreateInstanceFromComponents2<P4, P5>(dwflags: u32, contentkeyids: &[windows_core::GUID], contentkeyidstrings: &[windows_core::HSTRING], contentencryptionalgorithm: PlayReadyEncryptionAlgorithm, licenseacquisitionurl: P4, licenseacquisitionuserinterfaceurl: P5, customattributes: &windows_core::HSTRING, domainserviceid: windows_core::GUID) -> windows_result::Result<PlayReadyContentHeader>
     where
         P4: windows_core::Param<super::super::super::Foundation::Uri>,
         P5: windows_core::Param<super::super::super::Foundation::Uri>,
@@ -3742,11 +3742,11 @@ impl PlayReadyContentHeader {
             (windows_core::Interface::vtable(this).CreateInstanceFromComponents2)(windows_core::Interface::as_raw(this), dwflags, contentkeyids.len().try_into().unwrap(), contentkeyids.as_ptr(), contentkeyidstrings.len().try_into().unwrap(), core::mem::transmute(contentkeyidstrings.as_ptr()), contentencryptionalgorithm, licenseacquisitionurl.param().abi(), licenseacquisitionuserinterfaceurl.param().abi(), core::mem::transmute_copy(customattributes), domainserviceid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyContentHeaderFactory<R, F: FnOnce(&IPlayReadyContentHeaderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyContentHeaderFactory<R, F: FnOnce(&IPlayReadyContentHeaderFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlayReadyContentHeaderFactory2<R, F: FnOnce(&IPlayReadyContentHeaderFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyContentHeaderFactory2<R, F: FnOnce(&IPlayReadyContentHeaderFactory2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyContentHeader, IPlayReadyContentHeaderFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3763,7 +3763,7 @@ impl windows_core::RuntimeName for PlayReadyContentHeader {
 }
 pub struct PlayReadyContentResolver;
 impl PlayReadyContentResolver {
-    pub fn ServiceRequest<P0>(contentheader: P0) -> windows_core::Result<IPlayReadyServiceRequest>
+    pub fn ServiceRequest<P0>(contentheader: P0) -> windows_result::Result<IPlayReadyServiceRequest>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -3772,7 +3772,7 @@ impl PlayReadyContentResolver {
             (windows_core::Interface::vtable(this).ServiceRequest)(windows_core::Interface::as_raw(this), contentheader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyContentResolver<R, F: FnOnce(&IPlayReadyContentResolver) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyContentResolver<R, F: FnOnce(&IPlayReadyContentResolver) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyContentResolver, IPlayReadyContentResolver> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3798,35 +3798,35 @@ impl windows_core::RuntimeType for PlayReadyDecryptorSetup {
 pub struct PlayReadyDomain(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomain, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyDomain);
 impl PlayReadyDomain {
-    pub fn AccountId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn AccountId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Revision(&self) -> windows_core::Result<u32> {
+    pub fn Revision(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Revision)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DomainJoinUrl(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn DomainJoinUrl(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3849,20 +3849,20 @@ impl windows_core::RuntimeName for PlayReadyDomain {
 pub struct PlayReadyDomainIterable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomainIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadyDomain>);
 impl PlayReadyDomainIterable {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadyDomain>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<IPlayReadyDomain>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(domainaccountid: windows_core::GUID) -> windows_core::Result<PlayReadyDomainIterable> {
+    pub fn CreateInstance(domainaccountid: windows_core::GUID) -> windows_result::Result<PlayReadyDomainIterable> {
         Self::IPlayReadyDomainIterableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), domainaccountid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyDomainIterableFactory<R, F: FnOnce(&IPlayReadyDomainIterableFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyDomainIterableFactory<R, F: FnOnce(&IPlayReadyDomainIterableFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyDomainIterable, IPlayReadyDomainIterableFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -3896,28 +3896,28 @@ impl IntoIterator for &PlayReadyDomainIterable {
 pub struct PlayReadyDomainIterator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomainIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadyDomain>);
 impl PlayReadyDomainIterator {
-    pub fn Current(&self) -> windows_core::Result<IPlayReadyDomain> {
+    pub fn Current(&self) -> windows_result::Result<IPlayReadyDomain> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCurrent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, items: &mut [Option<IPlayReadyDomain>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [Option<IPlayReadyDomain>]) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -3941,114 +3941,114 @@ pub struct PlayReadyDomainJoinServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomainJoinServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyDomainJoinServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyDomainJoinServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyDomainJoinServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DomainAccountId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainAccountId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainAccountId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainAccountId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainAccountId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DomainFriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DomainFriendlyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainFriendlyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDomainFriendlyName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDomainFriendlyName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainFriendlyName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainServiceId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4072,103 +4072,103 @@ pub struct PlayReadyDomainLeaveServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyDomainLeaveServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyDomainLeaveServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyDomainLeaveServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyDomainLeaveServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DomainAccountId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainAccountId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainAccountId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainAccountId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainAccountId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainAccountId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainServiceId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4235,15 +4235,15 @@ impl windows_core::RuntimeType for PlayReadyITADataFormat {
 pub struct PlayReadyITADataGenerator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyITADataGenerator, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayReadyITADataGenerator {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyITADataGenerator, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn GenerateData<P2>(&self, guidcpsystemid: windows_core::GUID, countofstreams: u32, configuration: P2, format: PlayReadyITADataFormat) -> windows_core::Result<windows_core::Array<u8>>
+    pub fn GenerateData<P2>(&self, guidcpsystemid: windows_core::GUID, countofstreams: u32, configuration: P2, format: PlayReadyITADataFormat) -> windows_result::Result<windows_core::Array<u8>>
     where
         P2: windows_core::Param<super::super::super::Foundation::Collections::IPropertySet>,
     {
@@ -4270,81 +4270,81 @@ pub struct PlayReadyIndividualizationServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyIndividualizationServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyIndividualizationServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyIndividualizationServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyIndividualizationServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4367,77 +4367,77 @@ impl windows_core::RuntimeName for PlayReadyIndividualizationServiceRequest {
 pub struct PlayReadyLicense(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyLicense, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicense);
 impl PlayReadyLicense {
-    pub fn FullyEvaluated(&self) -> windows_core::Result<bool> {
+    pub fn FullyEvaluated(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FullyEvaluated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UsableForPlay(&self) -> windows_core::Result<bool> {
+    pub fn UsableForPlay(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UsableForPlay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpirationDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn ExpirationDate(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpirationDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExpireAfterFirstPlay(&self) -> windows_core::Result<u32> {
+    pub fn ExpireAfterFirstPlay(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExpireAfterFirstPlay)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DomainAccountID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainAccountID(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainAccountID)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ChainDepth(&self) -> windows_core::Result<u32> {
+    pub fn ChainDepth(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChainDepth)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> windows_core::Result<windows_core::GUID> {
+    pub fn GetKIDAtChainDepth(&self, chaindepth: u32) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetKIDAtChainDepth)(windows_core::Interface::as_raw(this), chaindepth, &mut result__).map(|| result__)
         }
     }
-    pub fn SecureStopId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn SecureStopId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecureStopId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SecurityLevel(&self) -> windows_core::Result<u32> {
+    pub fn SecurityLevel(&self) -> windows_result::Result<u32> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecurityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn InMemoryOnly(&self) -> windows_core::Result<bool> {
+    pub fn InMemoryOnly(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InMemoryOnly)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExpiresInRealTime(&self) -> windows_core::Result<bool> {
+    pub fn ExpiresInRealTime(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicense2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4461,60 +4461,60 @@ pub struct PlayReadyLicenseAcquisitionServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicenseAcquisitionServiceRequest);
 windows_core::imp::required_hierarchy!(PlayReadyLicenseAcquisitionServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyLicenseAcquisitionServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseAcquisitionServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContentHeader(&self) -> windows_core::Result<PlayReadyContentHeader> {
+    pub fn ContentHeader(&self) -> windows_result::Result<PlayReadyContentHeader> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentHeader)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetContentHeader<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetContentHeader<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetContentHeader)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn DomainServiceId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainServiceId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainServiceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_core::Result<()> {
+    pub fn SetDomainServiceId(&self, value: windows_core::GUID) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDomainServiceId)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SessionId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn SessionId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<IPlayReadyLicenseAcquisitionServiceRequest2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
+    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_result::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4524,60 +4524,60 @@ impl PlayReadyLicenseAcquisitionServiceRequest {
             (windows_core::Interface::vtable(this).CreateLicenseIterable)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4600,21 +4600,21 @@ impl windows_core::RuntimeName for PlayReadyLicenseAcquisitionServiceRequest {
 pub struct PlayReadyLicenseIterable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadyLicense>);
 impl PlayReadyLicenseIterable {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseIterable, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadyLicense>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<IPlayReadyLicense>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance<P0>(contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
+    pub fn CreateInstance<P0>(contentheader: P0, fullyevaluated: bool) -> windows_result::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4623,7 +4623,7 @@ impl PlayReadyLicenseIterable {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), contentheader.param().abi(), fullyevaluated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyLicenseIterableFactory<R, F: FnOnce(&IPlayReadyLicenseIterableFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyLicenseIterableFactory<R, F: FnOnce(&IPlayReadyLicenseIterableFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseIterable, IPlayReadyLicenseIterableFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4657,28 +4657,28 @@ impl IntoIterator for &PlayReadyLicenseIterable {
 pub struct PlayReadyLicenseIterator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadyLicense>);
 impl PlayReadyLicenseIterator {
-    pub fn Current(&self) -> windows_core::Result<IPlayReadyLicense> {
+    pub fn Current(&self) -> windows_result::Result<IPlayReadyLicense> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCurrent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, items: &mut [Option<IPlayReadyLicense>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [Option<IPlayReadyLicense>]) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4698,7 +4698,7 @@ impl windows_core::RuntimeName for PlayReadyLicenseIterator {
 }
 pub struct PlayReadyLicenseManagement;
 impl PlayReadyLicenseManagement {
-    pub fn DeleteLicenses<P0>(contentheader: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn DeleteLicenses<P0>(contentheader: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4707,7 +4707,7 @@ impl PlayReadyLicenseManagement {
             (windows_core::Interface::vtable(this).DeleteLicenses)(windows_core::Interface::as_raw(this), contentheader.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyLicenseManagement<R, F: FnOnce(&IPlayReadyLicenseManagement) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyLicenseManagement<R, F: FnOnce(&IPlayReadyLicenseManagement) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseManagement, IPlayReadyLicenseManagement> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4721,21 +4721,21 @@ pub struct PlayReadyLicenseSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyLicenseSession, windows_core::IUnknown, windows_core::IInspectable, IPlayReadyLicenseSession);
 windows_core::imp::required_hierarchy!(PlayReadyLicenseSession, IPlayReadyLicenseSession2);
 impl PlayReadyLicenseSession {
-    pub fn CreateLAServiceRequest(&self) -> windows_core::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
+    pub fn CreateLAServiceRequest(&self) -> windows_result::Result<IPlayReadyLicenseAcquisitionServiceRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateLAServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_core::Result<()>
+    pub fn ConfigureMediaProtectionManager<P0>(&self, mpm: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::MediaProtectionManager>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ConfigureMediaProtectionManager)(windows_core::Interface::as_raw(this), mpm.param().abi()).ok() }
     }
-    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_core::Result<PlayReadyLicenseIterable>
+    pub fn CreateLicenseIterable<P0>(&self, contentheader: P0, fullyevaluated: bool) -> windows_result::Result<PlayReadyLicenseIterable>
     where
         P0: windows_core::Param<PlayReadyContentHeader>,
     {
@@ -4746,7 +4746,7 @@ impl PlayReadyLicenseSession {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn CreateInstance<P0>(configuration: P0) -> windows_core::Result<PlayReadyLicenseSession>
+    pub fn CreateInstance<P0>(configuration: P0) -> windows_result::Result<PlayReadyLicenseSession>
     where
         P0: windows_core::Param<super::super::super::Foundation::Collections::IPropertySet>,
     {
@@ -4755,7 +4755,7 @@ impl PlayReadyLicenseSession {
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), configuration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadyLicenseSessionFactory<R, F: FnOnce(&IPlayReadyLicenseSessionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyLicenseSessionFactory<R, F: FnOnce(&IPlayReadyLicenseSessionFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyLicenseSession, IPlayReadyLicenseSessionFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -4776,92 +4776,92 @@ pub struct PlayReadyMeteringReportServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyMeteringReportServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyMeteringReportServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyMeteringReportServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyMeteringReportServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MeteringCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn MeteringCertificate(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).MeteringCertificate)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> windows_core::Result<()> {
+    pub fn SetMeteringCertificate(&self, meteringcertbytes: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMeteringCertificate)(windows_core::Interface::as_raw(this), meteringcertbytes.len().try_into().unwrap(), meteringcertbytes.as_ptr()).ok() }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4885,81 +4885,81 @@ pub struct PlayReadyRevocationServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadyRevocationServiceRequest, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PlayReadyRevocationServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadyRevocationServiceRequest {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyRevocationServiceRequest, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -4982,20 +4982,20 @@ impl windows_core::RuntimeName for PlayReadyRevocationServiceRequest {
 pub struct PlayReadySecureStopIterable(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterable, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterable<IPlayReadySecureStopServiceRequest>);
 impl PlayReadySecureStopIterable {
-    pub fn First(&self) -> windows_core::Result<windows_collections::IIterator<IPlayReadySecureStopServiceRequest>> {
+    pub fn First(&self) -> windows_result::Result<windows_collections::IIterator<IPlayReadySecureStopServiceRequest>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).First)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopIterable> {
+    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_result::Result<PlayReadySecureStopIterable> {
         Self::IPlayReadySecureStopIterableFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPlayReadySecureStopIterableFactory<R, F: FnOnce(&IPlayReadySecureStopIterableFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadySecureStopIterableFactory<R, F: FnOnce(&IPlayReadySecureStopIterableFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadySecureStopIterable, IPlayReadySecureStopIterableFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5029,28 +5029,28 @@ impl IntoIterator for &PlayReadySecureStopIterable {
 pub struct PlayReadySecureStopIterator(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopIterator, windows_core::IUnknown, windows_core::IInspectable, windows_collections::IIterator<IPlayReadySecureStopServiceRequest>);
 impl PlayReadySecureStopIterator {
-    pub fn Current(&self) -> windows_core::Result<IPlayReadySecureStopServiceRequest> {
+    pub fn Current(&self) -> windows_result::Result<IPlayReadySecureStopServiceRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasCurrent(&self) -> windows_core::Result<bool> {
+    pub fn HasCurrent(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasCurrent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MoveNext(&self) -> windows_core::Result<bool> {
+    pub fn MoveNext(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MoveNext)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetMany(&self, items: &mut [Option<IPlayReadySecureStopServiceRequest>]) -> windows_core::Result<u32> {
+    pub fn GetMany(&self, items: &mut [Option<IPlayReadySecureStopServiceRequest>]) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5074,128 +5074,128 @@ pub struct PlayReadySecureStopServiceRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadySecureStopServiceRequest, windows_core::IUnknown, windows_core::IInspectable, IPlayReadySecureStopServiceRequest);
 windows_core::imp::required_hierarchy!(PlayReadySecureStopServiceRequest, super::IMediaProtectionServiceRequest, IPlayReadyServiceRequest);
 impl PlayReadySecureStopServiceRequest {
-    pub fn ProtectionSystem(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystem(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystem)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn Type(&self) -> windows_result::Result<windows_core::GUID> {
         let this = &windows_core::Interface::cast::<super::IMediaProtectionServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SessionID(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn SessionID(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionID)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn StartTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn UpdateTime(&self) -> windows_core::Result<super::super::super::Foundation::DateTime> {
+    pub fn UpdateTime(&self) -> windows_result::Result<super::super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UpdateTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Stopped(&self) -> windows_core::Result<bool> {
+    pub fn Stopped(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stopped)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PublisherCertificate(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn PublisherCertificate(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).PublisherCertificate)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopServiceRequest> {
+    pub fn CreateInstance(publishercertbytes: &[u8]) -> windows_result::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateInstanceFromSessionID(sessionid: windows_core::GUID, publishercertbytes: &[u8]) -> windows_core::Result<PlayReadySecureStopServiceRequest> {
+    pub fn CreateInstanceFromSessionID(sessionid: windows_core::GUID, publishercertbytes: &[u8]) -> windows_result::Result<PlayReadySecureStopServiceRequest> {
         Self::IPlayReadySecureStopServiceRequestFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstanceFromSessionID)(windows_core::Interface::as_raw(this), sessionid, publishercertbytes.len().try_into().unwrap(), publishercertbytes.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Uri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetUri<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetUri<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Foundation::Uri>,
     {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetUri)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn ResponseCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResponseCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResponseCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ChallengeCustomData(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ChallengeCustomData(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChallengeCustomData)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetChallengeCustomData(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetChallengeCustomData)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn BeginServiceRequest(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn BeginServiceRequest(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BeginServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn NextServiceRequest(&self) -> windows_core::Result<IPlayReadyServiceRequest> {
+    pub fn NextServiceRequest(&self) -> windows_result::Result<IPlayReadyServiceRequest> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NextServiceRequest)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GenerateManualEnablingChallenge(&self) -> windows_core::Result<PlayReadySoapMessage> {
+    pub fn GenerateManualEnablingChallenge(&self) -> windows_result::Result<PlayReadySoapMessage> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GenerateManualEnablingChallenge)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ProcessManualEnablingResponse(&self, responsebytes: &[u8]) -> windows_result::Result<windows_core::HRESULT> {
         let this = &windows_core::Interface::cast::<IPlayReadyServiceRequest>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProcessManualEnablingResponse)(windows_core::Interface::as_raw(this), responsebytes.len().try_into().unwrap(), responsebytes.as_ptr(), &mut result__).map(|| result__)
         }
     }
-    fn IPlayReadySecureStopServiceRequestFactory<R, F: FnOnce(&IPlayReadySecureStopServiceRequestFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadySecureStopServiceRequestFactory<R, F: FnOnce(&IPlayReadySecureStopServiceRequestFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadySecureStopServiceRequest, IPlayReadySecureStopServiceRequestFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -5215,7 +5215,7 @@ impl windows_core::RuntimeName for PlayReadySecureStopServiceRequest {
 pub struct PlayReadySoapMessage(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PlayReadySoapMessage, windows_core::IUnknown, windows_core::IInspectable);
 impl PlayReadySoapMessage {
-    pub fn GetMessageBody(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetMessageBody(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
@@ -5223,14 +5223,14 @@ impl PlayReadySoapMessage {
         }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn MessageHeaders(&self) -> windows_core::Result<super::super::super::Foundation::Collections::IPropertySet> {
+    pub fn MessageHeaders(&self) -> windows_result::Result<super::super::super::Foundation::Collections::IPropertySet> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MessageHeaders)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Uri(&self) -> windows_core::Result<super::super::super::Foundation::Uri> {
+    pub fn Uri(&self) -> windows_result::Result<super::super::super::Foundation::Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -5250,116 +5250,116 @@ impl windows_core::RuntimeName for PlayReadySoapMessage {
 }
 pub struct PlayReadyStatics;
 impl PlayReadyStatics {
-    pub fn DomainJoinServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainJoinServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainJoinServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn DomainLeaveServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn DomainLeaveServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DomainLeaveServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn IndividualizationServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn IndividualizationServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IndividualizationServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn LicenseAcquirerServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn LicenseAcquirerServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LicenseAcquirerServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn MeteringReportServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn MeteringReportServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MeteringReportServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn RevocationServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn RevocationServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RevocationServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn MediaProtectionSystemId() -> windows_core::Result<windows_core::GUID> {
+    pub fn MediaProtectionSystemId() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MediaProtectionSystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PlayReadySecurityVersion() -> windows_core::Result<u32> {
+    pub fn PlayReadySecurityVersion() -> windows_result::Result<u32> {
         Self::IPlayReadyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlayReadySecurityVersion)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn PlayReadyCertificateSecurityLevel() -> windows_core::Result<u32> {
+    pub fn PlayReadyCertificateSecurityLevel() -> windows_result::Result<u32> {
         Self::IPlayReadyStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PlayReadyCertificateSecurityLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SecureStopServiceRequestType() -> windows_core::Result<windows_core::GUID> {
+    pub fn SecureStopServiceRequestType() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecureStopServiceRequestType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn CheckSupportedHardware(hwdrmfeature: PlayReadyHardwareDRMFeatures) -> windows_core::Result<bool> {
+    pub fn CheckSupportedHardware(hwdrmfeature: PlayReadyHardwareDRMFeatures) -> windows_result::Result<bool> {
         Self::IPlayReadyStatics3(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckSupportedHardware)(windows_core::Interface::as_raw(this), hwdrmfeature, &mut result__).map(|| result__)
         })
     }
-    pub fn InputTrustAuthorityToCreate() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn InputTrustAuthorityToCreate() -> windows_result::Result<windows_core::HSTRING> {
         Self::IPlayReadyStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InputTrustAuthorityToCreate)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ProtectionSystemId() -> windows_core::Result<windows_core::GUID> {
+    pub fn ProtectionSystemId() -> windows_result::Result<windows_core::GUID> {
         Self::IPlayReadyStatics4(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ProtectionSystemId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn HardwareDRMDisabledAtTime() -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn HardwareDRMDisabledAtTime() -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareDRMDisabledAtTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn HardwareDRMDisabledUntilTime() -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn HardwareDRMDisabledUntilTime() -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         Self::IPlayReadyStatics5(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareDRMDisabledUntilTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ResetHardwareDRMDisabled() -> windows_core::Result<()> {
+    pub fn ResetHardwareDRMDisabled() -> windows_result::Result<()> {
         Self::IPlayReadyStatics5(|this| unsafe { (windows_core::Interface::vtable(this).ResetHardwareDRMDisabled)(windows_core::Interface::as_raw(this)).ok() })
     }
-    fn IPlayReadyStatics<R, F: FnOnce(&IPlayReadyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyStatics<R, F: FnOnce(&IPlayReadyStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlayReadyStatics2<R, F: FnOnce(&IPlayReadyStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyStatics2<R, F: FnOnce(&IPlayReadyStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlayReadyStatics3<R, F: FnOnce(&IPlayReadyStatics3) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyStatics3<R, F: FnOnce(&IPlayReadyStatics3) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics3> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlayReadyStatics4<R, F: FnOnce(&IPlayReadyStatics4) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyStatics4<R, F: FnOnce(&IPlayReadyStatics4) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics4> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IPlayReadyStatics5<R, F: FnOnce(&IPlayReadyStatics5) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPlayReadyStatics5<R, F: FnOnce(&IPlayReadyStatics5) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PlayReadyStatics, IPlayReadyStatics5> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

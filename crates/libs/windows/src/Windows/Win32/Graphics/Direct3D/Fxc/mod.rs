@@ -1,5 +1,5 @@
 #[inline]
-pub unsafe fn D3DCompile<P2, P4, P5, P6>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, pentrypoint: P5, ptarget: P6, flags1: u32, flags2: u32, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_core::Result<()>
+pub unsafe fn D3DCompile<P2, P4, P5, P6>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, pentrypoint: P5, ptarget: P6, flags1: u32, flags2: u32, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<super::ID3DInclude>,
@@ -10,7 +10,7 @@ where
     unsafe { D3DCompile(psrcdata, srcdatasize, psourcename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), pentrypoint.param().abi(), ptarget.param().abi(), flags1, flags2, core::mem::transmute(ppcode), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DCompile2<P2, P4, P5, P6>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, pentrypoint: P5, ptarget: P6, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: Option<*const core::ffi::c_void>, secondarydatasize: usize, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_core::Result<()>
+pub unsafe fn D3DCompile2<P2, P4, P5, P6>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, pentrypoint: P5, ptarget: P6, flags1: u32, flags2: u32, secondarydataflags: u32, psecondarydata: Option<*const core::ffi::c_void>, secondarydatasize: usize, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<super::ID3DInclude>,
@@ -21,7 +21,7 @@ where
     unsafe { D3DCompile2(psrcdata, srcdatasize, psourcename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), pentrypoint.param().abi(), ptarget.param().abi(), flags1, flags2, secondarydataflags, psecondarydata.unwrap_or(core::mem::zeroed()) as _, secondarydatasize, core::mem::transmute(ppcode), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DCompileFromFile<P0, P2, P3, P4>(pfilename: P0, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P2, pentrypoint: P3, ptarget: P4, flags1: u32, flags2: u32, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_core::Result<()>
+pub unsafe fn D3DCompileFromFile<P0, P2, P3, P4>(pfilename: P0, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P2, pentrypoint: P3, ptarget: P4, flags1: u32, flags2: u32, ppcode: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::ID3DInclude>,
@@ -32,7 +32,7 @@ where
     unsafe { D3DCompileFromFile(pfilename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), pentrypoint.param().abi(), ptarget.param().abi(), flags1, flags2, core::mem::transmute(ppcode), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCompressShaders(unumshaders : u32, pshaderdata : *const D3D_SHADER_DATA, uflags : u32, ppcompresseddata : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -40,7 +40,7 @@ pub unsafe fn D3DCompressShaders(pshaderdata: &[D3D_SHADER_DATA], uflags: u32) -
     }
 }
 #[inline]
-pub unsafe fn D3DCreateBlob(size: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DCreateBlob(size: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateBlob(size : usize, ppblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -49,7 +49,7 @@ pub unsafe fn D3DCreateBlob(size: usize) -> windows_core::Result<super::ID3DBlob
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> windows_core::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
+pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> windows_result::Result<super::super::Direct3D11::ID3D11FunctionLinkingGraph> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateFunctionLinkingGraph(uflags : u32, ppfunctionlinkinggraph : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -58,7 +58,7 @@ pub unsafe fn D3DCreateFunctionLinkingGraph(uflags: u32) -> windows_core::Result
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DCreateLinker() -> windows_core::Result<super::super::Direct3D11::ID3D11Linker> {
+pub unsafe fn D3DCreateLinker() -> windows_result::Result<super::super::Direct3D11::ID3D11Linker> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DCreateLinker(pplinker : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -66,12 +66,12 @@ pub unsafe fn D3DCreateLinker() -> windows_core::Result<super::super::Direct3D11
     }
 }
 #[inline]
-pub unsafe fn D3DDecompressShaders(psrcdata: *const core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: Option<*const u32>, uflags: u32, ppshaders: *mut Option<super::ID3DBlob>, ptotalshaders: Option<*mut u32>) -> windows_core::Result<()> {
+pub unsafe fn D3DDecompressShaders(psrcdata: *const core::ffi::c_void, srcdatasize: usize, unumshaders: u32, ustartindex: u32, pindices: Option<*const u32>, uflags: u32, ppshaders: *mut Option<super::ID3DBlob>, ptotalshaders: Option<*mut u32>) -> windows_result::Result<()> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DDecompressShaders(psrcdata : *const core::ffi::c_void, srcdatasize : usize, unumshaders : u32, ustartindex : u32, pindices : *const u32, uflags : u32, ppshaders : *mut * mut core::ffi::c_void, ptotalshaders : *mut u32) -> windows_core::HRESULT);
     unsafe { D3DDecompressShaders(psrcdata, srcdatasize, unumshaders, ustartindex, pindices.unwrap_or(core::mem::zeroed()) as _, uflags, core::mem::transmute(ppshaders), ptotalshaders.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DDisassemble<P3>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P3) -> windows_core::Result<super::ID3DBlob>
+pub unsafe fn D3DDisassemble<P3>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P3) -> windows_result::Result<super::ID3DBlob>
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
@@ -83,7 +83,7 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Direct3D10")]
 #[inline]
-pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: u32) -> windows_core::Result<super::ID3DBlob>
+pub unsafe fn D3DDisassemble10Effect<P0>(peffect: P0, flags: u32) -> windows_result::Result<super::ID3DBlob>
 where
     P0: windows_core::Param<super::super::Direct3D10::ID3D10Effect>,
 {
@@ -94,7 +94,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn D3DDisassembleRegion<P3>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: Option<*mut usize>, ppdisassembly: *mut Option<super::ID3DBlob>) -> windows_core::Result<()>
+pub unsafe fn D3DDisassembleRegion<P3>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, szcomments: P3, startbyteoffset: usize, numinsts: usize, pfinishbyteoffset: Option<*mut usize>, ppdisassembly: *mut Option<super::ID3DBlob>) -> windows_result::Result<()>
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
@@ -102,7 +102,7 @@ where
     unsafe { D3DDisassembleRegion(psrcdata, srcdatasize, flags, szcomments.param().abi(), startbyteoffset, numinsts, pfinishbyteoffset.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppdisassembly)).ok() }
 }
 #[inline]
-pub unsafe fn D3DGetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetBlobPart(psrcdata : *const core::ffi::c_void, srcdatasize : usize, part : D3D_BLOB_PART, flags : u32, pppart : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -110,7 +110,7 @@ pub unsafe fn D3DGetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: us
     }
 }
 #[inline]
-pub unsafe fn D3DGetDebugInfo(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetDebugInfo(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetDebugInfo(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ppdebuginfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -118,7 +118,7 @@ pub unsafe fn D3DGetDebugInfo(psrcdata: *const core::ffi::c_void, srcdatasize: u
     }
 }
 #[inline]
-pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetInputAndOutputSignatureBlob(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -126,7 +126,7 @@ pub unsafe fn D3DGetInputAndOutputSignatureBlob(psrcdata: *const core::ffi::c_vo
     }
 }
 #[inline]
-pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetInputSignatureBlob(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -134,7 +134,7 @@ pub unsafe fn D3DGetInputSignatureBlob(psrcdata: *const core::ffi::c_void, srcda
     }
 }
 #[inline]
-pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcdatasize: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetOutputSignatureBlob(psrcdata : *const core::ffi::c_void, srcdatasize : usize, ppsignatureblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -142,13 +142,13 @@ pub unsafe fn D3DGetOutputSignatureBlob(psrcdata: *const core::ffi::c_void, srcd
     }
 }
 #[inline]
-pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: Option<&mut [usize]>, ptotalinsts: Option<*mut usize>) -> windows_core::Result<()> {
+pub unsafe fn D3DGetTraceInstructionOffsets(psrcdata: *const core::ffi::c_void, srcdatasize: usize, flags: u32, startinstindex: usize, poffsets: Option<&mut [usize]>, ptotalinsts: Option<*mut usize>) -> windows_result::Result<()> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DGetTraceInstructionOffsets(psrcdata : *const core::ffi::c_void, srcdatasize : usize, flags : u32, startinstindex : usize, numinsts : usize, poffsets : *mut usize, ptotalinsts : *mut usize) -> windows_core::HRESULT);
     unsafe { D3DGetTraceInstructionOffsets(psrcdata, srcdatasize, flags, startinstindex, poffsets.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poffsets.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), ptotalinsts.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D11")]
 #[inline]
-pub unsafe fn D3DLoadModule(psrcdata: *const core::ffi::c_void, cbsrcdatasize: usize) -> windows_core::Result<super::super::Direct3D11::ID3D11Module> {
+pub unsafe fn D3DLoadModule(psrcdata: *const core::ffi::c_void, cbsrcdatasize: usize) -> windows_result::Result<super::super::Direct3D11::ID3D11Module> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DLoadModule(psrcdata : *const core::ffi::c_void, cbsrcdatasize : usize, ppmodule : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -156,7 +156,7 @@ pub unsafe fn D3DLoadModule(psrcdata: *const core::ffi::c_void, cbsrcdatasize: u
     }
 }
 #[inline]
-pub unsafe fn D3DPreprocess<P2, P4>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, ppcodetext: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_core::Result<()>
+pub unsafe fn D3DPreprocess<P2, P4>(psrcdata: *const core::ffi::c_void, srcdatasize: usize, psourcename: P2, pdefines: Option<*const super::D3D_SHADER_MACRO>, pinclude: P4, ppcodetext: *mut Option<super::ID3DBlob>, pperrormsgs: Option<*mut Option<super::ID3DBlob>>) -> windows_result::Result<()>
 where
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<super::ID3DInclude>,
@@ -165,7 +165,7 @@ where
     unsafe { D3DPreprocess(psrcdata, srcdatasize, psourcename.param().abi(), pdefines.unwrap_or(core::mem::zeroed()) as _, pinclude.param().abi(), core::mem::transmute(ppcodetext), pperrormsgs.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DReadFileToBlob<P0>(pfilename: P0) -> windows_core::Result<super::ID3DBlob>
+pub unsafe fn D3DReadFileToBlob<P0>(pfilename: P0) -> windows_result::Result<super::ID3DBlob>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -176,17 +176,17 @@ where
     }
 }
 #[inline]
-pub unsafe fn D3DReflect(psrcdata: *const core::ffi::c_void, srcdatasize: usize, pinterface: *const windows_core::GUID, ppreflector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn D3DReflect(psrcdata: *const core::ffi::c_void, srcdatasize: usize, pinterface: *const windows_core::GUID, ppreflector: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DReflect(psrcdata : *const core::ffi::c_void, srcdatasize : usize, pinterface : *const windows_core::GUID, ppreflector : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3DReflect(psrcdata, srcdatasize, pinterface, ppreflector as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DReflectLibrary(psrcdata: *const core::ffi::c_void, srcdatasize: usize, riid: *const windows_core::GUID, ppreflector: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn D3DReflectLibrary(psrcdata: *const core::ffi::c_void, srcdatasize: usize, riid: *const windows_core::GUID, ppreflector: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DReflectLibrary(psrcdata : *const core::ffi::c_void, srcdatasize : usize, riid : *const windows_core::GUID, ppreflector : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3DReflectLibrary(psrcdata, srcdatasize, riid, ppreflector as _).ok() }
 }
 #[inline]
-pub unsafe fn D3DSetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const core::ffi::c_void, partsize: usize) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DSetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: usize, part: D3D_BLOB_PART, flags: u32, ppart: *const core::ffi::c_void, partsize: usize) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DSetBlobPart(psrcdata : *const core::ffi::c_void, srcdatasize : usize, part : D3D_BLOB_PART, flags : u32, ppart : *const core::ffi::c_void, partsize : usize, ppnewshader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -194,7 +194,7 @@ pub unsafe fn D3DSetBlobPart(psrcdata: *const core::ffi::c_void, srcdatasize: us
     }
 }
 #[inline]
-pub unsafe fn D3DStripShader(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> windows_core::Result<super::ID3DBlob> {
+pub unsafe fn D3DStripShader(pshaderbytecode: *const core::ffi::c_void, bytecodelength: usize, ustripflags: u32) -> windows_result::Result<super::ID3DBlob> {
     windows_link::link!("d3dcompiler_47.dll" "system" fn D3DStripShader(pshaderbytecode : *const core::ffi::c_void, bytecodelength : usize, ustripflags : u32, ppstrippedblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
@@ -202,7 +202,7 @@ pub unsafe fn D3DStripShader(pshaderbytecode: *const core::ffi::c_void, bytecode
     }
 }
 #[inline]
-pub unsafe fn D3DWriteBlobToFile<P0, P1>(pblob: P0, pfilename: P1, boverwrite: bool) -> windows_core::Result<()>
+pub unsafe fn D3DWriteBlobToFile<P0, P1>(pblob: P0, pfilename: P1, boverwrite: bool) -> windows_result::Result<()>
 where
     P0: windows_core::Param<super::ID3DBlob>,
     P1: windows_core::Param<windows_core::PCWSTR>,

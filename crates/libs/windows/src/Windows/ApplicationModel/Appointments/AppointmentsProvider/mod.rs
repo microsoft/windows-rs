@@ -3,33 +3,33 @@
 pub struct AddAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AddAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl AddAppointmentOperation {
-    pub fn AppointmentInformation(&self) -> windows_core::Result<super::Appointment> {
+    pub fn AppointmentInformation(&self) -> windows_result::Result<super::Appointment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourcePackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourcePackageFamilyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourcePackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid)).ok() }
     }
-    pub fn ReportCanceled(&self) -> windows_core::Result<()> {
+    pub fn ReportCanceled(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCanceled)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DismissUI(&self) -> windows_core::Result<()> {
+    pub fn DismissUI(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -48,41 +48,41 @@ unsafe impl Send for AddAppointmentOperation {}
 unsafe impl Sync for AddAppointmentOperation {}
 pub struct AppointmentsProviderLaunchActionVerbs;
 impl AppointmentsProviderLaunchActionVerbs {
-    pub fn AddAppointment() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AddAppointment() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AddAppointment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ReplaceAppointment() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ReplaceAppointment() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReplaceAppointment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RemoveAppointment() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RemoveAppointment() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RemoveAppointment)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ShowTimeFrame() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ShowTimeFrame() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowTimeFrame)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn ShowAppointmentDetails() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ShowAppointmentDetails() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ShowAppointmentDetails)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IAppointmentsProviderLaunchActionVerbsStatics<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentsProviderLaunchActionVerbsStatics<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAppointmentsProviderLaunchActionVerbsStatics2<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppointmentsProviderLaunchActionVerbsStatics2<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -166,40 +166,40 @@ pub struct IReplaceAppointmentOperation_Vtbl {
 pub struct RemoveAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(RemoveAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl RemoveAppointmentOperation {
-    pub fn AppointmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourcePackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourcePackageFamilyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourcePackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompleted(&self) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReportCanceled(&self) -> windows_core::Result<()> {
+    pub fn ReportCanceled(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCanceled)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DismissUI(&self) -> windows_core::Result<()> {
+    pub fn DismissUI(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -221,47 +221,47 @@ unsafe impl Sync for RemoveAppointmentOperation {}
 pub struct ReplaceAppointmentOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ReplaceAppointmentOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl ReplaceAppointmentOperation {
-    pub fn AppointmentId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppointmentId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn AppointmentInformation(&self) -> windows_core::Result<super::Appointment> {
+    pub fn AppointmentInformation(&self) -> windows_result::Result<super::Appointment> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppointmentInformation)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn InstanceStartDate(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
+    pub fn InstanceStartDate(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).InstanceStartDate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SourcePackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SourcePackageFamilyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourcePackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportCompleted(&self, itemid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCompleted)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(itemid)).ok() }
     }
-    pub fn ReportCanceled(&self) -> windows_core::Result<()> {
+    pub fn ReportCanceled(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportCanceled)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn ReportError(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ReportError)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DismissUI(&self) -> windows_core::Result<()> {
+    pub fn DismissUI(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).DismissUI)(windows_core::Interface::as_raw(this)).ok() }
     }

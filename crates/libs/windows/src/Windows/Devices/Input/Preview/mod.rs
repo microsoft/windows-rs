@@ -19,35 +19,35 @@ impl windows_core::RuntimeType for GazeDeviceConfigurationStatePreview {
 pub struct GazeDevicePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDevicePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDevicePreview {
-    pub fn Id(&self) -> windows_core::Result<u32> {
+    pub fn Id(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CanTrackEyes(&self) -> windows_core::Result<bool> {
+    pub fn CanTrackEyes(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanTrackEyes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CanTrackHead(&self) -> windows_core::Result<bool> {
+    pub fn CanTrackHead(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanTrackHead)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ConfigurationState(&self) -> windows_core::Result<GazeDeviceConfigurationStatePreview> {
+    pub fn ConfigurationState(&self) -> windows_result::Result<GazeDeviceConfigurationStatePreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConfigurationState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn RequestCalibrationAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn RequestCalibrationAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -55,7 +55,7 @@ impl GazeDevicePreview {
         }
     }
     #[cfg(feature = "Devices_HumanInterfaceDevice")]
-    pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
+    pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_result::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -63,7 +63,7 @@ impl GazeDevicePreview {
         }
     }
     #[cfg(feature = "Devices_HumanInterfaceDevice")]
-    pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_core::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
+    pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> windows_result::Result<windows_collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -88,7 +88,7 @@ unsafe impl Sync for GazeDevicePreview {}
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherAddedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
-    pub fn Device(&self) -> windows_core::Result<GazeDevicePreview> {
+    pub fn Device(&self) -> windows_result::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -113,7 +113,7 @@ unsafe impl Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
 pub struct GazeDeviceWatcherPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherPreview {
-    pub fn Added<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Added<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>,
     {
@@ -123,11 +123,11 @@ impl GazeDeviceWatcherPreview {
             (windows_core::Interface::vtable(this).Added)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAdded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAdded(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAdded)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Removed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Removed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>,
     {
@@ -137,11 +137,11 @@ impl GazeDeviceWatcherPreview {
             (windows_core::Interface::vtable(this).Removed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveRemoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveRemoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveRemoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Updated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn Updated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>>,
     {
@@ -151,11 +151,11 @@ impl GazeDeviceWatcherPreview {
             (windows_core::Interface::vtable(this).Updated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveUpdated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn EnumerationCompleted<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, windows_core::IInspectable>>,
     {
@@ -165,15 +165,15 @@ impl GazeDeviceWatcherPreview {
             (windows_core::Interface::vtable(this).EnumerationCompleted)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveEnumerationCompleted(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveEnumerationCompleted)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Stop(&self) -> windows_core::Result<()> {
+    pub fn Stop(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Stop)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -195,7 +195,7 @@ unsafe impl Sync for GazeDeviceWatcherPreview {}
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherRemovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
-    pub fn Device(&self) -> windows_core::Result<GazeDevicePreview> {
+    pub fn Device(&self) -> windows_result::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -220,7 +220,7 @@ unsafe impl Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeDeviceWatcherUpdatedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
-    pub fn Device(&self) -> windows_core::Result<GazeDevicePreview> {
+    pub fn Device(&self) -> windows_result::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -245,18 +245,18 @@ unsafe impl Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 pub struct GazeEnteredPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeEnteredPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeEnteredPreviewEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CurrentPoint(&self) -> windows_core::Result<GazePointPreview> {
+    pub fn CurrentPoint(&self) -> windows_result::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -281,18 +281,18 @@ unsafe impl Sync for GazeEnteredPreviewEventArgs {}
 pub struct GazeExitedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeExitedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeExitedPreviewEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CurrentPoint(&self) -> windows_core::Result<GazePointPreview> {
+    pub fn CurrentPoint(&self) -> windows_result::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -317,7 +317,7 @@ unsafe impl Sync for GazeExitedPreviewEventArgs {}
 pub struct GazeInputSourcePreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeInputSourcePreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeInputSourcePreview {
-    pub fn GazeMoved<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GazeMoved<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>,
     {
@@ -327,11 +327,11 @@ impl GazeInputSourcePreview {
             (windows_core::Interface::vtable(this).GazeMoved)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveGazeMoved(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveGazeMoved(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGazeMoved)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GazeEntered<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GazeEntered<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>,
     {
@@ -341,11 +341,11 @@ impl GazeInputSourcePreview {
             (windows_core::Interface::vtable(this).GazeEntered)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveGazeEntered(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveGazeEntered(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGazeEntered)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GazeExited<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn GazeExited<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>,
     {
@@ -355,23 +355,23 @@ impl GazeInputSourcePreview {
             (windows_core::Interface::vtable(this).GazeExited)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveGazeExited(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveGazeExited(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveGazeExited)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn GetForCurrentView() -> windows_core::Result<GazeInputSourcePreview> {
+    pub fn GetForCurrentView() -> windows_result::Result<GazeInputSourcePreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentView)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreateWatcher() -> windows_core::Result<GazeDeviceWatcherPreview> {
+    pub fn CreateWatcher() -> windows_result::Result<GazeDeviceWatcherPreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWatcher)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GazeInputSourcePreview, IGazeInputSourcePreviewStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -393,25 +393,25 @@ unsafe impl Sync for GazeInputSourcePreview {}
 pub struct GazeMovedPreviewEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazeMovedPreviewEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl GazeMovedPreviewEventArgs {
-    pub fn Handled(&self) -> windows_core::Result<bool> {
+    pub fn Handled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Handled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHandled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHandled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHandled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CurrentPoint(&self) -> windows_core::Result<GazePointPreview> {
+    pub fn CurrentPoint(&self) -> windows_result::Result<GazePointPreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CurrentPoint)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetIntermediatePoints(&self) -> windows_core::Result<windows_collections::IVector<GazePointPreview>> {
+    pub fn GetIntermediatePoints(&self) -> windows_result::Result<windows_collections::IVector<GazePointPreview>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -436,28 +436,28 @@ unsafe impl Sync for GazeMovedPreviewEventArgs {}
 pub struct GazePointPreview(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(GazePointPreview, windows_core::IUnknown, windows_core::IInspectable);
 impl GazePointPreview {
-    pub fn SourceDevice(&self) -> windows_core::Result<GazeDevicePreview> {
+    pub fn SourceDevice(&self) -> windows_result::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SourceDevice)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn EyeGazePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
+    pub fn EyeGazePosition(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EyeGazePosition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HeadGazePosition(&self) -> windows_core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
+    pub fn HeadGazePosition(&self) -> windows_result::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HeadGazePosition)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Timestamp(&self) -> windows_core::Result<u64> {
+    pub fn Timestamp(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -465,7 +465,7 @@ impl GazePointPreview {
         }
     }
     #[cfg(feature = "Devices_HumanInterfaceDevice")]
-    pub fn HidInputReport(&self) -> windows_core::Result<super::super::HumanInterfaceDevice::HidInputReport> {
+    pub fn HidInputReport(&self) -> windows_result::Result<super::super::HumanInterfaceDevice::HidInputReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

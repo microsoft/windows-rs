@@ -21,7 +21,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IStringable {
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -37,7 +37,7 @@ impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
 pub trait IStringable_Impl: windows_core::IUnknownImpl {
-    fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn ToString(&self) -> windows_result::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
     pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {

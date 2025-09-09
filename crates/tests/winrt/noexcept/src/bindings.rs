@@ -13,7 +13,7 @@ impl windows_core::RuntimeType for ITest {
 }
 windows_core::imp::interface_hierarchy!(ITest, windows_core::IUnknown, windows_core::IInspectable);
 impl ITest {
-    pub fn MethodString(&self, test: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn MethodString(&self, test: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).MethodString)(
@@ -23,7 +23,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn MethodInt32(&self, test: i32) -> windows_core::Result<()> {
+    pub fn MethodInt32(&self, test: i32) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).MethodInt32)(
@@ -33,7 +33,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn MethodTest<P0>(&self, test: P0) -> windows_core::Result<()>
+    pub fn MethodTest<P0>(&self, test: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ITest>,
     {
@@ -46,7 +46,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn String(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn String(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -57,7 +57,7 @@ impl ITest {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetString(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetString(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetString)(
@@ -67,7 +67,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Int32(&self) -> windows_core::Result<i32> {
+    pub fn Int32(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -78,7 +78,7 @@ impl ITest {
             .map(|| result__)
         }
     }
-    pub fn SetInt32(&self, value: i32) -> windows_core::Result<()> {
+    pub fn SetInt32(&self, value: i32) -> windows_result::Result<()> {
         let this = self;
         unsafe {
             (windows_core::Interface::vtable(this).SetInt32)(
@@ -88,7 +88,7 @@ impl ITest {
             .ok()
         }
     }
-    pub fn Test(&self) -> windows_core::Result<ITest> {
+    pub fn Test(&self) -> windows_result::Result<ITest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -99,7 +99,7 @@ impl ITest {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetTest<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetTest<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ITest>,
     {
@@ -219,15 +219,15 @@ impl windows_core::RuntimeName for ITest {
     const NAME: &'static str = "Test.ITest";
 }
 pub trait ITest_Impl: windows_core::IUnknownImpl {
-    fn MethodString(&self, test: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn MethodInt32(&self, test: i32) -> windows_core::Result<()>;
-    fn MethodTest(&self, test: windows_core::Ref<ITest>) -> windows_core::Result<()>;
-    fn String(&self) -> windows_core::Result<windows_core::HSTRING>;
-    fn SetString(&self, value: &windows_core::HSTRING) -> windows_core::Result<()>;
-    fn Int32(&self) -> windows_core::Result<i32>;
-    fn SetInt32(&self, value: i32) -> windows_core::Result<()>;
-    fn Test(&self) -> windows_core::Result<ITest>;
-    fn SetTest(&self, value: windows_core::Ref<ITest>) -> windows_core::Result<()>;
+    fn MethodString(&self, test: &windows_core::HSTRING) -> windows_result::Result<()>;
+    fn MethodInt32(&self, test: i32) -> windows_result::Result<()>;
+    fn MethodTest(&self, test: windows_core::Ref<ITest>) -> windows_result::Result<()>;
+    fn String(&self) -> windows_result::Result<windows_core::HSTRING>;
+    fn SetString(&self, value: &windows_core::HSTRING) -> windows_result::Result<()>;
+    fn Int32(&self) -> windows_result::Result<i32>;
+    fn SetInt32(&self, value: i32) -> windows_result::Result<()>;
+    fn Test(&self) -> windows_result::Result<ITest>;
+    fn SetTest(&self, value: windows_core::Ref<ITest>) -> windows_result::Result<()>;
     fn MethodStringN(&self, test: &windows_core::HSTRING);
     fn MethodInt32N(&self, test: i32);
     fn MethodTestN(&self, test: windows_core::Ref<ITest>);

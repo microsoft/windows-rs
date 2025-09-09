@@ -12,13 +12,13 @@ pub struct ISoundLevelBrokerStatics_Vtbl {
 }
 pub struct SoundLevelBroker;
 impl SoundLevelBroker {
-    pub fn SoundLevel() -> windows_core::Result<super::super::SoundLevel> {
+    pub fn SoundLevel() -> windows_result::Result<super::super::SoundLevel> {
         Self::ISoundLevelBrokerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SoundLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    pub fn SoundLevelChanged<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn SoundLevelChanged<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -27,10 +27,10 @@ impl SoundLevelBroker {
             (windows_core::Interface::vtable(this).SoundLevelChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveSoundLevelChanged(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSoundLevelChanged(token: i64) -> windows_result::Result<()> {
         Self::ISoundLevelBrokerStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveSoundLevelChanged)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISoundLevelBrokerStatics<R, F: FnOnce(&ISoundLevelBrokerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SoundLevelBroker, ISoundLevelBrokerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

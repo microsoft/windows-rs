@@ -3,7 +3,7 @@
 pub struct ContactDataProviderConnection(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDataProviderConnection, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDataProviderConnection {
-    pub fn SyncRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn SyncRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>,
     {
@@ -13,11 +13,11 @@ impl ContactDataProviderConnection {
             (windows_core::Interface::vtable(this).SyncRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSyncRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSyncRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSyncRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ServerSearchReadBatchRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>,
     {
@@ -27,15 +27,15 @@ impl ContactDataProviderConnection {
             (windows_core::Interface::vtable(this).ServerSearchReadBatchRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveServerSearchReadBatchRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveServerSearchReadBatchRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveServerSearchReadBatchRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn CreateOrUpdateContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CreateOrUpdateContactRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>,
     {
@@ -45,11 +45,11 @@ impl ContactDataProviderConnection {
             (windows_core::Interface::vtable(this).CreateOrUpdateContactRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCreateOrUpdateContactRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCreateOrUpdateContactRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCreateOrUpdateContactRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DeleteContactRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DeleteContactRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>,
     {
@@ -59,7 +59,7 @@ impl ContactDataProviderConnection {
             (windows_core::Interface::vtable(this).DeleteContactRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDeleteContactRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDeleteContactRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveDeleteContactRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -81,7 +81,7 @@ unsafe impl Sync for ContactDataProviderConnection {}
 pub struct ContactDataProviderTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactDataProviderTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactDataProviderTriggerDetails {
-    pub fn Connection(&self) -> windows_core::Result<ContactDataProviderConnection> {
+    pub fn Connection(&self) -> windows_result::Result<ContactDataProviderConnection> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -106,21 +106,21 @@ unsafe impl Sync for ContactDataProviderTriggerDetails {}
 pub struct ContactListCreateOrUpdateContactRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListCreateOrUpdateContactRequest {
-    pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContactListId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactListId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Contact(&self) -> windows_core::Result<super::Contact> {
+    pub fn Contact(&self) -> windows_result::Result<super::Contact> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Contact)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedcontact: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ReportCompletedAsync<P0>(&self, createdorupdatedcontact: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::Contact>,
     {
@@ -130,7 +130,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), createdorupdatedcontact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,14 +155,14 @@ unsafe impl Sync for ContactListCreateOrUpdateContactRequest {}
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListCreateOrUpdateContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<ContactListCreateOrUpdateContactRequest> {
+    pub fn Request(&self) -> windows_result::Result<ContactListCreateOrUpdateContactRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -187,28 +187,28 @@ unsafe impl Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
 pub struct ContactListDeleteContactRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListDeleteContactRequest {
-    pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContactListId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactListId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContactId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContactId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -233,14 +233,14 @@ unsafe impl Sync for ContactListDeleteContactRequest {}
 pub struct ContactListDeleteContactRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListDeleteContactRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListDeleteContactRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<ContactListDeleteContactRequest> {
+    pub fn Request(&self) -> windows_result::Result<ContactListDeleteContactRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -265,35 +265,35 @@ unsafe impl Sync for ContactListDeleteContactRequestEventArgs {}
 pub struct ContactListServerSearchReadBatchRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListServerSearchReadBatchRequest {
-    pub fn SessionId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SessionId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContactListId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactListId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Options(&self) -> windows_core::Result<super::ContactQueryOptions> {
+    pub fn Options(&self) -> windows_result::Result<super::ContactQueryOptions> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Options)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SuggestedBatchSize(&self) -> windows_core::Result<u32> {
+    pub fn SuggestedBatchSize(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SuggestedBatchSize)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SaveContactAsync<P0>(&self, contact: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SaveContactAsync<P0>(&self, contact: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::Contact>,
     {
@@ -303,14 +303,14 @@ impl ContactListServerSearchReadBatchRequest {
             (windows_core::Interface::vtable(this).SaveContactAsync)(windows_core::Interface::as_raw(this), contact.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -335,14 +335,14 @@ unsafe impl Sync for ContactListServerSearchReadBatchRequest {}
 pub struct ContactListServerSearchReadBatchRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListServerSearchReadBatchRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListServerSearchReadBatchRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<ContactListServerSearchReadBatchRequest> {
+    pub fn Request(&self) -> windows_result::Result<ContactListServerSearchReadBatchRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -367,21 +367,21 @@ unsafe impl Sync for ContactListServerSearchReadBatchRequestEventArgs {}
 pub struct ContactListSyncManagerSyncRequest(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequest, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncManagerSyncRequest {
-    pub fn ContactListId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ContactListId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContactListId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ReportCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportCompletedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReportCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportFailedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn ReportFailedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -406,14 +406,14 @@ unsafe impl Sync for ContactListSyncManagerSyncRequest {}
 pub struct ContactListSyncManagerSyncRequestEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ContactListSyncManagerSyncRequestEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl ContactListSyncManagerSyncRequestEventArgs {
-    pub fn Request(&self) -> windows_core::Result<ContactListSyncManagerSyncRequest> {
+    pub fn Request(&self) -> windows_result::Result<ContactListSyncManagerSyncRequest> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Request)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

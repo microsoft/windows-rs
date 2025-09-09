@@ -364,91 +364,91 @@ impl windows_core::RuntimeType for PhotoImportContentTypeFilter {
 pub struct PhotoImportDeleteImportedItemsFromSourceResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportDeleteImportedItemsFromSourceResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportDeleteImportedItemsFromSourceResult {
-    pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
+    pub fn Session(&self) -> windows_result::Result<PhotoImportSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasSucceeded(&self) -> windows_core::Result<bool> {
+    pub fn HasSucceeded(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasSucceeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeletedItems(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportItem>> {
+    pub fn DeletedItems(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeletedItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotosCount(&self) -> windows_core::Result<u32> {
+    pub fn PhotosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PhotosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PhotosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosCount(&self) -> windows_core::Result<u32> {
+    pub fn VideosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn VideosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsCount(&self) -> windows_core::Result<u32> {
+    pub fn SidecarsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SidecarsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsCount(&self) -> windows_core::Result<u32> {
+    pub fn SiblingsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SiblingsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalCount(&self) -> windows_core::Result<u32> {
+    pub fn TotalCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn TotalSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -473,194 +473,194 @@ unsafe impl Sync for PhotoImportDeleteImportedItemsFromSourceResult {}
 pub struct PhotoImportFindItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportFindItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportFindItemsResult {
-    pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
+    pub fn Session(&self) -> windows_result::Result<PhotoImportSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasSucceeded(&self) -> windows_core::Result<bool> {
+    pub fn HasSucceeded(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasSucceeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FoundItems(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportItem>> {
+    pub fn FoundItems(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FoundItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotosCount(&self) -> windows_core::Result<u32> {
+    pub fn PhotosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PhotosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PhotosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosCount(&self) -> windows_core::Result<u32> {
+    pub fn VideosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn VideosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsCount(&self) -> windows_core::Result<u32> {
+    pub fn SidecarsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SidecarsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsCount(&self) -> windows_core::Result<u32> {
+    pub fn SiblingsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SiblingsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalCount(&self) -> windows_core::Result<u32> {
+    pub fn TotalCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn TotalSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectAll(&self) -> windows_core::Result<()> {
+    pub fn SelectAll(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SelectAll)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SelectNone(&self) -> windows_core::Result<()> {
+    pub fn SelectNone(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SelectNone)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SelectNewAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn SelectNewAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectNewAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetImportMode(&self, value: PhotoImportImportMode) -> windows_core::Result<()> {
+    pub fn SetImportMode(&self, value: PhotoImportImportMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetImportMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ImportMode(&self) -> windows_core::Result<PhotoImportImportMode> {
+    pub fn ImportMode(&self) -> windows_result::Result<PhotoImportImportMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImportMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedPhotosCount(&self) -> windows_core::Result<u32> {
+    pub fn SelectedPhotosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedPhotosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedPhotosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SelectedPhotosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedPhotosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedVideosCount(&self) -> windows_core::Result<u32> {
+    pub fn SelectedVideosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedVideosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedVideosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SelectedVideosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedVideosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedSidecarsCount(&self) -> windows_core::Result<u32> {
+    pub fn SelectedSidecarsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedSidecarsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedSidecarsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SelectedSidecarsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedSidecarsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedSiblingsCount(&self) -> windows_core::Result<u32> {
+    pub fn SelectedSiblingsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedSiblingsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedSiblingsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SelectedSiblingsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedSiblingsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTotalCount(&self) -> windows_core::Result<u32> {
+    pub fn SelectedTotalCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedTotalCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectedTotalSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SelectedTotalSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SelectedTotalSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SelectionChanged<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn SelectionChanged<P0>(&self, value: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportSelectionChangedEventArgs>>,
     {
@@ -670,18 +670,18 @@ impl PhotoImportFindItemsResult {
             (windows_core::Interface::vtable(this).SelectionChanged)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveSelectionChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveSelectionChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveSelectionChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn ImportItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
+    pub fn ImportItemsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImportItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ItemImported<P0>(&self, value: P0) -> windows_core::Result<i64>
+    pub fn ItemImported<P0>(&self, value: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<PhotoImportFindItemsResult, PhotoImportItemImportedEventArgs>>,
     {
@@ -691,11 +691,11 @@ impl PhotoImportFindItemsResult {
             (windows_core::Interface::vtable(this).ItemImported)(windows_core::Interface::as_raw(this), value.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveItemImported(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveItemImported(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveItemImported)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AddItemsInDateRangeToSelection(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn AddItemsInDateRangeToSelection(&self, rangestart: super::super::Foundation::DateTime, rangelength: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPhotoImportFindItemsResult2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).AddItemsInDateRangeToSelection)(windows_core::Interface::as_raw(this), rangestart, rangelength).ok() }
     }
@@ -717,98 +717,98 @@ unsafe impl Sync for PhotoImportFindItemsResult {}
 pub struct PhotoImportImportItemsResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportImportItemsResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportImportItemsResult {
-    pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
+    pub fn Session(&self) -> windows_result::Result<PhotoImportSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn HasSucceeded(&self) -> windows_core::Result<bool> {
+    pub fn HasSucceeded(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HasSucceeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ImportedItems(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportItem>> {
+    pub fn ImportedItems(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportItem>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImportedItems)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PhotosCount(&self) -> windows_core::Result<u32> {
+    pub fn PhotosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PhotosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn PhotosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosCount(&self) -> windows_core::Result<u32> {
+    pub fn VideosCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn VideosSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn VideosSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideosSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsCount(&self) -> windows_core::Result<u32> {
+    pub fn SidecarsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SidecarsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SidecarsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SidecarsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsCount(&self) -> windows_core::Result<u32> {
+    pub fn SiblingsCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SiblingsSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SiblingsSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SiblingsSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalCount(&self) -> windows_core::Result<u32> {
+    pub fn TotalCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TotalSizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn TotalSizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TotalSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn DeleteImportedItemsFromSourceAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
+    pub fn DeleteImportedItemsFromSourceAsync(&self) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -848,96 +848,96 @@ impl windows_core::RuntimeType for PhotoImportImportMode {
 pub struct PhotoImportItem(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItem, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItem {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ItemKey(&self) -> windows_core::Result<u64> {
+    pub fn ItemKey(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ItemKey)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ContentType(&self) -> windows_core::Result<PhotoImportContentType> {
+    pub fn ContentType(&self) -> windows_result::Result<PhotoImportContentType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContentType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Date)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Sibling(&self) -> windows_core::Result<PhotoImportSidecar> {
+    pub fn Sibling(&self) -> windows_result::Result<PhotoImportSidecar> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sibling)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Sidecars(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportSidecar>> {
+    pub fn Sidecars(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportSidecar>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sidecars)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn VideoSegments(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportVideoSegment>> {
+    pub fn VideoSegments(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportVideoSegment>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).VideoSegments)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsSelected(&self) -> windows_core::Result<bool> {
+    pub fn IsSelected(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSelected)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetIsSelected(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetIsSelected(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetIsSelected)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ImportedFileNames(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn ImportedFileNames(&self) -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ImportedFileNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DeletedFileNames(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn DeletedFileNames(&self) -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeletedFileNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Path(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPhotoImportItem2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -962,7 +962,7 @@ unsafe impl Sync for PhotoImportItem {}
 pub struct PhotoImportItemImportedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportItemImportedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportItemImportedEventArgs {
-    pub fn ImportedItem(&self) -> windows_core::Result<PhotoImportItem> {
+    pub fn ImportedItem(&self) -> windows_result::Result<PhotoImportItem> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -998,25 +998,25 @@ impl windows_core::RuntimeType for PhotoImportItemSelectionMode {
 }
 pub struct PhotoImportManager;
 impl PhotoImportManager {
-    pub fn IsSupportedAsync() -> windows_core::Result<windows_future::IAsyncOperation<bool>> {
+    pub fn IsSupportedAsync() -> windows_result::Result<windows_future::IAsyncOperation<bool>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupportedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FindAllSourcesAsync() -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PhotoImportSource>>> {
+    pub fn FindAllSourcesAsync() -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<PhotoImportSource>>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindAllSourcesAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetPendingOperations() -> windows_core::Result<windows_collections::IVectorView<PhotoImportOperation>> {
+    pub fn GetPendingOperations() -> windows_result::Result<windows_collections::IVectorView<PhotoImportOperation>> {
         Self::IPhotoImportManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetPendingOperations)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhotoImportManager, IPhotoImportManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1029,35 +1029,35 @@ impl windows_core::RuntimeName for PhotoImportManager {
 pub struct PhotoImportOperation(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportOperation, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportOperation {
-    pub fn Stage(&self) -> windows_core::Result<PhotoImportStage> {
+    pub fn Stage(&self) -> windows_result::Result<PhotoImportStage> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Stage)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Session(&self) -> windows_core::Result<PhotoImportSession> {
+    pub fn Session(&self) -> windows_result::Result<PhotoImportSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueFindingItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
+    pub fn ContinueFindingItemsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinueFindingItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueImportingItemsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
+    pub fn ContinueImportingItemsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportImportItemsResult, PhotoImportProgress>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ContinueImportingItemsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
+    pub fn ContinueDeletingImportedItemsFromSourceAsync(&self) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportDeleteImportedItemsFromSourceResult, f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1111,7 +1111,7 @@ impl windows_core::RuntimeType for PhotoImportProgress {
 pub struct PhotoImportSelectionChangedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSelectionChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSelectionChangedEventArgs {
-    pub fn IsSelectionEmpty(&self) -> windows_core::Result<bool> {
+    pub fn IsSelectionEmpty(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1137,18 +1137,18 @@ pub struct PhotoImportSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSession, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(PhotoImportSession, super::super::Foundation::IClosable);
 impl PhotoImportSession {
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Source(&self) -> windows_core::Result<PhotoImportSource> {
+    pub fn Source(&self) -> windows_result::Result<PhotoImportSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Source)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SessionId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub fn SessionId(&self) -> windows_result::Result<windows_core::GUID> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1156,7 +1156,7 @@ impl PhotoImportSession {
         }
     }
     #[cfg(feature = "Storage")]
-    pub fn SetDestinationFolder<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetDestinationFolder<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -1164,69 +1164,69 @@ impl PhotoImportSession {
         unsafe { (windows_core::Interface::vtable(this).SetDestinationFolder)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
     #[cfg(feature = "Storage")]
-    pub fn DestinationFolder(&self) -> windows_core::Result<super::super::Storage::IStorageFolder> {
+    pub fn DestinationFolder(&self) -> windows_result::Result<super::super::Storage::IStorageFolder> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DestinationFolder)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAppendSessionDateToDestinationFolder(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAppendSessionDateToDestinationFolder(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAppendSessionDateToDestinationFolder)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AppendSessionDateToDestinationFolder(&self) -> windows_core::Result<bool> {
+    pub fn AppendSessionDateToDestinationFolder(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppendSessionDateToDestinationFolder)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSubfolderCreationMode(&self, value: PhotoImportSubfolderCreationMode) -> windows_core::Result<()> {
+    pub fn SetSubfolderCreationMode(&self, value: PhotoImportSubfolderCreationMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSubfolderCreationMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SubfolderCreationMode(&self) -> windows_core::Result<PhotoImportSubfolderCreationMode> {
+    pub fn SubfolderCreationMode(&self) -> windows_result::Result<PhotoImportSubfolderCreationMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubfolderCreationMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDestinationFileNamePrefix(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDestinationFileNamePrefix(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDestinationFileNamePrefix)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn DestinationFileNamePrefix(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DestinationFileNamePrefix(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DestinationFileNamePrefix)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> windows_core::Result<windows_future::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
+    pub fn FindItemsAsync(&self, contenttypefilter: PhotoImportContentTypeFilter, itemselectionmode: PhotoImportItemSelectionMode) -> windows_result::Result<windows_future::IAsyncOperationWithProgress<PhotoImportFindItemsResult, u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FindItemsAsync)(windows_core::Interface::as_raw(this), contenttypefilter, itemselectionmode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSubfolderDateFormat(&self, value: PhotoImportSubfolderDateFormat) -> windows_core::Result<()> {
+    pub fn SetSubfolderDateFormat(&self, value: PhotoImportSubfolderDateFormat) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSubfolderDateFormat)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SubfolderDateFormat(&self) -> windows_core::Result<PhotoImportSubfolderDateFormat> {
+    pub fn SubfolderDateFormat(&self) -> windows_result::Result<PhotoImportSubfolderDateFormat> {
         let this = &windows_core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SubfolderDateFormat)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetRememberDeselectedItems(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetRememberDeselectedItems(&self, value: bool) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetRememberDeselectedItems)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn RememberDeselectedItems(&self) -> windows_core::Result<bool> {
+    pub fn RememberDeselectedItems(&self) -> windows_result::Result<bool> {
         let this = &windows_core::Interface::cast::<IPhotoImportSession2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1251,21 +1251,21 @@ unsafe impl Sync for PhotoImportSession {}
 pub struct PhotoImportSidecar(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSidecar, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSidecar {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1290,105 +1290,105 @@ unsafe impl Sync for PhotoImportSidecar {}
 pub struct PhotoImportSource(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportSource, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportSource {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Manufacturer(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Manufacturer(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Manufacturer)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Model(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Model(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Model)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SerialNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SerialNumber(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ConnectionProtocol(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ConnectionProtocol(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionProtocol)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn ConnectionTransport(&self) -> windows_core::Result<PhotoImportConnectionTransport> {
+    pub fn ConnectionTransport(&self) -> windows_result::Result<PhotoImportConnectionTransport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectionTransport)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Type(&self) -> windows_core::Result<PhotoImportSourceType> {
+    pub fn Type(&self) -> windows_result::Result<PhotoImportSourceType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PowerSource(&self) -> windows_core::Result<PhotoImportPowerSource> {
+    pub fn PowerSource(&self) -> windows_result::Result<PhotoImportPowerSource> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PowerSource)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BatteryLevelPercent(&self) -> windows_core::Result<super::super::Foundation::IReference<u32>> {
+    pub fn BatteryLevelPercent(&self) -> windows_result::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryLevelPercent)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DateTime(&self) -> windows_core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
+    pub fn DateTime(&self) -> windows_result::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DateTime)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StorageMedia(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportStorageMedium>> {
+    pub fn StorageMedia(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportStorageMedium>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageMedia)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsLocked(&self) -> windows_core::Result<super::super::Foundation::IReference<bool>> {
+    pub fn IsLocked(&self) -> windows_result::Result<super::super::Foundation::IReference<bool>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsLocked)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IsMassStorage(&self) -> windows_core::Result<bool> {
+    pub fn IsMassStorage(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1396,28 +1396,28 @@ impl PhotoImportSource {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateImportSession(&self) -> windows_core::Result<PhotoImportSession> {
+    pub fn CreateImportSession(&self) -> windows_result::Result<PhotoImportSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateImportSession)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromIdAsync(sourceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<PhotoImportSource>> {
+    pub fn FromIdAsync(sourceid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<PhotoImportSource>> {
         Self::IPhotoImportSourceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(sourceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Storage")]
-    pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> windows_core::Result<windows_future::IAsyncOperation<PhotoImportSource>>
+    pub fn FromFolderAsync<P0>(sourcerootfolder: P0) -> windows_result::Result<windows_future::IAsyncOperation<PhotoImportSource>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFolder>,
     {
@@ -1426,7 +1426,7 @@ impl PhotoImportSource {
             (windows_core::Interface::vtable(this).FromFolderAsync)(windows_core::Interface::as_raw(this), sourcerootfolder.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PhotoImportSource, IPhotoImportSourceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1481,56 +1481,56 @@ impl windows_core::RuntimeType for PhotoImportStage {
 pub struct PhotoImportStorageMedium(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportStorageMedium, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportStorageMedium {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Description(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SerialNumber(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SerialNumber(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SerialNumber)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn StorageMediumType(&self) -> windows_core::Result<PhotoImportStorageMediumType> {
+    pub fn StorageMediumType(&self) -> windows_result::Result<PhotoImportStorageMediumType> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StorageMediumType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SupportedAccessMode(&self) -> windows_core::Result<PhotoImportAccessMode> {
+    pub fn SupportedAccessMode(&self) -> windows_result::Result<PhotoImportAccessMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SupportedAccessMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CapacityInBytes(&self) -> windows_core::Result<u64> {
+    pub fn CapacityInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapacityInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AvailableSpaceInBytes(&self) -> windows_core::Result<u64> {
+    pub fn AvailableSpaceInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AvailableSpaceInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Refresh(&self) -> windows_core::Result<()> {
+    pub fn Refresh(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Refresh)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -1595,35 +1595,35 @@ impl windows_core::RuntimeType for PhotoImportSubfolderDateFormat {
 pub struct PhotoImportVideoSegment(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PhotoImportVideoSegment, windows_core::IUnknown, windows_core::IInspectable);
 impl PhotoImportVideoSegment {
-    pub fn Name(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Name(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Name)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SizeInBytes(&self) -> windows_core::Result<u64> {
+    pub fn SizeInBytes(&self) -> windows_result::Result<u64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Date(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn Date(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Date)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Sibling(&self) -> windows_core::Result<PhotoImportSidecar> {
+    pub fn Sibling(&self) -> windows_result::Result<PhotoImportSidecar> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sibling)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Sidecars(&self) -> windows_core::Result<windows_collections::IVectorView<PhotoImportSidecar>> {
+    pub fn Sidecars(&self) -> windows_result::Result<windows_collections::IVectorView<PhotoImportSidecar>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

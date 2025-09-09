@@ -11,20 +11,20 @@
 pub struct A(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(A, windows_core::IUnknown, windows_core::IInspectable);
 impl A {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<A, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -35,7 +35,7 @@ impl A {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -66,20 +66,20 @@ unsafe impl Sync for A {}
 pub struct B(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(B, windows_core::IUnknown, windows_core::IInspectable);
 impl B {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<B, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MethodOne(&self) -> windows_core::Result<i32> {
+    pub fn MethodOne(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -90,7 +90,7 @@ impl B {
             .map(|| result__)
         }
     }
-    pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn MethodTwo(&self, a: i32) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -121,20 +121,20 @@ unsafe impl Sync for B {}
 pub struct C(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(C, windows_core::IUnknown, windows_core::IInspectable);
 impl C {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<C, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -145,7 +145,7 @@ impl C {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -176,20 +176,20 @@ unsafe impl Sync for C {}
 pub struct D(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(D, windows_core::IUnknown, windows_core::IInspectable);
 impl D {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<D, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Method(&self) -> windows_core::Result<i32> {
+    pub fn Method(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -200,7 +200,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method2(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn Method2(&self, a: i32) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -212,7 +212,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method3(&self, a: i32, b: i32) -> windows_core::Result<i32> {
+    pub fn Method3(&self, a: i32, b: i32) -> windows_result::Result<i32> {
         let this = &windows_core::Interface::cast::<ID2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -225,7 +225,7 @@ impl D {
             .map(|| result__)
         }
     }
-    pub fn Method4(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32> {
+    pub fn Method4(&self, a: i32, b: i32, c: i32) -> windows_result::Result<i32> {
         let this = &windows_core::Interface::cast::<ID2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -258,20 +258,20 @@ unsafe impl Sync for D {}
 pub struct E(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(E, windows_core::IUnknown, windows_core::IInspectable);
 impl E {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
     fn IActivationFactory<
         R,
-        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>,
+        F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<E, windows_core::imp::IGenericFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn MethodOne(&self) -> windows_core::Result<i32> {
+    pub fn MethodOne(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -282,7 +282,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodTwo(&self, a: i32) -> windows_core::Result<i32> {
+    pub fn MethodTwo(&self, a: i32) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -294,7 +294,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodThree(&self, a: i32, b: i32) -> windows_core::Result<i32> {
+    pub fn MethodThree(&self, a: i32, b: i32) -> windows_result::Result<i32> {
         let this = &windows_core::Interface::cast::<IE2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -307,7 +307,7 @@ impl E {
             .map(|| result__)
         }
     }
-    pub fn MethodFour(&self, a: i32, b: i32, c: i32) -> windows_core::Result<i32> {
+    pub fn MethodFour(&self, a: i32, b: i32, c: i32) -> windows_result::Result<i32> {
         let this = &windows_core::Interface::cast::<IE2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();

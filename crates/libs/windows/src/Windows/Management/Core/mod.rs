@@ -4,13 +4,13 @@ pub struct ApplicationDataManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(ApplicationDataManager, windows_core::IUnknown, windows_core::IInspectable);
 impl ApplicationDataManager {
     #[cfg(feature = "Storage")]
-    pub fn CreateForPackageFamily(packagefamilyname: &windows_core::HSTRING) -> windows_core::Result<super::super::Storage::ApplicationData> {
+    pub fn CreateForPackageFamily(packagefamilyname: &windows_core::HSTRING) -> windows_result::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateForPackageFamily)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IApplicationDataManagerStatics<R, F: FnOnce(&IApplicationDataManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IApplicationDataManagerStatics<R, F: FnOnce(&IApplicationDataManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<ApplicationDataManager, IApplicationDataManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

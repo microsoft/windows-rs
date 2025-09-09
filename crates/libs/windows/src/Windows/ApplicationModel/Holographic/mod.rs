@@ -4,7 +4,7 @@ pub struct HolographicKeyboard(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HolographicKeyboard, windows_core::IUnknown, windows_core::IInspectable);
 impl HolographicKeyboard {
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_core::Result<()>
+    pub fn SetPlacementOverride<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
@@ -12,24 +12,24 @@ impl HolographicKeyboard {
         unsafe { (windows_core::Interface::vtable(this).SetPlacementOverride)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation).ok() }
     }
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))]
-    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: windows_numerics::Vector2) -> windows_core::Result<()>
+    pub fn SetPlacementOverrideWithMaxSize<P0>(&self, coordinatesystem: P0, topcenterposition: windows_numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion, maxsize: windows_numerics::Vector2) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::Perception::Spatial::SpatialCoordinateSystem>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPlacementOverrideWithMaxSize)(windows_core::Interface::as_raw(this), coordinatesystem.param().abi(), topcenterposition, orientation, maxsize).ok() }
     }
-    pub fn ResetPlacementOverride(&self) -> windows_core::Result<()> {
+    pub fn ResetPlacementOverride(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ResetPlacementOverride)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<HolographicKeyboard> {
+    pub fn GetDefault() -> windows_result::Result<HolographicKeyboard> {
         Self::IHolographicKeyboardStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IHolographicKeyboardStatics<R, F: FnOnce(&IHolographicKeyboardStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHolographicKeyboardStatics<R, F: FnOnce(&IHolographicKeyboardStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HolographicKeyboard, IHolographicKeyboardStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

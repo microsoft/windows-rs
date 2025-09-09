@@ -1,7 +1,7 @@
 windows_core::imp::define_interface!(IInkCommitRequestHandler, IInkCommitRequestHandler_Vtbl, 0xfabea3fc_b108_45b6_a9fc_8d08fa9f85cf);
 windows_core::imp::interface_hierarchy!(IInkCommitRequestHandler, windows_core::IUnknown);
 impl IInkCommitRequestHandler {
-    pub unsafe fn OnCommitRequested(&self) -> windows_core::Result<()> {
+    pub unsafe fn OnCommitRequested(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnCommitRequested)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -12,7 +12,7 @@ pub struct IInkCommitRequestHandler_Vtbl {
     pub OnCommitRequested: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInkCommitRequestHandler_Impl: windows_core::IUnknownImpl {
-    fn OnCommitRequested(&self) -> windows_core::Result<()>;
+    fn OnCommitRequested(&self) -> windows_result::Result<()>;
 }
 impl IInkCommitRequestHandler_Vtbl {
     pub const fn new<Identity: IInkCommitRequestHandler_Impl, const OFFSET: isize>() -> Self {
@@ -32,7 +32,7 @@ impl windows_core::RuntimeName for IInkCommitRequestHandler {}
 windows_core::imp::define_interface!(IInkD2DRenderer, IInkD2DRenderer_Vtbl, 0x407fb1de_f85a_4150_97cf_b7fb274fb4f8);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer, windows_core::IUnknown);
 impl IInkD2DRenderer {
-    pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: bool) -> windows_core::Result<()>
+    pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, fhighcontrast: bool) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -47,7 +47,7 @@ pub struct IInkD2DRenderer_Vtbl {
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, windows_core::BOOL) -> windows_core::HRESULT,
 }
 pub trait IInkD2DRenderer_Impl: windows_core::IUnknownImpl {
-    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, fhighcontrast: windows_core::BOOL) -> windows_core::Result<()>;
+    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, fhighcontrast: windows_core::BOOL) -> windows_result::Result<()>;
 }
 impl IInkD2DRenderer_Vtbl {
     pub const fn new<Identity: IInkD2DRenderer_Impl, const OFFSET: isize>() -> Self {
@@ -67,7 +67,7 @@ impl windows_core::RuntimeName for IInkD2DRenderer {}
 windows_core::imp::define_interface!(IInkD2DRenderer2, IInkD2DRenderer2_Vtbl, 0x0a95dcd9_4578_4b71_b20b_bf664d4bfeee);
 windows_core::imp::interface_hierarchy!(IInkD2DRenderer2, windows_core::IUnknown);
 impl IInkD2DRenderer2 {
-    pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::Result<()>
+    pub unsafe fn Draw<P0, P1>(&self, pd2d1devicecontext: P0, pinkstrokeiterable: P1, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
@@ -82,7 +82,7 @@ pub struct IInkD2DRenderer2_Vtbl {
     pub Draw: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::HRESULT,
 }
 pub trait IInkD2DRenderer2_Impl: windows_core::IUnknownImpl {
-    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_core::Result<()>;
+    fn Draw(&self, pd2d1devicecontext: windows_core::Ref<windows_core::IUnknown>, pinkstrokeiterable: windows_core::Ref<windows_core::IUnknown>, highcontrastadjustment: INK_HIGH_CONTRAST_ADJUSTMENT) -> windows_result::Result<()>;
 }
 impl IInkD2DRenderer2_Vtbl {
     pub const fn new<Identity: IInkD2DRenderer2_Impl, const OFFSET: isize>() -> Self {
@@ -102,20 +102,20 @@ impl windows_core::RuntimeName for IInkD2DRenderer2 {}
 windows_core::imp::define_interface!(IInkDesktopHost, IInkDesktopHost_Vtbl, 0x4ce7d875_a981_4140_a1ff_ad93258e8d59);
 windows_core::imp::interface_hierarchy!(IInkDesktopHost, windows_core::IUnknown);
 impl IInkDesktopHost {
-    pub unsafe fn QueueWorkItem<P0>(&self, workitem: P0) -> windows_core::Result<()>
+    pub unsafe fn QueueWorkItem<P0>(&self, workitem: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkHostWorkItem>,
     {
         unsafe { (windows_core::Interface::vtable(self).QueueWorkItem)(windows_core::Interface::as_raw(self), workitem.param().abi()).ok() }
     }
-    pub unsafe fn CreateInkPresenter<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn CreateInkPresenter<T>(&self) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateInkPresenter)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> windows_core::Result<T>
+    pub unsafe fn CreateAndInitializeInkPresenter<P0, T>(&self, rootvisual: P0, width: f32, height: f32) -> windows_result::Result<T>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
@@ -133,9 +133,9 @@ pub struct IInkDesktopHost_Vtbl {
     pub CreateAndInitializeInkPresenter: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, f32, f32, *const windows_core::GUID, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInkDesktopHost_Impl: windows_core::IUnknownImpl {
-    fn QueueWorkItem(&self, workitem: windows_core::Ref<IInkHostWorkItem>) -> windows_core::Result<()>;
-    fn CreateInkPresenter(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateAndInitializeInkPresenter(&self, rootvisual: windows_core::Ref<windows_core::IUnknown>, width: f32, height: f32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn QueueWorkItem(&self, workitem: windows_core::Ref<IInkHostWorkItem>) -> windows_result::Result<()>;
+    fn CreateInkPresenter(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateAndInitializeInkPresenter(&self, rootvisual: windows_core::Ref<windows_core::IUnknown>, width: f32, height: f32, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl IInkDesktopHost_Vtbl {
     pub const fn new<Identity: IInkDesktopHost_Impl, const OFFSET: isize>() -> Self {
@@ -172,7 +172,7 @@ impl windows_core::RuntimeName for IInkDesktopHost {}
 windows_core::imp::define_interface!(IInkHostWorkItem, IInkHostWorkItem_Vtbl, 0xccda0a9a_1b78_4632_bb96_97800662e26c);
 windows_core::imp::interface_hierarchy!(IInkHostWorkItem, windows_core::IUnknown);
 impl IInkHostWorkItem {
-    pub unsafe fn Invoke(&self) -> windows_core::Result<()> {
+    pub unsafe fn Invoke(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Invoke)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -183,7 +183,7 @@ pub struct IInkHostWorkItem_Vtbl {
     pub Invoke: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInkHostWorkItem_Impl: windows_core::IUnknownImpl {
-    fn Invoke(&self) -> windows_core::Result<()>;
+    fn Invoke(&self) -> windows_result::Result<()>;
 }
 impl IInkHostWorkItem_Vtbl {
     pub const fn new<Identity: IInkHostWorkItem_Impl, const OFFSET: isize>() -> Self {
@@ -203,26 +203,26 @@ impl windows_core::RuntimeName for IInkHostWorkItem {}
 windows_core::imp::define_interface!(IInkPresenterDesktop, IInkPresenterDesktop_Vtbl, 0x73f3c0d9_2e8b_48f3_895e_20cbd27b723b);
 windows_core::imp::interface_hierarchy!(IInkPresenterDesktop, windows_core::IUnknown);
 impl IInkPresenterDesktop {
-    pub unsafe fn SetRootVisual<P0, P1>(&self, rootvisual: P0, device: P1) -> windows_core::Result<()>
+    pub unsafe fn SetRootVisual<P0, P1>(&self, rootvisual: P0, device: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetRootVisual)(windows_core::Interface::as_raw(self), rootvisual.param().abi(), device.param().abi()).ok() }
     }
-    pub unsafe fn SetCommitRequestHandler<P0>(&self, handler: P0) -> windows_core::Result<()>
+    pub unsafe fn SetCommitRequestHandler<P0>(&self, handler: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<IInkCommitRequestHandler>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetCommitRequestHandler)(windows_core::Interface::as_raw(self), handler.param().abi()).ok() }
     }
-    pub unsafe fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_core::Result<()> {
+    pub unsafe fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetSize)(windows_core::Interface::as_raw(self), width as _, height as _).ok() }
     }
-    pub unsafe fn SetSize(&self, width: f32, height: f32) -> windows_core::Result<()> {
+    pub unsafe fn SetSize(&self, width: f32, height: f32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSize)(windows_core::Interface::as_raw(self), width, height).ok() }
     }
-    pub unsafe fn OnHighContrastChanged(&self) -> windows_core::Result<()> {
+    pub unsafe fn OnHighContrastChanged(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).OnHighContrastChanged)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -237,11 +237,11 @@ pub struct IInkPresenterDesktop_Vtbl {
     pub OnHighContrastChanged: unsafe extern "system" fn(*mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 pub trait IInkPresenterDesktop_Impl: windows_core::IUnknownImpl {
-    fn SetRootVisual(&self, rootvisual: windows_core::Ref<windows_core::IUnknown>, device: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetCommitRequestHandler(&self, handler: windows_core::Ref<IInkCommitRequestHandler>) -> windows_core::Result<()>;
-    fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_core::Result<()>;
-    fn SetSize(&self, width: f32, height: f32) -> windows_core::Result<()>;
-    fn OnHighContrastChanged(&self) -> windows_core::Result<()>;
+    fn SetRootVisual(&self, rootvisual: windows_core::Ref<windows_core::IUnknown>, device: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn SetCommitRequestHandler(&self, handler: windows_core::Ref<IInkCommitRequestHandler>) -> windows_result::Result<()>;
+    fn GetSize(&self, width: *mut f32, height: *mut f32) -> windows_result::Result<()>;
+    fn SetSize(&self, width: f32, height: f32) -> windows_result::Result<()>;
+    fn OnHighContrastChanged(&self) -> windows_result::Result<()>;
 }
 impl IInkPresenterDesktop_Vtbl {
     pub const fn new<Identity: IInkPresenterDesktop_Impl, const OFFSET: isize>() -> Self {

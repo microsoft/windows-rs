@@ -5,35 +5,35 @@ pub mod Core;
 pub struct EnterpriseKeyCredentialRegistrationInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationInfo {
-    pub fn TenantId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TenantId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TenantId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn TenantName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TenantName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TenantName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Subject(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Subject(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Subject)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn KeyId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn KeyId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).KeyId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn KeyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn KeyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -58,20 +58,20 @@ unsafe impl Sync for EnterpriseKeyCredentialRegistrationInfo {}
 pub struct EnterpriseKeyCredentialRegistrationManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EnterpriseKeyCredentialRegistrationManager, windows_core::IUnknown, windows_core::IInspectable);
 impl EnterpriseKeyCredentialRegistrationManager {
-    pub fn GetRegistrationsAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
+    pub fn GetRegistrationsAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<EnterpriseKeyCredentialRegistrationInfo>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetRegistrationsAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<EnterpriseKeyCredentialRegistrationManager> {
+    pub fn Current() -> windows_result::Result<EnterpriseKeyCredentialRegistrationManager> {
         Self::IEnterpriseKeyCredentialRegistrationManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IEnterpriseKeyCredentialRegistrationManagerStatics<R, F: FnOnce(&IEnterpriseKeyCredentialRegistrationManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEnterpriseKeyCredentialRegistrationManagerStatics<R, F: FnOnce(&IEnterpriseKeyCredentialRegistrationManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EnterpriseKeyCredentialRegistrationManager, IEnterpriseKeyCredentialRegistrationManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

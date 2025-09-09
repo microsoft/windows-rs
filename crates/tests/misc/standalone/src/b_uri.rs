@@ -21,7 +21,7 @@ windows_core::imp::interface_hierarchy!(
     windows_core::IInspectable
 );
 impl IStringable {
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -37,7 +37,7 @@ impl windows_core::RuntimeName for IStringable {
     const NAME: &'static str = "Windows.Foundation.IStringable";
 }
 pub trait IStringable_Impl: windows_core::IUnknownImpl {
-    fn ToString(&self) -> windows_core::Result<windows_core::HSTRING>;
+    fn ToString(&self) -> windows_result::Result<windows_core::HSTRING>;
 }
 impl IStringable_Vtbl {
     pub const fn new<Identity: IStringable_Impl, const OFFSET: isize>() -> Self {
@@ -229,7 +229,7 @@ pub struct Uri(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Uri, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(Uri, IStringable);
 impl Uri {
-    pub fn ToString(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ToString(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IStringable>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -242,7 +242,7 @@ impl Uri {
     }
     pub fn UnescapeComponent(
         tounescape: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> windows_result::Result<windows_core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).UnescapeComponent)(
@@ -255,7 +255,7 @@ impl Uri {
     }
     pub fn EscapeComponent(
         toescape: &windows_core::HSTRING,
-    ) -> windows_core::Result<windows_core::HSTRING> {
+    ) -> windows_result::Result<windows_core::HSTRING> {
         Self::IUriEscapeStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EscapeComponent)(
@@ -266,7 +266,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AbsoluteUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AbsoluteUri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -277,7 +277,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayUri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -288,7 +288,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Domain(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Domain(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -299,7 +299,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Extension(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Extension(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -310,7 +310,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Fragment(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Fragment(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -321,7 +321,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Host(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Host(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -332,7 +332,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Password(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Password(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -343,7 +343,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Path(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Path(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -354,7 +354,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Query(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Query(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -365,7 +365,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RawUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RawUri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -376,7 +376,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SchemeName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SchemeName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -387,7 +387,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn UserName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn UserName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -398,7 +398,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn Port(&self) -> windows_core::Result<i32> {
+    pub fn Port(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -409,7 +409,7 @@ impl Uri {
             .map(|| result__)
         }
     }
-    pub fn Suspicious(&self) -> windows_core::Result<bool> {
+    pub fn Suspicious(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -420,7 +420,7 @@ impl Uri {
             .map(|| result__)
         }
     }
-    pub fn Equals<P0>(&self, puri: P0) -> windows_core::Result<bool>
+    pub fn Equals<P0>(&self, puri: P0) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<Uri>,
     {
@@ -435,7 +435,7 @@ impl Uri {
             .map(|| result__)
         }
     }
-    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+    pub fn CombineUri(&self, relativeuri: &windows_core::HSTRING) -> windows_result::Result<Uri> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -447,7 +447,7 @@ impl Uri {
             .and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_core::Result<Uri> {
+    pub fn CreateUri(uri: &windows_core::HSTRING) -> windows_result::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateUri)(
@@ -461,7 +461,7 @@ impl Uri {
     pub fn CreateWithRelativeUri(
         baseuri: &windows_core::HSTRING,
         relativeuri: &windows_core::HSTRING,
-    ) -> windows_core::Result<Uri> {
+    ) -> windows_result::Result<Uri> {
         Self::IUriRuntimeClassFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateWithRelativeUri)(
@@ -473,7 +473,7 @@ impl Uri {
             .and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn AbsoluteCanonicalUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AbsoluteCanonicalUri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this =
             &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
@@ -485,7 +485,7 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    pub fn DisplayIri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayIri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this =
             &windows_core::Interface::cast::<IUriRuntimeClassWithAbsoluteCanonicalUri>(self)?;
         unsafe {
@@ -497,19 +497,19 @@ impl Uri {
             .map(|| core::mem::transmute(result__))
         }
     }
-    fn IUriEscapeStatics<R, F: FnOnce(&IUriEscapeStatics) -> windows_core::Result<R>>(
+    fn IUriEscapeStatics<R, F: FnOnce(&IUriEscapeStatics) -> windows_result::Result<R>>(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Uri, IUriEscapeStatics> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
     fn IUriRuntimeClassFactory<
         R,
-        F: FnOnce(&IUriRuntimeClassFactory) -> windows_core::Result<R>,
+        F: FnOnce(&IUriRuntimeClassFactory) -> windows_result::Result<R>,
     >(
         callback: F,
-    ) -> windows_core::Result<R> {
+    ) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Uri, IUriRuntimeClassFactory> =
             windows_core::imp::FactoryCache::new();
         SHARED.call(callback)

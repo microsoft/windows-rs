@@ -17,7 +17,7 @@ where
     unsafe { IUnknown_AddRef_Proxy(this.param().abi()) }
 }
 #[inline]
-pub unsafe fn IUnknown_QueryInterface_Proxy<P0>(this: P0, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>
+pub unsafe fn IUnknown_QueryInterface_Proxy<P0>(this: P0, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
@@ -987,7 +987,7 @@ pub unsafe fn NdrGetBuffer(pstubmsg: *mut MIDL_STUB_MESSAGE, bufferlength: u32, 
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> windows_core::Result<()> {
+pub unsafe fn NdrGetDcomProtocolVersion(pstubmsg: *mut MIDL_STUB_MESSAGE, pversion: *mut RPC_VERSION) -> windows_result::Result<()> {
     windows_link::link!("rpcrt4.dll" "system" fn NdrGetDcomProtocolVersion(pstubmsg : *mut MIDL_STUB_MESSAGE, pversion : *mut RPC_VERSION) -> windows_core::HRESULT);
     unsafe { NdrGetDcomProtocolVersion(core::mem::transmute(pstubmsg), pversion as _).ok() }
 }

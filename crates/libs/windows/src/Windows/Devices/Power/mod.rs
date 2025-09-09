@@ -3,21 +3,21 @@
 pub struct Battery(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(Battery, windows_core::IUnknown, windows_core::IInspectable);
 impl Battery {
-    pub fn DeviceId(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DeviceId(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DeviceId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetReport(&self) -> windows_core::Result<BatteryReport> {
+    pub fn GetReport(&self) -> windows_result::Result<BatteryReport> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetReport)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReportUpdated<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn ReportUpdated<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<Battery, windows_core::IInspectable>>,
     {
@@ -27,29 +27,29 @@ impl Battery {
             (windows_core::Interface::vtable(this).ReportUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveReportUpdated(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveReportUpdated(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveReportUpdated)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn AggregateBattery() -> windows_core::Result<Battery> {
+    pub fn AggregateBattery() -> windows_result::Result<Battery> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AggregateBattery)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<Battery>> {
+    pub fn FromIdAsync(deviceid: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<Battery>> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(deviceid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDeviceSelector() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector() -> windows_result::Result<windows_core::HSTRING> {
         Self::IBatteryStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IBatteryStatics<R, F: FnOnce(&IBatteryStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<Battery, IBatteryStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -71,28 +71,28 @@ unsafe impl Sync for Battery {}
 pub struct BatteryReport(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(BatteryReport, windows_core::IUnknown, windows_core::IInspectable);
 impl BatteryReport {
-    pub fn ChargeRateInMilliwatts(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn ChargeRateInMilliwatts(&self) -> windows_result::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChargeRateInMilliwatts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DesignCapacityInMilliwattHours(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn DesignCapacityInMilliwattHours(&self) -> windows_result::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesignCapacityInMilliwattHours)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FullChargeCapacityInMilliwattHours(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn FullChargeCapacityInMilliwattHours(&self) -> windows_result::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FullChargeCapacityInMilliwattHours)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RemainingCapacityInMilliwattHours(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+    pub fn RemainingCapacityInMilliwattHours(&self) -> windows_result::Result<super::super::Foundation::IReference<i32>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -100,7 +100,7 @@ impl BatteryReport {
         }
     }
     #[cfg(feature = "System_Power")]
-    pub fn Status(&self) -> windows_core::Result<super::super::System::Power::BatteryStatus> {
+    pub fn Status(&self) -> windows_result::Result<super::super::System::Power::BatteryStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -202,14 +202,14 @@ pub struct IPowerGridForecastStatics_Vtbl {
 pub struct PowerGridData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridData, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridData {
-    pub fn Severity(&self) -> windows_core::Result<f64> {
+    pub fn Severity(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Severity)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsLowUserExperienceImpact(&self) -> windows_core::Result<bool> {
+    pub fn IsLowUserExperienceImpact(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -234,34 +234,34 @@ unsafe impl Sync for PowerGridData {}
 pub struct PowerGridForecast(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PowerGridForecast, windows_core::IUnknown, windows_core::IInspectable);
 impl PowerGridForecast {
-    pub fn StartTime(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+    pub fn StartTime(&self) -> windows_result::Result<super::super::Foundation::DateTime> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BlockDuration(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn BlockDuration(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BlockDuration)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Forecast(&self) -> windows_core::Result<windows_collections::IVectorView<PowerGridData>> {
+    pub fn Forecast(&self) -> windows_result::Result<windows_collections::IVectorView<PowerGridData>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Forecast)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForecast() -> windows_core::Result<PowerGridForecast> {
+    pub fn GetForecast() -> windows_result::Result<PowerGridForecast> {
         Self::IPowerGridForecastStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForecast)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn ForecastUpdated<P0>(handler: P0) -> windows_core::Result<i64>
+    pub fn ForecastUpdated<P0>(handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::EventHandler<windows_core::IInspectable>>,
     {
@@ -270,10 +270,10 @@ impl PowerGridForecast {
             (windows_core::Interface::vtable(this).ForecastUpdated)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         })
     }
-    pub fn RemoveForecastUpdated(token: i64) -> windows_core::Result<()> {
+    pub fn RemoveForecastUpdated(token: i64) -> windows_result::Result<()> {
         Self::IPowerGridForecastStatics(|this| unsafe { (windows_core::Interface::vtable(this).RemoveForecastUpdated)(windows_core::Interface::as_raw(this), token).ok() })
     }
-    fn IPowerGridForecastStatics<R, F: FnOnce(&IPowerGridForecastStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPowerGridForecastStatics<R, F: FnOnce(&IPowerGridForecastStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PowerGridForecast, IPowerGridForecastStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

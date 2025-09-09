@@ -4,7 +4,7 @@ pub struct DetectedFace(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DetectedFace, windows_core::IUnknown, windows_core::IInspectable);
 impl DetectedFace {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn FaceBox(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapBounds> {
+    pub fn FaceBox(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapBounds> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -30,7 +30,7 @@ pub struct FaceDetector(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceDetector, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceDetector {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn DetectFacesAsync<P0>(&self, image: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -41,7 +41,7 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn DetectFacesWithSearchAreaAsync<P0>(&self, image: P0, searcharea: super::super::Graphics::Imaging::BitmapBounds) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -52,7 +52,7 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn MinDetectableFaceSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn MinDetectableFaceSize(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -60,12 +60,12 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
+    pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn MaxDetectableFaceSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn MaxDetectableFaceSize(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -73,37 +73,37 @@ impl FaceDetector {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
+    pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceDetector>> {
+    pub fn CreateAsync() -> windows_result::Result<windows_future::IAsyncOperation<FaceDetector>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
+    pub fn GetSupportedBitmapPixelFormats() -> windows_result::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_result::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmappixelformat, &mut result__).map(|| result__)
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IFaceDetectorStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFaceDetectorStatics<R, F: FnOnce(&IFaceDetectorStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FaceDetector, IFaceDetectorStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -125,7 +125,7 @@ unsafe impl Sync for FaceDetector {}
 pub struct FaceTracker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(FaceTracker, windows_core::IUnknown, windows_core::IInspectable);
 impl FaceTracker {
-    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
+    pub fn ProcessNextFrameAsync<P0>(&self, videoframe: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVector<DetectedFace>>>
     where
         P0: windows_core::Param<super::VideoFrame>,
     {
@@ -136,7 +136,7 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn MinDetectableFaceSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn MinDetectableFaceSize(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -144,12 +144,12 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
+    pub fn SetMinDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMinDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn MaxDetectableFaceSize(&self) -> windows_core::Result<super::super::Graphics::Imaging::BitmapSize> {
+    pub fn MaxDetectableFaceSize(&self) -> windows_result::Result<super::super::Graphics::Imaging::BitmapSize> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -157,37 +157,37 @@ impl FaceTracker {
         }
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_core::Result<()> {
+    pub fn SetMaxDetectableFaceSize(&self, value: super::super::Graphics::Imaging::BitmapSize) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetMaxDetectableFaceSize)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn CreateAsync() -> windows_core::Result<windows_future::IAsyncOperation<FaceTracker>> {
+    pub fn CreateAsync() -> windows_result::Result<windows_future::IAsyncOperation<FaceTracker>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn GetSupportedBitmapPixelFormats() -> windows_core::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
+    pub fn GetSupportedBitmapPixelFormats() -> windows_result::Result<windows_collections::IVectorView<super::super::Graphics::Imaging::BitmapPixelFormat>> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetSupportedBitmapPixelFormats)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_core::Result<bool> {
+    pub fn IsBitmapPixelFormatSupported(bitmappixelformat: super::super::Graphics::Imaging::BitmapPixelFormat) -> windows_result::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBitmapPixelFormatSupported)(windows_core::Interface::as_raw(this), bitmappixelformat, &mut result__).map(|| result__)
         })
     }
-    pub fn IsSupported() -> windows_core::Result<bool> {
+    pub fn IsSupported() -> windows_result::Result<bool> {
         Self::IFaceTrackerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         })
     }
-    fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IFaceTrackerStatics<R, F: FnOnce(&IFaceTrackerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<FaceTracker, IFaceTrackerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

@@ -3,7 +3,7 @@
 pub struct AppCapability(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppCapability, windows_core::IUnknown, windows_core::IInspectable);
 impl AppCapability {
-    pub fn CapabilityName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapabilityName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -11,28 +11,28 @@ impl AppCapability {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::super::System::User> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn RequestAccessAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<AppCapabilityAccessStatus>> {
+    pub fn RequestAccessAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<AppCapabilityAccessStatus>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestAccessAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CheckAccess(&self) -> windows_core::Result<AppCapabilityAccessStatus> {
+    pub fn CheckAccess(&self) -> windows_result::Result<AppCapabilityAccessStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CheckAccess)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AccessChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn AccessChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<AppCapability, AppCapabilityAccessChangedEventArgs>>,
     {
@@ -42,22 +42,22 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).AccessChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveAccessChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveAccessChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveAccessChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DisplayMessage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DisplayMessage(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DisplayMessage)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetDisplayMessage(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IAppCapability2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetDisplayMessage)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesAsync<P0>(capabilitynames: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
@@ -67,7 +67,7 @@ impl AppCapability {
         })
     }
     #[cfg(feature = "System")]
-    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
+    pub fn RequestAccessForCapabilitiesForUserAsync<P0, P1>(user: P0, capabilitynames: P1) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IMapView<windows_core::HSTRING, AppCapabilityAccessStatus>>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
         P1: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
@@ -77,14 +77,14 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).RequestAccessForCapabilitiesForUserAsync)(windows_core::Interface::as_raw(this), user.param().abi(), capabilitynames.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn Create(capabilityname: &windows_core::HSTRING) -> windows_core::Result<AppCapability> {
+    pub fn Create(capabilityname: &windows_core::HSTRING) -> windows_result::Result<AppCapability> {
         Self::IAppCapabilityStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(capabilityname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &windows_core::HSTRING, pid: u32) -> windows_core::Result<AppCapability>
+    pub fn CreateWithProcessIdForUser<P0>(user: P0, capabilityname: &windows_core::HSTRING, pid: u32) -> windows_result::Result<AppCapability>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
@@ -93,7 +93,7 @@ impl AppCapability {
             (windows_core::Interface::vtable(this).CreateWithProcessIdForUser)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(capabilityname), pid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppCapabilityStatics<R, F: FnOnce(&IAppCapabilityStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppCapability, IAppCapabilityStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

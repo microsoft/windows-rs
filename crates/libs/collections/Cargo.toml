@@ -10,6 +10,7 @@ categories = ["os::windows-apis"]
 
 [dependencies]
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 
 [dev-dependencies]
 windows-result = { workspace = true }

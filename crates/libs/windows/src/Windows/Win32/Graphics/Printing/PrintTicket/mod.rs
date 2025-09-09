@@ -1,11 +1,11 @@
 #[inline]
-pub unsafe fn PTCloseProvider(hprovider: HPTPROVIDER) -> windows_core::Result<()> {
+pub unsafe fn PTCloseProvider(hprovider: HPTPROVIDER) -> windows_result::Result<()> {
     windows_link::link!("prntvpt.dll" "system" fn PTCloseProvider(hprovider : HPTPROVIDER) -> windows_core::HRESULT);
     unsafe { PTCloseProvider(hprovider).ok() }
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertDevModeToPrintTicket<P4>(hprovider: HPTPROVIDER, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P4) -> windows_core::Result<()>
+pub unsafe fn PTConvertDevModeToPrintTicket<P4>(hprovider: HPTPROVIDER, cbdevmode: u32, pdevmode: *const super::super::Gdi::DEVMODEA, scope: EPrintTicketScope, pprintticket: P4) -> windows_result::Result<()>
 where
     P4: windows_core::Param<super::super::super::System::Com::IStream>,
 {
@@ -14,7 +14,7 @@ where
 }
 #[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_System_Com"))]
 #[inline]
-pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTConvertPrintTicketToDevMode<P1>(hprovider: HPTPROVIDER, pprintticket: P1, basedevmodetype: EDefaultDevmodeType, scope: EPrintTicketScope, pcbdevmode: *mut u32, ppdevmode: *mut *mut super::super::Gdi::DEVMODEA, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
 {
@@ -23,7 +23,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pcapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pcapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
@@ -33,7 +33,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintDeviceCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pdevicecapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintDeviceCapabilities<P1, P2>(hprovider: HPTPROVIDER, pprintticket: P1, pdevicecapabilities: P2, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
@@ -43,7 +43,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTGetPrintDeviceResources<P1, P2, P3>(hprovider: HPTPROVIDER, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTGetPrintDeviceResources<P1, P2, P3>(hprovider: HPTPROVIDER, pszlocalename: P1, pprintticket: P2, pdeviceresources: P3, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
@@ -54,7 +54,7 @@ where
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
-pub unsafe fn PTMergeAndValidatePrintTicket<P1, P2, P4>(hprovider: HPTPROVIDER, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P4, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_core::Result<()>
+pub unsafe fn PTMergeAndValidatePrintTicket<P1, P2, P4>(hprovider: HPTPROVIDER, pbaseticket: P1, pdeltaticket: P2, scope: EPrintTicketScope, presultticket: P4, pbstrerrormessage: Option<*mut windows_core::BSTR>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<super::super::super::System::Com::IStream>,
     P2: windows_core::Param<super::super::super::System::Com::IStream>,
@@ -64,7 +64,7 @@ where
     unsafe { PTMergeAndValidatePrintTicket(hprovider, pbaseticket.param().abi(), pdeltaticket.param().abi(), scope, presultticket.param().abi(), pbstrerrormessage.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> windows_core::Result<HPTPROVIDER>
+pub unsafe fn PTOpenProvider<P0>(pszprintername: P0, dwversion: u32) -> windows_result::Result<HPTPROVIDER>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -75,7 +75,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut HPTPROVIDER, pusedversion: *mut u32) -> windows_core::Result<()>
+pub unsafe fn PTOpenProviderEx<P0>(pszprintername: P0, dwmaxversion: u32, dwprefversion: u32, phprovider: *mut HPTPROVIDER, pusedversion: *mut u32) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -83,7 +83,7 @@ where
     unsafe { PTOpenProviderEx(pszprintername.param().abi(), dwmaxversion, dwprefversion, phprovider as _, pusedversion as _).ok() }
 }
 #[inline]
-pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_core::Result<u32>
+pub unsafe fn PTQuerySchemaVersionSupport<P0>(pszprintername: P0) -> windows_result::Result<u32>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -94,7 +94,7 @@ where
     }
 }
 #[inline]
-pub unsafe fn PTReleaseMemory(pbuffer: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn PTReleaseMemory(pbuffer: *const core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("prntvpt.dll" "system" fn PTReleaseMemory(pbuffer : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { PTReleaseMemory(pbuffer).ok() }
 }

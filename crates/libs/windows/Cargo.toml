@@ -17,6 +17,7 @@ mostly-unused = true
 [dependencies]
 windows-collections = { workspace = true }
 windows-core = { workspace = true }
+windows-result = { workspace = true }
 windows-future = { workspace = true }
 windows-link = { workspace = true }
 windows-numerics = { workspace = true }

@@ -7,7 +7,7 @@ where
     unsafe { AddDllDirectory(newdirectory.param().abi()) }
 }
 #[inline]
-pub unsafe fn BeginUpdateResourceA<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn BeginUpdateResourceA<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_result::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -16,7 +16,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn BeginUpdateResourceW<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_core::Result<super::super::Foundation::HANDLE>
+pub unsafe fn BeginUpdateResourceW<P0>(pfilename: P0, bdeleteexistingresources: bool) -> windows_result::Result<super::super::Foundation::HANDLE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -25,22 +25,22 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn DisableThreadLibraryCalls(hlibmodule: super::super::Foundation::HMODULE) -> windows_core::Result<()> {
+pub unsafe fn DisableThreadLibraryCalls(hlibmodule: super::super::Foundation::HMODULE) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn DisableThreadLibraryCalls(hlibmodule : super::super::Foundation:: HMODULE) -> windows_core::BOOL);
     unsafe { DisableThreadLibraryCalls(hlibmodule).ok() }
 }
 #[inline]
-pub unsafe fn EndUpdateResourceA(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_core::Result<()> {
+pub unsafe fn EndUpdateResourceA(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EndUpdateResourceA(hupdate : super::super::Foundation:: HANDLE, fdiscard : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EndUpdateResourceA(hupdate, fdiscard.into()).ok() }
 }
 #[inline]
-pub unsafe fn EndUpdateResourceW(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_core::Result<()> {
+pub unsafe fn EndUpdateResourceW(hupdate: super::super::Foundation::HANDLE, fdiscard: bool) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EndUpdateResourceW(hupdate : super::super::Foundation:: HANDLE, fdiscard : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { EndUpdateResourceW(hupdate, fdiscard.into()).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceLanguagesA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize) -> windows_core::Result<()>
+pub unsafe fn EnumResourceLanguagesA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: isize) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -49,7 +49,7 @@ where
     unsafe { EnumResourceLanguagesA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceLanguagesExA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: Option<isize>, dwflags: u32, langid: u16) -> windows_core::Result<()>
+pub unsafe fn EnumResourceLanguagesExA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCA, lparam: Option<isize>, dwflags: u32, langid: u16) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -58,7 +58,7 @@ where
     unsafe { EnumResourceLanguagesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam.unwrap_or(core::mem::zeroed()) as _, dwflags, langid).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceLanguagesExW<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: Option<isize>, dwflags: u32, langid: u16) -> windows_core::Result<()>
+pub unsafe fn EnumResourceLanguagesExW<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: Option<isize>, dwflags: u32, langid: u16) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -67,7 +67,7 @@ where
     unsafe { EnumResourceLanguagesExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam.unwrap_or(core::mem::zeroed()) as _, dwflags, langid).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceLanguagesW<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize) -> windows_core::Result<()>
+pub unsafe fn EnumResourceLanguagesW<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, lpenumfunc: ENUMRESLANGPROCW, lparam: isize) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
@@ -76,7 +76,7 @@ where
     unsafe { EnumResourceLanguagesW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpname.param().abi(), lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceNamesA<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> windows_core::Result<()>
+pub unsafe fn EnumResourceNamesA<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -84,7 +84,7 @@ where
     unsafe { EnumResourceNamesA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceNamesExA<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
+pub unsafe fn EnumResourceNamesExA<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -92,7 +92,7 @@ where
     unsafe { EnumResourceNamesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam, dwflags, langid).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceNamesExW<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()>
+pub unsafe fn EnumResourceNamesExW<P1>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpenumfunc: ENUMRESNAMEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -108,27 +108,27 @@ where
     unsafe { EnumResourceNamesW(hmodule.unwrap_or(core::mem::zeroed()) as _, lptype.param().abi(), lpenumfunc, lparam) }
 }
 #[inline]
-pub unsafe fn EnumResourceTypesA(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize) -> windows_core::Result<()> {
+pub unsafe fn EnumResourceTypesA(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumResourceTypesA(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceTypesExA(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()> {
+pub unsafe fn EnumResourceTypesExA(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCA, lparam: isize, dwflags: u32, langid: u16) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesExA(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCA, lparam : isize, dwflags : u32, langid : u16) -> windows_core::BOOL);
     unsafe { EnumResourceTypesExA(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam, dwflags, langid).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceTypesExW(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_core::Result<()> {
+pub unsafe fn EnumResourceTypesExW(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize, dwflags: u32, langid: u16) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesExW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize, dwflags : u32, langid : u16) -> windows_core::BOOL);
     unsafe { EnumResourceTypesExW(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam, dwflags, langid).ok() }
 }
 #[inline]
-pub unsafe fn EnumResourceTypesW(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize) -> windows_core::Result<()> {
+pub unsafe fn EnumResourceTypesW(hmodule: Option<super::super::Foundation::HMODULE>, lpenumfunc: ENUMRESTYPEPROCW, lparam: isize) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn EnumResourceTypesW(hmodule : super::super::Foundation:: HMODULE, lpenumfunc : ENUMRESTYPEPROCW, lparam : isize) -> windows_core::BOOL);
     unsafe { EnumResourceTypesW(hmodule.unwrap_or(core::mem::zeroed()) as _, lpenumfunc, lparam).ok() }
 }
 #[inline]
-pub unsafe fn FindResourceA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lpname: P1, lptype: P2) -> windows_core::Result<super::super::Foundation::HRSRC>
+pub unsafe fn FindResourceA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lpname: P1, lptype: P2) -> windows_result::Result<super::super::Foundation::HRSRC>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -138,7 +138,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn FindResourceExA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, wlanguage: u16) -> windows_core::Result<super::super::Foundation::HRSRC>
+pub unsafe fn FindResourceExA<P1, P2>(hmodule: Option<super::super::Foundation::HMODULE>, lptype: P1, lpname: P2, wlanguage: u16) -> windows_result::Result<super::super::Foundation::HRSRC>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -196,7 +196,7 @@ pub unsafe fn GetModuleFileNameW(hmodule: Option<super::super::Foundation::HMODU
     unsafe { GetModuleFileNameW(hmodule.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(lpfilename.as_ptr()), lpfilename.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn GetModuleHandleA<P0>(lpmodulename: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn GetModuleHandleA<P0>(lpmodulename: P0) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -205,7 +205,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn GetModuleHandleExA<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExA<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
@@ -213,7 +213,7 @@ where
     unsafe { GetModuleHandleExA(dwflags, lpmodulename.param().abi(), phmodule as _).ok() }
 }
 #[inline]
-pub unsafe fn GetModuleHandleExW<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_core::Result<()>
+pub unsafe fn GetModuleHandleExW<P1>(dwflags: u32, lpmodulename: P1, phmodule: *mut super::super::Foundation::HMODULE) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -221,7 +221,7 @@ where
     unsafe { GetModuleHandleExW(dwflags, lpmodulename.param().abi(), phmodule as _).ok() }
 }
 #[inline]
-pub unsafe fn GetModuleHandleW<P0>(lpmodulename: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn GetModuleHandleW<P0>(lpmodulename: P0) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -238,7 +238,7 @@ where
     unsafe { GetProcAddress(hmodule, lpprocname.param().abi()) }
 }
 #[inline]
-pub unsafe fn LoadLibraryA<P0>(lplibfilename: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn LoadLibraryA<P0>(lplibfilename: P0) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -247,7 +247,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadLibraryExA<P0>(lplibfilename: P0, hfile: Option<super::super::Foundation::HANDLE>, dwflags: LOAD_LIBRARY_FLAGS) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn LoadLibraryExA<P0>(lplibfilename: P0, hfile: Option<super::super::Foundation::HANDLE>, dwflags: LOAD_LIBRARY_FLAGS) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -256,7 +256,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadLibraryExW<P0>(lplibfilename: P0, hfile: Option<super::super::Foundation::HANDLE>, dwflags: LOAD_LIBRARY_FLAGS) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn LoadLibraryExW<P0>(lplibfilename: P0, hfile: Option<super::super::Foundation::HANDLE>, dwflags: LOAD_LIBRARY_FLAGS) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -265,7 +265,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadLibraryW<P0>(lplibfilename: P0) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn LoadLibraryW<P0>(lplibfilename: P0) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -282,7 +282,7 @@ where
     unsafe { LoadModule(lpmodulename.param().abi(), lpparameterblock) }
 }
 #[inline]
-pub unsafe fn LoadPackagedLibrary<P0>(lpwlibfilename: P0, reserved: Option<u32>) -> windows_core::Result<super::super::Foundation::HMODULE>
+pub unsafe fn LoadPackagedLibrary<P0>(lpwlibfilename: P0, reserved: Option<u32>) -> windows_result::Result<super::super::Foundation::HMODULE>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -291,7 +291,7 @@ where
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
-pub unsafe fn LoadResource(hmodule: Option<super::super::Foundation::HMODULE>, hresinfo: super::super::Foundation::HRSRC) -> windows_core::Result<super::super::Foundation::HGLOBAL> {
+pub unsafe fn LoadResource(hmodule: Option<super::super::Foundation::HMODULE>, hresinfo: super::super::Foundation::HRSRC) -> windows_result::Result<super::super::Foundation::HGLOBAL> {
     windows_link::link!("kernel32.dll" "system" fn LoadResource(hmodule : super::super::Foundation:: HMODULE, hresinfo : super::super::Foundation:: HRSRC) -> super::super::Foundation:: HGLOBAL);
     let result__ = unsafe { LoadResource(hmodule.unwrap_or(core::mem::zeroed()) as _, hresinfo) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
@@ -302,7 +302,7 @@ pub unsafe fn LockResource(hresdata: super::super::Foundation::HGLOBAL) -> *mut 
     unsafe { LockResource(hresdata) }
 }
 #[inline]
-pub unsafe fn QueryOptionalDelayLoadedAPI<P1, P2>(hparentmodule: super::super::Foundation::HMODULE, lpdllname: P1, lpprocname: P2, reserved: Option<u32>) -> windows_core::Result<()>
+pub unsafe fn QueryOptionalDelayLoadedAPI<P1, P2>(hparentmodule: super::super::Foundation::HMODULE, lpdllname: P1, lpprocname: P2, reserved: Option<u32>) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -311,17 +311,17 @@ where
     unsafe { QueryOptionalDelayLoadedAPI(hparentmodule, lpdllname.param().abi(), lpprocname.param().abi(), reserved.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn RemoveDllDirectory(cookie: *const core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn RemoveDllDirectory(cookie: *const core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn RemoveDllDirectory(cookie : *const core::ffi::c_void) -> windows_core::BOOL);
     unsafe { RemoveDllDirectory(cookie).ok() }
 }
 #[inline]
-pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> windows_core::Result<()> {
+pub unsafe fn SetDefaultDllDirectories(directoryflags: LOAD_LIBRARY_FLAGS) -> windows_result::Result<()> {
     windows_link::link!("kernel32.dll" "system" fn SetDefaultDllDirectories(directoryflags : LOAD_LIBRARY_FLAGS) -> windows_core::BOOL);
     unsafe { SetDefaultDllDirectories(directoryflags).ok() }
 }
 #[inline]
-pub unsafe fn SetDllDirectoryA<P0>(lppathname: P0) -> windows_core::Result<()>
+pub unsafe fn SetDllDirectoryA<P0>(lppathname: P0) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
@@ -329,7 +329,7 @@ where
     unsafe { SetDllDirectoryA(lppathname.param().abi()).ok() }
 }
 #[inline]
-pub unsafe fn SetDllDirectoryW<P0>(lppathname: P0) -> windows_core::Result<()>
+pub unsafe fn SetDllDirectoryW<P0>(lppathname: P0) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
@@ -342,7 +342,7 @@ pub unsafe fn SizeofResource(hmodule: Option<super::super::Foundation::HMODULE>,
     unsafe { SizeofResource(hmodule.unwrap_or(core::mem::zeroed()) as _, hresinfo) }
 }
 #[inline]
-pub unsafe fn UpdateResourceA<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: Option<*const core::ffi::c_void>, cb: u32) -> windows_core::Result<()>
+pub unsafe fn UpdateResourceA<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: Option<*const core::ffi::c_void>, cb: u32) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
@@ -351,7 +351,7 @@ where
     unsafe { UpdateResourceA(hupdate, lptype.param().abi(), lpname.param().abi(), wlanguage, lpdata.unwrap_or(core::mem::zeroed()) as _, cb).ok() }
 }
 #[inline]
-pub unsafe fn UpdateResourceW<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: Option<*const core::ffi::c_void>, cb: u32) -> windows_core::Result<()>
+pub unsafe fn UpdateResourceW<P1, P2>(hupdate: super::super::Foundation::HANDLE, lptype: P1, lpname: P2, wlanguage: u16, lpdata: Option<*const core::ffi::c_void>, cb: u32) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,

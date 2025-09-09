@@ -4,7 +4,7 @@ impl windows_core::RuntimeType for IActionFeedbackHandler {
 }
 windows_core::imp::interface_hierarchy!(IActionFeedbackHandler, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionFeedbackHandler {
-    pub fn ProcessFeedbackAsync<P0, P1>(&self, context: P0, feedback: P1) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn ProcessFeedbackAsync<P0, P1>(&self, context: P0, feedback: P1) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::ActionInvocationContext>,
         P1: windows_core::Param<super::ActionFeedback>,
@@ -20,7 +20,7 @@ impl windows_core::RuntimeName for IActionFeedbackHandler {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionFeedbackHandler";
 }
 pub trait IActionFeedbackHandler_Impl: windows_core::IUnknownImpl {
-    fn ProcessFeedbackAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>, feedback: windows_core::Ref<super::ActionFeedback>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn ProcessFeedbackAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>, feedback: windows_core::Ref<super::ActionFeedback>) -> windows_result::Result<windows_future::IAsyncAction>;
 }
 impl IActionFeedbackHandler_Vtbl {
     pub const fn new<Identity: IActionFeedbackHandler_Impl, const OFFSET: isize>() -> Self {
@@ -58,7 +58,7 @@ impl windows_core::RuntimeType for IActionProvider {
 }
 windows_core::imp::interface_hierarchy!(IActionProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl IActionProvider {
-    pub fn InvokeAsync<P0>(&self, context: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn InvokeAsync<P0>(&self, context: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::ActionInvocationContext>,
     {
@@ -73,7 +73,7 @@ impl windows_core::RuntimeName for IActionProvider {
     const NAME: &'static str = "Windows.AI.Actions.Provider.IActionProvider";
 }
 pub trait IActionProvider_Impl: windows_core::IUnknownImpl {
-    fn InvokeAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>) -> windows_core::Result<windows_future::IAsyncAction>;
+    fn InvokeAsync(&self, context: windows_core::Ref<super::ActionInvocationContext>) -> windows_result::Result<windows_future::IAsyncAction>;
 }
 impl IActionProvider_Vtbl {
     pub const fn new<Identity: IActionProvider_Impl, const OFFSET: isize>() -> Self {

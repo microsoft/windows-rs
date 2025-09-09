@@ -78,25 +78,25 @@ impl Default for HTASK {
 windows_core::imp::define_interface!(IReferenceClock, IReferenceClock_Vtbl, 0x56a86897_0ad4_11ce_b03a_0020af0ba770);
 windows_core::imp::interface_hierarchy!(IReferenceClock, windows_core::IUnknown);
 impl IReferenceClock {
-    pub unsafe fn GetTime(&self) -> windows_core::Result<i64> {
+    pub unsafe fn GetTime(&self) -> windows_result::Result<i64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTime)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_core::Result<usize> {
+    pub unsafe fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_result::Result<usize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AdviseTime)(windows_core::Interface::as_raw(self), basetime, streamtime, hevent, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_core::Result<usize> {
+    pub unsafe fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_result::Result<usize> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).AdvisePeriodic)(windows_core::Interface::as_raw(self), starttime, periodtime, hsemaphore, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()> {
+    pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Unadvise)(windows_core::Interface::as_raw(self), dwadvisecookie).ok() }
     }
 }
@@ -110,10 +110,10 @@ pub struct IReferenceClock_Vtbl {
     pub Unadvise: unsafe extern "system" fn(*mut core::ffi::c_void, usize) -> windows_core::HRESULT,
 }
 pub trait IReferenceClock_Impl: windows_core::IUnknownImpl {
-    fn GetTime(&self) -> windows_core::Result<i64>;
-    fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_core::Result<usize>;
-    fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_core::Result<usize>;
-    fn Unadvise(&self, dwadvisecookie: usize) -> windows_core::Result<()>;
+    fn GetTime(&self) -> windows_result::Result<i64>;
+    fn AdviseTime(&self, basetime: i64, streamtime: i64, hevent: super::Foundation::HANDLE) -> windows_result::Result<usize>;
+    fn AdvisePeriodic(&self, starttime: i64, periodtime: i64, hsemaphore: super::Foundation::HANDLE) -> windows_result::Result<usize>;
+    fn Unadvise(&self, dwadvisecookie: usize) -> windows_result::Result<()>;
 }
 impl IReferenceClock_Vtbl {
     pub const fn new<Identity: IReferenceClock_Impl, const OFFSET: isize>() -> Self {
@@ -198,10 +198,10 @@ impl windows_core::RuntimeName for IReferenceClock2 {}
 windows_core::imp::define_interface!(IReferenceClockTimerControl, IReferenceClockTimerControl_Vtbl, 0xebec459c_2eca_4d42_a8af_30df557614b8);
 windows_core::imp::interface_hierarchy!(IReferenceClockTimerControl, windows_core::IUnknown);
 impl IReferenceClockTimerControl {
-    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()> {
+    pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDefaultTimerResolution)(windows_core::Interface::as_raw(self), timerresolution).ok() }
     }
-    pub unsafe fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64> {
+    pub unsafe fn GetDefaultTimerResolution(&self) -> windows_result::Result<i64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDefaultTimerResolution)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -216,8 +216,8 @@ pub struct IReferenceClockTimerControl_Vtbl {
     pub GetDefaultTimerResolution: unsafe extern "system" fn(*mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
 }
 pub trait IReferenceClockTimerControl_Impl: windows_core::IUnknownImpl {
-    fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_core::Result<()>;
-    fn GetDefaultTimerResolution(&self) -> windows_core::Result<i64>;
+    fn SetDefaultTimerResolution(&self, timerresolution: i64) -> windows_result::Result<()>;
+    fn GetDefaultTimerResolution(&self) -> windows_result::Result<i64>;
 }
 impl IReferenceClockTimerControl_Vtbl {
     pub const fn new<Identity: IReferenceClockTimerControl_Impl, const OFFSET: isize>() -> Self {

@@ -3,21 +3,21 @@
 pub struct AppBroadcastingMonitor(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingMonitor, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingMonitor {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastingMonitor, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn IsCurrentAppBroadcasting(&self) -> windows_core::Result<bool> {
+    pub fn IsCurrentAppBroadcasting(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCurrentAppBroadcasting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn IsCurrentAppBroadcastingChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<AppBroadcastingMonitor, windows_core::IInspectable>>,
     {
@@ -27,7 +27,7 @@ impl AppBroadcastingMonitor {
             (windows_core::Interface::vtable(this).IsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveIsCurrentAppBroadcastingChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveIsCurrentAppBroadcastingChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -49,14 +49,14 @@ unsafe impl Sync for AppBroadcastingMonitor {}
 pub struct AppBroadcastingStatus(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatus, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingStatus {
-    pub fn CanStartBroadcast(&self) -> windows_core::Result<bool> {
+    pub fn CanStartBroadcast(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanStartBroadcast)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Details(&self) -> windows_core::Result<AppBroadcastingStatusDetails> {
+    pub fn Details(&self) -> windows_result::Result<AppBroadcastingStatusDetails> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -81,56 +81,56 @@ unsafe impl Sync for AppBroadcastingStatus {}
 pub struct AppBroadcastingStatusDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingStatusDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingStatusDetails {
-    pub fn IsAnyAppBroadcasting(&self) -> windows_core::Result<bool> {
+    pub fn IsAnyAppBroadcasting(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAnyAppBroadcasting)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsCaptureResourceUnavailable(&self) -> windows_core::Result<bool> {
+    pub fn IsCaptureResourceUnavailable(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsCaptureResourceUnavailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsGameStreamInProgress(&self) -> windows_core::Result<bool> {
+    pub fn IsGameStreamInProgress(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsGameStreamInProgress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsGpuConstrained(&self) -> windows_core::Result<bool> {
+    pub fn IsGpuConstrained(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsGpuConstrained)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsAppInactive(&self) -> windows_core::Result<bool> {
+    pub fn IsAppInactive(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsAppInactive)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsBlockedForApp(&self) -> windows_core::Result<bool> {
+    pub fn IsBlockedForApp(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsBlockedForApp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDisabledByUser(&self) -> windows_core::Result<bool> {
+    pub fn IsDisabledByUser(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsDisabledByUser)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsDisabledBySystem(&self) -> windows_core::Result<bool> {
+    pub fn IsDisabledBySystem(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -155,25 +155,25 @@ unsafe impl Sync for AppBroadcastingStatusDetails {}
 pub struct AppBroadcastingUI(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AppBroadcastingUI, windows_core::IUnknown, windows_core::IInspectable);
 impl AppBroadcastingUI {
-    pub fn GetStatus(&self) -> windows_core::Result<AppBroadcastingStatus> {
+    pub fn GetStatus(&self) -> windows_result::Result<AppBroadcastingStatus> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetStatus)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ShowBroadcastUI(&self) -> windows_core::Result<()> {
+    pub fn ShowBroadcastUI(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowBroadcastUI)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn GetDefault() -> windows_core::Result<AppBroadcastingUI> {
+    pub fn GetDefault() -> windows_result::Result<AppBroadcastingUI> {
         Self::IAppBroadcastingUIStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefault)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "System")]
-    pub fn GetForUser<P0>(user: P0) -> windows_core::Result<AppBroadcastingUI>
+    pub fn GetForUser<P0>(user: P0) -> windows_result::Result<AppBroadcastingUI>
     where
         P0: windows_core::Param<super::super::System::User>,
     {
@@ -182,7 +182,7 @@ impl AppBroadcastingUI {
             (windows_core::Interface::vtable(this).GetForUser)(windows_core::Interface::as_raw(this), user.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAppBroadcastingUIStatics<R, F: FnOnce(&IAppBroadcastingUIStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAppBroadcastingUIStatics<R, F: FnOnce(&IAppBroadcastingUIStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AppBroadcastingUI, IAppBroadcastingUIStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

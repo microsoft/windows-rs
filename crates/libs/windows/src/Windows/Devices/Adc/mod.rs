@@ -6,28 +6,28 @@ pub struct AdcChannel(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcChannel, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(AdcChannel, super::super::Foundation::IClosable);
 impl AdcChannel {
-    pub fn Controller(&self) -> windows_core::Result<AdcController> {
+    pub fn Controller(&self) -> windows_result::Result<AdcController> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Controller)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ReadValue(&self) -> windows_core::Result<i32> {
+    pub fn ReadValue(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ReadRatio(&self) -> windows_core::Result<f64> {
+    pub fn ReadRatio(&self) -> windows_result::Result<f64> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReadRatio)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
@@ -62,53 +62,53 @@ impl windows_core::RuntimeType for AdcChannelMode {
 pub struct AdcController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AdcController, windows_core::IUnknown, windows_core::IInspectable);
 impl AdcController {
-    pub fn ChannelCount(&self) -> windows_core::Result<i32> {
+    pub fn ChannelCount(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChannelCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ResolutionInBits(&self) -> windows_core::Result<i32> {
+    pub fn ResolutionInBits(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ResolutionInBits)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MinValue(&self) -> windows_core::Result<i32> {
+    pub fn MinValue(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MinValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn MaxValue(&self) -> windows_core::Result<i32> {
+    pub fn MaxValue(&self) -> windows_result::Result<i32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).MaxValue)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ChannelMode(&self) -> windows_core::Result<AdcChannelMode> {
+    pub fn ChannelMode(&self) -> windows_result::Result<AdcChannelMode> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ChannelMode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetChannelMode(&self, value: AdcChannelMode) -> windows_core::Result<()> {
+    pub fn SetChannelMode(&self, value: AdcChannelMode) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetChannelMode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn IsChannelModeSupported(&self, channelmode: AdcChannelMode) -> windows_core::Result<bool> {
+    pub fn IsChannelModeSupported(&self, channelmode: AdcChannelMode) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsChannelModeSupported)(windows_core::Interface::as_raw(this), channelmode, &mut result__).map(|| result__)
         }
     }
-    pub fn OpenChannel(&self, channelnumber: i32) -> windows_core::Result<AdcChannel> {
+    pub fn OpenChannel(&self, channelnumber: i32) -> windows_result::Result<AdcChannel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -116,7 +116,7 @@ impl AdcController {
         }
     }
     #[cfg(feature = "Devices_Adc_Provider")]
-    pub fn GetControllersAsync<P0>(provider: P0) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AdcController>>>
+    pub fn GetControllersAsync<P0>(provider: P0) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IVectorView<AdcController>>>
     where
         P0: windows_core::Param<Provider::IAdcProvider>,
     {
@@ -125,17 +125,17 @@ impl AdcController {
             (windows_core::Interface::vtable(this).GetControllersAsync)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn GetDefaultAsync() -> windows_core::Result<windows_future::IAsyncOperation<AdcController>> {
+    pub fn GetDefaultAsync() -> windows_result::Result<windows_future::IAsyncOperation<AdcController>> {
         Self::IAdcControllerStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDefaultAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdcControllerStatics<R, F: FnOnce(&IAdcControllerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdcController, IAdcControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAdcControllerStatics2<R, F: FnOnce(&IAdcControllerStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAdcControllerStatics2<R, F: FnOnce(&IAdcControllerStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AdcController, IAdcControllerStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

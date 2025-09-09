@@ -8,14 +8,12 @@ publish = false
 doc = false
 doctest = false
 
-[dependencies.windows-bindgen]
-workspace = true
-
-[dependencies.windows-targets]
-workspace = true
-
-[dependencies.windows-link]
-workspace = true
+[dependencies]
+windows-core = { workspace = true }
+windows-result = { workspace = true }
+windows-bindgen = { workspace = true }
+windows-targets = { workspace = true }
+windows-link = { workspace = true }
 
 [dependencies.windows]
 workspace = true
@@ -30,9 +28,6 @@ workspace = true
 features = [
     "Win32_Gaming",
 ]
-
-[dependencies.windows-core]
-workspace = true
 
 [lints]
 workspace = true

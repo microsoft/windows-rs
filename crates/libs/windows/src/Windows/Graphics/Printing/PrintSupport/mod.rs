@@ -357,28 +357,28 @@ impl windows_core::RuntimeType for IppPrinterCommunicationKind {
 pub struct PrintSupportCommunicationErrorDetectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportCommunicationErrorDetectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportCommunicationErrorDetectedEventArgs {
-    pub fn ErrorKind(&self) -> windows_core::Result<IppCommunicationErrorKind> {
+    pub fn ErrorKind(&self) -> windows_result::Result<IppCommunicationErrorKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ErrorKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+    pub fn ExtendedError(&self) -> windows_result::Result<windows_core::HRESULT> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CommunicationConfiguration(&self) -> windows_core::Result<PrintSupportIppCommunicationConfiguration> {
+    pub fn CommunicationConfiguration(&self) -> windows_result::Result<PrintSupportIppCommunicationConfiguration> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommunicationConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -404,7 +404,7 @@ pub struct PrintSupportEnterpriseManagementUIEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportEnterpriseManagementUIEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportEnterpriseManagementUIEventArgs {
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -430,14 +430,14 @@ pub struct PrintSupportExtensionSession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionSession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportExtensionSession {
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Printer)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PrintTicketValidationRequested<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintTicketValidationRequestedEventArgs>>,
     {
@@ -447,11 +447,11 @@ impl PrintSupportExtensionSession {
             (windows_core::Interface::vtable(this).PrintTicketValidationRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintTicketValidationRequested(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePrintTicketValidationRequested(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePrintTicketValidationRequested)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PrintDeviceCapabilitiesChanged<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrintDeviceCapabilitiesChangedEventArgs>>,
     {
@@ -461,15 +461,15 @@ impl PrintSupportExtensionSession {
             (windows_core::Interface::vtable(this).PrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePrintDeviceCapabilitiesChanged(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemovePrintDeviceCapabilitiesChanged)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Start(&self) -> windows_core::Result<()> {
+    pub fn Start(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Start)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn PrinterSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn PrinterSelected<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportPrinterSelectedEventArgs>>,
     {
@@ -479,11 +479,11 @@ impl PrintSupportExtensionSession {
             (windows_core::Interface::vtable(this).PrinterSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemovePrinterSelected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemovePrinterSelected(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemovePrinterSelected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn CommunicationErrorDetected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommunicationErrorDetected<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<PrintSupportExtensionSession, PrintSupportCommunicationErrorDetectedEventArgs>>,
     {
@@ -493,7 +493,7 @@ impl PrintSupportExtensionSession {
             (windows_core::Interface::vtable(this).CommunicationErrorDetected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCommunicationErrorDetected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCommunicationErrorDetected(&self, token: i64) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IPrintSupportExtensionSession3>(self)?;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommunicationErrorDetected)(windows_core::Interface::as_raw(this), token).ok() }
     }
@@ -515,7 +515,7 @@ unsafe impl Sync for PrintSupportExtensionSession {}
 pub struct PrintSupportExtensionTriggerDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportExtensionTriggerDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportExtensionTriggerDetails {
-    pub fn Session(&self) -> windows_core::Result<PrintSupportExtensionSession> {
+    pub fn Session(&self) -> windows_result::Result<PrintSupportExtensionSession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -540,28 +540,28 @@ unsafe impl Sync for PrintSupportExtensionTriggerDetails {}
 pub struct PrintSupportIppCommunicationConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportIppCommunicationConfiguration {
-    pub fn CommunicationKind(&self) -> windows_core::Result<IppPrinterCommunicationKind> {
+    pub fn CommunicationKind(&self) -> windows_result::Result<IppPrinterCommunicationKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommunicationKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn CanModifyTimeouts(&self) -> windows_core::Result<bool> {
+    pub fn CanModifyTimeouts(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanModifyTimeouts)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IppAttributeTimeouts(&self) -> windows_core::Result<PrintSupportIppCommunicationTimeouts> {
+    pub fn IppAttributeTimeouts(&self) -> windows_result::Result<PrintSupportIppCommunicationTimeouts> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IppAttributeTimeouts)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn IppJobTimeouts(&self) -> windows_core::Result<PrintSupportIppCommunicationTimeouts> {
+    pub fn IppJobTimeouts(&self) -> windows_result::Result<PrintSupportIppCommunicationTimeouts> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -586,36 +586,36 @@ unsafe impl Sync for PrintSupportIppCommunicationConfiguration {}
 pub struct PrintSupportIppCommunicationTimeouts(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportIppCommunicationTimeouts, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportIppCommunicationTimeouts {
-    pub fn ConnectTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ConnectTimeout(&self) -> windows_result::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ConnectTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetConnectTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetConnectTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetConnectTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn SendTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn SendTimeout(&self) -> windows_result::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SendTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetSendTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetSendTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetSendTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn ReceiveTimeout(&self) -> windows_core::Result<super::super::super::Foundation::TimeSpan> {
+    pub fn ReceiveTimeout(&self) -> windows_result::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).ReceiveTimeout)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetReceiveTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetReceiveTimeout(&self, value: super::super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetReceiveTimeout)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -637,80 +637,80 @@ unsafe impl Sync for PrintSupportIppCommunicationTimeouts {}
 pub struct PrintSupportMxdcImageQualityConfiguration(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportMxdcImageQualityConfiguration, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportMxdcImageQualityConfiguration {
-    pub fn NormalOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn NormalOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NormalOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetNormalOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetNormalOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNormalOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn DraftOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn DraftOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DraftOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetDraftOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetDraftOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetDraftOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HighOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn HighOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HighOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHighOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetHighOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHighOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn PhotographicOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn PhotographicOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PhotographicOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetPhotographicOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetPhotographicOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPhotographicOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TextOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn TextOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TextOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTextOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetTextOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTextOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AutomaticOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn AutomaticOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AutomaticOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAutomaticOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetAutomaticOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAutomaticOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn FaxOutputQuality(&self) -> windows_core::Result<XpsImageQuality> {
+    pub fn FaxOutputQuality(&self) -> windows_result::Result<XpsImageQuality> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FaxOutputQuality)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetFaxOutputQuality(&self, value: XpsImageQuality) -> windows_core::Result<()> {
+    pub fn SetFaxOutputQuality(&self, value: XpsImageQuality) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetFaxOutputQuality)(windows_core::Interface::as_raw(this), value).ok() }
     }
@@ -733,7 +733,7 @@ pub struct PrintSupportPrintDeviceCapabilitiesChangedEventArgs(windows_core::IUn
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesChangedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetCurrentPrintDeviceCapabilities(&self) -> windows_core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetCurrentPrintDeviceCapabilities(&self) -> windows_result::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -741,28 +741,28 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceCapabilities<P0>(&self, updatedpdc: P0) -> windows_core::Result<()>
+    pub fn UpdatePrintDeviceCapabilities<P0>(&self, updatedpdc: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceCapabilities)(windows_core::Interface::as_raw(this), updatedpdc.param().abi()).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetSupportedPdlPassthroughContentTypes<P0>(&self, supportedpdlcontenttypes: P0) -> windows_core::Result<()>
+    pub fn SetSupportedPdlPassthroughContentTypes<P0>(&self, supportedpdlcontenttypes: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_core::HSTRING>>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetSupportedPdlPassthroughContentTypes)(windows_core::Interface::as_raw(this), supportedpdlcontenttypes.param().abi()).ok() }
     }
-    pub fn ResourceLanguage(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn ResourceLanguage(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -770,7 +770,7 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn GetCurrentPrintDeviceResources(&self) -> windows_core::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
+    pub fn GetCurrentPrintDeviceResources(&self) -> windows_result::Result<super::super::super::Data::Xml::Dom::XmlDocument> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -778,28 +778,28 @@ impl PrintSupportPrintDeviceCapabilitiesChangedEventArgs {
         }
     }
     #[cfg(feature = "Data_Xml_Dom")]
-    pub fn UpdatePrintDeviceResources<P0>(&self, updatedpdr: P0) -> windows_core::Result<()>
+    pub fn UpdatePrintDeviceResources<P0>(&self, updatedpdr: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Data::Xml::Dom::XmlDocument>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).UpdatePrintDeviceResources)(windows_core::Interface::as_raw(this), updatedpdr.param().abi()).ok() }
     }
-    pub fn SetPrintDeviceCapabilitiesUpdatePolicy<P0>(&self, updatepolicy: P0) -> windows_core::Result<()>
+    pub fn SetPrintDeviceCapabilitiesUpdatePolicy<P0>(&self, updatepolicy: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<PrintSupportPrintDeviceCapabilitiesUpdatePolicy>,
     {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetPrintDeviceCapabilitiesUpdatePolicy)(windows_core::Interface::as_raw(this), updatepolicy.param().abi()).ok() }
     }
-    pub fn CommunicationConfiguration(&self) -> windows_core::Result<PrintSupportIppCommunicationConfiguration> {
+    pub fn CommunicationConfiguration(&self) -> windows_result::Result<PrintSupportIppCommunicationConfiguration> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs3>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CommunicationConfiguration)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn MxdcImageQualityConfiguration(&self) -> windows_core::Result<PrintSupportMxdcImageQualityConfiguration> {
+    pub fn MxdcImageQualityConfiguration(&self) -> windows_result::Result<PrintSupportMxdcImageQualityConfiguration> {
         let this = &windows_core::Interface::cast::<IPrintSupportPrintDeviceCapabilitiesChangedEventArgs4>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -824,19 +824,19 @@ unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesChangedEventArgs {}
 pub struct PrintSupportPrintDeviceCapabilitiesUpdatePolicy(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintDeviceCapabilitiesUpdatePolicy, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintDeviceCapabilitiesUpdatePolicy {
-    pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
+    pub fn CreatePeriodicRefresh(updateperiod: super::super::super::Foundation::TimeSpan) -> windows_result::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePeriodicRefresh)(windows_core::Interface::as_raw(this), updateperiod, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn CreatePrintJobRefresh(numberofjobs: u32) -> windows_core::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
+    pub fn CreatePrintJobRefresh(numberofjobs: u32) -> windows_result::Result<PrintSupportPrintDeviceCapabilitiesUpdatePolicy> {
         Self::IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreatePrintJobRefresh)(windows_core::Interface::as_raw(this), numberofjobs, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics<R, F: FnOnce(&IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics<R, F: FnOnce(&IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintSupportPrintDeviceCapabilitiesUpdatePolicy, IPrintSupportPrintDeviceCapabilitiesUpdatePolicyStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -858,32 +858,32 @@ unsafe impl Sync for PrintSupportPrintDeviceCapabilitiesUpdatePolicy {}
 pub struct PrintSupportPrintTicketElement(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketElement, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintTicketElement {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PrintSupportPrintTicketElement, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn LocalName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn LocalName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).LocalName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetLocalName(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetLocalName(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetLocalName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
-    pub fn NamespaceUri(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NamespaceUri(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NamespaceUri)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn SetNamespaceUri(&self, value: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn SetNamespaceUri(&self, value: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetNamespaceUri)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value)).ok() }
     }
@@ -906,18 +906,18 @@ pub struct PrintSupportPrintTicketValidationRequestedEventArgs(windows_core::IUn
 windows_core::imp::interface_hierarchy!(PrintSupportPrintTicketValidationRequestedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrintTicketValidationRequestedEventArgs {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn PrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn PrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus) -> windows_core::Result<()> {
+    pub fn SetPrintTicketValidationStatus(&self, status: WorkflowPrintTicketValidationStatus) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPrintTicketValidationStatus)(windows_core::Interface::as_raw(this), status).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -943,7 +943,7 @@ pub struct PrintSupportPrinterSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportPrinterSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportPrinterSelectedEventArgs {
     #[cfg(feature = "ApplicationModel")]
-    pub fn SourceAppInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
+    pub fn SourceAppInfo(&self) -> windows_result::Result<super::super::super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -951,7 +951,7 @@ impl PrintSupportPrinterSelectedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn PrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn PrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -959,28 +959,28 @@ impl PrintSupportPrinterSelectedEventArgs {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn SetPrintTicket<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetPrintTicket<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetPrintTicket)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> windows_core::Result<()>
+    pub fn SetAdditionalFeatures<P0>(&self, features: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdditionalFeatures)(windows_core::Interface::as_raw(this), features.param().abi()).ok() }
     }
-    pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> windows_core::Result<()>
+    pub fn SetAdditionalParameters<P0>(&self, parameters: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_collections::IIterable<PrintSupportPrintTicketElement>>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdditionalParameters)(windows_core::Interface::as_raw(this), parameters.param().abi()).ok() }
     }
-    pub fn AllowedAdditionalFeaturesAndParametersCount(&self) -> windows_core::Result<u32> {
+    pub fn AllowedAdditionalFeaturesAndParametersCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -988,14 +988,14 @@ impl PrintSupportPrinterSelectedEventArgs {
         }
     }
     #[cfg(feature = "UI_Shell")]
-    pub fn SetAdaptiveCard<P0>(&self, adaptivecard: P0) -> windows_core::Result<()>
+    pub fn SetAdaptiveCard<P0>(&self, adaptivecard: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::UI::Shell::IAdaptiveCard>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAdaptiveCard)(windows_core::Interface::as_raw(this), adaptivecard.param().abi()).ok() }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1021,7 +1021,7 @@ pub struct PrintSupportSessionInfo(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportSessionInfo, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportSessionInfo {
     #[cfg(feature = "ApplicationModel")]
-    pub fn SourceAppInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
+    pub fn SourceAppInfo(&self) -> windows_result::Result<super::super::super::ApplicationModel::AppInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1029,7 +1029,7 @@ impl PrintSupportSessionInfo {
         }
     }
     #[cfg(feature = "Devices_Printers")]
-    pub fn Printer(&self) -> windows_core::Result<super::super::super::Devices::Printers::IppPrintDevice> {
+    pub fn Printer(&self) -> windows_result::Result<super::super::super::Devices::Printers::IppPrintDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1059,21 +1059,21 @@ windows_core::imp::interface_hierarchy!(PrintSupportSettingsActivatedEventArgs, 
 windows_core::imp::required_hierarchy!(PrintSupportSettingsActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgs, super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser);
 #[cfg(feature = "ApplicationModel_Activation")]
 impl PrintSupportSettingsActivatedEventArgs {
-    pub fn Kind(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
+    pub fn Kind(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ActivationKind> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Kind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreviousExecutionState(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
+    pub fn PreviousExecutionState(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::ApplicationExecutionState> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreviousExecutionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SplashScreen(&self) -> windows_core::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
+    pub fn SplashScreen(&self) -> windows_result::Result<super::super::super::ApplicationModel::Activation::SplashScreen> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgs>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1081,21 +1081,21 @@ impl PrintSupportSettingsActivatedEventArgs {
         }
     }
     #[cfg(feature = "System")]
-    pub fn User(&self) -> windows_core::Result<super::super::super::System::User> {
+    pub fn User(&self) -> windows_result::Result<super::super::super::System::User> {
         let this = &windows_core::Interface::cast::<super::super::super::ApplicationModel::Activation::IActivatedEventArgsWithUser>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).User)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Session(&self) -> windows_core::Result<PrintSupportSettingsUISession> {
+    pub fn Session(&self) -> windows_result::Result<PrintSupportSettingsUISession> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Session)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeferral(&self) -> windows_core::Result<super::super::super::Foundation::Deferral> {
+    pub fn GetDeferral(&self) -> windows_result::Result<super::super::super::Foundation::Deferral> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1103,7 +1103,7 @@ impl PrintSupportSettingsActivatedEventArgs {
         }
     }
     #[cfg(feature = "UI")]
-    pub fn OwnerWindowId(&self) -> windows_core::Result<super::super::super::UI::WindowId> {
+    pub fn OwnerWindowId(&self) -> windows_result::Result<super::super::super::UI::WindowId> {
         let this = &windows_core::Interface::cast::<IPrintSupportSettingsActivatedEventArgs2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1134,21 +1134,21 @@ pub struct PrintSupportSettingsUISession(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrintSupportSettingsUISession, windows_core::IUnknown, windows_core::IInspectable);
 impl PrintSupportSettingsUISession {
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn SessionPrintTicket(&self) -> windows_core::Result<super::PrintTicket::WorkflowPrintTicket> {
+    pub fn SessionPrintTicket(&self) -> windows_result::Result<super::PrintTicket::WorkflowPrintTicket> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SessionPrintTicket)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DocumentTitle(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DocumentTitle(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DocumentTitle)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn LaunchKind(&self) -> windows_core::Result<SettingsLaunchKind> {
+    pub fn LaunchKind(&self) -> windows_result::Result<SettingsLaunchKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1156,14 +1156,14 @@ impl PrintSupportSettingsUISession {
         }
     }
     #[cfg(feature = "Graphics_Printing_PrintTicket")]
-    pub fn UpdatePrintTicket<P0>(&self, printticket: P0) -> windows_core::Result<()>
+    pub fn UpdatePrintTicket<P0>(&self, printticket: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).UpdatePrintTicket)(windows_core::Interface::as_raw(this), printticket.param().abi()).ok() }
     }
-    pub fn SessionInfo(&self) -> windows_core::Result<PrintSupportSessionInfo> {
+    pub fn SessionInfo(&self) -> windows_result::Result<PrintSupportSessionInfo> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

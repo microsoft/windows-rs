@@ -1,136 +1,136 @@
 pub struct AsymmetricAlgorithmNames;
 impl AsymmetricAlgorithmNames {
-    pub fn RsaPkcs1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaPkcs1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaPkcs1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaOaepSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaOaepSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaOaepSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaOaepSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaOaepSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaOaepSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaOaepSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaOaepSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaOaepSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaOaepSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaOaepSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaOaepSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaP256Sha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaP256Sha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaP256Sha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaP384Sha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaP384Sha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaP384Sha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaP521Sha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaP521Sha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaP521Sha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DsaSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DsaSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DsaSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DsaSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DsaSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DsaSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPkcs1Sha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPkcs1Sha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPkcs1Sha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPkcs1Sha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPkcs1Sha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPkcs1Sha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPkcs1Sha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPkcs1Sha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPkcs1Sha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPkcs1Sha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPkcs1Sha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPkcs1Sha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPssSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPssSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPssSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPssSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPssSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPssSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPssSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPssSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPssSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn RsaSignPssSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn RsaSignPssSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RsaSignPssSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn EcdsaSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn EcdsaSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IAsymmetricAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EcdsaSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IAsymmetricAlgorithmNamesStatics<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAsymmetricAlgorithmNamesStatics<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IAsymmetricAlgorithmNamesStatics2<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAsymmetricAlgorithmNamesStatics2<R, F: FnOnce(&IAsymmetricAlgorithmNamesStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AsymmetricAlgorithmNames, IAsymmetricAlgorithmNamesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -143,14 +143,14 @@ impl windows_core::RuntimeName for AsymmetricAlgorithmNames {
 pub struct AsymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(AsymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl AsymmetricKeyAlgorithmProvider {
-    pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlgorithmName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlgorithmName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn CreateKeyPair(&self, keysize: u32) -> windows_core::Result<CryptographicKey> {
+    pub fn CreateKeyPair(&self, keysize: u32) -> windows_result::Result<CryptographicKey> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -158,7 +158,7 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPrivateKeyBlob<P0>(&self, keyblob: P0) -> windows_core::Result<CryptographicKey>
+    pub fn ImportDefaultPrivateKeyBlob<P0>(&self, keyblob: P0) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -169,7 +169,7 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportKeyPairWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> windows_core::Result<CryptographicKey>
+    pub fn ImportKeyPairWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPrivateKeyBlobType) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -180,7 +180,7 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportDefaultPublicKeyBlob<P0>(&self, keyblob: P0) -> windows_core::Result<CryptographicKey>
+    pub fn ImportDefaultPublicKeyBlob<P0>(&self, keyblob: P0) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -191,7 +191,7 @@ impl AsymmetricKeyAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ImportPublicKeyWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> windows_core::Result<CryptographicKey>
+    pub fn ImportPublicKeyWithBlobType<P0>(&self, keyblob: P0, blobtype: CryptographicPublicKeyBlobType) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -201,27 +201,27 @@ impl AsymmetricKeyAlgorithmProvider {
             (windows_core::Interface::vtable(this).ImportPublicKeyWithBlobType)(windows_core::Interface::as_raw(this), keyblob.param().abi(), blobtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateKeyPairWithCurveName(&self, curvename: &windows_core::HSTRING) -> windows_core::Result<CryptographicKey> {
+    pub fn CreateKeyPairWithCurveName(&self, curvename: &windows_core::HSTRING) -> windows_result::Result<CryptographicKey> {
         let this = &windows_core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateKeyPairWithCurveName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(curvename), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[u8]) -> windows_core::Result<CryptographicKey> {
+    pub fn CreateKeyPairWithCurveParameters(&self, parameters: &[u8]) -> windows_result::Result<CryptographicKey> {
         let this = &windows_core::Interface::cast::<IAsymmetricKeyAlgorithmProvider2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateKeyPairWithCurveParameters)(windows_core::Interface::as_raw(this), parameters.len().try_into().unwrap(), parameters.as_ptr(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<AsymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_result::Result<AsymmetricKeyAlgorithmProvider> {
         Self::IAsymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IAsymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&IAsymmetricKeyAlgorithmProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IAsymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&IAsymmetricKeyAlgorithmProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<AsymmetricKeyAlgorithmProvider, IAsymmetricKeyAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -254,7 +254,7 @@ impl windows_core::RuntimeType for Capi1KdfTargetAlgorithm {
 pub struct CryptographicEngine;
 impl CryptographicEngine {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Encrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Encrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -266,7 +266,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Decrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Decrypt<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -278,7 +278,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncryptAndAuthenticate<P0, P1, P2, P3>(key: P0, data: P1, nonce: P2, authenticateddata: P3) -> windows_core::Result<EncryptedAndAuthenticatedData>
+    pub fn EncryptAndAuthenticate<P0, P1, P2, P3>(key: P0, data: P1, nonce: P2, authenticateddata: P3) -> windows_result::Result<EncryptedAndAuthenticatedData>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -291,7 +291,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAndAuthenticate<P0, P1, P2, P3, P4>(key: P0, data: P1, nonce: P2, authenticationtag: P3, authenticateddata: P4) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn DecryptAndAuthenticate<P0, P1, P2, P3, P4>(key: P0, data: P1, nonce: P2, authenticationtag: P3, authenticateddata: P4) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -305,7 +305,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Sign<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn Sign<P0, P1>(key: P0, data: P1) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -316,7 +316,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignature<P0, P1, P2>(key: P0, data: P1, signature: P2) -> windows_core::Result<bool>
+    pub fn VerifySignature<P0, P1, P2>(key: P0, data: P1, signature: P2) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -328,7 +328,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DeriveKeyMaterial<P0, P1>(key: P0, parameters: P1, desiredkeysize: u32) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn DeriveKeyMaterial<P0, P1>(key: P0, parameters: P1, desiredkeysize: u32) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<KeyDerivationParameters>,
@@ -339,7 +339,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedData<P0, P1>(key: P0, data: P1) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn SignHashedData<P0, P1>(key: P0, data: P1) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -350,7 +350,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn VerifySignatureWithHashInput<P0, P1, P2>(key: P0, data: P1, signature: P2) -> windows_core::Result<bool>
+    pub fn VerifySignatureWithHashInput<P0, P1, P2>(key: P0, data: P1, signature: P2) -> windows_result::Result<bool>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -362,7 +362,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn DecryptAsync<P0, P1, P2>(key: P0, data: P1, iv: P2) -> windows_result::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -374,7 +374,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignAsync<P0, P1>(key: P0, data: P1) -> windows_result::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -385,7 +385,7 @@ impl CryptographicEngine {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_core::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
+    pub fn SignHashedDataAsync<P0, P1>(key: P0, data: P1) -> windows_result::Result<windows_future::IAsyncOperation<super::super::super::Storage::Streams::IBuffer>>
     where
         P0: windows_core::Param<CryptographicKey>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -395,11 +395,11 @@ impl CryptographicEngine {
             (windows_core::Interface::vtable(this).SignHashedDataAsync)(windows_core::Interface::as_raw(this), key.param().abi(), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ICryptographicEngineStatics<R, F: FnOnce(&ICryptographicEngineStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICryptographicEngineStatics<R, F: FnOnce(&ICryptographicEngineStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CryptographicEngine, ICryptographicEngineStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn ICryptographicEngineStatics2<R, F: FnOnce(&ICryptographicEngineStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ICryptographicEngineStatics2<R, F: FnOnce(&ICryptographicEngineStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CryptographicEngine, ICryptographicEngineStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -413,7 +413,7 @@ pub struct CryptographicHash(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicHash, windows_core::IUnknown, windows_core::IInspectable);
 impl CryptographicHash {
     #[cfg(feature = "Storage_Streams")]
-    pub fn Append<P0>(&self, data: P0) -> windows_core::Result<()>
+    pub fn Append<P0>(&self, data: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -421,7 +421,7 @@ impl CryptographicHash {
         unsafe { (windows_core::Interface::vtable(this).Append)(windows_core::Interface::as_raw(this), data.param().abi()).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn GetValueAndReset(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn GetValueAndReset(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -446,7 +446,7 @@ unsafe impl Sync for CryptographicHash {}
 pub struct CryptographicKey(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CryptographicKey, windows_core::IUnknown, windows_core::IInspectable);
 impl CryptographicKey {
-    pub fn KeySize(&self) -> windows_core::Result<u32> {
+    pub fn KeySize(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -454,7 +454,7 @@ impl CryptographicKey {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportDefaultPrivateKeyBlobType(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportDefaultPrivateKeyBlobType(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -462,7 +462,7 @@ impl CryptographicKey {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportPrivateKeyWithBlobType(&self, blobtype: CryptographicPrivateKeyBlobType) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -470,7 +470,7 @@ impl CryptographicKey {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportDefaultPublicKeyBlobType(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportDefaultPublicKeyBlobType(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -478,7 +478,7 @@ impl CryptographicKey {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn ExportPublicKeyWithBlobType(&self, blobtype: CryptographicPublicKeyBlobType) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -547,283 +547,283 @@ impl windows_core::RuntimeType for CryptographicPublicKeyBlobType {
 }
 pub struct EccCurveNames;
 impl EccCurveNames {
-    pub fn BrainpoolP160r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP160r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP160r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP160t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP160t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP160t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP192r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP192r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP192r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP192t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP192t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP192t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP224r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP224r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP224r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP224t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP224t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP224t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP256r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP256r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP256r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP256t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP256t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP256t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP320r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP320r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP320r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP320t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP320t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP320t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP384r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP384r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP384r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP384t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP384t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP384t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP512r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP512r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP512r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn BrainpoolP512t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn BrainpoolP512t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BrainpoolP512t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Curve25519() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Curve25519() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Curve25519)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Ec192wapi() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Ec192wapi() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Ec192wapi)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NistP192() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NistP192() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NistP192)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NistP224() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NistP224() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NistP224)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NistP256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NistP256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NistP256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NistP384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NistP384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NistP384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NistP521() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NistP521() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NistP521)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NumsP256t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NumsP256t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NumsP256t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NumsP384t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NumsP384t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NumsP384t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn NumsP512t1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn NumsP512t1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).NumsP512t1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP160k1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP160k1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP160k1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP160r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP160r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP160r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP160r2() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP160r2() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP160r2)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP192k1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP192k1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP192k1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP192r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP192r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP192r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP224k1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP224k1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP224k1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP224r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP224r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP224r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP256k1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP256k1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP256k1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP256r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP256r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP256r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP384r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP384r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP384r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn SecP521r1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn SecP521r1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).SecP521r1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Wtls7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Wtls7() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Wtls7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Wtls9() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Wtls9() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Wtls9)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Wtls12() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Wtls12() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Wtls12)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P192v1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P192v1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P192v1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P192v2() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P192v2() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P192v2)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P192v3() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P192v3() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P192v3)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P239v1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P239v1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P239v1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P239v2() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P239v2() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P239v2)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P239v3() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P239v3() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P239v3)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn X962P256v1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn X962P256v1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).X962P256v1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AllEccCurveNames() -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn AllEccCurveNames() -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         Self::IEccCurveNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AllEccCurveNames)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IEccCurveNamesStatics<R, F: FnOnce(&IEccCurveNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IEccCurveNamesStatics<R, F: FnOnce(&IEccCurveNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<EccCurveNames, IEccCurveNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -837,7 +837,7 @@ pub struct EncryptedAndAuthenticatedData(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(EncryptedAndAuthenticatedData, windows_core::IUnknown, windows_core::IInspectable);
 impl EncryptedAndAuthenticatedData {
     #[cfg(feature = "Storage_Streams")]
-    pub fn EncryptedData(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn EncryptedData(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -845,7 +845,7 @@ impl EncryptedAndAuthenticatedData {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn AuthenticationTag(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn AuthenticationTag(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -867,37 +867,37 @@ unsafe impl Send for EncryptedAndAuthenticatedData {}
 unsafe impl Sync for EncryptedAndAuthenticatedData {}
 pub struct HashAlgorithmNames;
 impl HashAlgorithmNames {
-    pub fn Md5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Md5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IHashAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Md5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IHashAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IHashAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IHashAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IHashAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IHashAlgorithmNamesStatics<R, F: FnOnce(&IHashAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHashAlgorithmNamesStatics<R, F: FnOnce(&IHashAlgorithmNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HashAlgorithmNames, IHashAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -910,14 +910,14 @@ impl windows_core::RuntimeName for HashAlgorithmNames {
 pub struct HashAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(HashAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl HashAlgorithmProvider {
-    pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlgorithmName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlgorithmName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn HashLength(&self) -> windows_core::Result<u32> {
+    pub fn HashLength(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -925,7 +925,7 @@ impl HashAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn HashData<P0>(&self, data: P0) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer>
+    pub fn HashData<P0>(&self, data: P0) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -935,20 +935,20 @@ impl HashAlgorithmProvider {
             (windows_core::Interface::vtable(this).HashData)(windows_core::Interface::as_raw(this), data.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CreateHash(&self) -> windows_core::Result<CryptographicHash> {
+    pub fn CreateHash(&self) -> windows_result::Result<CryptographicHash> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateHash)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<HashAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_result::Result<HashAlgorithmProvider> {
         Self::IHashAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IHashAlgorithmProviderStatics<R, F: FnOnce(&IHashAlgorithmProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IHashAlgorithmProviderStatics<R, F: FnOnce(&IHashAlgorithmProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<HashAlgorithmProvider, IHashAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1520,131 +1520,131 @@ pub struct ISymmetricKeyAlgorithmProviderStatics_Vtbl {
 }
 pub struct KeyDerivationAlgorithmNames;
 impl KeyDerivationAlgorithmNames {
-    pub fn Pbkdf2Md5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Pbkdf2Md5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pbkdf2Md5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Pbkdf2Sha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Pbkdf2Sha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pbkdf2Sha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Pbkdf2Sha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Pbkdf2Sha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pbkdf2Sha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Pbkdf2Sha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Pbkdf2Sha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pbkdf2Sha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Pbkdf2Sha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Pbkdf2Sha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Pbkdf2Sha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp800108CtrHmacMd5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp800108CtrHmacMd5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp800108CtrHmacMd5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp800108CtrHmacSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp800108CtrHmacSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp800108CtrHmacSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp800108CtrHmacSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp800108CtrHmacSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp800108CtrHmacSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp800108CtrHmacSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp800108CtrHmacSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp800108CtrHmacSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp800108CtrHmacSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp800108CtrHmacSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp800108CtrHmacSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp80056aConcatMd5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp80056aConcatMd5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp80056aConcatMd5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp80056aConcatSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp80056aConcatSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp80056aConcatSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp80056aConcatSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp80056aConcatSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp80056aConcatSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp80056aConcatSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp80056aConcatSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp80056aConcatSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Sp80056aConcatSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Sp80056aConcatSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Sp80056aConcatSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CapiKdfMd5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapiKdfMd5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapiKdfMd5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CapiKdfSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapiKdfSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapiKdfSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CapiKdfSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapiKdfSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapiKdfSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CapiKdfSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapiKdfSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapiKdfSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn CapiKdfSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn CapiKdfSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IKeyDerivationAlgorithmNamesStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CapiKdfSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IKeyDerivationAlgorithmNamesStatics<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyDerivationAlgorithmNamesStatics<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IKeyDerivationAlgorithmNamesStatics2<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyDerivationAlgorithmNamesStatics2<R, F: FnOnce(&IKeyDerivationAlgorithmNamesStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyDerivationAlgorithmNames, IKeyDerivationAlgorithmNamesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1657,7 +1657,7 @@ impl windows_core::RuntimeName for KeyDerivationAlgorithmNames {
 pub struct KeyDerivationAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyDerivationAlgorithmProvider {
-    pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlgorithmName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1665,7 +1665,7 @@ impl KeyDerivationAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<P0>(&self, keymaterial: P0) -> windows_core::Result<CryptographicKey>
+    pub fn CreateKey<P0>(&self, keymaterial: P0) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1675,13 +1675,13 @@ impl KeyDerivationAlgorithmProvider {
             (windows_core::Interface::vtable(this).CreateKey)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<KeyDerivationAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_result::Result<KeyDerivationAlgorithmProvider> {
         Self::IKeyDerivationAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IKeyDerivationAlgorithmProviderStatics<R, F: FnOnce(&IKeyDerivationAlgorithmProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyDerivationAlgorithmProviderStatics<R, F: FnOnce(&IKeyDerivationAlgorithmProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyDerivationAlgorithmProvider, IKeyDerivationAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1704,7 +1704,7 @@ pub struct KeyDerivationParameters(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(KeyDerivationParameters, windows_core::IUnknown, windows_core::IInspectable);
 impl KeyDerivationParameters {
     #[cfg(feature = "Storage_Streams")]
-    pub fn KdfGenericBinary(&self) -> windows_core::Result<super::super::super::Storage::Streams::IBuffer> {
+    pub fn KdfGenericBinary(&self) -> windows_result::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1712,33 +1712,33 @@ impl KeyDerivationParameters {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn SetKdfGenericBinary<P0>(&self, value: P0) -> windows_core::Result<()>
+    pub fn SetKdfGenericBinary<P0>(&self, value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetKdfGenericBinary)(windows_core::Interface::as_raw(this), value.param().abi()).ok() }
     }
-    pub fn IterationCount(&self) -> windows_core::Result<u32> {
+    pub fn IterationCount(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IterationCount)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn Capi1KdfTargetAlgorithm(&self) -> windows_core::Result<Capi1KdfTargetAlgorithm> {
+    pub fn Capi1KdfTargetAlgorithm(&self) -> windows_result::Result<Capi1KdfTargetAlgorithm> {
         let this = &windows_core::Interface::cast::<IKeyDerivationParameters2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Capi1KdfTargetAlgorithm)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> windows_core::Result<()> {
+    pub fn SetCapi1KdfTargetAlgorithm(&self, value: Capi1KdfTargetAlgorithm) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IKeyDerivationParameters2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetCapi1KdfTargetAlgorithm)(windows_core::Interface::as_raw(this), value).ok() }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForPbkdf2<P0>(pbkdf2salt: P0, iterationcount: u32) -> windows_result::Result<KeyDerivationParameters>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1748,7 +1748,7 @@ impl KeyDerivationParameters {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForSP800108<P0, P1>(label: P0, context: P1) -> windows_result::Result<KeyDerivationParameters>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1759,7 +1759,7 @@ impl KeyDerivationParameters {
         })
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> windows_core::Result<KeyDerivationParameters>
+    pub fn BuildForSP80056a<P0, P1, P2, P3, P4>(algorithmid: P0, partyuinfo: P1, partyvinfo: P2, supppubinfo: P3, suppprivinfo: P4) -> windows_result::Result<KeyDerivationParameters>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
         P1: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
@@ -1772,17 +1772,17 @@ impl KeyDerivationParameters {
             (windows_core::Interface::vtable(this).BuildForSP80056a)(windows_core::Interface::as_raw(this), algorithmid.param().abi(), partyuinfo.param().abi(), partyvinfo.param().abi(), supppubinfo.param().abi(), suppprivinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> windows_core::Result<KeyDerivationParameters> {
+    pub fn BuildForCapi1Kdf(capi1kdftargetalgorithm: Capi1KdfTargetAlgorithm) -> windows_result::Result<KeyDerivationParameters> {
         Self::IKeyDerivationParametersStatics2(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BuildForCapi1Kdf)(windows_core::Interface::as_raw(this), capi1kdftargetalgorithm, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IKeyDerivationParametersStatics<R, F: FnOnce(&IKeyDerivationParametersStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyDerivationParametersStatics<R, F: FnOnce(&IKeyDerivationParametersStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    fn IKeyDerivationParametersStatics2<R, F: FnOnce(&IKeyDerivationParametersStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IKeyDerivationParametersStatics2<R, F: FnOnce(&IKeyDerivationParametersStatics2) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<KeyDerivationParameters, IKeyDerivationParametersStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1801,43 +1801,43 @@ unsafe impl Send for KeyDerivationParameters {}
 unsafe impl Sync for KeyDerivationParameters {}
 pub struct MacAlgorithmNames;
 impl MacAlgorithmNames {
-    pub fn HmacMd5() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HmacMd5() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HmacMd5)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HmacSha1() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HmacSha1() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HmacSha1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HmacSha256() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HmacSha256() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HmacSha256)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HmacSha384() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HmacSha384() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HmacSha384)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn HmacSha512() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn HmacSha512() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HmacSha512)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesCmac() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesCmac() -> windows_result::Result<windows_core::HSTRING> {
         Self::IMacAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesCmac)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IMacAlgorithmNamesStatics<R, F: FnOnce(&IMacAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMacAlgorithmNamesStatics<R, F: FnOnce(&IMacAlgorithmNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MacAlgorithmNames, IMacAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1850,14 +1850,14 @@ impl windows_core::RuntimeName for MacAlgorithmNames {
 pub struct MacAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MacAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl MacAlgorithmProvider {
-    pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlgorithmName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlgorithmName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn MacLength(&self) -> windows_core::Result<u32> {
+    pub fn MacLength(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -1865,7 +1865,7 @@ impl MacAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateKey<P0>(&self, keymaterial: P0) -> windows_core::Result<CryptographicKey>
+    pub fn CreateKey<P0>(&self, keymaterial: P0) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1876,7 +1876,7 @@ impl MacAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateHash<P0>(&self, keymaterial: P0) -> windows_core::Result<CryptographicHash>
+    pub fn CreateHash<P0>(&self, keymaterial: P0) -> windows_result::Result<CryptographicHash>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -1886,13 +1886,13 @@ impl MacAlgorithmProvider {
             (windows_core::Interface::vtable(this).CreateHash)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<MacAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_result::Result<MacAlgorithmProvider> {
         Self::IMacAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IMacAlgorithmProviderStatics<R, F: FnOnce(&IMacAlgorithmProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IMacAlgorithmProviderStatics<R, F: FnOnce(&IMacAlgorithmProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MacAlgorithmProvider, IMacAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1912,7 +1912,7 @@ unsafe impl Sync for MacAlgorithmProvider {}
 pub struct PersistedKeyProvider;
 impl PersistedKeyProvider {
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<windows_future::IAsyncOperation<CryptographicKey>>
+    pub fn OpenKeyPairFromCertificateAsync<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_result::Result<windows_future::IAsyncOperation<CryptographicKey>>
     where
         P0: windows_core::Param<super::Certificates::Certificate>,
     {
@@ -1922,7 +1922,7 @@ impl PersistedKeyProvider {
         })
     }
     #[cfg(feature = "Security_Cryptography_Certificates")]
-    pub fn OpenPublicKeyFromCertificate<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_core::Result<CryptographicKey>
+    pub fn OpenPublicKeyFromCertificate<P0>(certificate: P0, hashalgorithmname: &windows_core::HSTRING, padding: CryptographicPadding) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::Certificates::Certificate>,
     {
@@ -1931,7 +1931,7 @@ impl PersistedKeyProvider {
             (windows_core::Interface::vtable(this).OpenPublicKeyFromCertificate)(windows_core::Interface::as_raw(this), certificate.param().abi(), core::mem::transmute_copy(hashalgorithmname), padding, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IPersistedKeyProviderStatics<R, F: FnOnce(&IPersistedKeyProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IPersistedKeyProviderStatics<R, F: FnOnce(&IPersistedKeyProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<PersistedKeyProvider, IPersistedKeyProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -1941,121 +1941,121 @@ impl windows_core::RuntimeName for PersistedKeyProvider {
 }
 pub struct SymmetricAlgorithmNames;
 impl SymmetricAlgorithmNames {
-    pub fn DesCbc() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DesCbc() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesCbc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DesEcb() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DesEcb() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesEcb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TripleDesCbc() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TripleDesCbc() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TripleDesCbc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TripleDesEcb() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TripleDesEcb() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TripleDesEcb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rc2Cbc() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rc2Cbc() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rc2Cbc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rc2Ecb() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rc2Ecb() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rc2Ecb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesCbc() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesCbc() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesCbc)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesEcb() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesEcb() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesEcb)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesGcm() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesGcm() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesGcm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesCcm() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesCcm() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesCcm)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesCbcPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesCbcPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesCbcPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn AesEcbPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AesEcbPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AesEcbPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DesCbcPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DesCbcPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesCbcPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn DesEcbPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn DesEcbPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DesEcbPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TripleDesCbcPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TripleDesCbcPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TripleDesCbcPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn TripleDesEcbPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn TripleDesEcbPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TripleDesEcbPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rc2CbcPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rc2CbcPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rc2CbcPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rc2EcbPkcs7() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rc2EcbPkcs7() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rc2EcbPkcs7)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn Rc4() -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Rc4() -> windows_result::Result<windows_core::HSTRING> {
         Self::ISymmetricAlgorithmNamesStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Rc4)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn ISymmetricAlgorithmNamesStatics<R, F: FnOnce(&ISymmetricAlgorithmNamesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISymmetricAlgorithmNamesStatics<R, F: FnOnce(&ISymmetricAlgorithmNamesStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SymmetricAlgorithmNames, ISymmetricAlgorithmNamesStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -2068,14 +2068,14 @@ impl windows_core::RuntimeName for SymmetricAlgorithmNames {
 pub struct SymmetricKeyAlgorithmProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(SymmetricKeyAlgorithmProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl SymmetricKeyAlgorithmProvider {
-    pub fn AlgorithmName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AlgorithmName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlgorithmName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn BlockLength(&self) -> windows_core::Result<u32> {
+    pub fn BlockLength(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -2083,7 +2083,7 @@ impl SymmetricKeyAlgorithmProvider {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn CreateSymmetricKey<P0>(&self, keymaterial: P0) -> windows_core::Result<CryptographicKey>
+    pub fn CreateSymmetricKey<P0>(&self, keymaterial: P0) -> windows_result::Result<CryptographicKey>
     where
         P0: windows_core::Param<super::super::super::Storage::Streams::IBuffer>,
     {
@@ -2093,13 +2093,13 @@ impl SymmetricKeyAlgorithmProvider {
             (windows_core::Interface::vtable(this).CreateSymmetricKey)(windows_core::Interface::as_raw(this), keymaterial.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_core::Result<SymmetricKeyAlgorithmProvider> {
+    pub fn OpenAlgorithm(algorithm: &windows_core::HSTRING) -> windows_result::Result<SymmetricKeyAlgorithmProvider> {
         Self::ISymmetricKeyAlgorithmProviderStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).OpenAlgorithm)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(algorithm), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ISymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&ISymmetricKeyAlgorithmProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ISymmetricKeyAlgorithmProviderStatics<R, F: FnOnce(&ISymmetricKeyAlgorithmProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<SymmetricKeyAlgorithmProvider, ISymmetricKeyAlgorithmProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

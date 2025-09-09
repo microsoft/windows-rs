@@ -27,7 +27,7 @@ pub struct InkWorkspaceHostedAppManager(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(InkWorkspaceHostedAppManager, windows_core::IUnknown, windows_core::IInspectable);
 impl InkWorkspaceHostedAppManager {
     #[cfg(feature = "Graphics_Imaging")]
-    pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetThumbnailAsync<P0>(&self, bitmap: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<super::super::super::Graphics::Imaging::SoftwareBitmap>,
     {
@@ -37,13 +37,13 @@ impl InkWorkspaceHostedAppManager {
             (windows_core::Interface::vtable(this).SetThumbnailAsync)(windows_core::Interface::as_raw(this), bitmap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetForCurrentApp() -> windows_core::Result<InkWorkspaceHostedAppManager> {
+    pub fn GetForCurrentApp() -> windows_result::Result<InkWorkspaceHostedAppManager> {
         Self::IInkWorkspaceHostedAppManagerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetForCurrentApp)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IInkWorkspaceHostedAppManagerStatics<R, F: FnOnce(&IInkWorkspaceHostedAppManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IInkWorkspaceHostedAppManagerStatics<R, F: FnOnce(&IInkWorkspaceHostedAppManagerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<InkWorkspaceHostedAppManager, IInkWorkspaceHostedAppManagerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

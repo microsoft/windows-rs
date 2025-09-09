@@ -63,7 +63,7 @@ impl windows_core::RuntimeType for ILowLevelDevicesAggregateProvider {
 windows_core::imp::interface_hierarchy!(ILowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl ILowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
-    pub fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider> {
+    pub fn AdcControllerProvider(&self) -> windows_result::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -71,7 +71,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    pub fn PwmControllerProvider(&self) -> windows_core::Result<Pwm::Provider::IPwmControllerProvider> {
+    pub fn PwmControllerProvider(&self) -> windows_result::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -79,7 +79,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    pub fn GpioControllerProvider(&self) -> windows_core::Result<Gpio::Provider::IGpioControllerProvider> {
+    pub fn GpioControllerProvider(&self) -> windows_result::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -87,7 +87,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub fn I2cControllerProvider(&self) -> windows_core::Result<I2c::Provider::II2cControllerProvider> {
+    pub fn I2cControllerProvider(&self) -> windows_result::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -95,7 +95,7 @@ impl ILowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
-    pub fn SpiControllerProvider(&self) -> windows_core::Result<Spi::Provider::ISpiControllerProvider> {
+    pub fn SpiControllerProvider(&self) -> windows_result::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -109,11 +109,11 @@ impl windows_core::RuntimeName for ILowLevelDevicesAggregateProvider {
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 pub trait ILowLevelDevicesAggregateProvider_Impl: windows_core::IUnknownImpl {
-    fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider>;
-    fn PwmControllerProvider(&self) -> windows_core::Result<Pwm::Provider::IPwmControllerProvider>;
-    fn GpioControllerProvider(&self) -> windows_core::Result<Gpio::Provider::IGpioControllerProvider>;
-    fn I2cControllerProvider(&self) -> windows_core::Result<I2c::Provider::II2cControllerProvider>;
-    fn SpiControllerProvider(&self) -> windows_core::Result<Spi::Provider::ISpiControllerProvider>;
+    fn AdcControllerProvider(&self) -> windows_result::Result<Adc::Provider::IAdcControllerProvider>;
+    fn PwmControllerProvider(&self) -> windows_result::Result<Pwm::Provider::IPwmControllerProvider>;
+    fn GpioControllerProvider(&self) -> windows_result::Result<Gpio::Provider::IGpioControllerProvider>;
+    fn I2cControllerProvider(&self) -> windows_result::Result<I2c::Provider::II2cControllerProvider>;
+    fn SpiControllerProvider(&self) -> windows_result::Result<Spi::Provider::ISpiControllerProvider>;
 }
 #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
 impl ILowLevelDevicesAggregateProvider_Vtbl {
@@ -260,7 +260,7 @@ pub struct LowLevelDevicesAggregateProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLevelDevicesAggregateProvider, windows_core::IUnknown, windows_core::IInspectable, ILowLevelDevicesAggregateProvider);
 impl LowLevelDevicesAggregateProvider {
     #[cfg(feature = "Devices_Adc_Provider")]
-    pub fn AdcControllerProvider(&self) -> windows_core::Result<Adc::Provider::IAdcControllerProvider> {
+    pub fn AdcControllerProvider(&self) -> windows_result::Result<Adc::Provider::IAdcControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -268,7 +268,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Pwm_Provider")]
-    pub fn PwmControllerProvider(&self) -> windows_core::Result<Pwm::Provider::IPwmControllerProvider> {
+    pub fn PwmControllerProvider(&self) -> windows_result::Result<Pwm::Provider::IPwmControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -276,7 +276,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Gpio_Provider")]
-    pub fn GpioControllerProvider(&self) -> windows_core::Result<Gpio::Provider::IGpioControllerProvider> {
+    pub fn GpioControllerProvider(&self) -> windows_result::Result<Gpio::Provider::IGpioControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -284,7 +284,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_I2c_Provider")]
-    pub fn I2cControllerProvider(&self) -> windows_core::Result<I2c::Provider::II2cControllerProvider> {
+    pub fn I2cControllerProvider(&self) -> windows_result::Result<I2c::Provider::II2cControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -292,7 +292,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(feature = "Devices_Spi_Provider")]
-    pub fn SpiControllerProvider(&self) -> windows_core::Result<Spi::Provider::ISpiControllerProvider> {
+    pub fn SpiControllerProvider(&self) -> windows_result::Result<Spi::Provider::ISpiControllerProvider> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -300,7 +300,7 @@ impl LowLevelDevicesAggregateProvider {
         }
     }
     #[cfg(all(feature = "Devices_Adc_Provider", feature = "Devices_Gpio_Provider", feature = "Devices_I2c_Provider", feature = "Devices_Pwm_Provider", feature = "Devices_Spi_Provider"))]
-    pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> windows_core::Result<LowLevelDevicesAggregateProvider>
+    pub fn Create<P0, P1, P2, P3, P4>(adc: P0, pwm: P1, gpio: P2, i2c: P3, spi: P4) -> windows_result::Result<LowLevelDevicesAggregateProvider>
     where
         P0: windows_core::Param<Adc::Provider::IAdcControllerProvider>,
         P1: windows_core::Param<Pwm::Provider::IPwmControllerProvider>,
@@ -313,7 +313,7 @@ impl LowLevelDevicesAggregateProvider {
             (windows_core::Interface::vtable(this).Create)(windows_core::Interface::as_raw(this), adc.param().abi(), pwm.param().abi(), gpio.param().abi(), i2c.param().abi(), spi.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILowLevelDevicesAggregateProviderFactory<R, F: FnOnce(&ILowLevelDevicesAggregateProviderFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLevelDevicesAggregateProvider, ILowLevelDevicesAggregateProviderFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -335,19 +335,19 @@ unsafe impl Sync for LowLevelDevicesAggregateProvider {}
 pub struct LowLevelDevicesController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LowLevelDevicesController, windows_core::IUnknown, windows_core::IInspectable);
 impl LowLevelDevicesController {
-    pub fn DefaultProvider() -> windows_core::Result<ILowLevelDevicesAggregateProvider> {
+    pub fn DefaultProvider() -> windows_result::Result<ILowLevelDevicesAggregateProvider> {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).DefaultProvider)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    pub fn SetDefaultProvider<P0>(value: P0) -> windows_core::Result<()>
+    pub fn SetDefaultProvider<P0>(value: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ILowLevelDevicesAggregateProvider>,
     {
         Self::ILowLevelDevicesControllerStatics(|this| unsafe { (windows_core::Interface::vtable(this).SetDefaultProvider)(windows_core::Interface::as_raw(this), value.param().abi()).ok() })
     }
-    fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILowLevelDevicesControllerStatics<R, F: FnOnce(&ILowLevelDevicesControllerStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LowLevelDevicesController, ILowLevelDevicesControllerStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

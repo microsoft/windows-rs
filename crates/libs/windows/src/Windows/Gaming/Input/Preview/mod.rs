@@ -77,7 +77,7 @@ impl windows_core::RuntimeType for GameControllerFirmwareCorruptReason {
 pub struct GameControllerProviderInfo;
 impl GameControllerProviderInfo {
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetParentProviderId<P0>(provider: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetParentProviderId<P0>(provider: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {
@@ -87,7 +87,7 @@ impl GameControllerProviderInfo {
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn GetProviderId<P0>(provider: P0) -> windows_core::Result<windows_core::HSTRING>
+    pub fn GetProviderId<P0>(provider: P0) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {
@@ -96,7 +96,7 @@ impl GameControllerProviderInfo {
             (windows_core::Interface::vtable(this).GetProviderId)(windows_core::Interface::as_raw(this), provider.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IGameControllerProviderInfoStatics<R, F: FnOnce(&IGameControllerProviderInfoStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<GameControllerProviderInfo, IGameControllerProviderInfoStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -234,89 +234,89 @@ pub struct ILegacyGipGameControllerProviderStatics_Vtbl {
 pub struct LegacyGipGameControllerProvider(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(LegacyGipGameControllerProvider, windows_core::IUnknown, windows_core::IInspectable);
 impl LegacyGipGameControllerProvider {
-    pub fn BatteryChargingState(&self) -> windows_core::Result<GameControllerBatteryChargingState> {
+    pub fn BatteryChargingState(&self) -> windows_result::Result<GameControllerBatteryChargingState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryChargingState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BatteryKind(&self) -> windows_core::Result<GameControllerBatteryKind> {
+    pub fn BatteryKind(&self) -> windows_result::Result<GameControllerBatteryKind> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryKind)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn BatteryLevel(&self) -> windows_core::Result<GameControllerBatteryLevel> {
+    pub fn BatteryLevel(&self) -> windows_result::Result<GameControllerBatteryLevel> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).BatteryLevel)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn GetDeviceFirmwareCorruptionState(&self) -> windows_core::Result<GameControllerFirmwareCorruptReason> {
+    pub fn GetDeviceFirmwareCorruptionState(&self) -> windows_result::Result<GameControllerFirmwareCorruptReason> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceFirmwareCorruptionState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsFirmwareCorrupted(&self) -> windows_core::Result<bool> {
+    pub fn IsFirmwareCorrupted(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsFirmwareCorrupted)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn IsInterfaceSupported(&self, interfaceid: windows_core::GUID) -> windows_core::Result<bool> {
+    pub fn IsInterfaceSupported(&self, interfaceid: windows_core::GUID) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsInterfaceSupported)(windows_core::Interface::as_raw(this), interfaceid, &mut result__).map(|| result__)
         }
     }
-    pub fn IsSyntheticDevice(&self) -> windows_core::Result<bool> {
+    pub fn IsSyntheticDevice(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).IsSyntheticDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn PreferredTypes(&self) -> windows_core::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
+    pub fn PreferredTypes(&self) -> windows_result::Result<windows_collections::IVectorView<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PreferredTypes)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn ExecuteCommand(&self, command: DeviceCommand) -> windows_core::Result<()> {
+    pub fn ExecuteCommand(&self, command: DeviceCommand) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ExecuteCommand)(windows_core::Interface::as_raw(this), command).ok() }
     }
-    pub fn SetHomeLedIntensity(&self, intensity: u8) -> windows_core::Result<()> {
+    pub fn SetHomeLedIntensity(&self, intensity: u8) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHomeLedIntensity)(windows_core::Interface::as_raw(this), intensity).ok() }
     }
-    pub fn GetExtendedDeviceInfo(&self) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetExtendedDeviceInfo(&self) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetExtendedDeviceInfo)(windows_core::Interface::as_raw(this), windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn SetHeadsetOperation(&self, operation: HeadsetOperation, buffer: &[u8]) -> windows_core::Result<()> {
+    pub fn SetHeadsetOperation(&self, operation: HeadsetOperation, buffer: &[u8]) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHeadsetOperation)(windows_core::Interface::as_raw(this), operation, buffer.len().try_into().unwrap(), buffer.as_ptr()).ok() }
     }
-    pub fn GetHeadsetOperation(&self, operation: HeadsetOperation) -> windows_core::Result<windows_core::Array<u8>> {
+    pub fn GetHeadsetOperation(&self, operation: HeadsetOperation) -> windows_result::Result<windows_core::Array<u8>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::MaybeUninit::zeroed();
             (windows_core::Interface::vtable(this).GetHeadsetOperation)(windows_core::Interface::as_raw(this), operation, windows_core::Array::<u8>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
         }
     }
-    pub fn AppCompatVersion(&self) -> windows_core::Result<u32> {
+    pub fn AppCompatVersion(&self) -> windows_result::Result<u32> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -324,7 +324,7 @@ impl LegacyGipGameControllerProvider {
         }
     }
     #[cfg(feature = "System")]
-    pub fn SetStandardControllerButtonRemapping<P0, P2>(&self, user: P0, previous: bool, remapping: P2) -> windows_core::Result<()>
+    pub fn SetStandardControllerButtonRemapping<P0, P2>(&self, user: P0, previous: bool, remapping: P2) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
         P2: windows_core::Param<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>,
@@ -333,7 +333,7 @@ impl LegacyGipGameControllerProvider {
         unsafe { (windows_core::Interface::vtable(this).SetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, remapping.param().abi()).ok() }
     }
     #[cfg(feature = "System")]
-    pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_core::Result<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
+    pub fn GetStandardControllerButtonRemapping<P0>(&self, user: P0, previous: bool) -> windows_result::Result<windows_collections::IMapView<RemappingButtonCategory, windows_core::IInspectable>>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
@@ -343,7 +343,7 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(this).GetStandardControllerButtonRemapping)(windows_core::Interface::as_raw(this), user.param().abi(), previous, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FromGameController<P0>(controller: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
+    pub fn FromGameController<P0>(controller: P0) -> windows_result::Result<LegacyGipGameControllerProvider>
     where
         P0: windows_core::Param<super::IGameController>,
     {
@@ -353,7 +353,7 @@ impl LegacyGipGameControllerProvider {
         })
     }
     #[cfg(feature = "Gaming_Input_Custom")]
-    pub fn FromGameControllerProvider<P0>(provider: P0) -> windows_core::Result<LegacyGipGameControllerProvider>
+    pub fn FromGameControllerProvider<P0>(provider: P0) -> windows_result::Result<LegacyGipGameControllerProvider>
     where
         P0: windows_core::Param<super::Custom::IGameControllerProvider>,
     {
@@ -363,21 +363,21 @@ impl LegacyGipGameControllerProvider {
         })
     }
     #[cfg(feature = "System")]
-    pub fn PairPilotToCopilot<P0>(user: P0, pilotcontrollerproviderid: &windows_core::HSTRING, copilotcontrollerproviderid: &windows_core::HSTRING) -> windows_core::Result<()>
+    pub fn PairPilotToCopilot<P0>(user: P0, pilotcontrollerproviderid: &windows_core::HSTRING, copilotcontrollerproviderid: &windows_core::HSTRING) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).PairPilotToCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(pilotcontrollerproviderid), core::mem::transmute_copy(copilotcontrollerproviderid)).ok() })
     }
     #[cfg(feature = "System")]
-    pub fn ClearPairing<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_core::Result<()>
+    pub fn ClearPairing<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_result::Result<()>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
         Self::ILegacyGipGameControllerProviderStatics(|this| unsafe { (windows_core::Interface::vtable(this).ClearPairing)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid)).ok() })
     }
     #[cfg(feature = "System")]
-    pub fn IsPilot<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>
+    pub fn IsPilot<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
@@ -387,7 +387,7 @@ impl LegacyGipGameControllerProvider {
         })
     }
     #[cfg(feature = "System")]
-    pub fn IsCopilot<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING>
+    pub fn IsCopilot<P0>(user: P0, controllerproviderid: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING>
     where
         P0: windows_core::Param<super::super::super::System::User>,
     {
@@ -396,7 +396,7 @@ impl LegacyGipGameControllerProvider {
             (windows_core::Interface::vtable(this).IsCopilot)(windows_core::Interface::as_raw(this), user.param().abi(), core::mem::transmute_copy(controllerproviderid), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn ILegacyGipGameControllerProviderStatics<R, F: FnOnce(&ILegacyGipGameControllerProviderStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<LegacyGipGameControllerProvider, ILegacyGipGameControllerProviderStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

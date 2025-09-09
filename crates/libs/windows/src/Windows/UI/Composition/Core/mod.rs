@@ -4,36 +4,36 @@ pub struct CompositorController(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(CompositorController, windows_core::IUnknown, windows_core::IInspectable);
 windows_core::imp::required_hierarchy!(CompositorController, super::super::super::Foundation::IClosable);
 impl CompositorController {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CompositorController, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Close(&self) -> windows_core::Result<()> {
+    pub fn Close(&self) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn Compositor(&self) -> windows_core::Result<super::Compositor> {
+    pub fn Compositor(&self) -> windows_result::Result<super::Compositor> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Compositor)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Commit(&self) -> windows_core::Result<()> {
+    pub fn Commit(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Commit)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn EnsurePreviousCommitCompletedAsync(&self) -> windows_core::Result<windows_future::IAsyncAction> {
+    pub fn EnsurePreviousCommitCompletedAsync(&self) -> windows_result::Result<windows_future::IAsyncAction> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).EnsurePreviousCommitCompletedAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn CommitNeeded<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn CommitNeeded<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::super::Foundation::TypedEventHandler<CompositorController, windows_core::IInspectable>>,
     {
@@ -43,7 +43,7 @@ impl CompositorController {
             (windows_core::Interface::vtable(this).CommitNeeded)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveCommitNeeded(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveCommitNeeded(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveCommitNeeded)(windows_core::Interface::as_raw(this), token).ok() }
     }

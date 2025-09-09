@@ -66,87 +66,87 @@ pub struct IPrepareTranscodeResult_Vtbl {
 pub struct MediaTranscoder(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(MediaTranscoder, windows_core::IUnknown, windows_core::IInspectable);
 impl MediaTranscoder {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<MediaTranscoder, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn SetTrimStartTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimStartTime(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimStartTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TrimStartTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimStartTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimStartTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetTrimStopTime(&self, value: super::super::Foundation::TimeSpan) -> windows_core::Result<()> {
+    pub fn SetTrimStopTime(&self, value: super::super::Foundation::TimeSpan) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetTrimStopTime)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn TrimStopTime(&self) -> windows_core::Result<super::super::Foundation::TimeSpan> {
+    pub fn TrimStopTime(&self) -> windows_result::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).TrimStopTime)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetAlwaysReencode(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetAlwaysReencode(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetAlwaysReencode)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn AlwaysReencode(&self) -> windows_core::Result<bool> {
+    pub fn AlwaysReencode(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AlwaysReencode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn SetHardwareAccelerationEnabled(&self, value: bool) -> windows_core::Result<()> {
+    pub fn SetHardwareAccelerationEnabled(&self, value: bool) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).SetHardwareAccelerationEnabled)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn HardwareAccelerationEnabled(&self) -> windows_core::Result<bool> {
+    pub fn HardwareAccelerationEnabled(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).HardwareAccelerationEnabled)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn AddAudioEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AddAudioEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddAudioEffect)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddAudioEffectWithSettings<P2>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P2) -> windows_core::Result<()>
+    pub fn AddAudioEffectWithSettings<P2>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P2) -> windows_result::Result<()>
     where
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddAudioEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
     }
-    pub fn AddVideoEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_core::Result<()> {
+    pub fn AddVideoEffect(&self, activatableclassid: &windows_core::HSTRING) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddVideoEffect)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid)).ok() }
     }
     #[cfg(feature = "Foundation_Collections")]
-    pub fn AddVideoEffectWithSettings<P2>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P2) -> windows_core::Result<()>
+    pub fn AddVideoEffectWithSettings<P2>(&self, activatableclassid: &windows_core::HSTRING, effectrequired: bool, configuration: P2) -> windows_result::Result<()>
     where
         P2: windows_core::Param<super::super::Foundation::Collections::IPropertySet>,
     {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).AddVideoEffectWithSettings)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(activatableclassid), effectrequired, configuration.param().abi()).ok() }
     }
-    pub fn ClearEffects(&self) -> windows_core::Result<()> {
+    pub fn ClearEffects(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ClearEffects)(windows_core::Interface::as_raw(this)).ok() }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareFileTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_result::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::IStorageFile>,
         P1: windows_core::Param<super::super::Storage::IStorageFile>,
@@ -159,7 +159,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareStreamTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_result::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -172,7 +172,7 @@ impl MediaTranscoder {
         }
     }
     #[cfg(all(feature = "Media_Core", feature = "Media_MediaProperties", feature = "Storage_Streams"))]
-    pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_core::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
+    pub fn PrepareMediaStreamSourceTranscodeAsync<P0, P1, P2>(&self, source: P0, destination: P1, profile: P2) -> windows_result::Result<windows_future::IAsyncOperation<PrepareTranscodeResult>>
     where
         P0: windows_core::Param<super::Core::IMediaSource>,
         P1: windows_core::Param<super::super::Storage::Streams::IRandomAccessStream>,
@@ -184,11 +184,11 @@ impl MediaTranscoder {
             (windows_core::Interface::vtable(this).PrepareMediaStreamSourceTranscodeAsync)(windows_core::Interface::as_raw(this), source.param().abi(), destination.param().abi(), profile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_core::Result<()> {
+    pub fn SetVideoProcessingAlgorithm(&self, value: MediaVideoProcessingAlgorithm) -> windows_result::Result<()> {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe { (windows_core::Interface::vtable(this).SetVideoProcessingAlgorithm)(windows_core::Interface::as_raw(this), value).ok() }
     }
-    pub fn VideoProcessingAlgorithm(&self) -> windows_core::Result<MediaVideoProcessingAlgorithm> {
+    pub fn VideoProcessingAlgorithm(&self) -> windows_result::Result<MediaVideoProcessingAlgorithm> {
         let this = &windows_core::Interface::cast::<IMediaTranscoder2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -226,21 +226,21 @@ impl windows_core::RuntimeType for MediaVideoProcessingAlgorithm {
 pub struct PrepareTranscodeResult(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(PrepareTranscodeResult, windows_core::IUnknown, windows_core::IInspectable);
 impl PrepareTranscodeResult {
-    pub fn CanTranscode(&self) -> windows_core::Result<bool> {
+    pub fn CanTranscode(&self) -> windows_result::Result<bool> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CanTranscode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FailureReason(&self) -> windows_core::Result<TranscodeFailureReason> {
+    pub fn FailureReason(&self) -> windows_result::Result<TranscodeFailureReason> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FailureReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn TranscodeAsync(&self) -> windows_core::Result<windows_future::IAsyncActionWithProgress<f64>> {
+    pub fn TranscodeAsync(&self) -> windows_result::Result<windows_future::IAsyncActionWithProgress<f64>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();

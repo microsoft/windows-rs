@@ -3,28 +3,28 @@
 pub struct DialApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialApp, windows_core::IUnknown, windows_core::IInspectable);
 impl DialApp {
-    pub fn AppName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn AppName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).AppName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn RequestLaunchAsync(&self, appargument: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DialAppLaunchResult>> {
+    pub fn RequestLaunchAsync(&self, appargument: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<DialAppLaunchResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).RequestLaunchAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appargument), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn StopAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DialAppStopResult>> {
+    pub fn StopAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<DialAppStopResult>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).StopAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetAppStateAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<DialAppStateDetails>> {
+    pub fn GetAppStateAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<DialAppStateDetails>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -79,14 +79,14 @@ impl windows_core::RuntimeType for DialAppState {
 pub struct DialAppStateDetails(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialAppStateDetails, windows_core::IUnknown, windows_core::IInspectable);
 impl DialAppStateDetails {
-    pub fn State(&self) -> windows_core::Result<DialAppState> {
+    pub fn State(&self) -> windows_result::Result<DialAppState> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).State)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
-    pub fn FullXml(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FullXml(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -126,21 +126,21 @@ impl windows_core::RuntimeType for DialAppStopResult {
 pub struct DialDevice(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevice, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevice {
-    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn Id(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub fn GetDialApp(&self, appname: &windows_core::HSTRING) -> windows_core::Result<DialApp> {
+    pub fn GetDialApp(&self, appname: &windows_core::HSTRING) -> windows_result::Result<DialApp> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDialApp)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appname), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn FriendlyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn FriendlyName(&self) -> windows_result::Result<windows_core::HSTRING> {
         let this = &windows_core::Interface::cast::<IDialDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -148,27 +148,27 @@ impl DialDevice {
         }
     }
     #[cfg(feature = "Storage_Streams")]
-    pub fn Thumbnail(&self) -> windows_core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
+    pub fn Thumbnail(&self) -> windows_result::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &windows_core::Interface::cast::<IDialDevice2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Thumbnail)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetDeviceSelector(appname: &windows_core::HSTRING) -> windows_core::Result<windows_core::HSTRING> {
+    pub fn GetDeviceSelector(appname: &windows_core::HSTRING) -> windows_result::Result<windows_core::HSTRING> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeviceSelector)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(appname), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
-    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<DialDevice>> {
+    pub fn FromIdAsync(value: &windows_core::HSTRING) -> windows_result::Result<windows_future::IAsyncOperation<DialDevice>> {
         Self::IDialDeviceStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).FromIdAsync)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(value), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn DeviceInfoSupportsDialAsync<P0>(device: P0) -> windows_core::Result<windows_future::IAsyncOperation<bool>>
+    pub fn DeviceInfoSupportsDialAsync<P0>(device: P0) -> windows_result::Result<windows_future::IAsyncOperation<bool>>
     where
         P0: windows_core::Param<super::super::Devices::Enumeration::DeviceInformation>,
     {
@@ -177,7 +177,7 @@ impl DialDevice {
             (windows_core::Interface::vtable(this).DeviceInfoSupportsDialAsync)(windows_core::Interface::as_raw(this), device.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDialDeviceStatics<R, F: FnOnce(&IDialDeviceStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDialDeviceStatics<R, F: FnOnce(&IDialDeviceStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DialDevice, IDialDeviceStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
@@ -216,14 +216,14 @@ impl windows_core::RuntimeType for DialDeviceDisplayStatus {
 pub struct DialDevicePicker(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevicePicker, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevicePicker {
-    pub fn new() -> windows_core::Result<Self> {
+    pub fn new() -> windows_result::Result<Self> {
         Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
     }
-    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DialDevicePicker, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
-    pub fn Filter(&self) -> windows_core::Result<DialDevicePickerFilter> {
+    pub fn Filter(&self) -> windows_result::Result<DialDevicePickerFilter> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -231,14 +231,14 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "Devices_Enumeration")]
-    pub fn Appearance(&self) -> windows_core::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
+    pub fn Appearance(&self) -> windows_result::Result<super::super::Devices::Enumeration::DevicePickerAppearance> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Appearance)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn DialDeviceSelected<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DialDeviceSelected<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDeviceSelectedEventArgs>>,
     {
@@ -248,11 +248,11 @@ impl DialDevicePicker {
             (windows_core::Interface::vtable(this).DialDeviceSelected)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDialDeviceSelected(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDialDeviceSelected(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDialDeviceSelected)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DisconnectButtonClicked<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DisconnectButtonClicked<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DialDevicePicker, DialDisconnectButtonClickedEventArgs>>,
     {
@@ -262,11 +262,11 @@ impl DialDevicePicker {
             (windows_core::Interface::vtable(this).DisconnectButtonClicked)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDisconnectButtonClicked(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDisconnectButtonClicked(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDisconnectButtonClicked)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn DialDevicePickerDismissed<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    pub fn DialDevicePickerDismissed<P0>(&self, handler: P0) -> windows_result::Result<i64>
     where
         P0: windows_core::Param<super::super::Foundation::TypedEventHandler<DialDevicePicker, windows_core::IInspectable>>,
     {
@@ -276,20 +276,20 @@ impl DialDevicePicker {
             (windows_core::Interface::vtable(this).DialDevicePickerDismissed)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub fn RemoveDialDevicePickerDismissed(&self, token: i64) -> windows_core::Result<()> {
+    pub fn RemoveDialDevicePickerDismissed(&self, token: i64) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).RemoveDialDevicePickerDismissed)(windows_core::Interface::as_raw(this), token).ok() }
     }
-    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<()> {
+    pub fn Show(&self, selection: super::super::Foundation::Rect) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Show)(windows_core::Interface::as_raw(this), selection).ok() }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<()> {
+    pub fn ShowWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).ShowWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement).ok() }
     }
-    pub fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> windows_core::Result<windows_future::IAsyncOperation<DialDevice>> {
+    pub fn PickSingleDialDeviceAsync(&self, selection: super::super::Foundation::Rect) -> windows_result::Result<windows_future::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -297,18 +297,18 @@ impl DialDevicePicker {
         }
     }
     #[cfg(feature = "UI_Popups")]
-    pub fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_core::Result<windows_future::IAsyncOperation<DialDevice>> {
+    pub fn PickSingleDialDeviceAsyncWithPlacement(&self, selection: super::super::Foundation::Rect, preferredplacement: super::super::UI::Popups::Placement) -> windows_result::Result<windows_future::IAsyncOperation<DialDevice>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).PickSingleDialDeviceAsyncWithPlacement)(windows_core::Interface::as_raw(this), selection, preferredplacement, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Hide(&self) -> windows_core::Result<()> {
+    pub fn Hide(&self) -> windows_result::Result<()> {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).Hide)(windows_core::Interface::as_raw(this)).ok() }
     }
-    pub fn SetDisplayStatus<P0>(&self, device: P0, status: DialDeviceDisplayStatus) -> windows_core::Result<()>
+    pub fn SetDisplayStatus<P0>(&self, device: P0, status: DialDeviceDisplayStatus) -> windows_result::Result<()>
     where
         P0: windows_core::Param<DialDevice>,
     {
@@ -333,7 +333,7 @@ unsafe impl Sync for DialDevicePicker {}
 pub struct DialDevicePickerFilter(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDevicePickerFilter, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDevicePickerFilter {
-    pub fn SupportedAppNames(&self) -> windows_core::Result<windows_collections::IVector<windows_core::HSTRING>> {
+    pub fn SupportedAppNames(&self) -> windows_result::Result<windows_collections::IVector<windows_core::HSTRING>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -358,7 +358,7 @@ unsafe impl Sync for DialDevicePickerFilter {}
 pub struct DialDeviceSelectedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDeviceSelectedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDeviceSelectedEventArgs {
-    pub fn SelectedDialDevice(&self) -> windows_core::Result<DialDevice> {
+    pub fn SelectedDialDevice(&self) -> windows_result::Result<DialDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -383,7 +383,7 @@ unsafe impl Sync for DialDeviceSelectedEventArgs {}
 pub struct DialDisconnectButtonClickedEventArgs(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialDisconnectButtonClickedEventArgs, windows_core::IUnknown, windows_core::IInspectable);
 impl DialDisconnectButtonClickedEventArgs {
-    pub fn Device(&self) -> windows_core::Result<DialDevice> {
+    pub fn Device(&self) -> windows_result::Result<DialDevice> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
@@ -408,14 +408,14 @@ unsafe impl Sync for DialDisconnectButtonClickedEventArgs {}
 pub struct DialReceiverApp(windows_core::IUnknown);
 windows_core::imp::interface_hierarchy!(DialReceiverApp, windows_core::IUnknown, windows_core::IInspectable);
 impl DialReceiverApp {
-    pub fn GetAdditionalDataAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>> {
+    pub fn GetAdditionalDataAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_collections::IMap<windows_core::HSTRING, windows_core::HSTRING>>> {
         let this = self;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetAdditionalDataAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn SetAdditionalDataAsync<P0>(&self, additionaldata: P0) -> windows_core::Result<windows_future::IAsyncAction>
+    pub fn SetAdditionalDataAsync<P0>(&self, additionaldata: P0) -> windows_result::Result<windows_future::IAsyncAction>
     where
         P0: windows_core::Param<windows_collections::IIterable<windows_collections::IKeyValuePair<windows_core::HSTRING, windows_core::HSTRING>>>,
     {
@@ -425,20 +425,20 @@ impl DialReceiverApp {
             (windows_core::Interface::vtable(this).SetAdditionalDataAsync)(windows_core::Interface::as_raw(this), additionaldata.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn GetUniqueDeviceNameAsync(&self) -> windows_core::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
+    pub fn GetUniqueDeviceNameAsync(&self) -> windows_result::Result<windows_future::IAsyncOperation<windows_core::HSTRING>> {
         let this = &windows_core::Interface::cast::<IDialReceiverApp2>(self)?;
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetUniqueDeviceNameAsync)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub fn Current() -> windows_core::Result<DialReceiverApp> {
+    pub fn Current() -> windows_result::Result<DialReceiverApp> {
         Self::IDialReceiverAppStatics(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).Current)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
-    fn IDialReceiverAppStatics<R, F: FnOnce(&IDialReceiverAppStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+    fn IDialReceiverAppStatics<R, F: FnOnce(&IDialReceiverAppStatics) -> windows_result::Result<R>>(callback: F) -> windows_result::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<DialReceiverApp, IDialReceiverAppStatics> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }

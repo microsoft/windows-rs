@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 #[inline]
-pub unsafe fn DSCreateISecurityInfoObject<P0, P1>(pwszobjectpath: P0, pwszobjectclass: P1, dwflags: u32, ppsi: *mut Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+pub unsafe fn DSCreateISecurityInfoObject<P0, P1>(pwszobjectpath: P0, pwszobjectclass: P1, dwflags: u32, ppsi: *mut Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -10,7 +10,7 @@ where
 }
 #[cfg(feature = "Win32_Security_Authorization_UI")]
 #[inline]
-pub unsafe fn DSCreateISecurityInfoObjectEx<P0, P1, P2, P3, P4>(pwszobjectpath: P0, pwszobjectclass: P1, pwszserver: P2, pwszusername: P3, pwszpassword: P4, dwflags: u32, ppsi: *mut Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+pub unsafe fn DSCreateISecurityInfoObjectEx<P0, P1, P2, P3, P4>(pwszobjectpath: P0, pwszobjectclass: P1, pwszserver: P2, pwszusername: P3, pwszpassword: P4, dwflags: u32, ppsi: *mut Option<super::Authorization::UI::ISecurityInformation>, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -23,7 +23,7 @@ where
 }
 #[cfg(feature = "Win32_UI_Controls")]
 #[inline]
-pub unsafe fn DSCreateSecurityPage<P0, P1>(pwszobjectpath: P0, pwszobjectclass: P1, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+pub unsafe fn DSCreateSecurityPage<P0, P1>(pwszobjectpath: P0, pwszobjectclass: P1, dwflags: u32, phpage: *mut super::super::UI::Controls::HPROPSHEETPAGE, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
@@ -32,7 +32,7 @@ where
     unsafe { DSCreateSecurityPage(pwszobjectpath.param().abi(), pwszobjectclass.param().abi(), dwflags, phpage as _, pfnreadsd, pfnwritesd, lpcontext).ok() }
 }
 #[inline]
-pub unsafe fn DSEditSecurity<P1, P2, P4>(hwndowner: super::super::Foundation::HWND, pwszobjectpath: P1, pwszobjectclass: P2, dwflags: u32, pwszcaption: P4, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_core::Result<()>
+pub unsafe fn DSEditSecurity<P1, P2, P4>(hwndowner: super::super::Foundation::HWND, pwszobjectpath: P1, pwszobjectclass: P2, dwflags: u32, pwszcaption: P4, pfnreadsd: PFNREADOBJECTSECURITY, pfnwritesd: PFNWRITEOBJECTSECURITY, lpcontext: super::super::Foundation::LPARAM) -> windows_result::Result<()>
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,

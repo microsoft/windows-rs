@@ -12,22 +12,22 @@ windows_core::imp::interface_hierarchy!(IEnumNetworkConnections, windows_core::I
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumNetworkConnections {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<super::super::System::Ole::IEnumVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Next(&self, rgelt: &mut [Option<INetworkConnection>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<INetworkConnection>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IEnumNetworkConnections> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -50,11 +50,11 @@ pub struct IEnumNetworkConnections_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworkConnections_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumNetworkConnections>;
+    fn _NewEnum(&self) -> windows_result::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetworkConnection>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IEnumNetworkConnections>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetworkConnections_Vtbl {
@@ -130,22 +130,22 @@ windows_core::imp::interface_hierarchy!(IEnumNetworks, windows_core::IUnknown, s
 #[cfg(feature = "Win32_System_Com")]
 impl IEnumNetworks {
     #[cfg(feature = "Win32_System_Ole")]
-    pub unsafe fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT> {
+    pub unsafe fn _NewEnum(&self) -> windows_result::Result<super::super::System::Ole::IEnumVARIANT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self)._NewEnum)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn Next(&self, rgelt: &mut [Option<INetwork>], pceltfetched: Option<*mut u32>) -> windows_core::Result<()> {
+    pub unsafe fn Next(&self, rgelt: &mut [Option<INetwork>], pceltfetched: Option<*mut u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Next)(windows_core::Interface::as_raw(self), rgelt.len().try_into().unwrap(), core::mem::transmute(rgelt.as_ptr()), pceltfetched.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn Skip(&self, celt: u32) -> windows_core::Result<()> {
+    pub unsafe fn Skip(&self, celt: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Skip)(windows_core::Interface::as_raw(self), celt).ok() }
     }
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Clone(&self) -> windows_core::Result<IEnumNetworks> {
+    pub unsafe fn Clone(&self) -> windows_result::Result<IEnumNetworks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).Clone)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -168,11 +168,11 @@ pub struct IEnumNetworks_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait IEnumNetworks_Impl: super::super::System::Com::IDispatch_Impl {
-    fn _NewEnum(&self) -> windows_core::Result<super::super::System::Ole::IEnumVARIANT>;
-    fn Next(&self, celt: u32, rgelt: *mut Option<INetwork>, pceltfetched: *mut u32) -> windows_core::Result<()>;
-    fn Skip(&self, celt: u32) -> windows_core::Result<()>;
-    fn Reset(&self) -> windows_core::Result<()>;
-    fn Clone(&self) -> windows_core::Result<IEnumNetworks>;
+    fn _NewEnum(&self) -> windows_result::Result<super::super::System::Ole::IEnumVARIANT>;
+    fn Next(&self, celt: u32, rgelt: *mut Option<INetwork>, pceltfetched: *mut u32) -> windows_result::Result<()>;
+    fn Skip(&self, celt: u32) -> windows_result::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
+    fn Clone(&self) -> windows_result::Result<IEnumNetworks>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl IEnumNetworks_Vtbl {
@@ -247,70 +247,70 @@ impl core::ops::Deref for INetwork {
 windows_core::imp::interface_hierarchy!(INetwork, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetwork {
-    pub unsafe fn GetName(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetName(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetName)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetName)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(sznetworknewname)).ok() }
     }
-    pub unsafe fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR> {
+    pub unsafe fn GetDescription(&self) -> windows_result::Result<windows_core::BSTR> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDescription)(windows_core::Interface::as_raw(self), &mut result__).map(|| core::mem::transmute(result__))
         }
     }
-    pub unsafe fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_core::Result<()> {
+    pub unsafe fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDescription)(windows_core::Interface::as_raw(self), core::mem::transmute_copy(szdescription)).ok() }
     }
-    pub unsafe fn GetNetworkId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetNetworkId(&self) -> windows_result::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetworkId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE> {
+    pub unsafe fn GetDomainType(&self) -> windows_result::Result<NLM_DOMAIN_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDomainType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections> {
+    pub unsafe fn GetNetworkConnections(&self) -> windows_result::Result<IEnumNetworkConnections> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetworkConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetTimeCreatedAndConnected)(windows_core::Interface::as_raw(self), pdwlowdatetimecreated as _, pdwhighdatetimecreated as _, pdwlowdatetimeconnected as _, pdwhighdatetimeconnected as _).ok() }
     }
-    pub unsafe fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnectedToInternet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY> {
+    pub unsafe fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetCategory(&self) -> windows_core::Result<NLM_NETWORK_CATEGORY> {
+    pub unsafe fn GetCategory(&self) -> windows_result::Result<NLM_NETWORK_CATEGORY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCategory)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::Result<()> {
+    pub unsafe fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetCategory)(windows_core::Interface::as_raw(self), newcategory).ok() }
     }
 }
@@ -335,19 +335,19 @@ pub struct INetwork_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetwork_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetName(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetDescription(&self) -> windows_core::Result<windows_core::BSTR>;
-    fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_core::Result<()>;
-    fn GetNetworkId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE>;
-    fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections>;
-    fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_core::Result<()>;
-    fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
-    fn GetCategory(&self) -> windows_core::Result<NLM_NETWORK_CATEGORY>;
-    fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_core::Result<()>;
+    fn GetName(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetName(&self, sznetworknewname: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn GetDescription(&self) -> windows_result::Result<windows_core::BSTR>;
+    fn SetDescription(&self, szdescription: &windows_core::BSTR) -> windows_result::Result<()>;
+    fn GetNetworkId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn GetDomainType(&self) -> windows_result::Result<NLM_DOMAIN_TYPE>;
+    fn GetNetworkConnections(&self) -> windows_result::Result<IEnumNetworkConnections>;
+    fn GetTimeCreatedAndConnected(&self, pdwlowdatetimecreated: *mut u32, pdwhighdatetimecreated: *mut u32, pdwlowdatetimeconnected: *mut u32, pdwhighdatetimeconnected: *mut u32) -> windows_result::Result<()>;
+    fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY>;
+    fn GetCategory(&self) -> windows_result::Result<NLM_NETWORK_CATEGORY>;
+    fn SetCategory(&self, newcategory: NLM_NETWORK_CATEGORY) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetwork_Vtbl {
@@ -520,7 +520,7 @@ impl core::ops::Deref for INetwork2 {
 windows_core::imp::interface_hierarchy!(INetwork2, windows_core::IUnknown, super::super::System::Com::IDispatch, INetwork);
 #[cfg(feature = "Win32_System_Com")]
 impl INetwork2 {
-    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), domainauthenticationkind, &mut result__).map(|| result__)
@@ -536,7 +536,7 @@ pub struct INetwork2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetwork2_Impl: INetwork_Impl {
-    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL>;
+    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_result::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetwork2_Vtbl {
@@ -574,43 +574,43 @@ impl core::ops::Deref for INetworkConnection {
 windows_core::imp::interface_hierarchy!(INetworkConnection, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetworkConnection {
-    pub unsafe fn GetNetwork(&self) -> windows_core::Result<INetwork> {
+    pub unsafe fn GetNetwork(&self) -> windows_result::Result<INetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnectedToInternet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY> {
+    pub unsafe fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectionId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetConnectionId(&self) -> windows_result::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConnectionId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetAdapterId(&self) -> windows_core::Result<windows_core::GUID> {
+    pub unsafe fn GetAdapterId(&self) -> windows_result::Result<windows_core::GUID> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAdapterId)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE> {
+    pub unsafe fn GetDomainType(&self) -> windows_result::Result<NLM_DOMAIN_TYPE> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDomainType)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -632,13 +632,13 @@ pub struct INetworkConnection_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkConnection_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetNetwork(&self) -> windows_core::Result<INetwork>;
-    fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
-    fn GetConnectionId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetAdapterId(&self) -> windows_core::Result<windows_core::GUID>;
-    fn GetDomainType(&self) -> windows_core::Result<NLM_DOMAIN_TYPE>;
+    fn GetNetwork(&self) -> windows_result::Result<INetwork>;
+    fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY>;
+    fn GetConnectionId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn GetAdapterId(&self) -> windows_result::Result<windows_core::GUID>;
+    fn GetDomainType(&self) -> windows_result::Result<NLM_DOMAIN_TYPE>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkConnection_Vtbl {
@@ -757,7 +757,7 @@ impl core::ops::Deref for INetworkConnection2 {
 windows_core::imp::interface_hierarchy!(INetworkConnection2, windows_core::IUnknown, super::super::System::Com::IDispatch, INetworkConnection);
 #[cfg(feature = "Win32_System_Com")]
 impl INetworkConnection2 {
-    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL> {
+    pub unsafe fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_result::Result<windows_core::BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsDomainAuthenticatedBy)(windows_core::Interface::as_raw(self), domainauthenticationkind, &mut result__).map(|| result__)
@@ -773,7 +773,7 @@ pub struct INetworkConnection2_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkConnection2_Impl: INetworkConnection_Impl {
-    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_core::Result<windows_core::BOOL>;
+    fn IsDomainAuthenticatedBy(&self, domainauthenticationkind: NLM_DOMAIN_AUTHENTICATION_KIND) -> windows_result::Result<windows_core::BOOL>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkConnection2_Vtbl {
@@ -801,13 +801,13 @@ impl windows_core::RuntimeName for INetworkConnection2 {}
 windows_core::imp::define_interface!(INetworkConnectionCost, INetworkConnectionCost_Vtbl, 0xdcb0000a_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCost, windows_core::IUnknown);
 impl INetworkConnectionCost {
-    pub unsafe fn GetCost(&self) -> windows_core::Result<u32> {
+    pub unsafe fn GetCost(&self) -> windows_result::Result<u32> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()> {
+    pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _).ok() }
     }
 }
@@ -819,8 +819,8 @@ pub struct INetworkConnectionCost_Vtbl {
     pub GetDataPlanStatus: unsafe extern "system" fn(*mut core::ffi::c_void, *mut NLM_DATAPLAN_STATUS) -> windows_core::HRESULT,
 }
 pub trait INetworkConnectionCost_Impl: windows_core::IUnknownImpl {
-    fn GetCost(&self) -> windows_core::Result<u32>;
-    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_core::Result<()>;
+    fn GetCost(&self) -> windows_result::Result<u32>;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS) -> windows_result::Result<()>;
 }
 impl INetworkConnectionCost_Vtbl {
     pub const fn new<Identity: INetworkConnectionCost_Impl, const OFFSET: isize>() -> Self {
@@ -856,10 +856,10 @@ impl windows_core::RuntimeName for INetworkConnectionCost {}
 windows_core::imp::define_interface!(INetworkConnectionCostEvents, INetworkConnectionCostEvents_Vtbl, 0xdcb0000b_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionCostEvents, windows_core::IUnknown);
 impl INetworkConnectionCostEvents {
-    pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_core::Result<()> {
+    pub unsafe fn ConnectionCostChanged(&self, connectionid: windows_core::GUID, newcost: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectionCostChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newcost).ok() }
     }
-    pub unsafe fn ConnectionDataPlanStatusChanged(&self, connectionid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn ConnectionDataPlanStatusChanged(&self, connectionid: windows_core::GUID) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectionDataPlanStatusChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid)).ok() }
     }
 }
@@ -871,8 +871,8 @@ pub struct INetworkConnectionCostEvents_Vtbl {
     pub ConnectionDataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID) -> windows_core::HRESULT,
 }
 pub trait INetworkConnectionCostEvents_Impl: windows_core::IUnknownImpl {
-    fn ConnectionCostChanged(&self, connectionid: &windows_core::GUID, newcost: u32) -> windows_core::Result<()>;
-    fn ConnectionDataPlanStatusChanged(&self, connectionid: &windows_core::GUID) -> windows_core::Result<()>;
+    fn ConnectionCostChanged(&self, connectionid: &windows_core::GUID, newcost: u32) -> windows_result::Result<()>;
+    fn ConnectionDataPlanStatusChanged(&self, connectionid: &windows_core::GUID) -> windows_result::Result<()>;
 }
 impl INetworkConnectionCostEvents_Vtbl {
     pub const fn new<Identity: INetworkConnectionCostEvents_Impl, const OFFSET: isize>() -> Self {
@@ -902,10 +902,10 @@ impl windows_core::RuntimeName for INetworkConnectionCostEvents {}
 windows_core::imp::define_interface!(INetworkConnectionEvents, INetworkConnectionEvents_Vtbl, 0xdcb00007_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkConnectionEvents, windows_core::IUnknown);
 impl INetworkConnectionEvents {
-    pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
+    pub unsafe fn NetworkConnectionConnectivityChanged(&self, connectionid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkConnectionConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), newconnectivity).ok() }
     }
-    pub unsafe fn NetworkConnectionPropertyChanged(&self, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::Result<()> {
+    pub unsafe fn NetworkConnectionPropertyChanged(&self, connectionid: windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkConnectionPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(connectionid), flags).ok() }
     }
 }
@@ -917,8 +917,8 @@ pub struct INetworkConnectionEvents_Vtbl {
     pub NetworkConnectionPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 pub trait INetworkConnectionEvents_Impl: windows_core::IUnknownImpl {
-    fn NetworkConnectionConnectivityChanged(&self, connectionid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
-    fn NetworkConnectionPropertyChanged(&self, connectionid: &windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_core::Result<()>;
+    fn NetworkConnectionConnectivityChanged(&self, connectionid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()>;
+    fn NetworkConnectionPropertyChanged(&self, connectionid: &windows_core::GUID, flags: NLM_CONNECTION_PROPERTY_CHANGE) -> windows_result::Result<()>;
 }
 impl INetworkConnectionEvents_Vtbl {
     pub const fn new<Identity: INetworkConnectionEvents_Impl, const OFFSET: isize>() -> Self {
@@ -948,13 +948,13 @@ impl windows_core::RuntimeName for INetworkConnectionEvents {}
 windows_core::imp::define_interface!(INetworkCostManager, INetworkCostManager_Vtbl, 0xdcb00008_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkCostManager, windows_core::IUnknown);
 impl INetworkCostManager {
-    pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
+    pub unsafe fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetCost)(windows_core::Interface::as_raw(self), pcost as _, pdestipaddr).ok() }
     }
-    pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
+    pub unsafe fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDataPlanStatus)(windows_core::Interface::as_raw(self), pdataplanstatus as _, pdestipaddr).ok() }
     }
-    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()> {
+    pub unsafe fn SetDestinationAddresses(&self, pdestipaddrlist: &[NLM_SOCKADDR], bappend: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDestinationAddresses)(windows_core::Interface::as_raw(self), pdestipaddrlist.len().try_into().unwrap(), core::mem::transmute(pdestipaddrlist.as_ptr()), bappend).ok() }
     }
 }
@@ -967,9 +967,9 @@ pub struct INetworkCostManager_Vtbl {
     pub SetDestinationAddresses: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *const NLM_SOCKADDR, super::super::Foundation::VARIANT_BOOL) -> windows_core::HRESULT,
 }
 pub trait INetworkCostManager_Impl: windows_core::IUnknownImpl {
-    fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> windows_core::Result<()>;
+    fn GetCost(&self, pcost: *mut u32, pdestipaddr: *const NLM_SOCKADDR) -> windows_result::Result<()>;
+    fn GetDataPlanStatus(&self, pdataplanstatus: *mut NLM_DATAPLAN_STATUS, pdestipaddr: *const NLM_SOCKADDR) -> windows_result::Result<()>;
+    fn SetDestinationAddresses(&self, length: u32, pdestipaddrlist: *const NLM_SOCKADDR, bappend: super::super::Foundation::VARIANT_BOOL) -> windows_result::Result<()>;
 }
 impl INetworkCostManager_Vtbl {
     pub const fn new<Identity: INetworkCostManager_Impl, const OFFSET: isize>() -> Self {
@@ -1006,10 +1006,10 @@ impl windows_core::RuntimeName for INetworkCostManager {}
 windows_core::imp::define_interface!(INetworkCostManagerEvents, INetworkCostManagerEvents_Vtbl, 0xdcb00009_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkCostManagerEvents, windows_core::IUnknown);
 impl INetworkCostManagerEvents {
-    pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
+    pub unsafe fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CostChanged)(windows_core::Interface::as_raw(self), newcost, pdestaddr).ok() }
     }
-    pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()> {
+    pub unsafe fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).DataPlanStatusChanged)(windows_core::Interface::as_raw(self), pdestaddr).ok() }
     }
 }
@@ -1021,8 +1021,8 @@ pub struct INetworkCostManagerEvents_Vtbl {
     pub DataPlanStatusChanged: unsafe extern "system" fn(*mut core::ffi::c_void, *const NLM_SOCKADDR) -> windows_core::HRESULT,
 }
 pub trait INetworkCostManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
-    fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_core::Result<()>;
+    fn CostChanged(&self, newcost: u32, pdestaddr: *const NLM_SOCKADDR) -> windows_result::Result<()>;
+    fn DataPlanStatusChanged(&self, pdestaddr: *const NLM_SOCKADDR) -> windows_result::Result<()>;
 }
 impl INetworkCostManagerEvents_Vtbl {
     pub const fn new<Identity: INetworkCostManagerEvents_Impl, const OFFSET: isize>() -> Self {
@@ -1052,16 +1052,16 @@ impl windows_core::RuntimeName for INetworkCostManagerEvents {}
 windows_core::imp::define_interface!(INetworkEvents, INetworkEvents_Vtbl, 0xdcb00004_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkEvents, windows_core::IUnknown);
 impl INetworkEvents {
-    pub unsafe fn NetworkAdded(&self, networkid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn NetworkAdded(&self, networkid: windows_core::GUID) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkAdded)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid)).ok() }
     }
-    pub unsafe fn NetworkDeleted(&self, networkid: windows_core::GUID) -> windows_core::Result<()> {
+    pub unsafe fn NetworkDeleted(&self, networkid: windows_core::GUID) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkDeleted)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid)).ok() }
     }
-    pub unsafe fn NetworkConnectivityChanged(&self, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
+    pub unsafe fn NetworkConnectivityChanged(&self, networkid: windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkConnectivityChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), newconnectivity).ok() }
     }
-    pub unsafe fn NetworkPropertyChanged(&self, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::Result<()> {
+    pub unsafe fn NetworkPropertyChanged(&self, networkid: windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).NetworkPropertyChanged)(windows_core::Interface::as_raw(self), core::mem::transmute(networkid), flags).ok() }
     }
 }
@@ -1075,10 +1075,10 @@ pub struct INetworkEvents_Vtbl {
     pub NetworkPropertyChanged: unsafe extern "system" fn(*mut core::ffi::c_void, windows_core::GUID, NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::HRESULT,
 }
 pub trait INetworkEvents_Impl: windows_core::IUnknownImpl {
-    fn NetworkAdded(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn NetworkDeleted(&self, networkid: &windows_core::GUID) -> windows_core::Result<()>;
-    fn NetworkConnectivityChanged(&self, networkid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
-    fn NetworkPropertyChanged(&self, networkid: &windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_core::Result<()>;
+    fn NetworkAdded(&self, networkid: &windows_core::GUID) -> windows_result::Result<()>;
+    fn NetworkDeleted(&self, networkid: &windows_core::GUID) -> windows_result::Result<()>;
+    fn NetworkConnectivityChanged(&self, networkid: &windows_core::GUID, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()>;
+    fn NetworkPropertyChanged(&self, networkid: &windows_core::GUID, flags: NLM_NETWORK_PROPERTY_CHANGE) -> windows_result::Result<()>;
 }
 impl INetworkEvents_Vtbl {
     pub const fn new<Identity: INetworkEvents_Impl, const OFFSET: isize>() -> Self {
@@ -1132,52 +1132,52 @@ impl core::ops::Deref for INetworkListManager {
 windows_core::imp::interface_hierarchy!(INetworkListManager, windows_core::IUnknown, super::super::System::Com::IDispatch);
 #[cfg(feature = "Win32_System_Com")]
 impl INetworkListManager {
-    pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_core::Result<IEnumNetworks> {
+    pub unsafe fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_result::Result<IEnumNetworks> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetworks)(windows_core::Interface::as_raw(self), flags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNetwork(&self, gdnetworkid: windows_core::GUID) -> windows_core::Result<INetwork> {
+    pub unsafe fn GetNetwork(&self, gdnetworkid: windows_core::GUID) -> windows_result::Result<INetwork> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetwork)(windows_core::Interface::as_raw(self), core::mem::transmute(gdnetworkid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections> {
+    pub unsafe fn GetNetworkConnections(&self) -> windows_result::Result<IEnumNetworkConnections> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetworkConnections)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn GetNetworkConnection(&self, gdnetworkconnectionid: windows_core::GUID) -> windows_core::Result<INetworkConnection> {
+    pub unsafe fn GetNetworkConnection(&self, gdnetworkconnectionid: windows_core::GUID) -> windows_result::Result<INetworkConnection> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetNetworkConnection)(windows_core::Interface::as_raw(self), core::mem::transmute(gdnetworkconnectionid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
     }
-    pub unsafe fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnectedToInternet)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL> {
+    pub unsafe fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).IsConnected)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY> {
+    pub unsafe fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetConnectivity)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()> {
+    pub unsafe fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetSimulatedProfileInfo)(windows_core::Interface::as_raw(self), psimulatedinfo).ok() }
     }
-    pub unsafe fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()> {
+    pub unsafe fn ClearSimulatedProfileInfo(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ClearSimulatedProfileInfo)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -1198,15 +1198,15 @@ pub struct INetworkListManager_Vtbl {
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 pub trait INetworkListManager_Impl: super::super::System::Com::IDispatch_Impl {
-    fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_core::Result<IEnumNetworks>;
-    fn GetNetwork(&self, gdnetworkid: &windows_core::GUID) -> windows_core::Result<INetwork>;
-    fn GetNetworkConnections(&self) -> windows_core::Result<IEnumNetworkConnections>;
-    fn GetNetworkConnection(&self, gdnetworkconnectionid: &windows_core::GUID) -> windows_core::Result<INetworkConnection>;
-    fn IsConnectedToInternet(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn IsConnected(&self) -> windows_core::Result<super::super::Foundation::VARIANT_BOOL>;
-    fn GetConnectivity(&self) -> windows_core::Result<NLM_CONNECTIVITY>;
-    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_core::Result<()>;
-    fn ClearSimulatedProfileInfo(&self) -> windows_core::Result<()>;
+    fn GetNetworks(&self, flags: NLM_ENUM_NETWORK) -> windows_result::Result<IEnumNetworks>;
+    fn GetNetwork(&self, gdnetworkid: &windows_core::GUID) -> windows_result::Result<INetwork>;
+    fn GetNetworkConnections(&self) -> windows_result::Result<IEnumNetworkConnections>;
+    fn GetNetworkConnection(&self, gdnetworkconnectionid: &windows_core::GUID) -> windows_result::Result<INetworkConnection>;
+    fn IsConnectedToInternet(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn IsConnected(&self) -> windows_result::Result<super::super::Foundation::VARIANT_BOOL>;
+    fn GetConnectivity(&self) -> windows_result::Result<NLM_CONNECTIVITY>;
+    fn SetSimulatedProfileInfo(&self, psimulatedinfo: *const NLM_SIMULATED_PROFILE_INFO) -> windows_result::Result<()>;
+    fn ClearSimulatedProfileInfo(&self) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 impl INetworkListManager_Vtbl {
@@ -1329,7 +1329,7 @@ impl windows_core::RuntimeName for INetworkListManager {}
 windows_core::imp::define_interface!(INetworkListManagerEvents, INetworkListManagerEvents_Vtbl, 0xdcb00001_570f_4a9b_8d69_199fdba5723b);
 windows_core::imp::interface_hierarchy!(INetworkListManagerEvents, windows_core::IUnknown);
 impl INetworkListManagerEvents {
-    pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()> {
+    pub unsafe fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ConnectivityChanged)(windows_core::Interface::as_raw(self), newconnectivity).ok() }
     }
 }
@@ -1340,7 +1340,7 @@ pub struct INetworkListManagerEvents_Vtbl {
     pub ConnectivityChanged: unsafe extern "system" fn(*mut core::ffi::c_void, NLM_CONNECTIVITY) -> windows_core::HRESULT,
 }
 pub trait INetworkListManagerEvents_Impl: windows_core::IUnknownImpl {
-    fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_core::Result<()>;
+    fn ConnectivityChanged(&self, newconnectivity: NLM_CONNECTIVITY) -> windows_result::Result<()>;
 }
 impl INetworkListManagerEvents_Vtbl {
     pub const fn new<Identity: INetworkListManagerEvents_Impl, const OFFSET: isize>() -> Self {

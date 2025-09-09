@@ -1,6 +1,6 @@
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D12CreateDevice<P0, T>(padapter: P0, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut Option<T>) -> windows_core::Result<()>
+pub unsafe fn D3D12CreateDevice<P0, T>(padapter: P0, minimumfeaturelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut Option<T>) -> windows_result::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
     T: windows_core::Interface,
@@ -9,22 +9,22 @@ where
     unsafe { D3D12CreateDevice(padapter.param().abi(), minimumfeaturelevel, &T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[inline]
-pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn D3D12CreateRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("d3d12.dll" "system" fn D3D12CreateRootSignatureDeserializer(psrcdata : *const core::ffi::c_void, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer as _).ok() }
 }
 #[inline]
-pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
+pub unsafe fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata: *const core::ffi::c_void, srcdatasizeinbytes: usize, prootsignaturedeserializerinterface: *const windows_core::GUID, pprootsignaturedeserializer: *mut *mut core::ffi::c_void) -> windows_result::Result<()> {
     windows_link::link!("d3d12.dll" "system" fn D3D12CreateVersionedRootSignatureDeserializer(psrcdata : *const core::ffi::c_void, srcdatasizeinbytes : usize, prootsignaturedeserializerinterface : *const windows_core::GUID, pprootsignaturedeserializer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12CreateVersionedRootSignatureDeserializer(psrcdata, srcdatasizeinbytes, prootsignaturedeserializerinterface, pprootsignaturedeserializer as _).ok() }
 }
 #[inline]
-pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: Option<*const core::ffi::c_void>, pconfigurationstructsizes: Option<*const u32>) -> windows_core::Result<()> {
+pub unsafe fn D3D12EnableExperimentalFeatures(numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: Option<*const core::ffi::c_void>, pconfigurationstructsizes: Option<*const u32>) -> windows_result::Result<()> {
     windows_link::link!("d3d12.dll" "system" fn D3D12EnableExperimentalFeatures(numfeatures : u32, piids : *const windows_core::GUID, pconfigurationstructs : *const core::ffi::c_void, pconfigurationstructsizes : *const u32) -> windows_core::HRESULT);
     unsafe { D3D12EnableExperimentalFeatures(numfeatures, piids, pconfigurationstructs.unwrap_or(core::mem::zeroed()) as _, pconfigurationstructsizes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
-pub unsafe fn D3D12GetDebugInterface<T>(result__: *mut Option<T>) -> windows_core::Result<()>
+pub unsafe fn D3D12GetDebugInterface<T>(result__: *mut Option<T>) -> windows_result::Result<()>
 where
     T: windows_core::Interface,
 {
@@ -32,7 +32,7 @@ where
     unsafe { D3D12GetDebugInterface(&T::IID, result__ as *mut _ as *mut _).ok() }
 }
 #[inline]
-pub unsafe fn D3D12GetInterface<T>(rclsid: *const windows_core::GUID, result__: *mut Option<T>) -> windows_core::Result<()>
+pub unsafe fn D3D12GetInterface<T>(rclsid: *const windows_core::GUID, result__: *mut Option<T>) -> windows_result::Result<()>
 where
     T: windows_core::Interface,
 {
@@ -41,13 +41,13 @@ where
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_core::Result<()> {
+pub unsafe fn D3D12SerializeRootSignature(prootsignature: *const D3D12_ROOT_SIGNATURE_DESC, version: D3D_ROOT_SIGNATURE_VERSION, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_result::Result<()> {
     windows_link::link!("d3d12.dll" "system" fn D3D12SerializeRootSignature(prootsignature : *const D3D12_ROOT_SIGNATURE_DESC, version : D3D_ROOT_SIGNATURE_VERSION, ppblob : *mut * mut core::ffi::c_void, pperrorblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeRootSignature(prootsignature, version, core::mem::transmute(ppblob), pperrorblob.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 #[inline]
-pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_core::Result<()> {
+pub unsafe fn D3D12SerializeVersionedRootSignature(prootsignature: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob: *mut Option<super::Direct3D::ID3DBlob>, pperrorblob: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_result::Result<()> {
     windows_link::link!("d3d12.dll" "system" fn D3D12SerializeVersionedRootSignature(prootsignature : *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppblob : *mut * mut core::ffi::c_void, pperrorblob : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { D3D12SerializeVersionedRootSignature(prootsignature, core::mem::transmute(ppblob), pperrorblob.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
@@ -8131,7 +8131,7 @@ impl core::ops::Deref for ID3D12CommandAllocator {
 }
 windows_core::imp::interface_hierarchy!(ID3D12CommandAllocator, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12CommandAllocator {
-    pub unsafe fn Reset(&self) -> windows_core::Result<()> {
+    pub unsafe fn Reset(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Reset)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -8144,7 +8144,7 @@ pub struct ID3D12CommandAllocator_Vtbl {
 unsafe impl Send for ID3D12CommandAllocator {}
 unsafe impl Sync for ID3D12CommandAllocator {}
 pub trait ID3D12CommandAllocator_Impl: ID3D12Pageable_Impl {
-    fn Reset(&self) -> windows_core::Result<()>;
+    fn Reset(&self) -> windows_result::Result<()>;
 }
 impl ID3D12CommandAllocator_Vtbl {
     pub const fn new<Identity: ID3D12CommandAllocator_Impl, const OFFSET: isize>() -> Self {
@@ -8235,25 +8235,25 @@ impl ID3D12CommandQueue {
     pub unsafe fn EndEvent(&self) {
         unsafe { (windows_core::Interface::vtable(self).EndEvent)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Signal<P0>(&self, pfence: P0, value: u64) -> windows_core::Result<()>
+    pub unsafe fn Signal<P0>(&self, pfence: P0, value: u64) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Fence>,
     {
         unsafe { (windows_core::Interface::vtable(self).Signal)(windows_core::Interface::as_raw(self), pfence.param().abi(), value).ok() }
     }
-    pub unsafe fn Wait<P0>(&self, pfence: P0, value: u64) -> windows_core::Result<()>
+    pub unsafe fn Wait<P0>(&self, pfence: P0, value: u64) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Fence>,
     {
         unsafe { (windows_core::Interface::vtable(self).Wait)(windows_core::Interface::as_raw(self), pfence.param().abi(), value).ok() }
     }
-    pub unsafe fn GetTimestampFrequency(&self) -> windows_core::Result<u64> {
+    pub unsafe fn GetTimestampFrequency(&self) -> windows_result::Result<u64> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetTimestampFrequency)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> windows_core::Result<()> {
+    pub unsafe fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetClockCalibration)(windows_core::Interface::as_raw(self), pgputimestamp as _, pcputimestamp as _).ok() }
     }
     pub unsafe fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC {
@@ -8289,10 +8289,10 @@ pub trait ID3D12CommandQueue_Impl: ID3D12Pageable_Impl {
     fn SetMarker(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn BeginEvent(&self, metadata: u32, pdata: *const core::ffi::c_void, size: u32);
     fn EndEvent(&self);
-    fn Signal(&self, pfence: windows_core::Ref<ID3D12Fence>, value: u64) -> windows_core::Result<()>;
-    fn Wait(&self, pfence: windows_core::Ref<ID3D12Fence>, value: u64) -> windows_core::Result<()>;
-    fn GetTimestampFrequency(&self) -> windows_core::Result<u64>;
-    fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> windows_core::Result<()>;
+    fn Signal(&self, pfence: windows_core::Ref<ID3D12Fence>, value: u64) -> windows_result::Result<()>;
+    fn Wait(&self, pfence: windows_core::Ref<ID3D12Fence>, value: u64) -> windows_result::Result<()>;
+    fn GetTimestampFrequency(&self) -> windows_result::Result<u64>;
+    fn GetClockCalibration(&self, pgputimestamp: *mut u64, pcputimestamp: *mut u64) -> windows_result::Result<()>;
     fn GetDesc(&self) -> D3D12_COMMAND_QUEUE_DESC;
 }
 impl ID3D12CommandQueue_Vtbl {
@@ -8732,7 +8732,7 @@ impl ID3D12DebugCommandList {
     {
         unsafe { (windows_core::Interface::vtable(self).AssertResourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, state) }
     }
-    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()> {
+    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFeatureMask)(windows_core::Interface::as_raw(self), mask).ok() }
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
@@ -8751,7 +8751,7 @@ unsafe impl Send for ID3D12DebugCommandList {}
 unsafe impl Sync for ID3D12DebugCommandList {}
 pub trait ID3D12DebugCommandList_Impl: windows_core::IUnknownImpl {
     fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
-    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()>;
+    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_result::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
 }
 impl ID3D12DebugCommandList_Vtbl {
@@ -8795,10 +8795,10 @@ impl ID3D12DebugCommandList1 {
     {
         unsafe { (windows_core::Interface::vtable(self).AssertResourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, state) }
     }
-    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize).ok() }
     }
-    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize).ok() }
     }
 }
@@ -8814,8 +8814,8 @@ unsafe impl Send for ID3D12DebugCommandList1 {}
 unsafe impl Sync for ID3D12DebugCommandList1 {}
 pub trait ID3D12DebugCommandList1_Impl: windows_core::IUnknownImpl {
     fn AssertResourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32, state: u32) -> windows_core::BOOL;
-    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
-    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
 }
 impl ID3D12DebugCommandList1_Vtbl {
     pub const fn new<Identity: ID3D12DebugCommandList1_Impl, const OFFSET: isize>() -> Self {
@@ -8858,10 +8858,10 @@ impl core::ops::Deref for ID3D12DebugCommandList2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugCommandList2, windows_core::IUnknown, ID3D12DebugCommandList);
 impl ID3D12DebugCommandList2 {
-    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize).ok() }
     }
-    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize).ok() }
     }
 }
@@ -8875,8 +8875,8 @@ pub struct ID3D12DebugCommandList2_Vtbl {
 unsafe impl Send for ID3D12DebugCommandList2 {}
 unsafe impl Sync for ID3D12DebugCommandList2 {}
 pub trait ID3D12DebugCommandList2_Impl: ID3D12DebugCommandList_Impl {
-    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
-    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_COMMAND_LIST_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
 }
 impl ID3D12DebugCommandList2_Vtbl {
     pub const fn new<Identity: ID3D12DebugCommandList2_Impl, const OFFSET: isize>() -> Self {
@@ -9062,13 +9062,13 @@ impl windows_core::RuntimeName for ID3D12DebugCommandQueue1 {}
 windows_core::imp::define_interface!(ID3D12DebugDevice, ID3D12DebugDevice_Vtbl, 0x3febd6dd_4973_4787_8194_e45f9e28923e);
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice, windows_core::IUnknown);
 impl ID3D12DebugDevice {
-    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()> {
+    pub unsafe fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFeatureMask)(windows_core::Interface::as_raw(self), mask).ok() }
     }
     pub unsafe fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE {
         unsafe { (windows_core::Interface::vtable(self).GetFeatureMask)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()> {
+    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportLiveDeviceObjects)(windows_core::Interface::as_raw(self), flags).ok() }
     }
 }
@@ -9083,9 +9083,9 @@ pub struct ID3D12DebugDevice_Vtbl {
 unsafe impl Send for ID3D12DebugDevice {}
 unsafe impl Sync for ID3D12DebugDevice {}
 pub trait ID3D12DebugDevice_Impl: windows_core::IUnknownImpl {
-    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_core::Result<()>;
+    fn SetFeatureMask(&self, mask: D3D12_DEBUG_FEATURE) -> windows_result::Result<()>;
     fn GetFeatureMask(&self) -> D3D12_DEBUG_FEATURE;
-    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()>;
+    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_result::Result<()>;
 }
 impl ID3D12DebugDevice_Vtbl {
     pub const fn new<Identity: ID3D12DebugDevice_Impl, const OFFSET: isize>() -> Self {
@@ -9122,13 +9122,13 @@ impl windows_core::RuntimeName for ID3D12DebugDevice {}
 windows_core::imp::define_interface!(ID3D12DebugDevice1, ID3D12DebugDevice1_Vtbl, 0xa9b71770_d099_4a65_a698_3dee10020f88);
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice1, windows_core::IUnknown);
 impl ID3D12DebugDevice1 {
-    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize).ok() }
     }
-    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize).ok() }
     }
-    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()> {
+    pub unsafe fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReportLiveDeviceObjects)(windows_core::Interface::as_raw(self), flags).ok() }
     }
 }
@@ -9143,9 +9143,9 @@ pub struct ID3D12DebugDevice1_Vtbl {
 unsafe impl Send for ID3D12DebugDevice1 {}
 unsafe impl Sync for ID3D12DebugDevice1 {}
 pub trait ID3D12DebugDevice1_Impl: windows_core::IUnknownImpl {
-    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
-    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
-    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_core::Result<()>;
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
+    fn ReportLiveDeviceObjects(&self, flags: D3D12_RLDO_FLAGS) -> windows_result::Result<()>;
 }
 impl ID3D12DebugDevice1_Vtbl {
     pub const fn new<Identity: ID3D12DebugDevice1_Impl, const OFFSET: isize>() -> Self {
@@ -9188,10 +9188,10 @@ impl core::ops::Deref for ID3D12DebugDevice2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DebugDevice2, windows_core::IUnknown, ID3D12DebugDevice);
 impl ID3D12DebugDevice2 {
-    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata, datasize).ok() }
     }
-    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDebugParameter)(windows_core::Interface::as_raw(self), r#type, pdata as _, datasize).ok() }
     }
 }
@@ -9205,8 +9205,8 @@ pub struct ID3D12DebugDevice2_Vtbl {
 unsafe impl Send for ID3D12DebugDevice2 {}
 unsafe impl Sync for ID3D12DebugDevice2 {}
 pub trait ID3D12DebugDevice2_Impl: ID3D12DebugDevice_Impl {
-    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
-    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_core::Result<()>;
+    fn SetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *const core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
+    fn GetDebugParameter(&self, r#type: D3D12_DEBUG_DEVICE_PARAMETER_TYPE, pdata: *mut core::ffi::c_void, datasize: u32) -> windows_result::Result<()>;
 }
 impl ID3D12DebugDevice2_Vtbl {
     pub const fn new<Identity: ID3D12DebugDevice2_Impl, const OFFSET: isize>() -> Self {
@@ -9323,14 +9323,14 @@ impl ID3D12Device {
     pub unsafe fn GetNodeCount(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetNodeCount)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateCommandQueue<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCommandQueue)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateCommandAllocator<T>(&self, r#type: D3D12_COMMAND_LIST_TYPE) -> windows_core::Result<T>
+    pub unsafe fn CreateCommandAllocator<T>(&self, r#type: D3D12_COMMAND_LIST_TYPE) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -9338,21 +9338,21 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).CreateCommandAllocator)(windows_core::Interface::as_raw(self), r#type, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateGraphicsPipelineState<T>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateGraphicsPipelineState<T>(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateGraphicsPipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateComputePipelineState<T>(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateComputePipelineState)(windows_core::Interface::as_raw(self), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateCommandList<P2, P3, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P2, pinitialstate: P3) -> windows_core::Result<T>
+    pub unsafe fn CreateCommandList<P2, P3, T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: P2, pinitialstate: P3) -> windows_result::Result<T>
     where
         P2: windows_core::Param<ID3D12CommandAllocator>,
         P3: windows_core::Param<ID3D12PipelineState>,
@@ -9361,10 +9361,10 @@ impl ID3D12Device {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCommandList)(windows_core::Interface::as_raw(self), nodemask, r#type, pcommandallocator.param().abi(), pinitialstate.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()> {
+    pub unsafe fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).CheckFeatureSupport)(windows_core::Interface::as_raw(self), feature, pfeaturesupportdata as _, featuresupportdatasize).ok() }
     }
-    pub unsafe fn CreateDescriptorHeap<T>(&self, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateDescriptorHeap<T>(&self, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -9374,7 +9374,7 @@ impl ID3D12Device {
     pub unsafe fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetDescriptorHandleIncrementSize)(windows_core::Interface::as_raw(self), descriptorheaptype) }
     }
-    pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> windows_core::Result<T>
+    pub unsafe fn CreateRootSignature<T>(&self, nodemask: u32, pblobwithrootsignature: &[u8]) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -9438,20 +9438,20 @@ impl ID3D12Device {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateCommittedResource<T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommittedResource<T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initialresourcestate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn CreateHeap<T>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateHeap<T>(&self, pdesc: *const D3D12_HEAP_DESC, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateHeap)(windows_core::Interface::as_raw(self), pdesc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreatePlacedResource<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreatePlacedResource<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
         T: windows_core::Interface,
@@ -9459,14 +9459,14 @@ impl ID3D12Device {
         unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateReservedResource<T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateReservedResource<T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateReservedResource)(windows_core::Interface::as_raw(self), pdesc, initialstate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Security")]
-    pub unsafe fn CreateSharedHandle<P0, P3>(&self, pobject: P0, pattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, access: u32, name: P3) -> windows_core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn CreateSharedHandle<P0, P3>(&self, pobject: P0, pattributes: Option<*const super::super::Security::SECURITY_ATTRIBUTES>, access: u32, name: P3) -> windows_result::Result<super::super::Foundation::HANDLE>
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
         P3: windows_core::Param<windows_core::PCWSTR>,
@@ -9476,13 +9476,13 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).CreateSharedHandle)(windows_core::Interface::as_raw(self), pobject.param().abi(), pattributes.unwrap_or(core::mem::zeroed()) as _, access, name.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn OpenSharedHandle<T>(&self, nthandle: super::super::Foundation::HANDLE, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn OpenSharedHandle<T>(&self, nthandle: super::super::Foundation::HANDLE, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).OpenSharedHandle)(windows_core::Interface::as_raw(self), nthandle, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn OpenSharedHandleByName<P0>(&self, name: P0, access: u32) -> windows_core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn OpenSharedHandleByName<P0>(&self, name: P0, access: u32) -> windows_result::Result<super::super::Foundation::HANDLE>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -9491,36 +9491,36 @@ impl ID3D12Device {
             (windows_core::Interface::vtable(self).OpenSharedHandleByName)(windows_core::Interface::as_raw(self), name.param().abi(), access, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::Result<()> {
+    pub unsafe fn MakeResident(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).MakeResident)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok() }
     }
-    pub unsafe fn Evict(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_core::Result<()> {
+    pub unsafe fn Evict(&self, ppobjects: &[Option<ID3D12Pageable>]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Evict)(windows_core::Interface::as_raw(self), ppobjects.len().try_into().unwrap(), core::mem::transmute(ppobjects.as_ptr())).ok() }
     }
-    pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> windows_core::Result<T>
+    pub unsafe fn CreateFence<T>(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateFence)(windows_core::Interface::as_raw(self), initialvalue, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetDeviceRemovedReason(&self) -> windows_core::Result<()> {
+    pub unsafe fn GetDeviceRemovedReason(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDeviceRemovedReason)(windows_core::Interface::as_raw(self)).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: Option<*mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT>, pnumrows: Option<*mut u32>, prowsizeinbytes: Option<*mut u64>, ptotalbytes: Option<*mut u64>) {
         unsafe { (windows_core::Interface::vtable(self).GetCopyableFootprints)(windows_core::Interface::as_raw(self), presourcedesc, firstsubresource, numsubresources, baseoffset, playouts.unwrap_or(core::mem::zeroed()) as _, pnumrows.unwrap_or(core::mem::zeroed()) as _, prowsizeinbytes.unwrap_or(core::mem::zeroed()) as _, ptotalbytes.unwrap_or(core::mem::zeroed()) as _) }
     }
-    pub unsafe fn CreateQueryHeap<T>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateQueryHeap<T>(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateQueryHeap)(windows_core::Interface::as_raw(self), pdesc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn SetStablePowerState(&self, enable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetStablePowerState(&self, enable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetStablePowerState)(windows_core::Interface::as_raw(self), enable.into()).ok() }
     }
-    pub unsafe fn CreateCommandSignature<P1, T>(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: P1, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommandSignature<P1, T>(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: P1, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ID3D12RootSignature>,
         T: windows_core::Interface,
@@ -9621,15 +9621,15 @@ unsafe impl Sync for ID3D12Device {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn GetNodeCount(&self) -> u32;
-    fn CreateCommandQueue(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateCommandAllocator(&self, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const windows_core::GUID, ppcommandallocator: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateGraphicsPipelineState(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateComputePipelineState(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateCommandList(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: windows_core::Ref<ID3D12CommandAllocator>, pinitialstate: windows_core::Ref<ID3D12PipelineState>, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_core::Result<()>;
-    fn CreateDescriptorHeap(&self, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommandQueue(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateCommandAllocator(&self, r#type: D3D12_COMMAND_LIST_TYPE, riid: *const windows_core::GUID, ppcommandallocator: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateGraphicsPipelineState(&self, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateComputePipelineState(&self, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateCommandList(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, pcommandallocator: windows_core::Ref<ID3D12CommandAllocator>, pinitialstate: windows_core::Ref<ID3D12PipelineState>, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CheckFeatureSupport(&self, feature: D3D12_FEATURE, pfeaturesupportdata: *mut core::ffi::c_void, featuresupportdatasize: u32) -> windows_result::Result<()>;
+    fn CreateDescriptorHeap(&self, pdescriptorheapdesc: *const D3D12_DESCRIPTOR_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetDescriptorHandleIncrementSize(&self, descriptorheaptype: D3D12_DESCRIPTOR_HEAP_TYPE) -> u32;
-    fn CreateRootSignature(&self, nodemask: u32, pblobwithrootsignature: *const core::ffi::c_void, bloblengthinbytes: usize, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateRootSignature(&self, nodemask: u32, pblobwithrootsignature: *const core::ffi::c_void, bloblengthinbytes: usize, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn CreateConstantBufferView(&self, pdesc: *const D3D12_CONSTANT_BUFFER_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn CreateShaderResourceView(&self, presource: windows_core::Ref<ID3D12Resource>, pdesc: *const D3D12_SHADER_RESOURCE_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn CreateUnorderedAccessView(&self, presource: windows_core::Ref<ID3D12Resource>, pcounterresource: windows_core::Ref<ID3D12Resource>, pdesc: *const D3D12_UNORDERED_ACCESS_VIEW_DESC, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
@@ -9640,21 +9640,21 @@ pub trait ID3D12Device_Impl: ID3D12Object_Impl {
     fn CopyDescriptorsSimple(&self, numdescriptors: u32, destdescriptorrangestart: &D3D12_CPU_DESCRIPTOR_HANDLE, srcdescriptorrangestart: &D3D12_CPU_DESCRIPTOR_HANDLE, descriptorheapstype: D3D12_DESCRIPTOR_HEAP_TYPE);
     fn GetResourceAllocationInfo(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC) -> D3D12_RESOURCE_ALLOCATION_INFO;
     fn GetCustomHeapProperties(&self, nodemask: u32, heaptype: D3D12_HEAP_TYPE) -> D3D12_HEAP_PROPERTIES;
-    fn CreateCommittedResource(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateHeap(&self, pdesc: *const D3D12_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreatePlacedResource(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateReservedResource(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateSharedHandle(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::PCWSTR) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn OpenSharedHandle(&self, nthandle: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OpenSharedHandleByName(&self, name: &windows_core::PCWSTR, access: u32) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn MakeResident(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::Result<()>;
-    fn Evict(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_core::Result<()>;
-    fn CreateFence(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetDeviceRemovedReason(&self) -> windows_core::Result<()>;
+    fn CreateCommittedResource(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateHeap(&self, pdesc: *const D3D12_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreatePlacedResource(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateReservedResource(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateSharedHandle(&self, pobject: windows_core::Ref<ID3D12DeviceChild>, pattributes: *const super::super::Security::SECURITY_ATTRIBUTES, access: u32, name: &windows_core::PCWSTR) -> windows_result::Result<super::super::Foundation::HANDLE>;
+    fn OpenSharedHandle(&self, nthandle: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppvobj: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn OpenSharedHandleByName(&self, name: &windows_core::PCWSTR, access: u32) -> windows_result::Result<super::super::Foundation::HANDLE>;
+    fn MakeResident(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_result::Result<()>;
+    fn Evict(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>) -> windows_result::Result<()>;
+    fn CreateFence(&self, initialvalue: u64, flags: D3D12_FENCE_FLAGS, riid: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn GetDeviceRemovedReason(&self) -> windows_result::Result<()>;
     fn GetCopyableFootprints(&self, presourcedesc: *const D3D12_RESOURCE_DESC, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
-    fn CreateQueryHeap(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetStablePowerState(&self, enable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn CreateCommandSignature(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: windows_core::Ref<ID3D12RootSignature>, riid: *const windows_core::GUID, ppvcommandsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateQueryHeap(&self, pdesc: *const D3D12_QUERY_HEAP_DESC, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn SetStablePowerState(&self, enable: windows_core::BOOL) -> windows_result::Result<()>;
+    fn CreateCommandSignature(&self, pdesc: *const D3D12_COMMAND_SIGNATURE_DESC, prootsignature: windows_core::Ref<ID3D12RootSignature>, riid: *const windows_core::GUID, ppvcommandsignature: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetResourceTiling(&self, ptiledresource: windows_core::Ref<ID3D12Resource>, pnumtilesforentireresource: *mut u32, ppackedmipdesc: *mut D3D12_PACKED_MIP_INFO, pstandardtileshapefornonpackedmips: *mut D3D12_TILE_SHAPE, pnumsubresourcetilings: *mut u32, firstsubresourcetilingtoget: u32, psubresourcetilingsfornonpackedmips: *mut D3D12_SUBRESOURCE_TILING);
     fn GetAdapterLuid(&self) -> super::super::Foundation::LUID;
 }
@@ -9951,17 +9951,17 @@ impl core::ops::Deref for ID3D12Device1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device1, windows_core::IUnknown, ID3D12Object, ID3D12Device);
 impl ID3D12Device1 {
-    pub unsafe fn CreatePipelineLibrary<T>(&self, plibraryblob: &[u8]) -> windows_core::Result<T>
+    pub unsafe fn CreatePipelineLibrary<T>(&self, plibraryblob: &[u8]) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreatePipelineLibrary)(windows_core::Interface::as_raw(self), core::mem::transmute(plibraryblob.as_ptr()), plibraryblob.len().try_into().unwrap(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventOnMultipleFenceCompletion)(windows_core::Interface::as_raw(self), core::mem::transmute(ppfences), pfencevalues, numfences, flags, hevent).ok() }
     }
-    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> windows_core::Result<()> {
+    pub unsafe fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetResidencyPriority)(windows_core::Interface::as_raw(self), numobjects, core::mem::transmute(ppobjects), ppriorities).ok() }
     }
 }
@@ -9977,9 +9977,9 @@ unsafe impl Send for ID3D12Device1 {}
 unsafe impl Sync for ID3D12Device1 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device1_Impl: ID3D12Device_Impl {
-    fn CreatePipelineLibrary(&self, plibraryblob: *const core::ffi::c_void, bloblength: usize, riid: *const windows_core::GUID, pppipelinelibrary: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> windows_core::Result<()>;
+    fn CreatePipelineLibrary(&self, plibraryblob: *const core::ffi::c_void, bloblength: usize, riid: *const windows_core::GUID, pppipelinelibrary: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn SetEventOnMultipleFenceCompletion(&self, ppfences: *const Option<ID3D12Fence>, pfencevalues: *const u64, numfences: u32, flags: D3D12_MULTIPLE_FENCE_WAIT_FLAGS, hevent: super::super::Foundation::HANDLE) -> windows_result::Result<()>;
+    fn SetResidencyPriority(&self, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, ppriorities: *const D3D12_RESIDENCY_PRIORITY) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device1_Vtbl {
@@ -10025,7 +10025,7 @@ impl core::ops::Deref for ID3D12Device10 {
 windows_core::imp::interface_hierarchy!(ID3D12Device10, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9);
 impl ID3D12Device10 {
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommittedResource3<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -10033,7 +10033,7 @@ impl ID3D12Device10 {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource3)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), pcastableformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcastableformats.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreatePlacedResource2<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
         T: windows_core::Interface,
@@ -10041,7 +10041,7 @@ impl ID3D12Device10 {
         unsafe { (windows_core::Interface::vtable(self).CreatePlacedResource2)(windows_core::Interface::as_raw(self), pheap.param().abi(), heapoffset, pdesc, initiallayout, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pcastableformats.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pcastableformats.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateReservedResource2<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, pcastableformats: Option<&[super::Dxgi::Common::DXGI_FORMAT]>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P3: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -10070,9 +10070,9 @@ unsafe impl Send for ID3D12Device10 {}
 unsafe impl Sync for ID3D12Device10 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device10_Impl: ID3D12Device9_Impl {
-    fn CreateCommittedResource3(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreatePlacedResource2(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateReservedResource2(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommittedResource3(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreatePlacedResource2(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateReservedResource2(&self, pdesc: *const D3D12_RESOURCE_DESC, initiallayout: D3D12_BARRIER_LAYOUT, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, numcastableformats: u32, pcastableformats: *const super::Dxgi::Common::DXGI_FORMAT, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device10_Vtbl {
@@ -10222,7 +10222,7 @@ impl core::ops::Deref for ID3D12Device13 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device13, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11, ID3D12Device12);
 impl ID3D12Device13 {
-    pub unsafe fn OpenExistingHeapFromAddress1<T>(&self, paddress: *const core::ffi::c_void, size: usize) -> windows_core::Result<T>
+    pub unsafe fn OpenExistingHeapFromAddress1<T>(&self, paddress: *const core::ffi::c_void, size: usize) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -10240,7 +10240,7 @@ unsafe impl Send for ID3D12Device13 {}
 unsafe impl Sync for ID3D12Device13 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device13_Impl: ID3D12Device12_Impl {
-    fn OpenExistingHeapFromAddress1(&self, paddress: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn OpenExistingHeapFromAddress1(&self, paddress: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device13_Vtbl {
@@ -10282,7 +10282,7 @@ impl core::ops::Deref for ID3D12Device14 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device14, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8, ID3D12Device9, ID3D12Device10, ID3D12Device11, ID3D12Device12, ID3D12Device13);
 impl ID3D12Device14 {
-    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<P3, T>(&self, nodemask: u32, plibraryblob: &[u8], subobjectname: P3) -> windows_core::Result<T>
+    pub unsafe fn CreateRootSignatureFromSubobjectInLibrary<P3, T>(&self, nodemask: u32, plibraryblob: &[u8], subobjectname: P3) -> windows_result::Result<T>
     where
         P3: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -10301,7 +10301,7 @@ unsafe impl Send for ID3D12Device14 {}
 unsafe impl Sync for ID3D12Device14 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device14_Impl: ID3D12Device13_Impl {
-    fn CreateRootSignatureFromSubobjectInLibrary(&self, nodemask: u32, plibraryblob: *const core::ffi::c_void, bloblengthinbytes: usize, subobjectname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateRootSignatureFromSubobjectInLibrary(&self, nodemask: u32, plibraryblob: *const core::ffi::c_void, bloblengthinbytes: usize, subobjectname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvrootsignature: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device14_Vtbl {
@@ -10347,7 +10347,7 @@ impl core::ops::Deref for ID3D12Device2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device2, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1);
 impl ID3D12Device2 {
-    pub unsafe fn CreatePipelineState<T>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreatePipelineState<T>(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -10365,7 +10365,7 @@ unsafe impl Send for ID3D12Device2 {}
 unsafe impl Sync for ID3D12Device2 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device2_Impl: ID3D12Device1_Impl {
-    fn CreatePipelineState(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreatePipelineState(&self, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device2_Vtbl {
@@ -10393,21 +10393,21 @@ impl core::ops::Deref for ID3D12Device3 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device3, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2);
 impl ID3D12Device3 {
-    pub unsafe fn OpenExistingHeapFromAddress<T>(&self, paddress: *const core::ffi::c_void) -> windows_core::Result<T>
+    pub unsafe fn OpenExistingHeapFromAddress<T>(&self, paddress: *const core::ffi::c_void) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).OpenExistingHeapFromAddress)(windows_core::Interface::as_raw(self), paddress, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn OpenExistingHeapFromFileMapping<T>(&self, hfilemapping: super::super::Foundation::HANDLE) -> windows_core::Result<T>
+    pub unsafe fn OpenExistingHeapFromFileMapping<T>(&self, hfilemapping: super::super::Foundation::HANDLE) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).OpenExistingHeapFromFileMapping)(windows_core::Interface::as_raw(self), hfilemapping, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn EnqueueMakeResident<P3>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[Option<ID3D12Pageable>], pfencetosignal: P3, fencevaluetosignal: u64) -> windows_core::Result<()>
+    pub unsafe fn EnqueueMakeResident<P3>(&self, flags: D3D12_RESIDENCY_FLAGS, ppobjects: &[Option<ID3D12Pageable>], pfencetosignal: P3, fencevaluetosignal: u64) -> windows_result::Result<()>
     where
         P3: windows_core::Param<ID3D12Fence>,
     {
@@ -10426,9 +10426,9 @@ unsafe impl Send for ID3D12Device3 {}
 unsafe impl Sync for ID3D12Device3 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device3_Impl: ID3D12Device2_Impl {
-    fn OpenExistingHeapFromAddress(&self, paddress: *const core::ffi::c_void, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, pfencetosignal: windows_core::Ref<ID3D12Fence>, fencevaluetosignal: u64) -> windows_core::Result<()>;
+    fn OpenExistingHeapFromAddress(&self, paddress: *const core::ffi::c_void, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn OpenExistingHeapFromFileMapping(&self, hfilemapping: super::super::Foundation::HANDLE, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn EnqueueMakeResident(&self, flags: D3D12_RESIDENCY_FLAGS, numobjects: u32, ppobjects: *const Option<ID3D12Pageable>, pfencetosignal: windows_core::Ref<ID3D12Fence>, fencevaluetosignal: u64) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device3_Vtbl {
@@ -10473,14 +10473,14 @@ impl core::ops::Deref for ID3D12Device4 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device4, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3);
 impl ID3D12Device4 {
-    pub unsafe fn CreateCommandList1<T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS) -> windows_core::Result<T>
+    pub unsafe fn CreateCommandList1<T>(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateCommandList1)(windows_core::Interface::as_raw(self), nodemask, r#type, flags, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateProtectedResourceSession<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateProtectedResourceSession<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -10488,14 +10488,14 @@ impl ID3D12Device4 {
         unsafe { (windows_core::Interface::vtable(self).CreateProtectedResourceSession)(windows_core::Interface::as_raw(self), pdesc, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateCommittedResource1<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommittedResource1<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource1)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initialresourcestate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn CreateHeap1<P1, T>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: P1, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateHeap1<P1, T>(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: P1, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P1: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -10503,7 +10503,7 @@ impl ID3D12Device4 {
         unsafe { (windows_core::Interface::vtable(self).CreateHeap1)(windows_core::Interface::as_raw(self), pdesc, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateReservedResource1<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateReservedResource1<P3, T>(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P3, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P3: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -10543,11 +10543,11 @@ unsafe impl Send for ID3D12Device4 {}
 unsafe impl Sync for ID3D12Device4 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device4_Impl: ID3D12Device3_Impl {
-    fn CreateCommandList1(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateProtectedResourceSession(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateCommittedResource1(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateHeap1(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommandList1(&self, nodemask: u32, r#type: D3D12_COMMAND_LIST_TYPE, flags: D3D12_COMMAND_LIST_FLAGS, riid: *const windows_core::GUID, ppcommandlist: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateProtectedResourceSession(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateCommittedResource1(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateHeap1(&self, pdesc: *const D3D12_HEAP_DESC, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvheap: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateReservedResource1(&self, pdesc: *const D3D12_RESOURCE_DESC, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetResourceAllocationInfo1(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
@@ -10614,7 +10614,7 @@ impl core::ops::Deref for ID3D12Device5 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device5, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4);
 impl ID3D12Device5 {
-    pub unsafe fn CreateLifetimeTracker<P0, T>(&self, powner: P0) -> windows_core::Result<T>
+    pub unsafe fn CreateLifetimeTracker<P0, T>(&self, powner: P0) -> windows_result::Result<T>
     where
         P0: windows_core::Param<ID3D12LifetimeOwner>,
         T: windows_core::Interface,
@@ -10625,20 +10625,20 @@ impl ID3D12Device5 {
     pub unsafe fn RemoveDevice(&self) {
         unsafe { (windows_core::Interface::vtable(self).RemoveDevice)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: Option<*mut D3D12_META_COMMAND_DESC>) -> windows_core::Result<()> {
+    pub unsafe fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: Option<*mut D3D12_META_COMMAND_DESC>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumerateMetaCommands)(windows_core::Interface::as_raw(self), pnummetacommands as _, pdescs.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn EnumerateMetaCommandParameters(&self, commandid: *const windows_core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: Option<*mut u32>, pparametercount: *mut u32, pparameterdescs: Option<*mut D3D12_META_COMMAND_PARAMETER_DESC>) -> windows_core::Result<()> {
+    pub unsafe fn EnumerateMetaCommandParameters(&self, commandid: *const windows_core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: Option<*mut u32>, pparametercount: *mut u32, pparameterdescs: Option<*mut D3D12_META_COMMAND_PARAMETER_DESC>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnumerateMetaCommandParameters)(windows_core::Interface::as_raw(self), commandid, stage, ptotalstructuresizeinbytes.unwrap_or(core::mem::zeroed()) as _, pparametercount as _, pparameterdescs.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn CreateMetaCommand<T>(&self, commandid: *const windows_core::GUID, nodemask: u32, pcreationparametersdata: Option<*const core::ffi::c_void>, creationparametersdatasizeinbytes: usize) -> windows_core::Result<T>
+    pub unsafe fn CreateMetaCommand<T>(&self, commandid: *const windows_core::GUID, nodemask: u32, pcreationparametersdata: Option<*const core::ffi::c_void>, creationparametersdatasizeinbytes: usize) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).CreateMetaCommand)(windows_core::Interface::as_raw(self), commandid, nodemask, pcreationparametersdata.unwrap_or(core::mem::zeroed()) as _, creationparametersdatasizeinbytes, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateStateObject<T>(&self, pdesc: *const D3D12_STATE_OBJECT_DESC) -> windows_core::Result<T>
+    pub unsafe fn CreateStateObject<T>(&self, pdesc: *const D3D12_STATE_OBJECT_DESC) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -10673,12 +10673,12 @@ unsafe impl Send for ID3D12Device5 {}
 unsafe impl Sync for ID3D12Device5 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device5_Impl: ID3D12Device4_Impl {
-    fn CreateLifetimeTracker(&self, powner: windows_core::Ref<ID3D12LifetimeOwner>, riid: *const windows_core::GUID, ppvtracker: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateLifetimeTracker(&self, powner: windows_core::Ref<ID3D12LifetimeOwner>, riid: *const windows_core::GUID, ppvtracker: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn RemoveDevice(&self);
-    fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> windows_core::Result<()>;
-    fn EnumerateMetaCommandParameters(&self, commandid: *const windows_core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn CreateMetaCommand(&self, commandid: *const windows_core::GUID, nodemask: u32, pcreationparametersdata: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const windows_core::GUID, ppmetacommand: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateStateObject(&self, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const windows_core::GUID, ppstateobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn EnumerateMetaCommands(&self, pnummetacommands: *mut u32, pdescs: *mut D3D12_META_COMMAND_DESC) -> windows_result::Result<()>;
+    fn EnumerateMetaCommandParameters(&self, commandid: *const windows_core::GUID, stage: D3D12_META_COMMAND_PARAMETER_STAGE, ptotalstructuresizeinbytes: *mut u32, pparametercount: *mut u32, pparameterdescs: *mut D3D12_META_COMMAND_PARAMETER_DESC) -> windows_result::Result<()>;
+    fn CreateMetaCommand(&self, commandid: *const windows_core::GUID, nodemask: u32, pcreationparametersdata: *const core::ffi::c_void, creationparametersdatasizeinbytes: usize, riid: *const windows_core::GUID, ppmetacommand: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateStateObject(&self, pdesc: *const D3D12_STATE_OBJECT_DESC, riid: *const windows_core::GUID, ppstateobject: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetRaytracingAccelerationStructurePrebuildInfo(&self, pdesc: *const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS, pinfo: *mut D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO);
     fn CheckDriverMatchingIdentifier(&self, serializeddatatype: D3D12_SERIALIZED_DATA_TYPE, pidentifiertocheck: *const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER) -> D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS;
 }
@@ -10760,7 +10760,7 @@ impl core::ops::Deref for ID3D12Device6 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device6, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5);
 impl ID3D12Device6 {
-    pub unsafe fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: Option<super::super::Foundation::HANDLE>, pbfurthermeasurementsdesired: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
+    pub unsafe fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: Option<super::super::Foundation::HANDLE>, pbfurthermeasurementsdesired: Option<*mut windows_core::BOOL>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBackgroundProcessingMode)(windows_core::Interface::as_raw(self), mode, measurementsaction, heventtosignaluponcompletion.unwrap_or(core::mem::zeroed()) as _, pbfurthermeasurementsdesired.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -10774,7 +10774,7 @@ unsafe impl Send for ID3D12Device6 {}
 unsafe impl Sync for ID3D12Device6 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device6_Impl: ID3D12Device5_Impl {
-    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_core::Result<()>;
+    fn SetBackgroundProcessingMode(&self, mode: D3D12_BACKGROUND_PROCESSING_MODE, measurementsaction: D3D12_MEASUREMENTS_ACTION, heventtosignaluponcompletion: super::super::Foundation::HANDLE, pbfurthermeasurementsdesired: *mut windows_core::BOOL) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device6_Vtbl {
@@ -10802,7 +10802,7 @@ impl core::ops::Deref for ID3D12Device7 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device7, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6);
 impl ID3D12Device7 {
-    pub unsafe fn AddToStateObject<P1, T>(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: P1) -> windows_core::Result<T>
+    pub unsafe fn AddToStateObject<P1, T>(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: P1) -> windows_result::Result<T>
     where
         P1: windows_core::Param<ID3D12StateObject>,
         T: windows_core::Interface,
@@ -10810,7 +10810,7 @@ impl ID3D12Device7 {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).AddToStateObject)(windows_core::Interface::as_raw(self), paddition, pstateobjecttogrowfrom.param().abi(), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn CreateProtectedResourceSession1<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1) -> windows_core::Result<T>
+    pub unsafe fn CreateProtectedResourceSession1<T>(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -10829,8 +10829,8 @@ unsafe impl Send for ID3D12Device7 {}
 unsafe impl Sync for ID3D12Device7 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device7_Impl: ID3D12Device6_Impl {
-    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: windows_core::Ref<ID3D12StateObject>, riid: *const windows_core::GUID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn AddToStateObject(&self, paddition: *const D3D12_STATE_OBJECT_DESC, pstateobjecttogrowfrom: windows_core::Ref<ID3D12StateObject>, riid: *const windows_core::GUID, ppnewstateobject: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreateProtectedResourceSession1(&self, pdesc: *const D3D12_PROTECTED_RESOURCE_SESSION_DESC1, riid: *const windows_core::GUID, ppsession: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device7_Vtbl {
@@ -10877,7 +10877,7 @@ impl ID3D12Device8 {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreateCommittedResource2<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateCommittedResource2<P5, T>(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, pprotectedsession: P5, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P5: windows_core::Param<ID3D12ProtectedResourceSession>,
         T: windows_core::Interface,
@@ -10885,7 +10885,7 @@ impl ID3D12Device8 {
         unsafe { (windows_core::Interface::vtable(self).CreateCommittedResource2)(windows_core::Interface::as_raw(self), pheapproperties, heapflags, pdesc, initialresourcestate, poptimizedclearvalue.unwrap_or(core::mem::zeroed()) as _, pprotectedsession.param().abi(), &T::IID, result__ as *mut _ as *mut _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn CreatePlacedResource1<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreatePlacedResource1<P0, T>(&self, pheap: P0, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: Option<*const D3D12_CLEAR_VALUE>, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Heap>,
         T: windows_core::Interface,
@@ -10931,8 +10931,8 @@ unsafe impl Sync for ID3D12Device8 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device8_Impl: ID3D12Device7_Impl {
     fn GetResourceAllocationInfo2(&self, visiblemask: u32, numresourcedescs: u32, presourcedescs: *const D3D12_RESOURCE_DESC1, presourceallocationinfo1: *mut D3D12_RESOURCE_ALLOCATION_INFO1) -> D3D12_RESOURCE_ALLOCATION_INFO;
-    fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn CreatePlacedResource1(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateCommittedResource2(&self, pheapproperties: *const D3D12_HEAP_PROPERTIES, heapflags: D3D12_HEAP_FLAGS, pdesc: *const D3D12_RESOURCE_DESC1, initialresourcestate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, pprotectedsession: windows_core::Ref<ID3D12ProtectedResourceSession>, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn CreatePlacedResource1(&self, pheap: windows_core::Ref<ID3D12Heap>, heapoffset: u64, pdesc: *const D3D12_RESOURCE_DESC1, initialstate: D3D12_RESOURCE_STATES, poptimizedclearvalue: *const D3D12_CLEAR_VALUE, riid: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn CreateSamplerFeedbackUnorderedAccessView(&self, ptargetedresource: windows_core::Ref<ID3D12Resource>, pfeedbackresource: windows_core::Ref<ID3D12Resource>, destdescriptor: &D3D12_CPU_DESCRIPTOR_HANDLE);
     fn GetCopyableFootprints1(&self, presourcedesc: *const D3D12_RESOURCE_DESC1, firstsubresource: u32, numsubresources: u32, baseoffset: u64, playouts: *mut D3D12_PLACED_SUBRESOURCE_FOOTPRINT, pnumrows: *mut u32, prowsizeinbytes: *mut u64, ptotalbytes: *mut u64);
 }
@@ -10993,16 +10993,16 @@ impl core::ops::Deref for ID3D12Device9 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Device9, windows_core::IUnknown, ID3D12Object, ID3D12Device, ID3D12Device1, ID3D12Device2, ID3D12Device3, ID3D12Device4, ID3D12Device5, ID3D12Device6, ID3D12Device7, ID3D12Device8);
 impl ID3D12Device9 {
-    pub unsafe fn CreateShaderCacheSession<T>(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateShaderCacheSession<T>(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
         unsafe { (windows_core::Interface::vtable(self).CreateShaderCacheSession)(windows_core::Interface::as_raw(self), pdesc, &T::IID, result__ as *mut _ as *mut _).ok() }
     }
-    pub unsafe fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_core::Result<()> {
+    pub unsafe fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ShaderCacheControl)(windows_core::Interface::as_raw(self), kinds, control).ok() }
     }
-    pub unsafe fn CreateCommandQueue1<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn CreateCommandQueue1<T>(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const windows_core::GUID) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -11022,9 +11022,9 @@ unsafe impl Send for ID3D12Device9 {}
 unsafe impl Sync for ID3D12Device9 {}
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 pub trait ID3D12Device9_Impl: ID3D12Device8_Impl {
-    fn CreateShaderCacheSession(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const windows_core::GUID, ppvsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_core::Result<()>;
-    fn CreateCommandQueue1(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const windows_core::GUID, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateShaderCacheSession(&self, pdesc: *const D3D12_SHADER_CACHE_SESSION_DESC, riid: *const windows_core::GUID, ppvsession: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn ShaderCacheControl(&self, kinds: D3D12_SHADER_CACHE_KIND_FLAGS, control: D3D12_SHADER_CACHE_CONTROL_FLAGS) -> windows_result::Result<()>;
+    fn CreateCommandQueue1(&self, pdesc: *const D3D12_COMMAND_QUEUE_DESC, creatorid: *const windows_core::GUID, riid: *const windows_core::GUID, ppcommandqueue: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(all(feature = "Win32_Graphics_Dxgi_Common", feature = "Win32_Security"))]
 impl ID3D12Device9_Vtbl {
@@ -11069,7 +11069,7 @@ impl core::ops::Deref for ID3D12DeviceChild {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceChild, windows_core::IUnknown, ID3D12Object);
 impl ID3D12DeviceChild {
-    pub unsafe fn GetDevice<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetDevice<T>(&self, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
@@ -11085,7 +11085,7 @@ pub struct ID3D12DeviceChild_Vtbl {
 unsafe impl Send for ID3D12DeviceChild {}
 unsafe impl Sync for ID3D12DeviceChild {}
 pub trait ID3D12DeviceChild_Impl: ID3D12Object_Impl {
-    fn GetDevice(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetDevice(&self, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl ID3D12DeviceChild_Vtbl {
     pub const fn new<Identity: ID3D12DeviceChild_Impl, const OFFSET: isize>() -> Self {
@@ -11112,14 +11112,14 @@ impl ID3D12DeviceConfiguration {
             result__
         }
     }
-    pub unsafe fn GetEnabledExperimentalFeatures(&self, pguids: &mut [windows_core::GUID]) -> windows_core::Result<()> {
+    pub unsafe fn GetEnabledExperimentalFeatures(&self, pguids: &mut [windows_core::GUID]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetEnabledExperimentalFeatures)(windows_core::Interface::as_raw(self), core::mem::transmute(pguids.as_ptr()), pguids.len().try_into().unwrap()).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::Direct3D::ID3DBlob>, pperror: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_core::Result<()> {
+    pub unsafe fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: *mut Option<super::Direct3D::ID3DBlob>, pperror: Option<*mut Option<super::Direct3D::ID3DBlob>>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SerializeVersionedRootSignature)(windows_core::Interface::as_raw(self), pdesc, core::mem::transmute(ppresult), pperror.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn CreateVersionedRootSignatureDeserializer<T>(&self, pblob: *const core::ffi::c_void, size: usize) -> windows_core::Result<T>
+    pub unsafe fn CreateVersionedRootSignatureDeserializer<T>(&self, pblob: *const core::ffi::c_void, size: usize) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
@@ -11144,9 +11144,9 @@ unsafe impl Sync for ID3D12DeviceConfiguration {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12DeviceConfiguration_Impl: windows_core::IUnknownImpl {
     fn GetDesc(&self) -> D3D12_DEVICE_CONFIGURATION_DESC;
-    fn GetEnabledExperimentalFeatures(&self, pguids: *mut windows_core::GUID, numguids: u32) -> windows_core::Result<()>;
-    fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: windows_core::OutRef<super::Direct3D::ID3DBlob>, pperror: windows_core::OutRef<super::Direct3D::ID3DBlob>) -> windows_core::Result<()>;
-    fn CreateVersionedRootSignatureDeserializer(&self, pblob: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvdeserializer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetEnabledExperimentalFeatures(&self, pguids: *mut windows_core::GUID, numguids: u32) -> windows_result::Result<()>;
+    fn SerializeVersionedRootSignature(&self, pdesc: *const D3D12_VERSIONED_ROOT_SIGNATURE_DESC, ppresult: windows_core::OutRef<super::Direct3D::ID3DBlob>, pperror: windows_core::OutRef<super::Direct3D::ID3DBlob>) -> windows_result::Result<()>;
+    fn CreateVersionedRootSignatureDeserializer(&self, pblob: *const core::ffi::c_void, size: usize, riid: *const windows_core::GUID, ppvdeserializer: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12DeviceConfiguration_Vtbl {
@@ -11198,7 +11198,7 @@ impl core::ops::Deref for ID3D12DeviceConfiguration1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceConfiguration1, windows_core::IUnknown, ID3D12DeviceConfiguration);
 impl ID3D12DeviceConfiguration1 {
-    pub unsafe fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary<P2, T>(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: P2) -> windows_core::Result<T>
+    pub unsafe fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary<P2, T>(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: P2) -> windows_result::Result<T>
     where
         P2: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -11217,7 +11217,7 @@ unsafe impl Send for ID3D12DeviceConfiguration1 {}
 unsafe impl Sync for ID3D12DeviceConfiguration1 {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12DeviceConfiguration1_Impl: ID3D12DeviceConfiguration_Impl {
-    fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvdeserializer: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateVersionedRootSignatureDeserializerFromSubobjectInLibrary(&self, plibraryblob: *const core::ffi::c_void, size: usize, rootsignaturesubobjectname: &windows_core::PCWSTR, riid: *const windows_core::GUID, ppvdeserializer: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12DeviceConfiguration1_Vtbl {
@@ -11242,30 +11242,30 @@ impl windows_core::RuntimeName for ID3D12DeviceConfiguration1 {}
 windows_core::imp::define_interface!(ID3D12DeviceFactory, ID3D12DeviceFactory_Vtbl, 0x61f307d3_d34e_4e7c_8374_3ba4de23cccb);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceFactory, windows_core::IUnknown);
 impl ID3D12DeviceFactory {
-    pub unsafe fn InitializeFromGlobalState(&self) -> windows_core::Result<()> {
+    pub unsafe fn InitializeFromGlobalState(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InitializeFromGlobalState)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn ApplyToGlobalState(&self) -> windows_core::Result<()> {
+    pub unsafe fn ApplyToGlobalState(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ApplyToGlobalState)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn SetFlags(&self, flags: D3D12_DEVICE_FACTORY_FLAGS) -> windows_core::Result<()> {
+    pub unsafe fn SetFlags(&self, flags: D3D12_DEVICE_FACTORY_FLAGS) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetFlags)(windows_core::Interface::as_raw(self), flags).ok() }
     }
     pub unsafe fn GetFlags(&self) -> D3D12_DEVICE_FACTORY_FLAGS {
         unsafe { (windows_core::Interface::vtable(self).GetFlags)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetConfigurationInterface<T>(&self, clsid: *const windows_core::GUID) -> windows_core::Result<T>
+    pub unsafe fn GetConfigurationInterface<T>(&self, clsid: *const windows_core::GUID) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetConfigurationInterface)(windows_core::Interface::as_raw(self), clsid, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn EnableExperimentalFeatures(&self, numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: Option<*const core::ffi::c_void>, pconfigurationstructsizes: Option<*const u32>) -> windows_core::Result<()> {
+    pub unsafe fn EnableExperimentalFeatures(&self, numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: Option<*const core::ffi::c_void>, pconfigurationstructsizes: Option<*const u32>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).EnableExperimentalFeatures)(windows_core::Interface::as_raw(self), numfeatures, piids, pconfigurationstructs.unwrap_or(core::mem::zeroed()) as _, pconfigurationstructsizes.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn CreateDevice<P0, T>(&self, adapter: P0, featurelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn CreateDevice<P0, T>(&self, adapter: P0, featurelevel: super::Direct3D::D3D_FEATURE_LEVEL, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::IUnknown>,
         T: windows_core::Interface,
@@ -11292,13 +11292,13 @@ unsafe impl Send for ID3D12DeviceFactory {}
 unsafe impl Sync for ID3D12DeviceFactory {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12DeviceFactory_Impl: windows_core::IUnknownImpl {
-    fn InitializeFromGlobalState(&self) -> windows_core::Result<()>;
-    fn ApplyToGlobalState(&self) -> windows_core::Result<()>;
-    fn SetFlags(&self, flags: D3D12_DEVICE_FACTORY_FLAGS) -> windows_core::Result<()>;
+    fn InitializeFromGlobalState(&self) -> windows_result::Result<()>;
+    fn ApplyToGlobalState(&self) -> windows_result::Result<()>;
+    fn SetFlags(&self, flags: D3D12_DEVICE_FACTORY_FLAGS) -> windows_result::Result<()>;
     fn GetFlags(&self) -> D3D12_DEVICE_FACTORY_FLAGS;
-    fn GetConfigurationInterface(&self, clsid: *const windows_core::GUID, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn EnableExperimentalFeatures(&self, numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: *const core::ffi::c_void, pconfigurationstructsizes: *const u32) -> windows_core::Result<()>;
-    fn CreateDevice(&self, adapter: windows_core::Ref<windows_core::IUnknown>, featurelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetConfigurationInterface(&self, clsid: *const windows_core::GUID, iid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn EnableExperimentalFeatures(&self, numfeatures: u32, piids: *const windows_core::GUID, pconfigurationstructs: *const core::ffi::c_void, pconfigurationstructsizes: *const u32) -> windows_result::Result<()>;
+    fn CreateDevice(&self, adapter: windows_core::Ref<windows_core::IUnknown>, featurelevel: super::Direct3D::D3D_FEATURE_LEVEL, riid: *const windows_core::GUID, ppvdevice: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12DeviceFactory_Vtbl {
@@ -11365,13 +11365,13 @@ impl windows_core::RuntimeName for ID3D12DeviceFactory {}
 windows_core::imp::define_interface!(ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData_Vtbl, 0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData, windows_core::IUnknown);
 impl ID3D12DeviceRemovedExtendedData {
-    pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
+    pub unsafe fn GetAutoBreadcrumbsOutput(&self) -> windows_result::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPageFaultAllocationOutput(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
+    pub unsafe fn GetPageFaultAllocationOutput(&self) -> windows_result::Result<D3D12_DRED_PAGE_FAULT_OUTPUT> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11388,8 +11388,8 @@ pub struct ID3D12DeviceRemovedExtendedData_Vtbl {
 unsafe impl Send for ID3D12DeviceRemovedExtendedData {}
 unsafe impl Sync for ID3D12DeviceRemovedExtendedData {}
 pub trait ID3D12DeviceRemovedExtendedData_Impl: windows_core::IUnknownImpl {
-    fn GetAutoBreadcrumbsOutput(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>;
-    fn GetPageFaultAllocationOutput(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT>;
+    fn GetAutoBreadcrumbsOutput(&self) -> windows_result::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT>;
+    fn GetPageFaultAllocationOutput(&self) -> windows_result::Result<D3D12_DRED_PAGE_FAULT_OUTPUT>;
 }
 impl ID3D12DeviceRemovedExtendedData_Vtbl {
     pub const fn new<Identity: ID3D12DeviceRemovedExtendedData_Impl, const OFFSET: isize>() -> Self {
@@ -11437,13 +11437,13 @@ impl core::ops::Deref for ID3D12DeviceRemovedExtendedData1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData1, windows_core::IUnknown, ID3D12DeviceRemovedExtendedData);
 impl ID3D12DeviceRemovedExtendedData1 {
-    pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
+    pub unsafe fn GetAutoBreadcrumbsOutput1(&self) -> windows_result::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetAutoBreadcrumbsOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetPageFaultAllocationOutput1(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
+    pub unsafe fn GetPageFaultAllocationOutput1(&self) -> windows_result::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput1)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -11460,8 +11460,8 @@ pub struct ID3D12DeviceRemovedExtendedData1_Vtbl {
 unsafe impl Send for ID3D12DeviceRemovedExtendedData1 {}
 unsafe impl Sync for ID3D12DeviceRemovedExtendedData1 {}
 pub trait ID3D12DeviceRemovedExtendedData1_Impl: ID3D12DeviceRemovedExtendedData_Impl {
-    fn GetAutoBreadcrumbsOutput1(&self) -> windows_core::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>;
-    fn GetPageFaultAllocationOutput1(&self) -> windows_core::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1>;
+    fn GetAutoBreadcrumbsOutput1(&self) -> windows_result::Result<D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1>;
+    fn GetPageFaultAllocationOutput1(&self) -> windows_result::Result<D3D12_DRED_PAGE_FAULT_OUTPUT1>;
 }
 impl ID3D12DeviceRemovedExtendedData1_Vtbl {
     pub const fn new<Identity: ID3D12DeviceRemovedExtendedData1_Impl, const OFFSET: isize>() -> Self {
@@ -11509,7 +11509,7 @@ impl core::ops::Deref for ID3D12DeviceRemovedExtendedData2 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12DeviceRemovedExtendedData2, windows_core::IUnknown, ID3D12DeviceRemovedExtendedData, ID3D12DeviceRemovedExtendedData1);
 impl ID3D12DeviceRemovedExtendedData2 {
-    pub unsafe fn GetPageFaultAllocationOutput2(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> windows_core::Result<()> {
+    pub unsafe fn GetPageFaultAllocationOutput2(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPageFaultAllocationOutput2)(windows_core::Interface::as_raw(self), poutput as _).ok() }
     }
     pub unsafe fn GetDeviceState(&self) -> D3D12_DRED_DEVICE_STATE {
@@ -11526,7 +11526,7 @@ pub struct ID3D12DeviceRemovedExtendedData2_Vtbl {
 unsafe impl Send for ID3D12DeviceRemovedExtendedData2 {}
 unsafe impl Sync for ID3D12DeviceRemovedExtendedData2 {}
 pub trait ID3D12DeviceRemovedExtendedData2_Impl: ID3D12DeviceRemovedExtendedData1_Impl {
-    fn GetPageFaultAllocationOutput2(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> windows_core::Result<()>;
+    fn GetPageFaultAllocationOutput2(&self, poutput: *mut D3D12_DRED_PAGE_FAULT_OUTPUT2) -> windows_result::Result<()>;
     fn GetDeviceState(&self) -> D3D12_DRED_DEVICE_STATE;
 }
 impl ID3D12DeviceRemovedExtendedData2_Vtbl {
@@ -11710,10 +11710,10 @@ impl ID3D12Fence {
     pub unsafe fn GetCompletedValue(&self) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetCompletedValue)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()> {
+    pub unsafe fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetEventOnCompletion)(windows_core::Interface::as_raw(self), value, hevent).ok() }
     }
-    pub unsafe fn Signal(&self, value: u64) -> windows_core::Result<()> {
+    pub unsafe fn Signal(&self, value: u64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Signal)(windows_core::Interface::as_raw(self), value).ok() }
     }
 }
@@ -11729,8 +11729,8 @@ unsafe impl Send for ID3D12Fence {}
 unsafe impl Sync for ID3D12Fence {}
 pub trait ID3D12Fence_Impl: ID3D12Pageable_Impl {
     fn GetCompletedValue(&self) -> u64;
-    fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> windows_core::Result<()>;
-    fn Signal(&self, value: u64) -> windows_core::Result<()>;
+    fn SetEventOnCompletion(&self, value: u64, hevent: super::super::Foundation::HANDLE) -> windows_result::Result<()>;
+    fn Signal(&self, value: u64) -> windows_result::Result<()>;
 }
 impl ID3D12Fence_Vtbl {
     pub const fn new<Identity: ID3D12Fence_Impl, const OFFSET: isize>() -> Self {
@@ -11806,7 +11806,7 @@ impl windows_core::RuntimeName for ID3D12Fence1 {}
 windows_core::imp::define_interface!(ID3D12FunctionParameterReflection, ID3D12FunctionParameterReflection_Vtbl);
 impl ID3D12FunctionParameterReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
 }
@@ -11822,7 +11822,7 @@ unsafe impl Send for ID3D12FunctionParameterReflection {}
 unsafe impl Sync for ID3D12FunctionParameterReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12FunctionParameterReflection_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_PARAMETER_DESC) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12FunctionParameterReflection_Vtbl {
@@ -11854,7 +11854,7 @@ impl ID3D12FunctionParameterReflection {
 windows_core::imp::define_interface!(ID3D12FunctionReflection, ID3D12FunctionReflection_Vtbl);
 impl ID3D12FunctionReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
     pub unsafe fn GetConstantBufferByIndex(&self, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
@@ -11867,7 +11867,7 @@ impl ID3D12FunctionReflection {
         unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDesc)(windows_core::Interface::as_raw(self), resourceindex, pdesc as _).ok() }
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
@@ -11877,7 +11877,7 @@ impl ID3D12FunctionReflection {
         unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>
+    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -11911,12 +11911,12 @@ unsafe impl Send for ID3D12FunctionReflection {}
 unsafe impl Sync for ID3D12FunctionReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12FunctionReflection_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_FUNCTION_DESC) -> windows_result::Result<()>;
     fn GetConstantBufferByIndex(&self, bufferindex: u32) -> Option<ID3D12ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>;
     fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>;
     fn GetFunctionParameter(&self, parameterindex: i32) -> Option<ID3D12FunctionParameterReflection>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
@@ -11999,13 +11999,13 @@ impl ID3D12FunctionReflection {
 windows_core::imp::define_interface!(ID3D12GBVDiagnostics, ID3D12GBVDiagnostics_Vtbl, 0x597985ab_9b75_4dbb_be23_0761195bebee);
 windows_core::imp::interface_hierarchy!(ID3D12GBVDiagnostics, windows_core::IUnknown);
 impl ID3D12GBVDiagnostics {
-    pub unsafe fn GetGBVEntireSubresourceStatesData<P0>(&self, presource: P0, pdata: *mut i32, datasize: u32) -> windows_core::Result<()>
+    pub unsafe fn GetGBVEntireSubresourceStatesData<P0>(&self, presource: P0, pdata: *mut i32, datasize: u32) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
         unsafe { (windows_core::Interface::vtable(self).GetGBVEntireSubresourceStatesData)(windows_core::Interface::as_raw(self), presource.param().abi(), pdata as _, datasize).ok() }
     }
-    pub unsafe fn GetGBVSubresourceState<P0>(&self, presource: P0, subresource: u32) -> windows_core::Result<i32>
+    pub unsafe fn GetGBVSubresourceState<P0>(&self, presource: P0, subresource: u32) -> windows_result::Result<i32>
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -12014,7 +12014,7 @@ impl ID3D12GBVDiagnostics {
             (windows_core::Interface::vtable(self).GetGBVSubresourceState)(windows_core::Interface::as_raw(self), presource.param().abi(), subresource, &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn GetGBVResourceUniformState<P0>(&self, presource: P0) -> windows_core::Result<i32>
+    pub unsafe fn GetGBVResourceUniformState<P0>(&self, presource: P0) -> windows_result::Result<i32>
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -12024,7 +12024,7 @@ impl ID3D12GBVDiagnostics {
         }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn GetGBVResourceInfo<P0>(&self, presource: P0, presourcedesc: Option<*const D3D12_RESOURCE_DESC>, presourcehash: Option<*const u32>, psubresourcestatesbyteoffset: Option<*const u32>) -> windows_core::Result<()>
+    pub unsafe fn GetGBVResourceInfo<P0>(&self, presource: P0, presourcedesc: Option<*const D3D12_RESOURCE_DESC>, presourcehash: Option<*const u32>, psubresourcestatesbyteoffset: Option<*const u32>) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12Resource>,
     {
@@ -12055,10 +12055,10 @@ unsafe impl Send for ID3D12GBVDiagnostics {}
 unsafe impl Sync for ID3D12GBVDiagnostics {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12GBVDiagnostics_Impl: windows_core::IUnknownImpl {
-    fn GetGBVEntireSubresourceStatesData(&self, presource: windows_core::Ref<ID3D12Resource>, pdata: *mut i32, datasize: u32) -> windows_core::Result<()>;
-    fn GetGBVSubresourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32) -> windows_core::Result<i32>;
-    fn GetGBVResourceUniformState(&self, presource: windows_core::Ref<ID3D12Resource>) -> windows_core::Result<i32>;
-    fn GetGBVResourceInfo(&self, presource: windows_core::Ref<ID3D12Resource>, presourcedesc: *const D3D12_RESOURCE_DESC, presourcehash: *const u32, psubresourcestatesbyteoffset: *const u32) -> windows_core::Result<()>;
+    fn GetGBVEntireSubresourceStatesData(&self, presource: windows_core::Ref<ID3D12Resource>, pdata: *mut i32, datasize: u32) -> windows_result::Result<()>;
+    fn GetGBVSubresourceState(&self, presource: windows_core::Ref<ID3D12Resource>, subresource: u32) -> windows_result::Result<i32>;
+    fn GetGBVResourceUniformState(&self, presource: windows_core::Ref<ID3D12Resource>) -> windows_result::Result<i32>;
+    fn GetGBVResourceInfo(&self, presource: windows_core::Ref<ID3D12Resource>, presourcedesc: *const D3D12_RESOURCE_DESC, presourcehash: *const u32, psubresourcestatesbyteoffset: *const u32) -> windows_result::Result<()>;
     fn GBVReserved0(&self);
     fn GBVReserved1(&self);
 }
@@ -12138,10 +12138,10 @@ impl core::ops::Deref for ID3D12GraphicsCommandList {
 }
 windows_core::imp::interface_hierarchy!(ID3D12GraphicsCommandList, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12CommandList);
 impl ID3D12GraphicsCommandList {
-    pub unsafe fn Close(&self) -> windows_core::Result<()> {
+    pub unsafe fn Close(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Close)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn Reset<P0, P1>(&self, pallocator: P0, pinitialstate: P1) -> windows_core::Result<()>
+    pub unsafe fn Reset<P0, P1>(&self, pallocator: P0, pinitialstate: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12CommandAllocator>,
         P1: windows_core::Param<ID3D12PipelineState>,
@@ -12430,8 +12430,8 @@ unsafe impl Send for ID3D12GraphicsCommandList {}
 unsafe impl Sync for ID3D12GraphicsCommandList {}
 #[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub trait ID3D12GraphicsCommandList_Impl: ID3D12CommandList_Impl {
-    fn Close(&self) -> windows_core::Result<()>;
-    fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>, pinitialstate: windows_core::Ref<ID3D12PipelineState>) -> windows_core::Result<()>;
+    fn Close(&self) -> windows_result::Result<()>;
+    fn Reset(&self, pallocator: windows_core::Ref<ID3D12CommandAllocator>, pinitialstate: windows_core::Ref<ID3D12PipelineState>) -> windows_result::Result<()>;
     fn ClearState(&self, ppipelinestate: windows_core::Ref<ID3D12PipelineState>);
     fn DrawInstanced(&self, vertexcountperinstance: u32, instancecount: u32, startvertexlocation: u32, startinstancelocation: u32);
     fn DrawIndexedInstanced(&self, indexcountperinstance: u32, instancecount: u32, startindexlocation: u32, basevertexlocation: i32, startinstancelocation: u32);
@@ -13606,7 +13606,7 @@ impl core::ops::Deref for ID3D12Heap1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Heap1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Heap);
 impl ID3D12Heap1 {
-    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
@@ -13622,7 +13622,7 @@ pub struct ID3D12Heap1_Vtbl {
 unsafe impl Send for ID3D12Heap1 {}
 unsafe impl Sync for ID3D12Heap1 {}
 pub trait ID3D12Heap1_Impl: ID3D12Heap_Impl {
-    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 impl ID3D12Heap1_Vtbl {
     pub const fn new<Identity: ID3D12Heap1_Impl, const OFFSET: isize>() -> Self {
@@ -13642,13 +13642,13 @@ impl windows_core::RuntimeName for ID3D12Heap1 {}
 windows_core::imp::define_interface!(ID3D12InfoQueue, ID3D12InfoQueue_Vtbl, 0x0742a90b_c387_483f_b946_30a7e4e61458);
 windows_core::imp::interface_hierarchy!(ID3D12InfoQueue, windows_core::IUnknown);
 impl ID3D12InfoQueue {
-    pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::Result<()> {
+    pub unsafe fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetMessageCountLimit)(windows_core::Interface::as_raw(self), messagecountlimit).ok() }
     }
     pub unsafe fn ClearStoredMessages(&self) {
         unsafe { (windows_core::Interface::vtable(self).ClearStoredMessages)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: Option<*mut D3D12_MESSAGE>, pmessagebytelength: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn GetMessage(&self, messageindex: u64, pmessage: Option<*mut D3D12_MESSAGE>, pmessagebytelength: *mut usize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetMessage)(windows_core::Interface::as_raw(self), messageindex, pmessage.unwrap_or(core::mem::zeroed()) as _, pmessagebytelength as _).ok() }
     }
     pub unsafe fn GetNumMessagesAllowedByStorageFilter(&self) -> u64 {
@@ -13669,22 +13669,22 @@ impl ID3D12InfoQueue {
     pub unsafe fn GetMessageCountLimit(&self) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetMessageCountLimit)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddStorageFilterEntries)(windows_core::Interface::as_raw(self), pfilter).ok() }
     }
-    pub unsafe fn GetStorageFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn GetStorageFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilter)(windows_core::Interface::as_raw(self), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearStorageFilter(&self) {
         unsafe { (windows_core::Interface::vtable(self).ClearStorageFilter)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn PushEmptyStorageFilter(&self) -> windows_core::Result<()> {
+    pub unsafe fn PushEmptyStorageFilter(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushEmptyStorageFilter)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PushCopyOfStorageFilter(&self) -> windows_core::Result<()> {
+    pub unsafe fn PushCopyOfStorageFilter(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushCopyOfStorageFilter)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushStorageFilter)(windows_core::Interface::as_raw(self), pfilter).ok() }
     }
     pub unsafe fn PopStorageFilter(&self) {
@@ -13693,22 +13693,22 @@ impl ID3D12InfoQueue {
     pub unsafe fn GetStorageFilterStackSize(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetStorageFilterStackSize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).AddRetrievalFilterEntries)(windows_core::Interface::as_raw(self), pfilter).ok() }
     }
-    pub unsafe fn GetRetrievalFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_core::Result<()> {
+    pub unsafe fn GetRetrievalFilter(&self, pfilter: Option<*mut D3D12_INFO_QUEUE_FILTER>, pfilterbytelength: *mut usize) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilter)(windows_core::Interface::as_raw(self), pfilter.unwrap_or(core::mem::zeroed()) as _, pfilterbytelength as _).ok() }
     }
     pub unsafe fn ClearRetrievalFilter(&self) {
         unsafe { (windows_core::Interface::vtable(self).ClearRetrievalFilter)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn PushEmptyRetrievalFilter(&self) -> windows_core::Result<()> {
+    pub unsafe fn PushEmptyRetrievalFilter(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushEmptyRetrievalFilter)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PushCopyOfRetrievalFilter(&self) -> windows_core::Result<()> {
+    pub unsafe fn PushCopyOfRetrievalFilter(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushCopyOfRetrievalFilter)(windows_core::Interface::as_raw(self)).ok() }
     }
-    pub unsafe fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()> {
+    pub unsafe fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).PushRetrievalFilter)(windows_core::Interface::as_raw(self), pfilter).ok() }
     }
     pub unsafe fn PopRetrievalFilter(&self) {
@@ -13717,25 +13717,25 @@ impl ID3D12InfoQueue {
     pub unsafe fn GetRetrievalFilterStackSize(&self) -> u32 {
         unsafe { (windows_core::Interface::vtable(self).GetRetrievalFilterStackSize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn AddMessage<P3>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P3) -> windows_core::Result<()>
+    pub unsafe fn AddMessage<P3>(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: P3) -> windows_result::Result<()>
     where
         P3: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddMessage)(windows_core::Interface::as_raw(self), category, severity, id, pdescription.param().abi()).ok() }
     }
-    pub unsafe fn AddApplicationMessage<P1>(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: P1) -> windows_core::Result<()>
+    pub unsafe fn AddApplicationMessage<P1>(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
         unsafe { (windows_core::Interface::vtable(self).AddApplicationMessage)(windows_core::Interface::as_raw(self), severity, pdescription.param().abi()).ok() }
     }
-    pub unsafe fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnCategory)(windows_core::Interface::as_raw(self), category, benable.into()).ok() }
     }
-    pub unsafe fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnSeverity)(windows_core::Interface::as_raw(self), severity, benable.into()).ok() }
     }
-    pub unsafe fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: bool) -> windows_core::Result<()> {
+    pub unsafe fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: bool) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetBreakOnID)(windows_core::Interface::as_raw(self), id, benable.into()).ok() }
     }
     pub unsafe fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL {
@@ -13797,36 +13797,36 @@ pub struct ID3D12InfoQueue_Vtbl {
 unsafe impl Send for ID3D12InfoQueue {}
 unsafe impl Sync for ID3D12InfoQueue {}
 pub trait ID3D12InfoQueue_Impl: windows_core::IUnknownImpl {
-    fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_core::Result<()>;
+    fn SetMessageCountLimit(&self, messagecountlimit: u64) -> windows_result::Result<()>;
     fn ClearStoredMessages(&self);
-    fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> windows_core::Result<()>;
+    fn GetMessage(&self, messageindex: u64, pmessage: *mut D3D12_MESSAGE, pmessagebytelength: *mut usize) -> windows_result::Result<()>;
     fn GetNumMessagesAllowedByStorageFilter(&self) -> u64;
     fn GetNumMessagesDeniedByStorageFilter(&self) -> u64;
     fn GetNumStoredMessages(&self) -> u64;
     fn GetNumStoredMessagesAllowedByRetrievalFilter(&self) -> u64;
     fn GetNumMessagesDiscardedByMessageCountLimit(&self) -> u64;
     fn GetMessageCountLimit(&self) -> u64;
-    fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetStorageFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn AddStorageFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()>;
+    fn GetStorageFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_result::Result<()>;
     fn ClearStorageFilter(&self);
-    fn PushEmptyStorageFilter(&self) -> windows_core::Result<()>;
-    fn PushCopyOfStorageFilter(&self) -> windows_core::Result<()>;
-    fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PushEmptyStorageFilter(&self) -> windows_result::Result<()>;
+    fn PushCopyOfStorageFilter(&self) -> windows_result::Result<()>;
+    fn PushStorageFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()>;
     fn PopStorageFilter(&self);
     fn GetStorageFilterStackSize(&self) -> u32;
-    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
-    fn GetRetrievalFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_core::Result<()>;
+    fn AddRetrievalFilterEntries(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()>;
+    fn GetRetrievalFilter(&self, pfilter: *mut D3D12_INFO_QUEUE_FILTER, pfilterbytelength: *mut usize) -> windows_result::Result<()>;
     fn ClearRetrievalFilter(&self);
-    fn PushEmptyRetrievalFilter(&self) -> windows_core::Result<()>;
-    fn PushCopyOfRetrievalFilter(&self) -> windows_core::Result<()>;
-    fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_core::Result<()>;
+    fn PushEmptyRetrievalFilter(&self) -> windows_result::Result<()>;
+    fn PushCopyOfRetrievalFilter(&self) -> windows_result::Result<()>;
+    fn PushRetrievalFilter(&self, pfilter: *const D3D12_INFO_QUEUE_FILTER) -> windows_result::Result<()>;
     fn PopRetrievalFilter(&self);
     fn GetRetrievalFilterStackSize(&self) -> u32;
-    fn AddMessage(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn AddApplicationMessage(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_core::Result<()>;
-    fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_core::Result<()>;
-    fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_core::Result<()>;
+    fn AddMessage(&self, category: D3D12_MESSAGE_CATEGORY, severity: D3D12_MESSAGE_SEVERITY, id: D3D12_MESSAGE_ID, pdescription: &windows_core::PCSTR) -> windows_result::Result<()>;
+    fn AddApplicationMessage(&self, severity: D3D12_MESSAGE_SEVERITY, pdescription: &windows_core::PCSTR) -> windows_result::Result<()>;
+    fn SetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY, benable: windows_core::BOOL) -> windows_result::Result<()>;
+    fn SetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY, benable: windows_core::BOOL) -> windows_result::Result<()>;
+    fn SetBreakOnID(&self, id: D3D12_MESSAGE_ID, benable: windows_core::BOOL) -> windows_result::Result<()>;
     fn GetBreakOnCategory(&self, category: D3D12_MESSAGE_CATEGORY) -> windows_core::BOOL;
     fn GetBreakOnSeverity(&self, severity: D3D12_MESSAGE_SEVERITY) -> windows_core::BOOL;
     fn GetBreakOnID(&self, id: D3D12_MESSAGE_ID) -> windows_core::BOOL;
@@ -14098,10 +14098,10 @@ impl core::ops::Deref for ID3D12InfoQueue1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12InfoQueue1, windows_core::IUnknown, ID3D12InfoQueue);
 impl ID3D12InfoQueue1 {
-    pub unsafe fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).RegisterMessageCallback)(windows_core::Interface::as_raw(self), callbackfunc, callbackfilterflags, pcontext as _, pcallbackcookie as _).ok() }
     }
-    pub unsafe fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_core::Result<()> {
+    pub unsafe fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).UnregisterMessageCallback)(windows_core::Interface::as_raw(self), callbackcookie).ok() }
     }
 }
@@ -14115,8 +14115,8 @@ pub struct ID3D12InfoQueue1_Vtbl {
 unsafe impl Send for ID3D12InfoQueue1 {}
 unsafe impl Sync for ID3D12InfoQueue1 {}
 pub trait ID3D12InfoQueue1_Impl: ID3D12InfoQueue_Impl {
-    fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_core::Result<()>;
-    fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_core::Result<()>;
+    fn RegisterMessageCallback(&self, callbackfunc: D3D12MessageFunc, callbackfilterflags: D3D12_MESSAGE_CALLBACK_FLAGS, pcontext: *mut core::ffi::c_void, pcallbackcookie: *mut u32) -> windows_result::Result<()>;
+    fn UnregisterMessageCallback(&self, callbackcookie: u32) -> windows_result::Result<()>;
 }
 impl ID3D12InfoQueue1_Vtbl {
     pub const fn new<Identity: ID3D12InfoQueue1_Impl, const OFFSET: isize>() -> Self {
@@ -14146,7 +14146,7 @@ impl windows_core::RuntimeName for ID3D12InfoQueue1 {}
 windows_core::imp::define_interface!(ID3D12LibraryReflection, ID3D12LibraryReflection_Vtbl, 0x8e349d19_54db_4a56_9dc9_119d87bdb804);
 windows_core::imp::interface_hierarchy!(ID3D12LibraryReflection, windows_core::IUnknown);
 impl ID3D12LibraryReflection {
-    pub unsafe fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC> {
+    pub unsafe fn GetDesc(&self) -> windows_result::Result<D3D12_LIBRARY_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -14166,7 +14166,7 @@ pub struct ID3D12LibraryReflection_Vtbl {
 unsafe impl Send for ID3D12LibraryReflection {}
 unsafe impl Sync for ID3D12LibraryReflection {}
 pub trait ID3D12LibraryReflection_Impl: windows_core::IUnknownImpl {
-    fn GetDesc(&self) -> windows_core::Result<D3D12_LIBRARY_DESC>;
+    fn GetDesc(&self) -> windows_result::Result<D3D12_LIBRARY_DESC>;
     fn GetFunctionByIndex(&self, functionindex: i32) -> Option<ID3D12FunctionReflection>;
 }
 impl ID3D12LibraryReflection_Vtbl {
@@ -14242,7 +14242,7 @@ impl core::ops::Deref for ID3D12LifetimeTracker {
 }
 windows_core::imp::interface_hierarchy!(ID3D12LifetimeTracker, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ID3D12LifetimeTracker {
-    pub unsafe fn DestroyOwnedObject<P0>(&self, pobject: P0) -> windows_core::Result<()>
+    pub unsafe fn DestroyOwnedObject<P0>(&self, pobject: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
     {
@@ -14258,7 +14258,7 @@ pub struct ID3D12LifetimeTracker_Vtbl {
 unsafe impl Send for ID3D12LifetimeTracker {}
 unsafe impl Sync for ID3D12LifetimeTracker {}
 pub trait ID3D12LifetimeTracker_Impl: ID3D12DeviceChild_Impl {
-    fn DestroyOwnedObject(&self, pobject: windows_core::Ref<ID3D12DeviceChild>) -> windows_core::Result<()>;
+    fn DestroyOwnedObject(&self, pobject: windows_core::Ref<ID3D12DeviceChild>) -> windows_result::Result<()>;
 }
 impl ID3D12LifetimeTracker_Vtbl {
     pub const fn new<Identity: ID3D12LifetimeTracker_Impl, const OFFSET: isize>() -> Self {
@@ -14350,19 +14350,19 @@ impl windows_core::RuntimeName for ID3D12MetaCommand {}
 windows_core::imp::define_interface!(ID3D12Object, ID3D12Object_Vtbl, 0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
 windows_core::imp::interface_hierarchy!(ID3D12Object, windows_core::IUnknown);
 impl ID3D12Object {
-    pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: Option<*mut core::ffi::c_void>) -> windows_core::Result<()> {
+    pub unsafe fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: Option<*mut core::ffi::c_void>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPrivateData)(windows_core::Interface::as_raw(self), guid, pdatasize as _, pdata.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
+    pub unsafe fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: Option<*const core::ffi::c_void>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateData)(windows_core::Interface::as_raw(self), guid, datasize, pdata.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn SetPrivateDataInterface<P1>(&self, guid: *const windows_core::GUID, pdata: P1) -> windows_core::Result<()>
+    pub unsafe fn SetPrivateDataInterface<P1>(&self, guid: *const windows_core::GUID, pdata: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::IUnknown>,
     {
         unsafe { (windows_core::Interface::vtable(self).SetPrivateDataInterface)(windows_core::Interface::as_raw(self), guid, pdata.param().abi()).ok() }
     }
-    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_core::Result<()>
+    pub unsafe fn SetName<P0>(&self, name: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
     {
@@ -14381,10 +14381,10 @@ pub struct ID3D12Object_Vtbl {
 unsafe impl Send for ID3D12Object {}
 unsafe impl Sync for ID3D12Object {}
 pub trait ID3D12Object_Impl: windows_core::IUnknownImpl {
-    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_core::Result<()>;
-    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_core::Result<()>;
-    fn SetName(&self, name: &windows_core::PCWSTR) -> windows_core::Result<()>;
+    fn GetPrivateData(&self, guid: *const windows_core::GUID, pdatasize: *mut u32, pdata: *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn SetPrivateData(&self, guid: *const windows_core::GUID, datasize: u32, pdata: *const core::ffi::c_void) -> windows_result::Result<()>;
+    fn SetPrivateDataInterface(&self, guid: *const windows_core::GUID, pdata: windows_core::Ref<windows_core::IUnknown>) -> windows_result::Result<()>;
+    fn SetName(&self, name: &windows_core::PCWSTR) -> windows_result::Result<()>;
 }
 impl ID3D12Object_Vtbl {
     pub const fn new<Identity: ID3D12Object_Impl, const OFFSET: isize>() -> Self {
@@ -14459,7 +14459,7 @@ impl core::ops::Deref for ID3D12PipelineLibrary {
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ID3D12PipelineLibrary {
-    pub unsafe fn StorePipeline<P0, P1>(&self, pname: P0, ppipeline: P1) -> windows_core::Result<()>
+    pub unsafe fn StorePipeline<P0, P1>(&self, pname: P0, ppipeline: P1) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         P1: windows_core::Param<ID3D12PipelineState>,
@@ -14467,7 +14467,7 @@ impl ID3D12PipelineLibrary {
         unsafe { (windows_core::Interface::vtable(self).StorePipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), ppipeline.param().abi()).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
-    pub unsafe fn LoadGraphicsPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadGraphicsPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC) -> windows_result::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -14475,7 +14475,7 @@ impl ID3D12PipelineLibrary {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).LoadGraphicsPipeline)(windows_core::Interface::as_raw(self), pname.param().abi(), core::mem::transmute(pdesc), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadComputePipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC) -> windows_result::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -14486,7 +14486,7 @@ impl ID3D12PipelineLibrary {
     pub unsafe fn GetSerializedSize(&self) -> usize {
         unsafe { (windows_core::Interface::vtable(self).GetSerializedSize)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> windows_core::Result<()> {
+    pub unsafe fn Serialize(&self, pdata: &mut [u8]) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Serialize)(windows_core::Interface::as_raw(self), core::mem::transmute(pdata.as_ptr()), pdata.len().try_into().unwrap()).ok() }
     }
 }
@@ -14507,11 +14507,11 @@ unsafe impl Send for ID3D12PipelineLibrary {}
 unsafe impl Sync for ID3D12PipelineLibrary {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12PipelineLibrary_Impl: ID3D12DeviceChild_Impl {
-    fn StorePipeline(&self, pname: &windows_core::PCWSTR, ppipeline: windows_core::Ref<ID3D12PipelineState>) -> windows_core::Result<()>;
-    fn LoadGraphicsPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn LoadComputePipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn StorePipeline(&self, pname: &windows_core::PCWSTR, ppipeline: windows_core::Ref<ID3D12PipelineState>) -> windows_result::Result<()>;
+    fn LoadGraphicsPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_GRAPHICS_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn LoadComputePipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_COMPUTE_PIPELINE_STATE_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetSerializedSize(&self) -> usize;
-    fn Serialize(&self, pdata: *mut core::ffi::c_void, datasizeinbytes: usize) -> windows_core::Result<()>;
+    fn Serialize(&self, pdata: *mut core::ffi::c_void, datasizeinbytes: usize) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12PipelineLibrary_Vtbl {
@@ -14570,7 +14570,7 @@ impl core::ops::Deref for ID3D12PipelineLibrary1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12PipelineLibrary1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12PipelineLibrary);
 impl ID3D12PipelineLibrary1 {
-    pub unsafe fn LoadPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_core::Result<T>
+    pub unsafe fn LoadPipeline<P0, T>(&self, pname: P0, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC) -> windows_result::Result<T>
     where
         P0: windows_core::Param<windows_core::PCWSTR>,
         T: windows_core::Interface,
@@ -14589,7 +14589,7 @@ unsafe impl Send for ID3D12PipelineLibrary1 {}
 unsafe impl Sync for ID3D12PipelineLibrary1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12PipelineLibrary1_Impl: ID3D12PipelineLibrary_Impl {
-    fn LoadPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn LoadPipeline(&self, pname: &windows_core::PCWSTR, pdesc: *const D3D12_PIPELINE_STATE_STREAM_DESC, riid: *const windows_core::GUID, pppipelinestate: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12PipelineLibrary1_Vtbl {
@@ -14618,7 +14618,7 @@ impl core::ops::Deref for ID3D12PipelineState {
 windows_core::imp::interface_hierarchy!(ID3D12PipelineState, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12PipelineState {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetCachedBlob(&self) -> windows_core::Result<super::Direct3D::ID3DBlob> {
+    pub unsafe fn GetCachedBlob(&self) -> windows_result::Result<super::Direct3D::ID3DBlob> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetCachedBlob)(windows_core::Interface::as_raw(self), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -14638,7 +14638,7 @@ unsafe impl Send for ID3D12PipelineState {}
 unsafe impl Sync for ID3D12PipelineState {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12PipelineState_Impl: ID3D12Pageable_Impl {
-    fn GetCachedBlob(&self) -> windows_core::Result<super::Direct3D::ID3DBlob>;
+    fn GetCachedBlob(&self) -> windows_result::Result<super::Direct3D::ID3DBlob>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12PipelineState_Vtbl {
@@ -14758,7 +14758,7 @@ impl core::ops::Deref for ID3D12ProtectedSession {
 }
 windows_core::imp::interface_hierarchy!(ID3D12ProtectedSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ID3D12ProtectedSession {
-    pub unsafe fn GetStatusFence<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetStatusFence<T>(&self, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
@@ -14778,7 +14778,7 @@ pub struct ID3D12ProtectedSession_Vtbl {
 unsafe impl Send for ID3D12ProtectedSession {}
 unsafe impl Sync for ID3D12ProtectedSession {}
 pub trait ID3D12ProtectedSession_Impl: ID3D12DeviceChild_Impl {
-    fn GetStatusFence(&self, riid: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetStatusFence(&self, riid: *const windows_core::GUID, ppfence: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn GetSessionStatus(&self) -> D3D12_PROTECTED_SESSION_STATUS;
 }
 impl ID3D12ProtectedSession_Vtbl {
@@ -14840,7 +14840,7 @@ impl core::ops::Deref for ID3D12Resource {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable);
 impl ID3D12Resource {
-    pub unsafe fn Map(&self, subresource: u32, preadrange: Option<*const D3D12_RANGE>, ppdata: Option<*mut *mut core::ffi::c_void>) -> windows_core::Result<()> {
+    pub unsafe fn Map(&self, subresource: u32, preadrange: Option<*const D3D12_RANGE>, ppdata: Option<*mut *mut core::ffi::c_void>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).Map)(windows_core::Interface::as_raw(self), subresource, preadrange.unwrap_or(core::mem::zeroed()) as _, ppdata.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
     pub unsafe fn Unmap(&self, subresource: u32, pwrittenrange: Option<*const D3D12_RANGE>) {
@@ -14857,13 +14857,13 @@ impl ID3D12Resource {
     pub unsafe fn GetGPUVirtualAddress(&self) -> u64 {
         unsafe { (windows_core::Interface::vtable(self).GetGPUVirtualAddress)(windows_core::Interface::as_raw(self)) }
     }
-    pub unsafe fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: Option<*const D3D12_BOX>, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> windows_core::Result<()> {
+    pub unsafe fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: Option<*const D3D12_BOX>, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).WriteToSubresource)(windows_core::Interface::as_raw(self), dstsubresource, pdstbox.unwrap_or(core::mem::zeroed()) as _, psrcdata, srcrowpitch, srcdepthpitch).ok() }
     }
-    pub unsafe fn ReadFromSubresource(&self, pdstdata: *mut core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: Option<*const D3D12_BOX>) -> windows_core::Result<()> {
+    pub unsafe fn ReadFromSubresource(&self, pdstdata: *mut core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: Option<*const D3D12_BOX>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).ReadFromSubresource)(windows_core::Interface::as_raw(self), pdstdata as _, dstrowpitch, dstdepthpitch, srcsubresource, psrcbox.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
-    pub unsafe fn GetHeapProperties(&self, pheapproperties: Option<*mut D3D12_HEAP_PROPERTIES>, pheapflags: Option<*mut D3D12_HEAP_FLAGS>) -> windows_core::Result<()> {
+    pub unsafe fn GetHeapProperties(&self, pheapproperties: Option<*mut D3D12_HEAP_PROPERTIES>, pheapflags: Option<*mut D3D12_HEAP_FLAGS>) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetHeapProperties)(windows_core::Interface::as_raw(self), pheapproperties.unwrap_or(core::mem::zeroed()) as _, pheapflags.unwrap_or(core::mem::zeroed()) as _).ok() }
     }
 }
@@ -14886,13 +14886,13 @@ unsafe impl Send for ID3D12Resource {}
 unsafe impl Sync for ID3D12Resource {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12Resource_Impl: ID3D12Pageable_Impl {
-    fn Map(&self, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn Map(&self, subresource: u32, preadrange: *const D3D12_RANGE, ppdata: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn Unmap(&self, subresource: u32, pwrittenrange: *const D3D12_RANGE);
     fn GetDesc(&self) -> D3D12_RESOURCE_DESC;
     fn GetGPUVirtualAddress(&self) -> u64;
-    fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> windows_core::Result<()>;
-    fn ReadFromSubresource(&self, pdstdata: *mut core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> windows_core::Result<()>;
-    fn GetHeapProperties(&self, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> windows_core::Result<()>;
+    fn WriteToSubresource(&self, dstsubresource: u32, pdstbox: *const D3D12_BOX, psrcdata: *const core::ffi::c_void, srcrowpitch: u32, srcdepthpitch: u32) -> windows_result::Result<()>;
+    fn ReadFromSubresource(&self, pdstdata: *mut core::ffi::c_void, dstrowpitch: u32, dstdepthpitch: u32, srcsubresource: u32, psrcbox: *const D3D12_BOX) -> windows_result::Result<()>;
+    fn GetHeapProperties(&self, pheapproperties: *mut D3D12_HEAP_PROPERTIES, pheapflags: *mut D3D12_HEAP_FLAGS) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12Resource_Vtbl {
@@ -14965,7 +14965,7 @@ impl core::ops::Deref for ID3D12Resource1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12Resource1, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild, ID3D12Pageable, ID3D12Resource);
 impl ID3D12Resource1 {
-    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_core::Result<()>
+    pub unsafe fn GetProtectedResourceSession<T>(&self, result__: *mut Option<T>) -> windows_result::Result<()>
     where
         T: windows_core::Interface,
     {
@@ -14982,7 +14982,7 @@ unsafe impl Send for ID3D12Resource1 {}
 unsafe impl Sync for ID3D12Resource1 {}
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub trait ID3D12Resource1_Impl: ID3D12Resource_Impl {
-    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn GetProtectedResourceSession(&self, riid: *const windows_core::GUID, ppprotectedsession: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ID3D12Resource1_Vtbl {
@@ -15112,7 +15112,7 @@ impl windows_core::RuntimeName for ID3D12RootSignatureDeserializer {}
 windows_core::imp::define_interface!(ID3D12SDKConfiguration, ID3D12SDKConfiguration_Vtbl, 0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration, windows_core::IUnknown);
 impl ID3D12SDKConfiguration {
-    pub unsafe fn SetSDKVersion<P1>(&self, sdkversion: u32, sdkpath: P1) -> windows_core::Result<()>
+    pub unsafe fn SetSDKVersion<P1>(&self, sdkversion: u32, sdkpath: P1) -> windows_result::Result<()>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
     {
@@ -15128,7 +15128,7 @@ pub struct ID3D12SDKConfiguration_Vtbl {
 unsafe impl Send for ID3D12SDKConfiguration {}
 unsafe impl Sync for ID3D12SDKConfiguration {}
 pub trait ID3D12SDKConfiguration_Impl: windows_core::IUnknownImpl {
-    fn SetSDKVersion(&self, sdkversion: u32, sdkpath: &windows_core::PCSTR) -> windows_core::Result<()>;
+    fn SetSDKVersion(&self, sdkversion: u32, sdkpath: &windows_core::PCSTR) -> windows_result::Result<()>;
 }
 impl ID3D12SDKConfiguration_Vtbl {
     pub const fn new<Identity: ID3D12SDKConfiguration_Impl, const OFFSET: isize>() -> Self {
@@ -15154,7 +15154,7 @@ impl core::ops::Deref for ID3D12SDKConfiguration1 {
 }
 windows_core::imp::interface_hierarchy!(ID3D12SDKConfiguration1, windows_core::IUnknown, ID3D12SDKConfiguration);
 impl ID3D12SDKConfiguration1 {
-    pub unsafe fn CreateDeviceFactory<P1, T>(&self, sdkversion: u32, sdkpath: P1) -> windows_core::Result<T>
+    pub unsafe fn CreateDeviceFactory<P1, T>(&self, sdkversion: u32, sdkpath: P1) -> windows_result::Result<T>
     where
         P1: windows_core::Param<windows_core::PCSTR>,
         T: windows_core::Interface,
@@ -15176,7 +15176,7 @@ pub struct ID3D12SDKConfiguration1_Vtbl {
 unsafe impl Send for ID3D12SDKConfiguration1 {}
 unsafe impl Sync for ID3D12SDKConfiguration1 {}
 pub trait ID3D12SDKConfiguration1_Impl: ID3D12SDKConfiguration_Impl {
-    fn CreateDeviceFactory(&self, sdkversion: u32, sdkpath: &windows_core::PCSTR, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
+    fn CreateDeviceFactory(&self, sdkversion: u32, sdkpath: &windows_core::PCSTR, riid: *const windows_core::GUID, ppvfactory: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
     fn FreeUnusedSDKs(&self);
 }
 impl ID3D12SDKConfiguration1_Vtbl {
@@ -15213,10 +15213,10 @@ impl core::ops::Deref for ID3D12ShaderCacheSession {
 }
 windows_core::imp::interface_hierarchy!(ID3D12ShaderCacheSession, windows_core::IUnknown, ID3D12Object, ID3D12DeviceChild);
 impl ID3D12ShaderCacheSession {
-    pub unsafe fn FindValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *mut core::ffi::c_void, pvaluesize: *mut u32) -> windows_core::Result<()> {
+    pub unsafe fn FindValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *mut core::ffi::c_void, pvaluesize: *mut u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).FindValue)(windows_core::Interface::as_raw(self), pkey, keysize, pvalue as _, pvaluesize as _).ok() }
     }
-    pub unsafe fn StoreValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()> {
+    pub unsafe fn StoreValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *const core::ffi::c_void, valuesize: u32) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).StoreValue)(windows_core::Interface::as_raw(self), pkey, keysize, pvalue, valuesize).ok() }
     }
     pub unsafe fn SetDeleteOnDestroy(&self) {
@@ -15242,8 +15242,8 @@ pub struct ID3D12ShaderCacheSession_Vtbl {
 unsafe impl Send for ID3D12ShaderCacheSession {}
 unsafe impl Sync for ID3D12ShaderCacheSession {}
 pub trait ID3D12ShaderCacheSession_Impl: ID3D12DeviceChild_Impl {
-    fn FindValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *mut core::ffi::c_void, pvaluesize: *mut u32) -> windows_core::Result<()>;
-    fn StoreValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *const core::ffi::c_void, valuesize: u32) -> windows_core::Result<()>;
+    fn FindValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *mut core::ffi::c_void, pvaluesize: *mut u32) -> windows_result::Result<()>;
+    fn StoreValue(&self, pkey: *const core::ffi::c_void, keysize: u32, pvalue: *const core::ffi::c_void, valuesize: u32) -> windows_result::Result<()>;
     fn SetDeleteOnDestroy(&self);
     fn GetDesc(&self) -> D3D12_SHADER_CACHE_SESSION_DESC;
 }
@@ -15290,7 +15290,7 @@ windows_core::imp::define_interface!(ID3D12ShaderReflection, ID3D12ShaderReflect
 windows_core::imp::interface_hierarchy!(ID3D12ShaderReflection, windows_core::IUnknown);
 impl ID3D12ShaderReflection {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
     pub unsafe fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer> {
@@ -15303,19 +15303,19 @@ impl ID3D12ShaderReflection {
         unsafe { (windows_core::Interface::vtable(self).GetConstantBufferByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetResourceBindingDesc)(windows_core::Interface::as_raw(self), resourceindex, pdesc as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetInputParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetOutputParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _).ok() }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetPatchConstantParameterDesc)(windows_core::Interface::as_raw(self), parameterindex, pdesc as _).ok() }
     }
     pub unsafe fn GetVariableByName<P0>(&self, name: P0) -> Option<ID3D12ShaderReflectionVariable>
@@ -15325,7 +15325,7 @@ impl ID3D12ShaderReflection {
         unsafe { (windows_core::Interface::vtable(self).GetVariableByName)(windows_core::Interface::as_raw(self), name.param().abi()) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>
+    pub unsafe fn GetResourceBindingDescByName<P0>(&self, name: P0, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>
     where
         P0: windows_core::Param<windows_core::PCSTR>,
     {
@@ -15354,7 +15354,7 @@ impl ID3D12ShaderReflection {
         unsafe { (windows_core::Interface::vtable(self).GetNumInterfaceSlots)(windows_core::Interface::as_raw(self)) }
     }
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetMinFeatureLevel(&self) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
+    pub unsafe fn GetMinFeatureLevel(&self) -> windows_result::Result<super::Direct3D::D3D_FEATURE_LEVEL> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetMinFeatureLevel)(windows_core::Interface::as_raw(self), &mut result__).map(|| result__)
@@ -15419,15 +15419,15 @@ unsafe impl Send for ID3D12ShaderReflection {}
 unsafe impl Sync for ID3D12ShaderReflection {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
-    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_DESC) -> windows_result::Result<()>;
     fn GetConstantBufferByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionConstantBuffer>;
     fn GetConstantBufferByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionConstantBuffer>;
-    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
-    fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
-    fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDesc(&self, resourceindex: u32, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>;
+    fn GetInputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()>;
+    fn GetOutputParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()>;
+    fn GetPatchConstantParameterDesc(&self, parameterindex: u32, pdesc: *mut D3D12_SIGNATURE_PARAMETER_DESC) -> windows_result::Result<()>;
     fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
-    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_core::Result<()>;
+    fn GetResourceBindingDescByName(&self, name: &windows_core::PCSTR, pdesc: *mut D3D12_SHADER_INPUT_BIND_DESC) -> windows_result::Result<()>;
     fn GetMovInstructionCount(&self) -> u32;
     fn GetMovcInstructionCount(&self) -> u32;
     fn GetConversionInstructionCount(&self) -> u32;
@@ -15435,7 +15435,7 @@ pub trait ID3D12ShaderReflection_Impl: windows_core::IUnknownImpl {
     fn GetGSInputPrimitive(&self) -> super::Direct3D::D3D_PRIMITIVE;
     fn IsSampleFrequencyShader(&self) -> windows_core::BOOL;
     fn GetNumInterfaceSlots(&self) -> u32;
-    fn GetMinFeatureLevel(&self) -> windows_core::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
+    fn GetMinFeatureLevel(&self) -> windows_result::Result<super::Direct3D::D3D_FEATURE_LEVEL>;
     fn GetThreadGroupSize(&self, psizex: *mut u32, psizey: *mut u32, psizez: *mut u32) -> u32;
     fn GetRequiresFlags(&self) -> u64;
 }
@@ -15594,7 +15594,7 @@ impl windows_core::RuntimeName for ID3D12ShaderReflection {}
 windows_core::imp::define_interface!(ID3D12ShaderReflectionConstantBuffer, ID3D12ShaderReflectionConstantBuffer_Vtbl);
 impl ID3D12ShaderReflectionConstantBuffer {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
     pub unsafe fn GetVariableByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionVariable> {
@@ -15621,7 +15621,7 @@ unsafe impl Send for ID3D12ShaderReflectionConstantBuffer {}
 unsafe impl Sync for ID3D12ShaderReflectionConstantBuffer {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12ShaderReflectionConstantBuffer_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_BUFFER_DESC) -> windows_result::Result<()>;
     fn GetVariableByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionVariable>;
     fn GetVariableByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionVariable>;
 }
@@ -15669,7 +15669,7 @@ impl ID3D12ShaderReflectionConstantBuffer {
 windows_core::imp::define_interface!(ID3D12ShaderReflectionType, ID3D12ShaderReflectionType_Vtbl);
 impl ID3D12ShaderReflectionType {
     #[cfg(feature = "Win32_Graphics_Direct3D")]
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
     pub unsafe fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionType> {
@@ -15684,7 +15684,7 @@ impl ID3D12ShaderReflectionType {
     pub unsafe fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR {
         unsafe { (windows_core::Interface::vtable(self).GetMemberTypeName)(windows_core::Interface::as_raw(self), index) }
     }
-    pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> windows_core::Result<()>
+    pub unsafe fn IsEqual<P0>(&self, ptype: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12ShaderReflectionType>,
     {
@@ -15702,13 +15702,13 @@ impl ID3D12ShaderReflectionType {
     pub unsafe fn GetInterfaceByIndex(&self, uindex: u32) -> Option<ID3D12ShaderReflectionType> {
         unsafe { (windows_core::Interface::vtable(self).GetInterfaceByIndex)(windows_core::Interface::as_raw(self), uindex) }
     }
-    pub unsafe fn IsOfType<P0>(&self, ptype: P0) -> windows_core::Result<()>
+    pub unsafe fn IsOfType<P0>(&self, ptype: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12ShaderReflectionType>,
     {
         unsafe { (windows_core::Interface::vtable(self).IsOfType)(windows_core::Interface::as_raw(self), ptype.param().abi()).ok() }
     }
-    pub unsafe fn ImplementsInterface<P0>(&self, pbase: P0) -> windows_core::Result<()>
+    pub unsafe fn ImplementsInterface<P0>(&self, pbase: P0) -> windows_result::Result<()>
     where
         P0: windows_core::Param<ID3D12ShaderReflectionType>,
     {
@@ -15737,17 +15737,17 @@ unsafe impl Send for ID3D12ShaderReflectionType {}
 unsafe impl Sync for ID3D12ShaderReflectionType {}
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 pub trait ID3D12ShaderReflectionType_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_TYPE_DESC) -> windows_result::Result<()>;
     fn GetMemberTypeByIndex(&self, index: u32) -> Option<ID3D12ShaderReflectionType>;
     fn GetMemberTypeByName(&self, name: &windows_core::PCSTR) -> Option<ID3D12ShaderReflectionType>;
     fn GetMemberTypeName(&self, index: u32) -> windows_core::PCSTR;
-    fn IsEqual(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
+    fn IsEqual(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_result::Result<()>;
     fn GetSubType(&self) -> Option<ID3D12ShaderReflectionType>;
     fn GetBaseClass(&self) -> Option<ID3D12ShaderReflectionType>;
     fn GetNumInterfaces(&self) -> u32;
     fn GetInterfaceByIndex(&self, uindex: u32) -> Option<ID3D12ShaderReflectionType>;
-    fn IsOfType(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
-    fn ImplementsInterface(&self, pbase: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_core::Result<()>;
+    fn IsOfType(&self, ptype: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_result::Result<()>;
+    fn ImplementsInterface(&self, pbase: windows_core::Ref<ID3D12ShaderReflectionType>) -> windows_result::Result<()>;
 }
 #[cfg(feature = "Win32_Graphics_Direct3D")]
 impl ID3D12ShaderReflectionType_Vtbl {
@@ -15860,7 +15860,7 @@ impl ID3D12ShaderReflectionType {
 }
 windows_core::imp::define_interface!(ID3D12ShaderReflectionVariable, ID3D12ShaderReflectionVariable_Vtbl);
 impl ID3D12ShaderReflectionVariable {
-    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::Result<()> {
+    pub unsafe fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).GetDesc)(windows_core::Interface::as_raw(self), pdesc as _).ok() }
     }
     pub unsafe fn GetType(&self) -> Option<ID3D12ShaderReflectionType> {
@@ -15884,7 +15884,7 @@ pub struct ID3D12ShaderReflectionVariable_Vtbl {
 unsafe impl Send for ID3D12ShaderReflectionVariable {}
 unsafe impl Sync for ID3D12ShaderReflectionVariable {}
 pub trait ID3D12ShaderReflectionVariable_Impl {
-    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_core::Result<()>;
+    fn GetDesc(&self, pdesc: *mut D3D12_SHADER_VARIABLE_DESC) -> windows_result::Result<()>;
     fn GetType(&self) -> Option<ID3D12ShaderReflectionType>;
     fn GetBuffer(&self) -> Option<ID3D12ShaderReflectionConstantBuffer>;
     fn GetInterfaceSlot(&self, uarrayindex: u32) -> u32;
@@ -16170,21 +16170,21 @@ impl ID3D12SwapChainAssistant {
             result__
         }
     }
-    pub unsafe fn GetSwapChainObject<T>(&self) -> windows_core::Result<T>
+    pub unsafe fn GetSwapChainObject<T>(&self) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetSwapChainObject)(windows_core::Interface::as_raw(self), &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn GetCurrentResourceAndCommandQueue<T>(&self, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_core::Result<T>
+    pub unsafe fn GetCurrentResourceAndCommandQueue<T>(&self, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void) -> windows_result::Result<T>
     where
         T: windows_core::Interface,
     {
         let mut result__ = core::ptr::null_mut();
         unsafe { (windows_core::Interface::vtable(self).GetCurrentResourceAndCommandQueue)(windows_core::Interface::as_raw(self), riidresource, ppvresource as _, &T::IID, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
     }
-    pub unsafe fn InsertImplicitSync(&self) -> windows_core::Result<()> {
+    pub unsafe fn InsertImplicitSync(&self) -> windows_result::Result<()> {
         unsafe { (windows_core::Interface::vtable(self).InsertImplicitSync)(windows_core::Interface::as_raw(self)).ok() }
     }
 }
@@ -16201,9 +16201,9 @@ unsafe impl Send for ID3D12SwapChainAssistant {}
 unsafe impl Sync for ID3D12SwapChainAssistant {}
 pub trait ID3D12SwapChainAssistant_Impl: windows_core::IUnknownImpl {
     fn GetLUID(&self) -> super::super::Foundation::LUID;
-    fn GetSwapChainObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn GetCurrentResourceAndCommandQueue(&self, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void, riidqueue: *const windows_core::GUID, ppvqueue: *mut *mut core::ffi::c_void) -> windows_core::Result<()>;
-    fn InsertImplicitSync(&self) -> windows_core::Result<()>;
+    fn GetSwapChainObject(&self, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn GetCurrentResourceAndCommandQueue(&self, riidresource: *const windows_core::GUID, ppvresource: *mut *mut core::ffi::c_void, riidqueue: *const windows_core::GUID, ppvqueue: *mut *mut core::ffi::c_void) -> windows_result::Result<()>;
+    fn InsertImplicitSync(&self) -> windows_result::Result<()>;
 }
 impl ID3D12SwapChainAssistant_Vtbl {
     pub const fn new<Identity: ID3D12SwapChainAssistant_Impl, const OFFSET: isize>() -> Self {
@@ -16295,7 +16295,7 @@ impl windows_core::RuntimeName for ID3D12Tools {}
 windows_core::imp::define_interface!(ID3D12VersionedRootSignatureDeserializer, ID3D12VersionedRootSignatureDeserializer_Vtbl, 0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);
 windows_core::imp::interface_hierarchy!(ID3D12VersionedRootSignatureDeserializer, windows_core::IUnknown);
 impl ID3D12VersionedRootSignatureDeserializer {
-    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
+    pub unsafe fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_result::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC> {
         unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(self).GetRootSignatureDescAtVersion)(windows_core::Interface::as_raw(self), converttoversion, &mut result__).map(|| result__)
@@ -16315,7 +16315,7 @@ pub struct ID3D12VersionedRootSignatureDeserializer_Vtbl {
 unsafe impl Send for ID3D12VersionedRootSignatureDeserializer {}
 unsafe impl Sync for ID3D12VersionedRootSignatureDeserializer {}
 pub trait ID3D12VersionedRootSignatureDeserializer_Impl: windows_core::IUnknownImpl {
-    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_core::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
+    fn GetRootSignatureDescAtVersion(&self, converttoversion: D3D_ROOT_SIGNATURE_VERSION) -> windows_result::Result<*mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC>;
     fn GetUnconvertedRootSignatureDesc(&self) -> *mut D3D12_VERSIONED_ROOT_SIGNATURE_DESC;
 }
 impl ID3D12VersionedRootSignatureDeserializer_Vtbl {
@@ -16352,7 +16352,7 @@ impl windows_core::RuntimeName for ID3D12VersionedRootSignatureDeserializer {}
 windows_core::imp::define_interface!(ID3D12VirtualizationGuestDevice, ID3D12VirtualizationGuestDevice_Vtbl, 0xbc66d368_7373_4943_8757_fc87dc79e476);
 windows_core::imp::interface_hierarchy!(ID3D12VirtualizationGuestDevice, windows_core::IUnknown);
 impl ID3D12VirtualizationGuestDevice {
-    pub unsafe fn ShareWithHost<P0>(&self, pobject: P0) -> windows_core::Result<super::super::Foundation::HANDLE>
+    pub unsafe fn ShareWithHost<P0>(&self, pobject: P0) -> windows_result::Result<super::super::Foundation::HANDLE>
     where
         P0: windows_core::Param<ID3D12DeviceChild>,
     {
@@ -16361,7 +16361,7 @@ impl ID3D12VirtualizationGuestDevice {
             (windows_core::Interface::vtable(self).ShareWithHost)(windows_core::Interface::as_raw(self), pobject.param().abi(), &mut result__).map(|| result__)
         }
     }
-    pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: u64) -> windows_core::Result<i32>
+    pub unsafe fn CreateFenceFd<P0>(&self, pfence: P0, fencevalue: u64) -> windows_result::Result<i32>
     where
         P0: windows_core::Param<ID3D12Fence>,
     {
@@ -16381,8 +16381,8 @@ pub struct ID3D12VirtualizationGuestDevice_Vtbl {
 unsafe impl Send for ID3D12VirtualizationGuestDevice {}
 unsafe impl Sync for ID3D12VirtualizationGuestDevice {}
 pub trait ID3D12VirtualizationGuestDevice_Impl: windows_core::IUnknownImpl {
-    fn ShareWithHost(&self, pobject: windows_core::Ref<ID3D12DeviceChild>) -> windows_core::Result<super::super::Foundation::HANDLE>;
-    fn CreateFenceFd(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: u64) -> windows_core::Result<i32>;
+    fn ShareWithHost(&self, pobject: windows_core::Ref<ID3D12DeviceChild>) -> windows_result::Result<super::super::Foundation::HANDLE>;
+    fn CreateFenceFd(&self, pfence: windows_core::Ref<ID3D12Fence>, fencevalue: u64) -> windows_result::Result<i32>;
 }
 impl ID3D12VirtualizationGuestDevice_Vtbl {
     pub const fn new<Identity: ID3D12VirtualizationGuestDevice_Impl, const OFFSET: isize>() -> Self {
