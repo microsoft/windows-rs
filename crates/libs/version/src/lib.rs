@@ -1,7 +1,7 @@
 #![doc = include_str!("../readme.md")]
 #![cfg(windows)]
 #![cfg_attr(not(test), no_std)]
-#![allow(non_snake_case, clippy::upper_case_acronyms)]
+#![allow(non_snake_case, non_camel_case_types, clippy::upper_case_acronyms)]
 
 mod bindings;
 use bindings::*;
@@ -68,6 +68,30 @@ pub fn is_server() -> bool {
     info.wProductType as u32 != VER_NT_WORKSTATION
 }
 
+/// Gets the revision number of the operating system.
+pub fn revision() -> u32 {
+    let mut value = [0; 4];
+    let mut len = 4;
+
+    let result = unsafe {
+        RegGetValueA(
+            HKEY_LOCAL_MACHINE,
+            b"SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\0".as_ptr(),
+            b"UBR\0".as_ptr(),
+            RRF_RT_REG_DWORD,
+            core::ptr::null_mut(),
+            value.as_mut_ptr() as _,
+            &mut len,
+        )
+    };
+
+    if result == 0 {
+        u32::from_le_bytes(value)
+    } else {
+        0
+    }
+}
+
 impl OSVERSIONINFOEXW {
     fn new() -> Self {
         Self {
@@ -80,7 +104,7 @@ impl OSVERSIONINFOEXW {
 #[cfg(test)]
 #[allow(clippy::nonminimal_bool)] // explicit logic is intentionally being tested
 mod test {
-    use super::OsVersion;
+    use super::*;
     use std::sync::RwLock;
 
     static TEST_CURRENT: RwLock<OsVersion> = RwLock::new(OsVersion::new(0, 0, 0, 0));
@@ -119,5 +143,12 @@ mod test {
         assert!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 9_999));
         assert!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_000));
         assert!(!(OsVersion::current() >= OsVersion::new(10, 100, 1_000, 10_001)));
+    }
+
+    // These tests just ensure the queries succeed without validating the results.
+    #[test]
+    fn test_uncertain() {
+        is_server();
+        assert_ne!(revision(), 0);
     }
 }

@@ -1,7 +1,10 @@
 --out crates/libs/version/src/bindings.rs
---flat --sys --no-comment --no-allow
+--flat --sys --no-comment --no-allow --no-deps
 
 --filter
-    Windows.Wdk.System.SystemServices.RtlGetVersion
-    Windows.Win32.System.SystemInformation.OSVERSIONINFOEXW
-    Windows.Win32.System.SystemServices.VER_NT_WORKSTATION
+    RtlGetVersion
+    OSVERSIONINFOEXW
+    VER_NT_WORKSTATION
+    RegGetValueA
+    HKEY_LOCAL_MACHINE
+    RRF_RT_REG_DWORD
