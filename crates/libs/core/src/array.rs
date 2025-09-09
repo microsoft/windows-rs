@@ -97,7 +97,7 @@ impl<T: Type<T>> Array<T> {
         unsafe {
             // Call the destructors of all the elements of the old array
             // SAFETY: the slice cannot be used after the call to `drop_in_place`
-            core::ptr::drop_in_place(core::slice::from_raw_parts_mut(data, len as usize));
+            core::ptr::drop_in_place(core::ptr::slice_from_raw_parts_mut(data, len as usize));
             // Free the data memory where the elements were
             // SAFETY: we have unique access to the data pointer at this point
             // so freeing it is the right thing to do
