@@ -7,11 +7,11 @@ The [windows](https://crates.io/crates/windows) and [windows-sys](https://crates
 * [Releases](https://github.com/microsoft/windows-rs/releases)
 * [Feature search](https://microsoft.github.io/windows-rs/features)
 
-Start by adding the following to your Cargo.toml file (see [Dependency Version Ranges](#dependency-version-ranges) for guidance on version specification):
+Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.62"
+version = ">=0.59, <=0.62"
 features = [
     "Data_Xml_Dom",
     "Win32_Security",
@@ -19,6 +19,8 @@ features = [
     "Win32_UI_WindowsAndMessaging",
 ]
 ```
+
+Using a range instead of the [default Caret requirements](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#caret-requirements) helps avoid duplicate versions in downstream graphs and improves resolver flexibility.
 
 Make use of any Windows APIs as needed:
 
@@ -49,38 +51,3 @@ fn main() -> Result<()> {
     Ok(())
 }
 ```
-
-## Dependency Version Ranges
-
-When adding `windows` as a dependency, consider using looser semver ranges to improve ecosystem compatibility and reduce duplicate dependencies in your build graph. Instead of pinning to a specific version:
-
-```toml
-# Specific version - may cause duplicate dependencies
-[dependencies.windows]
-version = "0.62"
-
-# Better: Use a wider range for ecosystem compatibility
-[dependencies.windows]
-version = ">=0.59, <=0.61"  # Compatible with multiple versions
-```
-
-**Benefits of wider version ranges:**
-
-- Reduces likelihood of duplicate `windows` versions in dependency graphs
-- Prevents `clippy::multiple-crate-versions` warnings in your consumers
-- Improves compatibility with other crates that also depend on `windows`
-- Allows users more flexibility in dependency resolution
-
-**Important:** When using wider version ranges, be sure to test your code with the minimum supported version. One approach is by using `cargo-minimal-versions`:
-
-```pwsh
-# Install cargo-minimal-versions and cargo-hack
-cargo install --locked cargo-minimal-versions 
-cargo install --locked cargo-hack
-
-# Test with minimal dependency versions
-cargo minimal-versions build
-cargo minimal-versions test
-```
-
-This ensures your crate actually works with the minimum version you specify, not just the latest.
