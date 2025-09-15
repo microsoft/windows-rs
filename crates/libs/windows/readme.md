@@ -11,7 +11,7 @@ Start by adding the following to your Cargo.toml file:
 
 ```toml
 [dependencies.windows]
-version = "0.62"
+version = ">=0.59, <=0.62"
 features = [
     "Data_Xml_Dom",
     "Win32_Security",
@@ -19,6 +19,8 @@ features = [
     "Win32_UI_WindowsAndMessaging",
 ]
 ```
+
+Using a range instead of the [default Caret requirements](https://doc.rust-lang.org/cargo/reference/specifying-dependencies.html#caret-requirements) helps avoid duplicate versions in downstream graphs and improves resolver flexibility.
 
 Make use of any Windows APIs as needed:
 
