@@ -245,6 +245,8 @@ jobs:
         run:  cargo test -p test_interface_core --target ${{ matrix.target }}
       - name: Test test_interop
         run:  cargo test -p test_interop --target ${{ matrix.target }}
+      - name: Test test_just_core
+        run:  cargo test -p test_just_core --target ${{ matrix.target }}
       - name: Test test_lib
         run:  cargo test -p test_lib --target ${{ matrix.target }}
       - name: Test test_link
@@ -257,12 +259,14 @@ jobs:
         run:  cargo test -p test_marshal --target ${{ matrix.target }}
       - name: Test test_match
         run:  cargo test -p test_match --target ${{ matrix.target }}
-      - name: Test test_metadata
-        run:  cargo test -p test_metadata --target ${{ matrix.target }}
       - name: Clean
         run:  cargo clean
+      - name: Test test_metadata
+        run:  cargo test -p test_metadata --target ${{ matrix.target }}
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
+      - name: Test test_no_core
+        run:  cargo test -p test_no_core --target ${{ matrix.target }}
       - name: Test test_no_std
         run:  cargo test -p test_no_std --target ${{ matrix.target }}
       - name: Test test_no_use
@@ -357,12 +361,12 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_msvc
         run:  cargo test -p tool_msvc --target ${{ matrix.target }}
       - name: Test tool_standalone

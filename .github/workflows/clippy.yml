@@ -216,6 +216,8 @@ jobs:
         run:  cargo clippy -p test_interface_core --tests
       - name: Check test_interop
         run:  cargo clippy -p test_interop --tests
+      - name: Check test_just_core
+        run:  cargo clippy -p test_just_core --tests
       - name: Check test_lib
         run:  cargo clippy -p test_lib --tests
       - name: Check test_link
@@ -232,6 +234,8 @@ jobs:
         run:  cargo clippy -p test_metadata --tests
       - name: Check test_msrv
         run:  cargo clippy -p test_msrv --tests
+      - name: Check test_no_core
+        run:  cargo clippy -p test_no_core --tests
       - name: Check test_no_std
         run:  cargo clippy -p test_no_std --tests
       - name: Check test_no_use
