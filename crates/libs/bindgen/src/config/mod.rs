@@ -21,6 +21,7 @@ pub struct Config<'a> {
     pub rustfmt: &'a str,
     pub sys: bool,
     pub implement: bool,
+    pub specific_deps: bool,
     pub derive: &'a Derive,
     pub link: &'a str,
     pub warnings: &'a WarningBuilder,

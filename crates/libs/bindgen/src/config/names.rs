@@ -2,6 +2,18 @@ use super::*;
 
 impl Config<'_> {
     pub fn write_core(&self) -> TokenStream {
+        self.write_specific("windows_core")
+    }
+
+    pub fn write_result(&self) -> TokenStream {
+        self.write_specific("windows_result")
+    }
+
+    pub fn write_strings(&self) -> TokenStream {
+        self.write_specific("windows_strings")
+    }
+
+    fn write_specific(&self, specific: &str) -> TokenStream {
         if self.sys {
             if self.package || !self.no_deps {
                 quote! { windows_sys::core:: }
@@ -16,8 +28,10 @@ impl Config<'_> {
 
                 tokens
             }
-        } else {
+        } else if !self.specific_deps {
             quote! { windows_core:: }
+        } else {
+            format!("{specific}::").into()
         }
     }
 
