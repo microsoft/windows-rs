@@ -24,3 +24,27 @@ pub unsafe fn SysFreeString(bstrstring: &windows_strings::BSTR) {
     windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
     unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
 }
+#[inline]
+pub unsafe fn WindowsGetStringRawBuffer(
+    string: &windows_strings::HSTRING,
+    length: Option<*mut u32>,
+) -> windows_strings::PCWSTR {
+    windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsGetStringRawBuffer(string : * mut core::ffi::c_void, length : *mut u32) -> windows_strings::PCWSTR);
+    unsafe {
+        WindowsGetStringRawBuffer(
+            core::mem::transmute_copy(string),
+            length.unwrap_or(core::mem::zeroed()) as _,
+        )
+    }
+}
+#[inline]
+pub unsafe fn WindowsStringHasEmbeddedNull(
+    string: &windows_strings::HSTRING,
+) -> windows_result::Result<windows_result::BOOL> {
+    windows_link::link!("api-ms-win-core-winrt-string-l1-1-0.dll" "system" fn WindowsStringHasEmbeddedNull(string : * mut core::ffi::c_void, hasembednull : *mut windows_result::BOOL) -> windows_result::HRESULT);
+    unsafe {
+        let mut result__ = core::mem::zeroed();
+        WindowsStringHasEmbeddedNull(core::mem::transmute_copy(string), &mut result__)
+            .map(|| result__)
+    }
+}

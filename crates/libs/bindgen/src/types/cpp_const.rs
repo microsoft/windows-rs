@@ -50,7 +50,7 @@ impl CppConst {
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
-                    let crate_name = config.write_core();
+                    let crate_name = config.write_strings();
                     let value = constant.value().write();
 
                     // TODO: if config.no_core then write these literals out as byte strings?

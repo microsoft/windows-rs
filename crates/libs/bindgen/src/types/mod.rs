@@ -438,7 +438,7 @@ impl Type {
                 quote! { #result BOOL }
             }
             Self::String => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name HSTRING }
             }
             Self::Object => {
@@ -446,19 +446,19 @@ impl Type {
                 quote! { #name IInspectable }
             }
             Self::PSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PSTR }
             }
             Self::PCSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PCSTR }
             }
             Self::PWSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PWSTR }
             }
             Self::PCWSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PCWSTR }
             }
             Self::CppInterface(ty) => ty.write_name(config),
