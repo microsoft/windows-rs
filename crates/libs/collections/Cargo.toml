@@ -12,7 +12,6 @@ categories = ["os::windows-apis"]
 windows-core = { workspace = true }
 
 [dev-dependencies]
-windows-result = { workspace = true }
 windows-strings = { workspace = true }
 
 [features]
