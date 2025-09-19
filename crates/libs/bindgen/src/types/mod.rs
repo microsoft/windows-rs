@@ -418,7 +418,7 @@ impl Type {
             Self::ISize => quote! { isize },
             Self::USize => quote! { usize },
             Self::BSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name BSTR }
             }
             Self::IUnknown => {
@@ -430,15 +430,15 @@ impl Type {
                 quote! { #name GUID }
             }
             Self::HRESULT => {
-                let name = config.write_core();
-                quote! { #name HRESULT }
+                let result = config.write_result();
+                quote! { #result HRESULT }
             }
             Self::BOOL => {
-                let name = config.write_core();
-                quote! { #name BOOL }
+                let result = config.write_result();
+                quote! { #result BOOL }
             }
             Self::String => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name HSTRING }
             }
             Self::Object => {
@@ -446,19 +446,19 @@ impl Type {
                 quote! { #name IInspectable }
             }
             Self::PSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PSTR }
             }
             Self::PCSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PCSTR }
             }
             Self::PWSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PWSTR }
             }
             Self::PCWSTR => {
-                let name = config.write_core();
+                let name = config.write_strings();
                 quote! { #name PCWSTR }
             }
             Self::CppInterface(ty) => ty.write_name(config),

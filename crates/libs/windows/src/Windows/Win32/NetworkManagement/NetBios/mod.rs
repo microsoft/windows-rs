@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn Netbios(pncb: *mut NCB) -> u8 {
-    windows_link::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
+    windows_core::link!("netapi32.dll" "system" fn Netbios(pncb : *mut NCB) -> u8);
     unsafe { Netbios(pncb as _) }
 }
 #[repr(C)]

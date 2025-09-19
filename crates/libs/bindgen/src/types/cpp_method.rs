@@ -262,13 +262,14 @@ impl CppMethod {
         let params = self.write_params(config);
         let generics = self.write_generics();
         let abi_return_type = self.write_return(config);
+        let result = config.write_result();
 
         match self.return_hint {
             ReturnHint::Query(..) => {
                 let where_clause = self.write_where(config, true);
 
                 quote! {
-                    pub unsafe fn #name<#generics T>(&self, #params) -> windows_core::Result<T> #where_clause {
+                    pub unsafe fn #name<#generics T>(&self, #params) -> #result Result<T> #where_clause {
                         let mut result__ = core::ptr::null_mut();
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).and_then(||windows_core::Type::from_abi(result__)) }
                     }
@@ -278,7 +279,7 @@ impl CppMethod {
                 let where_clause = self.write_where(config, true);
 
                 quote! {
-                    pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> windows_core::Result<()> #where_clause {
+                    pub unsafe fn #name<#generics T>(&self, #params result__: *mut Option<T>) -> #result Result<()> #where_clause {
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
@@ -292,7 +293,7 @@ impl CppMethod {
                 let return_type = return_type.write_name(config);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
+                    pub unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                         unsafe {
                             let mut result__ = core::mem::zeroed();
                             (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).#map
@@ -304,7 +305,7 @@ impl CppMethod {
                 let where_clause = self.write_where(config, false);
 
                 quote! {
-                    pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<()> #where_clause {
+                    pub unsafe fn #name<#generics>(&self, #params) -> #result Result<()> #where_clause {
                         unsafe { (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self),#args).ok() }
                     }
                 }
@@ -318,7 +319,7 @@ impl CppMethod {
                     let return_type = return_type.write_name(config);
 
                     quote! {
-                        pub unsafe fn #name<#generics>(&self, #params) -> windows_core::Result<#return_type> #where_clause {
+                        pub unsafe fn #name<#generics>(&self, #params) -> #result Result<#return_type> #where_clause {
                             unsafe {
                                 let mut result__ = core::mem::zeroed();
                                 (windows_core::Interface::vtable(self).#vname)(windows_core::Interface::as_raw(self), #args);
@@ -441,15 +442,17 @@ impl CppMethod {
             }
         }
 
+        let result = config.write_result();
+
         let return_type = match self.return_hint {
             ReturnHint::Query(..) | ReturnHint::QueryOptional(..) | ReturnHint::ResultVoid => {
-                quote! { -> windows_core::Result<()> }
+                quote! { -> #result Result<()> }
             }
             ReturnHint::ResultValue => {
                 let return_type = self.signature.params[self.signature.params.len() - 1].deref();
                 let return_type = return_type.write_name(config);
 
-                quote! { -> windows_core::Result<#return_type> }
+                quote! { -> #result Result<#return_type> }
             }
             _ => self.write_return(config),
         };

@@ -1,51 +1,51 @@
 #[inline]
 pub unsafe fn CloseGestureInfoHandle(hgestureinfo: HGESTUREINFO) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : HGESTUREINFO) -> windows_core::BOOL);
     unsafe { CloseGestureInfoHandle(hgestureinfo).ok() }
 }
 #[inline]
 pub unsafe fn CloseTouchInputHandle(htouchinput: HTOUCHINPUT) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : HTOUCHINPUT) -> windows_core::BOOL);
     unsafe { CloseTouchInputHandle(htouchinput).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, dwflags: u32, pcids: *const u32, pgestureconfig: *mut GESTURECONFIG, cbsize: u32) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, dwflags : u32, pcids : *const u32, pgestureconfig : *mut GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
     unsafe { GetGestureConfig(hwnd, dwreserved, dwflags, pcids, pgestureconfig as _, cbsize).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureExtraArgs(hgestureinfo: HGESTUREINFO, pextraargs: &mut [u8]) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetGestureExtraArgs(hgestureinfo : HGESTUREINFO, cbextraargs : u32, pextraargs : *mut u8) -> windows_core::BOOL);
     unsafe { GetGestureExtraArgs(hgestureinfo, pextraargs.len().try_into().unwrap(), core::mem::transmute(pextraargs.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetGestureInfo(hgestureinfo: HGESTUREINFO, pgestureinfo: *mut GESTUREINFO) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetGestureInfo(hgestureinfo : HGESTUREINFO, pgestureinfo : *mut GESTUREINFO) -> windows_core::BOOL);
     unsafe { GetGestureInfo(hgestureinfo, pgestureinfo as _).ok() }
 }
 #[inline]
 pub unsafe fn GetTouchInputInfo(htouchinput: HTOUCHINPUT, pinputs: &mut [TOUCHINPUT], cbsize: i32) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn GetTouchInputInfo(htouchinput : HTOUCHINPUT, cinputs : u32, pinputs : *mut TOUCHINPUT, cbsize : i32) -> windows_core::BOOL);
     unsafe { GetTouchInputInfo(htouchinput, pinputs.len().try_into().unwrap(), core::mem::transmute(pinputs.as_ptr()), cbsize).ok() }
 }
 #[inline]
 pub unsafe fn IsTouchWindow(hwnd: super::super::super::Foundation::HWND, pulflags: Option<*mut u32>) -> windows_core::BOOL {
-    windows_link::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn IsTouchWindow(hwnd : super::super::super::Foundation:: HWND, pulflags : *mut u32) -> windows_core::BOOL);
     unsafe { IsTouchWindow(hwnd, pulflags.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RegisterTouchWindow(hwnd: super::super::super::Foundation::HWND, ulflags: REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn RegisterTouchWindow(hwnd : super::super::super::Foundation:: HWND, ulflags : REGISTER_TOUCH_WINDOW_FLAGS) -> windows_core::BOOL);
     unsafe { RegisterTouchWindow(hwnd, ulflags).ok() }
 }
 #[inline]
 pub unsafe fn SetGestureConfig(hwnd: super::super::super::Foundation::HWND, dwreserved: u32, pgestureconfig: &[GESTURECONFIG], cbsize: u32) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn SetGestureConfig(hwnd : super::super::super::Foundation:: HWND, dwreserved : u32, cids : u32, pgestureconfig : *const GESTURECONFIG, cbsize : u32) -> windows_core::BOOL);
     unsafe { SetGestureConfig(hwnd, dwreserved, pgestureconfig.len().try_into().unwrap(), core::mem::transmute(pgestureconfig.as_ptr()), cbsize).ok() }
 }
 #[inline]
 pub unsafe fn UnregisterTouchWindow(hwnd: super::super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn UnregisterTouchWindow(hwnd : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { UnregisterTouchWindow(hwnd).ok() }
 }
 #[repr(C)]
@@ -133,7 +133,7 @@ impl windows_core::Free for HGESTUREINFO {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("user32.dll" "system" fn CloseGestureInfoHandle(hgestureinfo : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseGestureInfoHandle(self.0);
             }
@@ -157,7 +157,7 @@ impl windows_core::Free for HTOUCHINPUT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("user32.dll" "system" fn CloseTouchInputHandle(htouchinput : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseTouchInputHandle(self.0);
             }

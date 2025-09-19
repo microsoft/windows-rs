@@ -4,7 +4,7 @@ pub unsafe fn GetTnefStreamCodepage<P0>(lpstream: P0, lpulcodepage: *mut u32, lp
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_link::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn GetTnefStreamCodepage(lpstream : * mut core::ffi::c_void, lpulcodepage : *mut u32, lpulsubcodepage : *mut u32) -> windows_core::HRESULT);
     unsafe { GetTnefStreamCodepage(lpstream.param().abi(), lpulcodepage as _, lpulsubcodepage as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
@@ -14,7 +14,7 @@ where
     P1: windows_core::Param<super::super::System::Com::IStream>,
     P4: windows_core::Param<super::super::System::AddressBook::IMessage>,
 {
-    windows_link::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn OpenTnefStream(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OpenTnefStream(lpvsupport as _, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, core::mem::transmute(lpptnef)).ok() }
 }
 #[cfg(all(feature = "Win32_System_AddressBook", feature = "Win32_System_Com"))]
@@ -25,7 +25,7 @@ where
     P4: windows_core::Param<super::super::System::AddressBook::IMessage>,
     P6: windows_core::Param<super::super::System::AddressBook::IAddrBook>,
 {
-    windows_link::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mapi32.dll" "system" fn OpenTnefStreamEx(lpvsupport : *mut core::ffi::c_void, lpstream : * mut core::ffi::c_void, lpszstreamname : *const i8, ulflags : u32, lpmessage : * mut core::ffi::c_void, wkeyval : u16, lpadressbook : * mut core::ffi::c_void, lpptnef : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OpenTnefStreamEx(lpvsupport as _, lpstream.param().abi(), lpszstreamname, ulflags, lpmessage.param().abi(), wkeyval, lpadressbook.param().abi(), core::mem::transmute(lpptnef)).ok() }
 }
 #[inline]
@@ -33,7 +33,7 @@ pub unsafe fn lineAccept<P1>(hcall: u32, lpsuseruserinfo: P1, dwsize: u32) -> i3
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAccept(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineAccept(hcall, lpsuseruserinfo.param().abi(), dwsize) }
 }
 #[inline]
@@ -41,7 +41,7 @@ pub unsafe fn lineAddProvider<P0>(lpszproviderfilename: P0, hwndowner: super::su
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAddProvider(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
     unsafe { lineAddProvider(lpszproviderfilename.param().abi(), hwndowner, lpdwpermanentproviderid as _) }
 }
 #[inline]
@@ -49,7 +49,7 @@ pub unsafe fn lineAddProviderA<P0>(lpszproviderfilename: P0, hwndowner: super::s
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAddProviderA(lpszproviderfilename : windows_core::PCSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
     unsafe { lineAddProviderA(lpszproviderfilename.param().abi(), hwndowner, lpdwpermanentproviderid as _) }
 }
 #[inline]
@@ -57,17 +57,17 @@ pub unsafe fn lineAddProviderW<P0>(lpszproviderfilename: P0, hwndowner: super::s
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_core::PCWSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAddProviderW(lpszproviderfilename : windows_core::PCWSTR, hwndowner : super::super::Foundation:: HWND, lpdwpermanentproviderid : *mut u32) -> i32);
     unsafe { lineAddProviderW(lpszproviderfilename.param().abi(), hwndowner, lpdwpermanentproviderid as _) }
 }
 #[inline]
 pub unsafe fn lineAddToConference(hconfcall: u32, hconsultcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineAddToConference(hconfcall : u32, hconsultcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAddToConference(hconfcall : u32, hconsultcall : u32) -> i32);
     unsafe { lineAddToConference(hconfcall, hconsultcall) }
 }
 #[inline]
 pub unsafe fn lineAgentSpecific(hline: u32, dwaddressid: u32, dwagentextensionidindex: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineAgentSpecific(hline : u32, dwaddressid : u32, dwagentextensionidindex : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAgentSpecific(hline : u32, dwaddressid : u32, dwagentextensionidindex : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { lineAgentSpecific(hline, dwaddressid, dwagentextensionidindex, lpparams as _, dwsize) }
 }
 #[inline]
@@ -75,7 +75,7 @@ pub unsafe fn lineAnswer<P1>(hcall: u32, lpsuseruserinfo: P1, dwsize: u32) -> i3
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineAnswer(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineAnswer(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineAnswer(hcall, lpsuseruserinfo.param().abi(), dwsize) }
 }
 #[inline]
@@ -83,7 +83,7 @@ pub unsafe fn lineBlindTransfer<P1>(hcall: u32, lpszdestaddress: P1, dwcountryco
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineBlindTransfer(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineBlindTransfer(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineBlindTransfer(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -91,7 +91,7 @@ pub unsafe fn lineBlindTransferA<P1>(hcall: u32, lpszdestaddress: P1, dwcountryc
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineBlindTransferA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineBlindTransferA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineBlindTransferA(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -99,22 +99,22 @@ pub unsafe fn lineBlindTransferW<P1>(hcall: u32, lpszdestaddressw: P1, dwcountry
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineBlindTransferW(hcall : u32, lpszdestaddressw : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineBlindTransferW(hcall : u32, lpszdestaddressw : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
     unsafe { lineBlindTransferW(hcall, lpszdestaddressw.param().abi(), dwcountrycode) }
 }
 #[inline]
 pub unsafe fn lineClose(hline: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineClose(hline : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineClose(hline : u32) -> i32);
     unsafe { lineClose(hline) }
 }
 #[inline]
 pub unsafe fn lineCompleteCall(hcall: u32, lpdwcompletionid: *mut u32, dwcompletionmode: u32, dwmessageid: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineCompleteCall(hcall : u32, lpdwcompletionid : *mut u32, dwcompletionmode : u32, dwmessageid : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCompleteCall(hcall : u32, lpdwcompletionid : *mut u32, dwcompletionmode : u32, dwmessageid : u32) -> i32);
     unsafe { lineCompleteCall(hcall, lpdwcompletionid as _, dwcompletionmode, dwmessageid) }
 }
 #[inline]
 pub unsafe fn lineCompleteTransfer(hcall: u32, hconsultcall: u32, lphconfcall: *mut u32, dwtransfermode: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineCompleteTransfer(hcall : u32, hconsultcall : u32, lphconfcall : *mut u32, dwtransfermode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCompleteTransfer(hcall : u32, hconsultcall : u32, lphconfcall : *mut u32, dwtransfermode : u32) -> i32);
     unsafe { lineCompleteTransfer(hcall, hconsultcall, lphconfcall as _, dwtransfermode) }
 }
 #[inline]
@@ -122,7 +122,7 @@ pub unsafe fn lineConfigDialog<P2>(dwdeviceid: u32, hwndowner: super::super::Fou
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineConfigDialog(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -130,7 +130,7 @@ pub unsafe fn lineConfigDialogA<P2>(dwdeviceid: u32, hwndowner: super::super::Fo
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineConfigDialogA(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -138,7 +138,7 @@ pub unsafe fn lineConfigDialogEdit<P2>(dwdeviceid: u32, hwndowner: super::super:
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialogEdit(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
     unsafe { lineConfigDialogEdit(dwdeviceid, hwndowner, lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout as _) }
 }
 #[inline]
@@ -146,7 +146,7 @@ pub unsafe fn lineConfigDialogEditA<P2>(dwdeviceid: u32, hwndowner: super::super
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialogEditA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
     unsafe { lineConfigDialogEditA(dwdeviceid, hwndowner, lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout as _) }
 }
 #[inline]
@@ -154,7 +154,7 @@ pub unsafe fn lineConfigDialogEditW<P2>(dwdeviceid: u32, hwndowner: super::super
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialogEditW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR, lpdeviceconfigin : *const core::ffi::c_void, dwsize : u32, lpdeviceconfigout : *mut VARSTRING) -> i32);
     unsafe { lineConfigDialogEditW(dwdeviceid, hwndowner, lpszdeviceclass.param().abi(), lpdeviceconfigin, dwsize, lpdeviceconfigout as _) }
 }
 #[inline]
@@ -162,12 +162,12 @@ pub unsafe fn lineConfigDialogW<P2>(dwdeviceid: u32, hwndowner: super::super::Fo
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { lineConfigDialogW(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
 pub unsafe fn lineConfigProvider(hwndowner: super::super::Foundation::HWND, dwpermanentproviderid: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation:: HWND, dwpermanentproviderid : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineConfigProvider(hwndowner : super::super::Foundation:: HWND, dwpermanentproviderid : u32) -> i32);
     unsafe { lineConfigProvider(hwndowner, dwpermanentproviderid) }
 }
 #[inline]
@@ -176,7 +176,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineCreateAgentA(hline : u32, lpszagentid : windows_core::PCSTR, lpszagentpin : windows_core::PCSTR, lphagent : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCreateAgentA(hline : u32, lpszagentid : windows_core::PCSTR, lpszagentpin : windows_core::PCSTR, lphagent : *mut u32) -> i32);
     unsafe { lineCreateAgentA(hline, lpszagentid.param().abi(), lpszagentpin.param().abi(), lphagent as _) }
 }
 #[inline]
@@ -184,7 +184,7 @@ pub unsafe fn lineCreateAgentSessionA<P2>(hline: u32, hagent: u32, lpszagentpin:
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineCreateAgentSessionA(hline : u32, hagent : u32, lpszagentpin : windows_core::PCSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCreateAgentSessionA(hline : u32, hagent : u32, lpszagentpin : windows_core::PCSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
     unsafe { lineCreateAgentSessionA(hline, hagent, lpszagentpin.param().abi(), dwworkingaddressid, lpgroupid as _, lphagentsession as _) }
 }
 #[inline]
@@ -192,7 +192,7 @@ pub unsafe fn lineCreateAgentSessionW<P2>(hline: u32, hagent: u32, lpszagentpin:
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineCreateAgentSessionW(hline : u32, hagent : u32, lpszagentpin : windows_core::PCWSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCreateAgentSessionW(hline : u32, hagent : u32, lpszagentpin : windows_core::PCWSTR, dwworkingaddressid : u32, lpgroupid : *mut windows_core::GUID, lphagentsession : *mut u32) -> i32);
     unsafe { lineCreateAgentSessionW(hline, hagent, lpszagentpin.param().abi(), dwworkingaddressid, lpgroupid as _, lphagentsession as _) }
 }
 #[inline]
@@ -201,22 +201,22 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineCreateAgentW(hline : u32, lpszagentid : windows_core::PCWSTR, lpszagentpin : windows_core::PCWSTR, lphagent : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineCreateAgentW(hline : u32, lpszagentid : windows_core::PCWSTR, lpszagentpin : windows_core::PCWSTR, lphagent : *mut u32) -> i32);
     unsafe { lineCreateAgentW(hline, lpszagentid.param().abi(), lpszagentpin.param().abi(), lphagent as _) }
 }
 #[inline]
 pub unsafe fn lineDeallocateCall(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineDeallocateCall(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDeallocateCall(hcall : u32) -> i32);
     unsafe { lineDeallocateCall(hcall) }
 }
 #[inline]
 pub unsafe fn lineDevSpecific(hline: u32, dwaddressid: u32, hcall: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineDevSpecific(hline : u32, dwaddressid : u32, hcall : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDevSpecific(hline : u32, dwaddressid : u32, hcall : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { lineDevSpecific(hline, dwaddressid, hcall, lpparams as _, dwsize) }
 }
 #[inline]
 pub unsafe fn lineDevSpecificFeature(hline: u32, dwfeature: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineDevSpecificFeature(hline : u32, dwfeature : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDevSpecificFeature(hline : u32, dwfeature : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { lineDevSpecificFeature(hline, dwfeature, lpparams as _, dwsize) }
 }
 #[inline]
@@ -224,7 +224,7 @@ pub unsafe fn lineDial<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: u32) 
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineDial(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDial(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineDial(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -232,7 +232,7 @@ pub unsafe fn lineDialA<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: u32)
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineDialA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDialA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineDialA(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -240,7 +240,7 @@ pub unsafe fn lineDialW<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: u32)
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineDialW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDialW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
     unsafe { lineDialW(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -248,22 +248,22 @@ pub unsafe fn lineDrop<P1>(hcall: u32, lpsuseruserinfo: P1, dwsize: u32) -> i32
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineDrop(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineDrop(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineDrop(hcall, lpsuseruserinfo.param().abi(), dwsize) }
 }
 #[inline]
 pub unsafe fn lineForward(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineForward(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineForward(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineForward(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineForwardA(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineForwardA(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineForwardA(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineForwardA(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineForwardW(hline: u32, balladdresses: u32, dwaddressid: u32, lpforwardlist: *const LINEFORWARDLIST, dwnumringsnoanswer: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineForwardW(hline : u32, balladdresses : u32, dwaddressid : u32, lpforwardlist : *const LINEFORWARDLIST, dwnumringsnoanswer : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineForwardW(hline, balladdresses, dwaddressid, lpforwardlist, dwnumringsnoanswer, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
@@ -271,7 +271,7 @@ pub unsafe fn lineGatherDigits<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Opt
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGatherDigits(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
     unsafe { lineGatherDigits(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
@@ -279,7 +279,7 @@ pub unsafe fn lineGatherDigitsA<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Op
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsA(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
     unsafe { lineGatherDigitsA(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
@@ -287,7 +287,7 @@ pub unsafe fn lineGatherDigitsW<P4>(hcall: u32, dwdigitmodes: u32, lpsdigits: Op
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGatherDigitsW(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PWSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCWSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGatherDigitsW(hcall : u32, dwdigitmodes : u32, lpsdigits : windows_core::PWSTR, dwnumdigits : u32, lpszterminationdigits : windows_core::PCWSTR, dwfirstdigittimeout : u32, dwinterdigittimeout : u32) -> i32);
     unsafe { lineGatherDigitsW(hcall, dwdigitmodes, core::mem::transmute(lpsdigits.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpsdigits.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), lpszterminationdigits.param().abi(), dwfirstdigittimeout, dwinterdigittimeout) }
 }
 #[inline]
@@ -295,7 +295,7 @@ pub unsafe fn lineGenerateDigits<P2>(hcall: u32, dwdigitmode: u32, lpszdigits: P
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGenerateDigits(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGenerateDigits(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
     unsafe { lineGenerateDigits(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration) }
 }
 #[inline]
@@ -303,7 +303,7 @@ pub unsafe fn lineGenerateDigitsA<P2>(hcall: u32, dwdigitmode: u32, lpszdigits: 
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGenerateDigitsA(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGenerateDigitsA(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCSTR, dwduration : u32) -> i32);
     unsafe { lineGenerateDigitsA(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration) }
 }
 #[inline]
@@ -311,27 +311,27 @@ pub unsafe fn lineGenerateDigitsW<P2>(hcall: u32, dwdigitmode: u32, lpszdigits: 
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGenerateDigitsW(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCWSTR, dwduration : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGenerateDigitsW(hcall : u32, dwdigitmode : u32, lpszdigits : windows_core::PCWSTR, dwduration : u32) -> i32);
     unsafe { lineGenerateDigitsW(hcall, dwdigitmode, lpszdigits.param().abi(), dwduration) }
 }
 #[inline]
 pub unsafe fn lineGenerateTone(hcall: u32, dwtonemode: u32, dwduration: u32, dwnumtones: u32, lptones: *const LINEGENERATETONE) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *const LINEGENERATETONE) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGenerateTone(hcall : u32, dwtonemode : u32, dwduration : u32, dwnumtones : u32, lptones : *const LINEGENERATETONE) -> i32);
     unsafe { lineGenerateTone(hcall, dwtonemode, dwduration, dwnumtones, lptones) }
 }
 #[inline]
 pub unsafe fn lineGetAddressCaps(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressCaps(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressCaps(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
     unsafe { lineGetAddressCaps(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetAddressCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressCapsA(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressCapsA(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
     unsafe { lineGetAddressCapsA(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetAddressCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwapiversion: u32, dwextversion: u32, lpaddresscaps: *mut LINEADDRESSCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressCapsW(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressCapsW(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwapiversion : u32, dwextversion : u32, lpaddresscaps : *mut LINEADDRESSCAPS) -> i32);
     unsafe { lineGetAddressCapsW(hlineapp, dwdeviceid, dwaddressid, dwapiversion, dwextversion, lpaddresscaps as _) }
 }
 #[inline]
@@ -339,7 +339,7 @@ pub unsafe fn lineGetAddressID<P3>(hline: u32, lpdwaddressid: *mut u32, dwaddres
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressID(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressID(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineGetAddressID(hline, lpdwaddressid as _, dwaddressmode, lpsaddress.param().abi(), dwsize) }
 }
 #[inline]
@@ -347,7 +347,7 @@ pub unsafe fn lineGetAddressIDA<P3>(hline: u32, lpdwaddressid: *mut u32, dwaddre
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressIDA(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressIDA(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineGetAddressIDA(hline, lpdwaddressid as _, dwaddressmode, lpsaddress.param().abi(), dwsize) }
 }
 #[inline]
@@ -355,79 +355,79 @@ pub unsafe fn lineGetAddressIDW<P3>(hline: u32, lpdwaddressid: *mut u32, dwaddre
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressIDW(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCWSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressIDW(hline : u32, lpdwaddressid : *mut u32, dwaddressmode : u32, lpsaddress : windows_core::PCWSTR, dwsize : u32) -> i32);
     unsafe { lineGetAddressIDW(hline, lpdwaddressid as _, dwaddressmode, lpsaddress.param().abi(), dwsize) }
 }
 #[inline]
 pub unsafe fn lineGetAddressStatus(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressStatus(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressStatus(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
     unsafe { lineGetAddressStatus(hline, dwaddressid, lpaddressstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetAddressStatusA(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressStatusA(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressStatusA(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
     unsafe { lineGetAddressStatusA(hline, dwaddressid, lpaddressstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetAddressStatusW(hline: u32, dwaddressid: u32, lpaddressstatus: *mut LINEADDRESSSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAddressStatusW(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAddressStatusW(hline : u32, dwaddressid : u32, lpaddressstatus : *mut LINEADDRESSSTATUS) -> i32);
     unsafe { lineGetAddressStatusW(hline, dwaddressid, lpaddressstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentActivityListA(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentActivityListA(hline : u32, dwaddressid : u32, lpagentactivitylist : *mut LINEAGENTACTIVITYLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentActivityListA(hline : u32, dwaddressid : u32, lpagentactivitylist : *mut LINEAGENTACTIVITYLIST) -> i32);
     unsafe { lineGetAgentActivityListA(hline, dwaddressid, lpagentactivitylist as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentActivityListW(hline: u32, dwaddressid: u32, lpagentactivitylist: *mut LINEAGENTACTIVITYLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentActivityListW(hline : u32, dwaddressid : u32, lpagentactivitylist : *mut LINEAGENTACTIVITYLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentActivityListW(hline : u32, dwaddressid : u32, lpagentactivitylist : *mut LINEAGENTACTIVITYLIST) -> i32);
     unsafe { lineGetAgentActivityListW(hline, dwaddressid, lpagentactivitylist as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentCapsA(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentCapsA(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwappapiversion : u32, lpagentcaps : *mut LINEAGENTCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentCapsA(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwappapiversion : u32, lpagentcaps : *mut LINEAGENTCAPS) -> i32);
     unsafe { lineGetAgentCapsA(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentCapsW(hlineapp: u32, dwdeviceid: u32, dwaddressid: u32, dwappapiversion: u32, lpagentcaps: *mut LINEAGENTCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentCapsW(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwappapiversion : u32, lpagentcaps : *mut LINEAGENTCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentCapsW(hlineapp : u32, dwdeviceid : u32, dwaddressid : u32, dwappapiversion : u32, lpagentcaps : *mut LINEAGENTCAPS) -> i32);
     unsafe { lineGetAgentCapsW(hlineapp, dwdeviceid, dwaddressid, dwappapiversion, lpagentcaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentGroupListA(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentGroupListA(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentGroupListA(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
     unsafe { lineGetAgentGroupListA(hline, dwaddressid, lpagentgrouplist as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentGroupListW(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentGroupListW(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentGroupListW(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
     unsafe { lineGetAgentGroupListW(hline, dwaddressid, lpagentgrouplist as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentInfo(hline: u32, hagent: u32, lpagentinfo: *mut LINEAGENTINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentInfo(hline : u32, hagent : u32, lpagentinfo : *mut LINEAGENTINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentInfo(hline : u32, hagent : u32, lpagentinfo : *mut LINEAGENTINFO) -> i32);
     unsafe { lineGetAgentInfo(hline, hagent, lpagentinfo as _) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineGetAgentSessionInfo(hline: u32, hagentsession: u32, lpagentsessioninfo: *mut LINEAGENTSESSIONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentSessionInfo(hline : u32, hagentsession : u32, lpagentsessioninfo : *mut LINEAGENTSESSIONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentSessionInfo(hline : u32, hagentsession : u32, lpagentsessioninfo : *mut LINEAGENTSESSIONINFO) -> i32);
     unsafe { lineGetAgentSessionInfo(hline, hagentsession, lpagentsessioninfo as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentSessionList(hline: u32, hagent: u32, lpagentsessionlist: *mut LINEAGENTSESSIONLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentSessionList(hline : u32, hagent : u32, lpagentsessionlist : *mut LINEAGENTSESSIONLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentSessionList(hline : u32, hagent : u32, lpagentsessionlist : *mut LINEAGENTSESSIONLIST) -> i32);
     unsafe { lineGetAgentSessionList(hline, hagent, lpagentsessionlist as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentStatusA(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentStatusA(hline : u32, dwaddressid : u32, lpagentstatus : *mut LINEAGENTSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentStatusA(hline : u32, dwaddressid : u32, lpagentstatus : *mut LINEAGENTSTATUS) -> i32);
     unsafe { lineGetAgentStatusA(hline, dwaddressid, lpagentstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetAgentStatusW(hline: u32, dwaddressid: u32, lpagentstatus: *mut LINEAGENTSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAgentStatusW(hline : u32, dwaddressid : u32, lpagentstatus : *mut LINEAGENTSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAgentStatusW(hline : u32, dwaddressid : u32, lpagentstatus : *mut LINEAGENTSTATUS) -> i32);
     unsafe { lineGetAgentStatusW(hline, dwaddressid, lpagentstatus as _) }
 }
 #[inline]
@@ -435,7 +435,7 @@ pub unsafe fn lineGetAppPriority<P0>(lpszappfilename: P0, dwmediamode: u32, lpex
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
     unsafe { lineGetAppPriority(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpextensionname as _, lpdwpriority as _) }
 }
 #[inline]
@@ -443,7 +443,7 @@ pub unsafe fn lineGetAppPriorityA<P0>(lpszappfilename: P0, dwmediamode: u32, lpe
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
     unsafe { lineGetAppPriorityA(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpextensionname as _, lpdwpriority as _) }
 }
 #[inline]
@@ -451,62 +451,62 @@ pub unsafe fn lineGetAppPriorityW<P0>(lpszappfilename: P0, dwmediamode: u32, lpe
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpextensionname : *mut VARSTRING, lpdwpriority : *mut u32) -> i32);
     unsafe { lineGetAppPriorityW(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpextensionname as _, lpdwpriority as _) }
 }
 #[inline]
 pub unsafe fn lineGetCallInfo(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCallInfo(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCallInfo(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
     unsafe { lineGetCallInfo(hcall, lpcallinfo as _) }
 }
 #[inline]
 pub unsafe fn lineGetCallInfoA(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCallInfoA(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCallInfoA(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
     unsafe { lineGetCallInfoA(hcall, lpcallinfo as _) }
 }
 #[inline]
 pub unsafe fn lineGetCallInfoW(hcall: u32, lpcallinfo: *mut LINECALLINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCallInfoW(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCallInfoW(hcall : u32, lpcallinfo : *mut LINECALLINFO) -> i32);
     unsafe { lineGetCallInfoW(hcall, lpcallinfo as _) }
 }
 #[inline]
 pub unsafe fn lineGetCallStatus(hcall: u32, lpcallstatus: *mut LINECALLSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCallStatus(hcall : u32, lpcallstatus : *mut LINECALLSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCallStatus(hcall : u32, lpcallstatus : *mut LINECALLSTATUS) -> i32);
     unsafe { lineGetCallStatus(hcall, lpcallstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetConfRelatedCalls(hcall: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetConfRelatedCalls(hcall : u32, lpcalllist : *mut LINECALLLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetConfRelatedCalls(hcall : u32, lpcalllist : *mut LINECALLLIST) -> i32);
     unsafe { lineGetConfRelatedCalls(hcall, lpcalllist as _) }
 }
 #[inline]
 pub unsafe fn lineGetCountry(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCountry(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCountry(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
     unsafe { lineGetCountry(dwcountryid, dwapiversion, lplinecountrylist as _) }
 }
 #[inline]
 pub unsafe fn lineGetCountryA(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCountryA(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCountryA(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
     unsafe { lineGetCountryA(dwcountryid, dwapiversion, lplinecountrylist as _) }
 }
 #[inline]
 pub unsafe fn lineGetCountryW(dwcountryid: u32, dwapiversion: u32, lplinecountrylist: *mut LINECOUNTRYLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetCountryW(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetCountryW(dwcountryid : u32, dwapiversion : u32, lplinecountrylist : *mut LINECOUNTRYLIST) -> i32);
     unsafe { lineGetCountryW(dwcountryid, dwapiversion, lplinecountrylist as _) }
 }
 #[inline]
 pub unsafe fn lineGetDevCaps(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevCaps(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevCaps(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
     unsafe { lineGetDevCaps(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetDevCapsA(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevCapsA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevCapsA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
     unsafe { lineGetDevCapsA(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetDevCapsW(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lplinedevcaps: *mut LINEDEVCAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevCapsW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevCapsW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lplinedevcaps : *mut LINEDEVCAPS) -> i32);
     unsafe { lineGetDevCapsW(hlineapp, dwdeviceid, dwapiversion, dwextversion, lplinedevcaps as _) }
 }
 #[inline]
@@ -514,7 +514,7 @@ pub unsafe fn lineGetDevConfig<P2>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTRI
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevConfig(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevConfig(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineGetDevConfig(dwdeviceid, lpdeviceconfig as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -522,7 +522,7 @@ pub unsafe fn lineGetDevConfigA<P2>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTR
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineGetDevConfigA(dwdeviceid, lpdeviceconfig as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -530,17 +530,17 @@ pub unsafe fn lineGetDevConfigW<P2>(dwdeviceid: u32, lpdeviceconfig: *mut VARSTR
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { lineGetDevConfigW(dwdeviceid, lpdeviceconfig as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
 pub unsafe fn lineGetGroupListA(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetGroupListA(hline : u32, lpgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetGroupListA(hline : u32, lpgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
     unsafe { lineGetGroupListA(hline, lpgrouplist as _) }
 }
 #[inline]
 pub unsafe fn lineGetGroupListW(hline: u32, lpgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetGroupListW(hline : u32, lpgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetGroupListW(hline : u32, lpgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
     unsafe { lineGetGroupListW(hline, lpgrouplist as _) }
 }
 #[inline]
@@ -548,7 +548,7 @@ pub unsafe fn lineGetID<P5>(hline: u32, dwaddressid: u32, hcall: u32, dwselect: 
 where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetID(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetID(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineGetID(hline, dwaddressid, hcall, dwselect, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -556,7 +556,7 @@ pub unsafe fn lineGetIDA<P5>(hline: u32, dwaddressid: u32, hcall: u32, dwselect:
 where
     P5: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetIDA(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetIDA(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineGetIDA(hline, dwaddressid, hcall, dwselect, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -564,7 +564,7 @@ pub unsafe fn lineGetIDW<P5>(hline: u32, dwaddressid: u32, hcall: u32, dwselect:
 where
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetIDW(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetIDW(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { lineGetIDW(hline, dwaddressid, hcall, dwselect, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -573,7 +573,7 @@ pub unsafe fn lineGetIcon<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *mu
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { lineGetIcon(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -582,7 +582,7 @@ pub unsafe fn lineGetIconA<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *m
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { lineGetIconA(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -591,107 +591,107 @@ pub unsafe fn lineGetIconW<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *m
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { lineGetIconW(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[inline]
 pub unsafe fn lineGetLineDevStatus(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatus(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetLineDevStatus(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
     unsafe { lineGetLineDevStatus(hline, lplinedevstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetLineDevStatusA(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatusA(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetLineDevStatusA(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
     unsafe { lineGetLineDevStatusA(hline, lplinedevstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetLineDevStatusW(hline: u32, lplinedevstatus: *mut LINEDEVSTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetLineDevStatusW(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetLineDevStatusW(hline : u32, lplinedevstatus : *mut LINEDEVSTATUS) -> i32);
     unsafe { lineGetLineDevStatusW(hline, lplinedevstatus as _) }
 }
 #[inline]
 pub unsafe fn lineGetMessage(hlineapp: u32, lpmessage: *mut LINEMESSAGE, dwtimeout: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetMessage(hlineapp : u32, lpmessage : *mut LINEMESSAGE, dwtimeout : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetMessage(hlineapp : u32, lpmessage : *mut LINEMESSAGE, dwtimeout : u32) -> i32);
     unsafe { lineGetMessage(hlineapp, lpmessage as _, dwtimeout) }
 }
 #[inline]
 pub unsafe fn lineGetNewCalls(hline: u32, dwaddressid: u32, dwselect: u32, lpcalllist: *mut LINECALLLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetNewCalls(hline : u32, dwaddressid : u32, dwselect : u32, lpcalllist : *mut LINECALLLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetNewCalls(hline : u32, dwaddressid : u32, dwselect : u32, lpcalllist : *mut LINECALLLIST) -> i32);
     unsafe { lineGetNewCalls(hline, dwaddressid, dwselect, lpcalllist as _) }
 }
 #[inline]
 pub unsafe fn lineGetNumRings(hline: u32, dwaddressid: u32, lpdwnumrings: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetNumRings(hline : u32, dwaddressid : u32, lpdwnumrings : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetNumRings(hline : u32, dwaddressid : u32, lpdwnumrings : *mut u32) -> i32);
     unsafe { lineGetNumRings(hline, dwaddressid, lpdwnumrings as _) }
 }
 #[inline]
 pub unsafe fn lineGetProviderList(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetProviderList(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetProviderList(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
     unsafe { lineGetProviderList(dwapiversion, lpproviderlist as _) }
 }
 #[inline]
 pub unsafe fn lineGetProviderListA(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetProviderListA(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetProviderListA(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
     unsafe { lineGetProviderListA(dwapiversion, lpproviderlist as _) }
 }
 #[inline]
 pub unsafe fn lineGetProviderListW(dwapiversion: u32, lpproviderlist: *mut LINEPROVIDERLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetProviderListW(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetProviderListW(dwapiversion : u32, lpproviderlist : *mut LINEPROVIDERLIST) -> i32);
     unsafe { lineGetProviderListW(dwapiversion, lpproviderlist as _) }
 }
 #[inline]
 pub unsafe fn lineGetProxyStatus(hlineapp: u32, dwdeviceid: u32, dwappapiversion: u32, lplineproxyreqestlist: *mut LINEPROXYREQUESTLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetProxyStatus(hlineapp : u32, dwdeviceid : u32, dwappapiversion : u32, lplineproxyreqestlist : *mut LINEPROXYREQUESTLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetProxyStatus(hlineapp : u32, dwdeviceid : u32, dwappapiversion : u32, lplineproxyreqestlist : *mut LINEPROXYREQUESTLIST) -> i32);
     unsafe { lineGetProxyStatus(hlineapp, dwdeviceid, dwappapiversion, lplineproxyreqestlist as _) }
 }
 #[inline]
 pub unsafe fn lineGetQueueInfo(hline: u32, dwqueueid: u32, lplinequeueinfo: *mut LINEQUEUEINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetQueueInfo(hline : u32, dwqueueid : u32, lplinequeueinfo : *mut LINEQUEUEINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetQueueInfo(hline : u32, dwqueueid : u32, lplinequeueinfo : *mut LINEQUEUEINFO) -> i32);
     unsafe { lineGetQueueInfo(hline, dwqueueid, lplinequeueinfo as _) }
 }
 #[inline]
 pub unsafe fn lineGetQueueListA(hline: u32, lpgroupid: *mut windows_core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetQueueListA(hline : u32, lpgroupid : *mut windows_core::GUID, lpqueuelist : *mut LINEQUEUELIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetQueueListA(hline : u32, lpgroupid : *mut windows_core::GUID, lpqueuelist : *mut LINEQUEUELIST) -> i32);
     unsafe { lineGetQueueListA(hline, lpgroupid as _, lpqueuelist as _) }
 }
 #[inline]
 pub unsafe fn lineGetQueueListW(hline: u32, lpgroupid: *mut windows_core::GUID, lpqueuelist: *mut LINEQUEUELIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetQueueListW(hline : u32, lpgroupid : *mut windows_core::GUID, lpqueuelist : *mut LINEQUEUELIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetQueueListW(hline : u32, lpgroupid : *mut windows_core::GUID, lpqueuelist : *mut LINEQUEUELIST) -> i32);
     unsafe { lineGetQueueListW(hline, lpgroupid as _, lpqueuelist as _) }
 }
 #[inline]
 pub unsafe fn lineGetRequest(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut core::ffi::c_void) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetRequest(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetRequest(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
     unsafe { lineGetRequest(hlineapp, dwrequestmode, lprequestbuffer as _) }
 }
 #[inline]
 pub unsafe fn lineGetRequestA(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut core::ffi::c_void) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetRequestA(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetRequestA(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
     unsafe { lineGetRequestA(hlineapp, dwrequestmode, lprequestbuffer as _) }
 }
 #[inline]
 pub unsafe fn lineGetRequestW(hlineapp: u32, dwrequestmode: u32, lprequestbuffer: *mut core::ffi::c_void) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetRequestW(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetRequestW(hlineapp : u32, dwrequestmode : u32, lprequestbuffer : *mut core::ffi::c_void) -> i32);
     unsafe { lineGetRequestW(hlineapp, dwrequestmode, lprequestbuffer as _) }
 }
 #[inline]
 pub unsafe fn lineGetStatusMessages(hline: u32, lpdwlinestates: *mut u32, lpdwaddressstates: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetStatusMessages(hline : u32, lpdwlinestates : *mut u32, lpdwaddressstates : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetStatusMessages(hline : u32, lpdwlinestates : *mut u32, lpdwaddressstates : *mut u32) -> i32);
     unsafe { lineGetStatusMessages(hline, lpdwlinestates as _, lpdwaddressstates as _) }
 }
 #[inline]
 pub unsafe fn lineGetTranslateCaps(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetTranslateCaps(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetTranslateCaps(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
     unsafe { lineGetTranslateCaps(hlineapp, dwapiversion, lptranslatecaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetTranslateCapsA(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetTranslateCapsA(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetTranslateCapsA(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
     unsafe { lineGetTranslateCapsA(hlineapp, dwapiversion, lptranslatecaps as _) }
 }
 #[inline]
 pub unsafe fn lineGetTranslateCapsW(hlineapp: u32, dwapiversion: u32, lptranslatecaps: *mut LINETRANSLATECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineGetTranslateCapsW(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineGetTranslateCapsW(hlineapp : u32, dwapiversion : u32, lptranslatecaps : *mut LINETRANSLATECAPS) -> i32);
     unsafe { lineGetTranslateCapsW(hlineapp, dwapiversion, lptranslatecaps as _) }
 }
 #[inline]
@@ -699,7 +699,7 @@ pub unsafe fn lineHandoff<P1>(hcall: u32, lpszfilename: P1, dwmediamode: u32) ->
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineHandoff(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineHandoff(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
     unsafe { lineHandoff(hcall, lpszfilename.param().abi(), dwmediamode) }
 }
 #[inline]
@@ -707,7 +707,7 @@ pub unsafe fn lineHandoffA<P1>(hcall: u32, lpszfilename: P1, dwmediamode: u32) -
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineHandoffA(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineHandoffA(hcall : u32, lpszfilename : windows_core::PCSTR, dwmediamode : u32) -> i32);
     unsafe { lineHandoffA(hcall, lpszfilename.param().abi(), dwmediamode) }
 }
 #[inline]
@@ -715,12 +715,12 @@ pub unsafe fn lineHandoffW<P1>(hcall: u32, lpszfilename: P1, dwmediamode: u32) -
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineHandoffW(hcall : u32, lpszfilename : windows_core::PCWSTR, dwmediamode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineHandoffW(hcall : u32, lpszfilename : windows_core::PCWSTR, dwmediamode : u32) -> i32);
     unsafe { lineHandoffW(hcall, lpszfilename.param().abi(), dwmediamode) }
 }
 #[inline]
 pub unsafe fn lineHold(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineHold(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineHold(hcall : u32) -> i32);
     unsafe { lineHold(hcall) }
 }
 #[inline]
@@ -728,7 +728,7 @@ pub unsafe fn lineInitialize<P3>(lphlineapp: *mut u32, hinstance: super::super::
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineInitialize(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
     unsafe { lineInitialize(lphlineapp as _, hinstance, lpfncallback, lpszappname.param().abi(), lpdwnumdevs as _) }
 }
 #[inline]
@@ -736,7 +736,7 @@ pub unsafe fn lineInitializeExA<P3>(lphlineapp: *mut u32, hinstance: super::supe
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineInitializeExA(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
     unsafe { lineInitializeExA(lphlineapp as _, hinstance, lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs as _, lpdwapiversion as _, lplineinitializeexparams as _) }
 }
 #[inline]
@@ -744,7 +744,7 @@ pub unsafe fn lineInitializeExW<P3>(lphlineapp: *mut u32, hinstance: super::supe
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineInitializeExW(lphlineapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : LINECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lplineinitializeexparams : *mut LINEINITIALIZEEXPARAMS) -> i32);
     unsafe { lineInitializeExW(lphlineapp as _, hinstance, lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs as _, lpdwapiversion as _, lplineinitializeexparams as _) }
 }
 #[inline]
@@ -752,7 +752,7 @@ pub unsafe fn lineMakeCall<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: P
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMakeCall(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineMakeCall(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
@@ -760,7 +760,7 @@ pub unsafe fn lineMakeCallA<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: 
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMakeCallA(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineMakeCallA(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
@@ -768,47 +768,47 @@ pub unsafe fn lineMakeCallW<P2>(hline: u32, lphcall: *mut u32, lpszdestaddress: 
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMakeCallW(hline : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineMakeCallW(hline, lphcall as _, lpszdestaddress.param().abi(), dwcountrycode, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineMonitorDigits(hcall: u32, dwdigitmodes: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineMonitorDigits(hcall : u32, dwdigitmodes : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMonitorDigits(hcall : u32, dwdigitmodes : u32) -> i32);
     unsafe { lineMonitorDigits(hcall, dwdigitmodes) }
 }
 #[inline]
 pub unsafe fn lineMonitorMedia(hcall: u32, dwmediamodes: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineMonitorMedia(hcall : u32, dwmediamodes : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMonitorMedia(hcall : u32, dwmediamodes : u32) -> i32);
     unsafe { lineMonitorMedia(hcall, dwmediamodes) }
 }
 #[inline]
 pub unsafe fn lineMonitorTones(hcall: u32, lptonelist: *const LINEMONITORTONE, dwnumentries: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineMonitorTones(hcall : u32, lptonelist : *const LINEMONITORTONE, dwnumentries : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineMonitorTones(hcall : u32, lptonelist : *const LINEMONITORTONE, dwnumentries : u32) -> i32);
     unsafe { lineMonitorTones(hcall, lptonelist, dwnumentries) }
 }
 #[inline]
 pub unsafe fn lineNegotiateAPIVersion(hlineapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut LINEEXTENSIONID) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineNegotiateAPIVersion(hlineapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut LINEEXTENSIONID) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineNegotiateAPIVersion(hlineapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut LINEEXTENSIONID) -> i32);
     unsafe { lineNegotiateAPIVersion(hlineapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion as _, lpextensionid as _) }
 }
 #[inline]
 pub unsafe fn lineNegotiateExtVersion(hlineapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineNegotiateExtVersion(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineNegotiateExtVersion(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
     unsafe { lineNegotiateExtVersion(hlineapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion as _) }
 }
 #[inline]
 pub unsafe fn lineOpen(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineOpen(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineOpen(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineOpenA(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineOpenA(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineOpenA(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineOpenA(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineOpenW(hlineapp: u32, dwdeviceid: u32, lphline: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivileges: u32, dwmediamodes: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineOpenW(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineOpenW(hlineapp : u32, dwdeviceid : u32, lphline : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivileges : u32, dwmediamodes : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineOpenW(hlineapp, dwdeviceid, lphline as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivileges, dwmediamodes, lpcallparams) }
 }
 #[inline]
@@ -816,7 +816,7 @@ pub unsafe fn linePark<P2>(hcall: u32, dwparkmode: u32, lpszdiraddress: P2, lpno
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn linePark(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePark(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
     unsafe { linePark(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress as _) }
 }
 #[inline]
@@ -824,7 +824,7 @@ pub unsafe fn lineParkA<P2>(hcall: u32, dwparkmode: u32, lpszdiraddress: P2, lpn
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineParkA(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineParkA(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCSTR, lpnondiraddress : *mut VARSTRING) -> i32);
     unsafe { lineParkA(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress as _) }
 }
 #[inline]
@@ -832,7 +832,7 @@ pub unsafe fn lineParkW<P2>(hcall: u32, dwparkmode: u32, lpszdiraddress: P2, lpn
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineParkW(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCWSTR, lpnondiraddress : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineParkW(hcall : u32, dwparkmode : u32, lpszdiraddress : windows_core::PCWSTR, lpnondiraddress : *mut VARSTRING) -> i32);
     unsafe { lineParkW(hcall, dwparkmode, lpszdiraddress.param().abi(), lpnondiraddress as _) }
 }
 #[inline]
@@ -841,7 +841,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn linePickup(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePickup(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
     unsafe { linePickup(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi(), lpszgroupid.param().abi()) }
 }
 #[inline]
@@ -850,7 +850,7 @@ where
     P3: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn linePickupA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePickupA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR, lpszgroupid : windows_core::PCSTR) -> i32);
     unsafe { linePickupA(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi(), lpszgroupid.param().abi()) }
 }
 #[inline]
@@ -859,33 +859,33 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn linePickupW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, lpszgroupid : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePickupW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR, lpszgroupid : windows_core::PCWSTR) -> i32);
     unsafe { linePickupW(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi(), lpszgroupid.param().abi()) }
 }
 #[inline]
 pub unsafe fn linePrepareAddToConference(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConference(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { linePrepareAddToConference(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn linePrepareAddToConferenceA(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConferenceA(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceA(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { linePrepareAddToConferenceA(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn linePrepareAddToConferenceW(hconfcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn linePrepareAddToConferenceW(hconfcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { linePrepareAddToConferenceW(hconfcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineProxyMessage(hline: u32, hcall: u32, dwmsg: u32, dwparam1: u32, dwparam2: u32, dwparam3: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineProxyMessage(hline : u32, hcall : u32, dwmsg : u32, dwparam1 : u32, dwparam2 : u32, dwparam3 : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineProxyMessage(hline : u32, hcall : u32, dwmsg : u32, dwparam1 : u32, dwparam2 : u32, dwparam3 : u32) -> i32);
     unsafe { lineProxyMessage(hline, hcall, dwmsg, dwparam1, dwparam2, dwparam3) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn lineProxyResponse(hline: u32, lpproxyrequest: *mut LINEPROXYREQUEST, dwresult: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineProxyResponse(hline : u32, lpproxyrequest : *mut LINEPROXYREQUEST, dwresult : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineProxyResponse(hline : u32, lpproxyrequest : *mut LINEPROXYREQUEST, dwresult : u32) -> i32);
     unsafe { lineProxyResponse(hline, lpproxyrequest as _, dwresult) }
 }
 #[inline]
@@ -893,7 +893,7 @@ pub unsafe fn lineRedirect<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: u
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineRedirect(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRedirect(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineRedirect(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -901,7 +901,7 @@ pub unsafe fn lineRedirectA<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: 
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineRedirectA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRedirectA(hcall : u32, lpszdestaddress : windows_core::PCSTR, dwcountrycode : u32) -> i32);
     unsafe { lineRedirectA(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
@@ -909,32 +909,32 @@ pub unsafe fn lineRedirectW<P1>(hcall: u32, lpszdestaddress: P1, dwcountrycode: 
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineRedirectW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRedirectW(hcall : u32, lpszdestaddress : windows_core::PCWSTR, dwcountrycode : u32) -> i32);
     unsafe { lineRedirectW(hcall, lpszdestaddress.param().abi(), dwcountrycode) }
 }
 #[inline]
 pub unsafe fn lineRegisterRequestRecipient(hlineapp: u32, dwregistrationinstance: u32, dwrequestmode: u32, benable: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineRegisterRequestRecipient(hlineapp : u32, dwregistrationinstance : u32, dwrequestmode : u32, benable : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRegisterRequestRecipient(hlineapp : u32, dwregistrationinstance : u32, dwrequestmode : u32, benable : u32) -> i32);
     unsafe { lineRegisterRequestRecipient(hlineapp, dwregistrationinstance, dwrequestmode, benable) }
 }
 #[inline]
 pub unsafe fn lineReleaseUserUserInfo(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineReleaseUserUserInfo(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineReleaseUserUserInfo(hcall : u32) -> i32);
     unsafe { lineReleaseUserUserInfo(hcall) }
 }
 #[inline]
 pub unsafe fn lineRemoveFromConference(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineRemoveFromConference(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRemoveFromConference(hcall : u32) -> i32);
     unsafe { lineRemoveFromConference(hcall) }
 }
 #[inline]
 pub unsafe fn lineRemoveProvider(dwpermanentproviderid: u32, hwndowner: super::super::Foundation::HWND) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation:: HWND) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineRemoveProvider(dwpermanentproviderid : u32, hwndowner : super::super::Foundation:: HWND) -> i32);
     unsafe { lineRemoveProvider(dwpermanentproviderid, hwndowner) }
 }
 #[inline]
 pub unsafe fn lineSecureCall(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSecureCall(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSecureCall(hcall : u32) -> i32);
     unsafe { lineSecureCall(hcall) }
 }
 #[inline]
@@ -942,37 +942,37 @@ pub unsafe fn lineSendUserUserInfo<P1>(hcall: u32, lpsuseruserinfo: P1, dwsize: 
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSendUserUserInfo(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSendUserUserInfo(hcall : u32, lpsuseruserinfo : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { lineSendUserUserInfo(hcall, lpsuseruserinfo.param().abi(), dwsize) }
 }
 #[inline]
 pub unsafe fn lineSetAgentActivity(hline: u32, dwaddressid: u32, dwactivityid: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentActivity(hline : u32, dwaddressid : u32, dwactivityid : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentActivity(hline : u32, dwaddressid : u32, dwactivityid : u32) -> i32);
     unsafe { lineSetAgentActivity(hline, dwaddressid, dwactivityid) }
 }
 #[inline]
 pub unsafe fn lineSetAgentGroup(hline: u32, dwaddressid: u32, lpagentgrouplist: *mut LINEAGENTGROUPLIST) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentGroup(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentGroup(hline : u32, dwaddressid : u32, lpagentgrouplist : *mut LINEAGENTGROUPLIST) -> i32);
     unsafe { lineSetAgentGroup(hline, dwaddressid, lpagentgrouplist as _) }
 }
 #[inline]
 pub unsafe fn lineSetAgentMeasurementPeriod(hline: u32, hagent: u32, dwmeasurementperiod: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentMeasurementPeriod(hline : u32, hagent : u32, dwmeasurementperiod : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentMeasurementPeriod(hline : u32, hagent : u32, dwmeasurementperiod : u32) -> i32);
     unsafe { lineSetAgentMeasurementPeriod(hline, hagent, dwmeasurementperiod) }
 }
 #[inline]
 pub unsafe fn lineSetAgentSessionState(hline: u32, hagentsession: u32, dwagentsessionstate: u32, dwnextagentsessionstate: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentSessionState(hline : u32, hagentsession : u32, dwagentsessionstate : u32, dwnextagentsessionstate : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentSessionState(hline : u32, hagentsession : u32, dwagentsessionstate : u32, dwnextagentsessionstate : u32) -> i32);
     unsafe { lineSetAgentSessionState(hline, hagentsession, dwagentsessionstate, dwnextagentsessionstate) }
 }
 #[inline]
 pub unsafe fn lineSetAgentState(hline: u32, dwaddressid: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentState(hline : u32, dwaddressid : u32, dwagentstate : u32, dwnextagentstate : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentState(hline : u32, dwaddressid : u32, dwagentstate : u32, dwnextagentstate : u32) -> i32);
     unsafe { lineSetAgentState(hline, dwaddressid, dwagentstate, dwnextagentstate) }
 }
 #[inline]
 pub unsafe fn lineSetAgentStateEx(hline: u32, hagent: u32, dwagentstate: u32, dwnextagentstate: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAgentStateEx(hline : u32, hagent : u32, dwagentstate : u32, dwnextagentstate : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAgentStateEx(hline : u32, hagent : u32, dwagentstate : u32, dwnextagentstate : u32) -> i32);
     unsafe { lineSetAgentStateEx(hline, hagent, dwagentstate, dwnextagentstate) }
 }
 #[inline]
@@ -981,7 +981,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAppPriority(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
     unsafe { lineSetAppPriority(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpszextensionname.param().abi(), dwpriority) }
 }
 #[inline]
@@ -990,7 +990,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAppPriorityA(lpszappfilename : windows_core::PCSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCSTR, dwpriority : u32) -> i32);
     unsafe { lineSetAppPriorityA(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpszextensionname.param().abi(), dwpriority) }
 }
 #[inline]
@@ -999,42 +999,42 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCWSTR, dwpriority : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAppPriorityW(lpszappfilename : windows_core::PCWSTR, dwmediamode : u32, lpextensionid : *mut LINEEXTENSIONID, dwrequestmode : u32, lpszextensionname : windows_core::PCWSTR, dwpriority : u32) -> i32);
     unsafe { lineSetAppPriorityW(lpszappfilename.param().abi(), dwmediamode, lpextensionid as _, dwrequestmode, lpszextensionname.param().abi(), dwpriority) }
 }
 #[inline]
 pub unsafe fn lineSetAppSpecific(hcall: u32, dwappspecific: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetAppSpecific(hcall : u32, dwappspecific : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetAppSpecific(hcall : u32, dwappspecific : u32) -> i32);
     unsafe { lineSetAppSpecific(hcall, dwappspecific) }
 }
 #[inline]
 pub unsafe fn lineSetCallData(hcall: u32, lpcalldata: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCallData(hcall : u32, lpcalldata : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallData(hcall : u32, lpcalldata : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { lineSetCallData(hcall, lpcalldata as _, dwsize) }
 }
 #[inline]
 pub unsafe fn lineSetCallParams(hcall: u32, dwbearermode: u32, dwminrate: u32, dwmaxrate: u32, lpdialparams: *const LINEDIALPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *const LINEDIALPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallParams(hcall : u32, dwbearermode : u32, dwminrate : u32, dwmaxrate : u32, lpdialparams : *const LINEDIALPARAMS) -> i32);
     unsafe { lineSetCallParams(hcall, dwbearermode, dwminrate, dwmaxrate, lpdialparams) }
 }
 #[inline]
 pub unsafe fn lineSetCallPrivilege(hcall: u32, dwcallprivilege: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCallPrivilege(hcall : u32, dwcallprivilege : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallPrivilege(hcall : u32, dwcallprivilege : u32) -> i32);
     unsafe { lineSetCallPrivilege(hcall, dwcallprivilege) }
 }
 #[inline]
 pub unsafe fn lineSetCallQualityOfService(hcall: u32, lpsendingflowspec: *mut core::ffi::c_void, dwsendingflowspecsize: u32, lpreceivingflowspec: *mut core::ffi::c_void, dwreceivingflowspecsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCallQualityOfService(hcall : u32, lpsendingflowspec : *mut core::ffi::c_void, dwsendingflowspecsize : u32, lpreceivingflowspec : *mut core::ffi::c_void, dwreceivingflowspecsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallQualityOfService(hcall : u32, lpsendingflowspec : *mut core::ffi::c_void, dwsendingflowspecsize : u32, lpreceivingflowspec : *mut core::ffi::c_void, dwreceivingflowspecsize : u32) -> i32);
     unsafe { lineSetCallQualityOfService(hcall, lpsendingflowspec as _, dwsendingflowspecsize, lpreceivingflowspec as _, dwreceivingflowspecsize) }
 }
 #[inline]
 pub unsafe fn lineSetCallTreatment(hcall: u32, dwtreatment: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCallTreatment(hcall : u32, dwtreatment : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCallTreatment(hcall : u32, dwtreatment : u32) -> i32);
     unsafe { lineSetCallTreatment(hcall, dwtreatment) }
 }
 #[inline]
 pub unsafe fn lineSetCurrentLocation(hlineapp: u32, dwlocation: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetCurrentLocation(hlineapp : u32, dwlocation : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetCurrentLocation(hlineapp : u32, dwlocation : u32) -> i32);
     unsafe { lineSetCurrentLocation(hlineapp, dwlocation) }
 }
 #[inline]
@@ -1042,7 +1042,7 @@ pub unsafe fn lineSetDevConfig<P3>(dwdeviceid: u32, lpdeviceconfig: *const core:
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetDevConfig(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetDevConfig(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineSetDevConfig(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1050,7 +1050,7 @@ pub unsafe fn lineSetDevConfigA<P3>(dwdeviceid: u32, lpdeviceconfig: *const core
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetDevConfigA(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { lineSetDevConfigA(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1058,42 +1058,42 @@ pub unsafe fn lineSetDevConfigW<P3>(dwdeviceid: u32, lpdeviceconfig: *const core
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetDevConfigW(dwdeviceid : u32, lpdeviceconfig : *const core::ffi::c_void, dwsize : u32, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { lineSetDevConfigW(dwdeviceid, lpdeviceconfig, dwsize, lpszdeviceclass.param().abi()) }
 }
 #[inline]
 pub unsafe fn lineSetLineDevStatus(hline: u32, dwstatustochange: u32, fstatus: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetLineDevStatus(hline : u32, dwstatustochange : u32, fstatus : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetLineDevStatus(hline : u32, dwstatustochange : u32, fstatus : u32) -> i32);
     unsafe { lineSetLineDevStatus(hline, dwstatustochange, fstatus) }
 }
 #[inline]
 pub unsafe fn lineSetMediaControl(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, lpdigitlist: *const LINEMEDIACONTROLDIGIT, dwdigitnumentries: u32, lpmedialist: *const LINEMEDIACONTROLMEDIA, dwmedianumentries: u32, lptonelist: *const LINEMEDIACONTROLTONE, dwtonenumentries: u32, lpcallstatelist: *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetMediaControl(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdigitlist : *const LINEMEDIACONTROLDIGIT, dwdigitnumentries : u32, lpmedialist : *const LINEMEDIACONTROLMEDIA, dwmedianumentries : u32, lptonelist : *const LINEMEDIACONTROLTONE, dwtonenumentries : u32, lpcallstatelist : *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetMediaControl(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, lpdigitlist : *const LINEMEDIACONTROLDIGIT, dwdigitnumentries : u32, lpmedialist : *const LINEMEDIACONTROLMEDIA, dwmedianumentries : u32, lptonelist : *const LINEMEDIACONTROLTONE, dwtonenumentries : u32, lpcallstatelist : *const LINEMEDIACONTROLCALLSTATE, dwcallstatenumentries : u32) -> i32);
     unsafe { lineSetMediaControl(hline, dwaddressid, hcall, dwselect, lpdigitlist, dwdigitnumentries, lpmedialist, dwmedianumentries, lptonelist, dwtonenumentries, lpcallstatelist, dwcallstatenumentries) }
 }
 #[inline]
 pub unsafe fn lineSetMediaMode(hcall: u32, dwmediamodes: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetMediaMode(hcall : u32, dwmediamodes : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetMediaMode(hcall : u32, dwmediamodes : u32) -> i32);
     unsafe { lineSetMediaMode(hcall, dwmediamodes) }
 }
 #[inline]
 pub unsafe fn lineSetNumRings(hline: u32, dwaddressid: u32, dwnumrings: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetNumRings(hline : u32, dwaddressid : u32, dwnumrings : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetNumRings(hline : u32, dwaddressid : u32, dwnumrings : u32) -> i32);
     unsafe { lineSetNumRings(hline, dwaddressid, dwnumrings) }
 }
 #[inline]
 pub unsafe fn lineSetQueueMeasurementPeriod(hline: u32, dwqueueid: u32, dwmeasurementperiod: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetQueueMeasurementPeriod(hline : u32, dwqueueid : u32, dwmeasurementperiod : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetQueueMeasurementPeriod(hline : u32, dwqueueid : u32, dwmeasurementperiod : u32) -> i32);
     unsafe { lineSetQueueMeasurementPeriod(hline, dwqueueid, dwmeasurementperiod) }
 }
 #[inline]
 pub unsafe fn lineSetStatusMessages(hline: u32, dwlinestates: u32, dwaddressstates: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetStatusMessages(hline : u32, dwlinestates : u32, dwaddressstates : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetStatusMessages(hline : u32, dwlinestates : u32, dwaddressstates : u32) -> i32);
     unsafe { lineSetStatusMessages(hline, dwlinestates, dwaddressstates) }
 }
 #[inline]
 pub unsafe fn lineSetTerminal(hline: u32, dwaddressid: u32, hcall: u32, dwselect: u32, dwterminalmodes: u32, dwterminalid: u32, benable: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetTerminal(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, dwterminalmodes : u32, dwterminalid : u32, benable : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetTerminal(hline : u32, dwaddressid : u32, hcall : u32, dwselect : u32, dwterminalmodes : u32, dwterminalid : u32, benable : u32) -> i32);
     unsafe { lineSetTerminal(hline, dwaddressid, hcall, dwselect, dwterminalmodes, dwterminalid, benable) }
 }
 #[inline]
@@ -1101,7 +1101,7 @@ pub unsafe fn lineSetTollList<P2>(hlineapp: u32, dwdeviceid: u32, lpszaddressin:
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetTollList(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetTollList(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
     unsafe { lineSetTollList(hlineapp, dwdeviceid, lpszaddressin.param().abi(), dwtolllistoption) }
 }
 #[inline]
@@ -1109,7 +1109,7 @@ pub unsafe fn lineSetTollListA<P2>(hlineapp: u32, dwdeviceid: u32, lpszaddressin
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetTollListA(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetTollListA(hlineapp : u32, dwdeviceid : u32, lpszaddressin : windows_core::PCSTR, dwtolllistoption : u32) -> i32);
     unsafe { lineSetTollListA(hlineapp, dwdeviceid, lpszaddressin.param().abi(), dwtolllistoption) }
 }
 #[inline]
@@ -1117,47 +1117,47 @@ pub unsafe fn lineSetTollListW<P2>(hlineapp: u32, dwdeviceid: u32, lpszaddressin
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetTollListW(hlineapp : u32, dwdeviceid : u32, lpszaddressinw : windows_core::PCWSTR, dwtolllistoption : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetTollListW(hlineapp : u32, dwdeviceid : u32, lpszaddressinw : windows_core::PCWSTR, dwtolllistoption : u32) -> i32);
     unsafe { lineSetTollListW(hlineapp, dwdeviceid, lpszaddressinw.param().abi(), dwtolllistoption) }
 }
 #[inline]
 pub unsafe fn lineSetupConference(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupConference(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConference(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupConference(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupConferenceA(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceA(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupConferenceA(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupConferenceW(hcall: u32, hline: u32, lphconfcall: *mut u32, lphconsultcall: *mut u32, dwnumparties: u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupConferenceW(hcall : u32, hline : u32, lphconfcall : *mut u32, lphconsultcall : *mut u32, dwnumparties : u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupConferenceW(hcall, hline, lphconfcall as _, lphconsultcall as _, dwnumparties, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupTransfer(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupTransfer(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupTransfer(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupTransfer(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupTransferA(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferA(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupTransferA(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineSetupTransferW(hcall: u32, lphconsultcall: *mut u32, lpcallparams: *const LINECALLPARAMS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSetupTransferW(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSetupTransferW(hcall : u32, lphconsultcall : *mut u32, lpcallparams : *const LINECALLPARAMS) -> i32);
     unsafe { lineSetupTransferW(hcall, lphconsultcall as _, lpcallparams) }
 }
 #[inline]
 pub unsafe fn lineShutdown(hlineapp: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineShutdown(hlineapp : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineShutdown(hlineapp : u32) -> i32);
     unsafe { lineShutdown(hlineapp) }
 }
 #[inline]
 pub unsafe fn lineSwapHold(hactivecall: u32, hheldcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineSwapHold(hactivecall : u32, hheldcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineSwapHold(hactivecall : u32, hheldcall : u32) -> i32);
     unsafe { lineSwapHold(hactivecall, hheldcall) }
 }
 #[inline]
@@ -1165,7 +1165,7 @@ pub unsafe fn lineTranslateAddress<P3>(hlineapp: u32, dwdeviceid: u32, dwapivers
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateAddress(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateAddress(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
     unsafe { lineTranslateAddress(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput as _) }
 }
 #[inline]
@@ -1173,7 +1173,7 @@ pub unsafe fn lineTranslateAddressA<P3>(hlineapp: u32, dwdeviceid: u32, dwapiver
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateAddressA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateAddressA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
     unsafe { lineTranslateAddressA(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput as _) }
 }
 #[inline]
@@ -1181,7 +1181,7 @@ pub unsafe fn lineTranslateAddressW<P3>(hlineapp: u32, dwdeviceid: u32, dwapiver
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateAddressW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCWSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateAddressW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, lpszaddressin : windows_core::PCWSTR, dwcard : u32, dwtranslateoptions : u32, lptranslateoutput : *mut LINETRANSLATEOUTPUT) -> i32);
     unsafe { lineTranslateAddressW(hlineapp, dwdeviceid, dwapiversion, lpszaddressin.param().abi(), dwcard, dwtranslateoptions, lptranslateoutput as _) }
 }
 #[inline]
@@ -1189,7 +1189,7 @@ pub unsafe fn lineTranslateDialog<P4>(hlineapp: u32, dwdeviceid: u32, dwapiversi
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateDialog(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
     unsafe { lineTranslateDialog(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin.param().abi()) }
 }
 #[inline]
@@ -1197,7 +1197,7 @@ pub unsafe fn lineTranslateDialogA<P4>(hlineapp: u32, dwdeviceid: u32, dwapivers
 where
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateDialogA(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCSTR) -> i32);
     unsafe { lineTranslateDialogA(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin.param().abi()) }
 }
 #[inline]
@@ -1205,17 +1205,17 @@ pub unsafe fn lineTranslateDialogW<P4>(hlineapp: u32, dwdeviceid: u32, dwapivers
 where
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineTranslateDialogW(hlineapp : u32, dwdeviceid : u32, dwapiversion : u32, hwndowner : super::super::Foundation:: HWND, lpszaddressin : windows_core::PCWSTR) -> i32);
     unsafe { lineTranslateDialogW(hlineapp, dwdeviceid, dwapiversion, hwndowner, lpszaddressin.param().abi()) }
 }
 #[inline]
 pub unsafe fn lineUncompleteCall(hline: u32, dwcompletionid: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineUncompleteCall(hline : u32, dwcompletionid : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineUncompleteCall(hline : u32, dwcompletionid : u32) -> i32);
     unsafe { lineUncompleteCall(hline, dwcompletionid) }
 }
 #[inline]
 pub unsafe fn lineUnhold(hcall: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn lineUnhold(hcall : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineUnhold(hcall : u32) -> i32);
     unsafe { lineUnhold(hcall) }
 }
 #[inline]
@@ -1223,7 +1223,7 @@ pub unsafe fn lineUnpark<P3>(hline: u32, dwaddressid: u32, lphcall: *mut u32, lp
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineUnpark(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineUnpark(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
     unsafe { lineUnpark(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi()) }
 }
 #[inline]
@@ -1231,7 +1231,7 @@ pub unsafe fn lineUnparkA<P3>(hline: u32, dwaddressid: u32, lphcall: *mut u32, l
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineUnparkA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineUnparkA(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCSTR) -> i32);
     unsafe { lineUnparkA(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi()) }
 }
 #[inline]
@@ -1239,12 +1239,12 @@ pub unsafe fn lineUnparkW<P3>(hline: u32, dwaddressid: u32, lphcall: *mut u32, l
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn lineUnparkW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn lineUnparkW(hline : u32, dwaddressid : u32, lphcall : *mut u32, lpszdestaddress : windows_core::PCWSTR) -> i32);
     unsafe { lineUnparkW(hline, dwaddressid, lphcall as _, lpszdestaddress.param().abi()) }
 }
 #[inline]
 pub unsafe fn phoneClose(hphone: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneClose(hphone : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneClose(hphone : u32) -> i32);
     unsafe { phoneClose(hphone) }
 }
 #[inline]
@@ -1252,7 +1252,7 @@ pub unsafe fn phoneConfigDialog<P2>(dwdeviceid: u32, hwndowner: super::super::Fo
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneConfigDialog(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { phoneConfigDialog(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1260,7 +1260,7 @@ pub unsafe fn phoneConfigDialogA<P2>(dwdeviceid: u32, hwndowner: super::super::F
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneConfigDialogA(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { phoneConfigDialogA(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1268,62 +1268,62 @@ pub unsafe fn phoneConfigDialogW<P2>(dwdeviceid: u32, hwndowner: super::super::F
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneConfigDialogW(dwdeviceid : u32, hwndowner : super::super::Foundation:: HWND, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { phoneConfigDialogW(dwdeviceid, hwndowner, lpszdeviceclass.param().abi()) }
 }
 #[inline]
 pub unsafe fn phoneDevSpecific(hphone: u32, lpparams: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneDevSpecific(hphone : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneDevSpecific(hphone : u32, lpparams : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { phoneDevSpecific(hphone, lpparams as _, dwsize) }
 }
 #[inline]
 pub unsafe fn phoneGetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
     unsafe { phoneGetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo as _) }
 }
 #[inline]
 pub unsafe fn phoneGetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
     unsafe { phoneGetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo as _) }
 }
 #[inline]
 pub unsafe fn phoneGetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *mut PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *mut PHONEBUTTONINFO) -> i32);
     unsafe { phoneGetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo as _) }
 }
 #[inline]
 pub unsafe fn phoneGetData(hphone: u32, dwdataid: u32, lpdata: *mut core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetData(hphone : u32, dwdataid : u32, lpdata : *mut core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetData(hphone : u32, dwdataid : u32, lpdata : *mut core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { phoneGetData(hphone, dwdataid, lpdata as _, dwsize) }
 }
 #[inline]
 pub unsafe fn phoneGetDevCaps(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetDevCaps(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetDevCaps(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
     unsafe { phoneGetDevCaps(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps as _) }
 }
 #[inline]
 pub unsafe fn phoneGetDevCapsA(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetDevCapsA(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetDevCapsA(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
     unsafe { phoneGetDevCapsA(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps as _) }
 }
 #[inline]
 pub unsafe fn phoneGetDevCapsW(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextversion: u32, lpphonecaps: *mut PHONECAPS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetDevCapsW(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetDevCapsW(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextversion : u32, lpphonecaps : *mut PHONECAPS) -> i32);
     unsafe { phoneGetDevCapsW(hphoneapp, dwdeviceid, dwapiversion, dwextversion, lpphonecaps as _) }
 }
 #[inline]
 pub unsafe fn phoneGetDisplay(hphone: u32, lpdisplay: *mut VARSTRING) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetDisplay(hphone : u32, lpdisplay : *mut VARSTRING) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetDisplay(hphone : u32, lpdisplay : *mut VARSTRING) -> i32);
     unsafe { phoneGetDisplay(hphone, lpdisplay as _) }
 }
 #[inline]
 pub unsafe fn phoneGetGain(hphone: u32, dwhookswitchdev: u32, lpdwgain: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetGain(hphone : u32, dwhookswitchdev : u32, lpdwgain : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetGain(hphone : u32, dwhookswitchdev : u32, lpdwgain : *mut u32) -> i32);
     unsafe { phoneGetGain(hphone, dwhookswitchdev, lpdwgain as _) }
 }
 #[inline]
 pub unsafe fn phoneGetHookSwitch(hphone: u32, lpdwhookswitchdevs: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetHookSwitch(hphone : u32, lpdwhookswitchdevs : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetHookSwitch(hphone : u32, lpdwhookswitchdevs : *mut u32) -> i32);
     unsafe { phoneGetHookSwitch(hphone, lpdwhookswitchdevs as _) }
 }
 #[inline]
@@ -1331,7 +1331,7 @@ pub unsafe fn phoneGetID<P2>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdevice
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetID(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetID(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { phoneGetID(hphone, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1339,7 +1339,7 @@ pub unsafe fn phoneGetIDA<P2>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdevic
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetIDA(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetIDA(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCSTR) -> i32);
     unsafe { phoneGetIDA(hphone, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[inline]
@@ -1347,7 +1347,7 @@ pub unsafe fn phoneGetIDW<P2>(hphone: u32, lpdeviceid: *mut VARSTRING, lpszdevic
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetIDW(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetIDW(hphone : u32, lpdeviceid : *mut VARSTRING, lpszdeviceclass : windows_core::PCWSTR) -> i32);
     unsafe { phoneGetIDW(hphone, lpdeviceid as _, lpszdeviceclass.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1356,7 +1356,7 @@ pub unsafe fn phoneGetIcon<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *m
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetIcon(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { phoneGetIcon(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1365,7 +1365,7 @@ pub unsafe fn phoneGetIconA<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetIconA(dwdeviceid : u32, lpszdeviceclass : windows_core::PCSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { phoneGetIconA(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
@@ -1374,47 +1374,47 @@ pub unsafe fn phoneGetIconW<P1>(dwdeviceid: u32, lpszdeviceclass: P1, lphicon: *
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetIconW(dwdeviceid : u32, lpszdeviceclass : windows_core::PCWSTR, lphicon : *mut super::super::UI::WindowsAndMessaging:: HICON) -> i32);
     unsafe { phoneGetIconW(dwdeviceid, lpszdeviceclass.param().abi(), lphicon as _) }
 }
 #[inline]
 pub unsafe fn phoneGetLamp(hphone: u32, dwbuttonlampid: u32, lpdwlampmode: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetLamp(hphone : u32, dwbuttonlampid : u32, lpdwlampmode : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetLamp(hphone : u32, dwbuttonlampid : u32, lpdwlampmode : *mut u32) -> i32);
     unsafe { phoneGetLamp(hphone, dwbuttonlampid, lpdwlampmode as _) }
 }
 #[inline]
 pub unsafe fn phoneGetMessage(hphoneapp: u32, lpmessage: *mut PHONEMESSAGE, dwtimeout: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetMessage(hphoneapp : u32, lpmessage : *mut PHONEMESSAGE, dwtimeout : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetMessage(hphoneapp : u32, lpmessage : *mut PHONEMESSAGE, dwtimeout : u32) -> i32);
     unsafe { phoneGetMessage(hphoneapp, lpmessage as _, dwtimeout) }
 }
 #[inline]
 pub unsafe fn phoneGetRing(hphone: u32, lpdwringmode: *mut u32, lpdwvolume: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetRing(hphone : u32, lpdwringmode : *mut u32, lpdwvolume : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetRing(hphone : u32, lpdwringmode : *mut u32, lpdwvolume : *mut u32) -> i32);
     unsafe { phoneGetRing(hphone, lpdwringmode as _, lpdwvolume as _) }
 }
 #[inline]
 pub unsafe fn phoneGetStatus(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetStatus(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetStatus(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
     unsafe { phoneGetStatus(hphone, lpphonestatus as _) }
 }
 #[inline]
 pub unsafe fn phoneGetStatusA(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetStatusA(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetStatusA(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
     unsafe { phoneGetStatusA(hphone, lpphonestatus as _) }
 }
 #[inline]
 pub unsafe fn phoneGetStatusMessages(hphone: u32, lpdwphonestates: *mut u32, lpdwbuttonmodes: *mut u32, lpdwbuttonstates: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetStatusMessages(hphone : u32, lpdwphonestates : *mut u32, lpdwbuttonmodes : *mut u32, lpdwbuttonstates : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetStatusMessages(hphone : u32, lpdwphonestates : *mut u32, lpdwbuttonmodes : *mut u32, lpdwbuttonstates : *mut u32) -> i32);
     unsafe { phoneGetStatusMessages(hphone, lpdwphonestates as _, lpdwbuttonmodes as _, lpdwbuttonstates as _) }
 }
 #[inline]
 pub unsafe fn phoneGetStatusW(hphone: u32, lpphonestatus: *mut PHONESTATUS) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetStatusW(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetStatusW(hphone : u32, lpphonestatus : *mut PHONESTATUS) -> i32);
     unsafe { phoneGetStatusW(hphone, lpphonestatus as _) }
 }
 #[inline]
 pub unsafe fn phoneGetVolume(hphone: u32, dwhookswitchdev: u32, lpdwvolume: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneGetVolume(hphone : u32, dwhookswitchdev : u32, lpdwvolume : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneGetVolume(hphone : u32, dwhookswitchdev : u32, lpdwvolume : *mut u32) -> i32);
     unsafe { phoneGetVolume(hphone, dwhookswitchdev, lpdwvolume as _) }
 }
 #[inline]
@@ -1422,7 +1422,7 @@ pub unsafe fn phoneInitialize<P3>(lphphoneapp: *mut u32, hinstance: super::super
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneInitialize(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszappname : windows_core::PCSTR, lpdwnumdevs : *mut u32) -> i32);
     unsafe { phoneInitialize(lphphoneapp as _, hinstance, lpfncallback, lpszappname.param().abi(), lpdwnumdevs as _) }
 }
 #[inline]
@@ -1430,7 +1430,7 @@ pub unsafe fn phoneInitializeExA<P3>(lphphoneapp: *mut u32, hinstance: super::su
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneInitializeExA(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
     unsafe { phoneInitializeExA(lphphoneapp as _, hinstance, lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs as _, lpdwapiversion as _, lpphoneinitializeexparams as _) }
 }
 #[inline]
@@ -1438,42 +1438,42 @@ pub unsafe fn phoneInitializeExW<P3>(lphphoneapp: *mut u32, hinstance: super::su
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneInitializeExW(lphphoneapp : *mut u32, hinstance : super::super::Foundation:: HINSTANCE, lpfncallback : PHONECALLBACK, lpszfriendlyappname : windows_core::PCWSTR, lpdwnumdevs : *mut u32, lpdwapiversion : *mut u32, lpphoneinitializeexparams : *mut PHONEINITIALIZEEXPARAMS) -> i32);
     unsafe { phoneInitializeExW(lphphoneapp as _, hinstance, lpfncallback, lpszfriendlyappname.param().abi(), lpdwnumdevs as _, lpdwapiversion as _, lpphoneinitializeexparams as _) }
 }
 #[inline]
 pub unsafe fn phoneNegotiateAPIVersion(hphoneapp: u32, dwdeviceid: u32, dwapilowversion: u32, dwapihighversion: u32, lpdwapiversion: *mut u32, lpextensionid: *mut PHONEEXTENSIONID) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneNegotiateAPIVersion(hphoneapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut PHONEEXTENSIONID) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneNegotiateAPIVersion(hphoneapp : u32, dwdeviceid : u32, dwapilowversion : u32, dwapihighversion : u32, lpdwapiversion : *mut u32, lpextensionid : *mut PHONEEXTENSIONID) -> i32);
     unsafe { phoneNegotiateAPIVersion(hphoneapp, dwdeviceid, dwapilowversion, dwapihighversion, lpdwapiversion as _, lpextensionid as _) }
 }
 #[inline]
 pub unsafe fn phoneNegotiateExtVersion(hphoneapp: u32, dwdeviceid: u32, dwapiversion: u32, dwextlowversion: u32, dwexthighversion: u32, lpdwextversion: *mut u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneNegotiateExtVersion(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneNegotiateExtVersion(hphoneapp : u32, dwdeviceid : u32, dwapiversion : u32, dwextlowversion : u32, dwexthighversion : u32, lpdwextversion : *mut u32) -> i32);
     unsafe { phoneNegotiateExtVersion(hphoneapp, dwdeviceid, dwapiversion, dwextlowversion, dwexthighversion, lpdwextversion as _) }
 }
 #[inline]
 pub unsafe fn phoneOpen(hphoneapp: u32, dwdeviceid: u32, lphphone: *mut u32, dwapiversion: u32, dwextversion: u32, dwcallbackinstance: usize, dwprivilege: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneOpen(hphoneapp : u32, dwdeviceid : u32, lphphone : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivilege : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneOpen(hphoneapp : u32, dwdeviceid : u32, lphphone : *mut u32, dwapiversion : u32, dwextversion : u32, dwcallbackinstance : usize, dwprivilege : u32) -> i32);
     unsafe { phoneOpen(hphoneapp, dwdeviceid, lphphone as _, dwapiversion, dwextversion, dwcallbackinstance, dwprivilege) }
 }
 #[inline]
 pub unsafe fn phoneSetButtonInfo(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetButtonInfo(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
     unsafe { phoneSetButtonInfo(hphone, dwbuttonlampid, lpbuttoninfo) }
 }
 #[inline]
 pub unsafe fn phoneSetButtonInfoA(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetButtonInfoA(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
     unsafe { phoneSetButtonInfoA(hphone, dwbuttonlampid, lpbuttoninfo) }
 }
 #[inline]
 pub unsafe fn phoneSetButtonInfoW(hphone: u32, dwbuttonlampid: u32, lpbuttoninfo: *const PHONEBUTTONINFO) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetButtonInfoW(hphone : u32, dwbuttonlampid : u32, lpbuttoninfo : *const PHONEBUTTONINFO) -> i32);
     unsafe { phoneSetButtonInfoW(hphone, dwbuttonlampid, lpbuttoninfo) }
 }
 #[inline]
 pub unsafe fn phoneSetData(hphone: u32, dwdataid: u32, lpdata: *const core::ffi::c_void, dwsize: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *const core::ffi::c_void, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetData(hphone : u32, dwdataid : u32, lpdata : *const core::ffi::c_void, dwsize : u32) -> i32);
     unsafe { phoneSetData(hphone, dwdataid, lpdata, dwsize) }
 }
 #[inline]
@@ -1481,62 +1481,62 @@ pub unsafe fn phoneSetDisplay<P3>(hphone: u32, dwrow: u32, dwcolumn: u32, lpsdis
 where
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetDisplay(hphone : u32, dwrow : u32, dwcolumn : u32, lpsdisplay : windows_core::PCSTR, dwsize : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetDisplay(hphone : u32, dwrow : u32, dwcolumn : u32, lpsdisplay : windows_core::PCSTR, dwsize : u32) -> i32);
     unsafe { phoneSetDisplay(hphone, dwrow, dwcolumn, lpsdisplay.param().abi(), dwsize) }
 }
 #[inline]
 pub unsafe fn phoneSetGain(hphone: u32, dwhookswitchdev: u32, dwgain: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetGain(hphone : u32, dwhookswitchdev : u32, dwgain : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetGain(hphone : u32, dwhookswitchdev : u32, dwgain : u32) -> i32);
     unsafe { phoneSetGain(hphone, dwhookswitchdev, dwgain) }
 }
 #[inline]
 pub unsafe fn phoneSetHookSwitch(hphone: u32, dwhookswitchdevs: u32, dwhookswitchmode: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetHookSwitch(hphone : u32, dwhookswitchdevs : u32, dwhookswitchmode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetHookSwitch(hphone : u32, dwhookswitchdevs : u32, dwhookswitchmode : u32) -> i32);
     unsafe { phoneSetHookSwitch(hphone, dwhookswitchdevs, dwhookswitchmode) }
 }
 #[inline]
 pub unsafe fn phoneSetLamp(hphone: u32, dwbuttonlampid: u32, dwlampmode: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetLamp(hphone : u32, dwbuttonlampid : u32, dwlampmode : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetLamp(hphone : u32, dwbuttonlampid : u32, dwlampmode : u32) -> i32);
     unsafe { phoneSetLamp(hphone, dwbuttonlampid, dwlampmode) }
 }
 #[inline]
 pub unsafe fn phoneSetRing(hphone: u32, dwringmode: u32, dwvolume: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetRing(hphone : u32, dwringmode : u32, dwvolume : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetRing(hphone : u32, dwringmode : u32, dwvolume : u32) -> i32);
     unsafe { phoneSetRing(hphone, dwringmode, dwvolume) }
 }
 #[inline]
 pub unsafe fn phoneSetStatusMessages(hphone: u32, dwphonestates: u32, dwbuttonmodes: u32, dwbuttonstates: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetStatusMessages(hphone : u32, dwphonestates : u32, dwbuttonmodes : u32, dwbuttonstates : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetStatusMessages(hphone : u32, dwphonestates : u32, dwbuttonmodes : u32, dwbuttonstates : u32) -> i32);
     unsafe { phoneSetStatusMessages(hphone, dwphonestates, dwbuttonmodes, dwbuttonstates) }
 }
 #[inline]
 pub unsafe fn phoneSetVolume(hphone: u32, dwhookswitchdev: u32, dwvolume: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneSetVolume(hphone : u32, dwhookswitchdev : u32, dwvolume : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneSetVolume(hphone : u32, dwhookswitchdev : u32, dwvolume : u32) -> i32);
     unsafe { phoneSetVolume(hphone, dwhookswitchdev, dwvolume) }
 }
 #[inline]
 pub unsafe fn phoneShutdown(hphoneapp: u32) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn phoneShutdown(hphoneapp : u32) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn phoneShutdown(hphoneapp : u32) -> i32);
     unsafe { phoneShutdown(hphoneapp) }
 }
 #[inline]
 pub unsafe fn tapiGetLocationInfo(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfo(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
     unsafe { tapiGetLocationInfo(core::mem::transmute(lpszcountrycode.as_ptr()), core::mem::transmute(lpszcitycode.as_ptr())) }
 }
 #[inline]
 pub unsafe fn tapiGetLocationInfoA(lpszcountrycode: &mut [u8; 8], lpszcitycode: &mut [u8; 8]) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoA(lpszcountrycode : windows_core::PSTR, lpszcitycode : windows_core::PSTR) -> i32);
     unsafe { tapiGetLocationInfoA(core::mem::transmute(lpszcountrycode.as_ptr()), core::mem::transmute(lpszcitycode.as_ptr())) }
 }
 #[inline]
 pub unsafe fn tapiGetLocationInfoW(lpszcountrycodew: &mut [u16; 8], lpszcitycodew: &mut [u16; 8]) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_core::PWSTR, lpszcitycodew : windows_core::PWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiGetLocationInfoW(lpszcountrycodew : windows_core::PWSTR, lpszcitycodew : windows_core::PWSTR) -> i32);
     unsafe { tapiGetLocationInfoW(core::mem::transmute(lpszcountrycodew.as_ptr()), core::mem::transmute(lpszcitycodew.as_ptr())) }
 }
 #[inline]
 pub unsafe fn tapiRequestDrop(hwnd: super::super::Foundation::HWND, wrequestid: super::super::Foundation::WPARAM) -> i32 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestDrop(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM) -> i32);
     unsafe { tapiRequestDrop(hwnd, wrequestid) }
 }
 #[inline]
@@ -1547,7 +1547,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCall(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMakeCall(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
     unsafe { tapiRequestMakeCall(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 #[inline]
@@ -1558,7 +1558,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCallA(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMakeCallA(lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
     unsafe { tapiRequestMakeCallA(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 #[inline]
@@ -1569,7 +1569,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMakeCallW(lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMakeCallW(lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
     unsafe { tapiRequestMakeCallW(lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 #[inline]
@@ -1582,7 +1582,7 @@ where
     P8: windows_core::Param<windows_core::PCSTR>,
     P9: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMediaCall(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
     unsafe { tapiRequestMediaCall(hwnd, wrequestid, lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 #[inline]
@@ -1595,7 +1595,7 @@ where
     P8: windows_core::Param<windows_core::PCSTR>,
     P9: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMediaCallA(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCSTR, lpdeviceid : windows_core::PCSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCSTR, lpszappname : windows_core::PCSTR, lpszcalledparty : windows_core::PCSTR, lpszcomment : windows_core::PCSTR) -> i32);
     unsafe { tapiRequestMediaCallA(hwnd, wrequestid, lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 #[inline]
@@ -1608,7 +1608,7 @@ where
     P8: windows_core::Param<windows_core::PCWSTR>,
     P9: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCWSTR, lpdeviceid : windows_core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
+    windows_core::link!("tapi32.dll" "system" fn tapiRequestMediaCallW(hwnd : super::super::Foundation:: HWND, wrequestid : super::super::Foundation:: WPARAM, lpszdeviceclass : windows_core::PCWSTR, lpdeviceid : windows_core::PCWSTR, dwsize : u32, dwsecure : u32, lpszdestaddress : windows_core::PCWSTR, lpszappname : windows_core::PCWSTR, lpszcalledparty : windows_core::PCWSTR, lpszcomment : windows_core::PCWSTR) -> i32);
     unsafe { tapiRequestMediaCallW(hwnd, wrequestid, lpszdeviceclass.param().abi(), lpdeviceid.param().abi(), dwsize, dwsecure, lpszdestaddress.param().abi(), lpszappname.param().abi(), lpszcalledparty.param().abi(), lpszcomment.param().abi()) }
 }
 pub const ACDGE_GROUP_REMOVED: ACDGROUP_EVENT = ACDGROUP_EVENT(1i32);

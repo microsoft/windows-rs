@@ -3,7 +3,7 @@ pub unsafe fn WslConfigureDistribution<P0>(distributionname: P0, defaultuid: u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslConfigureDistribution(distributionname : windows_core::PCWSTR, defaultuid : u32, wsldistributionflags : WSL_DISTRIBUTION_FLAGS) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslConfigureDistribution(distributionname : windows_core::PCWSTR, defaultuid : u32, wsldistributionflags : WSL_DISTRIBUTION_FLAGS) -> windows_core::HRESULT);
     unsafe { WslConfigureDistribution(distributionname.param().abi(), defaultuid, wsldistributionflags).ok() }
 }
 #[inline]
@@ -11,7 +11,7 @@ pub unsafe fn WslGetDistributionConfiguration<P0>(distributionname: P0, distribu
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslGetDistributionConfiguration(distributionname : windows_core::PCWSTR, distributionversion : *mut u32, defaultuid : *mut u32, wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables : *mut *mut windows_core::PSTR, defaultenvironmentvariablecount : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslGetDistributionConfiguration(distributionname : windows_core::PCWSTR, distributionversion : *mut u32, defaultuid : *mut u32, wsldistributionflags : *mut WSL_DISTRIBUTION_FLAGS, defaultenvironmentvariables : *mut *mut windows_core::PSTR, defaultenvironmentvariablecount : *mut u32) -> windows_core::HRESULT);
     unsafe { WslGetDistributionConfiguration(distributionname.param().abi(), distributionversion as _, defaultuid as _, wsldistributionflags as _, defaultenvironmentvariables as _, defaultenvironmentvariablecount as _).ok() }
 }
 #[inline]
@@ -19,7 +19,7 @@ pub unsafe fn WslIsDistributionRegistered<P0>(distributionname: P0) -> windows_c
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslIsDistributionRegistered(distributionname : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslIsDistributionRegistered(distributionname : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { WslIsDistributionRegistered(distributionname.param().abi()) }
 }
 #[inline]
@@ -28,7 +28,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunch(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, stdin : super::super::Foundation:: HANDLE, stdout : super::super::Foundation:: HANDLE, stderr : super::super::Foundation:: HANDLE, process : *mut super::super::Foundation:: HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WslLaunch(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), stdin, stdout, stderr, &mut result__).map(|| result__)
@@ -40,7 +40,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunchInteractive(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, exitcode : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslLaunchInteractive(distributionname : windows_core::PCWSTR, command : windows_core::PCWSTR, usecurrentworkingdirectory : windows_core::BOOL, exitcode : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WslLaunchInteractive(distributionname.param().abi(), command.param().abi(), usecurrentworkingdirectory.into(), &mut result__).map(|| result__)
@@ -52,7 +52,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslRegisterDistribution(distributionname : windows_core::PCWSTR, targzfilename : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslRegisterDistribution(distributionname : windows_core::PCWSTR, targzfilename : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WslRegisterDistribution(distributionname.param().abi(), targzfilename.param().abi()).ok() }
 }
 #[inline]
@@ -60,7 +60,7 @@ pub unsafe fn WslUnregisterDistribution<P0>(distributionname: P0) -> windows_cor
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslUnregisterDistribution(distributionname : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("api-ms-win-wsl-api-l1-1-0.dll" "system" fn WslUnregisterDistribution(distributionname : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { WslUnregisterDistribution(distributionname.param().abi()).ok() }
 }
 #[repr(transparent)]

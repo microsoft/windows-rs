@@ -1,31 +1,31 @@
 #[inline]
 pub unsafe fn CertSrvBackupClose(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupClose(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvBackupClose(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupEnd(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvBackupEnd(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupFree(pv: *mut core::ffi::c_void) {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupFree(pv : *mut core::ffi::c_void));
     unsafe { CertSrvBackupFree(pv as _) }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetBackupLogsW(hbc: *const core::ffi::c_void, ppwszzbackuplogfiles: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : *const core::ffi::c_void, ppwszzbackuplogfiles : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetBackupLogsW(hbc : *const core::ffi::c_void, ppwszzbackuplogfiles : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetBackupLogsW(hbc, ppwszzbackuplogfiles as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetDatabaseNamesW(hbc: *const core::ffi::c_void, ppwszzattachmentinformation: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : *const core::ffi::c_void, ppwszzattachmentinformation : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDatabaseNamesW(hbc : *const core::ffi::c_void, ppwszzattachmentinformation : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetDatabaseNamesW(hbc, ppwszzattachmentinformation as _, pcbsize as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupGetDynamicFileListW(hbc: *const core::ffi::c_void, ppwszzfilelist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : *const core::ffi::c_void, ppwszzfilelist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupGetDynamicFileListW(hbc : *const core::ffi::c_void, ppwszzfilelist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSrvBackupGetDynamicFileListW(hbc, ppwszzfilelist as _, pcbsize as _).ok() }
 }
 #[inline]
@@ -33,7 +33,7 @@ pub unsafe fn CertSrvBackupOpenFileW<P1>(hbc: *mut core::ffi::c_void, pwszattach
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : *mut core::ffi::c_void, pwszattachmentname : windows_core::PCWSTR, cbreadhintsize : u32, plifilesize : *mut i64) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupOpenFileW(hbc : *mut core::ffi::c_void, pwszattachmentname : windows_core::PCWSTR, cbreadhintsize : u32, plifilesize : *mut i64) -> windows_core::HRESULT);
     unsafe { CertSrvBackupOpenFileW(hbc as _, pwszattachmentname.param().abi(), cbreadhintsize, plifilesize as _).ok() }
 }
 #[inline]
@@ -41,17 +41,17 @@ pub unsafe fn CertSrvBackupPrepareW<P0>(pwszservername: P0, grbitjet: u32, dwbac
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : windows_core::PCWSTR, grbitjet : u32, dwbackupflags : CSBACKUP_TYPE, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupPrepareW(pwszservername : windows_core::PCWSTR, grbitjet : u32, dwbackupflags : CSBACKUP_TYPE, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvBackupPrepareW(pwszservername.param().abi(), grbitjet, dwbackupflags, phbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupRead(hbc: *mut core::ffi::c_void, pvbuffer: *mut core::ffi::c_void, cbbuffer: u32, pcbread: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : *mut core::ffi::c_void, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupRead(hbc : *mut core::ffi::c_void, pvbuffer : *mut core::ffi::c_void, cbbuffer : u32, pcbread : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSrvBackupRead(hbc as _, pvbuffer as _, cbbuffer, pcbread as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvBackupTruncateLogs(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvBackupTruncateLogs(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvBackupTruncateLogs(hbc as _).ok() }
 }
 #[inline]
@@ -59,17 +59,17 @@ pub unsafe fn CertSrvIsServerOnlineW<P0>(pwszservername: P0, pfserveronline: *mu
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : windows_core::PCWSTR, pfserveronline : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvIsServerOnlineW(pwszservername : windows_core::PCWSTR, pfserveronline : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { CertSrvIsServerOnlineW(pwszservername.param().abi(), pfserveronline as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreEnd(hbc: *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreEnd(hbc : *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreEnd(hbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreGetDatabaseLocationsW(hbc: *const core::ffi::c_void, ppwszzdatabaselocationlist: *mut windows_core::PWSTR, pcbsize: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : *const core::ffi::c_void, ppwszzdatabaselocationlist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreGetDatabaseLocationsW(hbc : *const core::ffi::c_void, ppwszzdatabaselocationlist : *mut windows_core::PWSTR, pcbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreGetDatabaseLocationsW(hbc, ppwszzdatabaselocationlist as _, pcbsize as _).ok() }
 }
 #[inline]
@@ -77,12 +77,12 @@ pub unsafe fn CertSrvRestorePrepareW<P0>(pwszservername: P0, dwrestoreflags: u32
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : windows_core::PCWSTR, dwrestoreflags : u32, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestorePrepareW(pwszservername : windows_core::PCWSTR, dwrestoreflags : u32, phbc : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CertSrvRestorePrepareW(pwszservername.param().abi(), dwrestoreflags, phbc as _).ok() }
 }
 #[inline]
 pub unsafe fn CertSrvRestoreRegisterComplete(hbc: *mut core::ffi::c_void, hrrestorestate: windows_core::HRESULT) -> windows_core::Result<()> {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : *mut core::ffi::c_void, hrrestorestate : windows_core::HRESULT) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterComplete(hbc : *mut core::ffi::c_void, hrrestorestate : windows_core::HRESULT) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreRegisterComplete(hbc as _, hrrestorestate).ok() }
 }
 #[inline]
@@ -92,7 +92,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterThroughFile(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreRegisterThroughFile(hbc as _, pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), rgrstmap as _, crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
 }
 #[inline]
@@ -102,7 +102,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P5: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvRestoreRegisterW(hbc : *mut core::ffi::c_void, pwszcheckpointfilepath : windows_core::PCWSTR, pwszlogpath : windows_core::PCWSTR, rgrstmap : *mut CSEDB_RSTMAPW, crstmap : i32, pwszbackuplogpath : windows_core::PCWSTR, genlow : u32, genhigh : u32) -> windows_core::HRESULT);
     unsafe { CertSrvRestoreRegisterW(hbc as _, pwszcheckpointfilepath.param().abi(), pwszlogpath.param().abi(), rgrstmap as _, crstmap, pwszbackuplogpath.param().abi(), genlow, genhigh).ok() }
 }
 #[inline]
@@ -110,51 +110,51 @@ pub unsafe fn CertSrvServerControlW<P0>(pwszservername: P0, dwcontrolflags: u32,
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : windows_core::PCWSTR, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_core::HRESULT);
+    windows_core::link!("certadm.dll" "system" fn CertSrvServerControlW(pwszservername : windows_core::PCWSTR, dwcontrolflags : u32, pcbout : *mut u32, ppbout : *mut *mut u8) -> windows_core::HRESULT);
     unsafe { CertSrvServerControlW(pwszservername.param().abi(), dwcontrolflags, pcbout as _, ppbout as _).ok() }
 }
 #[inline]
 pub unsafe fn PstAcquirePrivateKey(pcert: *const super::CERT_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstAcquirePrivateKey(pcert : *const super:: CERT_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstAcquirePrivateKey(pcert : *const super:: CERT_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstAcquirePrivateKey(pcert) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetCertificateChain(pcert: *const super::CERT_CONTEXT, ptrustedissuers: *const super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx, ppcertchaincontext: *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super:: CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificateChain(pcert : *const super:: CERT_CONTEXT, ptrustedissuers : *const super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx, ppcertchaincontext : *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetCertificateChain(pcert, ptrustedissuers, ppcertchaincontext as _) }
 }
 #[inline]
 pub unsafe fn PstGetCertificates(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, bisclient: bool, pdwcertchaincontextcount: *mut u32, ppcertchaincontexts: *mut *mut *mut super::CERT_CHAIN_CONTEXT) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : windows_core::BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetCertificates(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, bisclient : windows_core::BOOL, pdwcertchaincontextcount : *mut u32, ppcertchaincontexts : *mut *mut *mut super:: CERT_CHAIN_CONTEXT) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetCertificates(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), bisclient.into(), pdwcertchaincontextcount as _, ppcertchaincontexts as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchors(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchors(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetTrustAnchors(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pptrustedissuers as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstGetTrustAnchorsEx(ptargetname: *const super::super::super::Foundation::UNICODE_STRING, rgpcriteria: Option<&[super::CERT_SELECT_CRITERIA]>, pcertcontext: Option<*const super::CERT_CONTEXT>, pptrustedissuers: *mut *mut super::super::Authentication::Identity::SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pcertcontext : *const super:: CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetTrustAnchorsEx(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, ccriteria : u32, rgpcriteria : *const super:: CERT_SELECT_CRITERIA, pcertcontext : *const super:: CERT_CONTEXT, pptrustedissuers : *mut *mut super::super::Authentication::Identity:: SecPkgContext_IssuerListInfoEx) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetTrustAnchorsEx(ptargetname, rgpcriteria.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(rgpcriteria.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pcertcontext.unwrap_or(core::mem::zeroed()) as _, pptrustedissuers as _) }
 }
 #[inline]
 pub unsafe fn PstGetUserNameForCertificate(pcertcontext: *const super::CERT_CONTEXT, username: *mut super::super::super::Foundation::UNICODE_STRING) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super:: CERT_CONTEXT, username : *mut super::super::super::Foundation:: UNICODE_STRING) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstGetUserNameForCertificate(pcertcontext : *const super:: CERT_CONTEXT, username : *mut super::super::super::Foundation:: UNICODE_STRING) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstGetUserNameForCertificate(pcertcontext, username as _) }
 }
 #[cfg(feature = "Win32_Security_Authentication_Identity")]
 #[inline]
 pub unsafe fn PstMapCertificate(pcert: *const super::CERT_CONTEXT, ptokeninformationtype: *mut super::super::Authentication::Identity::LSA_TOKEN_INFORMATION_TYPE, pptokeninformation: *mut *mut core::ffi::c_void) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super:: CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstMapCertificate(pcert : *const super:: CERT_CONTEXT, ptokeninformationtype : *mut super::super::Authentication::Identity:: LSA_TOKEN_INFORMATION_TYPE, pptokeninformation : *mut *mut core::ffi::c_void) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstMapCertificate(pcert, ptokeninformationtype as _, pptokeninformation as _) }
 }
 #[inline]
 pub unsafe fn PstValidate(ptargetname: Option<*const super::super::super::Foundation::UNICODE_STRING>, bisclient: bool, prequestedissuancepolicy: Option<*const super::CERT_USAGE_MATCH>, phadditionalcertstore: Option<*const super::HCERTSTORE>, pcert: *const super::CERT_CONTEXT, pprovguid: Option<*mut windows_core::GUID>) -> super::super::super::Foundation::NTSTATUS {
-    windows_link::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : windows_core::BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
+    windows_core::link!("certpoleng.dll" "system" fn PstValidate(ptargetname : *const super::super::super::Foundation:: UNICODE_STRING, bisclient : windows_core::BOOL, prequestedissuancepolicy : *const super:: CERT_USAGE_MATCH, phadditionalcertstore : *const super:: HCERTSTORE, pcert : *const super:: CERT_CONTEXT, pprovguid : *mut windows_core::GUID) -> super::super::super::Foundation:: NTSTATUS);
     unsafe { PstValidate(ptargetname.unwrap_or(core::mem::zeroed()) as _, bisclient.into(), prequestedissuancepolicy.unwrap_or(core::mem::zeroed()) as _, phadditionalcertstore.unwrap_or(core::mem::zeroed()) as _, pcert, pprovguid.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[repr(transparent)]

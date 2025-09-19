@@ -96,7 +96,7 @@ impl Interface {
 
         let vtbl = {
             let virtual_names = &mut MethodNames::new();
-            let core = config.write_core();
+            let result = config.write_result();
 
             let vtbl_methods = methods.iter().map(|method| match method {
                 MethodOrName::Method(method) => {
@@ -108,14 +108,14 @@ impl Interface {
 
                     if yes.is_empty() {
                         quote! {
-                            pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
+                            pub #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
                         }
                     } else {
                         let no = method_cfg.write(config, true);
 
                         quote! {
                             #yes
-                            pub #name: unsafe extern "system" fn(#vtbl) -> #core HRESULT,
+                            pub #name: unsafe extern "system" fn(#vtbl) -> #result HRESULT,
                             #no
                             #name: usize,
                         }
@@ -132,6 +132,8 @@ impl Interface {
             } else {
                 quote! { #[doc(hidden)] }
             };
+
+            let core = config.write_core();
 
             quote! {
                 #cfg

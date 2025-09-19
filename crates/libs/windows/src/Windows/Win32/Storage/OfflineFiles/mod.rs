@@ -1,21 +1,21 @@
 #[inline]
 pub unsafe fn OfflineFilesEnable(benable: bool, pbrebootrequired: *mut windows_core::BOOL) -> u32 {
-    windows_link::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : windows_core::BOOL, pbrebootrequired : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("cscapi.dll" "system" fn OfflineFilesEnable(benable : windows_core::BOOL, pbrebootrequired : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesEnable(benable.into(), pbrebootrequired as _) }
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatus(pbactive: Option<*mut windows_core::BOOL>, pbenabled: Option<*mut windows_core::BOOL>) -> u32 {
-    windows_link::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("cscapi.dll" "system" fn OfflineFilesQueryStatus(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesQueryStatus(pbactive.unwrap_or(core::mem::zeroed()) as _, pbenabled.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OfflineFilesQueryStatusEx(pbactive: Option<*mut windows_core::BOOL>, pbenabled: Option<*mut windows_core::BOOL>, pbavailable: Option<*mut windows_core::BOOL>) -> u32 {
-    windows_link::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL, pbavailable : *mut windows_core::BOOL) -> u32);
+    windows_core::link!("cscapi.dll" "system" fn OfflineFilesQueryStatusEx(pbactive : *mut windows_core::BOOL, pbenabled : *mut windows_core::BOOL, pbavailable : *mut windows_core::BOOL) -> u32);
     unsafe { OfflineFilesQueryStatusEx(pbactive.unwrap_or(core::mem::zeroed()) as _, pbenabled.unwrap_or(core::mem::zeroed()) as _, pbavailable.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn OfflineFilesStart() -> u32 {
-    windows_link::link!("cscapi.dll" "system" fn OfflineFilesStart() -> u32);
+    windows_core::link!("cscapi.dll" "system" fn OfflineFilesStart() -> u32);
     unsafe { OfflineFilesStart() }
 }
 windows_core::imp::define_interface!(IEnumOfflineFilesItems, IEnumOfflineFilesItems_Vtbl, 0xda70e815_c361_4407_bc0b_0d7046e5f2cd);

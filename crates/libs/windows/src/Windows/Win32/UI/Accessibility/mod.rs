@@ -1,11 +1,11 @@
 #[inline]
 pub unsafe fn AccNotifyTouchInteraction(hwndapp: super::super::Foundation::HWND, hwndtarget: super::super::Foundation::HWND, pttarget: super::super::Foundation::POINT) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccNotifyTouchInteraction(hwndapp : super::super::Foundation:: HWND, hwndtarget : super::super::Foundation:: HWND, pttarget : super::super::Foundation:: POINT) -> windows_core::HRESULT);
     unsafe { AccNotifyTouchInteraction(hwndapp, hwndtarget, core::mem::transmute(pttarget)).ok() }
 }
 #[inline]
 pub unsafe fn AccSetRunningUtilityState(hwndapp: super::super::Foundation::HWND, dwutilitystatemask: u32, dwutilitystate: ACC_UTILITY_STATE_FLAGS) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccSetRunningUtilityState(hwndapp : super::super::Foundation:: HWND, dwutilitystatemask : u32, dwutilitystate : ACC_UTILITY_STATE_FLAGS) -> windows_core::HRESULT);
     unsafe { AccSetRunningUtilityState(hwndapp, dwutilitystatemask, dwutilitystate).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -14,29 +14,29 @@ pub unsafe fn AccessibleChildren<P0>(pacccontainer: P0, ichildstart: i32, rgvarc
 where
     P0: windows_core::Param<IAccessible>,
 {
-    windows_link::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccessibleChildren(pacccontainer : * mut core::ffi::c_void, ichildstart : i32, cchildren : i32, rgvarchildren : *mut super::super::System::Variant:: VARIANT, pcobtained : *mut i32) -> windows_core::HRESULT);
     unsafe { AccessibleChildren(pacccontainer.param().abi(), ichildstart, rgvarchildren.len().try_into().unwrap(), core::mem::transmute(rgvarchildren.as_ptr()), pcobtained as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromEvent(hwnd: super::super::Foundation::HWND, dwid: u32, dwchildid: u32, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromEvent(hwnd : super::super::Foundation:: HWND, dwid : u32, dwchildid : u32, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromEvent(hwnd, dwid, dwchildid, core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn AccessibleObjectFromPoint(ptscreen: super::super::Foundation::POINT, ppacc: *mut Option<IAccessible>, pvarchild: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromPoint(ptscreen : super::super::Foundation:: POINT, ppacc : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromPoint(core::mem::transmute(ptscreen), core::mem::transmute(ppacc), core::mem::transmute(pvarchild)).ok() }
 }
 #[inline]
 pub unsafe fn AccessibleObjectFromWindow(hwnd: super::super::Foundation::HWND, dwid: u32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn AccessibleObjectFromWindow(hwnd : super::super::Foundation:: HWND, dwid : u32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { AccessibleObjectFromWindow(hwnd, dwid, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateStdAccessibleObject(hwnd: super::super::Foundation::HWND, idobject: i32, riid: *const windows_core::GUID, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleObject(hwnd : super::super::Foundation:: HWND, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateStdAccessibleObject(hwnd, idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
@@ -44,7 +44,7 @@ pub unsafe fn CreateStdAccessibleProxyA<P1>(hwnd: super::super::Foundation::HWND
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyA(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateStdAccessibleProxyA(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
@@ -52,79 +52,79 @@ pub unsafe fn CreateStdAccessibleProxyW<P1>(hwnd: super::super::Foundation::HWND
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn CreateStdAccessibleProxyW(hwnd : super::super::Foundation:: HWND, pclassname : windows_core::PCWSTR, idobject : i32, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CreateStdAccessibleProxyW(hwnd, pclassname.param().abi(), idobject, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn DockPattern_SetDockPosition(hobj: HUIAPATTERNOBJECT, dockposition: DockPosition) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn DockPattern_SetDockPosition(hobj : HUIAPATTERNOBJECT, dockposition : DockPosition) -> windows_core::HRESULT);
     unsafe { DockPattern_SetDockPosition(hobj, dockposition).ok() }
 }
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Collapse(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Collapse(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ExpandCollapsePattern_Collapse(hobj).ok() }
 }
 #[inline]
 pub unsafe fn ExpandCollapsePattern_Expand(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ExpandCollapsePattern_Expand(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ExpandCollapsePattern_Expand(hobj).ok() }
 }
 #[inline]
 pub unsafe fn GetOleaccVersionInfo(pver: *mut u32, pbuild: *mut u32) {
-    windows_link::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32));
+    windows_core::link!("oleacc.dll" "system" fn GetOleaccVersionInfo(pver : *mut u32, pbuild : *mut u32));
     unsafe { GetOleaccVersionInfo(pver as _, pbuild as _) }
 }
 #[inline]
 pub unsafe fn GetRoleTextA(lrole: u32, lpszrole: Option<&mut [u8]>) -> u32 {
-    windows_link::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : u32, lpszrole : windows_core::PSTR, cchrolemax : u32) -> u32);
+    windows_core::link!("oleacc.dll" "system" fn GetRoleTextA(lrole : u32, lpszrole : windows_core::PSTR, cchrolemax : u32) -> u32);
     unsafe { GetRoleTextA(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetRoleTextW(lrole: u32, lpszrole: Option<&mut [u16]>) -> u32 {
-    windows_link::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : u32, lpszrole : windows_core::PWSTR, cchrolemax : u32) -> u32);
+    windows_core::link!("oleacc.dll" "system" fn GetRoleTextW(lrole : u32, lpszrole : windows_core::PWSTR, cchrolemax : u32) -> u32);
     unsafe { GetRoleTextW(lrole, core::mem::transmute(lpszrole.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszrole.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetStateTextA(lstatebit: u32, lpszstate: Option<&mut [u8]>) -> u32 {
-    windows_link::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : u32, lpszstate : windows_core::PSTR, cchstate : u32) -> u32);
+    windows_core::link!("oleacc.dll" "system" fn GetStateTextA(lstatebit : u32, lpszstate : windows_core::PSTR, cchstate : u32) -> u32);
     unsafe { GetStateTextA(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GetStateTextW(lstatebit: u32, lpszstate: Option<&mut [u16]>) -> u32 {
-    windows_link::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, lpszstate : windows_core::PWSTR, cchstate : u32) -> u32);
+    windows_core::link!("oleacc.dll" "system" fn GetStateTextW(lstatebit : u32, lpszstate : windows_core::PWSTR, cchstate : u32) -> u32);
     unsafe { GetStateTextW(lstatebit, core::mem::transmute(lpszstate.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszstate.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn GridPattern_GetItem(hobj: HUIAPATTERNOBJECT, row: i32, column: i32, presult: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn GridPattern_GetItem(hobj : HUIAPATTERNOBJECT, row : i32, column : i32, presult : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { GridPattern_GetItem(hobj, row, column, presult as _).ok() }
 }
 #[inline]
 pub unsafe fn InvokePattern_Invoke(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn InvokePattern_Invoke(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { InvokePattern_Invoke(hobj).ok() }
 }
 #[inline]
 pub unsafe fn IsWinEventHookInstalled(event: u32) -> windows_core::BOOL {
-    windows_link::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn IsWinEventHookInstalled(event : u32) -> windows_core::BOOL);
     unsafe { IsWinEventHookInstalled(event) }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn ItemContainerPattern_FindItemByProperty(hobj: HUIAPATTERNOBJECT, hnodestartafter: HUIANODE, propertyid: i32, value: &super::super::System::Variant::VARIANT, pfound: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ItemContainerPattern_FindItemByProperty(hobj : HUIAPATTERNOBJECT, hnodestartafter : HUIANODE, propertyid : i32, value : super::super::System::Variant:: VARIANT, pfound : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { ItemContainerPattern_FindItemByProperty(hobj, hnodestartafter, propertyid, core::mem::transmute_copy(value), pfound as _).ok() }
 }
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_DoDefaultAction(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_DoDefaultAction(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { LegacyIAccessiblePattern_DoDefaultAction(hobj).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<IAccessible> {
-    windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_GetIAccessible(hobj : HUIAPATTERNOBJECT, paccessible : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         LegacyIAccessiblePattern_GetIAccessible(hobj, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -132,7 +132,7 @@ pub unsafe fn LegacyIAccessiblePattern_GetIAccessible(hobj: HUIAPATTERNOBJECT) -
 }
 #[inline]
 pub unsafe fn LegacyIAccessiblePattern_Select(hobj: HUIAPATTERNOBJECT, flagsselect: i32) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_Select(hobj : HUIAPATTERNOBJECT, flagsselect : i32) -> windows_core::HRESULT);
     unsafe { LegacyIAccessiblePattern_Select(hobj, flagsselect).ok() }
 }
 #[inline]
@@ -140,7 +140,7 @@ pub unsafe fn LegacyIAccessiblePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, szv
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn LegacyIAccessiblePattern_SetValue(hobj : HUIAPATTERNOBJECT, szvalue : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { LegacyIAccessiblePattern_SetValue(hobj, szvalue.param().abi()).ok() }
 }
 #[inline]
@@ -148,251 +148,251 @@ pub unsafe fn LresultFromObject<P2>(riid: *const windows_core::GUID, wparam: sup
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, punk : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
+    windows_core::link!("oleacc.dll" "system" fn LresultFromObject(riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, punk : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
     unsafe { LresultFromObject(riid, wparam, punk.param().abi()) }
 }
 #[inline]
 pub unsafe fn MultipleViewPattern_GetViewName(hobj: HUIAPATTERNOBJECT, viewid: i32, ppstr: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_GetViewName(hobj : HUIAPATTERNOBJECT, viewid : i32, ppstr : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MultipleViewPattern_GetViewName(hobj, viewid, core::mem::transmute(ppstr)).ok() }
 }
 #[inline]
 pub unsafe fn MultipleViewPattern_SetCurrentView(hobj: HUIAPATTERNOBJECT, viewid: i32) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn MultipleViewPattern_SetCurrentView(hobj : HUIAPATTERNOBJECT, viewid : i32) -> windows_core::HRESULT);
     unsafe { MultipleViewPattern_SetCurrentView(hobj, viewid).ok() }
 }
 #[inline]
 pub unsafe fn NotifyWinEvent(event: u32, hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) {
-    windows_link::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32));
+    windows_core::link!("user32.dll" "system" fn NotifyWinEvent(event : u32, hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32));
     unsafe { NotifyWinEvent(event, hwnd, idobject, idchild) }
 }
 #[inline]
 pub unsafe fn ObjectFromLresult(lresult: super::super::Foundation::LRESULT, riid: *const windows_core::GUID, wparam: super::super::Foundation::WPARAM, ppvobject: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn ObjectFromLresult(lresult : super::super::Foundation:: LRESULT, riid : *const windows_core::GUID, wparam : super::super::Foundation:: WPARAM, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { ObjectFromLresult(lresult, riid, wparam, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn RangeValuePattern_SetValue(hobj: HUIAPATTERNOBJECT, val: f64) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn RangeValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, val : f64) -> windows_core::HRESULT);
     unsafe { RangeValuePattern_SetValue(hobj, val).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn RegisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { RegisterPointerInputTarget(hwnd, pointertype).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE, fobserve: bool) -> windows_core::BOOL {
-    windows_link::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn RegisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE, fobserve : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { RegisterPointerInputTargetEx(hwnd, pointertype, fobserve.into()) }
 }
 #[inline]
 pub unsafe fn ScrollItemPattern_ScrollIntoView(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ScrollItemPattern_ScrollIntoView(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { ScrollItemPattern_ScrollIntoView(hobj).ok() }
 }
 #[inline]
 pub unsafe fn ScrollPattern_Scroll(hobj: HUIAPATTERNOBJECT, horizontalamount: ScrollAmount, verticalamount: ScrollAmount) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ScrollPattern_Scroll(hobj : HUIAPATTERNOBJECT, horizontalamount : ScrollAmount, verticalamount : ScrollAmount) -> windows_core::HRESULT);
     unsafe { ScrollPattern_Scroll(hobj, horizontalamount, verticalamount).ok() }
 }
 #[inline]
 pub unsafe fn ScrollPattern_SetScrollPercent(hobj: HUIAPATTERNOBJECT, horizontalpercent: f64, verticalpercent: f64) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ScrollPattern_SetScrollPercent(hobj : HUIAPATTERNOBJECT, horizontalpercent : f64, verticalpercent : f64) -> windows_core::HRESULT);
     unsafe { ScrollPattern_SetScrollPercent(hobj, horizontalpercent, verticalpercent).ok() }
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_AddToSelection(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_AddToSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_AddToSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_AddToSelection(hobj).ok() }
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_RemoveFromSelection(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_RemoveFromSelection(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_RemoveFromSelection(hobj).ok() }
 }
 #[inline]
 pub unsafe fn SelectionItemPattern_Select(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn SelectionItemPattern_Select(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SelectionItemPattern_Select(hobj).ok() }
 }
 #[inline]
 pub unsafe fn SetWinEventHook(eventmin: u32, eventmax: u32, hmodwineventproc: Option<super::super::Foundation::HMODULE>, pfnwineventproc: WINEVENTPROC, idprocess: u32, idthread: u32, dwflags: u32) -> HWINEVENTHOOK {
-    windows_link::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
+    windows_core::link!("user32.dll" "system" fn SetWinEventHook(eventmin : u32, eventmax : u32, hmodwineventproc : super::super::Foundation:: HMODULE, pfnwineventproc : WINEVENTPROC, idprocess : u32, idthread : u32, dwflags : u32) -> HWINEVENTHOOK);
     unsafe { SetWinEventHook(eventmin, eventmax, hmodwineventproc.unwrap_or(core::mem::zeroed()) as _, pfnwineventproc, idprocess, idthread, dwflags) }
 }
 #[inline]
 pub unsafe fn SynchronizedInputPattern_Cancel(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_Cancel(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { SynchronizedInputPattern_Cancel(hobj).ok() }
 }
 #[inline]
 pub unsafe fn SynchronizedInputPattern_StartListening(hobj: HUIAPATTERNOBJECT, inputtype: SynchronizedInputType) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn SynchronizedInputPattern_StartListening(hobj : HUIAPATTERNOBJECT, inputtype : SynchronizedInputType) -> windows_core::HRESULT);
     unsafe { SynchronizedInputPattern_StartListening(hobj, inputtype).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_GetSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextPattern_GetSelection(hobj, pretval as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextPattern_GetVisibleRanges(hobj: HUIAPATTERNOBJECT, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_GetVisibleRanges(hobj : HUIAPATTERNOBJECT, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextPattern_GetVisibleRanges(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextPattern_RangeFromChild(hobj: HUIAPATTERNOBJECT, hnodechild: HUIANODE, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromChild(hobj : HUIAPATTERNOBJECT, hnodechild : HUIANODE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_RangeFromChild(hobj, hnodechild, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextPattern_RangeFromPoint(hobj: HUIAPATTERNOBJECT, point: UiaPoint, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_RangeFromPoint(hobj : HUIAPATTERNOBJECT, point : UiaPoint, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_RangeFromPoint(hobj, core::mem::transmute(point), pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextPattern_get_DocumentRange(hobj: HUIAPATTERNOBJECT, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_get_DocumentRange(hobj : HUIAPATTERNOBJECT, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextPattern_get_DocumentRange(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextPattern_get_SupportedTextSelection(hobj: HUIAPATTERNOBJECT, pretval: *mut SupportedTextSelection) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextPattern_get_SupportedTextSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut SupportedTextSelection) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextPattern_get_SupportedTextSelection(hobj : HUIAPATTERNOBJECT, pretval : *mut SupportedTextSelection) -> windows_core::HRESULT);
     unsafe { TextPattern_get_SupportedTextSelection(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_AddToSelection(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_AddToSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_AddToSelection(hobj).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_Clone(hobj: HUIATEXTRANGE, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_Clone(hobj : HUIATEXTRANGE, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_Clone(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_Compare(hobj: HUIATEXTRANGE, range: HUIATEXTRANGE, pretval: *mut windows_core::BOOL) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_Compare(hobj : HUIATEXTRANGE, range : HUIATEXTRANGE, pretval : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_Compare(hobj, range, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_CompareEndpoints(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint, pretval: *mut i32) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_CompareEndpoints(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_CompareEndpoints(hobj, endpoint, targetrange, targetendpoint, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_ExpandToEnclosingUnit(hobj: HUIATEXTRANGE, unit: TextUnit) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_ExpandToEnclosingUnit(hobj : HUIATEXTRANGE, unit : TextUnit) -> windows_core::HRESULT);
     unsafe { TextRange_ExpandToEnclosingUnit(hobj, unit).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn TextRange_FindAttribute(hobj: HUIATEXTRANGE, attributeid: i32, val: &super::super::System::Variant::VARIANT, backward: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_FindAttribute(hobj : HUIATEXTRANGE, attributeid : i32, val : super::super::System::Variant:: VARIANT, backward : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindAttribute(hobj, attributeid, core::mem::transmute_copy(val), backward.into(), pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_FindText(hobj: HUIATEXTRANGE, text: &windows_core::BSTR, backward: bool, ignorecase: bool, pretval: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : windows_core::BOOL, ignorecase : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_FindText(hobj : HUIATEXTRANGE, text : * mut core::ffi::c_void, backward : windows_core::BOOL, ignorecase : windows_core::BOOL, pretval : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_FindText(hobj, core::mem::transmute_copy(text), backward.into(), ignorecase.into(), pretval as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn TextRange_GetAttributeValue(hobj: HUIATEXTRANGE, attributeid: i32, pretval: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_GetAttributeValue(hobj : HUIATEXTRANGE, attributeid : i32, pretval : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { TextRange_GetAttributeValue(hobj, attributeid, core::mem::transmute(pretval)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetBoundingRectangles(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_GetBoundingRectangles(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextRange_GetBoundingRectangles(hobj, pretval as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn TextRange_GetChildren(hobj: HUIATEXTRANGE, pretval: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_GetChildren(hobj : HUIATEXTRANGE, pretval : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { TextRange_GetChildren(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_GetEnclosingElement(hobj: HUIATEXTRANGE, pretval: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_GetEnclosingElement(hobj : HUIATEXTRANGE, pretval : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { TextRange_GetEnclosingElement(hobj, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_GetText(hobj: HUIATEXTRANGE, maxlength: i32, pretval: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_GetText(hobj : HUIATEXTRANGE, maxlength : i32, pretval : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { TextRange_GetText(hobj, maxlength, core::mem::transmute(pretval)).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_Move(hobj: HUIATEXTRANGE, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_Move(hobj : HUIATEXTRANGE, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_Move(hobj, unit, count, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByRange(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, targetrange: HUIATEXTRANGE, targetendpoint: TextPatternRangeEndpoint) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByRange(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByRange(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, targetrange : HUIATEXTRANGE, targetendpoint : TextPatternRangeEndpoint) -> windows_core::HRESULT);
     unsafe { TextRange_MoveEndpointByRange(hobj, endpoint, targetrange, targetendpoint).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_MoveEndpointByUnit(hobj: HUIATEXTRANGE, endpoint: TextPatternRangeEndpoint, unit: TextUnit, count: i32, pretval: *mut i32) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_MoveEndpointByUnit(hobj : HUIATEXTRANGE, endpoint : TextPatternRangeEndpoint, unit : TextUnit, count : i32, pretval : *mut i32) -> windows_core::HRESULT);
     unsafe { TextRange_MoveEndpointByUnit(hobj, endpoint, unit, count, pretval as _).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_RemoveFromSelection(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_RemoveFromSelection(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_RemoveFromSelection(hobj).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_ScrollIntoView(hobj: HUIATEXTRANGE, aligntotop: bool) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_ScrollIntoView(hobj : HUIATEXTRANGE, aligntotop : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { TextRange_ScrollIntoView(hobj, aligntotop.into()).ok() }
 }
 #[inline]
 pub unsafe fn TextRange_Select(hobj: HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TextRange_Select(hobj : HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { TextRange_Select(hobj).ok() }
 }
 #[inline]
 pub unsafe fn TogglePattern_Toggle(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TogglePattern_Toggle(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { TogglePattern_Toggle(hobj).ok() }
 }
 #[inline]
 pub unsafe fn TransformPattern_Move(hobj: HUIAPATTERNOBJECT, x: f64, y: f64) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TransformPattern_Move(hobj : HUIAPATTERNOBJECT, x : f64, y : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Move(hobj, x, y).ok() }
 }
 #[inline]
 pub unsafe fn TransformPattern_Resize(hobj: HUIAPATTERNOBJECT, width: f64, height: f64) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TransformPattern_Resize(hobj : HUIAPATTERNOBJECT, width : f64, height : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Resize(hobj, width, height).ok() }
 }
 #[inline]
 pub unsafe fn TransformPattern_Rotate(hobj: HUIAPATTERNOBJECT, degrees: f64) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn TransformPattern_Rotate(hobj : HUIAPATTERNOBJECT, degrees : f64) -> windows_core::HRESULT);
     unsafe { TransformPattern_Rotate(hobj, degrees).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaAddEvent(hnode: HUIANODE, eventid: i32, pcallback: *mut UiaEventCallback, scope: TreeScope, pproperties: *mut i32, cproperties: i32, prequest: *mut UiaCacheRequest, phevent: *mut HUIAEVENT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaAddEvent(hnode : HUIANODE, eventid : i32, pcallback : *mut UiaEventCallback, scope : TreeScope, pproperties : *mut i32, cproperties : i32, prequest : *mut UiaCacheRequest, phevent : *mut HUIAEVENT) -> windows_core::HRESULT);
     unsafe { UiaAddEvent(hnode, eventid, pcallback as _, scope, pproperties as _, cproperties, prequest as _, phevent as _).ok() }
 }
 #[inline]
 pub unsafe fn UiaClientsAreListening() -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaClientsAreListening() -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaClientsAreListening() -> windows_core::BOOL);
     unsafe { UiaClientsAreListening() }
 }
 #[inline]
 pub unsafe fn UiaDisconnectAllProviders() -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaDisconnectAllProviders() -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaDisconnectAllProviders() -> windows_core::HRESULT);
     unsafe { UiaDisconnectAllProviders().ok() }
 }
 #[inline]
@@ -400,44 +400,44 @@ pub unsafe fn UiaDisconnectProvider<P0>(pprovider: P0) -> windows_core::Result<(
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaDisconnectProvider(pprovider : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaDisconnectProvider(pprovider.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn UiaEventAddWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaEventAddWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { UiaEventAddWindow(hevent, hwnd).ok() }
 }
 #[inline]
 pub unsafe fn UiaEventRemoveWindow(hevent: HUIAEVENT, hwnd: super::super::Foundation::HWND) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaEventRemoveWindow(hevent : HUIAEVENT, hwnd : super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { UiaEventRemoveWindow(hevent, hwnd).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaFind(hnode: HUIANODE, pparams: *mut UiaFindParams, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, ppoffsets: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructures: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaFind(hnode : HUIANODE, pparams : *mut UiaFindParams, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, ppoffsets : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructures : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { UiaFind(hnode, pparams as _, prequest as _, pprequesteddata as _, ppoffsets as _, pptreestructures as _).ok() }
 }
 #[inline]
 pub unsafe fn UiaGetErrorDescription(pdescription: *mut windows_core::BSTR) -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut * mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetErrorDescription(pdescription : *mut * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { UiaGetErrorDescription(core::mem::transmute(pdescription)) }
 }
 #[inline]
 pub unsafe fn UiaGetPatternProvider(hnode: HUIANODE, patternid: i32, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetPatternProvider(hnode : HUIANODE, patternid : i32, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { UiaGetPatternProvider(hnode, patternid, phobj as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaGetPropertyValue(hnode: HUIANODE, propertyid: i32, pvalue: *mut super::super::System::Variant::VARIANT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetPropertyValue(hnode : HUIANODE, propertyid : i32, pvalue : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { UiaGetPropertyValue(hnode, propertyid, core::mem::transmute(pvalue)).ok() }
 }
 #[inline]
 pub unsafe fn UiaGetReservedMixedAttributeValue() -> windows_core::Result<windows_core::IUnknown> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetReservedMixedAttributeValue(punkmixedattributevalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         UiaGetReservedMixedAttributeValue(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -445,7 +445,7 @@ pub unsafe fn UiaGetReservedMixedAttributeValue() -> windows_core::Result<window
 }
 #[inline]
 pub unsafe fn UiaGetReservedNotSupportedValue() -> windows_core::Result<windows_core::IUnknown> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetReservedNotSupportedValue(punknotsupportedvalue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         UiaGetReservedNotSupportedValue(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -453,47 +453,47 @@ pub unsafe fn UiaGetReservedNotSupportedValue() -> windows_core::Result<windows_
 }
 #[inline]
 pub unsafe fn UiaGetRootNode(phnode: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetRootNode(phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaGetRootNode(phnode as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetRuntimeId(hnode: HUIANODE, pruntimeid: *mut *mut super::super::System::Com::SAFEARRAY) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetRuntimeId(hnode : HUIANODE, pruntimeid : *mut *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { UiaGetRuntimeId(hnode, pruntimeid as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaGetUpdatedCache(hnode: HUIANODE, prequest: *mut UiaCacheRequest, normalizestate: NormalizeState, pnormalizecondition: *mut UiaCondition, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaGetUpdatedCache(hnode : HUIANODE, prequest : *mut UiaCacheRequest, normalizestate : NormalizeState, pnormalizecondition : *mut UiaCondition, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaGetUpdatedCache(hnode, prequest as _, normalizestate, pnormalizecondition as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHPatternObjectFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phobj: *mut HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaHPatternObjectFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phobj : *mut HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { UiaHPatternObjectFromVariant(core::mem::transmute(pvar), phobj as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHTextRangeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phtextrange: *mut HUIATEXTRANGE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaHTextRangeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phtextrange : *mut HUIATEXTRANGE) -> windows_core::HRESULT);
     unsafe { UiaHTextRangeFromVariant(core::mem::transmute(pvar), phtextrange as _).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn UiaHUiaNodeFromVariant(pvar: *mut super::super::System::Variant::VARIANT, phnode: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaHUiaNodeFromVariant(pvar : *mut super::super::System::Variant:: VARIANT, phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaHUiaNodeFromVariant(core::mem::transmute(pvar), phnode as _).ok() }
 }
 #[inline]
 pub unsafe fn UiaHasServerSideProvider(hwnd: super::super::Foundation::HWND) -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaHasServerSideProvider(hwnd : super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { UiaHasServerSideProvider(hwnd) }
 }
 #[inline]
 pub unsafe fn UiaHostProviderFromHwnd(hwnd: super::super::Foundation::HWND) -> windows_core::Result<IRawElementProviderSimple> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaHostProviderFromHwnd(hwnd : super::super::Foundation:: HWND, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         UiaHostProviderFromHwnd(hwnd, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -505,35 +505,35 @@ pub unsafe fn UiaIAccessibleFromProvider<P0>(pprovider: P0, dwflags: u32, ppacce
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaIAccessibleFromProvider(pprovider : * mut core::ffi::c_void, dwflags : u32, ppaccessible : *mut * mut core::ffi::c_void, pvarchild : *mut super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { UiaIAccessibleFromProvider(pprovider.param().abi(), dwflags, core::mem::transmute(ppaccessible), core::mem::transmute(pvarchild)).ok() }
 }
 #[inline]
 pub unsafe fn UiaLookupId(r#type: AutomationIdentifierType, pguid: *const windows_core::GUID) -> i32 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaLookupId(r#type : AutomationIdentifierType, pguid : *const windows_core::GUID) -> i32);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaLookupId(r#type : AutomationIdentifierType, pguid : *const windows_core::GUID) -> i32);
     unsafe { UiaLookupId(r#type, pguid) }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNavigate(hnode: HUIANODE, direction: NavigateDirection, pcondition: *mut UiaCondition, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNavigate(hnode : HUIANODE, direction : NavigateDirection, pcondition : *mut UiaCondition, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNavigate(hnode, direction, pcondition as _, prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromFocus(prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeFromFocus(prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNodeFromFocus(prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[inline]
 pub unsafe fn UiaNodeFromHandle(hwnd: super::super::Foundation::HWND, phnode: *mut HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeFromHandle(hwnd : super::super::Foundation:: HWND, phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaNodeFromHandle(hwnd, phnode as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaNodeFromPoint(x: f64, y: f64, prequest: *mut UiaCacheRequest, pprequesteddata: *mut *mut super::super::System::Com::SAFEARRAY, pptreestructure: *mut windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeFromPoint(x : f64, y : f64, prequest : *mut UiaCacheRequest, pprequesteddata : *mut *mut super::super::System::Com:: SAFEARRAY, pptreestructure : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaNodeFromPoint(x, y, prequest as _, pprequesteddata as _, core::mem::transmute(pptreestructure)).ok() }
 }
 #[inline]
@@ -541,22 +541,22 @@ pub unsafe fn UiaNodeFromProvider<P0>(pprovider: P0, phnode: *mut HUIANODE) -> w
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : * mut core::ffi::c_void, phnode : *mut HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeFromProvider(pprovider : * mut core::ffi::c_void, phnode : *mut HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaNodeFromProvider(pprovider.param().abi(), phnode as _).ok() }
 }
 #[inline]
 pub unsafe fn UiaNodeRelease(hnode: HUIANODE) -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : HUIANODE) -> windows_core::BOOL);
     unsafe { UiaNodeRelease(hnode) }
 }
 #[inline]
 pub unsafe fn UiaPatternRelease(hobj: HUIAPATTERNOBJECT) -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : HUIAPATTERNOBJECT) -> windows_core::BOOL);
     unsafe { UiaPatternRelease(hobj) }
 }
 #[inline]
 pub unsafe fn UiaProviderForNonClient(hwnd: super::super::Foundation::HWND, idobject: i32, idchild: i32) -> windows_core::Result<IRawElementProviderSimple> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaProviderForNonClient(hwnd : super::super::Foundation:: HWND, idobject : i32, idchild : i32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         UiaProviderForNonClient(hwnd, idobject, idchild, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -568,7 +568,7 @@ pub unsafe fn UiaProviderFromIAccessible<P0>(paccessible: P0, idchild: i32, dwfl
 where
     P0: windows_core::Param<IAccessible>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : * mut core::ffi::c_void, idchild : i32, dwflags : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaProviderFromIAccessible(paccessible : * mut core::ffi::c_void, idchild : i32, dwflags : u32, ppprovider : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         UiaProviderFromIAccessible(paccessible.param().abi(), idchild, dwflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -580,7 +580,7 @@ where
     P0: windows_core::Param<IRawElementProviderSimple>,
     P1: windows_core::Param<ITextRangeProvider>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut core::ffi::c_void, textrange : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseActiveTextPositionChangedEvent(provider : * mut core::ffi::c_void, textrange : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaRaiseActiveTextPositionChangedEvent(provider.param().abi(), textrange.param().abi()).ok() }
 }
 #[inline]
@@ -588,7 +588,7 @@ pub unsafe fn UiaRaiseAsyncContentLoadedEvent<P0>(pprovider: P0, asynccontentloa
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAsyncContentLoadedEvent(pprovider : * mut core::ffi::c_void, asynccontentloadedstate : AsyncContentLoadedState, percentcomplete : f64) -> windows_core::HRESULT);
     unsafe { UiaRaiseAsyncContentLoadedEvent(pprovider.param().abi(), asynccontentloadedstate, percentcomplete).ok() }
 }
 #[inline]
@@ -596,7 +596,7 @@ pub unsafe fn UiaRaiseAutomationEvent<P0>(pprovider: P0, id: UIA_EVENT_ID) -> wi
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut core::ffi::c_void, id : UIA_EVENT_ID) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationEvent(pprovider : * mut core::ffi::c_void, id : UIA_EVENT_ID) -> windows_core::HRESULT);
     unsafe { UiaRaiseAutomationEvent(pprovider.param().abi(), id).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -605,7 +605,7 @@ pub unsafe fn UiaRaiseAutomationPropertyChangedEvent<P0>(pprovider: P0, id: UIA_
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseAutomationPropertyChangedEvent(pprovider : * mut core::ffi::c_void, id : UIA_PROPERTY_ID, oldvalue : super::super::System::Variant:: VARIANT, newvalue : super::super::System::Variant:: VARIANT) -> windows_core::HRESULT);
     unsafe { UiaRaiseAutomationPropertyChangedEvent(pprovider.param().abi(), id, core::mem::transmute_copy(oldvalue), core::mem::transmute_copy(newvalue)).ok() }
 }
 #[cfg(all(feature = "Win32_System_Com", feature = "Win32_System_Ole", feature = "Win32_System_Variant"))]
@@ -614,7 +614,7 @@ pub unsafe fn UiaRaiseChangesEvent<P0>(pprovider: P0, eventidcount: i32, puiacha
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseChangesEvent(pprovider : * mut core::ffi::c_void, eventidcount : i32, puiachanges : *mut UiaChangeInfo) -> windows_core::HRESULT);
     unsafe { UiaRaiseChangesEvent(pprovider.param().abi(), eventidcount, core::mem::transmute(puiachanges)).ok() }
 }
 #[inline]
@@ -622,7 +622,7 @@ pub unsafe fn UiaRaiseNotificationEvent<P0>(provider: P0, notificationkind: Noti
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : * mut core::ffi::c_void, activityid : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseNotificationEvent(provider : * mut core::ffi::c_void, notificationkind : NotificationKind, notificationprocessing : NotificationProcessing, displaystring : * mut core::ffi::c_void, activityid : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { UiaRaiseNotificationEvent(provider.param().abi(), notificationkind, notificationprocessing, core::mem::transmute_copy(displaystring), core::mem::transmute_copy(activityid)).ok() }
 }
 #[inline]
@@ -630,7 +630,7 @@ pub unsafe fn UiaRaiseStructureChangedEvent<P0>(pprovider: P0, structurechangety
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseStructureChangedEvent(pprovider : * mut core::ffi::c_void, structurechangetype : StructureChangeType, pruntimeid : *mut i32, cruntimeidlen : i32) -> windows_core::HRESULT);
     unsafe { UiaRaiseStructureChangedEvent(pprovider.param().abi(), structurechangetype, pruntimeid as _, cruntimeidlen).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -639,18 +639,18 @@ pub unsafe fn UiaRaiseTextEditTextChangedEvent<P0>(pprovider: P0, texteditchange
 where
     P0: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRaiseTextEditTextChangedEvent(pprovider : * mut core::ffi::c_void, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRaiseTextEditTextChangedEvent(pprovider : * mut core::ffi::c_void, texteditchangetype : TextEditChangeType, pchangeddata : *mut super::super::System::Com:: SAFEARRAY) -> windows_core::HRESULT);
     unsafe { UiaRaiseTextEditTextChangedEvent(pprovider.param().abi(), texteditchangetype, pchangeddata as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn UiaRegisterProviderCallback(pcallback: *mut UiaProviderCallback) {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback));
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRegisterProviderCallback(pcallback : *mut UiaProviderCallback));
     unsafe { UiaRegisterProviderCallback(pcallback as _) }
 }
 #[inline]
 pub unsafe fn UiaRemoveEvent(hevent: HUIAEVENT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : HUIAEVENT) -> windows_core::HRESULT);
     unsafe { UiaRemoveEvent(hevent).ok() }
 }
 #[inline]
@@ -658,34 +658,34 @@ pub unsafe fn UiaReturnRawElementProvider<P3>(hwnd: super::super::Foundation::HW
 where
     P3: windows_core::Param<IRawElementProviderSimple>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaReturnRawElementProvider(hwnd : super::super::Foundation:: HWND, wparam : super::super::Foundation:: WPARAM, lparam : super::super::Foundation:: LPARAM, el : * mut core::ffi::c_void) -> super::super::Foundation:: LRESULT);
     unsafe { UiaReturnRawElementProvider(hwnd, wparam, lparam, el.param().abi()) }
 }
 #[inline]
 pub unsafe fn UiaSetFocus(hnode: HUIANODE) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaSetFocus(hnode : HUIANODE) -> windows_core::HRESULT);
     unsafe { UiaSetFocus(hnode).ok() }
 }
 #[inline]
 pub unsafe fn UiaTextRangeRelease(hobj: HUIATEXTRANGE) -> windows_core::BOOL {
-    windows_link::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> windows_core::BOOL);
+    windows_core::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : HUIATEXTRANGE) -> windows_core::BOOL);
     unsafe { UiaTextRangeRelease(hobj) }
 }
 #[inline]
 pub unsafe fn UnhookWinEvent(hwineventhook: HWINEVENTHOOK) -> windows_core::BOOL {
-    windows_link::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : HWINEVENTHOOK) -> windows_core::BOOL);
     unsafe { UnhookWinEvent(hwineventhook) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn UnregisterPointerInputTarget(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::Result<()> {
-    windows_link::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn UnregisterPointerInputTarget(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { UnregisterPointerInputTarget(hwnd, pointertype).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn UnregisterPointerInputTargetEx(hwnd: super::super::Foundation::HWND, pointertype: super::WindowsAndMessaging::POINTER_INPUT_TYPE) -> windows_core::BOOL {
-    windows_link::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
+    windows_core::link!("user32.dll" "system" fn UnregisterPointerInputTargetEx(hwnd : super::super::Foundation:: HWND, pointertype : super::WindowsAndMessaging:: POINTER_INPUT_TYPE) -> windows_core::BOOL);
     unsafe { UnregisterPointerInputTargetEx(hwnd, pointertype) }
 }
 #[inline]
@@ -693,12 +693,12 @@ pub unsafe fn ValuePattern_SetValue<P1>(hobj: HUIAPATTERNOBJECT, pval: P1) -> wi
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_core::PCWSTR) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn ValuePattern_SetValue(hobj : HUIAPATTERNOBJECT, pval : windows_core::PCWSTR) -> windows_core::HRESULT);
     unsafe { ValuePattern_SetValue(hobj, pval.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn VirtualizedItemPattern_Realize(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn VirtualizedItemPattern_Realize(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { VirtualizedItemPattern_Realize(hobj).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -707,22 +707,22 @@ pub unsafe fn WindowFromAccessibleObject<P0>(param0: P0, phwnd: Option<*mut supe
 where
     P0: windows_core::Param<IAccessible>,
 {
-    windows_link::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
+    windows_core::link!("oleacc.dll" "system" fn WindowFromAccessibleObject(param0 : * mut core::ffi::c_void, phwnd : *mut super::super::Foundation:: HWND) -> windows_core::HRESULT);
     unsafe { WindowFromAccessibleObject(param0.param().abi(), phwnd.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn WindowPattern_Close(hobj: HUIAPATTERNOBJECT) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn WindowPattern_Close(hobj : HUIAPATTERNOBJECT) -> windows_core::HRESULT);
     unsafe { WindowPattern_Close(hobj).ok() }
 }
 #[inline]
 pub unsafe fn WindowPattern_SetWindowVisualState(hobj: HUIAPATTERNOBJECT, state: WindowVisualState) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn WindowPattern_SetWindowVisualState(hobj : HUIAPATTERNOBJECT, state : WindowVisualState) -> windows_core::HRESULT);
     unsafe { WindowPattern_SetWindowVisualState(hobj, state).ok() }
 }
 #[inline]
 pub unsafe fn WindowPattern_WaitForInputIdle(hobj: HUIAPATTERNOBJECT, milliseconds: i32, presult: *mut windows_core::BOOL) -> windows_core::Result<()> {
-    windows_link::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("uiautomationcore.dll" "system" fn WindowPattern_WaitForInputIdle(hobj : HUIAPATTERNOBJECT, milliseconds : i32, presult : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WindowPattern_WaitForInputIdle(hobj, milliseconds, presult as _).ok() }
 }
 #[repr(C)]
@@ -1146,7 +1146,7 @@ impl windows_core::Free for HUIAEVENT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("uiautomationcore.dll" "system" fn UiaRemoveEvent(hevent : *mut core::ffi::c_void) -> i32);
             unsafe {
                 UiaRemoveEvent(self.0);
             }
@@ -1170,7 +1170,7 @@ impl windows_core::Free for HUIANODE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("uiautomationcore.dll" "system" fn UiaNodeRelease(hnode : *mut core::ffi::c_void) -> i32);
             unsafe {
                 UiaNodeRelease(self.0);
             }
@@ -1194,7 +1194,7 @@ impl windows_core::Free for HUIAPATTERNOBJECT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("uiautomationcore.dll" "system" fn UiaPatternRelease(hobj : *mut core::ffi::c_void) -> i32);
             unsafe {
                 UiaPatternRelease(self.0);
             }
@@ -1218,7 +1218,7 @@ impl windows_core::Free for HUIATEXTRANGE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("uiautomationcore.dll" "system" fn UiaTextRangeRelease(hobj : *mut core::ffi::c_void) -> i32);
             unsafe {
                 UiaTextRangeRelease(self.0);
             }
@@ -1242,7 +1242,7 @@ impl windows_core::Free for HWINEVENTHOOK {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("user32.dll" "system" fn UnhookWinEvent(hwineventhook : *mut core::ffi::c_void) -> i32);
             unsafe {
                 UnhookWinEvent(self.0);
             }

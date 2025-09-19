@@ -1,7 +1,7 @@
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreateNamedPropertyStore() -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::INamedPropertyStore> {
-    windows_link::link!("mf.dll" "system" fn CreateNamedPropertyStore(ppstore : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn CreateNamedPropertyStore(ppstore : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateNamedPropertyStore(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -10,7 +10,7 @@ pub unsafe fn CreateNamedPropertyStore() -> windows_core::Result<super::super::U
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 #[inline]
 pub unsafe fn CreatePropertyStore() -> windows_core::Result<super::super::UI::Shell::PropertiesSystem::IPropertyStore> {
-    windows_link::link!("mfplat.dll" "system" fn CreatePropertyStore(ppstore : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn CreatePropertyStore(ppstore : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreatePropertyStore(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -18,7 +18,7 @@ pub unsafe fn CreatePropertyStore() -> windows_core::Result<super::super::UI::Sh
 }
 #[inline]
 pub unsafe fn DXVA2CreateDirect3DDeviceManager9(presettoken: *mut u32, ppdevicemanager: *mut Option<IDirect3DDeviceManager9>) -> windows_core::Result<()> {
-    windows_link::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut u32, ppdevicemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn DXVA2CreateDirect3DDeviceManager9(presettoken : *mut u32, ppdevicemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DXVA2CreateDirect3DDeviceManager9(presettoken as _, core::mem::transmute(ppdevicemanager)).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -27,7 +27,7 @@ pub unsafe fn DXVA2CreateVideoService<P0>(pdd: P0, riid: *const windows_core::GU
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
-    windows_link::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn DXVA2CreateVideoService(pdd : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppservice : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { DXVA2CreateVideoService(pdd.param().abi(), riid, ppservice as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -36,7 +36,7 @@ pub unsafe fn DXVAHD_CreateDevice<P0>(pd3ddevice: P0, pcontentdesc: *const DXVAH
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9Ex>,
 {
-    windows_link::link!("dxva2.dll" "system" fn DXVAHD_CreateDevice(pd3ddevice : * mut core::ffi::c_void, pcontentdesc : *const DXVAHD_CONTENT_DESC, usage : DXVAHD_DEVICE_USAGE, pplugin : PDXVAHDSW_Plugin, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn DXVAHD_CreateDevice(pd3ddevice : * mut core::ffi::c_void, pcontentdesc : *const DXVAHD_CONTENT_DESC, usage : DXVAHD_DEVICE_USAGE, pplugin : PDXVAHDSW_Plugin, ppdevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         DXVAHD_CreateDevice(pd3ddevice.param().abi(), pcontentdesc, usage, pplugin, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -47,12 +47,12 @@ pub unsafe fn MFAddPeriodicCallback<P1>(callback: MFPERIODICCALLBACK, pcontext: 
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFAddPeriodicCallback(callback : MFPERIODICCALLBACK, pcontext : * mut core::ffi::c_void, pdwkey : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFAddPeriodicCallback(callback : MFPERIODICCALLBACK, pcontext : * mut core::ffi::c_void, pdwkey : *mut u32) -> windows_core::HRESULT);
     unsafe { MFAddPeriodicCallback(callback, pcontext.param().abi(), pdwkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFAllocateSerialWorkQueue(dwworkqueue : u32, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFAllocateSerialWorkQueue(dwworkqueue : u32, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFAllocateSerialWorkQueue(dwworkqueue, &mut result__).map(|| result__)
@@ -60,7 +60,7 @@ pub unsafe fn MFAllocateSerialWorkQueue(dwworkqueue: u32) -> windows_core::Resul
 }
 #[inline]
 pub unsafe fn MFAllocateWorkQueue() -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFAllocateWorkQueue(pdwworkqueue : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFAllocateWorkQueue(pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFAllocateWorkQueue(&mut result__).map(|| result__)
@@ -68,7 +68,7 @@ pub unsafe fn MFAllocateWorkQueue() -> windows_core::Result<u32> {
 }
 #[inline]
 pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFAllocateWorkQueueEx(workqueuetype : MFASYNC_WORKQUEUE_TYPE, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFAllocateWorkQueueEx(workqueuetype : MFASYNC_WORKQUEUE_TYPE, pdwworkqueue : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFAllocateWorkQueueEx(workqueuetype, &mut result__).map(|| result__)
@@ -76,7 +76,7 @@ pub unsafe fn MFAllocateWorkQueueEx(workqueuetype: MFASYNC_WORKQUEUE_TYPE) -> wi
 }
 #[inline]
 pub unsafe fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe: u64, punnumerator: *mut u32, pundenominator: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe : u64, punnumerator : *mut u32, pundenominator : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFAverageTimePerFrameToFrameRate(unaveragetimeperframe : u64, punnumerator : *mut u32, pundenominator : *mut u32) -> windows_core::HRESULT);
     unsafe { MFAverageTimePerFrameToFrameRate(unaveragetimeperframe, punnumerator as _, pundenominator as _).ok() }
 }
 #[inline]
@@ -86,7 +86,7 @@ where
     P4: windows_core::Param<IMFAsyncCallback>,
     P5: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFBeginCreateFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, pwszfilepath : windows_core::PCWSTR, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void, ppcancelcookie : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFBeginCreateFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, pwszfilepath : windows_core::PCWSTR, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void, ppcancelcookie : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFBeginCreateFile(accessmode, openmode, fflags, pwszfilepath.param().abi(), pcallback.param().abi(), pstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -99,7 +99,7 @@ where
     P3: windows_core::Param<IMFAsyncCallback>,
     P4: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid : u32, wszclass : windows_core::PCWSTR, dwtaskid : u32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid : u32, wszclass : windows_core::PCWSTR, dwtaskid : u32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFBeginRegisterWorkQueueWithMMCSS(dwworkqueueid, wszclass.param().abi(), dwtaskid, pdonecallback.param().abi(), pdonestate.param().abi()).ok() }
 }
 #[inline]
@@ -109,7 +109,7 @@ where
     P4: windows_core::Param<IMFAsyncCallback>,
     P5: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid : u32, wszclass : windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid : u32, wszclass : windows_core::PCWSTR, dwtaskid : u32, lpriority : i32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFBeginRegisterWorkQueueWithMMCSSEx(dwworkqueueid, wszclass.param().abi(), dwtaskid, lpriority, pdonecallback.param().abi(), pdonestate.param().abi()).ok() }
 }
 #[inline]
@@ -118,18 +118,18 @@ where
     P1: windows_core::Param<IMFAsyncCallback>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid : u32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid : u32, pdonecallback : * mut core::ffi::c_void, pdonestate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFBeginUnregisterWorkQueueWithMMCSS(dwworkqueueid, pdonecallback.param().abi(), pdonestate.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCalculateBitmapImageSize(pbmih: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbufsize: u32, pcbimagesize: *mut u32, pbknown: Option<*mut windows_core::BOOL>) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCalculateBitmapImageSize(pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, cbbufsize : u32, pcbimagesize : *mut u32, pbknown : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCalculateBitmapImageSize(pbmih : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, cbbufsize : u32, pcbimagesize : *mut u32, pbknown : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { MFCalculateBitmapImageSize(pbmih, cbbufsize, pcbimagesize as _, pbknown.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCalculateImageSize(guidsubtype: *const windows_core::GUID, unwidth: u32, unheight: u32) -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFCalculateImageSize(guidsubtype : *const windows_core::GUID, unwidth : u32, unheight : u32, pcbimagesize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCalculateImageSize(guidsubtype : *const windows_core::GUID, unwidth : u32, unheight : u32, pcbimagesize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCalculateImageSize(guidsubtype, unwidth, unheight, &mut result__).map(|| result__)
@@ -140,12 +140,12 @@ pub unsafe fn MFCancelCreateFile<P0>(pcancelcookie: P0) -> windows_core::Result<
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCancelCreateFile(pcancelcookie : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCancelCreateFile(pcancelcookie : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCancelCreateFile(pcancelcookie.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn MFCancelWorkItem(key: u64) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCancelWorkItem(key : u64) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCancelWorkItem(key : u64) -> windows_core::HRESULT);
     unsafe { MFCancelWorkItem(key).ok() }
 }
 #[inline]
@@ -154,7 +154,7 @@ where
     P0: windows_core::Param<IMFSample>,
     P1: windows_core::Param<IMFSample>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCombineSamples(psample : * mut core::ffi::c_void, psampletoadd : * mut core::ffi::c_void, dwmaxmergeddurationinms : u32, pmerged : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCombineSamples(psample : * mut core::ffi::c_void, psampletoadd : * mut core::ffi::c_void, dwmaxmergeddurationinms : u32, pmerged : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCombineSamples(psample.param().abi(), psampletoadd.param().abi(), dwmaxmergeddurationinms, &mut result__).map(|| result__)
@@ -166,37 +166,37 @@ where
     P0: windows_core::Param<IMFMediaType>,
     P1: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCompareFullToPartialMediaType(pmftypefull : * mut core::ffi::c_void, pmftypepartial : * mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("mfplat.dll" "system" fn MFCompareFullToPartialMediaType(pmftypefull : * mut core::ffi::c_void, pmftypepartial : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { MFCompareFullToPartialMediaType(pmftypefull.param().abi(), pmftypepartial.param().abi()) }
 }
 #[inline]
 pub unsafe fn MFConvertColorInfoFromDXVA(ptoformat: *mut MFVIDEOFORMAT, dwfromdxva: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFConvertColorInfoFromDXVA(ptoformat : *mut MFVIDEOFORMAT, dwfromdxva : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFConvertColorInfoFromDXVA(ptoformat : *mut MFVIDEOFORMAT, dwfromdxva : u32) -> windows_core::HRESULT);
     unsafe { MFConvertColorInfoFromDXVA(ptoformat as _, dwfromdxva).ok() }
 }
 #[inline]
 pub unsafe fn MFConvertColorInfoToDXVA(pdwtodxva: *mut u32, pfromformat: *const MFVIDEOFORMAT) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFConvertColorInfoToDXVA(pdwtodxva : *mut u32, pfromformat : *const MFVIDEOFORMAT) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFConvertColorInfoToDXVA(pdwtodxva : *mut u32, pfromformat : *const MFVIDEOFORMAT) -> windows_core::HRESULT);
     unsafe { MFConvertColorInfoToDXVA(pdwtodxva as _, pfromformat).ok() }
 }
 #[inline]
 pub unsafe fn MFConvertFromFP16Array(pdest: *mut f32, psrc: *const u16, dwcount: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFConvertFromFP16Array(pdest : *mut f32, psrc : *const u16, dwcount : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFConvertFromFP16Array(pdest : *mut f32, psrc : *const u16, dwcount : u32) -> windows_core::HRESULT);
     unsafe { MFConvertFromFP16Array(pdest as _, psrc, dwcount).ok() }
 }
 #[inline]
 pub unsafe fn MFConvertToFP16Array(pdest: *mut u16, psrc: *const f32, dwcount: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFConvertToFP16Array(pdest : *mut u16, psrc : *const f32, dwcount : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFConvertToFP16Array(pdest : *mut u16, psrc : *const f32, dwcount : u32) -> windows_core::HRESULT);
     unsafe { MFConvertToFP16Array(pdest as _, psrc, dwcount).ok() }
 }
 #[inline]
 pub unsafe fn MFCopyImage(pdest: *mut u8, ldeststride: i32, psrc: *const u8, lsrcstride: i32, dwwidthinbytes: u32, dwlines: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCopyImage(pdest : *mut u8, ldeststride : i32, psrc : *const u8, lsrcstride : i32, dwwidthinbytes : u32, dwlines : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCopyImage(pdest : *mut u8, ldeststride : i32, psrc : *const u8, lsrcstride : i32, dwwidthinbytes : u32, dwlines : u32) -> windows_core::HRESULT);
     unsafe { MFCopyImage(pdest as _, ldeststride, psrc, lsrcstride, dwwidthinbytes, dwlines).ok() }
 }
 #[inline]
 pub unsafe fn MFCreate2DMediaBuffer(dwwidth: u32, dwheight: u32, dwfourcc: u32, fbottomup: bool) -> windows_core::Result<IMFMediaBuffer> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreate2DMediaBuffer(dwwidth : u32, dwheight : u32, dwfourcc : u32, fbottomup : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreate2DMediaBuffer(dwwidth : u32, dwheight : u32, dwfourcc : u32, fbottomup : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreate2DMediaBuffer(dwwidth, dwheight, dwfourcc, fbottomup.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -209,7 +209,7 @@ where
     P1: windows_core::Param<IMFMediaType>,
     P2: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreate3GPMediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreate3GPMediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreate3GPMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -221,7 +221,7 @@ where
     P0: windows_core::Param<IMFByteStream>,
     P1: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateAC3MediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateAC3MediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAC3MediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -233,7 +233,7 @@ where
     P0: windows_core::Param<IMFByteStream>,
     P1: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateADTSMediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateADTSMediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateADTSMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -244,12 +244,12 @@ pub unsafe fn MFCreateAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatbloc
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateAMMediaTypeFromMFMediaType(pmftype : * mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, ppamtype : *mut *mut AM_MEDIA_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateAMMediaTypeFromMFMediaType(pmftype : * mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, ppamtype : *mut *mut AM_MEDIA_TYPE) -> windows_core::HRESULT);
     unsafe { MFCreateAMMediaTypeFromMFMediaType(pmftype.param().abi(), core::mem::transmute(guidformatblocktype), ppamtype as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateASFContentInfo() -> windows_core::Result<IMFASFContentInfo> {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFContentInfo(ppicontentinfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFContentInfo(ppicontentinfo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFContentInfo(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -257,7 +257,7 @@ pub unsafe fn MFCreateASFContentInfo() -> windows_core::Result<IMFASFContentInfo
 }
 #[inline]
 pub unsafe fn MFCreateASFIndexer() -> windows_core::Result<IMFASFIndexer> {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFIndexer(ppiindexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFIndexer(ppiindexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFIndexer(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -268,7 +268,7 @@ pub unsafe fn MFCreateASFIndexerByteStream<P0>(picontentbytestream: P0, cbindexs
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFIndexerByteStream(picontentbytestream : * mut core::ffi::c_void, cbindexstartoffset : u64, piindexbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFIndexerByteStream(picontentbytestream : * mut core::ffi::c_void, cbindexstartoffset : u64, piindexbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFIndexerByteStream(picontentbytestream.param().abi(), cbindexstartoffset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -279,7 +279,7 @@ pub unsafe fn MFCreateASFMediaSink<P0>(pibytestream: P0) -> windows_core::Result
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFMediaSink(pibytestream : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFMediaSink(pibytestream : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFMediaSink(pibytestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -291,7 +291,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFASFContentInfo>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFMediaSinkActivate(pwszfilename : windows_core::PCWSTR, pcontentinfo : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFMediaSinkActivate(pwszfilename : windows_core::PCWSTR, pcontentinfo : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFMediaSinkActivate(pwszfilename.param().abi(), pcontentinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -299,7 +299,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateASFMultiplexer() -> windows_core::Result<IMFASFMultiplexer> {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFMultiplexer(ppimultiplexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFMultiplexer(ppimultiplexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFMultiplexer(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -307,7 +307,7 @@ pub unsafe fn MFCreateASFMultiplexer() -> windows_core::Result<IMFASFMultiplexer
 }
 #[inline]
 pub unsafe fn MFCreateASFProfile() -> windows_core::Result<IMFASFProfile> {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFProfile(ppiprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFProfile(ppiprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFProfile(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -318,7 +318,7 @@ pub unsafe fn MFCreateASFProfileFromPresentationDescriptor<P0>(pipd: P0) -> wind
 where
     P0: windows_core::Param<IMFPresentationDescriptor>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFProfileFromPresentationDescriptor(pipd : * mut core::ffi::c_void, ppiprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFProfileFromPresentationDescriptor(pipd : * mut core::ffi::c_void, ppiprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFProfileFromPresentationDescriptor(pipd.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -326,7 +326,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateASFSplitter() -> windows_core::Result<IMFASFSplitter> {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFSplitter(ppisplitter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFSplitter(ppisplitter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFSplitter(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -337,7 +337,7 @@ pub unsafe fn MFCreateASFStreamSelector<P0>(piasfprofile: P0) -> windows_core::R
 where
     P0: windows_core::Param<IMFASFProfile>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFStreamSelector(piasfprofile : * mut core::ffi::c_void, ppselector : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFStreamSelector(piasfprofile : * mut core::ffi::c_void, ppselector : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFStreamSelector(piasfprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -348,7 +348,7 @@ pub unsafe fn MFCreateASFStreamingMediaSink<P0>(pibytestream: P0) -> windows_cor
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFStreamingMediaSink(pibytestream : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFStreamingMediaSink(pibytestream : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFStreamingMediaSink(pibytestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -360,7 +360,7 @@ where
     P0: windows_core::Param<IMFActivate>,
     P1: windows_core::Param<IMFASFContentInfo>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate : * mut core::ffi::c_void, pcontentinfo : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate : * mut core::ffi::c_void, pcontentinfo : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateASFStreamingMediaSinkActivate(pbytestreamactivate.param().abi(), pcontentinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -373,7 +373,7 @@ where
     P1: windows_core::Param<IMFMediaType>,
     P2: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfsrcsnk.dll" "system" fn MFCreateAVIMediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsrcsnk.dll" "system" fn MFCreateAVIMediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAVIMediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -384,7 +384,7 @@ pub unsafe fn MFCreateAggregateSource<P0>(psourcecollection: P0) -> windows_core
 where
     P0: windows_core::Param<IMFCollection>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateAggregateSource(psourcecollection : * mut core::ffi::c_void, ppaggsource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateAggregateSource(psourcecollection : * mut core::ffi::c_void, ppaggsource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAggregateSource(psourcecollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -392,7 +392,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateAlignedMemoryBuffer(cbmaxlength: u32, cbaligment: u32) -> windows_core::Result<IMFMediaBuffer> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateAlignedMemoryBuffer(cbmaxlength : u32, cbaligment : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateAlignedMemoryBuffer(cbmaxlength : u32, cbaligment : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAlignedMemoryBuffer(cbmaxlength, cbaligment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -405,7 +405,7 @@ where
     P1: windows_core::Param<IMFAsyncCallback>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateAsyncResult(punkobject : * mut core::ffi::c_void, pcallback : * mut core::ffi::c_void, punkstate : * mut core::ffi::c_void, ppasyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateAsyncResult(punkobject : * mut core::ffi::c_void, pcallback : * mut core::ffi::c_void, punkstate : * mut core::ffi::c_void, ppasyncresult : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAsyncResult(punkobject.param().abi(), pcallback.param().abi(), punkstate.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -413,13 +413,13 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateAttributes(ppmfattributes: *mut Option<IMFAttributes>, cinitialsize: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateAttributes(ppmfattributes : *mut * mut core::ffi::c_void, cinitialsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateAttributes(ppmfattributes : *mut * mut core::ffi::c_void, cinitialsize : u32) -> windows_core::HRESULT);
     unsafe { MFCreateAttributes(core::mem::transmute(ppmfattributes), cinitialsize).ok() }
 }
 #[cfg(feature = "Win32_Media_Audio")]
 #[inline]
 pub unsafe fn MFCreateAudioMediaType(paudioformat: *const super::Audio::WAVEFORMATEX) -> windows_core::Result<IMFAudioMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateAudioMediaType(paudioformat : *const super::Audio:: WAVEFORMATEX, ppiaudiomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateAudioMediaType(paudioformat : *const super::Audio:: WAVEFORMATEX, ppiaudiomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAudioMediaType(paudioformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -430,7 +430,7 @@ pub unsafe fn MFCreateAudioRenderer<P0>(paudioattributes: P0) -> windows_core::R
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateAudioRenderer(paudioattributes : * mut core::ffi::c_void, ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateAudioRenderer(paudioattributes : * mut core::ffi::c_void, ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAudioRenderer(paudioattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -438,7 +438,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateAudioRendererActivate() -> windows_core::Result<IMFActivate> {
-    windows_link::link!("mf.dll" "system" fn MFCreateAudioRendererActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateAudioRendererActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateAudioRendererActivate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -450,7 +450,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFCameraControlNotify>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateCameraControlMonitor(symboliclink : windows_core::PCWSTR, callback : * mut core::ffi::c_void, ppcameracontrolmonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateCameraControlMonitor(symboliclink : windows_core::PCWSTR, callback : * mut core::ffi::c_void, ppcameracontrolmonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateCameraControlMonitor(symboliclink.param().abi(), callback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -462,7 +462,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFCameraOcclusionStateReportCallback>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateCameraOcclusionStateMonitor(symboliclink : windows_core::PCWSTR, callback : * mut core::ffi::c_void, occlusionstatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateCameraOcclusionStateMonitor(symboliclink : windows_core::PCWSTR, callback : * mut core::ffi::c_void, occlusionstatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateCameraOcclusionStateMonitor(symboliclink.param().abi(), callback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -470,7 +470,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateCollection() -> windows_core::Result<IMFCollection> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateCollection(ppimfcollection : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateCollection(ppimfcollection : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateCollection(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -482,7 +482,7 @@ where
     P1: windows_core::Param<IMFDXGIDeviceManager>,
     P2: windows_core::Param<IMFContentProtectionDevice>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid : *const windows_core::GUID, pd3dmanager : * mut core::ffi::c_void, pcontentprotectiondevice : * mut core::ffi::c_void, ppcontentdecryptorcontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateContentDecryptorContext(guidmediaprotectionsystemid : *const windows_core::GUID, pd3dmanager : * mut core::ffi::c_void, pcontentprotectiondevice : * mut core::ffi::c_void, ppcontentdecryptorcontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateContentDecryptorContext(guidmediaprotectionsystemid, pd3dmanager.param().abi(), pcontentprotectiondevice.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -490,7 +490,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const windows_core::GUID) -> windows_core::Result<IMFContentProtectionDevice> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateContentProtectionDevice(protectionsystemid : *const windows_core::GUID, contentprotectiondevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateContentProtectionDevice(protectionsystemid : *const windows_core::GUID, contentprotectiondevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateContentProtectionDevice(protectionsystemid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -498,7 +498,7 @@ pub unsafe fn MFCreateContentProtectionDevice(protectionsystemid: *const windows
 }
 #[inline]
 pub unsafe fn MFCreateCredentialCache() -> windows_core::Result<IMFNetCredentialCache> {
-    windows_link::link!("mf.dll" "system" fn MFCreateCredentialCache(ppcache : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateCredentialCache(ppcache : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateCredentialCache(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -510,12 +510,12 @@ pub unsafe fn MFCreateD3D12SynchronizationObject<P0>(pdevice: P0, riid: *const w
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D12::ID3D12Device>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateD3D12SynchronizationObject(pdevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateD3D12SynchronizationObject(pdevice : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppvsyncobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateD3D12SynchronizationObject(pdevice.param().abi(), riid, ppvsyncobject as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateDXGIDeviceManager(resettoken: *mut u32, ppdevicemanager: *mut Option<IMFDXGIDeviceManager>) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateDXGIDeviceManager(resettoken : *mut u32, ppdevicemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateDXGIDeviceManager(resettoken : *mut u32, ppdevicemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateDXGIDeviceManager(resettoken as _, core::mem::transmute(ppdevicemanager)).ok() }
 }
 #[inline]
@@ -523,7 +523,7 @@ pub unsafe fn MFCreateDXGISurfaceBuffer<P1>(riid: *const windows_core::GUID, pun
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateDXGISurfaceBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, usubresourceindex : u32, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateDXGISurfaceBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, usubresourceindex : u32, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateDXGISurfaceBuffer(riid, punksurface.param().abi(), usubresourceindex, fbottomupwhenlinear.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -534,7 +534,7 @@ pub unsafe fn MFCreateDXSurfaceBuffer<P1>(riid: *const windows_core::GUID, punks
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateDXSurfaceBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateDXSurfaceBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, fbottomupwhenlinear : windows_core::BOOL, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateDXSurfaceBuffer(riid, punksurface.param().abi(), fbottomupwhenlinear.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -545,7 +545,7 @@ pub unsafe fn MFCreateDeviceSource<P0>(pattributes: P0) -> windows_core::Result<
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateDeviceSource(pattributes : * mut core::ffi::c_void, ppsource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateDeviceSource(pattributes : * mut core::ffi::c_void, ppsource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateDeviceSource(pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -556,7 +556,7 @@ pub unsafe fn MFCreateDeviceSourceActivate<P0>(pattributes: P0) -> windows_core:
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateDeviceSourceActivate(pattributes : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateDeviceSourceActivate(pattributes : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateDeviceSourceActivate(pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -570,7 +570,7 @@ where
     P1: windows_core::Param<super::super::System::Com::IStream>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost : * mut core::ffi::c_void, objectstream : * mut core::ffi::c_void, classid : windows_core::PCWSTR, activate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateEncryptedMediaExtensionsStoreActivate(pmphost : * mut core::ffi::c_void, objectstream : * mut core::ffi::c_void, classid : windows_core::PCWSTR, activate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateEncryptedMediaExtensionsStoreActivate(pmphost.param().abi(), objectstream.param().abi(), classid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -578,7 +578,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateEventQueue() -> windows_core::Result<IMFMediaEventQueue> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateEventQueue(ppmediaeventqueue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateEventQueue(ppmediaeventqueue : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateEventQueue(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -586,7 +586,7 @@ pub unsafe fn MFCreateEventQueue() -> windows_core::Result<IMFMediaEventQueue> {
 }
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCameraIntrinsic_DistortionModelType) -> windows_core::Result<IMFExtendedCameraIntrinsicModel> {
-    windows_link::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype : MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype : MFCameraIntrinsic_DistortionModelType, ppextendedcameraintrinsicmodel : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateExtendedCameraIntrinsicModel(distortionmodeltype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -594,7 +594,7 @@ pub unsafe fn MFCreateExtendedCameraIntrinsicModel(distortionmodeltype: MFCamera
 }
 #[inline]
 pub unsafe fn MFCreateExtendedCameraIntrinsics() -> windows_core::Result<IMFExtendedCameraIntrinsics> {
-    windows_link::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfcore.dll" "system" fn MFCreateExtendedCameraIntrinsics(ppextendedcameraintrinsics : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateExtendedCameraIntrinsics(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -607,7 +607,7 @@ where
     P1: windows_core::Param<IMFMediaType>,
     P2: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateFMPEG4MediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateFMPEG4MediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateFMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -618,7 +618,7 @@ pub unsafe fn MFCreateFile<P3>(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE
 where
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, pwszfileurl : windows_core::PCWSTR, ppibytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, pwszfileurl : windows_core::PCWSTR, ppibytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateFile(accessmode, openmode, fflags, pwszfileurl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -631,7 +631,7 @@ where
     P0: windows_core::Param<IMFSample>,
     P1: windows_core::Param<IMFMediaBuffer>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample : * mut core::ffi::c_void, pmfmediabuffer : * mut core::ffi::c_void, cboffset : u32, ppmediabuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateLegacyMediaBufferOnMFMediaBuffer(psample : * mut core::ffi::c_void, pmfmediabuffer : * mut core::ffi::c_void, cboffset : u32, ppmediabuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateLegacyMediaBufferOnMFMediaBuffer(psample.param().abi(), pmfmediabuffer.param().abi(), cboffset, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -643,7 +643,7 @@ pub unsafe fn MFCreateMFByteStreamOnStream<P0>(pstream: P0) -> windows_core::Res
 where
     P0: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStream(pstream : * mut core::ffi::c_void, ppbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStream(pstream : * mut core::ffi::c_void, ppbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMFByteStreamOnStream(pstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -654,7 +654,7 @@ pub unsafe fn MFCreateMFByteStreamOnStreamEx<P0>(punkstream: P0) -> windows_core
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStreamEx(punkstream : * mut core::ffi::c_void, ppbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamOnStreamEx(punkstream : * mut core::ffi::c_void, ppbytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMFByteStreamOnStreamEx(punkstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -665,7 +665,7 @@ pub unsafe fn MFCreateMFByteStreamWrapper<P0>(pstream: P0) -> windows_core::Resu
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMFByteStreamWrapper(pstream : * mut core::ffi::c_void, ppstreamwrapper : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMFByteStreamWrapper(pstream : * mut core::ffi::c_void, ppstreamwrapper : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMFByteStreamWrapper(pstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -676,7 +676,7 @@ pub unsafe fn MFCreateMFVideoFormatFromMFMediaType<P0>(pmftype: P0, ppmfvf: *mut
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMFVideoFormatFromMFMediaType(pmftype : * mut core::ffi::c_void, ppmfvf : *mut *mut MFVIDEOFORMAT, pcbsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMFVideoFormatFromMFMediaType(pmftype : * mut core::ffi::c_void, ppmfvf : *mut *mut MFVIDEOFORMAT, pcbsize : *mut u32) -> windows_core::HRESULT);
     unsafe { MFCreateMFVideoFormatFromMFMediaType(pmftype.param().abi(), ppmfvf as _, pcbsize.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -684,7 +684,7 @@ pub unsafe fn MFCreateMP3MediaSink<P0>(ptargetbytestream: P0) -> windows_core::R
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateMP3MediaSink(ptargetbytestream : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateMP3MediaSink(ptargetbytestream : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMP3MediaSink(ptargetbytestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -697,7 +697,7 @@ where
     P1: windows_core::Param<IMFMediaType>,
     P2: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateMPEG4MediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateMPEG4MediaSink(pibytestream : * mut core::ffi::c_void, pvideomediatype : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppimediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMPEG4MediaSink(pibytestream.param().abi(), pvideomediatype.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -708,7 +708,7 @@ pub unsafe fn MFCreateMediaBufferFromMediaType<P0>(pmediatype: P0, llduration: i
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaBufferFromMediaType(pmediatype : * mut core::ffi::c_void, llduration : i64, dwminlength : u32, dwminalignment : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaBufferFromMediaType(pmediatype : * mut core::ffi::c_void, llduration : i64, dwminlength : u32, dwminalignment : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaBufferFromMediaType(pmediatype.param().abi(), llduration, dwminlength, dwminalignment, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -719,7 +719,7 @@ pub unsafe fn MFCreateMediaBufferWrapper<P0>(pbuffer: P0, cboffset: u32, dwlengt
 where
     P0: windows_core::Param<IMFMediaBuffer>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaBufferWrapper(pbuffer : * mut core::ffi::c_void, cboffset : u32, dwlength : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaBufferWrapper(pbuffer : * mut core::ffi::c_void, cboffset : u32, dwlength : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaBufferWrapper(pbuffer.param().abi(), cboffset, dwlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -728,7 +728,7 @@ where
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFCreateMediaEvent(met: u32, guidextendedtype: *const windows_core::GUID, hrstatus: windows_core::HRESULT, pvvalue: Option<*const super::super::System::Com::StructuredStorage::PROPVARIANT>) -> windows_core::Result<IMFMediaEvent> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : u32, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, ppevent : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaEvent(met : u32, guidextendedtype : *const windows_core::GUID, hrstatus : windows_core::HRESULT, pvvalue : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, ppevent : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaEvent(met, guidextendedtype, hrstatus, pvvalue.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -740,7 +740,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaExtensionActivate(szactivatableclassid : windows_core::PCWSTR, pconfiguration : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaExtensionActivate(szactivatableclassid : windows_core::PCWSTR, pconfiguration : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateMediaExtensionActivate(szactivatableclassid.param().abi(), pconfiguration.param().abi(), riid, ppvobject as _).ok() }
 }
 #[inline]
@@ -748,7 +748,7 @@ pub unsafe fn MFCreateMediaSession<P0>(pconfiguration: P0) -> windows_core::Resu
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateMediaSession(pconfiguration : * mut core::ffi::c_void, ppmediasession : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateMediaSession(pconfiguration : * mut core::ffi::c_void, ppmediasession : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaSession(pconfiguration.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -756,7 +756,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateMediaType() -> windows_core::Result<IMFMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaType(ppmftype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaType(ppmftype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaType(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -767,7 +767,7 @@ pub unsafe fn MFCreateMediaTypeFromProperties<P0>(punkstream: P0) -> windows_cor
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromProperties(punkstream : * mut core::ffi::c_void, ppmediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromProperties(punkstream : * mut core::ffi::c_void, ppmediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaTypeFromProperties(punkstream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -775,7 +775,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: windows_core::GUID, pvrepresentation: *const core::ffi::c_void) -> windows_core::Result<IMFMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromRepresentation(guidrepresentation : windows_core::GUID, pvrepresentation : *const core::ffi::c_void, ppimediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMediaTypeFromRepresentation(guidrepresentation : windows_core::GUID, pvrepresentation : *const core::ffi::c_void, ppimediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMediaTypeFromRepresentation(core::mem::transmute(guidrepresentation), pvrepresentation, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -783,7 +783,7 @@ pub unsafe fn MFCreateMediaTypeFromRepresentation(guidrepresentation: windows_co
 }
 #[inline]
 pub unsafe fn MFCreateMemoryBuffer(cbmaxlength: u32) -> windows_core::Result<IMFMediaBuffer> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMemoryBuffer(cbmaxlength : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMemoryBuffer(cbmaxlength : u32, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMemoryBuffer(cbmaxlength, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -795,7 +795,7 @@ where
     P1: windows_core::Param<IMFAttributes>,
     P2: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateMuxSink(guidoutputsubtype : windows_core::GUID, poutputattributes : * mut core::ffi::c_void, poutputbytestream : * mut core::ffi::c_void, ppmuxsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateMuxSink(guidoutputsubtype : windows_core::GUID, poutputattributes : * mut core::ffi::c_void, poutputbytestream : * mut core::ffi::c_void, ppmuxsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMuxSink(core::mem::transmute(guidoutputsubtype), poutputattributes.param().abi(), poutputbytestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -806,7 +806,7 @@ pub unsafe fn MFCreateMuxStreamAttributes<P0>(pattributestomux: P0) -> windows_c
 where
     P0: windows_core::Param<IMFCollection>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMuxStreamAttributes(pattributestomux : * mut core::ffi::c_void, ppmuxattribs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamAttributes(pattributestomux : * mut core::ffi::c_void, ppmuxattribs : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMuxStreamAttributes(pattributestomux.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -817,7 +817,7 @@ pub unsafe fn MFCreateMuxStreamMediaType<P0>(pmediatypestomux: P0) -> windows_co
 where
     P0: windows_core::Param<IMFCollection>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMuxStreamMediaType(pmediatypestomux : * mut core::ffi::c_void, ppmuxmediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamMediaType(pmediatypestomux : * mut core::ffi::c_void, ppmuxmediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMuxStreamMediaType(pmediatypestomux.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -828,7 +828,7 @@ pub unsafe fn MFCreateMuxStreamSample<P0>(psamplestomux: P0) -> windows_core::Re
 where
     P0: windows_core::Param<IMFCollection>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateMuxStreamSample(psamplestomux : * mut core::ffi::c_void, ppmuxsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateMuxStreamSample(psamplestomux : * mut core::ffi::c_void, ppmuxsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateMuxStreamSample(psamplestomux.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -836,7 +836,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateNetSchemePlugin(riid: *const windows_core::GUID, ppvhandler: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("mf.dll" "system" fn MFCreateNetSchemePlugin(riid : *const windows_core::GUID, ppvhandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateNetSchemePlugin(riid : *const windows_core::GUID, ppvhandler : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateNetSchemePlugin(riid, ppvhandler as _).ok() }
 }
 #[inline]
@@ -844,12 +844,12 @@ pub unsafe fn MFCreatePMPMediaSession<P1>(dwcreationflags: u32, pconfiguration: 
 where
     P1: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreatePMPMediaSession(dwcreationflags : u32, pconfiguration : * mut core::ffi::c_void, ppmediasession : *mut * mut core::ffi::c_void, ppenableractivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreatePMPMediaSession(dwcreationflags : u32, pconfiguration : * mut core::ffi::c_void, ppmediasession : *mut * mut core::ffi::c_void, ppenableractivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreatePMPMediaSession(dwcreationflags, pconfiguration.param().abi(), core::mem::transmute(ppmediasession), ppenableractivate.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> windows_core::Result<IMFPMPServer> {
-    windows_link::link!("mf.dll" "system" fn MFCreatePMPServer(dwcreationflags : u32, pppmpserver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreatePMPServer(dwcreationflags : u32, pppmpserver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreatePMPServer(dwcreationflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -857,7 +857,7 @@ pub unsafe fn MFCreatePMPServer(dwcreationflags: u32) -> windows_core::Result<IM
 }
 #[inline]
 pub unsafe fn MFCreatePresentationClock() -> windows_core::Result<IMFPresentationClock> {
-    windows_link::link!("mf.dll" "system" fn MFCreatePresentationClock(pppresentationclock : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreatePresentationClock(pppresentationclock : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreatePresentationClock(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -865,7 +865,7 @@ pub unsafe fn MFCreatePresentationClock() -> windows_core::Result<IMFPresentatio
 }
 #[inline]
 pub unsafe fn MFCreatePresentationDescriptor(apstreamdescriptors: Option<&[Option<IMFStreamDescriptor>]>) -> windows_core::Result<IMFPresentationDescriptor> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : u32, apstreamdescriptors : *const * mut core::ffi::c_void, pppresentationdescriptor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreatePresentationDescriptor(cstreamdescriptors : u32, apstreamdescriptors : *const * mut core::ffi::c_void, pppresentationdescriptor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreatePresentationDescriptor(apstreamdescriptors.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(apstreamdescriptors.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -876,7 +876,7 @@ pub unsafe fn MFCreatePresentationDescriptorFromASFProfile<P0>(piprofile: P0) ->
 where
     P0: windows_core::Param<IMFASFProfile>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreatePresentationDescriptorFromASFProfile(piprofile : * mut core::ffi::c_void, ppipd : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreatePresentationDescriptorFromASFProfile(piprofile : * mut core::ffi::c_void, ppipd : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreatePresentationDescriptorFromASFProfile(piprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -887,12 +887,12 @@ pub unsafe fn MFCreatePropertiesFromMediaType<P0>(pmediatype: P0, riid: *const w
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreatePropertiesFromMediaType(pmediatype : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreatePropertiesFromMediaType(pmediatype : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreatePropertiesFromMediaType(pmediatype.param().abi(), riid, ppv as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateProtectedEnvironmentAccess() -> windows_core::Result<IMFProtectedEnvironmentAccess> {
-    windows_link::link!("mf.dll" "system" fn MFCreateProtectedEnvironmentAccess(ppaccess : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateProtectedEnvironmentAccess(ppaccess : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateProtectedEnvironmentAccess(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -905,7 +905,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateProxyLocator(pszprotocol : windows_core::PCWSTR, pproxyconfig : * mut core::ffi::c_void, ppproxylocator : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateProxyLocator(pszprotocol : windows_core::PCWSTR, pproxyconfig : * mut core::ffi::c_void, ppproxylocator : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateProxyLocator(pszprotocol.param().abi(), pproxyconfig.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -917,7 +917,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateRelativePanelWatcher(videodeviceid : windows_core::PCWSTR, displaymonitordeviceid : windows_core::PCWSTR, pprelativepanelwatcher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateRelativePanelWatcher(videodeviceid : windows_core::PCWSTR, displaymonitordeviceid : windows_core::PCWSTR, pprelativepanelwatcher : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateRelativePanelWatcher(videodeviceid.param().abi(), displaymonitordeviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -925,7 +925,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateRemoteDesktopPlugin() -> windows_core::Result<IMFRemoteDesktopPlugin> {
-    windows_link::link!("mf.dll" "system" fn MFCreateRemoteDesktopPlugin(ppplugin : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateRemoteDesktopPlugin(ppplugin : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateRemoteDesktopPlugin(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -933,7 +933,7 @@ pub unsafe fn MFCreateRemoteDesktopPlugin() -> windows_core::Result<IMFRemoteDes
 }
 #[inline]
 pub unsafe fn MFCreateSample() -> windows_core::Result<IMFSample> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateSample(ppimfsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateSample(ppimfsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSample(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -941,7 +941,7 @@ pub unsafe fn MFCreateSample() -> windows_core::Result<IMFSample> {
 }
 #[inline]
 pub unsafe fn MFCreateSampleCopierMFT() -> windows_core::Result<IMFTransform> {
-    windows_link::link!("mf.dll" "system" fn MFCreateSampleCopierMFT(ppcopiermft : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateSampleCopierMFT(ppcopiermft : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSampleCopierMFT(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -953,7 +953,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
     P1: windows_core::Param<IMFSampleGrabberSinkCallback>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateSampleGrabberSinkActivate(pimfmediatype : * mut core::ffi::c_void, pimfsamplegrabbersinkcallback : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateSampleGrabberSinkActivate(pimfmediatype : * mut core::ffi::c_void, pimfsamplegrabbersinkcallback : * mut core::ffi::c_void, ppiactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSampleGrabberSinkActivate(pimfmediatype.param().abi(), pimfsamplegrabbersinkcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -964,7 +964,7 @@ pub unsafe fn MFCreateSensorActivityMonitor<P0>(pcallback: P0) -> windows_core::
 where
     P0: windows_core::Param<IMFSensorActivitiesReportCallback>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorActivityMonitor(pcallback : * mut core::ffi::c_void, ppactivitymonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorActivityMonitor(pcallback : * mut core::ffi::c_void, ppactivitymonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSensorActivityMonitor(pcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -975,7 +975,7 @@ pub unsafe fn MFCreateSensorGroup<P0>(sensorgroupsymboliclink: P0) -> windows_co
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorGroup(sensorgroupsymboliclink : windows_core::PCWSTR, ppsensorgroup : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorGroup(sensorgroupsymboliclink : windows_core::PCWSTR, ppsensorgroup : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSensorGroup(sensorgroupsymboliclink.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -986,7 +986,7 @@ pub unsafe fn MFCreateSensorProfile<P2>(profiletype: *const windows_core::GUID, 
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfile(profiletype : *const windows_core::GUID, profileindex : u32, constraints : windows_core::PCWSTR, ppprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfile(profiletype : *const windows_core::GUID, profileindex : u32, constraints : windows_core::PCWSTR, ppprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSensorProfile(profiletype, profileindex, constraints.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -994,7 +994,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateSensorProfileCollection() -> windows_core::Result<IMFSensorProfileCollection> {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfileCollection(ppsensorprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorProfileCollection(ppsensorprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSensorProfileCollection(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1006,7 +1006,7 @@ where
     P1: windows_core::Param<IMFAttributes>,
     P2: windows_core::Param<IMFCollection>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateSensorStream(streamid : u32, pattributes : * mut core::ffi::c_void, pmediatypecollection : * mut core::ffi::c_void, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateSensorStream(streamid : u32, pattributes : * mut core::ffi::c_void, pmediatypecollection : * mut core::ffi::c_void, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSensorStream(streamid, pattributes.param().abi(), pmediatypecollection.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1015,7 +1015,7 @@ where
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFCreateSequencerSegmentOffset(dwid: u32, hnsoffset: i64) -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    windows_link::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : u32, hnsoffset : i64, pvarsegmentoffset : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateSequencerSegmentOffset(dwid : u32, hnsoffset : i64, pvarsegmentoffset : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSequencerSegmentOffset(dwid, hnsoffset, &mut result__).map(|| core::mem::transmute(result__))
@@ -1026,7 +1026,7 @@ pub unsafe fn MFCreateSequencerSource<P0>(preserved: P0) -> windows_core::Result
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateSequencerSource(preserved : * mut core::ffi::c_void, ppsequencersource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateSequencerSource(preserved : * mut core::ffi::c_void, ppsequencersource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSequencerSource(preserved.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1034,7 +1034,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateSimpleTypeHandler() -> windows_core::Result<IMFMediaTypeHandler> {
-    windows_link::link!("mf.dll" "system" fn MFCreateSimpleTypeHandler(pphandler : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateSimpleTypeHandler(pphandler : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSimpleTypeHandler(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1046,7 +1046,7 @@ where
     P0: windows_core::Param<IMFMediaSink>,
     P1: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromMediaSink(pmediasink : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsinkwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromMediaSink(pmediasink : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsinkwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSinkWriterFromMediaSink(pmediasink.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1059,7 +1059,7 @@ where
     P1: windows_core::Param<IMFByteStream>,
     P2: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromURL(pwszoutputurl : windows_core::PCWSTR, pbytestream : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsinkwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSinkWriterFromURL(pwszoutputurl : windows_core::PCWSTR, pbytestream : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsinkwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSinkWriterFromURL(pwszoutputurl.param().abi(), pbytestream.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1071,7 +1071,7 @@ where
     P0: windows_core::Param<IMFByteStream>,
     P1: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromByteStream(pbytestream : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromByteStream(pbytestream : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSourceReaderFromByteStream(pbytestream.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1083,7 +1083,7 @@ where
     P0: windows_core::Param<IMFMediaSource>,
     P1: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromMediaSource(pmediasource : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromMediaSource(pmediasource : * mut core::ffi::c_void, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSourceReaderFromMediaSource(pmediasource.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1095,7 +1095,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromURL(pwszurl : windows_core::PCWSTR, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfreadwrite.dll" "system" fn MFCreateSourceReaderFromURL(pwszurl : windows_core::PCWSTR, pattributes : * mut core::ffi::c_void, ppsourcereader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSourceReaderFromURL(pwszurl.param().abi(), pattributes.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1103,7 +1103,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateSourceResolver() -> windows_core::Result<IMFSourceResolver> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateSourceResolver(ppisourceresolver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateSourceResolver(ppisourceresolver : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSourceResolver(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1111,7 +1111,7 @@ pub unsafe fn MFCreateSourceResolver() -> windows_core::Result<IMFSourceResolver
 }
 #[inline]
 pub unsafe fn MFCreateStandardQualityManager() -> windows_core::Result<IMFQualityManager> {
-    windows_link::link!("mf.dll" "system" fn MFCreateStandardQualityManager(ppqualitymanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateStandardQualityManager(ppqualitymanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateStandardQualityManager(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1119,7 +1119,7 @@ pub unsafe fn MFCreateStandardQualityManager() -> windows_core::Result<IMFQualit
 }
 #[inline]
 pub unsafe fn MFCreateStreamDescriptor(dwstreamidentifier: u32, apmediatypes: &[Option<IMFMediaType>]) -> windows_core::Result<IMFStreamDescriptor> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateStreamDescriptor(dwstreamidentifier : u32, cmediatypes : u32, apmediatypes : *const * mut core::ffi::c_void, ppdescriptor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateStreamDescriptor(dwstreamidentifier : u32, cmediatypes : u32, apmediatypes : *const * mut core::ffi::c_void, ppdescriptor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateStreamDescriptor(dwstreamidentifier, apmediatypes.len().try_into().unwrap(), core::mem::transmute(apmediatypes.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1131,7 +1131,7 @@ pub unsafe fn MFCreateStreamOnMFByteStream<P0>(pbytestream: P0) -> windows_core:
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStream(pbytestream : * mut core::ffi::c_void, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStream(pbytestream : * mut core::ffi::c_void, ppstream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateStreamOnMFByteStream(pbytestream.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1142,12 +1142,12 @@ pub unsafe fn MFCreateStreamOnMFByteStreamEx<P0>(pbytestream: P0, riid: *const w
 where
     P0: windows_core::Param<IMFByteStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStreamEx(pbytestream : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateStreamOnMFByteStreamEx(pbytestream : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateStreamOnMFByteStreamEx(pbytestream.param().abi(), riid, ppv as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateSystemTimeSource() -> windows_core::Result<IMFPresentationTimeSource> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateSystemTimeSource(ppsystemtimesource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateSystemTimeSource(ppsystemtimesource : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateSystemTimeSource(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1155,7 +1155,7 @@ pub unsafe fn MFCreateSystemTimeSource() -> windows_core::Result<IMFPresentation
 }
 #[inline]
 pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE_OPENMODE, fflags: MF_FILE_FLAGS) -> windows_core::Result<IMFByteStream> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateTempFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, ppibytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateTempFile(accessmode : MF_FILE_ACCESSMODE, openmode : MF_FILE_OPENMODE, fflags : MF_FILE_FLAGS, ppibytestream : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTempFile(accessmode, openmode, fflags, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1163,7 +1163,7 @@ pub unsafe fn MFCreateTempFile(accessmode: MF_FILE_ACCESSMODE, openmode: MF_FILE
 }
 #[inline]
 pub unsafe fn MFCreateTopoLoader() -> windows_core::Result<IMFTopoLoader> {
-    windows_link::link!("mf.dll" "system" fn MFCreateTopoLoader(ppobj : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTopoLoader(ppobj : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTopoLoader(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1171,7 +1171,7 @@ pub unsafe fn MFCreateTopoLoader() -> windows_core::Result<IMFTopoLoader> {
 }
 #[inline]
 pub unsafe fn MFCreateTopology() -> windows_core::Result<IMFTopology> {
-    windows_link::link!("mf.dll" "system" fn MFCreateTopology(pptopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTopology(pptopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTopology(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1179,7 +1179,7 @@ pub unsafe fn MFCreateTopology() -> windows_core::Result<IMFTopology> {
 }
 #[inline]
 pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> windows_core::Result<IMFTopologyNode> {
-    windows_link::link!("mf.dll" "system" fn MFCreateTopologyNode(nodetype : MF_TOPOLOGY_TYPE, ppnode : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTopologyNode(nodetype : MF_TOPOLOGY_TYPE, ppnode : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTopologyNode(nodetype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1187,7 +1187,7 @@ pub unsafe fn MFCreateTopologyNode(nodetype: MF_TOPOLOGY_TYPE) -> windows_core::
 }
 #[inline]
 pub unsafe fn MFCreateTrackedSample() -> windows_core::Result<IMFTrackedSample> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateTrackedSample(ppmfsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateTrackedSample(ppmfsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTrackedSample(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1195,7 +1195,7 @@ pub unsafe fn MFCreateTrackedSample() -> windows_core::Result<IMFTrackedSample> 
 }
 #[inline]
 pub unsafe fn MFCreateTranscodeProfile() -> windows_core::Result<IMFTranscodeProfile> {
-    windows_link::link!("mf.dll" "system" fn MFCreateTranscodeProfile(pptranscodeprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTranscodeProfile(pptranscodeprofile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTranscodeProfile(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1203,7 +1203,7 @@ pub unsafe fn MFCreateTranscodeProfile() -> windows_core::Result<IMFTranscodePro
 }
 #[inline]
 pub unsafe fn MFCreateTranscodeSinkActivate() -> windows_core::Result<IMFActivate> {
-    windows_link::link!("mf.dll" "system" fn MFCreateTranscodeSinkActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTranscodeSinkActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTranscodeSinkActivate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1216,7 +1216,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<IMFTranscodeProfile>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateTranscodeTopology(psrc : * mut core::ffi::c_void, pwszoutputfilepath : windows_core::PCWSTR, pprofile : * mut core::ffi::c_void, pptranscodetopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTranscodeTopology(psrc : * mut core::ffi::c_void, pwszoutputfilepath : windows_core::PCWSTR, pprofile : * mut core::ffi::c_void, pptranscodetopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTranscodeTopology(psrc.param().abi(), pwszoutputfilepath.param().abi(), pprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1229,7 +1229,7 @@ where
     P1: windows_core::Param<IMFByteStream>,
     P2: windows_core::Param<IMFTranscodeProfile>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateTranscodeTopologyFromByteStream(psrc : * mut core::ffi::c_void, poutputstream : * mut core::ffi::c_void, pprofile : * mut core::ffi::c_void, pptranscodetopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateTranscodeTopologyFromByteStream(psrc : * mut core::ffi::c_void, poutputstream : * mut core::ffi::c_void, pprofile : * mut core::ffi::c_void, pptranscodetopo : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTranscodeTopologyFromByteStream(psrc.param().abi(), poutputstream.param().abi(), pprofile.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1237,7 +1237,7 @@ where
 }
 #[inline]
 pub unsafe fn MFCreateTransformActivate() -> windows_core::Result<IMFActivate> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateTransformActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateTransformActivate(ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateTransformActivate(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1245,7 +1245,7 @@ pub unsafe fn MFCreateTransformActivate() -> windows_core::Result<IMFActivate> {
 }
 #[inline]
 pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> windows_core::Result<IMFVideoMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateVideoMediaType(pvideoformat : *const MFVIDEOFORMAT, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaType(pvideoformat : *const MFVIDEOFORMAT, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoMediaType(pvideoformat, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1254,7 +1254,7 @@ pub unsafe fn MFCreateVideoMediaType(pvideoformat: *const MFVIDEOFORMAT) -> wind
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, qwframespersecondnumerator: u64, qwframesperseconddenominator: u64, dwmaxbitrate: u32) -> windows_core::Result<IMFVideoMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwpixelaspectratiox : u32, dwpixelaspectratioy : u32, interlacemode : MFVideoInterlaceMode, videoflags : u64, qwframespersecondnumerator : u64, qwframesperseconddenominator : u64, dwmaxbitrate : u32, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, dwpixelaspectratiox : u32, dwpixelaspectratioy : u32, interlacemode : MFVideoInterlaceMode, videoflags : u64, qwframespersecondnumerator : u64, qwframesperseconddenominator : u64, dwmaxbitrate : u32, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, qwframespersecondnumerator, qwframesperseconddenominator, dwmaxbitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1263,7 +1263,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeader(pbmihbitmapinfoheader: 
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader: *const super::super::Graphics::Gdi::BITMAPINFOHEADER, cbbitmapinfoheader: u32, dwpixelaspectratiox: u32, dwpixelaspectratioy: u32, interlacemode: MFVideoInterlaceMode, videoflags: u64, dwframespersecondnumerator: u32, dwframesperseconddenominator: u32, dwmaxbitrate: u32) -> windows_core::Result<IMFVideoMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, cbbitmapinfoheader : u32, dwpixelaspectratiox : u32, dwpixelaspectratioy : u32, interlacemode : MFVideoInterlaceMode, videoflags : u64, dwframespersecondnumerator : u32, dwframesperseconddenominator : u32, dwmaxbitrate : u32, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader : *const super::super::Graphics::Gdi:: BITMAPINFOHEADER, cbbitmapinfoheader : u32, dwpixelaspectratiox : u32, dwpixelaspectratioy : u32, interlacemode : MFVideoInterlaceMode, videoflags : u64, dwframespersecondnumerator : u32, dwframesperseconddenominator : u32, dwmaxbitrate : u32, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader, cbbitmapinfoheader, dwpixelaspectratiox, dwpixelaspectratioy, interlacemode, videoflags, dwframespersecondnumerator, dwframesperseconddenominator, dwmaxbitrate, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1271,7 +1271,7 @@ pub unsafe fn MFCreateVideoMediaTypeFromBitMapInfoHeaderEx(pbmihbitmapinfoheader
 }
 #[inline]
 pub unsafe fn MFCreateVideoMediaTypeFromSubtype(pamsubtype: *const windows_core::GUID) -> windows_core::Result<IMFVideoMediaType> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromSubtype(pamsubtype : *const windows_core::GUID, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateVideoMediaTypeFromSubtype(pamsubtype : *const windows_core::GUID, ppivideomediatype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoMediaTypeFromSubtype(pamsubtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1282,7 +1282,7 @@ pub unsafe fn MFCreateVideoMixer<P0>(powner: P0, riiddevice: *const windows_core
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("evr.dll" "system" fn MFCreateVideoMixer(powner : * mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoMixer(powner : * mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoMixer(powner.param().abi(), riiddevice, riid, ppv as _).ok() }
 }
 #[inline]
@@ -1291,7 +1291,7 @@ where
     P0: windows_core::Param<windows_core::IUnknown>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("evr.dll" "system" fn MFCreateVideoMixerAndPresenter(pmixerowner : * mut core::ffi::c_void, ppresenterowner : * mut core::ffi::c_void, riidmixer : *const windows_core::GUID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const windows_core::GUID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoMixerAndPresenter(pmixerowner : * mut core::ffi::c_void, ppresenterowner : * mut core::ffi::c_void, riidmixer : *const windows_core::GUID, ppvvideomixer : *mut *mut core::ffi::c_void, riidpresenter : *const windows_core::GUID, ppvvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoMixerAndPresenter(pmixerowner.param().abi(), ppresenterowner.param().abi(), riidmixer, ppvvideomixer as _, riidpresenter, ppvvideopresenter as _).ok() }
 }
 #[inline]
@@ -1299,17 +1299,17 @@ pub unsafe fn MFCreateVideoPresenter<P0>(powner: P0, riiddevice: *const windows_
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("evr.dll" "system" fn MFCreateVideoPresenter(powner : * mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoPresenter(powner : * mut core::ffi::c_void, riiddevice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvideopresenter : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoPresenter(powner.param().abi(), riiddevice, riid, ppvideopresenter as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateVideoRenderer(riidrenderer: *const windows_core::GUID, ppvideorenderer: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const windows_core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateVideoRenderer(riidrenderer : *const windows_core::GUID, ppvideorenderer : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoRenderer(riidrenderer, ppvideorenderer as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation::HWND) -> windows_core::Result<IMFActivate> {
-    windows_link::link!("mf.dll" "system" fn MFCreateVideoRendererActivate(hwndvideo : super::super::Foundation:: HWND, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateVideoRendererActivate(hwndvideo : super::super::Foundation:: HWND, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoRendererActivate(hwndvideo, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1317,12 +1317,12 @@ pub unsafe fn MFCreateVideoRendererActivate(hwndvideo: super::super::Foundation:
 }
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocator(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("evr.dll" "system" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleAllocator(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoSampleAllocator(riid, ppsampleallocator as _).ok() }
 }
 #[inline]
 pub unsafe fn MFCreateVideoSampleAllocatorEx(riid: *const windows_core::GUID, ppsampleallocator: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateVideoSampleAllocatorEx(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateVideoSampleAllocatorEx(riid : *const windows_core::GUID, ppsampleallocator : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFCreateVideoSampleAllocatorEx(riid, ppsampleallocator as _).ok() }
 }
 #[inline]
@@ -1330,7 +1330,7 @@ pub unsafe fn MFCreateVideoSampleFromSurface<P0>(punksurface: P0) -> windows_cor
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : * mut core::ffi::c_void, ppsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFCreateVideoSampleFromSurface(punksurface : * mut core::ffi::c_void, ppsample : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVideoSampleFromSurface(punksurface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1342,7 +1342,7 @@ where
     P3: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_core::PCWSTR, sourceid : windows_core::PCWSTR, categories : *const windows_core::GUID, categorycount : u32, virtualcamera : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFCreateVirtualCamera(r#type : MFVirtualCameraType, lifetime : MFVirtualCameraLifetime, access : MFVirtualCameraAccess, friendlyname : windows_core::PCWSTR, sourceid : windows_core::PCWSTR, categories : *const windows_core::GUID, categorycount : u32, virtualcamera : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateVirtualCamera(r#type, lifetime, access, friendlyname.param().abi(), sourceid.param().abi(), core::mem::transmute(categories.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), categories.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1354,7 +1354,7 @@ where
     P0: windows_core::Param<IMFByteStream>,
     P1: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfsrcsnk.dll" "system" fn MFCreateWAVEMediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfsrcsnk.dll" "system" fn MFCreateWAVEMediaSink(ptargetbytestream : * mut core::ffi::c_void, paudiomediatype : * mut core::ffi::c_void, ppmediasink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateWAVEMediaSink(ptargetbytestream.param().abi(), paudiomediatype.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1365,7 +1365,7 @@ pub unsafe fn MFCreateWICBitmapBuffer<P1>(riid: *const windows_core::GUID, punks
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateWICBitmapBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateWICBitmapBuffer(riid : *const windows_core::GUID, punksurface : * mut core::ffi::c_void, ppbuffer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateWICBitmapBuffer(riid, punksurface.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1378,7 +1378,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
     P1: windows_core::Param<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateWMAEncoderActivate(pmediatype : * mut core::ffi::c_void, pencodingconfigurationproperties : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateWMAEncoderActivate(pmediatype : * mut core::ffi::c_void, pencodingconfigurationproperties : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateWMAEncoderActivate(pmediatype.param().abi(), pencodingconfigurationproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1391,7 +1391,7 @@ where
     P0: windows_core::Param<IMFMediaType>,
     P1: windows_core::Param<super::super::UI::Shell::PropertiesSystem::IPropertyStore>,
 {
-    windows_link::link!("mf.dll" "system" fn MFCreateWMVEncoderActivate(pmediatype : * mut core::ffi::c_void, pencodingconfigurationproperties : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFCreateWMVEncoderActivate(pmediatype : * mut core::ffi::c_void, pencodingconfigurationproperties : * mut core::ffi::c_void, ppactivate : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFCreateWMVEncoderActivate(pmediatype.param().abi(), pencodingconfigurationproperties.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1403,7 +1403,7 @@ pub unsafe fn MFCreateWaveFormatExFromMFMediaType<P0>(pmftype: P0, ppwf: *mut *m
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFCreateWaveFormatExFromMFMediaType(pmftype : * mut core::ffi::c_void, ppwf : *mut *mut super::Audio:: WAVEFORMATEX, pcbsize : *mut u32, flags : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFCreateWaveFormatExFromMFMediaType(pmftype : * mut core::ffi::c_void, ppwf : *mut *mut super::Audio:: WAVEFORMATEX, pcbsize : *mut u32, flags : u32) -> windows_core::HRESULT);
     unsafe { MFCreateWaveFormatExFromMFMediaType(pmftype.param().abi(), ppwf as _, pcbsize.unwrap_or(core::mem::zeroed()) as _, flags).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1413,12 +1413,12 @@ where
     P0: windows_core::Param<IMFAttributes>,
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : * mut core::ffi::c_void, dwoptions : u32, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFDeserializeAttributesFromStream(pattr : * mut core::ffi::c_void, dwoptions : u32, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFDeserializeAttributesFromStream(pattr.param().abi(), dwoptions, pstm.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn MFDeserializePresentationDescriptor(pbdata: &[u8]) -> windows_core::Result<IMFPresentationDescriptor> {
-    windows_link::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor(cbdata : u32, pbdata : *const u8, pppd : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFDeserializePresentationDescriptor(cbdata : u32, pbdata : *const u8, pppd : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFDeserializePresentationDescriptor(pbdata.len().try_into().unwrap(), core::mem::transmute(pbdata.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1429,7 +1429,7 @@ pub unsafe fn MFEndCreateFile<P0>(presult: P0) -> windows_core::Result<IMFByteSt
 where
     P0: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFEndCreateFile(presult : * mut core::ffi::c_void, ppfile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFEndCreateFile(presult : * mut core::ffi::c_void, ppfile : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFEndCreateFile(presult.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1440,7 +1440,7 @@ pub unsafe fn MFEndRegisterWorkQueueWithMMCSS<P0>(presult: P0) -> windows_core::
 where
     P0: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFEndRegisterWorkQueueWithMMCSS(presult : * mut core::ffi::c_void, pdwtaskid : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFEndRegisterWorkQueueWithMMCSS(presult : * mut core::ffi::c_void, pdwtaskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFEndRegisterWorkQueueWithMMCSS(presult.param().abi(), &mut result__).map(|| result__)
@@ -1451,7 +1451,7 @@ pub unsafe fn MFEndUnregisterWorkQueueWithMMCSS<P0>(presult: P0) -> windows_core
 where
     P0: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFEndUnregisterWorkQueueWithMMCSS(presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFEndUnregisterWorkQueueWithMMCSS(presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFEndUnregisterWorkQueueWithMMCSS(presult.param().abi()).ok() }
 }
 #[inline]
@@ -1459,12 +1459,12 @@ pub unsafe fn MFEnumDeviceSources<P0>(pattributes: P0, pppsourceactivate: *mut *
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFEnumDeviceSources(pattributes : * mut core::ffi::c_void, pppsourceactivate : *mut *mut * mut core::ffi::c_void, pcsourceactivate : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFEnumDeviceSources(pattributes : * mut core::ffi::c_void, pppsourceactivate : *mut *mut * mut core::ffi::c_void, pcsourceactivate : *mut u32) -> windows_core::HRESULT);
     unsafe { MFEnumDeviceSources(pattributes.param().abi(), pppsourceactivate as _, pcsourceactivate as _).ok() }
 }
 #[inline]
 pub unsafe fn MFFrameRateToAverageTimePerFrame(unnumerator: u32, undenominator: u32) -> windows_core::Result<u64> {
-    windows_link::link!("mfplat.dll" "system" fn MFFrameRateToAverageTimePerFrame(unnumerator : u32, undenominator : u32, punaveragetimeperframe : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFFrameRateToAverageTimePerFrame(unnumerator : u32, undenominator : u32, punaveragetimeperframe : *mut u64) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFFrameRateToAverageTimePerFrame(unnumerator, undenominator, &mut result__).map(|| result__)
@@ -1475,7 +1475,7 @@ pub unsafe fn MFGetAttributesAsBlob<P0>(pattributes: P0, pbuf: &mut [u8]) -> win
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFGetAttributesAsBlob(pattributes : * mut core::ffi::c_void, pbuf : *mut u8, cbbufsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetAttributesAsBlob(pattributes : * mut core::ffi::c_void, pbuf : *mut u8, cbbufsize : u32) -> windows_core::HRESULT);
     unsafe { MFGetAttributesAsBlob(pattributes.param().abi(), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap()).ok() }
 }
 #[inline]
@@ -1483,7 +1483,7 @@ pub unsafe fn MFGetAttributesAsBlobSize<P0>(pattributes: P0) -> windows_core::Re
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFGetAttributesAsBlobSize(pattributes : * mut core::ffi::c_void, pcbbufsize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetAttributesAsBlobSize(pattributes : * mut core::ffi::c_void, pcbbufsize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetAttributesAsBlobSize(pattributes.param().abi(), &mut result__).map(|| result__)
@@ -1491,7 +1491,7 @@ where
 }
 #[inline]
 pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const windows_core::GUID) -> windows_core::Result<windows_core::GUID> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid : *const windows_core::GUID, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid : *const windows_core::GUID, pclsid : *mut windows_core::GUID) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetContentProtectionSystemCLSID(guidprotectionsystemid, &mut result__).map(|| result__)
@@ -1499,7 +1499,7 @@ pub unsafe fn MFGetContentProtectionSystemCLSID(guidprotectionsystemid: *const w
 }
 #[inline]
 pub unsafe fn MFGetLocalId(verifier: &[u8]) -> windows_core::Result<windows_core::PWSTR> {
-    windows_link::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFGetLocalId(verifier : *const u8, size : u32, id : *mut windows_core::PWSTR) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetLocalId(core::mem::transmute(verifier.as_ptr()), verifier.len().try_into().unwrap(), &mut result__).map(|| result__)
@@ -1510,7 +1510,7 @@ pub unsafe fn MFGetMFTMerit<P0>(pmft: P0, verifier: &[u8]) -> windows_core::Resu
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : * mut core::ffi::c_void, cbverifier : u32, verifier : *const u8, merit : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetMFTMerit(pmft : * mut core::ffi::c_void, cbverifier : u32, verifier : *const u8, merit : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetMFTMerit(pmft.param().abi(), verifier.len().try_into().unwrap(), core::mem::transmute(verifier.as_ptr()), &mut result__).map(|| result__)
@@ -1518,7 +1518,7 @@ where
 }
 #[inline]
 pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> windows_core::Result<u32> {
-    windows_link::link!("evr.dll" "system" fn MFGetPlaneSize(format : u32, dwwidth : u32, dwheight : u32, pdwplanesize : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("evr.dll" "system" fn MFGetPlaneSize(format : u32, dwwidth : u32, dwheight : u32, pdwplanesize : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetPlaneSize(format, dwwidth, dwheight, &mut result__).map(|| result__)
@@ -1526,7 +1526,7 @@ pub unsafe fn MFGetPlaneSize(format: u32, dwwidth: u32, dwheight: u32) -> window
 }
 #[inline]
 pub unsafe fn MFGetPluginControl() -> windows_core::Result<IMFPluginControl> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetPluginControl(ppplugincontrol : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetPluginControl(ppplugincontrol : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetPluginControl(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1537,12 +1537,12 @@ pub unsafe fn MFGetService<P0>(punkobject: P0, guidservice: *const windows_core:
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mf.dll" "system" fn MFGetService(punkobject : * mut core::ffi::c_void, guidservice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFGetService(punkobject : * mut core::ffi::c_void, guidservice : *const windows_core::GUID, riid : *const windows_core::GUID, ppvobject : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFGetService(punkobject.param().abi(), guidservice, riid, ppvobject as _).ok() }
 }
 #[inline]
 pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> windows_core::Result<i32> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetStrideForBitmapInfoHeader(format : u32, dwwidth : u32, pstride : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetStrideForBitmapInfoHeader(format : u32, dwwidth : u32, pstride : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetStrideForBitmapInfoHeader(format, dwwidth, &mut result__).map(|| result__)
@@ -1551,7 +1551,7 @@ pub unsafe fn MFGetStrideForBitmapInfoHeader(format: u32, dwwidth: u32) -> windo
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFGetSupportedMimeTypes() -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetSupportedMimeTypes(ppropvarmimetypearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetSupportedMimeTypes(&mut result__).map(|| core::mem::transmute(result__))
@@ -1560,7 +1560,7 @@ pub unsafe fn MFGetSupportedMimeTypes() -> windows_core::Result<super::super::Sy
 #[cfg(all(feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Variant"))]
 #[inline]
 pub unsafe fn MFGetSupportedSchemes() -> windows_core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetSupportedSchemes(ppropvarschemearray : *mut super::super::System::Com::StructuredStorage:: PROPVARIANT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetSupportedSchemes(&mut result__).map(|| core::mem::transmute(result__))
@@ -1568,7 +1568,7 @@ pub unsafe fn MFGetSupportedSchemes() -> windows_core::Result<super::super::Syst
 }
 #[inline]
 pub unsafe fn MFGetSystemId() -> windows_core::Result<IMFSystemId> {
-    windows_link::link!("mf.dll" "system" fn MFGetSystemId(ppid : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFGetSystemId(ppid : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetSystemId(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1576,12 +1576,12 @@ pub unsafe fn MFGetSystemId() -> windows_core::Result<IMFSystemId> {
 }
 #[inline]
 pub unsafe fn MFGetSystemTime() -> i64 {
-    windows_link::link!("mfplat.dll" "system" fn MFGetSystemTime() -> i64);
+    windows_core::link!("mfplat.dll" "system" fn MFGetSystemTime() -> i64);
     unsafe { MFGetSystemTime() }
 }
 #[inline]
 pub unsafe fn MFGetTimerPeriodicity() -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetTimerPeriodicity(periodicity : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetTimerPeriodicity(periodicity : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetTimerPeriodicity(&mut result__).map(|| result__)
@@ -1592,7 +1592,7 @@ pub unsafe fn MFGetTopoNodeCurrentType<P0>(pnode: P0, dwstreamindex: u32, foutpu
 where
     P0: windows_core::Param<IMFTopologyNode>,
 {
-    windows_link::link!("mf.dll" "system" fn MFGetTopoNodeCurrentType(pnode : * mut core::ffi::c_void, dwstreamindex : u32, foutput : windows_core::BOOL, pptype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFGetTopoNodeCurrentType(pnode : * mut core::ffi::c_void, dwstreamindex : u32, foutput : windows_core::BOOL, pptype : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetTopoNodeCurrentType(pnode.param().abi(), dwstreamindex, foutput.into(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1600,17 +1600,17 @@ where
 }
 #[inline]
 pub unsafe fn MFGetUncompressedVideoFormat(pvideoformat: *const MFVIDEOFORMAT) -> u32 {
-    windows_link::link!("mfplat.dll" "system" fn MFGetUncompressedVideoFormat(pvideoformat : *const MFVIDEOFORMAT) -> u32);
+    windows_core::link!("mfplat.dll" "system" fn MFGetUncompressedVideoFormat(pvideoformat : *const MFVIDEOFORMAT) -> u32);
     unsafe { MFGetUncompressedVideoFormat(pvideoformat) }
 }
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSClass(dwworkqueueid: u32, pwszclass: Option<windows_core::PWSTR>, pcchclass: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSClass(dwworkqueueid : u32, pwszclass : windows_core::PWSTR, pcchclass : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSClass(dwworkqueueid : u32, pwszclass : windows_core::PWSTR, pcchclass : *mut u32) -> windows_core::HRESULT);
     unsafe { MFGetWorkQueueMMCSSClass(dwworkqueueid, pwszclass.unwrap_or(core::mem::zeroed()) as _, pcchclass as _).ok() }
 }
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> windows_core::Result<i32> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSPriority(dwworkqueueid : u32, lpriority : *mut i32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSPriority(dwworkqueueid : u32, lpriority : *mut i32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetWorkQueueMMCSSPriority(dwworkqueueid, &mut result__).map(|| result__)
@@ -1618,7 +1618,7 @@ pub unsafe fn MFGetWorkQueueMMCSSPriority(dwworkqueueid: u32) -> windows_core::R
 }
 #[inline]
 pub unsafe fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid: u32) -> windows_core::Result<u32> {
-    windows_link::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid : u32, pdwtaskid : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFGetWorkQueueMMCSSTaskId(dwworkqueueid : u32, pdwtaskid : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFGetWorkQueueMMCSSTaskId(dwworkqueueid, &mut result__).map(|| result__)
@@ -1629,12 +1629,12 @@ pub unsafe fn MFHeapAlloc<P2>(nsize: usize, dwflags: u32, pszfile: P2, line: i32
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFHeapAlloc(nsize : usize, dwflags : u32, pszfile : windows_core::PCSTR, line : i32, eat : EAllocationType) -> *mut core::ffi::c_void);
+    windows_core::link!("mfplat.dll" "system" fn MFHeapAlloc(nsize : usize, dwflags : u32, pszfile : windows_core::PCSTR, line : i32, eat : EAllocationType) -> *mut core::ffi::c_void);
     unsafe { MFHeapAlloc(nsize, dwflags, pszfile.param().abi(), line, eat) }
 }
 #[inline]
 pub unsafe fn MFHeapFree(pv: *mut core::ffi::c_void) {
-    windows_link::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut core::ffi::c_void));
+    windows_core::link!("mfplat.dll" "system" fn MFHeapFree(pv : *mut core::ffi::c_void));
     unsafe { MFHeapFree(pv as _) }
 }
 #[inline]
@@ -1642,7 +1642,7 @@ pub unsafe fn MFInitAMMediaTypeFromMFMediaType<P0>(pmftype: P0, guidformatblockt
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitAMMediaTypeFromMFMediaType(pmftype : * mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, pamtype : *mut AM_MEDIA_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitAMMediaTypeFromMFMediaType(pmftype : * mut core::ffi::c_void, guidformatblocktype : windows_core::GUID, pamtype : *mut AM_MEDIA_TYPE) -> windows_core::HRESULT);
     unsafe { MFInitAMMediaTypeFromMFMediaType(pmftype.param().abi(), core::mem::transmute(guidformatblocktype), core::mem::transmute(pamtype)).ok() }
 }
 #[inline]
@@ -1650,7 +1650,7 @@ pub unsafe fn MFInitAttributesFromBlob<P0>(pattributes: P0, pbuf: &[u8]) -> wind
 where
     P0: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattributes : * mut core::ffi::c_void, pbuf : *const u8, cbbufsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitAttributesFromBlob(pattributes : * mut core::ffi::c_void, pbuf : *const u8, cbbufsize : u32) -> windows_core::HRESULT);
     unsafe { MFInitAttributesFromBlob(pattributes.param().abi(), core::mem::transmute(pbuf.as_ptr()), pbuf.len().try_into().unwrap()).ok() }
 }
 #[inline]
@@ -1658,7 +1658,7 @@ pub unsafe fn MFInitMediaTypeFromAMMediaType<P0>(pmftype: P0, pamtype: *const AM
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromAMMediaType(pmftype : * mut core::ffi::c_void, pamtype : *const AM_MEDIA_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromAMMediaType(pmftype : * mut core::ffi::c_void, pamtype : *const AM_MEDIA_TYPE) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromAMMediaType(pmftype.param().abi(), core::mem::transmute(pamtype)).ok() }
 }
 #[inline]
@@ -1666,7 +1666,7 @@ pub unsafe fn MFInitMediaTypeFromMFVideoFormat<P0>(pmftype: P0, pmfvf: *const MF
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMFVideoFormat(pmftype : * mut core::ffi::c_void, pmfvf : *const MFVIDEOFORMAT, cbbufsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMFVideoFormat(pmftype : * mut core::ffi::c_void, pmfvf : *const MFVIDEOFORMAT, cbbufsize : u32) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromMFVideoFormat(pmftype.param().abi(), pmfvf, cbbufsize).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1675,7 +1675,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG1VideoInfo<P0>(pmftype: P0, pmp1vi: *const 
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype : * mut core::ffi::c_void, pmp1vi : *const MPEG1VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG1VideoInfo(pmftype : * mut core::ffi::c_void, pmp1vi : *const MPEG1VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromMPEG1VideoInfo(pmftype.param().abi(), pmp1vi, cbbufsize, psubtype.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1684,7 +1684,7 @@ pub unsafe fn MFInitMediaTypeFromMPEG2VideoInfo<P0>(pmftype: P0, pmp2vi: *const 
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype : * mut core::ffi::c_void, pmp2vi : *const MPEG2VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromMPEG2VideoInfo(pmftype : * mut core::ffi::c_void, pmp2vi : *const MPEG2VIDEOINFO, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromMPEG2VideoInfo(pmftype.param().abi(), pmp2vi, cbbufsize, psubtype.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1693,7 +1693,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader<P0>(pmftype: P0, pvih: *const V
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader(pmftype : * mut core::ffi::c_void, pvih : *const VIDEOINFOHEADER, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader(pmftype : * mut core::ffi::c_void, pvih : *const VIDEOINFOHEADER, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromVideoInfoHeader(pmftype.param().abi(), pvih, cbbufsize, psubtype.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1702,7 +1702,7 @@ pub unsafe fn MFInitMediaTypeFromVideoInfoHeader2<P0>(pmftype: P0, pvih2: *const
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader2(pmftype : * mut core::ffi::c_void, pvih2 : *const VIDEOINFOHEADER2, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromVideoInfoHeader2(pmftype : * mut core::ffi::c_void, pvih2 : *const VIDEOINFOHEADER2, cbbufsize : u32, psubtype : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromVideoInfoHeader2(pmftype.param().abi(), pvih2, cbbufsize, psubtype.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_Media_Audio")]
@@ -1711,17 +1711,17 @@ pub unsafe fn MFInitMediaTypeFromWaveFormatEx<P0>(pmftype: P0, pwaveformat: *con
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInitMediaTypeFromWaveFormatEx(pmftype : * mut core::ffi::c_void, pwaveformat : *const super::Audio:: WAVEFORMATEX, cbbufsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitMediaTypeFromWaveFormatEx(pmftype : * mut core::ffi::c_void, pwaveformat : *const super::Audio:: WAVEFORMATEX, cbbufsize : u32) -> windows_core::HRESULT);
     unsafe { MFInitMediaTypeFromWaveFormatEx(pmftype.param().abi(), pwaveformat, cbbufsize).ok() }
 }
 #[inline]
 pub unsafe fn MFInitVideoFormat(pvideoformat: *const MFVIDEOFORMAT, r#type: MFStandardVideoFormat) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFInitVideoFormat(pvideoformat : *const MFVIDEOFORMAT, r#type : MFStandardVideoFormat) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitVideoFormat(pvideoformat : *const MFVIDEOFORMAT, r#type : MFStandardVideoFormat) -> windows_core::HRESULT);
     unsafe { MFInitVideoFormat(pvideoformat, r#type).ok() }
 }
 #[inline]
 pub unsafe fn MFInitVideoFormat_RGB(pvideoformat: *const MFVIDEOFORMAT, dwwidth: u32, dwheight: u32, d3dfmt: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFInitVideoFormat_RGB(pvideoformat : *const MFVIDEOFORMAT, dwwidth : u32, dwheight : u32, d3dfmt : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInitVideoFormat_RGB(pvideoformat : *const MFVIDEOFORMAT, dwwidth : u32, dwheight : u32, d3dfmt : u32) -> windows_core::HRESULT);
     unsafe { MFInitVideoFormat_RGB(pvideoformat, dwwidth, dwheight, d3dfmt).ok() }
 }
 #[inline]
@@ -1729,12 +1729,12 @@ pub unsafe fn MFInvokeCallback<P0>(pasyncresult: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFInvokeCallback(pasyncresult : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFInvokeCallback(pasyncresult : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFInvokeCallback(pasyncresult.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const windows_core::GUID) -> windows_core::Result<windows_core::BOOL> {
-    windows_link::link!("mfplat.dll" "system" fn MFIsContentProtectionDeviceSupported(protectionsystemid : *const windows_core::GUID, issupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFIsContentProtectionDeviceSupported(protectionsystemid : *const windows_core::GUID, issupported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFIsContentProtectionDeviceSupported(protectionsystemid, &mut result__).map(|| result__)
@@ -1742,12 +1742,12 @@ pub unsafe fn MFIsContentProtectionDeviceSupported(protectionsystemid: *const wi
 }
 #[inline]
 pub unsafe fn MFIsFormatYUV(format: u32) -> windows_core::BOOL {
-    windows_link::link!("evr.dll" "system" fn MFIsFormatYUV(format : u32) -> windows_core::BOOL);
+    windows_core::link!("evr.dll" "system" fn MFIsFormatYUV(format : u32) -> windows_core::BOOL);
     unsafe { MFIsFormatYUV(format) }
 }
 #[inline]
 pub unsafe fn MFIsVirtualCameraTypeSupported(r#type: MFVirtualCameraType) -> windows_core::Result<windows_core::BOOL> {
-    windows_link::link!("mfsensorgroup.dll" "system" fn MFIsVirtualCameraTypeSupported(r#type : MFVirtualCameraType, supported : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("mfsensorgroup.dll" "system" fn MFIsVirtualCameraTypeSupported(r#type : MFVirtualCameraType, supported : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFIsVirtualCameraTypeSupported(r#type, &mut result__).map(|| result__)
@@ -1758,7 +1758,7 @@ pub unsafe fn MFLoadSignedLibrary<P0>(pszname: P0) -> windows_core::Result<IMFSi
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mf.dll" "system" fn MFLoadSignedLibrary(pszname : windows_core::PCWSTR, pplib : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFLoadSignedLibrary(pszname : windows_core::PCWSTR, pplib : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFLoadSignedLibrary(pszname.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -1766,12 +1766,12 @@ where
 }
 #[inline]
 pub unsafe fn MFLockDXGIDeviceManager(presettoken: Option<*mut u32>, ppmanager: *mut Option<IMFDXGIDeviceManager>) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFLockDXGIDeviceManager(presettoken : *mut u32, ppmanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFLockDXGIDeviceManager(presettoken : *mut u32, ppmanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFLockDXGIDeviceManager(presettoken.unwrap_or(core::mem::zeroed()) as _, core::mem::transmute(ppmanager)).ok() }
 }
 #[inline]
 pub unsafe fn MFLockPlatform() -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFLockPlatform() -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFLockPlatform() -> windows_core::HRESULT);
     unsafe { MFLockPlatform().ok() }
 }
 #[inline]
@@ -1779,24 +1779,24 @@ pub unsafe fn MFLockSharedWorkQueue<P0>(wszclass: P0, basepriority: i32, pdwtask
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFLockSharedWorkQueue(wszclass : windows_core::PCWSTR, basepriority : i32, pdwtaskid : *mut u32, pid : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFLockSharedWorkQueue(wszclass : windows_core::PCWSTR, basepriority : i32, pdwtaskid : *mut u32, pid : *mut u32) -> windows_core::HRESULT);
     unsafe { MFLockSharedWorkQueue(wszclass.param().abi(), basepriority, pdwtaskid as _, pid as _).ok() }
 }
 #[inline]
 pub unsafe fn MFLockWorkQueue(dwworkqueue: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFLockWorkQueue(dwworkqueue : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFLockWorkQueue(dwworkqueue : u32) -> windows_core::HRESULT);
     unsafe { MFLockWorkQueue(dwworkqueue).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDX9FormatToDXGIFormat(dx9: u32) -> super::super::Graphics::Dxgi::Common::DXGI_FORMAT {
-    windows_link::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::super::Graphics::Dxgi::Common:: DXGI_FORMAT);
+    windows_core::link!("mfplat.dll" "system" fn MFMapDX9FormatToDXGIFormat(dx9 : u32) -> super::super::Graphics::Dxgi::Common:: DXGI_FORMAT);
     unsafe { MFMapDX9FormatToDXGIFormat(dx9) }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 #[inline]
 pub unsafe fn MFMapDXGIFormatToDX9Format(dx11: super::super::Graphics::Dxgi::Common::DXGI_FORMAT) -> u32 {
-    windows_link::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::super::Graphics::Dxgi::Common:: DXGI_FORMAT) -> u32);
+    windows_core::link!("mfplat.dll" "system" fn MFMapDXGIFormatToDX9Format(dx11 : super::super::Graphics::Dxgi::Common:: DXGI_FORMAT) -> u32);
     unsafe { MFMapDXGIFormatToDX9Format(dx11) }
 }
 #[inline]
@@ -1805,7 +1805,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IMFPMediaPlayerCallback>,
 {
-    windows_link::link!("mfplay.dll" "system" fn MFPCreateMediaPlayer(pwszurl : windows_core::PCWSTR, fstartplayback : windows_core::BOOL, creationoptions : MFP_CREATION_OPTIONS, pcallback : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, ppmediaplayer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplay.dll" "system" fn MFPCreateMediaPlayer(pwszurl : windows_core::PCWSTR, fstartplayback : windows_core::BOOL, creationoptions : MFP_CREATION_OPTIONS, pcallback : * mut core::ffi::c_void, hwnd : super::super::Foundation:: HWND, ppmediaplayer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFPCreateMediaPlayer(pwszurl.param().abi(), fstartplayback.into(), creationoptions, pcallback.param().abi(), hwnd.unwrap_or(core::mem::zeroed()) as _, ppmediaplayer.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1813,7 +1813,7 @@ pub unsafe fn MFPutWaitingWorkItem<P2>(hevent: super::super::Foundation::HANDLE,
 where
     P2: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, priority : i32, presult : * mut core::ffi::c_void, pkey : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFPutWaitingWorkItem(hevent : super::super::Foundation:: HANDLE, priority : i32, presult : * mut core::ffi::c_void, pkey : *mut u64) -> windows_core::HRESULT);
     unsafe { MFPutWaitingWorkItem(hevent, priority, presult.param().abi(), pkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1822,7 +1822,7 @@ where
     P1: windows_core::Param<IMFAsyncCallback>,
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFPutWorkItem(dwqueue : u32, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFPutWorkItem(dwqueue : u32, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFPutWorkItem(dwqueue, pcallback.param().abi(), pstate.param().abi()).ok() }
 }
 #[inline]
@@ -1831,7 +1831,7 @@ where
     P2: windows_core::Param<IMFAsyncCallback>,
     P3: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFPutWorkItem2(dwqueue : u32, priority : i32, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFPutWorkItem2(dwqueue : u32, priority : i32, pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFPutWorkItem2(dwqueue, priority, pcallback.param().abi(), pstate.param().abi()).ok() }
 }
 #[inline]
@@ -1839,7 +1839,7 @@ pub unsafe fn MFPutWorkItemEx<P1>(dwqueue: u32, presult: P1) -> windows_core::Re
 where
     P1: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFPutWorkItemEx(dwqueue : u32, presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFPutWorkItemEx(dwqueue : u32, presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFPutWorkItemEx(dwqueue, presult.param().abi()).ok() }
 }
 #[inline]
@@ -1847,7 +1847,7 @@ pub unsafe fn MFPutWorkItemEx2<P2>(dwqueue: u32, priority: i32, presult: P2) -> 
 where
     P2: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFPutWorkItemEx2(dwqueue : u32, priority : i32, presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFPutWorkItemEx2(dwqueue : u32, priority : i32, presult : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFPutWorkItemEx2(dwqueue, priority, presult.param().abi()).ok() }
 }
 #[inline]
@@ -1857,7 +1857,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<IMFActivate>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFRegisterLocalByteStreamHandler(szfileextension : windows_core::PCWSTR, szmimetype : windows_core::PCWSTR, pactivate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFRegisterLocalByteStreamHandler(szfileextension : windows_core::PCWSTR, szmimetype : windows_core::PCWSTR, pactivate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFRegisterLocalByteStreamHandler(szfileextension.param().abi(), szmimetype.param().abi(), pactivate.param().abi()).ok() }
 }
 #[inline]
@@ -1866,7 +1866,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<IMFActivate>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFRegisterLocalSchemeHandler(szscheme : windows_core::PCWSTR, pactivate : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFRegisterLocalSchemeHandler(szscheme : windows_core::PCWSTR, pactivate : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFRegisterLocalSchemeHandler(szscheme.param().abi(), pactivate.param().abi()).ok() }
 }
 #[inline]
@@ -1874,12 +1874,12 @@ pub unsafe fn MFRegisterPlatformWithMMCSS<P0>(wszclass: P0, pdwtaskid: *mut u32,
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFRegisterPlatformWithMMCSS(wszclass : windows_core::PCWSTR, pdwtaskid : *mut u32, lpriority : i32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFRegisterPlatformWithMMCSS(wszclass : windows_core::PCWSTR, pdwtaskid : *mut u32, lpriority : i32) -> windows_core::HRESULT);
     unsafe { MFRegisterPlatformWithMMCSS(wszclass.param().abi(), pdwtaskid as _, lpriority).ok() }
 }
 #[inline]
 pub unsafe fn MFRemovePeriodicCallback(dwkey: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFRemovePeriodicCallback(dwkey : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFRemovePeriodicCallback(dwkey : u32) -> windows_core::HRESULT);
     unsafe { MFRemovePeriodicCallback(dwkey).ok() }
 }
 #[inline]
@@ -1887,7 +1887,7 @@ pub unsafe fn MFRequireProtectedEnvironment<P0>(ppresentationdescriptor: P0) -> 
 where
     P0: windows_core::Param<IMFPresentationDescriptor>,
 {
-    windows_link::link!("mf.dll" "system" fn MFRequireProtectedEnvironment(ppresentationdescriptor : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFRequireProtectedEnvironment(ppresentationdescriptor : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFRequireProtectedEnvironment(ppresentationdescriptor.param().abi()).ok() }
 }
 #[inline]
@@ -1896,7 +1896,7 @@ where
     P0: windows_core::Param<IMFAsyncCallback>,
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFScheduleWorkItem(pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFScheduleWorkItem(pcallback : * mut core::ffi::c_void, pstate : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
     unsafe { MFScheduleWorkItem(pcallback.param().abi(), pstate.param().abi(), timeout, pkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1904,7 +1904,7 @@ pub unsafe fn MFScheduleWorkItemEx<P0>(presult: P0, timeout: i64, pkey: Option<*
 where
     P0: windows_core::Param<IMFAsyncResult>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFScheduleWorkItemEx(presult : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFScheduleWorkItemEx(presult : * mut core::ffi::c_void, timeout : i64, pkey : *mut u64) -> windows_core::HRESULT);
     unsafe { MFScheduleWorkItemEx(presult.param().abi(), timeout, pkey.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1914,7 +1914,7 @@ where
     P0: windows_core::Param<IMFAttributes>,
     P2: windows_core::Param<super::super::System::Com::IStream>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFSerializeAttributesToStream(pattr : * mut core::ffi::c_void, dwoptions : u32, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFSerializeAttributesToStream(pattr : * mut core::ffi::c_void, dwoptions : u32, pstm : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFSerializeAttributesToStream(pattr.param().abi(), dwoptions, pstm.param().abi()).ok() }
 }
 #[inline]
@@ -1922,12 +1922,12 @@ pub unsafe fn MFSerializePresentationDescriptor<P0>(ppd: P0, pcbdata: *mut u32, 
 where
     P0: windows_core::Param<IMFPresentationDescriptor>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFSerializePresentationDescriptor(ppd : * mut core::ffi::c_void, pcbdata : *mut u32, ppbdata : *mut *mut u8) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFSerializePresentationDescriptor(ppd : * mut core::ffi::c_void, pcbdata : *mut u32, ppbdata : *mut *mut u8) -> windows_core::HRESULT);
     unsafe { MFSerializePresentationDescriptor(ppd.param().abi(), pcbdata as _, ppbdata as _).ok() }
 }
 #[inline]
 pub unsafe fn MFShutdown() -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFShutdown() -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFShutdown() -> windows_core::HRESULT);
     unsafe { MFShutdown().ok() }
 }
 #[inline]
@@ -1935,7 +1935,7 @@ pub unsafe fn MFShutdownObject<P0>(punk: P0) -> windows_core::Result<()>
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("mf.dll" "system" fn MFShutdownObject(punk : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFShutdownObject(punk : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFShutdownObject(punk.param().abi()).ok() }
 }
 #[inline]
@@ -1943,12 +1943,12 @@ pub unsafe fn MFSplitSample<P0>(psample: P0, poutputsamples: &mut [Option<IMFSam
 where
     P0: windows_core::Param<IMFSample>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFSplitSample(psample : * mut core::ffi::c_void, poutputsamples : *mut * mut core::ffi::c_void, dwoutputsamplemaxcount : u32, pdwoutputsamplecount : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFSplitSample(psample : * mut core::ffi::c_void, poutputsamples : *mut * mut core::ffi::c_void, dwoutputsamplemaxcount : u32, pdwoutputsamplecount : *mut u32) -> windows_core::HRESULT);
     unsafe { MFSplitSample(psample.param().abi(), core::mem::transmute(poutputsamples.as_ptr()), poutputsamples.len().try_into().unwrap(), pdwoutputsamplecount as _).ok() }
 }
 #[inline]
 pub unsafe fn MFStartup(version: u32, dwflags: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFStartup(version : u32, dwflags : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFStartup(version : u32, dwflags : u32) -> windows_core::HRESULT);
     unsafe { MFStartup(version, dwflags).ok() }
 }
 #[inline]
@@ -1956,7 +1956,7 @@ pub unsafe fn MFTEnum<P4>(guidcategory: windows_core::GUID, flags: u32, pinputty
 where
     P4: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTEnum(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, ppclsidmft : *mut *mut windows_core::GUID, pcmfts : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTEnum(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, ppclsidmft : *mut *mut windows_core::GUID, pcmfts : *mut u32) -> windows_core::HRESULT);
     unsafe { MFTEnum(core::mem::transmute(guidcategory), flags, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), ppclsidmft as _, pcmfts as _).ok() }
 }
 #[inline]
@@ -1964,17 +1964,17 @@ pub unsafe fn MFTEnum2<P4>(guidcategory: windows_core::GUID, flags: MFT_ENUM_FLA
 where
     P4: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTEnum2(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTEnum2(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
     unsafe { MFTEnum2(core::mem::transmute(guidcategory), flags.0 as _, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pattributes.param().abi(), pppmftactivate as _, pnummftactivate as _).ok() }
 }
 #[inline]
 pub unsafe fn MFTEnumEx(guidcategory: windows_core::GUID, flags: MFT_ENUM_FLAG, pinputtype: Option<*const MFT_REGISTER_TYPE_INFO>, poutputtype: Option<*const MFT_REGISTER_TYPE_INFO>, pppmftactivate: *mut *mut Option<IMFActivate>, pnummftactivate: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFTEnumEx(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTEnumEx(guidcategory : windows_core::GUID, flags : u32, pinputtype : *const MFT_REGISTER_TYPE_INFO, poutputtype : *const MFT_REGISTER_TYPE_INFO, pppmftactivate : *mut *mut * mut core::ffi::c_void, pnummftactivate : *mut u32) -> windows_core::HRESULT);
     unsafe { MFTEnumEx(core::mem::transmute(guidcategory), flags.0 as _, pinputtype.unwrap_or(core::mem::zeroed()) as _, poutputtype.unwrap_or(core::mem::zeroed()) as _, pppmftactivate as _, pnummftactivate as _).ok() }
 }
 #[inline]
 pub unsafe fn MFTGetInfo(clsidmft: windows_core::GUID, pszname: Option<*mut windows_core::PWSTR>, ppinputtypes: Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcinputtypes: Option<*mut u32>, ppoutputtypes: Option<*mut *mut MFT_REGISTER_TYPE_INFO>, pcoutputtypes: Option<*mut u32>, ppattributes: Option<*mut Option<IMFAttributes>>) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFTGetInfo(clsidmft : windows_core::GUID, pszname : *mut windows_core::PWSTR, ppinputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes : *mut u32, ppoutputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes : *mut u32, ppattributes : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTGetInfo(clsidmft : windows_core::GUID, pszname : *mut windows_core::PWSTR, ppinputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcinputtypes : *mut u32, ppoutputtypes : *mut *mut MFT_REGISTER_TYPE_INFO, pcoutputtypes : *mut u32, ppattributes : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFTGetInfo(core::mem::transmute(clsidmft), pszname.unwrap_or(core::mem::zeroed()) as _, ppinputtypes.unwrap_or(core::mem::zeroed()) as _, pcinputtypes.unwrap_or(core::mem::zeroed()) as _, ppoutputtypes.unwrap_or(core::mem::zeroed()) as _, pcoutputtypes.unwrap_or(core::mem::zeroed()) as _, ppattributes.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -1983,7 +1983,7 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P8: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : windows_core::GUID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTRegister(clsidmft : windows_core::GUID, guidcategory : windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO, pattributes : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFTRegister(core::mem::transmute(clsidmft), core::mem::transmute(guidcategory), pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pattributes.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -1993,7 +1993,7 @@ where
     P0: windows_core::Param<super::super::System::Com::IClassFactory>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTRegisterLocal(pclassfactory : * mut core::ffi::c_void, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocal(pclassfactory : * mut core::ffi::c_void, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
     unsafe { MFTRegisterLocal(pclassfactory.param().abi(), guidcategory, pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
@@ -2001,12 +2001,12 @@ pub unsafe fn MFTRegisterLocalByCLSID<P2>(clisdmft: *const windows_core::GUID, g
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTRegisterLocalByCLSID(clisdmft : *const windows_core::GUID, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTRegisterLocalByCLSID(clisdmft : *const windows_core::GUID, guidcategory : *const windows_core::GUID, pszname : windows_core::PCWSTR, flags : u32, cinputtypes : u32, pinputtypes : *const MFT_REGISTER_TYPE_INFO, coutputtypes : u32, poutputtypes : *const MFT_REGISTER_TYPE_INFO) -> windows_core::HRESULT);
     unsafe { MFTRegisterLocalByCLSID(clisdmft, guidcategory, pszname.param().abi(), flags, pinputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(pinputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), poutputtypes.as_deref().map_or(0, |slice| slice.len().try_into().unwrap()), core::mem::transmute(poutputtypes.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr()))).ok() }
 }
 #[inline]
 pub unsafe fn MFTUnregister(clsidmft: windows_core::GUID) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFTUnregister(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTUnregister(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFTUnregister(core::mem::transmute(clsidmft)).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
@@ -2015,12 +2015,12 @@ pub unsafe fn MFTUnregisterLocal<P0>(pclassfactory: P0) -> windows_core::Result<
 where
     P0: windows_core::Param<super::super::System::Com::IClassFactory>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFTUnregisterLocal(pclassfactory : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTUnregisterLocal(pclassfactory : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MFTUnregisterLocal(pclassfactory.param().abi()).ok() }
 }
 #[inline]
 pub unsafe fn MFTUnregisterLocalByCLSID(clsidmft: windows_core::GUID) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFTUnregisterLocalByCLSID(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFTUnregisterLocalByCLSID(clsidmft : windows_core::GUID) -> windows_core::HRESULT);
     unsafe { MFTUnregisterLocalByCLSID(core::mem::transmute(clsidmft)).ok() }
 }
 #[inline]
@@ -2028,7 +2028,7 @@ pub unsafe fn MFTranscodeGetAudioOutputAvailableTypes<P2>(guidsubtype: *const wi
 where
     P2: windows_core::Param<IMFAttributes>,
 {
-    windows_link::link!("mf.dll" "system" fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype : *const windows_core::GUID, dwmftflags : u32, pcodecconfig : * mut core::ffi::c_void, ppavailabletypes : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mf.dll" "system" fn MFTranscodeGetAudioOutputAvailableTypes(guidsubtype : *const windows_core::GUID, dwmftflags : u32, pcodecconfig : * mut core::ffi::c_void, ppavailabletypes : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFTranscodeGetAudioOutputAvailableTypes(guidsubtype, dwmftflags, pcodecconfig.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2036,22 +2036,22 @@ where
 }
 #[inline]
 pub unsafe fn MFUnlockDXGIDeviceManager() -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFUnlockDXGIDeviceManager() -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFUnlockDXGIDeviceManager() -> windows_core::HRESULT);
     unsafe { MFUnlockDXGIDeviceManager().ok() }
 }
 #[inline]
 pub unsafe fn MFUnlockPlatform() -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFUnlockPlatform() -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFUnlockPlatform() -> windows_core::HRESULT);
     unsafe { MFUnlockPlatform().ok() }
 }
 #[inline]
 pub unsafe fn MFUnlockWorkQueue(dwworkqueue: u32) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFUnlockWorkQueue(dwworkqueue : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFUnlockWorkQueue(dwworkqueue : u32) -> windows_core::HRESULT);
     unsafe { MFUnlockWorkQueue(dwworkqueue).ok() }
 }
 #[inline]
 pub unsafe fn MFUnregisterPlatformFromMMCSS() -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFUnregisterPlatformFromMMCSS() -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFUnregisterPlatformFromMMCSS() -> windows_core::HRESULT);
     unsafe { MFUnregisterPlatformFromMMCSS().ok() }
 }
 #[inline]
@@ -2059,7 +2059,7 @@ pub unsafe fn MFUnwrapMediaType<P0>(pwrap: P0) -> windows_core::Result<IMFMediaT
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFUnwrapMediaType(pwrap : * mut core::ffi::c_void, pporig : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFUnwrapMediaType(pwrap : * mut core::ffi::c_void, pporig : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFUnwrapMediaType(pwrap.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2067,7 +2067,7 @@ where
 }
 #[inline]
 pub unsafe fn MFValidateMediaTypeSize(formattype: windows_core::GUID, pblock: Option<&[u8]>) -> windows_core::Result<()> {
-    windows_link::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const u8, cbsize : u32) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFValidateMediaTypeSize(formattype : windows_core::GUID, pblock : *const u8, cbsize : u32) -> windows_core::HRESULT);
     unsafe { MFValidateMediaTypeSize(core::mem::transmute(formattype), core::mem::transmute(pblock.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), pblock.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())).ok() }
 }
 #[inline]
@@ -2075,7 +2075,7 @@ pub unsafe fn MFWrapMediaType<P0>(porig: P0, majortype: *const windows_core::GUI
 where
     P0: windows_core::Param<IMFMediaType>,
 {
-    windows_link::link!("mfplat.dll" "system" fn MFWrapMediaType(porig : * mut core::ffi::c_void, majortype : *const windows_core::GUID, subtype : *const windows_core::GUID, ppwrap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mfplat.dll" "system" fn MFWrapMediaType(porig : * mut core::ffi::c_void, majortype : *const windows_core::GUID, subtype : *const windows_core::GUID, ppwrap : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         MFWrapMediaType(porig.param().abi(), majortype, subtype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2083,12 +2083,12 @@ where
 }
 #[inline]
 pub unsafe fn MFllMulDiv(a: i64, b: i64, c: i64, d: i64) -> i64 {
-    windows_link::link!("mfplat.dll" "system" fn MFllMulDiv(a : i64, b : i64, c : i64, d : i64) -> i64);
+    windows_core::link!("mfplat.dll" "system" fn MFllMulDiv(a : i64, b : i64, c : i64, d : i64) -> i64);
     unsafe { MFllMulDiv(a, b, c, d) }
 }
 #[inline]
 pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foundation::LUID, vidpntarget: u32, vos: OPM_VIDEO_OUTPUT_SEMANTICS) -> windows_core::Result<IOPMVideoOutput> {
-    windows_link::link!("dxva2.dll" "system" fn OPMGetVideoOutputForTarget(padapterluid : *const super::super::Foundation:: LUID, vidpntarget : u32, vos : OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn OPMGetVideoOutputForTarget(padapterluid : *const super::super::Foundation:: LUID, vidpntarget : u32, vos : OPM_VIDEO_OUTPUT_SEMANTICS, ppopmvideooutput : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         OPMGetVideoOutputForTarget(padapterluid, vidpntarget, vos, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -2097,7 +2097,7 @@ pub unsafe fn OPMGetVideoOutputForTarget(padapterluid: *const super::super::Foun
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn OPMGetVideoOutputsFromHMONITOR(hmonitor: super::super::Graphics::Gdi::HMONITOR, vos: OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs: *mut u32, pppopmvideooutputarray: *mut *mut Option<IOPMVideoOutput>) -> windows_core::Result<()> {
-    windows_link::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromHMONITOR(hmonitor : super::super::Graphics::Gdi:: HMONITOR, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OPMGetVideoOutputsFromHMONITOR(hmonitor, vos, pulnumvideooutputs as _, pppopmvideooutputarray as _).ok() }
 }
 #[cfg(feature = "Win32_Graphics_Direct3D9")]
@@ -2106,22 +2106,22 @@ pub unsafe fn OPMGetVideoOutputsFromIDirect3DDevice9Object<P0>(pdirect3ddevice9:
 where
     P0: windows_core::Param<super::super::Graphics::Direct3D9::IDirect3DDevice9>,
 {
-    windows_link::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9 : * mut core::ffi::c_void, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("dxva2.dll" "system" fn OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9 : * mut core::ffi::c_void, vos : OPM_VIDEO_OUTPUT_SEMANTICS, pulnumvideooutputs : *mut u32, pppopmvideooutputarray : *mut *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { OPMGetVideoOutputsFromIDirect3DDevice9Object(pdirect3ddevice9.param().abi(), vos, pulnumvideooutputs as _, pppopmvideooutputarray as _).ok() }
 }
 #[inline]
 pub unsafe fn OPMXboxEnableHDCP(hdcptype: OPM_HDCP_TYPE) -> windows_core::Result<()> {
-    windows_link::link!("opmxbox.dll" "system" fn OPMXboxEnableHDCP(hdcptype : OPM_HDCP_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("opmxbox.dll" "system" fn OPMXboxEnableHDCP(hdcptype : OPM_HDCP_TYPE) -> windows_core::HRESULT);
     unsafe { OPMXboxEnableHDCP(hdcptype).ok() }
 }
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatus(phdcpstatus: *mut OPM_HDCP_STATUS) -> windows_core::Result<()> {
-    windows_link::link!("opmxbox.dll" "system" fn OPMXboxGetHDCPStatus(phdcpstatus : *mut OPM_HDCP_STATUS) -> windows_core::HRESULT);
+    windows_core::link!("opmxbox.dll" "system" fn OPMXboxGetHDCPStatus(phdcpstatus : *mut OPM_HDCP_STATUS) -> windows_core::HRESULT);
     unsafe { OPMXboxGetHDCPStatus(phdcpstatus as _).ok() }
 }
 #[inline]
 pub unsafe fn OPMXboxGetHDCPStatusAndType(phdcpstatus: *mut OPM_HDCP_STATUS, phdcptype: *mut OPM_HDCP_TYPE) -> windows_core::Result<()> {
-    windows_link::link!("opmxbox.dll" "system" fn OPMXboxGetHDCPStatusAndType(phdcpstatus : *mut OPM_HDCP_STATUS, phdcptype : *mut OPM_HDCP_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("opmxbox.dll" "system" fn OPMXboxGetHDCPStatusAndType(phdcpstatus : *mut OPM_HDCP_STATUS, phdcptype : *mut OPM_HDCP_TYPE) -> windows_core::HRESULT);
     unsafe { OPMXboxGetHDCPStatusAndType(phdcpstatus as _, phdcptype as _).ok() }
 }
 pub const AACMFTEncoder: windows_core::GUID = windows_core::GUID::from_u128(0x93af0c51_2275_45d2_a35b_f2ba21caed00);

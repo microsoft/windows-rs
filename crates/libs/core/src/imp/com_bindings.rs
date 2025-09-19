@@ -7,7 +7,7 @@ pub unsafe fn RoGetAgileReference<P2>(
 where
     P2: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("combase.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("combase.dll" "system" fn RoGetAgileReference(options : AgileReferenceOptions, riid : *const windows_core::GUID, punk : * mut core::ffi::c_void, ppagilereference : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         RoGetAgileReference(options, riid, punk.param().abi(), &mut result__)

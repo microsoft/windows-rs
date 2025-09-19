@@ -1,61 +1,61 @@
 #[inline]
 pub unsafe fn CloseCompressor(compressorhandle: COMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : COMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : COMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CloseCompressor(compressorhandle).ok() }
 }
 #[inline]
 pub unsafe fn CloseDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CloseDecompressor(decompressorhandle).ok() }
 }
 #[inline]
 pub unsafe fn Compress(compressorhandle: COMPRESSOR_HANDLE, uncompresseddata: Option<*const core::ffi::c_void>, uncompresseddatasize: usize, compressedbuffer: Option<*mut core::ffi::c_void>, compressedbuffersize: usize, compresseddatasize: *mut usize) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn Compress(compressorhandle : COMPRESSOR_HANDLE, uncompresseddata : *const core::ffi::c_void, uncompresseddatasize : usize, compressedbuffer : *mut core::ffi::c_void, compressedbuffersize : usize, compresseddatasize : *mut usize) -> windows_core::BOOL);
     unsafe { Compress(compressorhandle, uncompresseddata.unwrap_or(core::mem::zeroed()) as _, uncompresseddatasize, compressedbuffer.unwrap_or(core::mem::zeroed()) as _, compressedbuffersize, compresseddatasize as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateCompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: Option<*const COMPRESS_ALLOCATION_ROUTINES>, compressorhandle: *mut COMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut COMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn CreateCompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, compressorhandle : *mut COMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CreateCompressor(algorithm, allocationroutines.unwrap_or(core::mem::zeroed()) as _, compressorhandle as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateDecompressor(algorithm: COMPRESS_ALGORITHM, allocationroutines: Option<*const COMPRESS_ALLOCATION_ROUTINES>, decompressorhandle: *mut DECOMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn CreateDecompressor(algorithm : COMPRESS_ALGORITHM, allocationroutines : *const COMPRESS_ALLOCATION_ROUTINES, decompressorhandle : *mut DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { CreateDecompressor(algorithm, allocationroutines.unwrap_or(core::mem::zeroed()) as _, decompressorhandle as _).ok() }
 }
 #[inline]
 pub unsafe fn Decompress(decompressorhandle: DECOMPRESSOR_HANDLE, compresseddata: Option<*const core::ffi::c_void>, compresseddatasize: usize, uncompressedbuffer: Option<*mut core::ffi::c_void>, uncompressedbuffersize: usize, uncompresseddatasize: Option<*mut usize>) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn Decompress(decompressorhandle : DECOMPRESSOR_HANDLE, compresseddata : *const core::ffi::c_void, compresseddatasize : usize, uncompressedbuffer : *mut core::ffi::c_void, uncompressedbuffersize : usize, uncompresseddatasize : *mut usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn Decompress(decompressorhandle : DECOMPRESSOR_HANDLE, compresseddata : *const core::ffi::c_void, compresseddatasize : usize, uncompressedbuffer : *mut core::ffi::c_void, uncompressedbuffersize : usize, uncompresseddatasize : *mut usize) -> windows_core::BOOL);
     unsafe { Decompress(decompressorhandle, compresseddata.unwrap_or(core::mem::zeroed()) as _, compresseddatasize, uncompressedbuffer.unwrap_or(core::mem::zeroed()) as _, uncompressedbuffersize, uncompresseddatasize.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn QueryCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn QueryCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn QueryCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { QueryCompressorInformation(compressorhandle, compressinformationclass, compressinformation as _, compressinformationsize).ok() }
 }
 #[inline]
 pub unsafe fn QueryDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *mut core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn QueryDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn QueryDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *mut core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { QueryDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation as _, compressinformationsize).ok() }
 }
 #[inline]
 pub unsafe fn ResetCompressor(compressorhandle: COMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn ResetCompressor(compressorhandle : COMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn ResetCompressor(compressorhandle : COMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { ResetCompressor(compressorhandle).ok() }
 }
 #[inline]
 pub unsafe fn ResetDecompressor(decompressorhandle: DECOMPRESSOR_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn ResetDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn ResetDecompressor(decompressorhandle : DECOMPRESSOR_HANDLE) -> windows_core::BOOL);
     unsafe { ResetDecompressor(decompressorhandle).ok() }
 }
 #[inline]
 pub unsafe fn SetCompressorInformation(compressorhandle: COMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn SetCompressorInformation(compressorhandle : COMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { SetCompressorInformation(compressorhandle, compressinformationclass, compressinformation, compressinformationsize).ok() }
 }
 #[inline]
 pub unsafe fn SetDecompressorInformation(decompressorhandle: DECOMPRESSOR_HANDLE, compressinformationclass: COMPRESS_INFORMATION_CLASS, compressinformation: *const core::ffi::c_void, compressinformationsize: usize) -> windows_core::Result<()> {
-    windows_link::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
+    windows_core::link!("cabinet.dll" "system" fn SetDecompressorInformation(decompressorhandle : DECOMPRESSOR_HANDLE, compressinformationclass : COMPRESS_INFORMATION_CLASS, compressinformation : *const core::ffi::c_void, compressinformationsize : usize) -> windows_core::BOOL);
     unsafe { SetDecompressorInformation(decompressorhandle, compressinformationclass, compressinformation, compressinformationsize).ok() }
 }
 #[repr(transparent)]
@@ -70,7 +70,7 @@ impl windows_core::Free for COMPRESSOR_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("cabinet.dll" "system" fn CloseCompressor(compressorhandle : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseCompressor(self.0);
             }
@@ -123,7 +123,7 @@ impl windows_core::Free for DECOMPRESSOR_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("cabinet.dll" "system" fn CloseDecompressor(decompressorhandle : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseDecompressor(self.0);
             }

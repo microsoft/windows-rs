@@ -274,10 +274,11 @@ where
     let mut no_toml = false;
     let mut package = false;
     let mut implement = false;
+    let mut specific_deps = false;
     let mut rustfmt = String::new();
     let mut output = String::new();
     let mut sys = false;
-    let mut link = "windows_link".to_string();
+    let mut link = String::new();
     let mut index = false;
 
     for arg in &args {
@@ -301,6 +302,7 @@ where
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--implement" => implement = true,
+                "--specific-deps" => specific_deps = true,
                 "--link" => kind = ArgKind::Link,
                 "--index" => index = true,
                 _ => panic!("invalid option `{arg}`"),
@@ -328,6 +330,14 @@ where
             }
             ArgKind::Rustfmt => rustfmt = arg.to_string(),
             ArgKind::Link => link = arg.to_string(),
+        }
+    }
+
+    if link.is_empty() {
+        if sys || specific_deps {
+            link = "windows_link".to_string();
+        } else {
+            link = "windows_core".to_string();
         }
     }
 
@@ -389,6 +399,7 @@ where
         output: &output,
         sys,
         implement,
+        specific_deps,
         link: &link,
         warnings: &warnings,
         namespace: "",

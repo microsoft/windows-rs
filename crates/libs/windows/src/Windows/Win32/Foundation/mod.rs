@@ -1,67 +1,67 @@
 #[inline]
 pub unsafe fn CloseHandle(hobject: HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn CloseHandle(hobject : HANDLE) -> windows_core::BOOL);
     unsafe { CloseHandle(hobject).ok() }
 }
 #[inline]
 pub unsafe fn CompareObjectHandles(hfirstobjecthandle: HANDLE, hsecondobjecthandle: HANDLE) -> windows_core::BOOL {
-    windows_link::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> windows_core::BOOL);
+    windows_core::link!("api-ms-win-core-handle-l1-1-0.dll" "system" fn CompareObjectHandles(hfirstobjecthandle : HANDLE, hsecondobjecthandle : HANDLE) -> windows_core::BOOL);
     unsafe { CompareObjectHandles(hfirstobjecthandle, hsecondobjecthandle) }
 }
 #[inline]
 pub unsafe fn DuplicateHandle(hsourceprocesshandle: HANDLE, hsourcehandle: HANDLE, htargetprocesshandle: HANDLE, lptargethandle: *mut HANDLE, dwdesiredaccess: u32, binherithandle: bool, dwoptions: DUPLICATE_HANDLE_OPTIONS) -> windows_core::Result<()> {
-    windows_link::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn DuplicateHandle(hsourceprocesshandle : HANDLE, hsourcehandle : HANDLE, htargetprocesshandle : HANDLE, lptargethandle : *mut HANDLE, dwdesiredaccess : u32, binherithandle : windows_core::BOOL, dwoptions : DUPLICATE_HANDLE_OPTIONS) -> windows_core::BOOL);
     unsafe { DuplicateHandle(hsourceprocesshandle, hsourcehandle, htargetprocesshandle, lptargethandle as _, dwdesiredaccess, binherithandle.into(), dwoptions).ok() }
 }
 #[inline]
 pub unsafe fn FreeLibrary(hlibmodule: HMODULE) -> windows_core::Result<()> {
-    windows_link::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : HMODULE) -> windows_core::BOOL);
     unsafe { FreeLibrary(hlibmodule).ok() }
 }
 #[inline]
 pub unsafe fn GetHandleInformation(hobject: HANDLE, lpdwflags: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn GetHandleInformation(hobject : HANDLE, lpdwflags : *mut u32) -> windows_core::BOOL);
     unsafe { GetHandleInformation(hobject, lpdwflags as _).ok() }
 }
 #[inline]
 pub unsafe fn GetLastError() -> WIN32_ERROR {
-    windows_link::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
+    windows_core::link!("kernel32.dll" "system" fn GetLastError() -> WIN32_ERROR);
     unsafe { GetLastError() }
 }
 #[inline]
 pub unsafe fn GlobalFree(hmem: Option<HGLOBAL>) -> windows_core::Result<HGLOBAL> {
-    windows_link::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
+    windows_core::link!("kernel32.dll" "system" fn GlobalFree(hmem : HGLOBAL) -> HGLOBAL);
     let result__ = unsafe { GlobalFree(hmem.unwrap_or(core::mem::zeroed()) as _) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
 #[inline]
 pub unsafe fn LocalFree(hmem: Option<HLOCAL>) -> HLOCAL {
-    windows_link::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
+    windows_core::link!("kernel32.dll" "system" fn LocalFree(hmem : HLOCAL) -> HLOCAL);
     unsafe { LocalFree(hmem.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn RtlNtStatusToDosError(status: NTSTATUS) -> u32 {
-    windows_link::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
+    windows_core::link!("ntdll.dll" "system" fn RtlNtStatusToDosError(status : NTSTATUS) -> u32);
     unsafe { RtlNtStatusToDosError(status) }
 }
 #[inline]
 pub unsafe fn SetHandleInformation(hobject: HANDLE, dwmask: u32, dwflags: HANDLE_FLAGS) -> windows_core::Result<()> {
-    windows_link::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> windows_core::BOOL);
+    windows_core::link!("kernel32.dll" "system" fn SetHandleInformation(hobject : HANDLE, dwmask : u32, dwflags : HANDLE_FLAGS) -> windows_core::BOOL);
     unsafe { SetHandleInformation(hobject, dwmask, dwflags).ok() }
 }
 #[inline]
 pub unsafe fn SetLastError(dwerrcode: WIN32_ERROR) {
-    windows_link::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
+    windows_core::link!("kernel32.dll" "system" fn SetLastError(dwerrcode : WIN32_ERROR));
     unsafe { SetLastError(dwerrcode) }
 }
 #[inline]
 pub unsafe fn SetLastErrorEx(dwerrcode: WIN32_ERROR, dwtype: u32) {
-    windows_link::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
+    windows_core::link!("user32.dll" "system" fn SetLastErrorEx(dwerrcode : WIN32_ERROR, dwtype : u32));
     unsafe { SetLastErrorEx(dwerrcode, dwtype) }
 }
 #[inline]
 pub unsafe fn SysAddRefString(bstrstring: &windows_core::BSTR) -> windows_core::Result<()> {
-    windows_link::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("oleaut32.dll" "system" fn SysAddRefString(bstrstring : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { SysAddRefString(core::mem::transmute_copy(bstrstring)).ok() }
 }
 #[inline]
@@ -69,22 +69,22 @@ pub unsafe fn SysAllocString<P0>(psz: P0) -> windows_core::BSTR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("oleaut32.dll" "system" fn SysAllocString(psz : windows_core::PCWSTR) -> windows_core::BSTR);
+    windows_core::link!("oleaut32.dll" "system" fn SysAllocString(psz : windows_core::PCWSTR) -> windows_core::BSTR);
     unsafe { SysAllocString(psz.param().abi()) }
 }
 #[inline]
 pub unsafe fn SysAllocStringByteLen(psz: Option<&[u8]>) -> windows_core::BSTR {
-    windows_link::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_core::PCSTR, len : u32) -> windows_core::BSTR);
+    windows_core::link!("oleaut32.dll" "system" fn SysAllocStringByteLen(psz : windows_core::PCSTR, len : u32) -> windows_core::BSTR);
     unsafe { SysAllocStringByteLen(core::mem::transmute(psz.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), psz.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysAllocStringLen(strin: Option<&[u16]>) -> windows_core::BSTR {
-    windows_link::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_core::PCWSTR, ui : u32) -> windows_core::BSTR);
+    windows_core::link!("oleaut32.dll" "system" fn SysAllocStringLen(strin : windows_core::PCWSTR, ui : u32) -> windows_core::BSTR);
     unsafe { SysAllocStringLen(core::mem::transmute(strin.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), strin.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_core::BSTR) {
-    windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
+    windows_core::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
     unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
 }
 #[inline]
@@ -92,7 +92,7 @@ pub unsafe fn SysReAllocString<P1>(pbstr: *mut windows_core::BSTR, psz: P1) -> i
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR) -> i32);
+    windows_core::link!("oleaut32.dll" "system" fn SysReAllocString(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR) -> i32);
     unsafe { SysReAllocString(core::mem::transmute(pbstr), psz.param().abi()) }
 }
 #[inline]
@@ -100,22 +100,22 @@ pub unsafe fn SysReAllocStringLen<P1>(pbstr: *mut windows_core::BSTR, psz: P1, l
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR, len : u32) -> i32);
+    windows_core::link!("oleaut32.dll" "system" fn SysReAllocStringLen(pbstr : *mut * mut core::ffi::c_void, psz : windows_core::PCWSTR, len : u32) -> i32);
     unsafe { SysReAllocStringLen(core::mem::transmute(pbstr), psz.param().abi(), len) }
 }
 #[inline]
 pub unsafe fn SysReleaseString(bstrstring: &windows_core::BSTR) {
-    windows_link::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : * mut core::ffi::c_void));
+    windows_core::link!("oleaut32.dll" "system" fn SysReleaseString(bstrstring : * mut core::ffi::c_void));
     unsafe { SysReleaseString(core::mem::transmute_copy(bstrstring)) }
 }
 #[inline]
 pub unsafe fn SysStringByteLen(bstr: &windows_core::BSTR) -> u32 {
-    windows_link::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : * mut core::ffi::c_void) -> u32);
+    windows_core::link!("oleaut32.dll" "system" fn SysStringByteLen(bstr : * mut core::ffi::c_void) -> u32);
     unsafe { SysStringByteLen(core::mem::transmute_copy(bstr)) }
 }
 #[inline]
 pub unsafe fn SysStringLen(pbstr: &windows_core::BSTR) -> u32 {
-    windows_link::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : * mut core::ffi::c_void) -> u32);
+    windows_core::link!("oleaut32.dll" "system" fn SysStringLen(pbstr : * mut core::ffi::c_void) -> u32);
     unsafe { SysStringLen(core::mem::transmute_copy(pbstr)) }
 }
 pub const APPMODEL_ERROR_DYNAMIC_PROPERTY_INVALID: WIN32_ERROR = WIN32_ERROR(15705u32);
@@ -5298,7 +5298,7 @@ impl windows_core::Free for HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseHandle(self.0);
             }
@@ -5441,7 +5441,7 @@ impl windows_core::Free for HGLOBAL {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn GlobalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+            windows_core::link!("kernel32.dll" "system" fn GlobalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
             unsafe {
                 GlobalFree(self.0);
             }
@@ -5465,7 +5465,7 @@ impl windows_core::Free for HINSTANCE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
             unsafe {
                 FreeLibrary(self.0);
             }
@@ -5495,7 +5495,7 @@ impl windows_core::Free for HLOCAL {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn LocalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
+            windows_core::link!("kernel32.dll" "system" fn LocalFree(hmem : *mut core::ffi::c_void) -> *mut core::ffi::c_void);
             unsafe {
                 LocalFree(self.0);
             }
@@ -5532,7 +5532,7 @@ impl windows_core::Free for HMODULE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("kernel32.dll" "system" fn FreeLibrary(hlibmodule : *mut core::ffi::c_void) -> i32);
             unsafe {
                 FreeLibrary(self.0);
             }

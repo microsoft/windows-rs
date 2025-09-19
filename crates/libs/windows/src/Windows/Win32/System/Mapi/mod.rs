@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn MAPIFreeBuffer(pv: *mut core::ffi::c_void) -> u32 {
-    windows_link::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("mapi32.dll" "system" fn MAPIFreeBuffer(pv : *mut core::ffi::c_void) -> u32);
     unsafe { MAPIFreeBuffer(pv as _) }
 }
 pub type LPMAPIADDRESS = Option<unsafe extern "system" fn(lhsession: usize, uluiparam: usize, lpszcaption: windows_core::PCSTR, neditfields: u32, lpszlabels: windows_core::PCSTR, nrecips: u32, lprecips: *mut MapiRecipDesc, flflags: u32, ulreserved: u32, lpnnewrecips: *mut u32, lppnewrecips: *mut *mut MapiRecipDesc) -> u32>;

@@ -1,16 +1,16 @@
 #[inline]
 pub unsafe fn DoMsCtfMonitor(dwflags: u32, heventforservicestop: super::super::Foundation::HANDLE) -> windows_core::BOOL {
-    windows_link::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
+    windows_core::link!("msctfmonitor.dll" "system" fn DoMsCtfMonitor(dwflags : u32, heventforservicestop : super::super::Foundation:: HANDLE) -> windows_core::BOOL);
     unsafe { DoMsCtfMonitor(dwflags, heventforservicestop) }
 }
 #[inline]
 pub unsafe fn InitLocalMsCtfMonitor(dwflags: u32) -> windows_core::Result<()> {
-    windows_link::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_core::HRESULT);
+    windows_core::link!("msctfmonitor.dll" "system" fn InitLocalMsCtfMonitor(dwflags : u32) -> windows_core::HRESULT);
     unsafe { InitLocalMsCtfMonitor(dwflags).ok() }
 }
 #[inline]
 pub unsafe fn UninitLocalMsCtfMonitor() -> windows_core::Result<()> {
-    windows_link::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_core::HRESULT);
+    windows_core::link!("msctfmonitor.dll" "system" fn UninitLocalMsCtfMonitor() -> windows_core::HRESULT);
     unsafe { UninitLocalMsCtfMonitor().ok() }
 }
 #[repr(transparent)]

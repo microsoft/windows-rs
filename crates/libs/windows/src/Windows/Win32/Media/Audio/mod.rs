@@ -15,7 +15,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<IActivateAudioInterfaceCompletionHandler>,
 {
-    windows_link::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_core::PCWSTR, riid : *const windows_core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut core::ffi::c_void, activationoperation : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mmdevapi.dll" "system" fn ActivateAudioInterfaceAsync(deviceinterfacepath : windows_core::PCWSTR, riid : *const windows_core::GUID, activationparams : *const super::super::System::Com::StructuredStorage:: PROPVARIANT, completionhandler : * mut core::ffi::c_void, activationoperation : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         ActivateAudioInterfaceAsync(deviceinterfacepath.param().abi(), riid, activationparams.unwrap_or(core::mem::zeroed()) as _, completionhandler.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -26,12 +26,12 @@ pub unsafe fn CoRegisterMessageFilter<P0>(lpmessagefilter: P0, lplpmessagefilter
 where
     P0: windows_core::Param<IMessageFilter>,
 {
-    windows_link::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut core::ffi::c_void, lplpmessagefilter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoRegisterMessageFilter(lpmessagefilter : * mut core::ffi::c_void, lplpmessagefilter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoRegisterMessageFilter(lpmessagefilter.param().abi(), lplpmessagefilter.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitor() -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateCaptureAudioStateMonitor(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -39,7 +39,7 @@ pub unsafe fn CreateCaptureAudioStateMonitor() -> windows_core::Result<IAudioSta
 }
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateCaptureAudioStateMonitorForCategory(category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -50,7 +50,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId<P1>(category:
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateCaptureAudioStateMonitorForCategoryAndDeviceId(category, deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -58,7 +58,7 @@ where
 }
 #[inline]
 pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -66,7 +66,7 @@ pub unsafe fn CreateCaptureAudioStateMonitorForCategoryAndDeviceRole(category: A
 }
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitor() -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitor(audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRenderAudioStateMonitor(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -74,7 +74,7 @@ pub unsafe fn CreateRenderAudioStateMonitor() -> windows_core::Result<IAudioStat
 }
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategory(category: AUDIO_STREAM_CATEGORY) -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategory(category : AUDIO_STREAM_CATEGORY, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRenderAudioStateMonitorForCategory(category, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -85,7 +85,7 @@ pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceId<P1>(category: 
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceId(category : AUDIO_STREAM_CATEGORY, deviceid : windows_core::PCWSTR, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRenderAudioStateMonitorForCategoryAndDeviceId(category, deviceid.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -93,7 +93,7 @@ where
 }
 #[inline]
 pub unsafe fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category: AUDIO_STREAM_CATEGORY, role: ERole) -> windows_core::Result<IAudioStateMonitor> {
-    windows_link::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("windows.media.mediacontrol.dll" "system" fn CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category : AUDIO_STREAM_CATEGORY, role : ERole, audiostatemonitor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateRenderAudioStateMonitorForCategoryAndDeviceRole(category, role, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -104,7 +104,7 @@ pub unsafe fn PlaySoundA<P0>(pszsound: P0, hmod: Option<super::super::Foundation
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn PlaySoundA(pszsound : windows_core::PCSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
     unsafe { PlaySoundA(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
 #[inline]
@@ -112,534 +112,534 @@ pub unsafe fn PlaySoundW<P0>(pszsound: P0, hmod: Option<super::super::Foundation
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn PlaySoundW(pszsound : windows_core::PCWSTR, hmod : super::super::Foundation:: HMODULE, fdwsound : SND_FLAGS) -> windows_core::BOOL);
     unsafe { PlaySoundW(pszsound.param().abi(), hmod.unwrap_or(core::mem::zeroed()) as _, fdwsound) }
 }
 #[inline]
 pub unsafe fn acmDriverAddA(phadid: *mut HACMDRIVERID, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverAddA(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
     unsafe { acmDriverAddA(phadid as _, hinstmodule, lparam, dwpriority, fdwadd) }
 }
 #[inline]
 pub unsafe fn acmDriverAddW(phadid: *mut HACMDRIVERID, hinstmodule: super::super::Foundation::HINSTANCE, lparam: super::super::Foundation::LPARAM, dwpriority: u32, fdwadd: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverAddW(phadid : *mut HACMDRIVERID, hinstmodule : super::super::Foundation:: HINSTANCE, lparam : super::super::Foundation:: LPARAM, dwpriority : u32, fdwadd : u32) -> u32);
     unsafe { acmDriverAddW(phadid as _, hinstmodule, lparam, dwpriority, fdwadd) }
 }
 #[inline]
 pub unsafe fn acmDriverClose(had: HACMDRIVER, fdwclose: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverClose(had : HACMDRIVER, fdwclose : u32) -> u32);
     unsafe { acmDriverClose(had, fdwclose) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn acmDriverDetailsA(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSA, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverDetailsA(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSA, fdwdetails : u32) -> u32);
     unsafe { acmDriverDetailsA(hadid, padd as _, fdwdetails) }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn acmDriverDetailsW(hadid: HACMDRIVERID, padd: *mut ACMDRIVERDETAILSW, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverDetailsW(hadid : HACMDRIVERID, padd : *mut ACMDRIVERDETAILSW, fdwdetails : u32) -> u32);
     unsafe { acmDriverDetailsW(hadid, padd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmDriverEnum(fncallback: ACMDRIVERENUMCB, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverEnum(fncallback : ACMDRIVERENUMCB, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverEnum(fncallback : ACMDRIVERENUMCB, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmDriverEnum(fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmDriverID(hao: HACMOBJ, phadid: *mut HACMDRIVERID, fdwdriverid: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverID(hao : HACMOBJ, phadid : *mut HACMDRIVERID, fdwdriverid : u32) -> u32);
     unsafe { acmDriverID(hao, phadid as _, fdwdriverid) }
 }
 #[inline]
 pub unsafe fn acmDriverMessage(had: HACMDRIVER, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverMessage(had : HACMDRIVER, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> super::super::Foundation:: LRESULT);
     unsafe { acmDriverMessage(had, umsg, lparam1, lparam2) }
 }
 #[inline]
 pub unsafe fn acmDriverOpen(phad: *mut HACMDRIVER, hadid: HACMDRIVERID, fdwopen: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverOpen(phad : *mut HACMDRIVER, hadid : HACMDRIVERID, fdwopen : u32) -> u32);
     unsafe { acmDriverOpen(phad as _, hadid, fdwopen) }
 }
 #[inline]
 pub unsafe fn acmDriverPriority(hadid: HACMDRIVERID, dwpriority: u32, fdwpriority: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverPriority(hadid : HACMDRIVERID, dwpriority : u32, fdwpriority : u32) -> u32);
     unsafe { acmDriverPriority(hadid, dwpriority, fdwpriority) }
 }
 #[inline]
 pub unsafe fn acmDriverRemove(hadid: HACMDRIVERID, fdwremove: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmDriverRemove(hadid : HACMDRIVERID, fdwremove : u32) -> u32);
     unsafe { acmDriverRemove(hadid, fdwremove) }
 }
 #[inline]
 pub unsafe fn acmFilterChooseA(pafltrc: *mut ACMFILTERCHOOSEA) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterChooseA(pafltrc : *mut ACMFILTERCHOOSEA) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterChooseA(pafltrc : *mut ACMFILTERCHOOSEA) -> u32);
     unsafe { acmFilterChooseA(pafltrc as _) }
 }
 #[inline]
 pub unsafe fn acmFilterChooseW(pafltrc: *mut ACMFILTERCHOOSEW) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterChooseW(pafltrc : *mut ACMFILTERCHOOSEW) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterChooseW(pafltrc : *mut ACMFILTERCHOOSEW) -> u32);
     unsafe { acmFilterChooseW(pafltrc as _) }
 }
 #[inline]
 pub unsafe fn acmFilterDetailsA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterDetailsA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fdwdetails : u32) -> u32);
     unsafe { acmFilterDetailsA(had, pafd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFilterDetailsW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterDetailsW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterDetailsW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fdwdetails : u32) -> u32);
     unsafe { acmFilterDetailsW(had, pafd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFilterEnumA(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSA, fncallback: ACMFILTERENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterEnumA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fncallback : ACMFILTERENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterEnumA(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSA, fncallback : ACMFILTERENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFilterEnumA(had, pafd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFilterEnumW(had: HACMDRIVER, pafd: *mut ACMFILTERDETAILSW, fncallback: ACMFILTERENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterEnumW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fncallback : ACMFILTERENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterEnumW(had : HACMDRIVER, pafd : *mut ACMFILTERDETAILSW, fncallback : ACMFILTERENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFilterEnumW(had, pafd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFilterTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fdwdetails : u32) -> u32);
     unsafe { acmFilterTagDetailsA(had, paftd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFilterTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fdwdetails : u32) -> u32);
     unsafe { acmFilterTagDetailsW(had, paftd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFilterTagEnumA(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSA, fncallback: ACMFILTERTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fncallback : ACMFILTERTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterTagEnumA(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSA, fncallback : ACMFILTERTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFilterTagEnumA(had, paftd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFilterTagEnumW(had: HACMDRIVER, paftd: *mut ACMFILTERTAGDETAILSW, fncallback: ACMFILTERTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFilterTagEnumW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fncallback : ACMFILTERTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFilterTagEnumW(had : HACMDRIVER, paftd : *mut ACMFILTERTAGDETAILSW, fncallback : ACMFILTERTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFilterTagEnumW(had, paftd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFormatChooseA(pafmtc: *mut ACMFORMATCHOOSEA) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatChooseA(pafmtc : *mut ACMFORMATCHOOSEA) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatChooseA(pafmtc : *mut ACMFORMATCHOOSEA) -> u32);
     unsafe { acmFormatChooseA(pafmtc as _) }
 }
 #[inline]
 pub unsafe fn acmFormatChooseW(pafmtc: *mut ACMFORMATCHOOSEW) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatChooseW(pafmtc : *mut ACMFORMATCHOOSEW) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatChooseW(pafmtc : *mut ACMFORMATCHOOSEW) -> u32);
     unsafe { acmFormatChooseW(pafmtc as _) }
 }
 #[inline]
 pub unsafe fn acmFormatDetailsA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatDetailsA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fdwdetails : u32) -> u32);
     unsafe { acmFormatDetailsA(had, pafd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFormatDetailsW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatDetailsW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatDetailsW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fdwdetails : u32) -> u32);
     unsafe { acmFormatDetailsW(had, pafd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFormatEnumA(had: HACMDRIVER, pafd: *mut ACMFORMATDETAILSA, fncallback: ACMFORMATENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatEnumA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fncallback : ACMFORMATENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatEnumA(had : HACMDRIVER, pafd : *mut ACMFORMATDETAILSA, fncallback : ACMFORMATENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFormatEnumA(had, pafd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFormatEnumW(had: HACMDRIVER, pafd: *mut tACMFORMATDETAILSW, fncallback: ACMFORMATENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatEnumW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fncallback : ACMFORMATENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatEnumW(had : HACMDRIVER, pafd : *mut tACMFORMATDETAILSW, fncallback : ACMFORMATENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFormatEnumW(had, pafd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFormatSuggest(had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, cbwfxdst: u32, fdwsuggest: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatSuggest(had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, cbwfxdst : u32, fdwsuggest : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatSuggest(had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, cbwfxdst : u32, fdwsuggest : u32) -> u32);
     unsafe { acmFormatSuggest(had, pwfxsrc as _, pwfxdst as _, cbwfxdst, fdwsuggest) }
 }
 #[inline]
 pub unsafe fn acmFormatTagDetailsA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatTagDetailsA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fdwdetails : u32) -> u32);
     unsafe { acmFormatTagDetailsA(had, paftd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFormatTagDetailsW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fdwdetails: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fdwdetails : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatTagDetailsW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fdwdetails : u32) -> u32);
     unsafe { acmFormatTagDetailsW(had, paftd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn acmFormatTagEnumA(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSA, fncallback: ACMFORMATTAGENUMCBA, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatTagEnumA(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSA, fncallback : ACMFORMATTAGENUMCBA, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFormatTagEnumA(had, paftd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmFormatTagEnumW(had: HACMDRIVER, paftd: *mut ACMFORMATTAGDETAILSW, fncallback: ACMFORMATTAGENUMCBW, dwinstance: usize, fdwenum: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmFormatTagEnumW(had : HACMDRIVER, paftd : *mut ACMFORMATTAGDETAILSW, fncallback : ACMFORMATTAGENUMCBW, dwinstance : usize, fdwenum : u32) -> u32);
     unsafe { acmFormatTagEnumW(had, paftd as _, fncallback, dwinstance, fdwenum) }
 }
 #[inline]
 pub unsafe fn acmGetVersion() -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmGetVersion() -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmGetVersion() -> u32);
     unsafe { acmGetVersion() }
 }
 #[inline]
 pub unsafe fn acmMetrics(hao: HACMOBJ, umetric: u32, pmetric: *mut core::ffi::c_void) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmMetrics(hao : HACMOBJ, umetric : u32, pmetric : *mut core::ffi::c_void) -> u32);
     unsafe { acmMetrics(hao, umetric, pmetric as _) }
 }
 #[inline]
 pub unsafe fn acmStreamClose(has: HACMSTREAM, fdwclose: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamClose(has : HACMSTREAM, fdwclose : u32) -> u32);
     unsafe { acmStreamClose(has, fdwclose) }
 }
 #[inline]
 pub unsafe fn acmStreamConvert(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwconvert: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamConvert(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwconvert : u32) -> u32);
     unsafe { acmStreamConvert(has, pash as _, fdwconvert) }
 }
 #[inline]
 pub unsafe fn acmStreamMessage(has: HACMSTREAM, umsg: u32, lparam1: super::super::Foundation::LPARAM, lparam2: super::super::Foundation::LPARAM) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamMessage(has : HACMSTREAM, umsg : u32, lparam1 : super::super::Foundation:: LPARAM, lparam2 : super::super::Foundation:: LPARAM) -> u32);
     unsafe { acmStreamMessage(has, umsg, lparam1, lparam2) }
 }
 #[inline]
 pub unsafe fn acmStreamOpen(phas: *mut HACMSTREAM, had: HACMDRIVER, pwfxsrc: *mut WAVEFORMATEX, pwfxdst: *mut WAVEFORMATEX, pwfltr: *mut WAVEFILTER, dwcallback: usize, dwinstance: usize, fdwopen: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamOpen(phas : *mut HACMSTREAM, had : HACMDRIVER, pwfxsrc : *mut WAVEFORMATEX, pwfxdst : *mut WAVEFORMATEX, pwfltr : *mut WAVEFILTER, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
     unsafe { acmStreamOpen(phas as _, had, pwfxsrc as _, pwfxdst as _, pwfltr as _, dwcallback, dwinstance, fdwopen) }
 }
 #[inline]
 pub unsafe fn acmStreamPrepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwprepare: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamPrepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwprepare : u32) -> u32);
     unsafe { acmStreamPrepareHeader(has, pash as _, fdwprepare) }
 }
 #[inline]
 pub unsafe fn acmStreamReset(has: HACMSTREAM, fdwreset: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamReset(has : HACMSTREAM, fdwreset : u32) -> u32);
     unsafe { acmStreamReset(has, fdwreset) }
 }
 #[inline]
 pub unsafe fn acmStreamSize(has: HACMSTREAM, cbinput: u32, pdwoutputbytes: *mut u32, fdwsize: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamSize(has : HACMSTREAM, cbinput : u32, pdwoutputbytes : *mut u32, fdwsize : u32) -> u32);
     unsafe { acmStreamSize(has, cbinput, pdwoutputbytes as _, fdwsize) }
 }
 #[inline]
 pub unsafe fn acmStreamUnprepareHeader(has: HACMSTREAM, pash: *mut ACMSTREAMHEADER, fdwunprepare: u32) -> u32 {
-    windows_link::link!("msacm32.dll" "system" fn acmStreamUnprepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwunprepare : u32) -> u32);
+    windows_core::link!("msacm32.dll" "system" fn acmStreamUnprepareHeader(has : HACMSTREAM, pash : *mut ACMSTREAMHEADER, fdwunprepare : u32) -> u32);
     unsafe { acmStreamUnprepareHeader(has, pash as _, fdwunprepare) }
 }
 #[inline]
 pub unsafe fn auxGetDevCapsA(udeviceid: usize, pac: *mut AUXCAPSA, cbac: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : *mut AUXCAPSA, cbac : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxGetDevCapsA(udeviceid : usize, pac : *mut AUXCAPSA, cbac : u32) -> u32);
     unsafe { auxGetDevCapsA(udeviceid, pac as _, cbac) }
 }
 #[inline]
 pub unsafe fn auxGetDevCapsW(udeviceid: usize, pac: *mut AUXCAPSW, cbac: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : *mut AUXCAPSW, cbac : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxGetDevCapsW(udeviceid : usize, pac : *mut AUXCAPSW, cbac : u32) -> u32);
     unsafe { auxGetDevCapsW(udeviceid, pac as _, cbac) }
 }
 #[inline]
 pub unsafe fn auxGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxGetNumDevs() -> u32);
     unsafe { auxGetNumDevs() }
 }
 #[inline]
 pub unsafe fn auxGetVolume(udeviceid: u32, pdwvolume: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxGetVolume(udeviceid : u32, pdwvolume : *mut u32) -> u32);
     unsafe { auxGetVolume(udeviceid, pdwvolume as _) }
 }
 #[inline]
 pub unsafe fn auxOutMessage(udeviceid: u32, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxOutMessage(udeviceid : u32, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
     unsafe { auxOutMessage(udeviceid, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn auxSetVolume(udeviceid: u32, dwvolume: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn auxSetVolume(udeviceid : u32, dwvolume : u32) -> u32);
     unsafe { auxSetVolume(udeviceid, dwvolume) }
 }
 #[inline]
 pub unsafe fn midiConnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiConnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
     unsafe { midiConnect(hmi, hmo, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn midiDisconnect(hmi: HMIDI, hmo: HMIDIOUT, preserved: Option<*const core::ffi::c_void>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiDisconnect(hmi : HMIDI, hmo : HMIDIOUT, preserved : *const core::ffi::c_void) -> u32);
     unsafe { midiDisconnect(hmi, hmo, preserved.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn midiInAddBuffer(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInAddBuffer(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiInAddBuffer(hmi, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiInClose(hmi: HMIDIIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInClose(hmi : HMIDIIN) -> u32);
     unsafe { midiInClose(hmi) }
 }
 #[inline]
 pub unsafe fn midiInGetDevCapsA(udeviceid: usize, pmic: *mut MIDIINCAPSA, cbmic: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetDevCapsA(udeviceid : usize, pmic : *mut MIDIINCAPSA, cbmic : u32) -> u32);
     unsafe { midiInGetDevCapsA(udeviceid, pmic as _, cbmic) }
 }
 #[inline]
 pub unsafe fn midiInGetDevCapsW(udeviceid: usize, pmic: *mut MIDIINCAPSW, cbmic: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetDevCapsW(udeviceid : usize, pmic : *mut MIDIINCAPSW, cbmic : u32) -> u32);
     unsafe { midiInGetDevCapsW(udeviceid, pmic as _, cbmic) }
 }
 #[inline]
 pub unsafe fn midiInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
     unsafe { midiInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn midiInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
     unsafe { midiInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn midiInGetID(hmi: HMIDIIN, pudeviceid: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetID(hmi : HMIDIIN, pudeviceid : *mut u32) -> u32);
     unsafe { midiInGetID(hmi, pudeviceid as _) }
 }
 #[inline]
 pub unsafe fn midiInGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInGetNumDevs() -> u32);
     unsafe { midiInGetNumDevs() }
 }
 #[inline]
 pub unsafe fn midiInMessage(hmi: Option<HMIDIIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInMessage(hmi : HMIDIIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
     unsafe { midiInMessage(hmi.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn midiInOpen(phmi: *mut HMIDIIN, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInOpen(phmi : *mut HMIDIIN, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
     unsafe { midiInOpen(phmi as _, udeviceid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn midiInPrepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInPrepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiInPrepareHeader(hmi, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiInReset(hmi: HMIDIIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInReset(hmi : HMIDIIN) -> u32);
     unsafe { midiInReset(hmi) }
 }
 #[inline]
 pub unsafe fn midiInStart(hmi: HMIDIIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInStart(hmi : HMIDIIN) -> u32);
     unsafe { midiInStart(hmi) }
 }
 #[inline]
 pub unsafe fn midiInStop(hmi: HMIDIIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInStop(hmi : HMIDIIN) -> u32);
     unsafe { midiInStop(hmi) }
 }
 #[inline]
 pub unsafe fn midiInUnprepareHeader(hmi: HMIDIIN, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiInUnprepareHeader(hmi : HMIDIIN, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiInUnprepareHeader(hmi, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiOutCacheDrumPatches(hmo: HMIDIOUT, upatch: u32, pwkya: &[u16; 128], fucache: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutCacheDrumPatches(hmo : HMIDIOUT, upatch : u32, pwkya : *const u16, fucache : u32) -> u32);
     unsafe { midiOutCacheDrumPatches(hmo, upatch, core::mem::transmute(pwkya.as_ptr()), fucache) }
 }
 #[inline]
 pub unsafe fn midiOutCachePatches(hmo: HMIDIOUT, ubank: u32, pwpa: &[u16; 128], fucache: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutCachePatches(hmo : HMIDIOUT, ubank : u32, pwpa : *const u16, fucache : u32) -> u32);
     unsafe { midiOutCachePatches(hmo, ubank, core::mem::transmute(pwpa.as_ptr()), fucache) }
 }
 #[inline]
 pub unsafe fn midiOutClose(hmo: HMIDIOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutClose(hmo : HMIDIOUT) -> u32);
     unsafe { midiOutClose(hmo) }
 }
 #[inline]
 pub unsafe fn midiOutGetDevCapsA(udeviceid: usize, pmoc: *mut MIDIOUTCAPSA, cbmoc: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetDevCapsA(udeviceid : usize, pmoc : *mut MIDIOUTCAPSA, cbmoc : u32) -> u32);
     unsafe { midiOutGetDevCapsA(udeviceid, pmoc as _, cbmoc) }
 }
 #[inline]
 pub unsafe fn midiOutGetDevCapsW(udeviceid: usize, pmoc: *mut MIDIOUTCAPSW, cbmoc: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetDevCapsW(udeviceid : usize, pmoc : *mut MIDIOUTCAPSW, cbmoc : u32) -> u32);
     unsafe { midiOutGetDevCapsW(udeviceid, pmoc as _, cbmoc) }
 }
 #[inline]
 pub unsafe fn midiOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
     unsafe { midiOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn midiOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
     unsafe { midiOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn midiOutGetID(hmo: HMIDIOUT, pudeviceid: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetID(hmo : HMIDIOUT, pudeviceid : *mut u32) -> u32);
     unsafe { midiOutGetID(hmo, pudeviceid as _) }
 }
 #[inline]
 pub unsafe fn midiOutGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetNumDevs() -> u32);
     unsafe { midiOutGetNumDevs() }
 }
 #[inline]
 pub unsafe fn midiOutGetVolume(hmo: Option<HMIDIOUT>, pdwvolume: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutGetVolume(hmo : HMIDIOUT, pdwvolume : *mut u32) -> u32);
     unsafe { midiOutGetVolume(hmo.unwrap_or(core::mem::zeroed()) as _, pdwvolume as _) }
 }
 #[inline]
 pub unsafe fn midiOutLongMsg(hmo: HMIDIOUT, pmh: *const MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutLongMsg(hmo : HMIDIOUT, pmh : *const MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiOutLongMsg(hmo, pmh, cbmh) }
 }
 #[inline]
 pub unsafe fn midiOutMessage(hmo: Option<HMIDIOUT>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutMessage(hmo : HMIDIOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
     unsafe { midiOutMessage(hmo.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn midiOutOpen(phmo: *mut HMIDIOUT, udeviceid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutOpen(phmo : *mut HMIDIOUT, udeviceid : u32, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
     unsafe { midiOutOpen(phmo as _, udeviceid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn midiOutPrepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutPrepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiOutPrepareHeader(hmo, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiOutReset(hmo: HMIDIOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutReset(hmo : HMIDIOUT) -> u32);
     unsafe { midiOutReset(hmo) }
 }
 #[inline]
 pub unsafe fn midiOutSetVolume(hmo: Option<HMIDIOUT>, dwvolume: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutSetVolume(hmo : HMIDIOUT, dwvolume : u32) -> u32);
     unsafe { midiOutSetVolume(hmo.unwrap_or(core::mem::zeroed()) as _, dwvolume) }
 }
 #[inline]
 pub unsafe fn midiOutShortMsg(hmo: HMIDIOUT, dwmsg: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutShortMsg(hmo : HMIDIOUT, dwmsg : u32) -> u32);
     unsafe { midiOutShortMsg(hmo, dwmsg) }
 }
 #[inline]
 pub unsafe fn midiOutUnprepareHeader(hmo: HMIDIOUT, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiOutUnprepareHeader(hmo : HMIDIOUT, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiOutUnprepareHeader(hmo, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiStreamClose(hms: HMIDISTRM) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamClose(hms : HMIDISTRM) -> u32);
     unsafe { midiStreamClose(hms) }
 }
 #[inline]
 pub unsafe fn midiStreamOpen(phms: *mut HMIDISTRM, pudeviceid: &mut [u32], dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamOpen(phms : *mut HMIDISTRM, pudeviceid : *mut u32, cmidi : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
     unsafe { midiStreamOpen(phms as _, core::mem::transmute(pudeviceid.as_ptr()), pudeviceid.len().try_into().unwrap(), dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn midiStreamOut(hms: HMIDISTRM, pmh: *mut MIDIHDR, cbmh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamOut(hms : HMIDISTRM, pmh : *mut MIDIHDR, cbmh : u32) -> u32);
     unsafe { midiStreamOut(hms, pmh as _, cbmh) }
 }
 #[inline]
 pub unsafe fn midiStreamPause(hms: HMIDISTRM) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamPause(hms : HMIDISTRM) -> u32);
     unsafe { midiStreamPause(hms) }
 }
 #[inline]
 pub unsafe fn midiStreamPosition(hms: HMIDISTRM, lpmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamPosition(hms : HMIDISTRM, lpmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
     unsafe { midiStreamPosition(hms, lpmmt as _, cbmmt) }
 }
 #[inline]
 pub unsafe fn midiStreamProperty(hms: HMIDISTRM, lppropdata: *mut u8, dwproperty: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamProperty(hms : HMIDISTRM, lppropdata : *mut u8, dwproperty : u32) -> u32);
     unsafe { midiStreamProperty(hms, lppropdata as _, dwproperty) }
 }
 #[inline]
 pub unsafe fn midiStreamRestart(hms: HMIDISTRM) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamRestart(hms : HMIDISTRM) -> u32);
     unsafe { midiStreamRestart(hms) }
 }
 #[inline]
 pub unsafe fn midiStreamStop(hms: HMIDISTRM) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> u32);
+    windows_core::link!("winmm.dll" "system" fn midiStreamStop(hms : HMIDISTRM) -> u32);
     unsafe { midiStreamStop(hms) }
 }
 #[inline]
 pub unsafe fn mixerClose(hmx: HMIXER) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerClose(hmx : HMIXER) -> u32);
     unsafe { mixerClose(hmx) }
 }
 #[inline]
 pub unsafe fn mixerGetControlDetailsA(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetControlDetailsA(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
     unsafe { mixerGetControlDetailsA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn mixerGetControlDetailsW(hmxobj: Option<HMIXEROBJ>, pmxcd: *mut MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetControlDetailsW(hmxobj : HMIXEROBJ, pmxcd : *mut MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
     unsafe { mixerGetControlDetailsW(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd as _, fdwdetails) }
 }
 #[inline]
 pub unsafe fn mixerGetDevCapsA(umxid: usize, pmxcaps: *mut MIXERCAPSA, cbmxcaps: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : *mut MIXERCAPSA, cbmxcaps : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetDevCapsA(umxid : usize, pmxcaps : *mut MIXERCAPSA, cbmxcaps : u32) -> u32);
     unsafe { mixerGetDevCapsA(umxid, pmxcaps as _, cbmxcaps) }
 }
 #[inline]
 pub unsafe fn mixerGetDevCapsW(umxid: usize, pmxcaps: *mut MIXERCAPSW, cbmxcaps: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : *mut MIXERCAPSW, cbmxcaps : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetDevCapsW(umxid : usize, pmxcaps : *mut MIXERCAPSW, cbmxcaps : u32) -> u32);
     unsafe { mixerGetDevCapsW(umxid, pmxcaps as _, cbmxcaps) }
 }
 #[inline]
 pub unsafe fn mixerGetID(hmxobj: Option<HMIXEROBJ>, pumxid: *mut u32, fdwid: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetID(hmxobj : HMIXEROBJ, pumxid : *mut u32, fdwid : u32) -> u32);
     unsafe { mixerGetID(hmxobj.unwrap_or(core::mem::zeroed()) as _, pumxid as _, fdwid) }
 }
 #[inline]
 pub unsafe fn mixerGetLineControlsA(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSA, fdwcontrols: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetLineControlsA(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSA, fdwcontrols : u32) -> u32);
     unsafe { mixerGetLineControlsA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxlc as _, fdwcontrols) }
 }
 #[inline]
 pub unsafe fn mixerGetLineControlsW(hmxobj: Option<HMIXEROBJ>, pmxlc: *mut MIXERLINECONTROLSW, fdwcontrols: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetLineControlsW(hmxobj : HMIXEROBJ, pmxlc : *mut MIXERLINECONTROLSW, fdwcontrols : u32) -> u32);
     unsafe { mixerGetLineControlsW(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxlc as _, fdwcontrols) }
 }
 #[inline]
 pub unsafe fn mixerGetLineInfoA(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEA, fdwinfo: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetLineInfoA(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEA, fdwinfo : u32) -> u32);
     unsafe { mixerGetLineInfoA(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxl as _, fdwinfo) }
 }
 #[inline]
 pub unsafe fn mixerGetLineInfoW(hmxobj: Option<HMIXEROBJ>, pmxl: *mut MIXERLINEW, fdwinfo: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetLineInfoW(hmxobj : HMIXEROBJ, pmxl : *mut MIXERLINEW, fdwinfo : u32) -> u32);
     unsafe { mixerGetLineInfoW(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxl as _, fdwinfo) }
 }
 #[inline]
 pub unsafe fn mixerGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerGetNumDevs() -> u32);
     unsafe { mixerGetNumDevs() }
 }
 #[inline]
 pub unsafe fn mixerMessage(hmx: Option<HMIXER>, umsg: u32, dwparam1: Option<usize>, dwparam2: Option<usize>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerMessage(hmx : HMIXER, umsg : u32, dwparam1 : usize, dwparam2 : usize) -> u32);
     unsafe { mixerMessage(hmx.unwrap_or(core::mem::zeroed()) as _, umsg, dwparam1.unwrap_or(core::mem::zeroed()) as _, dwparam2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn mixerOpen(phmx: Option<*mut HMIXER>, umxid: u32, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerOpen(phmx : *mut HMIXER, umxid : u32, dwcallback : usize, dwinstance : usize, fdwopen : u32) -> u32);
     unsafe { mixerOpen(phmx.unwrap_or(core::mem::zeroed()) as _, umxid, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn mixerSetControlDetails(hmxobj: Option<HMIXEROBJ>, pmxcd: *const MIXERCONTROLDETAILS, fdwdetails: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn mixerSetControlDetails(hmxobj : HMIXEROBJ, pmxcd : *const MIXERCONTROLDETAILS, fdwdetails : u32) -> u32);
     unsafe { mixerSetControlDetails(hmxobj.unwrap_or(core::mem::zeroed()) as _, pmxcd, fdwdetails) }
 }
 #[inline]
@@ -647,7 +647,7 @@ pub unsafe fn sndPlaySoundA<P0>(pszsound: P0, fusound: u32) -> windows_core::BOO
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn sndPlaySoundA(pszsound : windows_core::PCSTR, fusound : u32) -> windows_core::BOOL);
     unsafe { sndPlaySoundA(pszsound.param().abi(), fusound) }
 }
 #[inline]
@@ -655,202 +655,202 @@ pub unsafe fn sndPlaySoundW<P0>(pszsound: P0, fusound: u32) -> windows_core::BOO
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : u32) -> windows_core::BOOL);
+    windows_core::link!("winmm.dll" "system" fn sndPlaySoundW(pszsound : windows_core::PCWSTR, fusound : u32) -> windows_core::BOOL);
     unsafe { sndPlaySoundW(pszsound.param().abi(), fusound) }
 }
 #[inline]
 pub unsafe fn waveInAddBuffer(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInAddBuffer(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveInAddBuffer(hwi, pwh as _, cbwh) }
 }
 #[inline]
 pub unsafe fn waveInClose(hwi: HWAVEIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInClose(hwi : HWAVEIN) -> u32);
     unsafe { waveInClose(hwi) }
 }
 #[inline]
 pub unsafe fn waveInGetDevCapsA(udeviceid: usize, pwic: *mut WAVEINCAPSA, cbwic: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetDevCapsA(udeviceid : usize, pwic : *mut WAVEINCAPSA, cbwic : u32) -> u32);
     unsafe { waveInGetDevCapsA(udeviceid, pwic as _, cbwic) }
 }
 #[inline]
 pub unsafe fn waveInGetDevCapsW(udeviceid: usize, pwic: *mut WAVEINCAPSW, cbwic: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetDevCapsW(udeviceid : usize, pwic : *mut WAVEINCAPSW, cbwic : u32) -> u32);
     unsafe { waveInGetDevCapsW(udeviceid, pwic as _, cbwic) }
 }
 #[inline]
 pub unsafe fn waveInGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
     unsafe { waveInGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn waveInGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
     unsafe { waveInGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn waveInGetID(hwi: HWAVEIN, pudeviceid: *const u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetID(hwi : HWAVEIN, pudeviceid : *const u32) -> u32);
     unsafe { waveInGetID(hwi, pudeviceid) }
 }
 #[inline]
 pub unsafe fn waveInGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetNumDevs() -> u32);
     unsafe { waveInGetNumDevs() }
 }
 #[inline]
 pub unsafe fn waveInGetPosition(hwi: HWAVEIN, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInGetPosition(hwi : HWAVEIN, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
     unsafe { waveInGetPosition(hwi, pmmt as _, cbmmt) }
 }
 #[inline]
 pub unsafe fn waveInMessage(hwi: Option<HWAVEIN>, umsg: u32, dw1: Option<usize>, dw2: Option<usize>) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInMessage(hwi : HWAVEIN, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
     unsafe { waveInMessage(hwi.unwrap_or(core::mem::zeroed()) as _, umsg, dw1.unwrap_or(core::mem::zeroed()) as _, dw2.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn waveInOpen(phwi: Option<*mut HWAVEIN>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInOpen(phwi : *mut HWAVEIN, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
     unsafe { waveInOpen(phwi.unwrap_or(core::mem::zeroed()) as _, udeviceid, pwfx, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn waveInPrepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInPrepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveInPrepareHeader(hwi, pwh as _, cbwh) }
 }
 #[inline]
 pub unsafe fn waveInReset(hwi: HWAVEIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInReset(hwi : HWAVEIN) -> u32);
     unsafe { waveInReset(hwi) }
 }
 #[inline]
 pub unsafe fn waveInStart(hwi: HWAVEIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInStart(hwi : HWAVEIN) -> u32);
     unsafe { waveInStart(hwi) }
 }
 #[inline]
 pub unsafe fn waveInStop(hwi: HWAVEIN) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInStop(hwi : HWAVEIN) -> u32);
     unsafe { waveInStop(hwi) }
 }
 #[inline]
 pub unsafe fn waveInUnprepareHeader(hwi: HWAVEIN, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveInUnprepareHeader(hwi : HWAVEIN, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveInUnprepareHeader(hwi, pwh as _, cbwh) }
 }
 #[inline]
 pub unsafe fn waveOutBreakLoop(hwo: HWAVEOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutBreakLoop(hwo : HWAVEOUT) -> u32);
     unsafe { waveOutBreakLoop(hwo) }
 }
 #[inline]
 pub unsafe fn waveOutClose(hwo: HWAVEOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutClose(hwo : HWAVEOUT) -> u32);
     unsafe { waveOutClose(hwo) }
 }
 #[inline]
 pub unsafe fn waveOutGetDevCapsA(udeviceid: usize, pwoc: *mut WAVEOUTCAPSA, cbwoc: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetDevCapsA(udeviceid : usize, pwoc : *mut WAVEOUTCAPSA, cbwoc : u32) -> u32);
     unsafe { waveOutGetDevCapsA(udeviceid, pwoc as _, cbwoc) }
 }
 #[inline]
 pub unsafe fn waveOutGetDevCapsW(udeviceid: usize, pwoc: *mut WAVEOUTCAPSW, cbwoc: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetDevCapsW(udeviceid : usize, pwoc : *mut WAVEOUTCAPSW, cbwoc : u32) -> u32);
     unsafe { waveOutGetDevCapsW(udeviceid, pwoc as _, cbwoc) }
 }
 #[inline]
 pub unsafe fn waveOutGetErrorTextA(mmrerror: u32, psztext: &mut [u8]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextA(mmrerror : u32, psztext : windows_core::PSTR, cchtext : u32) -> u32);
     unsafe { waveOutGetErrorTextA(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn waveOutGetErrorTextW(mmrerror: u32, psztext: &mut [u16]) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetErrorTextW(mmrerror : u32, psztext : windows_core::PWSTR, cchtext : u32) -> u32);
     unsafe { waveOutGetErrorTextW(mmrerror, core::mem::transmute(psztext.as_ptr()), psztext.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn waveOutGetID(hwo: HWAVEOUT, pudeviceid: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetID(hwo : HWAVEOUT, pudeviceid : *mut u32) -> u32);
     unsafe { waveOutGetID(hwo, pudeviceid as _) }
 }
 #[inline]
 pub unsafe fn waveOutGetNumDevs() -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetNumDevs() -> u32);
     unsafe { waveOutGetNumDevs() }
 }
 #[inline]
 pub unsafe fn waveOutGetPitch(hwo: HWAVEOUT, pdwpitch: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetPitch(hwo : HWAVEOUT, pdwpitch : *mut u32) -> u32);
     unsafe { waveOutGetPitch(hwo, pdwpitch as _) }
 }
 #[inline]
 pub unsafe fn waveOutGetPlaybackRate(hwo: HWAVEOUT, pdwrate: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetPlaybackRate(hwo : HWAVEOUT, pdwrate : *mut u32) -> u32);
     unsafe { waveOutGetPlaybackRate(hwo, pdwrate as _) }
 }
 #[inline]
 pub unsafe fn waveOutGetPosition(hwo: HWAVEOUT, pmmt: *mut super::MMTIME, cbmmt: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetPosition(hwo : HWAVEOUT, pmmt : *mut super:: MMTIME, cbmmt : u32) -> u32);
     unsafe { waveOutGetPosition(hwo, pmmt as _, cbmmt) }
 }
 #[inline]
 pub unsafe fn waveOutGetVolume(hwo: Option<HWAVEOUT>, pdwvolume: *mut u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutGetVolume(hwo : HWAVEOUT, pdwvolume : *mut u32) -> u32);
     unsafe { waveOutGetVolume(hwo.unwrap_or(core::mem::zeroed()) as _, pdwvolume as _) }
 }
 #[inline]
 pub unsafe fn waveOutMessage(hwo: Option<HWAVEOUT>, umsg: u32, dw1: usize, dw2: usize) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutMessage(hwo : HWAVEOUT, umsg : u32, dw1 : usize, dw2 : usize) -> u32);
     unsafe { waveOutMessage(hwo.unwrap_or(core::mem::zeroed()) as _, umsg, dw1, dw2) }
 }
 #[inline]
 pub unsafe fn waveOutOpen(phwo: Option<*mut HWAVEOUT>, udeviceid: u32, pwfx: *const WAVEFORMATEX, dwcallback: Option<usize>, dwinstance: Option<usize>, fdwopen: MIDI_WAVE_OPEN_TYPE) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutOpen(phwo : *mut HWAVEOUT, udeviceid : u32, pwfx : *const WAVEFORMATEX, dwcallback : usize, dwinstance : usize, fdwopen : MIDI_WAVE_OPEN_TYPE) -> u32);
     unsafe { waveOutOpen(phwo.unwrap_or(core::mem::zeroed()) as _, udeviceid, pwfx, dwcallback.unwrap_or(core::mem::zeroed()) as _, dwinstance.unwrap_or(core::mem::zeroed()) as _, fdwopen) }
 }
 #[inline]
 pub unsafe fn waveOutPause(hwo: HWAVEOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutPause(hwo : HWAVEOUT) -> u32);
     unsafe { waveOutPause(hwo) }
 }
 #[inline]
 pub unsafe fn waveOutPrepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutPrepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveOutPrepareHeader(hwo, pwh as _, cbwh) }
 }
 #[inline]
 pub unsafe fn waveOutReset(hwo: HWAVEOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutReset(hwo : HWAVEOUT) -> u32);
     unsafe { waveOutReset(hwo) }
 }
 #[inline]
 pub unsafe fn waveOutRestart(hwo: HWAVEOUT) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutRestart(hwo : HWAVEOUT) -> u32);
     unsafe { waveOutRestart(hwo) }
 }
 #[inline]
 pub unsafe fn waveOutSetPitch(hwo: HWAVEOUT, dwpitch: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutSetPitch(hwo : HWAVEOUT, dwpitch : u32) -> u32);
     unsafe { waveOutSetPitch(hwo, dwpitch) }
 }
 #[inline]
 pub unsafe fn waveOutSetPlaybackRate(hwo: HWAVEOUT, dwrate: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutSetPlaybackRate(hwo : HWAVEOUT, dwrate : u32) -> u32);
     unsafe { waveOutSetPlaybackRate(hwo, dwrate) }
 }
 #[inline]
 pub unsafe fn waveOutSetVolume(hwo: Option<HWAVEOUT>, dwvolume: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutSetVolume(hwo : HWAVEOUT, dwvolume : u32) -> u32);
     unsafe { waveOutSetVolume(hwo.unwrap_or(core::mem::zeroed()) as _, dwvolume) }
 }
 #[inline]
 pub unsafe fn waveOutUnprepareHeader(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutUnprepareHeader(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveOutUnprepareHeader(hwo, pwh as _, cbwh) }
 }
 #[inline]
 pub unsafe fn waveOutWrite(hwo: HWAVEOUT, pwh: *mut WAVEHDR, cbwh: u32) -> u32 {
-    windows_link::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
+    windows_core::link!("winmm.dll" "system" fn waveOutWrite(hwo : HWAVEOUT, pwh : *mut WAVEHDR, cbwh : u32) -> u32);
     unsafe { waveOutWrite(hwo, pwh as _, cbwh) }
 }
 pub const ACMDM_DRIVER_ABOUT: u32 = 24587u32;
@@ -1924,7 +1924,7 @@ impl windows_core::Free for HACMDRIVER {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("msacm32.dll" "system" fn acmDriverClose(had : *mut core::ffi::c_void, fdwclose : u32) -> u32);
+            windows_core::link!("msacm32.dll" "system" fn acmDriverClose(had : *mut core::ffi::c_void, fdwclose : u32) -> u32);
             unsafe {
                 acmDriverClose(self.0, 0);
             }
@@ -1974,7 +1974,7 @@ impl windows_core::Free for HACMSTREAM {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("msacm32.dll" "system" fn acmStreamClose(has : *mut core::ffi::c_void, fdwclose : u32) -> u32);
+            windows_core::link!("msacm32.dll" "system" fn acmStreamClose(has : *mut core::ffi::c_void, fdwclose : u32) -> u32);
             unsafe {
                 acmStreamClose(self.0, 0);
             }
@@ -2011,7 +2011,7 @@ impl windows_core::Free for HMIDIIN {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn midiInClose(hmi : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn midiInClose(hmi : *mut core::ffi::c_void) -> u32);
             unsafe {
                 midiInClose(self.0);
             }
@@ -2035,7 +2035,7 @@ impl windows_core::Free for HMIDIOUT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn midiOutClose(hmo : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn midiOutClose(hmo : *mut core::ffi::c_void) -> u32);
             unsafe {
                 midiOutClose(self.0);
             }
@@ -2059,7 +2059,7 @@ impl windows_core::Free for HMIDISTRM {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn midiStreamClose(hms : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn midiStreamClose(hms : *mut core::ffi::c_void) -> u32);
             unsafe {
                 midiStreamClose(self.0);
             }
@@ -2083,7 +2083,7 @@ impl windows_core::Free for HMIXER {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn mixerClose(hmx : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn mixerClose(hmx : *mut core::ffi::c_void) -> u32);
             unsafe {
                 mixerClose(self.0);
             }
@@ -2133,7 +2133,7 @@ impl windows_core::Free for HWAVEIN {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn waveInClose(hwi : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn waveInClose(hwi : *mut core::ffi::c_void) -> u32);
             unsafe {
                 waveInClose(self.0);
             }
@@ -2157,7 +2157,7 @@ impl windows_core::Free for HWAVEOUT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("winmm.dll" "system" fn waveOutClose(hwo : *mut core::ffi::c_void) -> u32);
+            windows_core::link!("winmm.dll" "system" fn waveOutClose(hwo : *mut core::ffi::c_void) -> u32);
             unsafe {
                 waveOutClose(self.0);
             }

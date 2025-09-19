@@ -1,73 +1,73 @@
 #[inline]
 pub unsafe fn ImmAssociateContext(param0: super::super::super::Foundation::HWND, param1: HIMC) -> HIMC {
-    windows_link::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> HIMC);
+    windows_core::link!("imm32.dll" "system" fn ImmAssociateContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> HIMC);
     unsafe { ImmAssociateContext(param0, param1) }
 }
 #[inline]
 pub unsafe fn ImmAssociateContextEx(param0: super::super::super::Foundation::HWND, param1: HIMC, param2: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : HIMC, param2 : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmAssociateContextEx(param0 : super::super::super::Foundation:: HWND, param1 : HIMC, param2 : u32) -> windows_core::BOOL);
     unsafe { ImmAssociateContextEx(param0, param1, param2) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmConfigureIMEA(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEA(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ImmConfigureIMEA(param0, param1, param2, param3 as _) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmConfigureIMEW(param0: super::KeyboardAndMouse::HKL, param1: super::super::super::Foundation::HWND, param2: u32, param3: *mut core::ffi::c_void) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmConfigureIMEW(param0 : super::KeyboardAndMouse:: HKL, param1 : super::super::super::Foundation:: HWND, param2 : u32, param3 : *mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { ImmConfigureIMEW(param0, param1, param2, param3 as _) }
 }
 #[inline]
 pub unsafe fn ImmCreateContext() -> HIMC {
-    windows_link::link!("imm32.dll" "system" fn ImmCreateContext() -> HIMC);
+    windows_core::link!("imm32.dll" "system" fn ImmCreateContext() -> HIMC);
     unsafe { ImmCreateContext() }
 }
 #[inline]
 pub unsafe fn ImmCreateIMCC(param0: u32) -> HIMCC {
-    windows_link::link!("imm32.dll" "system" fn ImmCreateIMCC(param0 : u32) -> HIMCC);
+    windows_core::link!("imm32.dll" "system" fn ImmCreateIMCC(param0 : u32) -> HIMCC);
     unsafe { ImmCreateIMCC(param0) }
 }
 #[inline]
 pub unsafe fn ImmCreateSoftKeyboard(param0: u32, param1: super::super::super::Foundation::HWND, param2: i32, param3: i32) -> super::super::super::Foundation::HWND {
-    windows_link::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
+    windows_core::link!("imm32.dll" "system" fn ImmCreateSoftKeyboard(param0 : u32, param1 : super::super::super::Foundation:: HWND, param2 : i32, param3 : i32) -> super::super::super::Foundation:: HWND);
     unsafe { ImmCreateSoftKeyboard(param0, param1, param2, param3) }
 }
 #[inline]
 pub unsafe fn ImmDestroyContext(param0: HIMC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmDestroyContext(param0) }
 }
 #[inline]
 pub unsafe fn ImmDestroyIMCC(param0: HIMCC) -> HIMCC {
-    windows_link::link!("imm32.dll" "system" fn ImmDestroyIMCC(param0 : HIMCC) -> HIMCC);
+    windows_core::link!("imm32.dll" "system" fn ImmDestroyIMCC(param0 : HIMCC) -> HIMCC);
     unsafe { ImmDestroyIMCC(param0) }
 }
 #[inline]
 pub unsafe fn ImmDestroySoftKeyboard(param0: super::super::super::Foundation::HWND) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmDestroySoftKeyboard(param0 : super::super::super::Foundation:: HWND) -> windows_core::BOOL);
     unsafe { ImmDestroySoftKeyboard(param0) }
 }
 #[inline]
 pub unsafe fn ImmDisableIME(param0: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmDisableIME(param0 : u32) -> windows_core::BOOL);
     unsafe { ImmDisableIME(param0) }
 }
 #[inline]
 pub unsafe fn ImmDisableLegacyIME() -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmDisableLegacyIME() -> windows_core::BOOL);
     unsafe { ImmDisableLegacyIME() }
 }
 #[inline]
 pub unsafe fn ImmDisableTextFrameService(idthread: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmDisableTextFrameService(idthread : u32) -> windows_core::BOOL);
     unsafe { ImmDisableTextFrameService(idthread) }
 }
 #[inline]
 pub unsafe fn ImmEnumInputContext(idthread: u32, lpfn: IMCENUMPROC, lparam: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmEnumInputContext(idthread : u32, lpfn : IMCENUMPROC, lparam : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmEnumInputContext(idthread, lpfn, lparam) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -77,7 +77,7 @@ where
     P2: windows_core::Param<windows_core::PCSTR>,
     P4: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCA, lpszreading : windows_core::PCSTR, param3 : u32, lpszregister : windows_core::PCSTR, param5 : *mut core::ffi::c_void) -> u32);
     unsafe { ImmEnumRegisterWordA(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -87,81 +87,81 @@ where
     P2: windows_core::Param<windows_core::PCWSTR>,
     P4: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmEnumRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, param1 : REGISTERWORDENUMPROCW, lpszreading : windows_core::PCWSTR, param3 : u32, lpszregister : windows_core::PCWSTR, param5 : *mut core::ffi::c_void) -> u32);
     unsafe { ImmEnumRegisterWordW(param0, param1, lpszreading.param().abi(), param3, lpszregister.param().abi(), param5 as _) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmEscapeA(param0: super::KeyboardAndMouse::HKL, param1: HIMC, param2: IME_ESCAPE, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
-    windows_link::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
+    windows_core::link!("imm32.dll" "system" fn ImmEscapeA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
     unsafe { ImmEscapeA(param0, param1, param2, param3 as _) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmEscapeW(param0: super::KeyboardAndMouse::HKL, param1: HIMC, param2: IME_ESCAPE, param3: *mut core::ffi::c_void) -> super::super::super::Foundation::LRESULT {
-    windows_link::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
+    windows_core::link!("imm32.dll" "system" fn ImmEscapeW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, param2 : IME_ESCAPE, param3 : *mut core::ffi::c_void) -> super::super::super::Foundation:: LRESULT);
     unsafe { ImmEscapeW(param0, param1, param2, param3 as _) }
 }
 #[inline]
 pub unsafe fn ImmGenerateMessage(param0: HIMC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : HIMC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGenerateMessage(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmGenerateMessage(param0) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListA(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListA(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
     unsafe { ImmGetCandidateListA(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountA(param0: HIMC, lpdwlistcount: *mut u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountA(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
     unsafe { ImmGetCandidateListCountA(param0, lpdwlistcount as _) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListCountW(param0: HIMC, lpdwlistcount: *mut u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListCountW(param0 : HIMC, lpdwlistcount : *mut u32) -> u32);
     unsafe { ImmGetCandidateListCountW(param0, lpdwlistcount as _) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateListW(param0: HIMC, deindex: u32, lpcandlist: Option<*mut CANDIDATELIST>, dwbuflen: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateListW(param0 : HIMC, deindex : u32, lpcandlist : *mut CANDIDATELIST, dwbuflen : u32) -> u32);
     unsafe { ImmGetCandidateListW(param0, deindex, lpcandlist.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCandidateWindow(param0: HIMC, param1: u32, lpcandidate: *mut CANDIDATEFORM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCandidateWindow(param0 : HIMC, param1 : u32, lpcandidate : *mut CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmGetCandidateWindow(param0, param1, lpcandidate as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmGetCompositionFontA(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontA(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontA(param0, lplf as _) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmGetCompositionFontW(param0: HIMC, lplf: *mut super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionFontW(param0 : HIMC, lplf : *mut super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
     unsafe { ImmGetCompositionFontW(param0, lplf as _) }
 }
 #[inline]
 pub unsafe fn ImmGetCompositionStringA(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionStringA(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
     unsafe { ImmGetCompositionStringA(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCompositionStringW(param0: HIMC, param1: IME_COMPOSITION_STRING, lpbuf: Option<*mut core::ffi::c_void>, dwbuflen: u32) -> i32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionStringW(param0 : HIMC, param1 : IME_COMPOSITION_STRING, lpbuf : *mut core::ffi::c_void, dwbuflen : u32) -> i32);
     unsafe { ImmGetCompositionStringW(param0, param1, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[inline]
 pub unsafe fn ImmGetCompositionWindow(param0: HIMC, lpcompform: *mut COMPOSITIONFORM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetCompositionWindow(param0 : HIMC, lpcompform : *mut COMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmGetCompositionWindow(param0, lpcompform as _) }
 }
 #[inline]
 pub unsafe fn ImmGetContext(param0: super::super::super::Foundation::HWND) -> HIMC {
-    windows_link::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::super::super::Foundation:: HWND) -> HIMC);
+    windows_core::link!("imm32.dll" "system" fn ImmGetContext(param0 : super::super::super::Foundation:: HWND) -> HIMC);
     unsafe { ImmGetContext(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -170,7 +170,7 @@ pub unsafe fn ImmGetConversionListA<P2>(param0: super::KeyboardAndMouse::HKL, pa
 where
     P2: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListA(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
     unsafe { ImmGetConversionListA(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -179,117 +179,117 @@ pub unsafe fn ImmGetConversionListW<P2>(param0: super::KeyboardAndMouse::HKL, pa
 where
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionListW(param0 : super::KeyboardAndMouse:: HKL, param1 : HIMC, lpsrc : windows_core::PCWSTR, lpdst : *mut CANDIDATELIST, dwbuflen : u32, uflag : GET_CONVERSION_LIST_FLAG) -> u32);
     unsafe { ImmGetConversionListW(param0, param1, lpsrc.param().abi(), lpdst as _, dwbuflen, uflag) }
 }
 #[inline]
 pub unsafe fn ImmGetConversionStatus(param0: HIMC, lpfdwconversion: Option<*mut IME_CONVERSION_MODE>, lpfdwsentence: Option<*mut IME_SENTENCE_MODE>) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetConversionStatus(param0 : HIMC, lpfdwconversion : *mut IME_CONVERSION_MODE, lpfdwsentence : *mut IME_SENTENCE_MODE) -> windows_core::BOOL);
     unsafe { ImmGetConversionStatus(param0, lpfdwconversion.unwrap_or(core::mem::zeroed()) as _, lpfdwsentence.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]
 pub unsafe fn ImmGetDefaultIMEWnd(param0: super::super::super::Foundation::HWND) -> super::super::super::Foundation::HWND {
-    windows_link::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
+    windows_core::link!("imm32.dll" "system" fn ImmGetDefaultIMEWnd(param0 : super::super::super::Foundation:: HWND) -> super::super::super::Foundation:: HWND);
     unsafe { ImmGetDefaultIMEWnd(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetDescriptionA(param0: super::KeyboardAndMouse::HKL, lpszdescription: Option<&mut [u8]>) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionA(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetDescriptionA(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetDescriptionW(param0: super::KeyboardAndMouse::HKL, lpszdescription: Option<&mut [u16]>) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetDescriptionW(param0 : super::KeyboardAndMouse:: HKL, lpszdescription : windows_core::PWSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetDescriptionW(param0, core::mem::transmute(lpszdescription.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszdescription.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineA(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: Option<&mut [u8]>) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineA(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PSTR, dwbuflen : u32) -> u32);
     unsafe { ImmGetGuideLineA(param0, dwindex, core::mem::transmute(lpbuf.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpbuf.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[inline]
 pub unsafe fn ImmGetGuideLineW(param0: HIMC, dwindex: GET_GUIDE_LINE_TYPE, lpbuf: Option<windows_core::PWSTR>, dwbuflen: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetGuideLineW(param0 : HIMC, dwindex : GET_GUIDE_LINE_TYPE, lpbuf : windows_core::PWSTR, dwbuflen : u32) -> u32);
     unsafe { ImmGetGuideLineW(param0, dwindex, lpbuf.unwrap_or(core::mem::zeroed()) as _, dwbuflen) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetHotKey(param0: u32, lpumodifiers: *mut u32, lpuvkey: *mut u32, phkl: *mut super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetHotKey(param0 : u32, lpumodifiers : *mut u32, lpuvkey : *mut u32, phkl : *mut super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmGetHotKey(param0, lpumodifiers as _, lpuvkey as _, phkl as _) }
 }
 #[inline]
 pub unsafe fn ImmGetIMCCLockCount(param0: HIMCC) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetIMCCLockCount(param0 : HIMCC) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetIMCCLockCount(param0 : HIMCC) -> u32);
     unsafe { ImmGetIMCCLockCount(param0) }
 }
 #[inline]
 pub unsafe fn ImmGetIMCCSize(param0: HIMCC) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetIMCCSize(param0 : HIMCC) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetIMCCSize(param0 : HIMCC) -> u32);
     unsafe { ImmGetIMCCSize(param0) }
 }
 #[inline]
 pub unsafe fn ImmGetIMCLockCount(param0: HIMC) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetIMCLockCount(param0 : HIMC) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetIMCLockCount(param0 : HIMC) -> u32);
     unsafe { ImmGetIMCLockCount(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameA(param0: super::KeyboardAndMouse::HKL, lpszfilename: Option<&mut [u8]>) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameA(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetIMEFileNameA(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetIMEFileNameW(param0: super::KeyboardAndMouse::HKL, lpszfilename: Option<&mut [u16]>) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetIMEFileNameW(param0 : super::KeyboardAndMouse:: HKL, lpszfilename : windows_core::PWSTR, ubuflen : u32) -> u32);
     unsafe { ImmGetIMEFileNameW(param0, core::mem::transmute(lpszfilename.as_deref().map_or(core::ptr::null(), |slice| slice.as_ptr())), lpszfilename.as_deref().map_or(0, |slice| slice.len().try_into().unwrap())) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsA(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOA>, lpimemenu: Option<*mut IMEMENUITEMINFOA>, dwsize: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsA(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOA, lpimemenu : *mut IMEMENUITEMINFOA, dwsize : u32) -> u32);
     unsafe { ImmGetImeMenuItemsA(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmGetImeMenuItemsW(param0: HIMC, param1: u32, param2: u32, lpimeparentmenu: Option<*mut IMEMENUITEMINFOW>, lpimemenu: Option<*mut IMEMENUITEMINFOW>, dwsize: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetImeMenuItemsW(param0 : HIMC, param1 : u32, param2 : u32, lpimeparentmenu : *mut IMEMENUITEMINFOW, lpimemenu : *mut IMEMENUITEMINFOW, dwsize : u32) -> u32);
     unsafe { ImmGetImeMenuItemsW(param0, param1, param2, lpimeparentmenu.unwrap_or(core::mem::zeroed()) as _, lpimemenu.unwrap_or(core::mem::zeroed()) as _, dwsize) }
 }
 #[inline]
 pub unsafe fn ImmGetOpenStatus(param0: HIMC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetOpenStatus(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmGetOpenStatus(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetProperty(param0: super::KeyboardAndMouse::HKL, param1: u32) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::KeyboardAndMouse:: HKL, param1 : u32) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetProperty(param0 : super::KeyboardAndMouse:: HKL, param1 : u32) -> u32);
     unsafe { ImmGetProperty(param0, param1) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleA(param0: super::KeyboardAndMouse::HKL, lpstylebuf: &mut [STYLEBUFA]) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleA(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFA) -> u32);
     unsafe { ImmGetRegisterWordStyleA(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmGetRegisterWordStyleW(param0: super::KeyboardAndMouse::HKL, lpstylebuf: &mut [STYLEBUFW]) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetRegisterWordStyleW(param0 : super::KeyboardAndMouse:: HKL, nitem : u32, lpstylebuf : *mut STYLEBUFW) -> u32);
     unsafe { ImmGetRegisterWordStyleW(param0, lpstylebuf.len().try_into().unwrap(), core::mem::transmute(lpstylebuf.as_ptr())) }
 }
 #[inline]
 pub unsafe fn ImmGetStatusWindowPos(param0: HIMC, lpptpos: *mut super::super::super::Foundation::POINT) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmGetStatusWindowPos(param0 : HIMC, lpptpos : *mut super::super::super::Foundation:: POINT) -> windows_core::BOOL);
     unsafe { ImmGetStatusWindowPos(param0, lpptpos as _) }
 }
 #[inline]
 pub unsafe fn ImmGetVirtualKey(param0: super::super::super::Foundation::HWND) -> u32 {
-    windows_link::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::super::super::Foundation:: HWND) -> u32);
+    windows_core::link!("imm32.dll" "system" fn ImmGetVirtualKey(param0 : super::super::super::Foundation:: HWND) -> u32);
     unsafe { ImmGetVirtualKey(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -299,7 +299,7 @@ where
     P0: windows_core::Param<windows_core::PCSTR>,
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_core::PCSTR, lpszlayouttext : windows_core::PCSTR) -> super::KeyboardAndMouse:: HKL);
+    windows_core::link!("imm32.dll" "system" fn ImmInstallIMEA(lpszimefilename : windows_core::PCSTR, lpszlayouttext : windows_core::PCSTR) -> super::KeyboardAndMouse:: HKL);
     unsafe { ImmInstallIMEA(lpszimefilename.param().abi(), lpszlayouttext.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -309,44 +309,44 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_core::PCWSTR, lpszlayouttext : windows_core::PCWSTR) -> super::KeyboardAndMouse:: HKL);
+    windows_core::link!("imm32.dll" "system" fn ImmInstallIMEW(lpszimefilename : windows_core::PCWSTR, lpszlayouttext : windows_core::PCWSTR) -> super::KeyboardAndMouse:: HKL);
     unsafe { ImmInstallIMEW(lpszimefilename.param().abi(), lpszlayouttext.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmIsIME(param0: super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmIsIME(param0 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmIsIME(param0) }
 }
 #[inline]
 pub unsafe fn ImmIsUIMessageA(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmIsUIMessageA(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmIsUIMessageA(param0, param1, param2, param3) }
 }
 #[inline]
 pub unsafe fn ImmIsUIMessageW(param0: super::super::super::Foundation::HWND, param1: u32, param2: super::super::super::Foundation::WPARAM, param3: super::super::super::Foundation::LPARAM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmIsUIMessageW(param0 : super::super::super::Foundation:: HWND, param1 : u32, param2 : super::super::super::Foundation:: WPARAM, param3 : super::super::super::Foundation:: LPARAM) -> windows_core::BOOL);
     unsafe { ImmIsUIMessageW(param0, param1, param2, param3) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmLockIMC(param0: HIMC) -> *mut INPUTCONTEXT {
-    windows_link::link!("imm32.dll" "system" fn ImmLockIMC(param0 : HIMC) -> *mut INPUTCONTEXT);
+    windows_core::link!("imm32.dll" "system" fn ImmLockIMC(param0 : HIMC) -> *mut INPUTCONTEXT);
     unsafe { ImmLockIMC(param0) }
 }
 #[inline]
 pub unsafe fn ImmLockIMCC(param0: HIMCC) -> *mut core::ffi::c_void {
-    windows_link::link!("imm32.dll" "system" fn ImmLockIMCC(param0 : HIMCC) -> *mut core::ffi::c_void);
+    windows_core::link!("imm32.dll" "system" fn ImmLockIMCC(param0 : HIMCC) -> *mut core::ffi::c_void);
     unsafe { ImmLockIMCC(param0) }
 }
 #[inline]
 pub unsafe fn ImmNotifyIME(param0: HIMC, dwaction: NOTIFY_IME_ACTION, dwindex: NOTIFY_IME_INDEX, dwvalue: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmNotifyIME(param0 : HIMC, dwaction : NOTIFY_IME_ACTION, dwindex : NOTIFY_IME_INDEX, dwvalue : u32) -> windows_core::BOOL);
     unsafe { ImmNotifyIME(param0, dwaction, dwindex, dwvalue) }
 }
 #[inline]
 pub unsafe fn ImmReSizeIMCC(param0: HIMCC, param1: u32) -> HIMCC {
-    windows_link::link!("imm32.dll" "system" fn ImmReSizeIMCC(param0 : HIMCC, param1 : u32) -> HIMCC);
+    windows_core::link!("imm32.dll" "system" fn ImmReSizeIMCC(param0 : HIMCC, param1 : u32) -> HIMCC);
     unsafe { ImmReSizeIMCC(param0, param1) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -356,7 +356,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmRegisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordA(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -366,95 +366,95 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmRegisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszregister : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ImmRegisterWordW(param0, lpszreading.param().abi(), param2, lpszregister.param().abi()) }
 }
 #[inline]
 pub unsafe fn ImmReleaseContext(param0: super::super::super::Foundation::HWND, param1: HIMC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmReleaseContext(param0 : super::super::super::Foundation:: HWND, param1 : HIMC) -> windows_core::BOOL);
     unsafe { ImmReleaseContext(param0, param1) }
 }
 #[inline]
 pub unsafe fn ImmRequestMessageA(param0: HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT {
-    windows_link::link!("imm32.dll" "system" fn ImmRequestMessageA(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
+    windows_core::link!("imm32.dll" "system" fn ImmRequestMessageA(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
     unsafe { ImmRequestMessageA(param0, param1, param2) }
 }
 #[inline]
 pub unsafe fn ImmRequestMessageW(param0: HIMC, param1: super::super::super::Foundation::WPARAM, param2: super::super::super::Foundation::LPARAM) -> super::super::super::Foundation::LRESULT {
-    windows_link::link!("imm32.dll" "system" fn ImmRequestMessageW(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
+    windows_core::link!("imm32.dll" "system" fn ImmRequestMessageW(param0 : HIMC, param1 : super::super::super::Foundation:: WPARAM, param2 : super::super::super::Foundation:: LPARAM) -> super::super::super::Foundation:: LRESULT);
     unsafe { ImmRequestMessageW(param0, param1, param2) }
 }
 #[inline]
 pub unsafe fn ImmSetCandidateWindow(param0: HIMC, lpcandidate: *const CANDIDATEFORM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCandidateWindow(param0 : HIMC, lpcandidate : *const CANDIDATEFORM) -> windows_core::BOOL);
     unsafe { ImmSetCandidateWindow(param0, lpcandidate) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmSetCompositionFontA(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTA) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontA(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTA) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontA(param0, lplf) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
 pub unsafe fn ImmSetCompositionFontW(param0: HIMC, lplf: *const super::super::super::Graphics::Gdi::LOGFONTW) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionFontW(param0 : HIMC, lplf : *const super::super::super::Graphics::Gdi:: LOGFONTW) -> windows_core::BOOL);
     unsafe { ImmSetCompositionFontW(param0, lplf) }
 }
 #[inline]
 pub unsafe fn ImmSetCompositionStringA(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionStringA(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
     unsafe { ImmSetCompositionStringA(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
 pub unsafe fn ImmSetCompositionStringW(param0: HIMC, dwindex: SET_COMPOSITION_STRING_TYPE, lpcomp: Option<*const core::ffi::c_void>, dwcomplen: u32, lpread: Option<*const core::ffi::c_void>, dwreadlen: u32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionStringW(param0 : HIMC, dwindex : SET_COMPOSITION_STRING_TYPE, lpcomp : *const core::ffi::c_void, dwcomplen : u32, lpread : *const core::ffi::c_void, dwreadlen : u32) -> windows_core::BOOL);
     unsafe { ImmSetCompositionStringW(param0, dwindex, lpcomp.unwrap_or(core::mem::zeroed()) as _, dwcomplen, lpread.unwrap_or(core::mem::zeroed()) as _, dwreadlen) }
 }
 #[inline]
 pub unsafe fn ImmSetCompositionWindow(param0: HIMC, lpcompform: *const COMPOSITIONFORM) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetCompositionWindow(param0 : HIMC, lpcompform : *const COMPOSITIONFORM) -> windows_core::BOOL);
     unsafe { ImmSetCompositionWindow(param0, lpcompform) }
 }
 #[inline]
 pub unsafe fn ImmSetConversionStatus(param0: HIMC, param1: IME_CONVERSION_MODE, param2: IME_SENTENCE_MODE) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetConversionStatus(param0 : HIMC, param1 : IME_CONVERSION_MODE, param2 : IME_SENTENCE_MODE) -> windows_core::BOOL);
     unsafe { ImmSetConversionStatus(param0, param1, param2) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
 #[inline]
 pub unsafe fn ImmSetHotKey(param0: u32, param1: u32, param2: u32, param3: super::KeyboardAndMouse::HKL) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetHotKey(param0 : u32, param1 : u32, param2 : u32, param3 : super::KeyboardAndMouse:: HKL) -> windows_core::BOOL);
     unsafe { ImmSetHotKey(param0, param1, param2, param3) }
 }
 #[inline]
 pub unsafe fn ImmSetOpenStatus(param0: HIMC, param1: bool) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_core::BOOL) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetOpenStatus(param0 : HIMC, param1 : windows_core::BOOL) -> windows_core::BOOL);
     unsafe { ImmSetOpenStatus(param0, param1.into()) }
 }
 #[inline]
 pub unsafe fn ImmSetStatusWindowPos(param0: HIMC, lpptpos: *const super::super::super::Foundation::POINT) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSetStatusWindowPos(param0 : HIMC, lpptpos : *const super::super::super::Foundation:: POINT) -> windows_core::BOOL);
     unsafe { ImmSetStatusWindowPos(param0, lpptpos) }
 }
 #[inline]
 pub unsafe fn ImmShowSoftKeyboard(param0: super::super::super::Foundation::HWND, param1: i32) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmShowSoftKeyboard(param0 : super::super::super::Foundation:: HWND, param1 : i32) -> windows_core::BOOL);
     unsafe { ImmShowSoftKeyboard(param0, param1) }
 }
 #[inline]
 pub unsafe fn ImmSimulateHotKey(param0: super::super::super::Foundation::HWND, param1: IME_HOTKEY_IDENTIFIER) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmSimulateHotKey(param0 : super::super::super::Foundation:: HWND, param1 : IME_HOTKEY_IDENTIFIER) -> windows_core::BOOL);
     unsafe { ImmSimulateHotKey(param0, param1) }
 }
 #[inline]
 pub unsafe fn ImmUnlockIMC(param0: HIMC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : HIMC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmUnlockIMC(param0 : HIMC) -> windows_core::BOOL);
     unsafe { ImmUnlockIMC(param0) }
 }
 #[inline]
 pub unsafe fn ImmUnlockIMCC(param0: HIMCC) -> windows_core::BOOL {
-    windows_link::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : HIMCC) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmUnlockIMCC(param0 : HIMCC) -> windows_core::BOOL);
     unsafe { ImmUnlockIMCC(param0) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -464,7 +464,7 @@ where
     P1: windows_core::Param<windows_core::PCSTR>,
     P3: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmUnregisterWordA(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCSTR, param2 : u32, lpszunregister : windows_core::PCSTR) -> windows_core::BOOL);
     unsafe { ImmUnregisterWordA(param0, lpszreading.param().abi(), param2, lpszunregister.param().abi()) }
 }
 #[cfg(feature = "Win32_UI_Input_KeyboardAndMouse")]
@@ -474,7 +474,7 @@ where
     P1: windows_core::Param<windows_core::PCWSTR>,
     P3: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> windows_core::BOOL);
+    windows_core::link!("imm32.dll" "system" fn ImmUnregisterWordW(param0 : super::KeyboardAndMouse:: HKL, lpszreading : windows_core::PCWSTR, param2 : u32, lpszunregister : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { ImmUnregisterWordW(param0, lpszreading.param().abi(), param2, lpszunregister.param().abi()) }
 }
 #[repr(C)]
@@ -731,7 +731,7 @@ impl windows_core::Free for HIMC {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("imm32.dll" "system" fn ImmDestroyContext(param0 : *mut core::ffi::c_void) -> i32);
             unsafe {
                 ImmDestroyContext(self.0);
             }

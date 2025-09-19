@@ -4,12 +4,12 @@ pub mod Tv;
 pub mod Xml;
 #[inline]
 pub unsafe fn AMGetErrorTextA(hr: windows_core::HRESULT, pbuffer: &mut [u8]) -> u32 {
-    windows_link::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : windows_core::HRESULT, pbuffer : windows_core::PSTR, maxlen : u32) -> u32);
+    windows_core::link!("quartz.dll" "system" fn AMGetErrorTextA(hr : windows_core::HRESULT, pbuffer : windows_core::PSTR, maxlen : u32) -> u32);
     unsafe { AMGetErrorTextA(hr, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()) }
 }
 #[inline]
 pub unsafe fn AMGetErrorTextW(hr: windows_core::HRESULT, pbuffer: &mut [u16]) -> u32 {
-    windows_link::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : windows_core::HRESULT, pbuffer : windows_core::PWSTR, maxlen : u32) -> u32);
+    windows_core::link!("quartz.dll" "system" fn AMGetErrorTextW(hr : windows_core::HRESULT, pbuffer : windows_core::PWSTR, maxlen : u32) -> u32);
     unsafe { AMGetErrorTextW(hr, core::mem::transmute(pbuffer.as_ptr()), pbuffer.len().try_into().unwrap()) }
 }
 pub const ADVISE_CLIPPING: ADVISE_TYPE = ADVISE_TYPE(1i32);
