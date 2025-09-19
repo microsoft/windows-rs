@@ -2,13 +2,13 @@
 pub mod Common;
 #[inline]
 pub unsafe fn D2D1ComputeMaximumScaleFactor(matrix: *const windows_numerics::Matrix3x2) -> f32 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1ComputeMaximumScaleFactor(matrix : *const windows_numerics:: Matrix3x2) -> f32);
+    windows_core::link!("d2d1.dll" "system" fn D2D1ComputeMaximumScaleFactor(matrix : *const windows_numerics:: Matrix3x2) -> f32);
     unsafe { D2D1ComputeMaximumScaleFactor(matrix) }
 }
 #[cfg(feature = "Win32_Graphics_Direct2D_Common")]
 #[inline]
 pub unsafe fn D2D1ConvertColorSpace(sourcecolorspace: D2D1_COLOR_SPACE, destinationcolorspace: D2D1_COLOR_SPACE, color: *const Common::D2D1_COLOR_F) -> Common::D2D1_COLOR_F {
-    windows_link::link!("d2d1.dll" "system" fn D2D1ConvertColorSpace(sourcecolorspace : D2D1_COLOR_SPACE, destinationcolorspace : D2D1_COLOR_SPACE, color : *const Common:: D2D1_COLOR_F) -> Common:: D2D1_COLOR_F);
+    windows_core::link!("d2d1.dll" "system" fn D2D1ConvertColorSpace(sourcecolorspace : D2D1_COLOR_SPACE, destinationcolorspace : D2D1_COLOR_SPACE, color : *const Common:: D2D1_COLOR_F) -> Common:: D2D1_COLOR_F);
     unsafe { D2D1ConvertColorSpace(sourcecolorspace, destinationcolorspace, color) }
 }
 #[cfg(feature = "Win32_Graphics_Dxgi")]
@@ -17,7 +17,7 @@ pub unsafe fn D2D1CreateDevice<P0>(dxgidevice: P0, creationproperties: Option<*c
 where
     P0: windows_core::Param<super::Dxgi::IDXGIDevice>,
 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1CreateDevice(dxgidevice : * mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d2d1.dll" "system" fn D2D1CreateDevice(dxgidevice : * mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevice : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         D2D1CreateDevice(dxgidevice.param().abi(), creationproperties.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -29,7 +29,7 @@ pub unsafe fn D2D1CreateDeviceContext<P0>(dxgisurface: P0, creationproperties: O
 where
     P0: windows_core::Param<super::Dxgi::IDXGISurface>,
 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1CreateDeviceContext(dxgisurface : * mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevicecontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d2d1.dll" "system" fn D2D1CreateDeviceContext(dxgisurface : * mut core::ffi::c_void, creationproperties : *const D2D1_CREATION_PROPERTIES, d2ddevicecontext : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         D2D1CreateDeviceContext(dxgisurface.param().abi(), creationproperties.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -40,48 +40,48 @@ pub unsafe fn D2D1CreateFactory<T>(factorytype: D2D1_FACTORY_TYPE, pfactoryoptio
 where
     T: windows_core::Interface,
 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("d2d1.dll" "system" fn D2D1CreateFactory(factorytype : D2D1_FACTORY_TYPE, riid : *const windows_core::GUID, pfactoryoptions : *const D2D1_FACTORY_OPTIONS, ppifactory : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     let mut result__ = core::ptr::null_mut();
     unsafe { D2D1CreateFactory(factorytype, &T::IID, pfactoryoptions.unwrap_or(core::mem::zeroed()) as _, &mut result__).and_then(|| windows_core::Type::from_abi(result__)) }
 }
 #[inline]
 pub unsafe fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0: *const windows_numerics::Vector2, ppoint1: *const windows_numerics::Vector2, ppoint2: *const windows_numerics::Vector2, ppoint3: *const windows_numerics::Vector2, ppoint4: *const windows_numerics::Vector2, ppoint5: *const windows_numerics::Vector2, ppoint6: *const windows_numerics::Vector2, ppoint7: *const windows_numerics::Vector2, ppoint8: *const windows_numerics::Vector2, ppoint9: *const windows_numerics::Vector2, ppoint10: *const windows_numerics::Vector2, ppoint11: *const windows_numerics::Vector2, ptensorpoint11: *mut windows_numerics::Vector2, ptensorpoint12: *mut windows_numerics::Vector2, ptensorpoint21: *mut windows_numerics::Vector2, ptensorpoint22: *mut windows_numerics::Vector2) {
-    windows_link::link!("d2d1.dll" "system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0 : *const windows_numerics:: Vector2, ppoint1 : *const windows_numerics:: Vector2, ppoint2 : *const windows_numerics:: Vector2, ppoint3 : *const windows_numerics:: Vector2, ppoint4 : *const windows_numerics:: Vector2, ppoint5 : *const windows_numerics:: Vector2, ppoint6 : *const windows_numerics:: Vector2, ppoint7 : *const windows_numerics:: Vector2, ppoint8 : *const windows_numerics:: Vector2, ppoint9 : *const windows_numerics:: Vector2, ppoint10 : *const windows_numerics:: Vector2, ppoint11 : *const windows_numerics:: Vector2, ptensorpoint11 : *mut windows_numerics:: Vector2, ptensorpoint12 : *mut windows_numerics:: Vector2, ptensorpoint21 : *mut windows_numerics:: Vector2, ptensorpoint22 : *mut windows_numerics:: Vector2));
+    windows_core::link!("d2d1.dll" "system" fn D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0 : *const windows_numerics:: Vector2, ppoint1 : *const windows_numerics:: Vector2, ppoint2 : *const windows_numerics:: Vector2, ppoint3 : *const windows_numerics:: Vector2, ppoint4 : *const windows_numerics:: Vector2, ppoint5 : *const windows_numerics:: Vector2, ppoint6 : *const windows_numerics:: Vector2, ppoint7 : *const windows_numerics:: Vector2, ppoint8 : *const windows_numerics:: Vector2, ppoint9 : *const windows_numerics:: Vector2, ppoint10 : *const windows_numerics:: Vector2, ppoint11 : *const windows_numerics:: Vector2, ptensorpoint11 : *mut windows_numerics:: Vector2, ptensorpoint12 : *mut windows_numerics:: Vector2, ptensorpoint21 : *mut windows_numerics:: Vector2, ptensorpoint22 : *mut windows_numerics:: Vector2));
     unsafe { D2D1GetGradientMeshInteriorPointsFromCoonsPatch(ppoint0, ppoint1, ppoint2, ppoint3, ppoint4, ppoint5, ppoint6, ppoint7, ppoint8, ppoint9, ppoint10, ppoint11, ptensorpoint11 as _, ptensorpoint12 as _, ptensorpoint21 as _, ptensorpoint22 as _) }
 }
 #[inline]
 pub unsafe fn D2D1InvertMatrix(matrix: *mut windows_numerics::Matrix3x2) -> windows_core::BOOL {
-    windows_link::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut windows_numerics:: Matrix3x2) -> windows_core::BOOL);
+    windows_core::link!("d2d1.dll" "system" fn D2D1InvertMatrix(matrix : *mut windows_numerics:: Matrix3x2) -> windows_core::BOOL);
     unsafe { D2D1InvertMatrix(matrix as _) }
 }
 #[inline]
 pub unsafe fn D2D1IsMatrixInvertible(matrix: *const windows_numerics::Matrix3x2) -> windows_core::BOOL {
-    windows_link::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const windows_numerics:: Matrix3x2) -> windows_core::BOOL);
+    windows_core::link!("d2d1.dll" "system" fn D2D1IsMatrixInvertible(matrix : *const windows_numerics:: Matrix3x2) -> windows_core::BOOL);
     unsafe { D2D1IsMatrixInvertible(matrix) }
 }
 #[inline]
 pub unsafe fn D2D1MakeRotateMatrix(angle: f32, center: windows_numerics::Vector2, matrix: *mut windows_numerics::Matrix3x2) {
-    windows_link::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle : f32, center : windows_numerics:: Vector2, matrix : *mut windows_numerics:: Matrix3x2));
+    windows_core::link!("d2d1.dll" "system" fn D2D1MakeRotateMatrix(angle : f32, center : windows_numerics:: Vector2, matrix : *mut windows_numerics:: Matrix3x2));
     unsafe { D2D1MakeRotateMatrix(angle, core::mem::transmute(center), matrix as _) }
 }
 #[inline]
 pub unsafe fn D2D1MakeSkewMatrix(anglex: f32, angley: f32, center: windows_numerics::Vector2, matrix: *mut windows_numerics::Matrix3x2) {
-    windows_link::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(anglex : f32, angley : f32, center : windows_numerics:: Vector2, matrix : *mut windows_numerics:: Matrix3x2));
+    windows_core::link!("d2d1.dll" "system" fn D2D1MakeSkewMatrix(anglex : f32, angley : f32, center : windows_numerics:: Vector2, matrix : *mut windows_numerics:: Matrix3x2));
     unsafe { D2D1MakeSkewMatrix(anglex, angley, core::mem::transmute(center), matrix as _) }
 }
 #[inline]
 pub unsafe fn D2D1SinCos(angle: f32, s: *mut f32, c: *mut f32) {
-    windows_link::link!("d2d1.dll" "system" fn D2D1SinCos(angle : f32, s : *mut f32, c : *mut f32));
+    windows_core::link!("d2d1.dll" "system" fn D2D1SinCos(angle : f32, s : *mut f32, c : *mut f32));
     unsafe { D2D1SinCos(angle, s as _, c as _) }
 }
 #[inline]
 pub unsafe fn D2D1Tan(angle: f32) -> f32 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1Tan(angle : f32) -> f32);
+    windows_core::link!("d2d1.dll" "system" fn D2D1Tan(angle : f32) -> f32);
     unsafe { D2D1Tan(angle) }
 }
 #[inline]
 pub unsafe fn D2D1Vec3Length(x: f32, y: f32, z: f32) -> f32 {
-    windows_link::link!("d2d1.dll" "system" fn D2D1Vec3Length(x : f32, y : f32, z : f32) -> f32);
+    windows_core::link!("d2d1.dll" "system" fn D2D1Vec3Length(x : f32, y : f32, z : f32) -> f32);
     unsafe { D2D1Vec3Length(x, y, z) }
 }
 pub const CLSID_D2D12DAffineTransform: windows_core::GUID = windows_core::GUID::from_u128(0x6aa97485_6354_4cfc_908c_e4a74f62c96c);

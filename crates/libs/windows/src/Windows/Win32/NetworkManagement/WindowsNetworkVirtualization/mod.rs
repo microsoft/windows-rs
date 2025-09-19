@@ -1,12 +1,12 @@
 #[inline]
 pub unsafe fn WnvOpen() -> super::super::Foundation::HANDLE {
-    windows_link::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
+    windows_core::link!("wnvapi.dll" "system" fn WnvOpen() -> super::super::Foundation:: HANDLE);
     unsafe { WnvOpen() }
 }
 #[cfg(feature = "Win32_System_IO")]
 #[inline]
 pub unsafe fn WnvRequestNotification(wnvhandle: super::super::Foundation::HANDLE, notificationparam: *mut WNV_NOTIFICATION_PARAM, overlapped: *mut super::super::System::IO::OVERLAPPED, bytestransferred: *mut u32) -> u32 {
-    windows_link::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
+    windows_core::link!("wnvapi.dll" "system" fn WnvRequestNotification(wnvhandle : super::super::Foundation:: HANDLE, notificationparam : *mut WNV_NOTIFICATION_PARAM, overlapped : *mut super::super::System::IO:: OVERLAPPED, bytestransferred : *mut u32) -> u32);
     unsafe { WnvRequestNotification(wnvhandle, notificationparam as _, overlapped as _, bytestransferred as _) }
 }
 pub const WNV_API_MAJOR_VERSION_1: u32 = 1u32;

@@ -1,16 +1,16 @@
 #[inline]
 pub unsafe fn FhServiceBlockBackup(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceBlockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe { FhServiceBlockBackup(pipe).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceClosePipe(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe { FhServiceClosePipe(pipe).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Result<FH_SERVICE_PIPE_HANDLE> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : windows_core::BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceOpenPipe(startserviceifstopped : windows_core::BOOL, pipe : *mut FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         FhServiceOpenPipe(startserviceifstopped.into(), &mut result__).map(|| result__)
@@ -18,22 +18,22 @@ pub unsafe fn FhServiceOpenPipe(startserviceifstopped: bool) -> windows_core::Re
 }
 #[inline]
 pub unsafe fn FhServiceReloadConfiguration(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceReloadConfiguration(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe { FhServiceReloadConfiguration(pipe).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceStartBackup(pipe: FH_SERVICE_PIPE_HANDLE, lowpriorityio: bool) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceStartBackup(pipe : FH_SERVICE_PIPE_HANDLE, lowpriorityio : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { FhServiceStartBackup(pipe, lowpriorityio.into()).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceStopBackup(pipe: FH_SERVICE_PIPE_HANDLE, stoptracking: bool) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceStopBackup(pipe : FH_SERVICE_PIPE_HANDLE, stoptracking : windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { FhServiceStopBackup(pipe, stoptracking.into()).ok() }
 }
 #[inline]
 pub unsafe fn FhServiceUnblockBackup(pipe: FH_SERVICE_PIPE_HANDLE) -> windows_core::Result<()> {
-    windows_link::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("fhsvcctl.dll" "system" fn FhServiceUnblockBackup(pipe : FH_SERVICE_PIPE_HANDLE) -> windows_core::HRESULT);
     unsafe { FhServiceUnblockBackup(pipe).ok() }
 }
 pub const BackupCancelled: FhBackupStopReason = FhBackupStopReason(4i32);
@@ -108,7 +108,7 @@ impl windows_core::Free for FH_SERVICE_PIPE_HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("fhsvcctl.dll" "system" fn FhServiceClosePipe(pipe : *mut core::ffi::c_void) -> i32);
             unsafe {
                 FhServiceClosePipe(self.0);
             }

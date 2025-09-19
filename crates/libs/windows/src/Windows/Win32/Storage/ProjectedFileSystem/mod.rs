@@ -1,16 +1,16 @@
 #[inline]
 pub unsafe fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size: usize) -> *mut core::ffi::c_void {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size : usize) -> *mut core::ffi::c_void);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjAllocateAlignedBuffer(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, size : usize) -> *mut core::ffi::c_void);
     unsafe { PrjAllocateAlignedBuffer(namespacevirtualizationcontext, size) }
 }
 #[inline]
 pub unsafe fn PrjClearNegativePathCache(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber: Option<*mut u32>) -> windows_core::Result<()> {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjClearNegativePathCache(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, totalentrynumber : *mut u32) -> windows_core::HRESULT);
     unsafe { PrjClearNegativePathCache(namespacevirtualizationcontext, totalentrynumber.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn PrjCompleteCommand(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid: i32, completionresult: windows_core::HRESULT, extendedparameters: Option<*const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS>) -> windows_core::Result<()> {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjCompleteCommand(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, commandid : i32, completionresult : windows_core::HRESULT, extendedparameters : *const PRJ_COMPLETE_COMMAND_EXTENDED_PARAMETERS) -> windows_core::HRESULT);
     unsafe { PrjCompleteCommand(namespacevirtualizationcontext, commandid, completionresult, extendedparameters.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -18,7 +18,7 @@ pub unsafe fn PrjDeleteFile<P1>(namespacevirtualizationcontext: PRJ_NAMESPACE_VI
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjDeleteFile(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
     unsafe { PrjDeleteFile(namespacevirtualizationcontext, destinationfilename.param().abi(), updateflags.unwrap_or(core::mem::zeroed()) as _, failurereason.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
@@ -26,7 +26,7 @@ pub unsafe fn PrjDoesNameContainWildCards<P0>(filename: P0) -> bool
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_core::PCWSTR) -> bool);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjDoesNameContainWildCards(filename : windows_core::PCWSTR) -> bool);
     unsafe { PrjDoesNameContainWildCards(filename.param().abi()) }
 }
 #[inline]
@@ -35,7 +35,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : windows_core::PCWSTR, filename2 : windows_core::PCWSTR) -> i32);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjFileNameCompare(filename1 : windows_core::PCWSTR, filename2 : windows_core::PCWSTR) -> i32);
     unsafe { PrjFileNameCompare(filename1.param().abi(), filename2.param().abi()) }
 }
 #[inline]
@@ -44,7 +44,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_core::PCWSTR, pattern : windows_core::PCWSTR) -> bool);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjFileNameMatch(filenametocheck : windows_core::PCWSTR, pattern : windows_core::PCWSTR) -> bool);
     unsafe { PrjFileNameMatch(filenametocheck.param().abi(), pattern.param().abi()) }
 }
 #[inline]
@@ -52,7 +52,7 @@ pub unsafe fn PrjFillDirEntryBuffer<P0>(filename: P0, filebasicinfo: Option<*con
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer(filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE) -> windows_core::HRESULT);
     unsafe { PrjFillDirEntryBuffer(filename.param().abi(), filebasicinfo.unwrap_or(core::mem::zeroed()) as _, direntrybufferhandle).ok() }
 }
 #[inline]
@@ -60,12 +60,12 @@ pub unsafe fn PrjFillDirEntryBuffer2<P1>(direntrybufferhandle: PRJ_DIR_ENTRY_BUF
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjFillDirEntryBuffer2(direntrybufferhandle : PRJ_DIR_ENTRY_BUFFER_HANDLE, filename : windows_core::PCWSTR, filebasicinfo : *const PRJ_FILE_BASIC_INFO, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
     unsafe { PrjFillDirEntryBuffer2(direntrybufferhandle, filename.param().abi(), filebasicinfo.unwrap_or(core::mem::zeroed()) as _, extendedinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn PrjFreeAlignedBuffer(buffer: *const core::ffi::c_void) {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const core::ffi::c_void));
+    windows_core::link!("projectedfslib.dll" "system" fn PrjFreeAlignedBuffer(buffer : *const core::ffi::c_void));
     unsafe { PrjFreeAlignedBuffer(buffer) }
 }
 #[inline]
@@ -73,7 +73,7 @@ pub unsafe fn PrjGetOnDiskFileState<P0>(destinationfilename: P0) -> windows_core
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjGetOnDiskFileState(destinationfilename : windows_core::PCWSTR, filestate : *mut PRJ_FILE_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PrjGetOnDiskFileState(destinationfilename.param().abi(), &mut result__).map(|| result__)
@@ -81,7 +81,7 @@ where
 }
 #[inline]
 pub unsafe fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo: *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_core::Result<()> {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, virtualizationinstanceinfo : *mut PRJ_VIRTUALIZATION_INSTANCE_INFO) -> windows_core::HRESULT);
     unsafe { PrjGetVirtualizationInstanceInfo(namespacevirtualizationcontext, virtualizationinstanceinfo as _).ok() }
 }
 #[inline]
@@ -90,7 +90,7 @@ where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : windows_core::PCWSTR, targetpathname : windows_core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const windows_core::GUID) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjMarkDirectoryAsPlaceholder(rootpathname : windows_core::PCWSTR, targetpathname : windows_core::PCWSTR, versioninfo : *const PRJ_PLACEHOLDER_VERSION_INFO, virtualizationinstanceid : *const windows_core::GUID) -> windows_core::HRESULT);
     unsafe { PrjMarkDirectoryAsPlaceholder(rootpathname.param().abi(), targetpathname.param().abi(), versioninfo.unwrap_or(core::mem::zeroed()) as _, virtualizationinstanceid).ok() }
 }
 #[inline]
@@ -98,7 +98,7 @@ pub unsafe fn PrjStartVirtualizing<P0>(virtualizationrootpath: P0, callbacks: *c
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjStartVirtualizing(virtualizationrootpath : windows_core::PCWSTR, callbacks : *const PRJ_CALLBACKS, instancecontext : *const core::ffi::c_void, options : *const PRJ_STARTVIRTUALIZING_OPTIONS, namespacevirtualizationcontext : *mut PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         PrjStartVirtualizing(virtualizationrootpath.param().abi(), callbacks, instancecontext.unwrap_or(core::mem::zeroed()) as _, options.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -106,7 +106,7 @@ where
 }
 #[inline]
 pub unsafe fn PrjStopVirtualizing(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT) {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
+    windows_core::link!("projectedfslib.dll" "system" fn PrjStopVirtualizing(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT));
     unsafe { PrjStopVirtualizing(namespacevirtualizationcontext) }
 }
 #[inline]
@@ -114,12 +114,12 @@ pub unsafe fn PrjUpdateFileIfNeeded<P1>(namespacevirtualizationcontext: PRJ_NAME
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjUpdateFileIfNeeded(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, updateflags : PRJ_UPDATE_TYPES, failurereason : *mut PRJ_UPDATE_FAILURE_CAUSES) -> windows_core::HRESULT);
     unsafe { PrjUpdateFileIfNeeded(namespacevirtualizationcontext, destinationfilename.param().abi(), placeholderinfo, placeholderinfosize, updateflags.unwrap_or(core::mem::zeroed()) as _, failurereason.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn PrjWriteFileData(namespacevirtualizationcontext: PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid: *const windows_core::GUID, buffer: *const core::ffi::c_void, byteoffset: u64, length: u32) -> windows_core::Result<()> {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const windows_core::GUID, buffer : *const core::ffi::c_void, byteoffset : u64, length : u32) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjWriteFileData(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, datastreamid : *const windows_core::GUID, buffer : *const core::ffi::c_void, byteoffset : u64, length : u32) -> windows_core::HRESULT);
     unsafe { PrjWriteFileData(namespacevirtualizationcontext, datastreamid, buffer, byteoffset, length).ok() }
 }
 #[inline]
@@ -127,7 +127,7 @@ pub unsafe fn PrjWritePlaceholderInfo<P1>(namespacevirtualizationcontext: PRJ_NA
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32) -> windows_core::HRESULT);
     unsafe { PrjWritePlaceholderInfo(namespacevirtualizationcontext, destinationfilename.param().abi(), placeholderinfo, placeholderinfosize).ok() }
 }
 #[inline]
@@ -135,7 +135,7 @@ pub unsafe fn PrjWritePlaceholderInfo2<P1>(namespacevirtualizationcontext: PRJ_N
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
+    windows_core::link!("projectedfslib.dll" "system" fn PrjWritePlaceholderInfo2(namespacevirtualizationcontext : PRJ_NAMESPACE_VIRTUALIZATION_CONTEXT, destinationfilename : windows_core::PCWSTR, placeholderinfo : *const PRJ_PLACEHOLDER_INFO, placeholderinfosize : u32, extendedinfo : *const PRJ_EXTENDED_INFO) -> windows_core::HRESULT);
     unsafe { PrjWritePlaceholderInfo2(namespacevirtualizationcontext, destinationfilename.param().abi(), placeholderinfo, placeholderinfosize, extendedinfo.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[repr(C)]

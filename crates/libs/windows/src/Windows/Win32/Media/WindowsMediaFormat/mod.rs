@@ -3,7 +3,7 @@ pub unsafe fn WMCreateBackupRestorer<P0>(pcallback: P0) -> windows_core::Result<
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateBackupRestorer(pcallback : * mut core::ffi::c_void, ppbackup : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateBackupRestorer(pcallback : * mut core::ffi::c_void, ppbackup : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateBackupRestorer(pcallback.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -11,7 +11,7 @@ where
 }
 #[inline]
 pub unsafe fn WMCreateEditor() -> windows_core::Result<IWMMetadataEditor> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateEditor(ppeditor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateEditor(ppeditor : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateEditor(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -19,7 +19,7 @@ pub unsafe fn WMCreateEditor() -> windows_core::Result<IWMMetadataEditor> {
 }
 #[inline]
 pub unsafe fn WMCreateIndexer() -> windows_core::Result<IWMIndexer> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateIndexer(ppindexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateIndexer(ppindexer : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateIndexer(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -27,7 +27,7 @@ pub unsafe fn WMCreateIndexer() -> windows_core::Result<IWMIndexer> {
 }
 #[inline]
 pub unsafe fn WMCreateProfileManager() -> windows_core::Result<IWMProfileManager> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateProfileManager(ppprofilemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateProfileManager(ppprofilemanager : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateProfileManager(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -38,7 +38,7 @@ pub unsafe fn WMCreateReader<P0>(punkcert: P0, dwrights: u32) -> windows_core::R
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateReader(punkcert.param().abi(), dwrights, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -49,7 +49,7 @@ pub unsafe fn WMCreateSyncReader<P0>(punkcert: P0, dwrights: u32) -> windows_cor
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateSyncReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppsyncreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateSyncReader(punkcert : * mut core::ffi::c_void, dwrights : u32, ppsyncreader : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateSyncReader(punkcert.param().abi(), dwrights, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -60,7 +60,7 @@ pub unsafe fn WMCreateWriter<P0>(punkcert: P0) -> windows_core::Result<IWMWriter
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateWriter(punkcert : * mut core::ffi::c_void, ppwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateWriter(punkcert : * mut core::ffi::c_void, ppwriter : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateWriter(punkcert.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -68,7 +68,7 @@ where
 }
 #[inline]
 pub unsafe fn WMCreateWriterFileSink() -> windows_core::Result<IWMWriterFileSink> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateWriterFileSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateWriterFileSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateWriterFileSink(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -76,7 +76,7 @@ pub unsafe fn WMCreateWriterFileSink() -> windows_core::Result<IWMWriterFileSink
 }
 #[inline]
 pub unsafe fn WMCreateWriterNetworkSink() -> windows_core::Result<IWMWriterNetworkSink> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateWriterNetworkSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateWriterNetworkSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateWriterNetworkSink(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -84,7 +84,7 @@ pub unsafe fn WMCreateWriterNetworkSink() -> windows_core::Result<IWMWriterNetwo
 }
 #[inline]
 pub unsafe fn WMCreateWriterPushSink() -> windows_core::Result<IWMWriterPushSink> {
-    windows_link::link!("wmvcore.dll" "system" fn WMCreateWriterPushSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMCreateWriterPushSink(ppsink : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         WMCreateWriterPushSink(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -95,7 +95,7 @@ pub unsafe fn WMIsContentProtected<P0>(pwszfilename: P0, pfisprotected: *mut win
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_link::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_core::PCWSTR, pfisprotected : *mut windows_core::BOOL) -> windows_core::HRESULT);
+    windows_core::link!("wmvcore.dll" "system" fn WMIsContentProtected(pwszfilename : windows_core::PCWSTR, pfisprotected : *mut windows_core::BOOL) -> windows_core::HRESULT);
     unsafe { WMIsContentProtected(pwszfilename.param().abi(), pfisprotected as _).ok() }
 }
 pub const AM_CONFIGASFWRITER_PARAM_AUTOINDEX: _AM_ASFWRITERCONFIG_PARAM = _AM_ASFWRITERCONFIG_PARAM(1i32);

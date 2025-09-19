@@ -1,17 +1,17 @@
 #[inline]
 pub unsafe fn AddPointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn AddPointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn AddPointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_core::HRESULT);
     unsafe { AddPointerInteractionContext(interactioncontext, pointerid).ok() }
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn BufferPointerPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: &[super::Input::Pointer::POINTER_INFO]) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn BufferPointerPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
     unsafe { BufferPointerPacketsInteractionContext(interactioncontext, pointerinfo.len().try_into().unwrap(), core::mem::transmute(pointerinfo.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn CreateInteractionContext() -> windows_core::Result<HINTERACTIONCONTEXT> {
-    windows_link::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn CreateInteractionContext(interactioncontext : *mut HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CreateInteractionContext(&mut result__).map(|| result__)
@@ -19,12 +19,12 @@ pub unsafe fn CreateInteractionContext() -> windows_core::Result<HINTERACTIONCON
 }
 #[inline]
 pub unsafe fn DestroyInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe { DestroyInteractionContext(interactioncontext).ok() }
 }
 #[inline]
 pub unsafe fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, threshold: CROSS_SLIDE_THRESHOLD) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetCrossSlideParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, threshold : CROSS_SLIDE_THRESHOLD, distance : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetCrossSlideParameterInteractionContext(interactioncontext, threshold, &mut result__).map(|| result__)
@@ -32,7 +32,7 @@ pub unsafe fn GetCrossSlideParameterInteractionContext(interactioncontext: HINTE
 }
 #[inline]
 pub unsafe fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetHoldParameterInteractionContext(interactioncontext, parameter, &mut result__).map(|| result__)
@@ -40,7 +40,7 @@ pub unsafe fn GetHoldParameterInteractionContext(interactioncontext: HINTERACTIO
 }
 #[inline]
 pub unsafe fn GetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetInertiaParameterInteractionContext(interactioncontext, inertiaparameter, &mut result__).map(|| result__)
@@ -48,12 +48,12 @@ pub unsafe fn GetInertiaParameterInteractionContext(interactioncontext: HINTERAC
 }
 #[inline]
 pub unsafe fn GetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configuration: &mut [INTERACTION_CONTEXT_CONFIGURATION]) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn GetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *mut INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *mut INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
     unsafe { GetInteractionConfigurationInteractionContext(interactioncontext, configuration.len().try_into().unwrap(), core::mem::transmute(configuration.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetMouseWheelParameterInteractionContext(interactioncontext, parameter, &mut result__).map(|| result__)
@@ -61,7 +61,7 @@ pub unsafe fn GetMouseWheelParameterInteractionContext(interactioncontext: HINTE
 }
 #[inline]
 pub unsafe fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY) -> windows_core::Result<u32> {
-    windows_link::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : *mut u32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetPropertyInteractionContext(interactioncontext, contextproperty, &mut result__).map(|| result__)
@@ -70,7 +70,7 @@ pub unsafe fn GetPropertyInteractionContext(interactioncontext: HINTERACTIONCONT
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerinfo: Option<*const super::Input::Pointer::POINTER_INFO>) -> windows_core::Result<INTERACTION_STATE> {
-    windows_link::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetStateInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerinfo : *const super::Input::Pointer:: POINTER_INFO, state : *mut INTERACTION_STATE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetStateInteractionContext(interactioncontext, pointerinfo.unwrap_or(core::mem::zeroed()) as _, &mut result__).map(|| result__)
@@ -78,7 +78,7 @@ pub unsafe fn GetStateInteractionContext(interactioncontext: HINTERACTIONCONTEXT
 }
 #[inline]
 pub unsafe fn GetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetTapParameterInteractionContext(interactioncontext, parameter, &mut result__).map(|| result__)
@@ -86,7 +86,7 @@ pub unsafe fn GetTapParameterInteractionContext(interactioncontext: HINTERACTION
 }
 #[inline]
 pub unsafe fn GetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER) -> windows_core::Result<f32> {
-    windows_link::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn GetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : *mut f32) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetTranslationParameterInteractionContext(interactioncontext, parameter, &mut result__).map(|| result__)
@@ -94,90 +94,90 @@ pub unsafe fn GetTranslationParameterInteractionContext(interactioncontext: HINT
 }
 #[inline]
 pub unsafe fn ProcessBufferedPacketsInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn ProcessBufferedPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn ProcessBufferedPacketsInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe { ProcessBufferedPacketsInteractionContext(interactioncontext).ok() }
 }
 #[inline]
 pub unsafe fn ProcessInertiaInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn ProcessInertiaInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn ProcessInertiaInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe { ProcessInertiaInteractionContext(interactioncontext).ok() }
 }
 #[cfg(all(feature = "Win32_UI_Input_Pointer", feature = "Win32_UI_WindowsAndMessaging"))]
 #[inline]
 pub unsafe fn ProcessPointerFramesInteractionContext(interactioncontext: HINTERACTIONCONTEXT, entriescount: u32, pointercount: u32, pointerinfo: *const super::Input::Pointer::POINTER_INFO) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn ProcessPointerFramesInteractionContext(interactioncontext : HINTERACTIONCONTEXT, entriescount : u32, pointercount : u32, pointerinfo : *const super::Input::Pointer:: POINTER_INFO) -> windows_core::HRESULT);
     unsafe { ProcessPointerFramesInteractionContext(interactioncontext, entriescount, pointercount, pointerinfo).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RegisterOutputCallbackInteractionContext(interactioncontext, outputcallback, clientdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 #[inline]
 pub unsafe fn RegisterOutputCallbackInteractionContext2(interactioncontext: HINTERACTIONCONTEXT, outputcallback: INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata: Option<*const core::ffi::c_void>) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn RegisterOutputCallbackInteractionContext2(interactioncontext : HINTERACTIONCONTEXT, outputcallback : INTERACTION_CONTEXT_OUTPUT_CALLBACK2, clientdata : *const core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { RegisterOutputCallbackInteractionContext2(interactioncontext, outputcallback, clientdata.unwrap_or(core::mem::zeroed()) as _).ok() }
 }
 #[inline]
 pub unsafe fn RemovePointerInteractionContext(interactioncontext: HINTERACTIONCONTEXT, pointerid: u32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn RemovePointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn RemovePointerInteractionContext(interactioncontext : HINTERACTIONCONTEXT, pointerid : u32) -> windows_core::HRESULT);
     unsafe { RemovePointerInteractionContext(interactioncontext, pointerid).ok() }
 }
 #[inline]
 pub unsafe fn ResetInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn ResetInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn ResetInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe { ResetInteractionContext(interactioncontext).ok() }
 }
 #[inline]
 pub unsafe fn SetCrossSlideParametersInteractionContext(interactioncontext: HINTERACTIONCONTEXT, crossslideparameters: &[CROSS_SLIDE_PARAMETER]) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *const CROSS_SLIDE_PARAMETER) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetCrossSlideParametersInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parametercount : u32, crossslideparameters : *const CROSS_SLIDE_PARAMETER) -> windows_core::HRESULT);
     unsafe { SetCrossSlideParametersInteractionContext(interactioncontext, crossslideparameters.len().try_into().unwrap(), core::mem::transmute(crossslideparameters.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn SetHoldParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: HOLD_PARAMETER, value: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetHoldParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : HOLD_PARAMETER, value : f32) -> windows_core::HRESULT);
     unsafe { SetHoldParameterInteractionContext(interactioncontext, parameter, value).ok() }
 }
 #[inline]
 pub unsafe fn SetInertiaParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, inertiaparameter: INERTIA_PARAMETER, value: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetInertiaParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, inertiaparameter : INERTIA_PARAMETER, value : f32) -> windows_core::HRESULT);
     unsafe { SetInertiaParameterInteractionContext(interactioncontext, inertiaparameter, value).ok() }
 }
 #[inline]
 pub unsafe fn SetInteractionConfigurationInteractionContext(interactioncontext: HINTERACTIONCONTEXT, configuration: &[INTERACTION_CONTEXT_CONFIGURATION]) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetInteractionConfigurationInteractionContext(interactioncontext : HINTERACTIONCONTEXT, configurationcount : u32, configuration : *const INTERACTION_CONTEXT_CONFIGURATION) -> windows_core::HRESULT);
     unsafe { SetInteractionConfigurationInteractionContext(interactioncontext, configuration.len().try_into().unwrap(), core::mem::transmute(configuration.as_ptr())).ok() }
 }
 #[inline]
 pub unsafe fn SetMouseWheelParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: MOUSE_WHEEL_PARAMETER, value: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetMouseWheelParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : MOUSE_WHEEL_PARAMETER, value : f32) -> windows_core::HRESULT);
     unsafe { SetMouseWheelParameterInteractionContext(interactioncontext, parameter, value).ok() }
 }
 #[inline]
 pub unsafe fn SetPivotInteractionContext(interactioncontext: HINTERACTIONCONTEXT, x: f32, y: f32, radius: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetPivotInteractionContext(interactioncontext : HINTERACTIONCONTEXT, x : f32, y : f32, radius : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetPivotInteractionContext(interactioncontext : HINTERACTIONCONTEXT, x : f32, y : f32, radius : f32) -> windows_core::HRESULT);
     unsafe { SetPivotInteractionContext(interactioncontext, x, y, radius).ok() }
 }
 #[inline]
 pub unsafe fn SetPropertyInteractionContext(interactioncontext: HINTERACTIONCONTEXT, contextproperty: INTERACTION_CONTEXT_PROPERTY, value: u32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : u32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetPropertyInteractionContext(interactioncontext : HINTERACTIONCONTEXT, contextproperty : INTERACTION_CONTEXT_PROPERTY, value : u32) -> windows_core::HRESULT);
     unsafe { SetPropertyInteractionContext(interactioncontext, contextproperty, value).ok() }
 }
 #[inline]
 pub unsafe fn SetTapParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TAP_PARAMETER, value: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetTapParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TAP_PARAMETER, value : f32) -> windows_core::HRESULT);
     unsafe { SetTapParameterInteractionContext(interactioncontext, parameter, value).ok() }
 }
 #[inline]
 pub unsafe fn SetTranslationParameterInteractionContext(interactioncontext: HINTERACTIONCONTEXT, parameter: TRANSLATION_PARAMETER, value: f32) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn SetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : f32) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn SetTranslationParameterInteractionContext(interactioncontext : HINTERACTIONCONTEXT, parameter : TRANSLATION_PARAMETER, value : f32) -> windows_core::HRESULT);
     unsafe { SetTranslationParameterInteractionContext(interactioncontext, parameter, value).ok() }
 }
 #[inline]
 pub unsafe fn StopInteractionContext(interactioncontext: HINTERACTIONCONTEXT) -> windows_core::Result<()> {
-    windows_link::link!("ninput.dll" "system" fn StopInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
+    windows_core::link!("ninput.dll" "system" fn StopInteractionContext(interactioncontext : HINTERACTIONCONTEXT) -> windows_core::HRESULT);
     unsafe { StopInteractionContext(interactioncontext).ok() }
 }
 #[repr(transparent)]
@@ -248,7 +248,7 @@ impl windows_core::Free for HINTERACTIONCONTEXT {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("ninput.dll" "system" fn DestroyInteractionContext(interactioncontext : *mut core::ffi::c_void) -> i32);
             unsafe {
                 DestroyInteractionContext(self.0);
             }

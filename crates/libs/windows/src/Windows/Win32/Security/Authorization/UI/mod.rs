@@ -4,7 +4,7 @@ pub unsafe fn CreateSecurityPage<P0>(psi: P0) -> windows_core::Result<super::sup
 where
     P0: windows_core::Param<ISecurityInformation>,
 {
-    windows_link::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
+    windows_core::link!("aclui.dll" "system" fn CreateSecurityPage(psi : * mut core::ffi::c_void) -> super::super::super::UI::Controls:: HPROPSHEETPAGE);
     let result__ = unsafe { CreateSecurityPage(psi.param().abi()) };
     (!result__.is_invalid()).then_some(result__).ok_or_else(windows_core::Error::from_thread)
 }
@@ -13,7 +13,7 @@ pub unsafe fn EditSecurity<P1>(hwndowner: super::super::super::Foundation::HWND,
 where
     P1: windows_core::Param<ISecurityInformation>,
 {
-    windows_link::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> windows_core::BOOL);
+    windows_core::link!("aclui.dll" "system" fn EditSecurity(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void) -> windows_core::BOOL);
     unsafe { EditSecurity(hwndowner, psi.param().abi()).ok() }
 }
 #[inline]
@@ -21,7 +21,7 @@ pub unsafe fn EditSecurityAdvanced<P1>(hwndowner: super::super::super::Foundatio
 where
     P1: windows_core::Param<ISecurityInformation>,
 {
-    windows_link::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
+    windows_core::link!("aclui.dll" "system" fn EditSecurityAdvanced(hwndowner : super::super::super::Foundation:: HWND, psi : * mut core::ffi::c_void, usipage : SI_PAGE_TYPE) -> windows_core::HRESULT);
     unsafe { EditSecurityAdvanced(hwndowner, psi.param().abi(), usipage).ok() }
 }
 pub const CFSTR_ACLUI_SID_INFO_LIST: windows_core::PCWSTR = windows_core::w!("CFSTR_ACLUI_SID_INFO_LIST");

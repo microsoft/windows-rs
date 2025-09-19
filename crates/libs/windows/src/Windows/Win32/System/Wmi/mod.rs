@@ -1,6 +1,6 @@
 #[inline]
 pub unsafe fn MI_Application_InitializeV1(flags: u32, applicationid: Option<*const u16>, extendederror: Option<*mut *mut MI_Instance>, application: *mut MI_Application) -> MI_Result {
-    windows_link::link!("mi.dll" "C" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
+    windows_core::link!("mi.dll" "C" fn MI_Application_InitializeV1(flags : u32, applicationid : *const u16, extendederror : *mut *mut MI_Instance, application : *mut MI_Application) -> MI_Result);
     unsafe { MI_Application_InitializeV1(flags, applicationid.unwrap_or(core::mem::zeroed()) as _, extendederror.unwrap_or(core::mem::zeroed()) as _, application as _) }
 }
 #[repr(transparent)]

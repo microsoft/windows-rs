@@ -3,7 +3,7 @@ pub unsafe fn CoCreateActivity<P0>(piunknown: P0, riid: *const windows_core::GUI
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("comsvcs.dll" "system" fn CoCreateActivity(piunknown : * mut core::ffi::c_void, riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoCreateActivity(piunknown.param().abi(), riid, ppobj as _).ok() }
 }
 #[inline]
@@ -11,13 +11,13 @@ pub unsafe fn CoEnterServiceDomain<P0>(pconfigobject: P0) -> windows_core::Resul
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("comsvcs.dll" "system" fn CoEnterServiceDomain(pconfigobject : * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoEnterServiceDomain(pconfigobject.param().abi()).ok() }
 }
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn CoGetDefaultContext(apttype: super::Com::APTTYPE, riid: *const windows_core::GUID, ppv: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("ole32.dll" "system" fn CoGetDefaultContext(apttype : super::Com:: APTTYPE, riid : *const windows_core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { CoGetDefaultContext(apttype, riid, ppv as _).ok() }
 }
 #[inline]
@@ -25,12 +25,12 @@ pub unsafe fn CoLeaveServiceDomain<P0>(punkstatus: P0)
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut core::ffi::c_void));
+    windows_core::link!("comsvcs.dll" "system" fn CoLeaveServiceDomain(punkstatus : * mut core::ffi::c_void));
     unsafe { CoLeaveServiceDomain(punkstatus.param().abi()) }
 }
 #[inline]
 pub unsafe fn GetDispenserManager() -> windows_core::Result<IDispenserManager> {
-    windows_link::link!("mtxdm.dll" "C" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("mtxdm.dll" "C" fn GetDispenserManager(param0 : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         GetDispenserManager(&mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -38,17 +38,17 @@ pub unsafe fn GetDispenserManager() -> windows_core::Result<IDispenserManager> {
 }
 #[inline]
 pub unsafe fn GetManagedExtensions(dwexts: *mut u32) -> windows_core::Result<()> {
-    windows_link::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_core::HRESULT);
+    windows_core::link!("comsvcs.dll" "system" fn GetManagedExtensions(dwexts : *mut u32) -> windows_core::HRESULT);
     unsafe { GetManagedExtensions(dwexts as _).ok() }
 }
 #[inline]
 pub unsafe fn MTSCreateActivity(riid: *const windows_core::GUID, ppobj: *mut *mut core::ffi::c_void) -> windows_core::Result<()> {
-    windows_link::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
+    windows_core::link!("comsvcs.dll" "system" fn MTSCreateActivity(riid : *const windows_core::GUID, ppobj : *mut *mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe { MTSCreateActivity(riid, ppobj as _).ok() }
 }
 #[inline]
 pub unsafe fn RecycleSurrogate(lreasoncode: i32) -> windows_core::Result<()> {
-    windows_link::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_core::HRESULT);
+    windows_core::link!("comsvcs.dll" "C" fn RecycleSurrogate(lreasoncode : i32) -> windows_core::HRESULT);
     unsafe { RecycleSurrogate(lreasoncode).ok() }
 }
 #[inline]
@@ -56,7 +56,7 @@ pub unsafe fn SafeRef<P1>(rid: *const windows_core::GUID, punk: P1) -> *mut core
 where
     P1: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_link::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
+    windows_core::link!("comsvcs.dll" "C" fn SafeRef(rid : *const windows_core::GUID, punk : * mut core::ffi::c_void) -> *mut core::ffi::c_void);
     unsafe { SafeRef(rid, punk.param().abi()) }
 }
 #[repr(C)]

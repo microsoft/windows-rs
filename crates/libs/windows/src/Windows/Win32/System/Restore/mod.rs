@@ -1,16 +1,16 @@
 #[inline]
 pub unsafe fn SRRemoveRestorePoint(dwrpnum: u32) -> u32 {
-    windows_link::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
+    windows_core::link!("srclient.dll" "system" fn SRRemoveRestorePoint(dwrpnum : u32) -> u32);
     unsafe { SRRemoveRestorePoint(dwrpnum) }
 }
 #[inline]
 pub unsafe fn SRSetRestorePointA(prestoreptspec: *const RESTOREPOINTINFOA, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
-    windows_link::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
+    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointA(prestoreptspec : *const RESTOREPOINTINFOA, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
     unsafe { SRSetRestorePointA(prestoreptspec, psmgrstatus as _) }
 }
 #[inline]
 pub unsafe fn SRSetRestorePointW(prestoreptspec: *const RESTOREPOINTINFOW, psmgrstatus: *mut STATEMGRSTATUS) -> windows_core::BOOL {
-    windows_link::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
+    windows_core::link!("sfc.dll" "system" fn SRSetRestorePointW(prestoreptspec : *const RESTOREPOINTINFOW, psmgrstatus : *mut STATEMGRSTATUS) -> windows_core::BOOL);
     unsafe { SRSetRestorePointW(prestoreptspec, psmgrstatus as _) }
 }
 pub const ACCESSIBILITY_SETTING: u32 = 3u32;
