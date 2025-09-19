@@ -1,0 +1,18 @@
+[package]
+name = "test_just_core"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-core]
+path = "../../../libs/core"
+
+[build-dependencies.windows-bindgen]
+path = "../../../libs/bindgen"
+
+[lints]
+workspace = true
