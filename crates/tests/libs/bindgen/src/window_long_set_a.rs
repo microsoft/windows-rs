@@ -8,7 +8,7 @@
 
 #[inline]
 pub unsafe fn SetWindowLongA(hwnd: HWND, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: i32) -> i32 {
-    windows_link::link!("user32.dll" "system" fn SetWindowLongA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
+    windows_core::link!("user32.dll" "system" fn SetWindowLongA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : i32) -> i32);
     unsafe { SetWindowLongA(hwnd, nindex, dwnewlong) }
 }
 #[cfg(any(
@@ -22,7 +22,7 @@ pub unsafe fn SetWindowLongPtrA(
     nindex: WINDOW_LONG_PTR_INDEX,
     dwnewlong: isize,
 ) -> isize {
-    windows_link::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
+    windows_core::link!("user32.dll" "system" fn SetWindowLongPtrA(hwnd : HWND, nindex : WINDOW_LONG_PTR_INDEX, dwnewlong : isize) -> isize);
     unsafe { SetWindowLongPtrA(hwnd, nindex, dwnewlong) }
 }
 #[cfg(target_pointer_width = "32")]
@@ -39,7 +39,7 @@ impl windows_core::Free for HANDLE {
     #[inline]
     unsafe fn free(&mut self) {
         if !self.is_invalid() {
-            windows_link::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
+            windows_core::link!("kernel32.dll" "system" fn CloseHandle(hobject : *mut core::ffi::c_void) -> i32);
             unsafe {
                 CloseHandle(self.0);
             }
