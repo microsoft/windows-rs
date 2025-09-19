@@ -1,0 +1,24 @@
+[package]
+name = "test_no_core"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[lib]
+doc = false
+doctest = false
+
+[dependencies.windows-result]
+path = "../../../libs/result"
+
+[dependencies.windows-strings]
+path = "../../../libs/strings"
+
+[dependencies.windows-link]
+workspace = true
+
+[build-dependencies.windows-bindgen]
+path = "../../../libs/bindgen"
+
+[lints]
+workspace = true
