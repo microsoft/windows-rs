@@ -52,8 +52,8 @@ fn ntstatus() -> Result<()> {
     assert!(STATUS_SUCCESS.is_ok());
     assert!(!STATUS_SUCCESS.is_err());
 
-    assert_eq!(format!("{STATUS_SUCCESS:?}"), "NTSTATUS(0)");
-    assert_eq!(format!("{STATUS_NOT_FOUND:?}"), "NTSTATUS(-1073741275)");
+    assert_eq!(format!("{STATUS_SUCCESS:?}"), "NTSTATUS(0x00000000)");
+    assert_eq!(format!("{STATUS_NOT_FOUND:?}"), "NTSTATUS(0xC0000225)");
 
     STATUS_SUCCESS.ok()
 }
