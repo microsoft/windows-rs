@@ -161,8 +161,10 @@ struct ImplementAttributes {
 
 impl syn::parse::Parse for ImplementAttributes {
     fn parse(cursor: syn::parse::ParseStream) -> syn::parse::Result<Self> {
-        let mut input = Self::default();
-        input.agile = true;
+        let mut input = Self {
+            agile: true,
+            ..Default::default()
+        };
 
         while !cursor.is_empty() {
             input.parse_implement(cursor)?;
@@ -315,10 +317,10 @@ impl syn::parse::Parse for UseTree2 {
                         )),
                     }
                 } else {
-                    return Err(syn::parse::Error::new(
+                    Err(syn::parse::Error::new(
                         ident.span(),
                         "Unrecognized key-value pair",
-                    ));
+                    ))
                 }
             } else {
                 let generics = if input.peek(syn::Token![<]) {
