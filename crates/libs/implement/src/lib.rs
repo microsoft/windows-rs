@@ -36,6 +36,17 @@ mod tests;
 /// let object: IValue = Value(123).into();
 /// // Call interface methods...
 /// ```
+///
+/// Options:
+/// - `TrustLevel = Partial|Full` configures `IInspectable::GetTrustLevel` when `Identity = IInspectable` (default).
+/// - `Identity = IInspectable|IUnknown` controls which base identity is exposed. Default is `IInspectable`.
+/// - `Agile = true|false` controls whether `IAgileObject` is exposed. Default is `true`.
+///
+/// Example (pure COM without WinRT or Agile):
+/// ```rust,ignore
+/// #[implement(IMyComInterface, Identity = IUnknown, Agile = false)]
+/// struct MyCom;
+/// ```
 #[proc_macro_attribute]
 pub fn implement(
     attributes: proc_macro::TokenStream,
@@ -74,6 +85,8 @@ fn implement_core(
         },
         is_generic: !original_type.generics.params.is_empty(),
         original_type,
+        identity: attributes.identity,
+        agile: attributes.agile.unwrap_or(true),
     };
 
     let items = gen_all(&inputs);
@@ -111,6 +124,12 @@ struct ImplementInputs {
 
     /// True if the user type has any generic parameters.
     is_generic: bool,
+
+    /// Identity vtable to expose: IInspectable (default) or IUnknown.
+    identity: IdentityKind,
+
+    /// Whether the object exposes IAgileObject.
+    agile: bool,
 }
 
 /// Describes one COM interface chain.
@@ -148,10 +167,24 @@ impl ImplementType {
     }
 }
 
+#[derive(Copy, Clone, Debug, PartialEq, Eq)]
+enum IdentityKind {
+    IUnknown,
+    IInspectable,
+}
+
+impl Default for IdentityKind {
+    fn default() -> Self {
+        IdentityKind::IInspectable
+    }
+}
+
 #[derive(Default)]
 struct ImplementAttributes {
     pub implement: Vec<ImplementType>,
     pub trust_level: usize,
+    pub identity: IdentityKind,
+    pub agile: Option<bool>,
 }
 
 impl syn::parse::Parse for ImplementAttributes {
@@ -201,6 +234,8 @@ impl ImplementAttributes {
                 }
             }
             UseTree2::TrustLevel(input) => self.trust_level = *input,
+            UseTree2::Identity(kind) => self.identity = *kind,
+            UseTree2::Agile(value) => self.agile = Some(*value),
         }
 
         Ok(())
@@ -212,6 +247,8 @@ enum UseTree2 {
     Name(UseName2),
     Group(UseGroup2),
     TrustLevel(usize),
+    Identity(IdentityKind),
+    Agile(bool),
 }
 
 impl UseTree2 {
@@ -282,21 +319,57 @@ impl syn::parse::Parse for UseTree2 {
                     tree: Box::new(input.parse()?),
                 }))
             } else if input.peek(syn::Token![=]) {
-                if ident != "TrustLevel" {
-                    return Err(syn::parse::Error::new(
+                input.parse::<syn::Token![=]>()?;
+                let key = ident.to_string();
+                match key.as_str() {
+                    "TrustLevel" => {
+                        let span = input.span();
+                        let value = input.call(syn::Ident::parse_any)?;
+                        match value.to_string().as_str() {
+                            "Partial" => Ok(Self::TrustLevel(1)),
+                            "Full" => Ok(Self::TrustLevel(2)),
+                            _ => Err(syn::parse::Error::new(
+                                span,
+                                "`TrustLevel` must be `Partial` or `Full`",
+                            )),
+                        }
+                    }
+                    "Identity" => {
+                        let span = input.span();
+                        let value = input.call(syn::Ident::parse_any)?;
+                        match value.to_string().as_str() {
+                            "IUnknown" => Ok(Self::Identity(IdentityKind::IUnknown)),
+                            "IInspectable" => Ok(Self::Identity(IdentityKind::IInspectable)),
+                            _ => Err(syn::parse::Error::new(
+                                span,
+                                "`Identity` must be `IUnknown` or `IInspectable`",
+                            )),
+                        }
+                    }
+                    "Agile" => {
+                        if input.peek(syn::Ident) {
+                            let value = input.call(syn::Ident::parse_any)?;
+                            match value.to_string().as_str() {
+                                "true" => Ok(Self::Agile(true)),
+                                "false" => Ok(Self::Agile(false)),
+                                _ => Err(syn::parse::Error::new(
+                                    value.span(),
+                                    "`Agile` must be `true` or `false`",
+                                )),
+                            }
+                        } else if input.peek(syn::LitBool) {
+                            let value: syn::LitBool = input.parse()?;
+                            Ok(Self::Agile(value.value()))
+                        } else {
+                            Err(syn::parse::Error::new(
+                                ident.span(),
+                                "`Agile` must be a boolean",
+                            ))
+                        }
+                    }
+                    _ => Err(syn::parse::Error::new(
                         ident.span(),
                         "Unrecognized key-value pair",
-                    ));
-                }
-                input.parse::<syn::Token![=]>()?;
-                let span = input.span();
-                let value = input.call(syn::Ident::parse_any)?;
-                match value.to_string().as_str() {
-                    "Partial" => Ok(Self::TrustLevel(1)),
-                    "Full" => Ok(Self::TrustLevel(2)),
-                    _ => Err(syn::parse::Error::new(
-                        span,
-                        "`TrustLevel` must be `Partial` or `Full`",
                     )),
                 }
             } else {

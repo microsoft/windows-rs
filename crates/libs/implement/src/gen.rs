@@ -68,8 +68,10 @@ fn gen_impl_struct(inputs: &ImplementInputs) -> syn::Item {
     let original_ident = &inputs.original_ident;
     let vis = &inputs.original_type.vis;
 
-    let mut impl_fields = quote! {
-        identity: &'static ::windows_core::IInspectable_Vtbl,
+    let mut impl_fields = if matches!(inputs.identity, IdentityKind::IUnknown) {
+        quote! { identity: &'static ::windows_core::IUnknown_Vtbl, }
+    } else {
+        quote! { identity: &'static ::windows_core::IInspectable_Vtbl, }
     };
 
     for interface_chain in inputs.interface_chains.iter() {
@@ -137,22 +139,28 @@ fn gen_impl_impl(inputs: &ImplementInputs) -> syn::Item {
         impl #generics #impl_ident::#generics where #constraints {}
     };
 
-    // This is here so that IInspectable::GetRuntimeClassName can work properly.
-    // For a test case for this, see crates/tests/misc/component_client.
-    let identity_type = if let Some(first) = inputs.interface_chains.first() {
-        first.implement.to_ident()
+    if matches!(inputs.identity, IdentityKind::IUnknown) {
+        output.items.push(parse_quote! {
+            const VTABLE_IDENTITY: ::windows_core::IUnknown_Vtbl =
+                ::windows_core::IUnknown_Vtbl::new::<#impl_ident::#generics, 0>();
+        });
     } else {
-        quote! { ::windows_core::IInspectable }
-    };
-
-    output.items.push(parse_quote! {
-        const VTABLE_IDENTITY: ::windows_core::IInspectable_Vtbl =
-            ::windows_core::IInspectable_Vtbl::new::<
-                #impl_ident::#generics,
-                #identity_type,
-                0,
-            >();
-    });
+        // This is here so that IInspectable::GetRuntimeClassName can work properly.
+        // For a test case for this, see crates/tests/misc/component_client.
+        let identity_type = if let Some(first) = inputs.interface_chains.first() {
+            first.implement.to_ident()
+        } else {
+            quote! { ::windows_core::IInspectable }
+        };
+        output.items.push(parse_quote! {
+            const VTABLE_IDENTITY: ::windows_core::IInspectable_Vtbl =
+                ::windows_core::IInspectable_Vtbl::new::<
+                    #impl_ident::#generics,
+                    #identity_type,
+                    0,
+                >();
+        });
+    }
 
     for (interface_index, interface_chain) in inputs.interface_chains.iter().enumerate() {
         let vtbl_ty = interface_chain.implement.to_vtbl_ident();
@@ -306,13 +314,25 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         quote!()
     };
 
-    let identity_query = quote! {
-        if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
-        || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID
-        || iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
+    let mut identity_query = quote! {
+        if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID {
             break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
         }
     };
+    if !matches!(inputs.identity, IdentityKind::IUnknown) {
+        identity_query.extend(quote! {
+            if iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID {
+                break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+            }
+        });
+    }
+    if inputs.agile {
+        identity_query.extend(quote! {
+            if iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
+                break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+            }
+        });
+    }
 
     let marshal_query = quote! {
         #[cfg(windows)]
@@ -470,15 +490,17 @@ fn gen_impl_from(inputs: &ImplementInputs) -> Vec<syn::Item> {
         }
     });
 
-    items.push(parse_quote! {
-        impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
-            #[inline(always)]
-            fn from(this: #original_ident::#generics) -> Self {
-                let com_object = ::windows_core::ComObject::new(this);
-                com_object.into_interface()
+    if !matches!(inputs.identity, IdentityKind::IUnknown) {
+        items.push(parse_quote! {
+            impl #generics ::core::convert::From<#original_ident::#generics> for ::windows_core::IInspectable where #constraints {
+                #[inline(always)]
+                fn from(this: #original_ident::#generics) -> Self {
+                    let com_object = ::windows_core::ComObject::new(this);
+                    com_object.into_interface()
+                }
             }
-        }
-    });
+        });
+    }
 
     for interface_chain in inputs.interface_chains.iter() {
         let interface_ident = interface_chain.implement.to_ident();
@@ -522,17 +544,19 @@ fn gen_impl_com_object_interfaces(inputs: &ImplementInputs) -> Vec<syn::Item> {
         }
     });
 
-    items.push(parse_quote! {
-        impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics where #constraints {
-            #[inline(always)]
-            fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
-                unsafe {
-                    let interface_ptr = &self.identity;
-                    ::core::mem::transmute(interface_ptr)
+    if !matches!(inputs.identity, IdentityKind::IUnknown) {
+        items.push(parse_quote! {
+            impl #generics ::windows_core::ComObjectInterface<::windows_core::IInspectable> for #impl_ident::#generics where #constraints {
+                #[inline(always)]
+                fn as_interface_ref(&self) -> ::windows_core::InterfaceRef<'_, ::windows_core::IInspectable> {
+                    unsafe {
+                        let interface_ptr = &self.identity;
+                        ::core::mem::transmute(interface_ptr)
+                    }
                 }
             }
-        }
-    });
+        });
+    }
 
     for interface_chain in inputs.interface_chains.iter() {
         let chain_field = &interface_chain.field_ident;
