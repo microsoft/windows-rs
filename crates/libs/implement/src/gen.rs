@@ -306,19 +306,32 @@ fn gen_query_interface(inputs: &ImplementInputs) -> syn::ImplItemFn {
         quote!()
     };
 
-    let identity_query = quote! {
-        if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
-        || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID
-        || iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
-            break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+    let identity_query = if inputs.agile {
+        quote! {
+            if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
+            || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID
+            || iid == <::windows_core::imp::IAgileObject as ::windows_core::Interface>::IID {
+                break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+            }
+        }
+    } else {
+        quote! {
+            if iid == <::windows_core::IUnknown as ::windows_core::Interface>::IID
+            || iid == <::windows_core::IInspectable as ::windows_core::Interface>::IID {
+                break 'found &self.identity as *const _ as *const ::core::ffi::c_void;
+            }
         }
     };
 
-    let marshal_query = quote! {
-        #[cfg(windows)]
-        if iid == <::windows_core::imp::IMarshal as ::windows_core::Interface>::IID {
-            return ::windows_core::imp::marshaler(self.to_interface(), interface);
+    let marshal_query = if inputs.agile {
+        quote! {
+            #[cfg(windows)]
+            if iid == <::windows_core::imp::IMarshal as ::windows_core::Interface>::IID {
+                return ::windows_core::imp::marshaler(self.to_interface(), interface);
+            }
         }
+    } else {
+        quote! {}
     };
 
     let tear_off_query = quote! {

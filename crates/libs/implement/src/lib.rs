@@ -57,6 +57,7 @@ fn implement_core(
         original_ident: original_type.ident.clone(),
         interface_chains: convert_implements_to_interface_chains(attributes.implement),
         trust_level: attributes.trust_level,
+        agile: attributes.agile,
         impl_ident: quote::format_ident!("{}_Impl", &original_type.ident),
         constraints: {
             if let Some(where_clause) = &original_type.generics.where_clause {
@@ -98,6 +99,9 @@ struct ImplementInputs {
 
     /// The "trust level", which is returned by `IInspectable::GetTrustLevel`.
     trust_level: usize,
+
+    /// Determines whether `IAgileObject` and `IMarshal` are implemented automatically.
+    agile: bool,
 
     /// The identifier of the `Foo_Impl` type.
     impl_ident: syn::Ident,
@@ -152,11 +156,15 @@ impl ImplementType {
 struct ImplementAttributes {
     pub implement: Vec<ImplementType>,
     pub trust_level: usize,
+    pub agile: bool,
 }
 
 impl syn::parse::Parse for ImplementAttributes {
     fn parse(cursor: syn::parse::ParseStream) -> syn::parse::Result<Self> {
-        let mut input = Self::default();
+        let mut input = Self {
+            agile: true,
+            ..Default::default()
+        };
 
         while !cursor.is_empty() {
             input.parse_implement(cursor)?;
@@ -201,6 +209,7 @@ impl ImplementAttributes {
                 }
             }
             UseTree2::TrustLevel(input) => self.trust_level = *input,
+            UseTree2::Agile(agile) => self.agile = *agile,
         }
 
         Ok(())
@@ -212,6 +221,7 @@ enum UseTree2 {
     Name(UseName2),
     Group(UseGroup2),
     TrustLevel(usize),
+    Agile(bool),
 }
 
 impl UseTree2 {
@@ -282,22 +292,35 @@ impl syn::parse::Parse for UseTree2 {
                     tree: Box::new(input.parse()?),
                 }))
             } else if input.peek(syn::Token![=]) {
-                if ident != "TrustLevel" {
-                    return Err(syn::parse::Error::new(
+                if ident == "TrustLevel" {
+                    input.parse::<syn::Token![=]>()?;
+                    let span = input.span();
+                    let value = input.call(syn::Ident::parse_any)?;
+                    match value.to_string().as_str() {
+                        "Partial" => Ok(Self::TrustLevel(1)),
+                        "Full" => Ok(Self::TrustLevel(2)),
+                        _ => Err(syn::parse::Error::new(
+                            span,
+                            "`TrustLevel` must be `Partial` or `Full`",
+                        )),
+                    }
+                } else if ident == "Agile" {
+                    input.parse::<syn::Token![=]>()?;
+                    let span = input.span();
+                    let value = input.call(syn::Ident::parse_any)?;
+                    match value.to_string().as_str() {
+                        "true" => Ok(Self::Agile(true)),
+                        "false" => Ok(Self::Agile(false)),
+                        _ => Err(syn::parse::Error::new(
+                            span,
+                            "`Agile` must be `true` or `false`",
+                        )),
+                    }
+                } else {
+                    Err(syn::parse::Error::new(
                         ident.span(),
                         "Unrecognized key-value pair",
-                    ));
-                }
-                input.parse::<syn::Token![=]>()?;
-                let span = input.span();
-                let value = input.call(syn::Ident::parse_any)?;
-                match value.to_string().as_str() {
-                    "Partial" => Ok(Self::TrustLevel(1)),
-                    "Full" => Ok(Self::TrustLevel(2)),
-                    _ => Err(syn::parse::Error::new(
-                        span,
-                        "`TrustLevel` must be `Partial` or `Full`",
-                    )),
+                    ))
                 }
             } else {
                 let generics = if input.peek(syn::Token![<]) {
