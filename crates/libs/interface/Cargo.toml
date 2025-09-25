@@ -1,6 +1,6 @@
 [package]
 name = "windows-interface"
-version = "0.59.1"
+version = "0.59.2"
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
