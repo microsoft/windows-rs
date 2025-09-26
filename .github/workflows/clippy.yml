@@ -26,6 +26,8 @@ jobs:
         run: rustup target add x86_64-pc-windows-msvc
       - name: Install clippy
         run: rustup component add clippy
+      - name: Install rustfmt
+        run: rustup component add rustfmt
       - name: Fix environment
         uses: ./.github/actions/fix-environment
         with:
