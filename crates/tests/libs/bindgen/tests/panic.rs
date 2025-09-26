@@ -182,3 +182,20 @@ fn skip_method() {
     ])
     .unwrap();
 }
+
+#[test]
+#[should_panic(expected = "failed to format output with `rustfmt`")]
+fn rustfmt_failure() {
+    let mut path = std::env::temp_dir();
+    path.push("rustfmt_failure");
+
+    windows_bindgen::bindgen([
+        "--out",
+        &path.to_string_lossy(),
+        "--rustfmt",
+        "fail=true",
+        "--filter",
+        "POINT",
+    ])
+    .unwrap();
+}
