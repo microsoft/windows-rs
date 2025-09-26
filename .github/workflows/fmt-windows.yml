@@ -1,0 +1,28 @@
+name: fmt
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+    branches:
+      - master
+
+jobs:
+  fmt:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Install rustfmt
+        run: rustup component add rustfmt
+      - name: Check
+        run: cargo fmt --all -- --check

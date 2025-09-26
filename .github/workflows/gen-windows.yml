@@ -1,0 +1,37 @@
+name: gen
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+    branches:
+      - master
+
+jobs:
+  gen:
+    name: tool_${{ matrix.tool }}
+    runs-on: windows-2025
+    strategy:
+      matrix:
+        tool: [bindgen, bindings, yml, license, standalone, workspace]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Install rustfmt
+        run: rustup component add rustfmt
+      - name: Run
+        run: cargo run -p tool_${{ matrix.tool }} --release
+      - name: Check
+        shell: bash
+        run: |
+          git add -N .
+          git diff --exit-code || (echo '::error::Generated `tool_${{ matrix.tool }}` is out-of-date. Please run `cargo run -p tool_${{ matrix.tool }}`'; exit 1)
