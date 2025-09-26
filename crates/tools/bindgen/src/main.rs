@@ -176,6 +176,9 @@ fn main() {
         "--out comment_no_allow.rs --in default --filter GetTickCount --sys --flat --no-allow",
     );
 
+    // Tests for rustfmt
+    bindgen("--out rustfmt_25.rs --rustfmt max_width=25,newline_style=Unix --filter POINT --flat --no-comment --no-allow".split_whitespace()).unwrap();
+
     write_lib();
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
@@ -196,7 +199,14 @@ fn write_lib() {
                 if path == "lib.rs" {
                     None
                 } else {
-                    Some(format!("\npub mod {};", path.strip_suffix(".rs").unwrap()))
+                    if path.starts_with("rustfmt") {
+                        Some(format!(
+                            "\n#[rustfmt::skip] pub mod {};",
+                            path.strip_suffix(".rs").unwrap()
+                        ))
+                    } else {
+                        Some(format!("\npub mod {};", path.strip_suffix(".rs").unwrap()))
+                    }
                 }
             } else {
                 None

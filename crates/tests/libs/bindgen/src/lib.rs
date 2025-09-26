@@ -82,6 +82,7 @@ pub mod reference_struct_reference_type;
 pub mod reference_struct_sys_filter;
 pub mod reference_struct_sys_reference_namespace;
 pub mod reference_struct_sys_reference_type;
+#[rustfmt::skip] pub mod rustfmt_25;
 pub mod sort;
 pub mod struct_arch_a;
 pub mod struct_arch_a_sys;
