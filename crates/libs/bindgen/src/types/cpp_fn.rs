@@ -27,6 +27,35 @@ impl CppFn {
         self.type_name().write(config, &[])
     }
 
+    pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
+        let ptr_name = self.method.name().to_string() + "Fn";
+        let name = to_ident(&ptr_name);
+        let abi = self.method.calling_convention();
+        let signature = self.method.signature(self.namespace, &[]);
+
+        let params = signature.params.iter().map(|param| {
+            let name = param.write_ident();
+            let ty = if underlying_types {
+                param.underlying_type().write_abi(config)
+            } else {
+                param.write_abi(config)
+            };
+            quote! { #name: #ty }
+        });
+
+        let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
+
+        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            quote! { , ... }
+        } else {
+            quote! {}
+        };
+
+        link_fmt(quote! {
+            pub type #name = unsafe extern #abi fn(#(#params),* #vararg) #return_sig;
+        })
+    }
+
     pub fn write_link(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let library = self.method.module_name().to_lowercase();
         let symbol = self.method.import_name();
@@ -71,6 +100,7 @@ impl CppFn {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
+        let ptr = self.write_fn_ptr(config, false);
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
         let cfg = self.write_cfg(config);
@@ -79,6 +109,9 @@ impl CppFn {
 
         if config.sys {
             return quote! {
+                #cfg
+                #ptr
+                #window_long
                 #cfg
                 #link
                 #window_long
