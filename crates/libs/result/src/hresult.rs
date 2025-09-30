@@ -117,30 +117,12 @@ impl HRESULT {
         #[cfg(windows)]
         {
             let error = unsafe { GetLastError() };
-            Self::from_win32(error)
+            WIN32_ERROR(error).into()
         }
         #[cfg(not(windows))]
         {
             unimplemented!()
         }
-    }
-
-    /// Maps a Win32 error code to an HRESULT value.
-    pub const fn from_win32(error: u32) -> Self {
-        Self(if error as i32 <= 0 {
-            error
-        } else {
-            (error & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
-        } as i32)
-    }
-
-    /// Maps an NT error code to an HRESULT value.
-    pub const fn from_nt(error: i32) -> Self {
-        Self(if error >= 0 {
-            error
-        } else {
-            error | 0x1000_0000
-        })
     }
 }
 

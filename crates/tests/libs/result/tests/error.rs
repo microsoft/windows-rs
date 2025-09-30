@@ -2,11 +2,12 @@ use windows_result::*;
 
 const S_OK: HRESULT = HRESULT(0);
 const E_INVALIDARG: HRESULT = HRESULT(-2147024809i32);
-const ERROR_CANCELLED: u32 = 1223;
-const ERROR_INVALID_DATA: u32 = 13;
-const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
+const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(0);
+const ERROR_CANCELLED: WIN32_ERROR = WIN32_ERROR(1223);
+const ERROR_INVALID_DATA: WIN32_ERROR = WIN32_ERROR(13);
+const E_CANCELLED: HRESULT = ERROR_CANCELLED.to_hresult();
 
-windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
+windows_link::link!("kernel32.dll" "system" fn SetLastError(code: WIN32_ERROR));
 
 #[test]
 fn empty() {
@@ -44,7 +45,7 @@ fn from_hresult() {
 
 #[test]
 fn from_thread() {
-    unsafe { SetLastError(0) };
+    unsafe { SetLastError(ERROR_SUCCESS) };
 
     let e = Error::from_thread();
     assert_eq!(e.code(), S_OK);
@@ -66,5 +67,5 @@ fn try_from_int() {
     assert_eq!(call(123), Ok(123));
 
     let e = call(usize::MAX).unwrap_err();
-    assert_eq!(e.code(), HRESULT::from_win32(ERROR_INVALID_DATA));
+    assert_eq!(e.code(), ERROR_INVALID_DATA.to_hresult());
 }

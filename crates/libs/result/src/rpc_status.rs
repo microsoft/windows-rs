@@ -16,7 +16,7 @@ impl RPC_STATUS {
     }
     #[inline]
     pub const fn to_hresult(self) -> HRESULT {
-        HRESULT::from_win32(self.0 as u32)
+        WIN32_ERROR(self.0 as u32).to_hresult()
     }
     #[inline]
     pub fn ok(self) -> Result<()> {

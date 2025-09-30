@@ -16,7 +16,11 @@ impl WIN32_ERROR {
     }
     #[inline]
     pub const fn to_hresult(self) -> HRESULT {
-        HRESULT::from_win32(self.0)
+        HRESULT(if self.0 as i32 <= 0 {
+            self.0
+        } else {
+            (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
+        } as i32)
     }
     #[inline]
     pub fn from_error(error: &Error) -> Option<Self> {

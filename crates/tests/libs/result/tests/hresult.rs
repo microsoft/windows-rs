@@ -1,16 +1,19 @@
 use windows_result::*;
 
-windows_link::link!("kernel32.dll" "system" fn SetLastError(code: u32));
+windows_link::link!("kernel32.dll" "system" fn SetLastError(code: WIN32_ERROR));
 
 const S_OK: HRESULT = HRESULT(0);
 const S_FALSE: HRESULT = HRESULT(1);
 const E_INVALIDARG: HRESULT = HRESULT(-2147024809i32);
 
-const ERROR_CANCELLED: u32 = 1223;
-const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
+const ERROR_SUCCESS: WIN32_ERROR = WIN32_ERROR(0);
+const ERROR_CANCELLED: WIN32_ERROR = WIN32_ERROR(1223);
+const E_CANCELLED: HRESULT = ERROR_CANCELLED.to_hresult();
 
-const STATUS_NOT_FOUND: i32 = -1073741275;
-const E_STATUS_NOT_FOUND: HRESULT = HRESULT::from_nt(STATUS_NOT_FOUND);
+const STATUS_SUCCESS: NTSTATUS = NTSTATUS(0);
+const STATUS_WAIT_1: NTSTATUS = NTSTATUS(1);
+const STATUS_NOT_FOUND: NTSTATUS = NTSTATUS(-1073741275);
+const E_STATUS_NOT_FOUND: HRESULT = STATUS_NOT_FOUND.to_hresult();
 
 #[test]
 fn is_ok() {
@@ -65,7 +68,7 @@ fn message() {
 
 #[test]
 fn from_thread() {
-    unsafe { SetLastError(0) };
+    unsafe { SetLastError(ERROR_SUCCESS) };
 
     let e = HRESULT::from_thread();
     assert_eq!(e, S_OK);
@@ -77,17 +80,20 @@ fn from_thread() {
 }
 
 #[test]
-fn from_win32() {
-    assert_eq!(E_INVALIDARG, HRESULT::from_win32(E_INVALIDARG.0 as u32));
-    assert_eq!(E_CANCELLED, HRESULT::from_win32(ERROR_CANCELLED));
-    assert_eq!(HRESULT(0), HRESULT::from_win32(0));
+fn win32_error_to_hresult() {
+    assert_eq!(
+        E_INVALIDARG,
+        WIN32_ERROR(E_INVALIDARG.0 as u32).to_hresult()
+    );
+    assert_eq!(E_CANCELLED, ERROR_CANCELLED.to_hresult());
+    assert_eq!(HRESULT(0), ERROR_SUCCESS.to_hresult());
 }
 
 #[test]
-fn from_nt() {
-    assert_eq!(E_STATUS_NOT_FOUND, HRESULT::from_nt(STATUS_NOT_FOUND));
-    assert_eq!(S_OK, HRESULT::from_nt(0));
-    assert_eq!(HRESULT(1), HRESULT::from_nt(1));
+fn ntstatus_to_hresult() {
+    assert_eq!(E_STATUS_NOT_FOUND, STATUS_NOT_FOUND.to_hresult());
+    assert_eq!(S_OK, STATUS_SUCCESS.to_hresult());
+    assert_eq!(HRESULT(1), STATUS_WAIT_1.to_hresult());
 }
 
 #[test]

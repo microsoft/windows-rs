@@ -18,9 +18,14 @@ impl NTSTATUS {
         !self.is_ok()
     }
 
+    /// Maps an NT error code to an HRESULT value.
     #[inline]
     pub const fn to_hresult(self) -> HRESULT {
-        HRESULT::from_nt(self.0)
+        HRESULT(if self.0 >= 0 {
+            self.0
+        } else {
+            self.0 | 0x1000_0000
+        })
     }
 
     #[inline]

@@ -176,7 +176,7 @@ impl From<Error> for std::io::Error {
 impl From<std::io::Error> for Error {
     fn from(from: std::io::Error) -> Self {
         match from.raw_os_error() {
-            Some(status) => HRESULT::from_win32(status as u32).into(),
+            Some(status) => WIN32_ERROR(status as u32).into(),
             None => HRESULT(E_UNEXPECTED).into(),
         }
     }
@@ -184,19 +184,19 @@ impl From<std::io::Error> for Error {
 
 impl From<alloc::string::FromUtf16Error> for Error {
     fn from(_: alloc::string::FromUtf16Error) -> Self {
-        Self::from_hresult(HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION))
+        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION).into()
     }
 }
 
 impl From<alloc::string::FromUtf8Error> for Error {
     fn from(_: alloc::string::FromUtf8Error) -> Self {
-        Self::from_hresult(HRESULT::from_win32(ERROR_NO_UNICODE_TRANSLATION))
+        WIN32_ERROR(ERROR_NO_UNICODE_TRANSLATION).into()
     }
 }
 
 impl From<core::num::TryFromIntError> for Error {
     fn from(_: core::num::TryFromIntError) -> Self {
-        Self::from_hresult(HRESULT::from_win32(ERROR_INVALID_DATA))
+        WIN32_ERROR(ERROR_INVALID_DATA).into()
     }
 }
 
