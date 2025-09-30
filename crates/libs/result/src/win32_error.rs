@@ -1,19 +1,25 @@
 use super::*;
 
+/// An error or status code value returned by some operating system functions.
 #[repr(transparent)]
 #[derive(Copy, Clone, Default, Eq, PartialEq, Ord, PartialOrd, Hash)]
 #[must_use]
 pub struct WIN32_ERROR(pub u32);
 
 impl WIN32_ERROR {
+    /// Returns [`true`] if `self` is a success code.
     #[inline]
     pub const fn is_ok(self) -> bool {
         self.0 == 0
     }
+
+    /// Returns [`true`] if `self` is a failure code.
     #[inline]
     pub const fn is_err(self) -> bool {
         !self.is_ok()
     }
+
+    /// Maps a Win32 error code to an HRESULT value.
     #[inline]
     pub const fn to_hresult(self) -> HRESULT {
         HRESULT(if self.0 as i32 <= 0 {
@@ -31,6 +37,7 @@ impl WIN32_ERROR {
             None
         }
     }
+
     #[inline]
     pub fn ok(self) -> Result<()> {
         if self.is_ok() {
@@ -40,11 +47,13 @@ impl WIN32_ERROR {
         }
     }
 }
+
 impl From<WIN32_ERROR> for HRESULT {
     fn from(value: WIN32_ERROR) -> Self {
         value.to_hresult()
     }
 }
+
 impl From<WIN32_ERROR> for Error {
     fn from(value: WIN32_ERROR) -> Self {
         value.to_hresult().into()
