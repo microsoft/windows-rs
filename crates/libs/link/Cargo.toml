@@ -8,6 +8,7 @@ license = "MIT OR Apache-2.0"
 description = "Linking for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [lints]
 workspace = true
