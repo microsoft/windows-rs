@@ -1,6 +1,6 @@
 [package]
 name = "windows-implement"
-version = "0.60.0"
+version = "0.60.1"
 edition = "2021"
 rust-version = "1.74"
 license = "MIT OR Apache-2.0"
