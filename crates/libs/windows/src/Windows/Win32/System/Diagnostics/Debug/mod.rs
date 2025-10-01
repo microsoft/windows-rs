@@ -64,8 +64,8 @@ pub unsafe fn CloseThreadWaitChainSession(wcthandle: *const core::ffi::c_void) {
     unsafe { CloseThreadWaitChainSession(wcthandle) }
 }
 #[inline]
-pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: super::super::super::Foundation::NTSTATUS) -> windows_core::Result<()> {
-    windows_core::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : super::super::super::Foundation:: NTSTATUS) -> windows_core::BOOL);
+pub unsafe fn ContinueDebugEvent(dwprocessid: u32, dwthreadid: u32, dwcontinuestatus: windows_core::NTSTATUS) -> windows_core::Result<()> {
+    windows_core::link!("kernel32.dll" "system" fn ContinueDebugEvent(dwprocessid : u32, dwthreadid : u32, dwcontinuestatus : windows_core:: NTSTATUS) -> windows_core::BOOL);
     unsafe { ContinueDebugEvent(dwprocessid, dwthreadid, dwcontinuestatus).ok() }
 }
 #[cfg(feature = "Win32_System_Kernel")]
@@ -3328,7 +3328,7 @@ impl Default for EXCEPTION_POINTERS {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD {
-    pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
+    pub ExceptionCode: windows_core::NTSTATUS,
     pub ExceptionFlags: u32,
     pub ExceptionRecord: *mut EXCEPTION_RECORD,
     pub ExceptionAddress: *mut core::ffi::c_void,
@@ -3343,7 +3343,7 @@ impl Default for EXCEPTION_RECORD {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD32 {
-    pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
+    pub ExceptionCode: windows_core::NTSTATUS,
     pub ExceptionFlags: u32,
     pub ExceptionRecord: u32,
     pub ExceptionAddress: u32,
@@ -3358,7 +3358,7 @@ impl Default for EXCEPTION_RECORD32 {
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct EXCEPTION_RECORD64 {
-    pub ExceptionCode: super::super::super::Foundation::NTSTATUS,
+    pub ExceptionCode: windows_core::NTSTATUS,
     pub ExceptionFlags: u32,
     pub ExceptionRecord: u64,
     pub ExceptionAddress: u64,
@@ -8669,7 +8669,7 @@ impl Default for WHEA_ERROR_SOURCE_CONFIGURATION_DEVICE_DRIVER_V1 {
         unsafe { core::mem::zeroed() }
     }
 }
-pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = Option<unsafe extern "system" fn(errorsourcedesc: *mut core::ffi::c_void, maximumsectionlength: *mut u32) -> super::super::super::Foundation::NTSTATUS>;
+pub type WHEA_ERROR_SOURCE_CORRECT_DEVICE_DRIVER = Option<unsafe extern "system" fn(errorsourcedesc: *mut core::ffi::c_void, maximumsectionlength: *mut u32) -> windows_core::NTSTATUS>;
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct WHEA_ERROR_SOURCE_DESCRIPTOR {
@@ -8728,7 +8728,7 @@ pub const WHEA_ERROR_SOURCE_FLAG_DEFAULTSOURCE: u32 = 2147483648u32;
 pub const WHEA_ERROR_SOURCE_FLAG_FIRMWAREFIRST: u32 = 1u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GHES_ASSIST: u32 = 4u32;
 pub const WHEA_ERROR_SOURCE_FLAG_GLOBAL: u32 = 2u32;
-pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, errorsourceid: u32) -> super::super::super::Foundation::NTSTATUS>;
+pub type WHEA_ERROR_SOURCE_INITIALIZE_DEVICE_DRIVER = Option<unsafe extern "system" fn(context: *mut core::ffi::c_void, errorsourceid: u32) -> windows_core::NTSTATUS>;
 pub const WHEA_ERROR_SOURCE_INVALID_RELATED_SOURCE: u32 = 65535u32;
 #[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]

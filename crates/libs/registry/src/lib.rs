@@ -70,12 +70,12 @@ fn win32_error(result: u32) -> Result<()> {
     if result == 0 {
         Ok(())
     } else {
-        Err(Error::from_hresult(HRESULT::from_win32(result)))
+        Err(Error::from_hresult(WIN32_ERROR(result).to_hresult()))
     }
 }
 
 fn invalid_data() -> Error {
-    Error::from_hresult(HRESULT::from_win32(ERROR_INVALID_DATA))
+    Error::from_hresult(WIN32_ERROR(ERROR_INVALID_DATA).to_hresult())
 }
 
 fn from_le_bytes(ty: Type, from: &[u8]) -> Result<u64> {

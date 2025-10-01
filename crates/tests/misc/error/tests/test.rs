@@ -52,8 +52,8 @@ fn ntstatus() -> Result<()> {
     assert!(STATUS_SUCCESS.is_ok());
     assert!(!STATUS_SUCCESS.is_err());
 
-    assert_eq!(format!("{STATUS_SUCCESS:?}"), "NTSTATUS(0)");
-    assert_eq!(format!("{STATUS_NOT_FOUND:?}"), "NTSTATUS(-1073741275)");
+    assert_eq!(format!("{STATUS_SUCCESS:?}"), "NTSTATUS(0x00000000)");
+    assert_eq!(format!("{STATUS_NOT_FOUND:?}"), "NTSTATUS(0xC0000225)");
 
     STATUS_SUCCESS.ok()
 }
@@ -80,13 +80,16 @@ fn rpc() -> Result<()> {
     let r: Result<()> = RPC_S_NOT_LISTENING.ok();
     assert!(r.is_err());
 
-    assert_eq!(RPC_S_NOT_LISTENING.to_hresult(), HRESULT::from_win32(1715));
+    assert_eq!(
+        RPC_S_NOT_LISTENING.to_hresult(),
+        WIN32_ERROR(1715).to_hresult()
+    );
     let hr: HRESULT = RPC_S_NOT_LISTENING.into();
-    assert_eq!(hr, HRESULT::from_win32(1715));
+    assert_eq!(hr, WIN32_ERROR(1715).to_hresult());
 
     let e: Error = RPC_S_NOT_LISTENING.into();
     assert_eq!(r.unwrap_err(), e);
-    assert_eq!(e.code(), HRESULT::from_win32(1715));
+    assert_eq!(e.code(), WIN32_ERROR(1715).to_hresult());
     assert_eq!(e.message(), "The RPC server is not listening.");
 
     let r: Result<()> = unsafe { RpcServerListen(0, 0, 1).ok() };

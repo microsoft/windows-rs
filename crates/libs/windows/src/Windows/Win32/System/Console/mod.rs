@@ -34,8 +34,8 @@ pub unsafe fn ClosePseudoConsole(hpc: HPCON) {
     unsafe { ClosePseudoConsole(hpc) }
 }
 #[inline]
-pub unsafe fn ConsoleControl(command: CONSOLECONTROL, consoleinformation: *const core::ffi::c_void, consoleinformationlength: u32) -> super::super::Foundation::NTSTATUS {
-    windows_core::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const core::ffi::c_void, consoleinformationlength : u32) -> super::super::Foundation:: NTSTATUS);
+pub unsafe fn ConsoleControl(command: CONSOLECONTROL, consoleinformation: *const core::ffi::c_void, consoleinformationlength: u32) -> windows_core::NTSTATUS {
+    windows_core::link!("user32.dll" "system" fn ConsoleControl(command : CONSOLECONTROL, consoleinformation : *const core::ffi::c_void, consoleinformationlength : u32) -> windows_core:: NTSTATUS);
     unsafe { ConsoleControl(command, consoleinformation, consoleinformationlength) }
 }
 #[cfg(feature = "Win32_Security")]

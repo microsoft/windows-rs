@@ -31,9 +31,6 @@ impl TypeName {
     pub const IIterable: Self = Self("Windows.Foundation.Collections", "IIterable");
     pub const IIterator: Self = Self("Windows.Foundation.Collections", "IIterator");
 
-    pub const NTSTATUS: Self = Self("Windows.Win32.Foundation", "NTSTATUS");
-    pub const WIN32_ERROR: Self = Self("Windows.Win32.Foundation", "WIN32_ERROR");
-    pub const RPC_STATUS: Self = Self("Windows.Win32.System.Rpc", "RPC_STATUS");
     pub const VARIANT: Self = Self("Windows.Win32.System.Variant", "VARIANT");
     pub const PROPVARIANT: Self = Self("Windows.Win32.System.Com.StructuredStorage", "PROPVARIANT");
 

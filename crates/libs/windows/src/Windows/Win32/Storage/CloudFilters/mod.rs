@@ -1500,7 +1500,7 @@ impl Default for CF_OPERATION_PARAMETERS_0 {
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
 }
@@ -1509,7 +1509,7 @@ pub struct CF_OPERATION_PARAMETERS_0_2 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
     pub FileIdentity: *const core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
@@ -1524,14 +1524,14 @@ impl Default for CF_OPERATION_PARAMETERS_0_5 {
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_7 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
 }
 #[repr(C)]
 #[cfg(feature = "Win32_Storage_FileSystem")]
@@ -1569,7 +1569,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_1 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
     pub Buffer: *const core::ffi::c_void,
     pub Offset: i64,
     pub Length: i64,
@@ -1585,7 +1585,7 @@ impl Default for CF_OPERATION_PARAMETERS_0_0 {
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_TRANSFER_PLACEHOLDERS_FLAGS,
-    pub CompletionStatus: super::super::Foundation::NTSTATUS,
+    pub CompletionStatus: windows_core::NTSTATUS,
     pub PlaceholderTotalCount: i64,
     pub PlaceholderArray: *mut CF_PLACEHOLDER_CREATE_INFO,
     pub PlaceholderCount: u32,

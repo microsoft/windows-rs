@@ -219,37 +219,37 @@ where
     unsafe { CredUIConfirmCredentialsW(psztargetname.param().abi(), bconfirm.into()) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: &mut [u8], domain: &mut [u8]) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIParseUserNameA<P0>(username: P0, user: &mut [u8], domain: &mut [u8]) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : windows_core::PSTR, userbuffersize : u32, domain : windows_core::PSTR, domainbuffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameA(username : windows_core::PCSTR, user : windows_core::PSTR, userbuffersize : u32, domain : windows_core::PSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
     unsafe { CredUIParseUserNameA(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
 }
 #[inline]
-pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIParseUserNameW<P0>(username: P0, user: &mut [u16], domain: &mut [u16]) -> windows_core::WIN32_ERROR
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PWSTR, userbuffersize : u32, domain : windows_core::PWSTR, domainbuffersize : u32) -> super::super::Foundation:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIParseUserNameW(username : windows_core::PCWSTR, user : windows_core::PWSTR, userbuffersize : u32, domain : windows_core::PWSTR, domainbuffersize : u32) -> windows_core:: WIN32_ERROR);
     unsafe { CredUIParseUserNameW(username.param().abi(), core::mem::transmute(user.as_ptr()), user.len().try_into().unwrap(), core::mem::transmute(domain.as_ptr()), domain.len().try_into().unwrap()) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsA<P1>(puiinfo: Option<*const CREDUI_INFOA>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u8], pszpassword: &mut [u8], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsA(puiinfo : *const CREDUI_INFOA, psztargetname : windows_core::PCSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
     unsafe { CredUIPromptForCredentialsA(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 #[inline]
-pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> super::super::Foundation::WIN32_ERROR
+pub unsafe fn CredUIPromptForCredentialsW<P1>(puiinfo: Option<*const CREDUI_INFOW>, psztargetname: P1, pcontext: Option<*const SecHandle>, dwautherror: u32, pszusername: &mut [u16], pszpassword: &mut [u16], save: Option<*mut windows_core::BOOL>, dwflags: CREDUI_FLAGS) -> windows_core::WIN32_ERROR
 where
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> super::super::Foundation:: WIN32_ERROR);
+    windows_core::link!("credui.dll" "system" fn CredUIPromptForCredentialsW(puiinfo : *const CREDUI_INFOW, psztargetname : windows_core::PCWSTR, pcontext : *const SecHandle, dwautherror : u32, pszusername : windows_core::PWSTR, ulusernamebuffersize : u32, pszpassword : windows_core::PWSTR, ulpasswordbuffersize : u32, save : *mut windows_core::BOOL, dwflags : CREDUI_FLAGS) -> windows_core:: WIN32_ERROR);
     unsafe { CredUIPromptForCredentialsW(puiinfo.unwrap_or(core::mem::zeroed()) as _, psztargetname.param().abi(), pcontext.unwrap_or(core::mem::zeroed()) as _, dwautherror, core::mem::transmute(pszusername.as_ptr()), pszusername.len().try_into().unwrap(), core::mem::transmute(pszpassword.as_ptr()), pszpassword.len().try_into().unwrap(), save.unwrap_or(core::mem::zeroed()) as _, dwflags) }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
@@ -1842,19 +1842,19 @@ pub const SC_DLG_MINIMAL_UI: u32 = 1u32;
 pub const SC_DLG_NO_UI: u32 = 2u32;
 pub const SECPKG_ALT_ATTR: u32 = 2147483648u32;
 pub const SECPKG_ATTR_C_FULL_IDENT_TOKEN: u32 = 2147483781u32;
-pub const STATUS_ACCOUNT_DISABLED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000072_u32 as _);
-pub const STATUS_ACCOUNT_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000193_u32 as _);
-pub const STATUS_ACCOUNT_LOCKED_OUT: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000234_u32 as _);
-pub const STATUS_ACCOUNT_RESTRICTION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC000006E_u32 as _);
-pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000413_u32 as _);
-pub const STATUS_DOWNGRADE_DETECTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000388_u32 as _);
-pub const STATUS_LOGON_FAILURE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC000006D_u32 as _);
-pub const STATUS_LOGON_TYPE_NOT_GRANTED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC000015B_u32 as _);
-pub const STATUS_NO_SUCH_LOGON_SESSION: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC000005F_u32 as _);
-pub const STATUS_NO_SUCH_USER: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000064_u32 as _);
-pub const STATUS_PASSWORD_EXPIRED: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000071_u32 as _);
-pub const STATUS_PASSWORD_MUST_CHANGE: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC0000224_u32 as _);
-pub const STATUS_WRONG_PASSWORD: super::super::Foundation::NTSTATUS = super::super::Foundation::NTSTATUS(0xC000006A_u32 as _);
+pub const STATUS_ACCOUNT_DISABLED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000072_u32 as _);
+pub const STATUS_ACCOUNT_EXPIRED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000193_u32 as _);
+pub const STATUS_ACCOUNT_LOCKED_OUT: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000234_u32 as _);
+pub const STATUS_ACCOUNT_RESTRICTION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000006E_u32 as _);
+pub const STATUS_AUTHENTICATION_FIREWALL_FAILED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000413_u32 as _);
+pub const STATUS_DOWNGRADE_DETECTED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000388_u32 as _);
+pub const STATUS_LOGON_FAILURE: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000006D_u32 as _);
+pub const STATUS_LOGON_TYPE_NOT_GRANTED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000015B_u32 as _);
+pub const STATUS_NO_SUCH_LOGON_SESSION: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000005F_u32 as _);
+pub const STATUS_NO_SUCH_USER: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000064_u32 as _);
+pub const STATUS_PASSWORD_EXPIRED: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000071_u32 as _);
+pub const STATUS_PASSWORD_MUST_CHANGE: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC0000224_u32 as _);
+pub const STATUS_WRONG_PASSWORD: windows_core::NTSTATUS = windows_core::NTSTATUS(0xC000006A_u32 as _);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct SecHandle {

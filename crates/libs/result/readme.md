@@ -19,8 +19,8 @@ Use the `HRESULT`, `Error`, and specialized `Result` types as needed:
 use windows_result::*;
 
 const S_OK: HRESULT = HRESULT(0);
-const ERROR_CANCELLED: u32 = 1223;
-const E_CANCELLED: HRESULT = HRESULT::from_win32(ERROR_CANCELLED);
+const ERROR_CANCELLED: WIN32_ERROR = WIN32_ERROR(1223);
+const E_CANCELLED: HRESULT = ERROR_CANCELLED.to_hresult();
 
 fn main() -> Result<()> {
     S_OK.ok()?;

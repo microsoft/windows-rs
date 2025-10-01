@@ -69,8 +69,8 @@ pub unsafe fn SrpHostingTerminate(r#type: SRPHOSTING_TYPE) {
     unsafe { SrpHostingTerminate(r#type) }
 }
 #[inline]
-pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> super::super::Foundation::NTSTATUS {
-    windows_core::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> super::super::Foundation:: NTSTATUS);
+pub unsafe fn SrpIsTokenService(tokenhandle: super::super::Foundation::HANDLE, istokenservice: *mut u8) -> windows_core::NTSTATUS {
+    windows_core::link!("srpapi.dll" "system" fn SrpIsTokenService(tokenhandle : super::super::Foundation:: HANDLE, istokenservice : *mut u8) -> windows_core:: NTSTATUS);
     unsafe { SrpIsTokenService(tokenhandle, istokenservice as _) }
 }
 #[inline]

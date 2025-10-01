@@ -4,8 +4,8 @@ pub unsafe fn LdapGetLastError() -> u32 {
     unsafe { LdapGetLastError() }
 }
 #[inline]
-pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> super::super::Foundation::WIN32_ERROR {
-    windows_core::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> super::super::Foundation:: WIN32_ERROR);
+pub unsafe fn LdapMapErrorToWin32(ldaperror: LDAP_RETCODE) -> windows_core::WIN32_ERROR {
+    windows_core::link!("wldap32.dll" "C" fn LdapMapErrorToWin32(ldaperror : u32) -> windows_core:: WIN32_ERROR);
     unsafe { LdapMapErrorToWin32(ldaperror.0 as _) }
 }
 #[inline]

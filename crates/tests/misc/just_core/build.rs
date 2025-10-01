@@ -7,6 +7,9 @@ fn main() {
         "IsCharLowerA",
         "SysFreeString",
         "IStringable",
+        "GetLastError",
+        "VhfStart",
+        "RpcMgmtEnableIdleCleanup",
         "--flat",
         "--no-comment",
     ])

@@ -15,14 +15,29 @@ pub unsafe fn CoGetCallerTID() -> windows_result::Result<u32> {
     }
 }
 #[inline]
+pub unsafe fn GetLastError() -> windows_result::WIN32_ERROR {
+    windows_link::link!("kernel32.dll" "system" fn GetLastError() -> windows_result:: WIN32_ERROR);
+    unsafe { GetLastError() }
+}
+#[inline]
 pub unsafe fn IsCharLowerA(ch: i8) -> windows_result::Result<()> {
     windows_link::link!("user32.dll" "system" fn IsCharLowerA(ch : i8) -> windows_result::BOOL);
     unsafe { IsCharLowerA(ch).ok() }
 }
 #[inline]
+pub unsafe fn RpcMgmtEnableIdleCleanup() -> windows_result::RPC_STATUS {
+    windows_link::link!("rpcrt4.dll" "system" fn RpcMgmtEnableIdleCleanup() -> windows_result:: RPC_STATUS);
+    unsafe { RpcMgmtEnableIdleCleanup() }
+}
+#[inline]
 pub unsafe fn SysFreeString(bstrstring: &windows_strings::BSTR) {
     windows_link::link!("oleaut32.dll" "system" fn SysFreeString(bstrstring : * mut core::ffi::c_void));
     unsafe { SysFreeString(core::mem::transmute_copy(bstrstring)) }
+}
+#[inline]
+pub unsafe fn VhfStart(vhfhandle: *const core::ffi::c_void) -> windows_result::NTSTATUS {
+    windows_link::link!("vhfum.dll" "system" fn VhfStart(vhfhandle : *const core::ffi::c_void) -> windows_result:: NTSTATUS);
+    unsafe { VhfStart(vhfhandle) }
 }
 #[inline]
 pub unsafe fn WindowsGetStringRawBuffer(

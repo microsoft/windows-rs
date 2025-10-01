@@ -767,8 +767,8 @@ pub unsafe fn RevertToSelf() -> windows_core::Result<()> {
     unsafe { RevertToSelf().ok() }
 }
 #[inline]
-pub unsafe fn RtlConvertSidToUnicodeString(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: PSID, allocatedestinationstring: bool) -> super::Foundation::NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::Foundation:: UNICODE_STRING, sid : PSID, allocatedestinationstring : bool) -> super::Foundation:: NTSTATUS);
+pub unsafe fn RtlConvertSidToUnicodeString(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: PSID, allocatedestinationstring: bool) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn RtlConvertSidToUnicodeString(unicodestring : *mut super::Foundation:: UNICODE_STRING, sid : PSID, allocatedestinationstring : bool) -> windows_core:: NTSTATUS);
     unsafe { RtlConvertSidToUnicodeString(unicodestring as _, sid, allocatedestinationstring) }
 }
 #[inline]
@@ -1376,7 +1376,7 @@ impl Default for OBJECT_TYPE_LIST {
     }
 }
 pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = OBJECT_SECURITY_INFORMATION(1u32);
-pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
+pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = Option<unsafe extern "system" fn(clientrequest: *const *const core::ffi::c_void, protocolsubmitbuffer: *const core::ffi::c_void, clientbufferbase: *const core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> windows_core::NTSTATUS>;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PRIVILEGE_SET {

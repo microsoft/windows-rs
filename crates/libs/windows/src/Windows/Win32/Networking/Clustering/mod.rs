@@ -1674,8 +1674,8 @@ where
     unsafe { PauseClusterNodeEx2(hnode, bdrainnode.into(), dwpauseflags, hnodedraintarget.unwrap_or(core::mem::zeroed()) as _, lpszreason.param().abi()) }
 }
 #[inline]
-pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32 {
-    windows_core::link!("ntlanman.dll" "system" fn QueryAppInstanceVersion(appinstanceid : *const windows_core::GUID, instanceversionhigh : *mut u64, instanceversionlow : *mut u64, versionstatus : *mut super::super::Foundation:: NTSTATUS) -> u32);
+pub unsafe fn QueryAppInstanceVersion(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut windows_core::NTSTATUS) -> u32 {
+    windows_core::link!("ntlanman.dll" "system" fn QueryAppInstanceVersion(appinstanceid : *const windows_core::GUID, instanceversionhigh : *mut u64, instanceversionlow : *mut u64, versionstatus : *mut windows_core:: NTSTATUS) -> u32);
     unsafe { QueryAppInstanceVersion(appinstanceid, instanceversionhigh as _, instanceversionlow as _, versionstatus as _) }
 }
 #[inline]
@@ -14425,7 +14425,7 @@ pub struct POST_UPGRADE_VERSION_INFO {
     pub oldUpgradeVersion: u32,
     pub reserved: u32,
 }
-pub type PQUERY_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut super::super::Foundation::NTSTATUS) -> u32>;
+pub type PQUERY_APPINSTANCE_VERSION = Option<unsafe extern "system" fn(appinstanceid: *const windows_core::GUID, instanceversionhigh: *mut u64, instanceversionlow: *mut u64, versionstatus: *mut windows_core::NTSTATUS) -> u32>;
 pub type PQUORUM_RESOURCE_LOST = Option<unsafe extern "system" fn(resource: isize)>;
 pub type PRAISE_RES_TYPE_NOTIFICATION = Option<unsafe extern "system" fn(resourcetype: windows_core::PCWSTR, ppayload: *const u8, payloadsize: u32) -> u32>;
 pub type PREGISTER_APPINSTANCE = Option<unsafe extern "system" fn(processhandle: super::super::Foundation::HANDLE, appinstanceid: *const windows_core::GUID, childreninheritappinstance: windows_core::BOOL) -> u32>;

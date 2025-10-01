@@ -34,8 +34,8 @@ pub unsafe fn NtWaitForSingleObject(
     handle: HANDLE,
     alertable: bool,
     timeout: *mut i64,
-) -> NTSTATUS {
-    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : HANDLE, alertable : bool, timeout : *mut i64) -> NTSTATUS);
+) -> windows_core::NTSTATUS {
+    windows_core::link!("ntdll.dll" "system" fn NtWaitForSingleObject(handle : HANDLE, alertable : bool, timeout : *mut i64) -> windows_core:: NTSTATUS);
     unsafe { NtWaitForSingleObject(handle, alertable, timeout as _) }
 }
 #[inline]
@@ -76,10 +76,6 @@ impl Default for HANDLE {
         unsafe { core::mem::zeroed() }
     }
 }
-#[must_use]
-#[repr(transparent)]
-#[derive(Clone, Copy, Debug, PartialEq, Eq, Default)]
-pub struct NTSTATUS(pub i32);
 #[repr(C)]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct SECURITY_ATTRIBUTES {

@@ -89,7 +89,7 @@ pub struct RESTOREPOINTINFO_TYPE(pub u32);
 #[repr(C, packed(1))]
 #[derive(Clone, Copy, Default)]
 pub struct STATEMGRSTATUS {
-    pub nStatus: super::super::Foundation::WIN32_ERROR,
+    pub nStatus: windows_core::WIN32_ERROR,
     pub llSequenceNumber: i64,
 }
 pub const WINDOWS_BOOT: u32 = 9u32;

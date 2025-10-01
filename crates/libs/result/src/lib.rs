@@ -37,5 +37,14 @@ pub use hresult::HRESULT;
 mod bool;
 pub use bool::BOOL;
 
+mod win32_error;
+pub use win32_error::WIN32_ERROR;
+
+mod ntstatus;
+pub use ntstatus::NTSTATUS;
+
+mod rpc_status;
+pub use rpc_status::RPC_STATUS;
+
 /// A specialized [`Result`] type that provides Windows error information.
 pub type Result<T> = core::result::Result<T, Error>;

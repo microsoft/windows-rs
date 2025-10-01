@@ -27,7 +27,7 @@ impl GUID {
         if matches!(result, 0 | imp::RPC_S_UUID_LOCAL_ONLY) {
             Ok(guid)
         } else {
-            Err(Error::from_hresult(HRESULT::from_win32(result as u32)))
+            Err(Error::from_hresult(WIN32_ERROR(result as u32).to_hresult()))
         }
     }
 
