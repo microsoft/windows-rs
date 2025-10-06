@@ -364,6 +364,74 @@ impl Default for CRITICAL_SECTION_DEBUG {
         unsafe { core::mem::zeroed() }
     }
 }
+#[repr(C)]
+#[cfg(target_arch = "x86")]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA32,
+    pub TargetDllName: PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(target_arch = "x86")]
+impl Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_INFO {
+    pub Size: u32,
+    pub DelayloadDescriptor: *mut IMAGE_DELAYLOAD_DESCRIPTOR,
+    pub ThunkAddress: *mut IMAGE_THUNK_DATA64,
+    pub TargetDllName: PCSTR,
+    pub TargetApiDescriptor: DELAYLOAD_PROC_DESCRIPTOR,
+    pub TargetModuleBase: *mut core::ffi::c_void,
+    pub Unused: *mut core::ffi::c_void,
+    pub LastError: u32,
+}
+#[cfg(any(
+    target_arch = "aarch64",
+    target_arch = "arm64ec",
+    target_arch = "x86_64"
+))]
+impl Default for DELAYLOAD_INFO {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct DELAYLOAD_PROC_DESCRIPTOR {
+    pub ImportDescribedByName: u32,
+    pub Description: DELAYLOAD_PROC_DESCRIPTOR_0,
+}
+impl Default for DELAYLOAD_PROC_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union DELAYLOAD_PROC_DESCRIPTOR_0 {
+    pub Name: PCSTR,
+    pub Ordinal: u32,
+}
+impl Default for DELAYLOAD_PROC_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
 #[repr(C, packed(1))]
 #[derive(Clone, Copy)]
 pub struct ENCLAVE_IDENTITY {
@@ -517,6 +585,39 @@ pub struct IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY_0_0 {
 }
 #[repr(C)]
 #[derive(Clone, Copy)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR {
+    pub Attributes: IMAGE_DELAYLOAD_DESCRIPTOR_0,
+    pub DllNameRVA: u32,
+    pub ModuleHandleRVA: u32,
+    pub ImportAddressTableRVA: u32,
+    pub ImportNameTableRVA: u32,
+    pub BoundImportAddressTableRVA: u32,
+    pub UnloadInformationTableRVA: u32,
+    pub TimeDateStamp: u32,
+}
+impl Default for IMAGE_DELAYLOAD_DESCRIPTOR {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    pub AllAttributes: u32,
+    pub Anonymous: IMAGE_DELAYLOAD_DESCRIPTOR_0_0,
+}
+impl Default for IMAGE_DELAYLOAD_DESCRIPTOR_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy, Default)]
+pub struct IMAGE_DELAYLOAD_DESCRIPTOR_0_0 {
+    pub _bitfield: u32,
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
 pub struct IMAGE_RUNTIME_FUNCTION_ENTRY {
     pub BeginAddress: u32,
     pub EndAddress: u32,
@@ -534,6 +635,52 @@ pub union IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
     pub UnwindData: u32,
 }
 impl Default for IMAGE_RUNTIME_FUNCTION_ENTRY_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA32 {
+    pub u1: IMAGE_THUNK_DATA32_0,
+}
+impl Default for IMAGE_THUNK_DATA32 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA32_0 {
+    pub ForwarderString: u32,
+    pub Function: u32,
+    pub Ordinal: u32,
+    pub AddressOfData: u32,
+}
+impl Default for IMAGE_THUNK_DATA32_0 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub struct IMAGE_THUNK_DATA64 {
+    pub u1: IMAGE_THUNK_DATA64_0,
+}
+impl Default for IMAGE_THUNK_DATA64 {
+    fn default() -> Self {
+        unsafe { core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+#[derive(Clone, Copy)]
+pub union IMAGE_THUNK_DATA64_0 {
+    pub ForwarderString: u64,
+    pub Function: u64,
+    pub Ordinal: u64,
+    pub AddressOfData: u64,
+}
+impl Default for IMAGE_THUNK_DATA64_0 {
     fn default() -> Self {
         unsafe { core::mem::zeroed() }
     }
@@ -738,6 +885,12 @@ pub type PAGE_PROTECTION_FLAGS = u32;
 pub type PAGE_TYPE = u32;
 pub type PCSTR = *const u8;
 pub type PCWSTR = *const u16;
+pub type PDELAYLOAD_FAILURE_DLL_CALLBACK = Option<
+    unsafe extern "system" fn(
+        notificationreason: u32,
+        delayloadinfo: *const DELAYLOAD_INFO,
+    ) -> *mut core::ffi::c_void,
+>;
 pub type PROCESSOR_FEATURE_ID = u32;
 pub type PSTR = *mut u8;
 pub type PWSTR = *mut u16;

@@ -48,6 +48,8 @@ HeapLock
 HeapReAlloc
 HeapSize
 HeapUnlock
+IMAGE_DELAYLOAD_DESCRIPTOR
+IMAGE_THUNK_DATA32
 InitializeConditionVariable
 InitializeCriticalSection
 InitializeCriticalSectionAndSpinCount
@@ -64,6 +66,7 @@ LeaveCriticalSection
 MultiByteToWideChar
 NtTerminateProcess
 OutputDebugStringW
+PDELAYLOAD_FAILURE_DLL_CALLBACK
 QueryDepthSList
 RaiseException
 ReleaseSRWLockExclusive
