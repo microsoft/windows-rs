@@ -5,7 +5,7 @@
 fn test() {
     let targets = helpers::crates("../../../targets");
     assert_eq!(8, targets.len());
-    assert!(targets.iter().all(|toml| toml.package.version == "0.53.0"));
+    assert!(targets.iter().all(|toml| toml.package.version == "0.53.1"));
 
     // The lib names can't change for minor (semver) updates as that breaks linker search.
     // https://github.com/microsoft/windows-rs/issues/2869
