@@ -385,6 +385,8 @@ jobs:
         run:  cargo test -p windows-collections --target ${{ matrix.target }}
       - name: Test windows-core
         run:  cargo test -p windows-core --target ${{ matrix.target }}
+      - name: Test windows-enclaves
+        run:  cargo test -p windows-enclaves --target ${{ matrix.target }}
       - name: Test windows-future
         run:  cargo test -p windows-future --target ${{ matrix.target }}
       - name: Test windows-implement

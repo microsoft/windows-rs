@@ -38,6 +38,8 @@ jobs:
         run:  cargo check -p windows-collections --no-default-features
       - name: Check windows-core
         run:  cargo check -p windows-core --no-default-features
+      - name: Check windows-enclaves
+        run:  cargo check -p windows-enclaves --no-default-features
       - name: Check windows-future
         run:  cargo check -p windows-future --no-default-features
       - name: Check windows-implement
