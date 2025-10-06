@@ -34,6 +34,10 @@ fn test() {
             assert!(package.description.is_some());
             assert!(!package.description.as_ref().unwrap().is_empty());
             assert_eq!(package.readme, Some("readme.md".to_string()));
+
+            let mut path = toml.path.expect("path");
+            path.set_file_name("readme.md");
+            assert!(path.exists(), "missing readme for crate: {}", package.name);
         }
     }
 }
