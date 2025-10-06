@@ -1,0 +1,26 @@
+name: publish
+
+on:
+  pull_request:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+  push:
+    paths-ignore:
+      - '.github/ISSUE_TEMPLATE/**'
+      - '.github/workflows/web.yml'
+      - 'web/**'
+    branches:
+      - master
+
+jobs:
+  publish:
+    runs-on: windows-2025
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+      - name: Update toolchain
+        run: rustup update --no-self-update stable && rustup default stable
+      - name: Check
+        run: cargo publish --workspace --dry-run
