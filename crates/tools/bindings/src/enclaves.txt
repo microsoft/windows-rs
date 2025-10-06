@@ -1,33 +1,42 @@
 --out crates/libs/enclaves/src/bindings.rs
 --flat --sys --no-comment --no-allow --no-deps
-
-// https://learn.microsoft.com/en-us/windows/win32/trusted-execution/enclaves-available-in-vertdll
 --filter
 
-IsProcessorFeaturePresent
+// The list of filtered functions is taken from here:
+// https://learn.microsoft.com/en-us/windows/win32/trusted-execution/enclaves-available-in-vertdll
+//
+// Note that the commented out functions below are not included in the Win32 metadata at present
+// and must therefore be defined by hand within the windows-enclaves crate for the moment.
+
+// EnclaveCopyIntoEnclave
+// EnclaveCopyOutOfEnclave
+// EnclaveRestrictContainingProcessAccess
+// InterlockedPushListSList
 // LdrDisableThreadCalloutsForDll
-NtTerminateProcess
-RtlCaptureContext
+// LdrResolveDelayLoadedAPI
 // RtlGetLastNtStatus
-RtlLookupFunctionEntry
-RtlPcToFileHeader
 // RtlRaiseStatus
-RtlTimeFieldsToTime
 // RtlUnhandledExceptionFilter
-RtlUnwind
-RtlUnwindEx
-RtlVirtualUnwind
-RtlGetSystemGlobalData
-OutputDebugStringW
+
+AcquireSRWLockExclusive
+AcquireSRWLockShared
 CallEnclave
+DeleteCriticalSection
+DeleteSynchronizationBarrier
+DisableThreadLibraryCalls
+EnclaveGetAttestationReport
 EnclaveGetEnclaveInformation
+EnclaveSealData
+EnclaveUnsealData
+EnclaveVerifyAttestationReport
+EnterCriticalSection
+EnterSynchronizationBarrier
 GetCurrentProcess
-TerminateEnclave
-TerminateProcess
+GetCurrentThread
+GetCurrentThreadId
 GetLastError
-SetLastError
-RaiseException
-SetUnhandledExceptionFilter
+GetModuleHandleExW
+GetProcAddress
 GetProcessHeap
 GetProcessHeaps
 HeapAlloc
@@ -39,60 +48,56 @@ HeapLock
 HeapReAlloc
 HeapSize
 HeapUnlock
-InitializeSListHead
-InterlockedFlushSList
-InterlockedPopEntrySList
-InterlockedPushEntrySList
-// InterlockedPushListSList
-InterlockedPushListSListEx
-QueryDepthSList
-DisableThreadLibraryCalls
-GetModuleHandleExW
-GetProcAddress
-SetThreadStackGuarantee
-VirtualAlloc
-VirtualFree
-VirtualProtect
-VirtualQuery
-AcquireSRWLockExclusive
-AcquireSRWLockShared
-DeleteCriticalSection
-DeleteSynchronizationBarrier
-EnterCriticalSection
-EnterSynchronizationBarrier
 InitializeConditionVariable
 InitializeCriticalSection
 InitializeCriticalSectionAndSpinCount
 InitializeCriticalSectionEx
+InitializeSListHead
 InitializeSRWLock
 InitializeSynchronizationBarrier
+InterlockedFlushSList
+InterlockedPopEntrySList
+InterlockedPushEntrySList
+InterlockedPushListSListEx
+IsProcessorFeaturePresent
 LeaveCriticalSection
+MultiByteToWideChar
+NtTerminateProcess
+OutputDebugStringW
+QueryDepthSList
+RaiseException
 ReleaseSRWLockExclusive
 ReleaseSRWLockShared
+RtlCaptureContext
+RtlGetSystemGlobalData
+RtlLookupFunctionEntry
+RtlPcToFileHeader
+RtlTimeFieldsToTime
+RtlUnwind
+RtlUnwindEx
+RtlVirtualUnwind
 SetCriticalSectionSpinCount
+SetLastError
+SetThreadStackGuarantee
+SetUnhandledExceptionFilter
 SleepConditionVariableCS
 SleepConditionVariableSRW
+TerminateEnclave
+TerminateProcess
+TlsAlloc
+TlsFree
+TlsGetValue
+TlsSetValue
 TryAcquireSRWLockExclusive
 TryAcquireSRWLockShared
 TryEnterCriticalSection
+VirtualAlloc
+VirtualFree
+VirtualProtect
+VirtualQuery
 WaitOnAddress
 WakeAllConditionVariable
 WakeByAddressAll
 WakeByAddressSingle
 WakeConditionVariable
-GetCurrentThread
-GetCurrentThreadId
-TlsAlloc
-TlsFree
-TlsGetValue
-TlsSetValue
-// EnclaveCopyIntoEnclave
-// EnclaveCopyOutOfEnclave
-EnclaveGetAttestationReport
-// EnclaveRestrictContainingProcessAccess
-EnclaveSealData
-EnclaveUnsealData
-EnclaveVerifyAttestationReport
 WideCharToMultiByte
-MultiByteToWideChar
-// LdrResolveDelayLoadedAPI

@@ -4,3 +4,15 @@
 
 mod bindings;
 pub use bindings::*;
+
+// The following functions should be generated but are not currently included in the Win32 metadata.
+
+// EnclaveCopyIntoEnclave
+// EnclaveCopyOutOfEnclave
+// EnclaveRestrictContainingProcessAccess
+// InterlockedPushListSList
+// LdrDisableThreadCalloutsForDll
+// LdrResolveDelayLoadedAPI
+// RtlGetLastNtStatus
+// RtlRaiseStatus
+// RtlUnhandledExceptionFilter
