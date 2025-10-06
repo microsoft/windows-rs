@@ -15,8 +15,8 @@ on:
       - master
 
 jobs:
-  fmt:
-    runs-on: ubuntu-22.04
+  publish:
+    runs-on: windows-2025
     steps:
       - name: Checkout
         uses: actions/checkout@v5
