@@ -1,0 +1,98 @@
+--out crates/libs/enclaves/src/bindings.rs
+--flat --sys --no-comment --no-allow --no-deps
+
+// https://learn.microsoft.com/en-us/windows/win32/trusted-execution/enclaves-available-in-vertdll
+--filter
+
+IsProcessorFeaturePresent
+// LdrDisableThreadCalloutsForDll
+NtTerminateProcess
+RtlCaptureContext
+// RtlGetLastNtStatus
+RtlLookupFunctionEntry
+RtlPcToFileHeader
+// RtlRaiseStatus
+RtlTimeFieldsToTime
+// RtlUnhandledExceptionFilter
+RtlUnwind
+RtlUnwindEx
+RtlVirtualUnwind
+RtlGetSystemGlobalData
+OutputDebugStringW
+CallEnclave
+EnclaveGetEnclaveInformation
+GetCurrentProcess
+TerminateEnclave
+TerminateProcess
+GetLastError
+SetLastError
+RaiseException
+SetUnhandledExceptionFilter
+GetProcessHeap
+GetProcessHeaps
+HeapAlloc
+HeapCompact
+HeapCreate
+HeapDestroy
+HeapFree
+HeapLock
+HeapReAlloc
+HeapSize
+HeapUnlock
+InitializeSListHead
+InterlockedFlushSList
+InterlockedPopEntrySList
+InterlockedPushEntrySList
+// InterlockedPushListSList
+InterlockedPushListSListEx
+QueryDepthSList
+DisableThreadLibraryCalls
+GetModuleHandleExW
+GetProcAddress
+SetThreadStackGuarantee
+VirtualAlloc
+VirtualFree
+VirtualProtect
+VirtualQuery
+AcquireSRWLockExclusive
+AcquireSRWLockShared
+DeleteCriticalSection
+DeleteSynchronizationBarrier
+EnterCriticalSection
+EnterSynchronizationBarrier
+InitializeConditionVariable
+InitializeCriticalSection
+InitializeCriticalSectionAndSpinCount
+InitializeCriticalSectionEx
+InitializeSRWLock
+InitializeSynchronizationBarrier
+LeaveCriticalSection
+ReleaseSRWLockExclusive
+ReleaseSRWLockShared
+SetCriticalSectionSpinCount
+SleepConditionVariableCS
+SleepConditionVariableSRW
+TryAcquireSRWLockExclusive
+TryAcquireSRWLockShared
+TryEnterCriticalSection
+WaitOnAddress
+WakeAllConditionVariable
+WakeByAddressAll
+WakeByAddressSingle
+WakeConditionVariable
+GetCurrentThread
+GetCurrentThreadId
+TlsAlloc
+TlsFree
+TlsGetValue
+TlsSetValue
+// EnclaveCopyIntoEnclave
+// EnclaveCopyOutOfEnclave
+EnclaveGetAttestationReport
+// EnclaveRestrictContainingProcessAccess
+EnclaveSealData
+EnclaveUnsealData
+EnclaveVerifyAttestationReport
+WideCharToMultiByte
+MultiByteToWideChar
+// LdrResolveDelayLoadedAPI
