@@ -26,13 +26,13 @@ fn main() {
     println!("Finished in {:.2}s", time.elapsed().as_secs_f32());
 }
 
+// The metadata doesn't currently support these functions so here we manually patch the link macro
+// to import them from vertdll.dll unilaterally.
 fn enclaves() {
     let path = "crates/libs/enclaves/src/bindings.rs";
 
     let bindings = std::fs::read_to_string(path).unwrap();
-
     let regex = regex::Regex::new(r#"link!\(".*?""#).unwrap();
-
     let bindings = regex.replace_all(&bindings, r#"link!("vertdll.dll""#);
 
     std::fs::write(path, bindings.as_bytes()).unwrap();
