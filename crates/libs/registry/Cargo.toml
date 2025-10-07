@@ -1,12 +1,13 @@
 [package]
 name = "windows-registry"
-version = "0.6.0"
+version = "0.6.1"
 edition = "2021"
 rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Windows registry"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [dependencies]
 windows-link = { workspace = true }

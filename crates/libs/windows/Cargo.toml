@@ -1,7 +1,7 @@
 
 [package]
 name = "windows"
-version = "0.62.1"
+version = "0.62.2"
 edition = "2021"
 rust-version = "1.82"
 license = "MIT OR Apache-2.0"
@@ -10,6 +10,7 @@ repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://microsoft.github.io/windows-docs-rs/"
 categories = ["os::windows-apis"]
 exclude = ["features.json"]
+readme = "readme.md"
 
 [hints]
 mostly-unused = true

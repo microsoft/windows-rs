@@ -11,7 +11,7 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Security_Cryptography",   
+    "Win32_Security_Cryptography",
     "Win32_NetworkManagement_IpHelper",
     "Win32_NetworkManagement_Ndis",
     "Win32_Networking_WinSock",

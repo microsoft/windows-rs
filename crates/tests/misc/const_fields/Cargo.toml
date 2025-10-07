@@ -11,14 +11,14 @@ doctest = false
 [dependencies.windows]
 workspace = true
 features = [
-    "Win32_Storage_CloudFilters", 
+    "Win32_Storage_CloudFilters",
     "Win32_System_CorrelationVector",
 ]
 
 [dependencies.windows-sys]
 workspace = true
 features = [
-    "Win32_Storage_CloudFilters", 
+    "Win32_Storage_CloudFilters",
     "Win32_System_CorrelationVector",
 ]
 

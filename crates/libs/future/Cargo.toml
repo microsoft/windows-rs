@@ -1,12 +1,13 @@
 [package]
 name = "windows-future"
-version = "0.3.1"
+version = "0.3.2"
 edition = "2021"
 rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Windows async types"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [dependencies]
 windows-core = { workspace = true }

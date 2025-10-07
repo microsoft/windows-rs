@@ -1,12 +1,13 @@
 [package]
 name = "windows-core"
-version = "0.62.1"
+version = "0.62.2"
 edition = "2021"
 rust-version = "1.82"
 license = "MIT OR Apache-2.0"
 description = "Core type support for COM and Windows"
 repository = "https://github.com/microsoft/windows-rs"
 categories = ["os::windows-apis"]
+readme = "readme.md"
 
 [dependencies]
 windows-implement = { workspace = true }
