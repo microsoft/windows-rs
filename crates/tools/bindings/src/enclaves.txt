@@ -1,0 +1,106 @@
+--out crates/libs/enclaves/src/bindings.rs
+--flat --sys --no-comment --no-allow --no-deps
+--filter
+
+// The list of filtered functions is taken from here:
+// https://learn.microsoft.com/en-us/windows/win32/trusted-execution/enclaves-available-in-vertdll
+//
+// Note that the commented out functions below are not included in the Win32 metadata at present
+// and must therefore be defined by hand within the windows-enclaves crate for the moment.
+
+// EnclaveCopyIntoEnclave
+// EnclaveCopyOutOfEnclave
+// EnclaveRestrictContainingProcessAccess
+// InterlockedPushListSList
+// LdrDisableThreadCalloutsForDll
+// LdrResolveDelayLoadedAPI
+// RtlGetLastNtStatus
+// RtlRaiseStatus
+// RtlUnhandledExceptionFilter
+
+AcquireSRWLockExclusive
+AcquireSRWLockShared
+CallEnclave
+DeleteCriticalSection
+DeleteSynchronizationBarrier
+DisableThreadLibraryCalls
+EnclaveGetAttestationReport
+EnclaveGetEnclaveInformation
+EnclaveSealData
+EnclaveUnsealData
+EnclaveVerifyAttestationReport
+EnterCriticalSection
+EnterSynchronizationBarrier
+GetCurrentProcess
+GetCurrentThread
+GetCurrentThreadId
+GetLastError
+GetModuleHandleExW
+GetProcAddress
+GetProcessHeap
+GetProcessHeaps
+HeapAlloc
+HeapCompact
+HeapCreate
+HeapDestroy
+HeapFree
+HeapLock
+HeapReAlloc
+HeapSize
+HeapUnlock
+IMAGE_DELAYLOAD_DESCRIPTOR
+IMAGE_THUNK_DATA32
+InitializeConditionVariable
+InitializeCriticalSection
+InitializeCriticalSectionAndSpinCount
+InitializeCriticalSectionEx
+InitializeSListHead
+InitializeSRWLock
+InitializeSynchronizationBarrier
+InterlockedFlushSList
+InterlockedPopEntrySList
+InterlockedPushEntrySList
+InterlockedPushListSListEx
+IsProcessorFeaturePresent
+LeaveCriticalSection
+MultiByteToWideChar
+NtTerminateProcess
+OutputDebugStringW
+PDELAYLOAD_FAILURE_DLL_CALLBACK
+QueryDepthSList
+RaiseException
+ReleaseSRWLockExclusive
+ReleaseSRWLockShared
+RtlCaptureContext
+RtlGetSystemGlobalData
+RtlLookupFunctionEntry
+RtlPcToFileHeader
+RtlTimeFieldsToTime
+RtlUnwind
+RtlUnwindEx
+RtlVirtualUnwind
+SetCriticalSectionSpinCount
+SetLastError
+SetThreadStackGuarantee
+SetUnhandledExceptionFilter
+SleepConditionVariableCS
+SleepConditionVariableSRW
+TerminateEnclave
+TerminateProcess
+TlsAlloc
+TlsFree
+TlsGetValue
+TlsSetValue
+TryAcquireSRWLockExclusive
+TryAcquireSRWLockShared
+TryEnterCriticalSection
+VirtualAlloc
+VirtualFree
+VirtualProtect
+VirtualQuery
+WaitOnAddress
+WakeAllConditionVariable
+WakeByAddressAll
+WakeByAddressSingle
+WakeConditionVariable
+WideCharToMultiByte
