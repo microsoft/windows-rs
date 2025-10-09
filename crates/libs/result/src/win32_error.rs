@@ -28,9 +28,11 @@ impl WIN32_ERROR {
             (self.0 & 0x0000_FFFF) | (7 << 16) | 0x8000_0000
         } as i32)
     }
+
     #[inline]
     pub fn from_error(error: &Error) -> Option<Self> {
         let hresult = error.code().0 as u32;
+
         if ((hresult >> 16) & 0x7FF) == 7 {
             Some(Self(hresult & 0xFFFF))
         } else {
@@ -40,11 +42,12 @@ impl WIN32_ERROR {
 
     #[inline]
     pub fn ok(self) -> Result<()> {
-        if self.is_ok() {
-            Ok(())
-        } else {
-            Err(self.to_hresult().into())
-        }
+        self.to_hresult().ok()
+    }
+
+    /// Creates a new `WIN32_ERROR` from the Win32 error code returned by `GetLastError()`.
+    pub fn from_thread() -> Self {
+        Self(unsafe { GetLastError() })
     }
 }
 

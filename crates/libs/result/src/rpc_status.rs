@@ -28,11 +28,7 @@ impl RPC_STATUS {
     /// Converts the [`RPC_STATUS`] to [`Result<()>`][Result<_>].
     #[inline]
     pub fn ok(self) -> Result<()> {
-        if self.is_ok() {
-            Ok(())
-        } else {
-            Err(self.to_hresult().into())
-        }
+        self.to_hresult().ok()
     }
 }
 

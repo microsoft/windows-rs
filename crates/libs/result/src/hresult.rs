@@ -116,8 +116,7 @@ impl HRESULT {
     pub fn from_thread() -> Self {
         #[cfg(windows)]
         {
-            let error = unsafe { GetLastError() };
-            WIN32_ERROR(error).into()
+            WIN32_ERROR::from_thread().into()
         }
         #[cfg(not(windows))]
         {
