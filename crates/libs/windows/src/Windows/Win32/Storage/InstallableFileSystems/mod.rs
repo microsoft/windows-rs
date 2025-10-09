@@ -300,7 +300,7 @@ pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
 #[repr(C)]
 #[derive(Clone, Copy, Debug, Default, PartialEq)]
 pub struct FILTER_REPLY_HEADER {
-    pub Status: super::super::Foundation::NTSTATUS,
+    pub Status: windows_core::NTSTATUS,
     pub MessageId: u64,
 }
 #[repr(C)]

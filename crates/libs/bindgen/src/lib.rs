@@ -353,25 +353,6 @@ where
         panic!("exactly one `--out` is required");
     };
 
-    if !sys && !no_deps {
-        references.insert(
-            0,
-            ReferenceStage::parse("windows_collections,flat,Windows.Foundation.Collections"),
-        );
-        references.insert(
-            0,
-            ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
-        );
-        references.insert(
-            0,
-            ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
-        );
-        references.insert(
-            0,
-            ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
-        );
-    }
-
     // This isn't strictly necessary but avoids a common newbie pitfall where all metadata
     // would be generated when building a component for a specific API.
     if include.is_empty() {
@@ -379,6 +360,62 @@ where
     }
 
     let reader = Reader::new(expand_input(&input));
+
+    if !sys && !no_deps {
+        if reader.contains_key("Windows.Foundation") {
+            references.insert(
+                0,
+                ReferenceStage::parse("windows_collections,flat,Windows.Foundation.Collections"),
+            );
+            references.insert(
+                0,
+                ReferenceStage::parse("windows_numerics,flat,Windows.Foundation.Numerics"),
+            );
+            references.insert(
+                0,
+                ReferenceStage::parse("windows_future,flat,Windows.Foundation.Async*"),
+            );
+            references.insert(
+                0,
+                ReferenceStage::parse("windows_future,flat,Windows.Foundation.IAsync*"),
+            );
+        }
+
+        if reader.contains_key("Windows.Win32.Foundation") {
+            if specific_deps {
+                references.insert(
+                    0,
+                    ReferenceStage::parse(
+                        "windows_result,flat,Windows.Win32.Foundation.WIN32_ERROR",
+                    ),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_result,flat,Windows.Win32.Foundation.NTSTATUS"),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse(
+                        "windows_result,flat,Windows.Win32.System.Rpc.RPC_STATUS",
+                    ),
+                );
+            } else {
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_core,flat,Windows.Win32.Foundation.WIN32_ERROR"),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_core,flat,Windows.Win32.Foundation.NTSTATUS"),
+                );
+                references.insert(
+                    0,
+                    ReferenceStage::parse("windows_core,flat,Windows.Win32.System.Rpc.RPC_STATUS"),
+                );
+            }
+        }
+    }
+
     let filter = Filter::new(&reader, &include, &exclude);
     let references = References::new(&reader, references);
     let types = TypeMap::filter(&reader, &filter, &references);

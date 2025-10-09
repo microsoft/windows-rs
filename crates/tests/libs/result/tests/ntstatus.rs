@@ -1,6 +1,6 @@
-use windows::Win32::Foundation::{NTSTATUS, STATUS_INVALID_ACL, STATUS_SUCCESS, S_OK};
+use windows::Win32::Foundation::{STATUS_INVALID_ACL, STATUS_SUCCESS, S_OK};
 use windows_result::Result as WindowsResult;
-use windows_result::HRESULT;
+use windows_result::{HRESULT, NTSTATUS};
 
 #[test]
 fn test() {

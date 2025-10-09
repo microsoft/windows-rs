@@ -2617,7 +2617,7 @@ pub const PROCESS_ALL_ACCESS: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(2097
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy, Debug, PartialEq)]
 pub struct PROCESS_BASIC_INFORMATION {
-    pub ExitStatus: super::super::Foundation::NTSTATUS,
+    pub ExitStatus: windows_core::NTSTATUS,
     pub PebBaseAddress: *mut PEB,
     pub AffinityMask: usize,
     pub BasePriority: i32,

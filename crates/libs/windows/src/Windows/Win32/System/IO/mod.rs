@@ -68,7 +68,7 @@ impl Default for IO_STATUS_BLOCK {
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub union IO_STATUS_BLOCK_0 {
-    pub Status: super::super::Foundation::NTSTATUS,
+    pub Status: windows_core::NTSTATUS,
     pub Pointer: *mut core::ffi::c_void,
 }
 impl Default for IO_STATUS_BLOCK_0 {
