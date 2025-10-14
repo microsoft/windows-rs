@@ -43,8 +43,8 @@ fn callback() {
             0
         }
 
-        let mut wc: WNDCLASSA = std::mem::zeroed();
-        wc.lpfnWndProc = None;
-        wc.lpfnWndProc = Some(wndproc);
+        let mut _wc: WNDCLASSA = std::mem::zeroed();
+        _wc.lpfnWndProc = None;
+        _wc.lpfnWndProc = Some(wndproc);
     }
 }
