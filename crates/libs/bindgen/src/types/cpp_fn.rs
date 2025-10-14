@@ -51,9 +51,9 @@ impl CppFn {
             quote! {}
         };
 
-        link_fmt(quote! {
+        quote! {
             pub type #name = unsafe extern #abi fn(#(#params),* #vararg) #return_sig;
-        })
+        }
     }
 
     pub fn write_link(&self, config: &Config, underlying_types: bool) -> TokenStream {
