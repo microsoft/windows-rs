@@ -110,13 +110,13 @@ where
     unsafe { NetAddAlternateComputerName(server.param().abi(), alternatename.param().abi(), domainaccount.param().abi(), domainaccountpassword.param().abi(), reserved) }
 }
 #[inline]
-pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetAddServiceAccount<P0, P1, P2>(servername: P0, accountname: P1, password: P2, flags: u32) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
     P2: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetAddServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, password : windows_core::PCWSTR, flags : u32) -> windows_core:: NTSTATUS);
     unsafe { NetAddServiceAccount(servername.param().abi(), accountname.param().abi(), password.param().abi(), flags) }
 }
 #[inline]
@@ -226,11 +226,11 @@ where
     unsafe { NetEnumerateComputerNames(server.param().abi(), nametype, reserved, entrycount as _, computernames as _) }
 }
 #[inline]
-pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetEnumerateServiceAccounts<P0>(servername: P0, flags: u32, accountscount: *mut u32, accounts: *mut *mut *mut u16) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> super::super::Foundation:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetEnumerateServiceAccounts(servername : windows_core::PCWSTR, flags : u32, accountscount : *mut u32, accounts : *mut *mut *mut u16) -> windows_core:: NTSTATUS);
     unsafe { NetEnumerateServiceAccounts(servername.param().abi(), flags, accountscount as _, accounts as _) }
 }
 #[inline]
@@ -405,12 +405,12 @@ where
     unsafe { NetGroupSetUsers(servername.param().abi(), groupname.param().abi(), level, buf, totalentries) }
 }
 #[inline]
-pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetIsServiceAccount<P0, P1>(servername: P0, accountname: P1, isservice: *mut windows_core::BOOL) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> super::super::Foundation:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetIsServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, isservice : *mut windows_core::BOOL) -> windows_core:: NTSTATUS);
     unsafe { NetIsServiceAccount(servername.param().abi(), accountname.param().abi(), isservice as _) }
 }
 #[inline]
@@ -589,12 +589,12 @@ where
     unsafe { NetQueryDisplayInformation(servername.param().abi(), level, index, entriesrequested, preferredmaximumlength, returnedentrycount as _, sortedbuffer as _) }
 }
 #[inline]
-pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetQueryServiceAccount<P0, P1>(servername: P0, accountname: P1, infolevel: u32, buffer: *mut *mut u8) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> super::super::Foundation:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetQueryServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, infolevel : u32, buffer : *mut *mut u8) -> windows_core:: NTSTATUS);
     unsafe { NetQueryServiceAccount(servername.param().abi(), accountname.param().abi(), infolevel, buffer as _) }
 }
 #[inline]
@@ -625,12 +625,12 @@ where
     unsafe { NetRemoveAlternateComputerName(server.param().abi(), alternatename.param().abi(), domainaccount.param().abi(), domainaccountpassword.param().abi(), reserved) }
 }
 #[inline]
-pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> super::super::Foundation::NTSTATUS
+pub unsafe fn NetRemoveServiceAccount<P0, P1>(servername: P0, accountname: P1, flags: u32) -> windows_core::NTSTATUS
 where
     P0: windows_core::Param<windows_core::PCWSTR>,
     P1: windows_core::Param<windows_core::PCWSTR>,
 {
-    windows_core::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : u32) -> super::super::Foundation:: NTSTATUS);
+    windows_core::link!("netapi32.dll" "system" fn NetRemoveServiceAccount(servername : windows_core::PCWSTR, accountname : windows_core::PCWSTR, flags : u32) -> windows_core:: NTSTATUS);
     unsafe { NetRemoveServiceAccount(servername.param().abi(), accountname.param().abi(), flags) }
 }
 #[inline]

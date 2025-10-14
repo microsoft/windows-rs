@@ -18,7 +18,7 @@ fn access() {
 
     assert_eq!(
         key.get_u64("u64").unwrap_err().code(),
-        HRESULT::from_win32(ERROR_ACCESS_DENIED)
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 
     let key = CURRENT_USER
@@ -31,7 +31,7 @@ fn access() {
 
     assert_eq!(
         key.set_u64("u64", 123u64).unwrap_err().code(),
-        HRESULT::from_win32(ERROR_ACCESS_DENIED)
+        WIN32_ERROR(ERROR_ACCESS_DENIED).into()
     );
 }
 

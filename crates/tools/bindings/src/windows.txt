@@ -39,3 +39,8 @@
     !Windows.Win32.System.WinRT.Xaml
     !Windows.Win32.UI.Xaml
     !Windows.Win32.Web.MsHtml
+
+// windows-result
+    !Windows.Win32.Foundation.WIN32_ERROR
+    !Windows.Win32.Foundation.NTSTATUS
+    !Windows.Win32.System.Rpc.RPC_STATUS

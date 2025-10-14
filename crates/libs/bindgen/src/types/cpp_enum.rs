@@ -108,14 +108,7 @@ impl CppEnum {
             }
         };
 
-        let must_use = if matches!(tn, TypeName::WIN32_ERROR | TypeName::RPC_STATUS) {
-            quote! { #[must_use] }
-        } else {
-            quote! {}
-        };
-
         quote! {
-            #must_use
             #[repr(transparent)]
             #derive
             pub struct #name(pub #underlying_type);

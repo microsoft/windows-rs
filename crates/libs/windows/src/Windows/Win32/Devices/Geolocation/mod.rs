@@ -19,7 +19,7 @@ pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
     pub Version: u32,
     pub InjectionType: GNSS_AGNSS_REQUEST_TYPE,
-    pub InjectionStatus: super::super::Foundation::NTSTATUS,
+    pub InjectionStatus: windows_core::NTSTATUS,
     pub InjectionDataSize: u32,
     pub Unused: [u8; 512],
     pub Anonymous: GNSS_AGNSS_INJECT_0,
@@ -192,7 +192,7 @@ impl Default for GNSS_CP_NI_INFO {
 pub struct GNSS_CWTESTDATA {
     pub Size: u32,
     pub Version: u32,
-    pub TestResultStatus: super::super::Foundation::NTSTATUS,
+    pub TestResultStatus: windows_core::NTSTATUS,
     pub SignalToNoiseRatio: f64,
     pub Frequency: f64,
     pub Unused: [u8; 512],
@@ -389,7 +389,7 @@ pub struct GNSS_FIXDATA {
     pub FixSessionID: u32,
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub IsFinalFix: windows_core::BOOL,
-    pub FixStatus: super::super::Foundation::NTSTATUS,
+    pub FixStatus: windows_core::NTSTATUS,
     pub FixLevelOfDetails: u32,
     pub BasicData: GNSS_FIXDATA_BASIC,
     pub AccuracyData: GNSS_FIXDATA_ACCURACY,
@@ -403,7 +403,7 @@ pub struct GNSS_FIXDATA_2 {
     pub FixSessionID: u32,
     pub FixTimeStamp: super::super::Foundation::FILETIME,
     pub IsFinalFix: windows_core::BOOL,
-    pub FixStatus: super::super::Foundation::NTSTATUS,
+    pub FixStatus: windows_core::NTSTATUS,
     pub FixLevelOfDetails: u32,
     pub BasicData: GNSS_FIXDATA_BASIC_2,
     pub AccuracyData: GNSS_FIXDATA_ACCURACY_2,
@@ -539,7 +539,7 @@ pub const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1u32;
 pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub Size: u32,
     pub Version: u32,
-    pub Status: super::super::Foundation::NTSTATUS,
+    pub Status: windows_core::NTSTATUS,
     pub StatusTimeStamp: super::super::Foundation::FILETIME,
     pub Unused: [u8; 512],
 }
@@ -584,7 +584,7 @@ impl Default for GNSS_GEOFENCE_CREATE_PARAM {
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub Size: u32,
     pub Version: u32,
-    pub CreationStatus: super::super::Foundation::NTSTATUS,
+    pub CreationStatus: windows_core::NTSTATUS,
     pub GeofenceID: u32,
     pub Unused: [u8; 512],
 }
@@ -788,7 +788,7 @@ impl Default for GNSS_SELFTESTCONFIG {
 pub struct GNSS_SELFTESTRESULT {
     pub Size: u32,
     pub Version: u32,
-    pub TestResultStatus: super::super::Foundation::NTSTATUS,
+    pub TestResultStatus: windows_core::NTSTATUS,
     pub Result: u32,
     pub PinFailedBitMask: u32,
     pub Unused: [u8; 512],
