@@ -99,7 +99,10 @@ pub unsafe fn CoCreateFreeThreadedMarshaler<P0>(punkouter: P0) -> windows_core::
 where
     P0: windows_core::Param<windows_core::IUnknown>,
 {
-    windows_core::link!("combase.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    #[cfg(target_vendor = "win7")]
+    windows_core::link!("ole32.dll" "system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
+    #[cfg(not(target_vendor = "win7"))]
+    windows_core::link ! ( "combase.dll" "system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoCreateFreeThreadedMarshaler(punkouter.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
@@ -319,7 +322,10 @@ pub unsafe fn CoImpersonateClient() -> windows_core::Result<()> {
 }
 #[inline]
 pub unsafe fn CoIncrementMTAUsage() -> windows_core::Result<CO_MTA_USAGE_COOKIE> {
-    windows_core::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
+    #[cfg(target_vendor = "win7")]
+    windows_core::link!("ole32.dll" "system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
+    #[cfg(not(target_vendor = "win7"))]
+    windows_core::link ! ( "combase.dll" "system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_core::HRESULT);
     unsafe {
         let mut result__ = core::mem::zeroed();
         CoIncrementMTAUsage(&mut result__).map(|| result__)
@@ -545,12 +551,18 @@ where
 }
 #[inline]
 pub unsafe fn CoTaskMemAlloc(cb: usize) -> *mut core::ffi::c_void {
-    windows_core::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
+    #[cfg(target_vendor = "win7")]
+    windows_core::link!("ole32.dll" "system" fn CoTaskMemAlloc ( cb : usize) -> *mut core::ffi::c_void);
+    #[cfg(not(target_vendor = "win7"))]
+    windows_core::link ! ( "combase.dll" "system" fn CoTaskMemAlloc ( cb : usize) -> *mut core::ffi::c_void);
     unsafe { CoTaskMemAlloc(cb) }
 }
 #[inline]
 pub unsafe fn CoTaskMemFree(pv: Option<*const core::ffi::c_void>) {
-    windows_core::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
+    #[cfg(target_vendor = "win7")]
+    windows_core::link!("ole32.dll" "system" fn CoTaskMemFree ( pv : *const core::ffi::c_void));
+    #[cfg(not(target_vendor = "win7"))]
+    windows_core::link ! ( "combase.dll" "system" fn CoTaskMemFree ( pv : *const core::ffi::c_void));
     unsafe { CoTaskMemFree(pv.unwrap_or(core::mem::zeroed()) as _) }
 }
 #[inline]

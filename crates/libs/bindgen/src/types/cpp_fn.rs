@@ -33,6 +33,7 @@ impl CppFn {
         let name = to_ident(self.method.name());
         let abi = self.method.calling_convention();
         let signature = self.method.signature(self.namespace, &[]);
+        let is_combase_hack = self.method.combase_hack();
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
@@ -54,9 +55,19 @@ impl CppFn {
 
         let link = to_ident(config.link);
 
-        link_fmt(quote! {
-            #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
-        })
+        if is_combase_hack {
+            let params_clone = params.clone();
+            link_fmt(quote! {
+                #[cfg(target_vendor = "win7")]
+                #link::link!(#library #abi #symbol fn #name(#(#params_clone),* #vararg) #return_sig);
+                #[cfg(not(target_vendor = "win7"))]
+                #link::link!("combase.dll" #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
+            })
+        } else {
+            link_fmt(quote! {
+                #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
+            })
+        }
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {

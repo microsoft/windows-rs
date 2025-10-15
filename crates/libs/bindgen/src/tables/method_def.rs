@@ -41,6 +41,12 @@ impl MethodDef {
     }
 
     pub fn module_name(&self) -> String {
+        self.impl_map()
+            .map_or("", |map| map.scope().name())
+            .to_lowercase()
+    }
+
+    pub fn combase_hack(&self) -> bool {
         const combase_functions: [&str; 5] = [
             "CoCreateFreeThreadedMarshaler",
             "CoIncrementMTAUsage",
@@ -49,13 +55,7 @@ impl MethodDef {
             "RoGetAgileReference",
         ];
 
-        if combase_functions.contains(&self.name()) {
-            "combase.dll".to_string()
-        } else {
-            self.impl_map()
-                .map_or("", |map| map.scope().name())
-                .to_lowercase()
-        }
+        combase_functions.contains(&self.name())
     }
 
     pub fn calling_convention(&self) -> &'static str {

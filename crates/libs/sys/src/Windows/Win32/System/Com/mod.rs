@@ -14,7 +14,10 @@ windows_link::link!("ole32.dll" "system" fn CoAllowUnmarshalerCLSID(clsid : *con
 windows_link::link!("ole32.dll" "system" fn CoBuildVersion() -> u32);
 windows_link::link!("ole32.dll" "system" fn CoCancelCall(dwthreadid : u32, ultimeout : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoCopyProxy(pproxy : * mut core::ffi::c_void, ppcopy : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("combase.dll" "system" fn CoCreateFreeThreadedMarshaler(punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(target_vendor = "win7")]
+windows_link::link!("ole32.dll" "system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
+#[cfg(not(target_vendor = "win7"))]
+windows_link::link ! ( "combase.dll" "system" fn CoCreateFreeThreadedMarshaler ( punkouter : * mut core::ffi::c_void, ppunkmarshal : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoCreateGuid(pguid : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoCreateInstance(rclsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, dwclscontext : CLSCTX, riid : *const windows_sys::core::GUID, ppv : *mut *mut core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoCreateInstanceEx(clsid : *const windows_sys::core::GUID, punkouter : * mut core::ffi::c_void, dwclsctx : CLSCTX, pserverinfo : *const COSERVERINFO, dwcount : u32, presults : *mut MULTI_QI) -> windows_sys::core::HRESULT);
@@ -47,7 +50,10 @@ windows_link::link!("ole32.dll" "system" fn CoGetPSClsid(riid : *const windows_s
 windows_link::link!("ole32.dll" "system" fn CoGetSystemSecurityPermissions(comsdtype : COMSD, ppsd : *mut super::super::Security:: PSECURITY_DESCRIPTOR) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoGetTreatAsClass(clsidold : *const windows_sys::core::GUID, pclsidnew : *mut windows_sys::core::GUID) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoImpersonateClient() -> windows_sys::core::HRESULT);
-windows_link::link!("combase.dll" "system" fn CoIncrementMTAUsage(pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
+#[cfg(target_vendor = "win7")]
+windows_link::link!("ole32.dll" "system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
+#[cfg(not(target_vendor = "win7"))]
+windows_link::link ! ( "combase.dll" "system" fn CoIncrementMTAUsage ( pcookie : *mut CO_MTA_USAGE_COOKIE) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInitialize(pvreserved : *const core::ffi::c_void) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoInitializeEx(pvreserved : *const core::ffi::c_void, dwcoinit : u32) -> windows_sys::core::HRESULT);
 #[cfg(feature = "Win32_Security")]
@@ -80,8 +86,14 @@ windows_link::link!("ole32.dll" "system" fn CoSetCancelObject(punk : * mut core:
 windows_link::link!("ole32.dll" "system" fn CoSetProxyBlanket(pproxy : * mut core::ffi::c_void, dwauthnsvc : u32, dwauthzsvc : u32, pserverprincname : windows_sys::core::PCWSTR, dwauthnlevel : RPC_C_AUTHN_LEVEL, dwimplevel : RPC_C_IMP_LEVEL, pauthinfo : *const core::ffi::c_void, dwcapabilities : u32) -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSuspendClassObjects() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoSwitchCallContext(pnewobject : * mut core::ffi::c_void, ppoldobject : *mut * mut core::ffi::c_void) -> windows_sys::core::HRESULT);
-windows_link::link!("combase.dll" "system" fn CoTaskMemAlloc(cb : usize) -> *mut core::ffi::c_void);
-windows_link::link!("combase.dll" "system" fn CoTaskMemFree(pv : *const core::ffi::c_void));
+#[cfg(target_vendor = "win7")]
+windows_link::link!("ole32.dll" "system" fn CoTaskMemAlloc ( cb : usize) -> *mut core::ffi::c_void);
+#[cfg(not(target_vendor = "win7"))]
+windows_link::link ! ( "combase.dll" "system" fn CoTaskMemAlloc ( cb : usize) -> *mut core::ffi::c_void);
+#[cfg(target_vendor = "win7")]
+windows_link::link!("ole32.dll" "system" fn CoTaskMemFree ( pv : *const core::ffi::c_void));
+#[cfg(not(target_vendor = "win7"))]
+windows_link::link ! ( "combase.dll" "system" fn CoTaskMemFree ( pv : *const core::ffi::c_void));
 windows_link::link!("ole32.dll" "system" fn CoTaskMemRealloc(pv : *const core::ffi::c_void, cb : usize) -> *mut core::ffi::c_void);
 windows_link::link!("ole32.dll" "system" fn CoTestCancel() -> windows_sys::core::HRESULT);
 windows_link::link!("ole32.dll" "system" fn CoTreatAsClass(clsidold : *const windows_sys::core::GUID, clsidnew : *const windows_sys::core::GUID) -> windows_sys::core::HRESULT);
