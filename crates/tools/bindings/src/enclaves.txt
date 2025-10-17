@@ -85,7 +85,6 @@ SetThreadStackGuarantee
 SetUnhandledExceptionFilter
 SleepConditionVariableCS
 SleepConditionVariableSRW
-TerminateEnclave
 TerminateProcess
 TlsAlloc
 TlsFree

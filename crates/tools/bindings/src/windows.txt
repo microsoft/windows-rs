@@ -52,4 +52,3 @@
     !Windows.Win32.System.Environment.EnclaveSealData
     !Windows.Win32.System.Environment.EnclaveUnsealData
     !Windows.Win32.System.Environment.EnclaveVerifyAttestationReport
-    !Windows.Win32.System.Environment.TerminateEnclave

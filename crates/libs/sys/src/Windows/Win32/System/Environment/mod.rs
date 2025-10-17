@@ -28,6 +28,7 @@ windows_link::link!("kernel32.dll" "system" fn SetCurrentDirectoryW(lppathname :
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentStringsW(newenvironment : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentVariableA(lpname : windows_sys::core::PCSTR, lpvalue : windows_sys::core::PCSTR) -> windows_sys::core::BOOL);
 windows_link::link!("kernel32.dll" "system" fn SetEnvironmentVariableW(lpname : windows_sys::core::PCWSTR, lpvalue : windows_sys::core::PCWSTR) -> windows_sys::core::BOOL);
+windows_link::link!("kernel32.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_sys::core::BOOL) -> windows_sys::core::BOOL);
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;

@@ -73,7 +73,6 @@ windows_link::link!("vertdll.dll" "system" fn SetThreadStackGuarantee(stacksizei
 windows_link::link!("vertdll.dll" "system" fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter : LPTOP_LEVEL_EXCEPTION_FILTER) -> LPTOP_LEVEL_EXCEPTION_FILTER);
 windows_link::link!("vertdll.dll" "system" fn SleepConditionVariableCS(conditionvariable : *mut CONDITION_VARIABLE, criticalsection : *mut CRITICAL_SECTION, dwmilliseconds : u32) -> BOOL);
 windows_link::link!("vertdll.dll" "system" fn SleepConditionVariableSRW(conditionvariable : *mut CONDITION_VARIABLE, srwlock : *mut SRWLOCK, dwmilliseconds : u32, flags : u32) -> BOOL);
-windows_link::link!("vertdll.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : BOOL) -> BOOL);
 windows_link::link!("vertdll.dll" "system" fn TerminateProcess(hprocess : HANDLE, uexitcode : u32) -> BOOL);
 windows_link::link!("vertdll.dll" "system" fn TlsAlloc() -> u32);
 windows_link::link!("vertdll.dll" "system" fn TlsFree(dwtlsindex : u32) -> BOOL);

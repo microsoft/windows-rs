@@ -53,9 +53,17 @@ impl MethodDef {
         if combase_functions.contains(&self.name()) {
             "combase.dll".to_string()
         } else {
-            self.impl_map()
+            let mut result = self
+                .impl_map()
                 .map_or("", |map| map.scope().name())
-                .to_lowercase()
+                .to_lowercase();
+
+            // Workaround for https://github.com/microsoft/windows-rs/pull/3788
+            if result == "vertdll.dll" {
+                result = "kernel32.dll".to_string();
+            }
+
+            result
         }
     }
 

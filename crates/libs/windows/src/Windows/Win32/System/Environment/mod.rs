@@ -201,6 +201,11 @@ where
     windows_core::link!("kernel32.dll" "system" fn SetEnvironmentVariableW(lpname : windows_core::PCWSTR, lpvalue : windows_core::PCWSTR) -> windows_core::BOOL);
     unsafe { SetEnvironmentVariableW(lpname.param().abi(), lpvalue.param().abi()).ok() }
 }
+#[inline]
+pub unsafe fn TerminateEnclave(lpaddress: *const core::ffi::c_void, fwait: bool) -> windows_core::Result<()> {
+    windows_core::link!("kernel32.dll" "system" fn TerminateEnclave(lpaddress : *const core::ffi::c_void, fwait : windows_core::BOOL) -> windows_core::BOOL);
+    unsafe { TerminateEnclave(lpaddress, fwait.into()).ok() }
+}
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ACTIVE: u32 = 4u32;
 pub const ENCLAVE_FLAG_DYNAMIC_DEBUG_ENABLED: u32 = 2u32;
 pub const ENCLAVE_FLAG_FULL_DEBUG_ENABLED: u32 = 1u32;
