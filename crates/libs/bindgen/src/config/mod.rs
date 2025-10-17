@@ -20,6 +20,7 @@ pub struct Config<'a> {
     pub package: bool,
     pub rustfmt: &'a str,
     pub sys: bool,
+    pub sys_fn_ptrs: bool,
     pub implement: bool,
     pub specific_deps: bool,
     pub derive: &'a Derive,
