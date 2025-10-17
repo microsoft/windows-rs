@@ -238,16 +238,7 @@ pub struct MEMORY_BASIC_INFORMATION64 {
     pub Type: PAGE_TYPE,
     pub __alignment2: u32,
 }
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct MEMORY_MAPPED_VIEW_ADDRESS {
-    pub Value: *mut core::ffi::c_void,
-}
-impl Default for MEMORY_MAPPED_VIEW_ADDRESS {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type MEMORY_MAPPED_VIEW_ADDRESS = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy, Default)]
 pub struct MEMORY_PARTITION_DEDICATED_MEMORY_ATTRIBUTE {

@@ -107,11 +107,7 @@ impl Default for CLASSIC_EVENT_ID {
     }
 }
 pub const CLSID_TraceRelogger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct CONTROLTRACE_HANDLE {
-    pub Value: u64,
-}
+pub type CONTROLTRACE_HANDLE = u64;
 pub const CTraceRelogger: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x7b40792d_05ff_44c4_9058_f440c71f17d4);
 pub type DECODING_SOURCE = i32;
 pub const DIAG_LOGGER_NAMEA: windows_sys::core::PCSTR = windows_sys::core::s!("DiagLog");
@@ -1487,11 +1483,7 @@ pub type PEVENT_RECORD_CALLBACK = Option<unsafe extern "system" fn(eventrecord: 
 pub type PEVENT_TRACE_BUFFER_CALLBACKA = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEA) -> u32>;
 #[cfg(feature = "Win32_System_Time")]
 pub type PEVENT_TRACE_BUFFER_CALLBACKW = Option<unsafe extern "system" fn(logfile: *mut EVENT_TRACE_LOGFILEW) -> u32>;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct PROCESSTRACE_HANDLE {
-    pub Value: u64,
-}
+pub type PROCESSTRACE_HANDLE = u64;
 pub const PROCESS_TRACE_MODE_EVENT_RECORD: u32 = 268435456u32;
 pub const PROCESS_TRACE_MODE_RAW_TIMESTAMP: u32 = 4096u32;
 pub const PROCESS_TRACE_MODE_REAL_TIME: u32 = 256u32;
@@ -1589,11 +1581,7 @@ pub const PropertyParamLength: PROPERTY_FLAGS = 2i32;
 pub const PropertyStruct: PROPERTY_FLAGS = 1i32;
 pub const PropertyWBEMXmlFragment: PROPERTY_FLAGS = 8i32;
 pub type REGHANDLE = i64;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct RELOGSTREAM_HANDLE {
-    pub Value: u64,
-}
+pub type RELOGSTREAM_HANDLE = u64;
 pub const RegistryGuid: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xae53722e_c863_11d2_8659_00c04fa321a1);
 pub const SYSTEM_ALPC_KW_GENERAL: u64 = 1u64;
 pub const SYSTEM_CONFIG_KW_GRAPHICS: u64 = 2u64;
