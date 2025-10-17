@@ -544,11 +544,7 @@ pub const MUTEX_ALL_ACCESS: SYNCHRONIZATION_ACCESS_RIGHTS = 2031617u32;
 pub const MUTEX_MODIFY_STATE: SYNCHRONIZATION_ACCESS_RIGHTS = 1u32;
 pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 20i32;
 pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
-#[repr(C)]
-#[derive(Clone, Copy, Default)]
-pub struct OVERRIDE_PREFETCH_PARAMETER {
-    pub Value: u32,
-}
+pub type OVERRIDE_PREFETCH_PARAMETER = u32;
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 #[derive(Clone, Copy)]

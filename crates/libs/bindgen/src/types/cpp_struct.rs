@@ -42,8 +42,19 @@ impl CppStruct {
         self.type_name().write(config, &[])
     }
 
+    // A "handle" type is any struct with a single field called "Value" of some primitive type.
     pub fn is_handle(&self) -> bool {
-        self.def.has_attribute("NativeTypedefAttribute")
+        let mut fields = self.def.fields();
+
+        let Some(field) = fields.next() else {
+            return false;
+        };
+
+        if field.name() != "Value" || !field.ty(Some(self)).is_primitive() {
+            return false;
+        }
+
+        fields.next().is_none()
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {

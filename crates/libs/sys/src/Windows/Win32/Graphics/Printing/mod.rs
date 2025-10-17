@@ -3550,16 +3550,7 @@ pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u32;
 pub const PRINTER_EXTENSION_DETAILEDREASON_PRINTER_STATUS: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x5d5a1704_dfd1_4181_8eee_815c86edad31);
 pub const PRINTER_EXTENSION_REASON_DRIVER_EVENT: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0x23bb1328_63de_4293_915b_a6a23d929acb);
 pub const PRINTER_EXTENSION_REASON_PRINT_PREFERENCES: windows_sys::core::GUID = windows_sys::core::GUID::from_u128(0xec8f261f_267c_469f_b5d6_3933023c29cc);
-#[repr(C)]
-#[derive(Clone, Copy)]
-pub struct PRINTER_HANDLE {
-    pub Value: *mut core::ffi::c_void,
-}
-impl Default for PRINTER_HANDLE {
-    fn default() -> Self {
-        unsafe { core::mem::zeroed() }
-    }
-}
+pub type PRINTER_HANDLE = *mut core::ffi::c_void;
 #[repr(C)]
 #[derive(Clone, Copy)]
 pub struct PRINTER_INFO_1A {
