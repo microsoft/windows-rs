@@ -5,8 +5,6 @@ use windows_sys::Win32::Graphics::Printing::*;
 #[test]
 fn test() {
     unsafe {
-        _ = GetSpoolFileHandle(PRINTER_HANDLE {
-            Value: std::ptr::null_mut(),
-        });
+        _ = GetSpoolFileHandle(std::ptr::null_mut());
     }
 }
