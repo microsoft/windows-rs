@@ -46,7 +46,6 @@
     !Windows.Win32.System.Rpc.RPC_STATUS
 
 // windows-enclaves
-    !Windows.Win32.System.Environment.CallEnclave
     !Windows.Win32.System.Environment.EnclaveGetAttestationReport
     !Windows.Win32.System.Environment.EnclaveGetEnclaveInformation
     !Windows.Win32.System.Environment.EnclaveSealData
