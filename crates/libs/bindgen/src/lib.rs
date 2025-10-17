@@ -81,6 +81,7 @@ use method_names::*;
 /// | `--no-comment` | Avoids generating the code generation comment. |
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
+/// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
@@ -278,6 +279,7 @@ where
     let mut rustfmt = String::new();
     let mut output = String::new();
     let mut sys = false;
+    let mut sys_fn_ptrs = false;
     let mut link = String::new();
     let mut index = false;
 
@@ -301,6 +303,7 @@ where
                 "--no-toml" => no_toml = true,
                 "--package" => package = true,
                 "--sys" => sys = true,
+                "--sys-fn-ptrs" => sys_fn_ptrs = true,
                 "--implement" => implement = true,
                 "--specific-deps" => specific_deps = true,
                 "--link" => kind = ArgKind::Link,
@@ -435,6 +438,7 @@ where
         rustfmt: &rustfmt,
         output: &output,
         sys,
+        sys_fn_ptrs,
         implement,
         specific_deps,
         link: &link,

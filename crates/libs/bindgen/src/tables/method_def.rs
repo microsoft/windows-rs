@@ -49,6 +49,7 @@ impl MethodDef {
             "RoGetAgileReference",
         ];
 
+        // Workaround for https://github.com/microsoft/windows-rs/pull/3743
         if combase_functions.contains(&self.name()) {
             "combase.dll".to_string()
         } else {
