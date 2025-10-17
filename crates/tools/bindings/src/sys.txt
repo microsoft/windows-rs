@@ -109,3 +109,12 @@
     !Windows.Win32.UI.Wpf
     !Windows.Win32.UI.Xaml
     !Windows.Win32.Web.MsHtml
+
+// windows-enclaves
+    !Windows.Win32.System.Environment.CallEnclave
+    !Windows.Win32.System.Environment.EnclaveGetAttestationReport
+    !Windows.Win32.System.Environment.EnclaveGetEnclaveInformation
+    !Windows.Win32.System.Environment.EnclaveSealData
+    !Windows.Win32.System.Environment.EnclaveUnsealData
+    !Windows.Win32.System.Environment.EnclaveVerifyAttestationReport
+    !Windows.Win32.System.Environment.TerminateEnclave
