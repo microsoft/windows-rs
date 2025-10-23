@@ -343,8 +343,8 @@ const fn digest(mut state: [u32; 5], len: u64, blocks: Blocks) -> Digest {
     Digest { data: state }
 }
 
-const fn rol(value: u32, bits: usize) -> u32 {
-    (value << bits) | (value >> (32 - bits))
+const fn rol(value: u32, bits: u32) -> u32 {
+    value.rotate_left(bits)
 }
 
 const fn blk(block: &[u32], i: usize) -> u32 {
