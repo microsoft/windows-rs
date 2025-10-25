@@ -229,7 +229,7 @@ impl Interface {
                 }
             }
 
-            if !is_exclusive {
+            if !is_exclusive || (config.overrides && type_name.1.contains("Overrides")) {
                 let method_names = &mut MethodNames::new();
                 let virtual_names = &mut MethodNames::new();
                 let mut method_tokens = TokenStream::new();
