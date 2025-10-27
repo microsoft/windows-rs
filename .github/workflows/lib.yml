@@ -57,7 +57,7 @@ jobs:
           cargo run -p tool_msvc
 
       - name: Upload libs
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: libs
           path: crates/targets/*/lib/*
