@@ -354,6 +354,8 @@ jobs:
         run:  cargo clippy -p windows-collections --tests
       - name: Check windows-core
         run:  cargo clippy -p windows-core --tests
+      - name: Check windows-enclaves
+        run:  cargo clippy -p windows-enclaves --tests
       - name: Check windows-future
         run:  cargo clippy -p windows-future --tests
       - name: Check windows-implement
