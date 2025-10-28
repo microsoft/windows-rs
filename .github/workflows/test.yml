@@ -135,8 +135,6 @@ jobs:
         run:  cargo test -p sample_service_simple --target ${{ matrix.target }}
       - name: Test sample_service_sys
         run:  cargo test -p sample_service_sys --target ${{ matrix.target }}
-      - name: Test sample_service_thread
-        run:  cargo test -p sample_service_thread --target ${{ matrix.target }}
       - name: Test sample_service_time
         run:  cargo test -p sample_service_time --target ${{ matrix.target }}
       - name: Test sample_shell
@@ -157,10 +155,10 @@ jobs:
         run:  cargo test -p sample_uiautomation --target ${{ matrix.target }}
       - name: Test sample_wmi
         run:  cargo test -p sample_wmi --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test sample_xml
         run:  cargo test -p sample_xml --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_activation
         run:  cargo test -p test_activation --target ${{ matrix.target }}
       - name: Test test_activation_client
@@ -259,10 +257,10 @@ jobs:
         run:  cargo test -p test_marshal --target ${{ matrix.target }}
       - name: Test test_match
         run:  cargo test -p test_match --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test test_metadata
         run:  cargo test -p test_metadata --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test test_msrv
         run:  cargo test -p test_msrv --target ${{ matrix.target }}
       - name: Test test_no_core
@@ -361,10 +359,10 @@ jobs:
         run:  cargo test -p tool_bindgen --target ${{ matrix.target }}
       - name: Test tool_bindings
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }}
       - name: Test tool_merge

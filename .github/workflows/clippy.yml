@@ -110,8 +110,6 @@ jobs:
         run:  cargo clippy -p sample_service_simple --tests
       - name: Check sample_service_sys
         run:  cargo clippy -p sample_service_sys --tests
-      - name: Check sample_service_thread
-        run:  cargo clippy -p sample_service_thread --tests
       - name: Check sample_service_time
         run:  cargo clippy -p sample_service_time --tests
       - name: Check sample_shell
