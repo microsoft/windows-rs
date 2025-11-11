@@ -62,7 +62,7 @@ impl core::fmt::Debug for VARIANT {
 #[cfg(feature = "Win32_System_Com_StructuredStorage")]
 impl core::fmt::Display for VARIANT {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+        core::write!(f, "{:?}", BSTR::try_from(self).unwrap_or_default())
     }
 }
 

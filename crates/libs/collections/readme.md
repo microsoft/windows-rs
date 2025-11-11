@@ -35,7 +35,7 @@ let greetings =
     IVectorView::<HSTRING>::from(vec![HSTRING::from("hello"), HSTRING::from("world")]);
 
 for value in greetings {
-    println!("{value}");
+    println!("{value:?}");
 }
 
 let map = std::collections::BTreeMap::from([("one".into(), 1), ("two".into(), 2)]);

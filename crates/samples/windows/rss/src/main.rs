@@ -12,7 +12,7 @@ fn main() -> Result<()> {
     let feed = client.RetrieveFeedAsync(&uri)?.join()?;
 
     for item in feed.Items()? {
-        println!("{}", item.Title()?.Text()?);
+        println!("{:?}", item.Title()?.Text()?);
     }
 
     Ok(())
