@@ -13,7 +13,7 @@ fn hstring_works() {
     assert!(!hello.is_empty());
     assert!(hello.len() == 5);
 
-    let rust = hello.to_string();
+    let rust = hello.display().to_string();
     assert!(rust == "Hello");
     assert!(rust.len() == 5);
 
@@ -29,13 +29,13 @@ fn hstring_works() {
     assert!(HSTRING::from("Hello") != "Hell");
     assert!(HSTRING::from("Hello") != "World");
 
-    assert!(HSTRING::from("Hello").to_string() == String::from("Hello"));
+    assert!(HSTRING::from("Hello").display().to_string() == String::from("Hello"));
 }
 
 #[test]
 fn display_format() {
     let value = HSTRING::from("Hello world");
-    assert!(format!("{}", value) == "Hello world");
+    assert!(format!("{}", value.display()) == "Hello world");
 }
 
 #[test]
@@ -43,20 +43,20 @@ fn display_invalid_format() {
     let s = HSTRING::from_wide(&[
         0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834,
     ]);
-    let d = format!("{}", s);
+    let d = format!("{}", s.display());
     assert_eq!(d, "𝄞mus�ic�");
 }
 
 #[test]
 fn debug_format() {
     let value = HSTRING::from("Hello world");
-    assert!(format!("{:?}", value) == r#""Hello world""#);
+    assert!(format!("{:?}", value) == "Hello world");
 }
 
 #[test]
 fn from_empty_string() {
     let h = HSTRING::from("");
-    assert!(format!("{}", h).is_empty());
+    assert!(format!("{}", h.display()).is_empty());
 }
 
 #[test]
