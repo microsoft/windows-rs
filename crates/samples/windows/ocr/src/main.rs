@@ -19,6 +19,6 @@ fn main() -> Result<()> {
     let engine = OcrEngine::TryCreateFromUserProfileLanguages()?;
     let result = engine.RecognizeAsync(&bitmap)?.join()?;
 
-    println!("{}", result.Text()?);
+    println!("{:?}", result.Text()?);
     Ok(())
 }

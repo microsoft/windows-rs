@@ -14,14 +14,14 @@ fn main() -> Result<()> {
 
         // Use COM API
         let name = element.CurrentName()?;
-        println!("window name: {name}");
+        println!("window name: {name:?}");
 
         // Query for WinRT API (will fail on earlier versions of Windows)
         let element: Result<AutomationElement> = element.cast();
 
         if let Ok(element) = element {
             // Use WinRT API
-            println!("file name: {}", element.ExecutableFileName()?);
+            println!("file name: {:?}", element.ExecutableFileName()?);
         }
     }
 

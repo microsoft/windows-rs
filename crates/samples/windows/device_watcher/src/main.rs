@@ -5,7 +5,7 @@ fn main() -> Result<()> {
 
     watcher.Added(&TypedEventHandler::<DeviceWatcher, DeviceInformation>::new(
         |_, info| {
-            println!("{}", info.as_ref().expect("info").Name()?);
+            println!("{:?}", info.as_ref().expect("info").Name()?);
             Ok(())
         },
     ))?;

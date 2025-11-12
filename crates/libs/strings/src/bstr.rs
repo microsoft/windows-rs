@@ -34,6 +34,11 @@ impl BSTR {
         result
     }
 
+    /// Allow this string to be displayed.
+    pub fn display(&self) -> impl core::fmt::Display + '_ {
+        Decode(move || core::char::decode_utf16(self.iter().cloned()))
+    }
+
     /// # Safety
     #[doc(hidden)]
     pub unsafe fn from_raw(raw: *const u16) -> Self {
@@ -115,19 +120,9 @@ impl Default for BSTR {
     }
 }
 
-impl core::fmt::Display for BSTR {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        core::write!(
-            f,
-            "{}",
-            Decode(|| core::char::decode_utf16(self.iter().cloned()))
-        )
-    }
-}
-
 impl core::fmt::Debug for BSTR {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        core::write!(f, "{self}")
+        core::write!(f, "{}", self.display())
     }
 }
 

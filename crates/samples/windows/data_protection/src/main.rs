@@ -18,7 +18,7 @@ fn main() -> std::io::Result<()> {
 
     let message =
         CryptographicBuffer::ConvertBinaryToString(BinaryStringEncoding::Utf8, &unprotected)?;
-    println!("{message}");
+    println!("{message:?}");
     Ok(())
 }
 

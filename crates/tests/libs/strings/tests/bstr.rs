@@ -89,3 +89,30 @@ fn deref_as_slice() {
 unsafe extern "C" {
     pub fn wcslen(s: *const u16) -> usize;
 }
+
+#[test]
+fn display_format() {
+    let value = BSTR::from("Hello world");
+    assert!(format!("{}", value.display()) == "Hello world");
+}
+
+#[test]
+fn display_invalid_format() {
+    let s = BSTR::from_wide(&[
+        0xD834, 0xDD1E, 0x006d, 0x0075, 0x0073, 0xDD1E, 0x0069, 0x0063, 0xD834,
+    ]);
+    let d = format!("{}", s.display());
+    assert_eq!(d, "𝄞mus�ic�");
+}
+
+#[test]
+fn debug_format() {
+    let value = BSTR::from("Hello world");
+    assert!(format!("{:?}", value) == "Hello world");
+}
+
+#[test]
+fn from_empty_string() {
+    let h = BSTR::from("");
+    assert!(format!("{}", h.display()).is_empty());
+}

@@ -60,7 +60,7 @@ impl core::fmt::Debug for PROPVARIANT {
 
 impl core::fmt::Display for PROPVARIANT {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        core::write!(f, "{}", BSTR::try_from(self).unwrap_or_default())
+        core::write!(f, "{:?}", BSTR::try_from(self).unwrap_or_default())
     }
 }
 

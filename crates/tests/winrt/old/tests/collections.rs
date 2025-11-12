@@ -28,7 +28,7 @@ fn uri() -> windows::core::Result<()> {
     let mut result = String::new();
 
     for entry in query {
-        result.push_str(&entry.Value()?.to_string());
+        result.push_str(&entry.Value()?.display().to_string());
     }
 
     assert!(result == "123");
@@ -41,7 +41,7 @@ fn uri() -> windows::core::Result<()> {
     let mut result = String::new();
 
     for entry in iterable {
-        result.push_str(&entry.Name()?.to_string());
+        result.push_str(&entry.Name()?.display().to_string());
     }
 
     assert!(result == "ABC");
@@ -54,7 +54,7 @@ fn uri() -> windows::core::Result<()> {
     let mut result = String::new();
 
     for entry in iterable {
-        result.push_str(&entry.Value()?.to_string());
+        result.push_str(&entry.Value()?.display().to_string());
     }
 
     assert!(result == "123");
@@ -88,7 +88,7 @@ fn property_set() -> windows::core::Result<()> {
     let mut values = 0;
 
     for pair in &set {
-        keys.push(pair.Key()?.to_string());
+        keys.push(pair.Key()?.display().to_string());
         values += pair.Value()?.cast::<IReference<i32>>()?.Value()?;
     }
     assert!(set.Size()? == 3);
