@@ -7,7 +7,7 @@ fn main() -> windows::core::Result<()> {
 
     let root = doc.DocumentElement()?;
     assert!(root.NodeName()? == "html");
-    println!("{}", root.InnerText()?);
+    println!("{:?}", root.InnerText()?);
 
     Ok(())
 }

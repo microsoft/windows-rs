@@ -30,6 +30,11 @@ impl HSTRING {
         std::os::windows::ffi::OsStringExt::from_wide(self)
     }
 
+    /// Allow this string to be displayed.
+    pub fn display(&self) -> impl core::fmt::Display + '_ {
+        Decode(move || core::char::decode_utf16(self.iter().cloned()))
+    }
+
     /// # Safety
     /// len must not be less than the number of items in the iterator.
     unsafe fn from_wide_iter<I: Iterator<Item = u16>>(iter: I, len: usize) -> Self {
@@ -110,19 +115,9 @@ impl Drop for HSTRING {
 unsafe impl Send for HSTRING {}
 unsafe impl Sync for HSTRING {}
 
-impl core::fmt::Display for HSTRING {
-    fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(
-            f,
-            "{}",
-            Decode(|| core::char::decode_utf16(self.iter().cloned()))
-        )
-    }
-}
-
 impl core::fmt::Debug for HSTRING {
     fn fmt(&self, f: &mut core::fmt::Formatter) -> core::fmt::Result {
-        write!(f, "\"{self}\"")
+        write!(f, "{}", self.display())
     }
 }
 
