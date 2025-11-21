@@ -55,6 +55,7 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: ${{ matrix.target }}
+# generated - run `cargo run -p tool_yml` to update
       - name: Clean
         run:  cargo clean
       - name: Test cppwinrt
@@ -434,3 +435,4 @@ jobs:
         run: |
           git add -N .
           git diff --exit-code || (echo 'Tests changed code in the repo.'; exit 1)
+

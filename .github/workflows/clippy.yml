@@ -32,6 +32,7 @@ jobs:
         uses: ./.github/actions/fix-environment
         with:
           target: x86_64-pc-windows-msvc
+# generated - run `cargo run -p tool_yml` to update
       - name: Check cppwinrt
         run:  cargo clippy -p cppwinrt --tests
       - name: Check csharp_client
