@@ -31,7 +31,7 @@ jobs:
     runs-on: ${{ matrix.runs-on }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         
       - name: Update toolchain
         run: rustup update --no-self-update nightly && rustup default nightly-${{ matrix.target }}

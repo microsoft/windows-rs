@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Get sources
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Setup node
         uses: actions/setup-node@v6

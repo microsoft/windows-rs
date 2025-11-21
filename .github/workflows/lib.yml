@@ -19,7 +19,7 @@ jobs:
     runs-on: windows-2025
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
 
       - name: Fix environment
         uses: ./.github/actions/fix-environment
