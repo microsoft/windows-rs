@@ -44,6 +44,8 @@ pub mod enum_sys;
 pub mod enum_win;
 pub mod fn_associated_enum_sys;
 pub mod fn_associated_enum_win;
+pub mod fn_extern;
+pub mod fn_extern_vararg;
 pub mod fn_no_return_sys;
 pub mod fn_no_return_win;
 pub mod fn_result_void_sys;

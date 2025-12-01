@@ -96,19 +96,56 @@ impl CppFn {
         Cfg::new(&self.dependencies(), config).write(config, false)
     }
 
+    pub fn write_extern(&self, config: &Config, underlying_types: bool) -> TokenStream {
+        let name = to_ident(self.method.name());
+        let abi = self.method.calling_convention();
+        let signature = self.method.signature(self.namespace, &[]);
+
+        let params = signature.params.iter().map(|param| {
+            let name = param.write_ident();
+            let ty = if underlying_types {
+                param.underlying_type().write_abi(config)
+            } else {
+                param.write_abi(config)
+            };
+            quote! { #name: #ty }
+        });
+
+        let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
+
+        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
+            quote! { , ... }
+        } else {
+            quote! {}
+        };
+
+        quote! {
+            extern #abi {
+                pub fn #name(#(#params),* #vararg) #return_sig;
+            }
+        }
+    }
+
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
         let fn_ptr = self.write_fn_ptr(config, false);
         let link = self.write_link(config, false);
+        let extern_decl = self.write_extern(config, false);
         let arches = write_arches(self.method);
         let cfg = self.write_cfg(config);
         let cfg = quote! { #arches #cfg };
         let window_long = self.write_window_long();
 
         if config.sys {
-            if config.sys_fn_ptrs {
+            if config.extern_decl {
+                return quote! {
+                    #cfg
+                    #extern_decl
+                    #window_long
+                };
+            } else if config.sys_fn_ptrs {
                 return quote! {
                     #cfg
                     #fn_ptr

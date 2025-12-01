@@ -82,6 +82,7 @@ use method_names::*;
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
+/// | `--extern` | Generates extern declarations instead of using the link! macro (requires --sys). |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///
@@ -280,6 +281,7 @@ where
     let mut output = String::new();
     let mut sys = false;
     let mut sys_fn_ptrs = false;
+    let mut extern_decl = false;
     let mut link = String::new();
     let mut index = false;
 
@@ -304,6 +306,7 @@ where
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--sys-fn-ptrs" => sys_fn_ptrs = true,
+                "--extern" => extern_decl = true,
                 "--implement" => implement = true,
                 "--specific-deps" => specific_deps = true,
                 "--link" => kind = ArgKind::Link,
@@ -439,6 +442,7 @@ where
         output: &output,
         sys,
         sys_fn_ptrs,
+        extern_decl,
         implement,
         specific_deps,
         link: &link,
