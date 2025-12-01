@@ -82,6 +82,7 @@ use method_names::*;
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
+/// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
 /// | `--implement` | Includes implementation traits for WinRT interfaces. |
 /// | `--link` | Overrides the default `windows-link` implementation for system calls. |
 ///

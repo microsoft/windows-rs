@@ -304,8 +304,6 @@ jobs:
         run:  cargo clippy -p test_structs --tests
       - name: Check test_sys
         run:  cargo clippy -p test_sys --tests
-      - name: Check test_sys_fn_ptrs
-        run:  cargo clippy -p test_sys_fn_ptrs --tests
       - name: Check test_targets
         run:  cargo clippy -p test_targets --tests
       - name: Check test_threading
