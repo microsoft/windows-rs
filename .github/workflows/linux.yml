@@ -1,5 +1,8 @@
 name: linux
 
+permissions:
+  contents: read
+
 on:
   pull_request:
     paths-ignore:
