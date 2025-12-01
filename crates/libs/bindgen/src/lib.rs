@@ -280,6 +280,7 @@ where
     let mut output = String::new();
     let mut sys = false;
     let mut sys_fn_ptrs = false;
+    let mut sys_fn_extern = false;
     let mut link = String::new();
     let mut index = false;
 
@@ -304,6 +305,7 @@ where
                 "--package" => package = true,
                 "--sys" => sys = true,
                 "--sys-fn-ptrs" => sys_fn_ptrs = true,
+                "--sys-fn-extern" => sys_fn_extern = true,
                 "--implement" => implement = true,
                 "--specific-deps" => specific_deps = true,
                 "--link" => kind = ArgKind::Link,
@@ -439,6 +441,7 @@ where
         output: &output,
         sys,
         sys_fn_ptrs,
+        sys_fn_extern,
         implement,
         specific_deps,
         link: &link,

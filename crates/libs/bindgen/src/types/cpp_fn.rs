@@ -27,10 +27,7 @@ impl CppFn {
         self.type_name().write(config, &[])
     }
 
-    pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
-        let ptr_name = self.method.name().to_string();
-        let name = to_ident(&ptr_name);
-        let abi = self.method.calling_convention();
+    fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
         let signature = self.method.signature(self.namespace, &[]);
 
         let params = signature.params.iter().map(|param| {
@@ -52,7 +49,18 @@ impl CppFn {
         };
 
         quote! {
-            pub type #name = unsafe extern #abi fn(#(#params),* #vararg) #return_sig;
+            (#(#params),* #vararg) #return_sig
+        }
+    }
+
+    pub fn write_fn_ptr(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
+        let ptr_name = self.method.name().to_string();
+        let name = to_ident(&ptr_name);
+        let abi = self.method.calling_convention();
+        let signature = self.write_extern_signature(config, underlying_types);
+
+        quote! {
+            pub type #name = unsafe extern #abi fn #signature;
         }
     }
 
@@ -61,31 +69,20 @@ impl CppFn {
         let symbol = self.method.import_name();
         let name = to_ident(self.method.name());
         let abi = self.method.calling_convention();
-        let signature = self.method.signature(self.namespace, &[]);
-
-        let params = signature.params.iter().map(|param| {
-            let name = param.write_ident();
-            let ty = if underlying_types {
-                param.underlying_type().write_abi(config)
-            } else {
-                param.write_abi(config)
-            };
-            quote! { #name: #ty }
-        });
-
-        let return_sig = config.write_return_sig(self.method, &signature, underlying_types);
-
-        let vararg = if config.sys && signature.call_flags.contains(MethodCallAttributes::VARARG) {
-            quote! { , ... }
-        } else {
-            quote! {}
-        };
-
+        let signature = self.write_extern_signature(config, underlying_types);
         let link = to_ident(config.link);
 
-        link_fmt(quote! {
-            #link::link!(#library #abi #symbol fn #name(#(#params),* #vararg) #return_sig);
-        })
+        if config.sys_fn_extern {
+            quote! {
+                unsafe extern #abi {
+                    pub fn #name #signature;
+                }
+            }
+        } else {
+            link_fmt(quote! {
+                #link::link!(#library #abi #symbol fn #name #signature);
+            })
+        }
     }
 
     pub fn write_cfg(&self, config: &Config) -> TokenStream {
@@ -100,7 +97,6 @@ impl CppFn {
         let name = to_ident(self.method.name());
         let signature = self.method.signature(self.namespace, &[]);
 
-        let fn_ptr = self.write_fn_ptr(config, false);
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
         let cfg = self.write_cfg(config);
@@ -108,22 +104,23 @@ impl CppFn {
         let window_long = self.write_window_long();
 
         if config.sys {
-            if config.sys_fn_ptrs {
-                return quote! {
+            let fn_ptr = if config.sys_fn_ptrs {
+                let fn_ptr = self.write_fn_ptr(config, false);
+
+                quote! {
                     #cfg
                     #fn_ptr
-                    #window_long
-                    #cfg
-                    #link
-                    #window_long
-                };
+                }
             } else {
-                return quote! {
-                    #cfg
-                    #link
-                    #window_long
-                };
-            }
+                quote! {}
+            };
+
+            return quote! {
+                #fn_ptr
+                #cfg
+                #link
+                #window_long
+            };
         }
 
         let method = CppMethod::new(self.method, self.namespace);
