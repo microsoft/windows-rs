@@ -333,8 +333,6 @@ jobs:
         run:  cargo test -p test_structs --target ${{ matrix.target }}
       - name: Test test_sys
         run:  cargo test -p test_sys --target ${{ matrix.target }}
-      - name: Test test_sys_fn_ptrs
-        run:  cargo test -p test_sys_fn_ptrs --target ${{ matrix.target }}
       - name: Test test_targets
         run:  cargo test -p test_targets --target ${{ matrix.target }}
       - name: Test test_threading
@@ -365,10 +363,10 @@ jobs:
         run:  cargo test -p tool_bindings --target ${{ matrix.target }}
       - name: Test tool_gnu
         run:  cargo test -p tool_gnu --target ${{ matrix.target }}
-      - name: Clean
-        run:  cargo clean
       - name: Test tool_license
         run:  cargo test -p tool_license --target ${{ matrix.target }}
+      - name: Clean
+        run:  cargo clean
       - name: Test tool_merge
         run:  cargo test -p tool_merge --target ${{ matrix.target }}
       - name: Test tool_msvc
