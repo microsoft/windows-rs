@@ -23,8 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+      # Temporary pin until clippy::needless_type_cast fix is pushed to nightly
+      # https://github.com/rust-lang/rust-clippy/issues/16243
       - name: Update toolchain
-        run: rustup update --no-self-update nightly && rustup default nightly-x86_64-pc-windows-msvc
+        run: rustup toolchain install nightly-2025-12-11-x86_64-pc-windows-msvc --no-self-update && rustup default nightly-2025-12-11-x86_64-pc-windows-msvc
       - name: Add toolchain target
         run: rustup target add x86_64-pc-windows-msvc
       - name: Install clippy
