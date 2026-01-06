@@ -19,7 +19,7 @@ Read and write registry keys and values as needed:
 use windows_registry::*;
 
 fn main() -> Result<()> {
-    let key = CURRENT_USER.create("software\\windows-rs")?;
+    let key = CURRENT_USER.create(r"software\windows-rs")?;
 
     key.set_u32("number", 123)?;
     key.set_string("name", "Rust")?;
@@ -45,7 +45,7 @@ fn main() -> Result<()> {
         .write()
         .create()
         .transaction(&tx)
-        .open("software\\windows-rs")?;
+        .open(r"software\windows-rs")?;
 
     key.set_u32("name", 123)?;
 
