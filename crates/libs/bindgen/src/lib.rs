@@ -272,7 +272,7 @@ use method_names::*;
 ///     "--filter",
 ///     "WindowsStringHasEmbeddedNull",
 /// ];
-/// 
+///
 /// windows_bindgen::bindgen(args).unwrap();
 /// ```
 ///
@@ -290,7 +290,7 @@ use method_names::*;
 ///     "--filter",
 ///     "WindowsStringHasEmbeddedNull",
 /// ];
-/// 
+///
 /// windows_bindgen::bindgen(args).unwrap();
 /// ```
 ///
