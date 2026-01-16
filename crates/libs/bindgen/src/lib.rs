@@ -80,6 +80,7 @@ use method_names::*;
 /// | `--no-allow` | Avoids generating the default `allow` attribute. |
 /// | `--no-comment` | Avoids generating the code generation comment. |
 /// | `--no-deps` | Avoids dependencies on the various `windows-*` crates. |
+/// | `--specific-deps` | Uses specific crate dependencies rather than `windows-core`. |
 /// | `--sys` | Generates raw or sys-style Rust bindings. |
 /// | `--sys-fn-ptrs` | Additionally generates function pointers for sys-style Rust bindings. |
 /// | `--sys-fn-extern` | Generates extern declarations rather than link macros for sys-style Rust bindings. |
@@ -253,6 +254,54 @@ use method_names::*;
 ///
 /// You'll notice that the bindings are simpler as there's no wrapper functions and other
 /// conveniences. You just need to add a dependency on the tiny [windows-link](https://crates.io/crates/windows-link) crate and you're all set.
+///
+/// # `--specific-deps`
+///
+/// By default, `windows-bindgen` uses `windows-core` uniformly for most dependencies to provide
+/// consistency and convenience. However, if you want to avoid a dependency on the `windows-core`
+/// crate entirely and instead target specific - and much smaller - crates directly, you can use
+/// the `--specific-deps` option.
+///
+/// Consider the following example using the `WindowsStringHasEmbeddedNull` function:
+///
+/// ```rust,no_run
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--flat",
+///     "--filter",
+///     "WindowsStringHasEmbeddedNull",
+/// ];
+/// 
+/// windows_bindgen::bindgen(args).unwrap();
+/// ```
+///
+/// By default, the generated bindings will reference `windows_core` types and use the
+/// `windows_core::link!` macro for convenience and consistent dependency management.
+///
+/// With the `--specific-deps` option:
+///
+/// ```rust,no_run
+/// let args = [
+///     "--out",
+///     "src/bindings.rs",
+///     "--flat",
+///     "--specific-deps",
+///     "--filter",
+///     "WindowsStringHasEmbeddedNull",
+/// ];
+/// 
+/// windows_bindgen::bindgen(args).unwrap();
+/// ```
+///
+/// The bindings will now directly reference specific crates such as `windows_strings::HSTRING`,
+/// `windows_result::Result`, and `windows_link::link!` instead of `windows_core`. This allows
+/// for fine-grained dependency management and can significantly reduce your dependency tree if
+/// you don't need the full `windows-core` functionality.
+///
+/// This option is not the default because this level of control is not for everyone, but if you
+/// need fine-grained dependency management and want to minimize your dependency tree, this option
+/// provides that flexibility.
 ///
 #[track_caller]
 #[must_use]
