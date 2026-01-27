@@ -7,8 +7,12 @@ publish = false
 [dependencies.windows]
 workspace = true
 features = [
+    "std",
     "Web_Syndication",
 ]
+
+[dependencies]
+futures = "0.3"
 
 [lints]
 workspace = true
