@@ -1,0 +1,11 @@
+mod ModForB {
+    struct AlsoInB {
+        a1: u8,
+    }
+    struct B {
+        a: ModForA::A,
+        b: AlsoInB,
+        c: Windows::Foundation::IStringable,
+        d: NestedMod::D,
+    }
+}

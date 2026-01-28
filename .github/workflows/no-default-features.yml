@@ -54,6 +54,8 @@ jobs:
         run:  cargo check -p windows-metadata --no-default-features
       - name: Check windows-numerics
         run:  cargo check -p windows-numerics --no-default-features
+      - name: Check windows-rdl
+        run:  cargo check -p windows-rdl --no-default-features
       - name: Check windows-registry
         run:  cargo check -p windows-registry --no-default-features
       - name: Check windows-result

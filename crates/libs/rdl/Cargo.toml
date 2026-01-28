@@ -1,0 +1,20 @@
+[package]
+name = "windows-rdl"
+version = "0.0.0"
+edition = "2021"
+rust-version = "1.82"
+license = "MIT OR Apache-2.0"
+description = "RDL parser library and ECMA-335 generator"
+repository = "https://github.com/microsoft/windows-rs"
+categories = ["os::windows-apis"]
+readme = "readme.md"
+
+[lints]
+workspace = true
+
+[dependencies]
+windows-metadata = { workspace = true }
+syn = { workspace = true, features = ["full", "parsing", "clone-impls", "printing", "extra-traits"] }
+quote = { workspace = true }
+proc-macro2 = { workspace = true, features = ["span-locations"] }
+prettyplease = "0.2.37"

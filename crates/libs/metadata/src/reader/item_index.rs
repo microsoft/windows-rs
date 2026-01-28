@@ -59,6 +59,14 @@ impl<'a> ItemIndex<'a> {
         self.0.values().flat_map(|items| items.values()).flatten()
     }
 
+    pub fn namespace_items(&self, namespace: &str) -> impl Iterator<Item = (&str, &Item<'_>)> + '_ {
+        self.0
+            .get(namespace)
+            .into_iter()
+            .flatten()
+            .flat_map(|(name, items)| items.iter().map(move |item| (*name, item)))
+    }
+
     pub fn get(&self, namespace: &str, name: &str) -> impl Iterator<Item = &Item<'_>> + '_ {
         self.0
             .get(namespace)

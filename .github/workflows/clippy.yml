@@ -368,6 +368,8 @@ jobs:
         run:  cargo clippy -p windows-metadata --tests
       - name: Check windows-numerics
         run:  cargo clippy -p windows-numerics --tests
+      - name: Check windows-rdl
+        run:  cargo clippy -p windows-rdl --tests
       - name: Check windows-registry
         run:  cargo clippy -p windows-registry --tests
       - name: Check windows-result

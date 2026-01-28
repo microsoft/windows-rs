@@ -1,0 +1,16 @@
+mod Test {
+    struct Name {
+        a1: u8,
+        a2: u16,
+        a3: u32,
+        a5: u64,
+        a6: i8,
+        a7: i16,
+        a8: i32,
+        a9: i64,
+        a10: f32,
+        a11: f64,
+        a12: usize,
+        a13: isize,
+    }
+}

@@ -399,6 +399,8 @@ jobs:
         run:  cargo test -p windows-metadata --target ${{ matrix.target }}
       - name: Test windows-numerics
         run:  cargo test -p windows-numerics --target ${{ matrix.target }}
+      - name: Test windows-rdl
+        run:  cargo test -p windows-rdl --target ${{ matrix.target }}
       - name: Test windows-registry
         run:  cargo test -p windows-registry --target ${{ matrix.target }}
       - name: Test windows-result

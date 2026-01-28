@@ -160,6 +160,7 @@ pub trait HasAttributes<'a> {
     fn attributes(&self) -> RowIterator<'a, Attribute<'a>>;
     fn find_attribute(&self, name: &str) -> Option<Attribute<'a>>;
     fn has_attribute(&self, name: &str) -> bool;
+    fn arches(&self) -> i32;
 }
 
 impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
@@ -174,5 +175,17 @@ impl<'a, R: AsRow<'a> + Into<HasAttribute<'a>>> HasAttributes<'a> for R {
 
     fn has_attribute(&self, name: &str) -> bool {
         self.find_attribute(name).is_some()
+    }
+
+    fn arches(&self) -> i32 {
+        let mut arches = 0;
+
+        if let Some(attribute) = self.find_attribute("SupportedArchitectureAttribute") {
+            if let Some((_, Value::I32(value))) = attribute.value().first() {
+                arches = *value;
+            }
+        }
+
+        arches
     }
 }

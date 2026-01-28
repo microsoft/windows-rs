@@ -1,0 +1,9 @@
+mod Test {
+    #[repr(i32)]
+    enum AsyncStatus {
+        Canceled = 2,
+        Completed = 1,
+        Error = 3,
+        Started = 0,
+    }
+}

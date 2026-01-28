@@ -83,6 +83,13 @@ impl TypeIndex {
             .map(|(file, pos)| TypeDef(Row::new(self, *file, *pos)))
     }
 
+    pub fn contains(&self, namespace: &str, name: &str) -> bool {
+        self.types
+            .get(namespace)
+            .and_then(|types| types.get(name))
+            .is_some()
+    }
+
     #[track_caller]
     pub fn expect(&self, namespace: &str, name: &str) -> TypeDef<'_> {
         let mut iter = self.get(namespace, name);
