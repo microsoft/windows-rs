@@ -70,6 +70,10 @@ jobs:
         run:  cargo check -p windows-numerics --all-features
       - name: Rust version
         run: rustup update --no-self-update 1.82 && rustup default 1.82
+      - name: Check windows-rdl
+        run:  cargo check -p windows-rdl --all-features
+      - name: Rust version
+        run: rustup update --no-self-update 1.82 && rustup default 1.82
       - name: Check windows-registry
         run:  cargo check -p windows-registry --all-features
       - name: Rust version

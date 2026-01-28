@@ -43,6 +43,7 @@ windows-interface = { version = "0.59.3", path = "crates/libs/interface", defaul
 windows-link = { version = "0.2.1", path = "crates/libs/link", default-features = false }
 windows-metadata = { version = "0.59.0", path = "crates/libs/metadata", default-features = false }
 windows-numerics = { version = "0.3.1", path = "crates/libs/numerics", default-features = false }
+windows-rdl = { version = "0.0.0", path = "crates/libs/rdl", default-features = false }
 windows-registry = { version = "0.6.1", path = "crates/libs/registry", default-features = false }
 windows-result = { version = "0.4.1", path = "crates/libs/result", default-features = false }
 windows-services = { version = "0.26.1", path = "crates/libs/services", default-features = false }
