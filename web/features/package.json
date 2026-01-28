@@ -9,7 +9,7 @@
         "@fontsource/fira-sans": "^5.0.18",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^7.0.2"
+        "react-router-dom": "^7.13.0"
     },
     "scripts": {
         "start": "webpack serve --mode development",
