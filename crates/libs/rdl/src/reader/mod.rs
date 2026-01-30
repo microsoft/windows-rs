@@ -153,12 +153,15 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
     match ty {
         syn::Type::Path(ty) => encode_type_path(encoder, ty),
         syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
-        syn::Type::Reference(ty) =>encode_type_reference(encoder, ty),
+        syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
 
-fn encode_type_reference(encoder: &Encoder, ty: &syn::TypeReference) -> Result<metadata::Type, Error> {
+fn encode_type_reference(
+    encoder: &Encoder,
+    ty: &syn::TypeReference,
+) -> Result<metadata::Type, Error> {
     let is_mut = ty.mutability.is_some();
     let ty = encode_type(encoder, &*ty.elem)?;
 
