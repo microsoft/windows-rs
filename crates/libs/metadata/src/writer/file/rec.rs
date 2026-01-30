@@ -8,6 +8,7 @@ pub struct Records {
     pub ClassLayout: Vec<ClassLayout>,
     pub Constant: Vec<Constant>,
     pub Field: Vec<Field>,
+    pub FieldLayout: Vec<FieldLayout>,
     pub GenericParam: Vec<GenericParam>,
     pub ImplMap: Vec<ImplMap>,
     pub InterfaceImpl: Vec<InterfaceImpl>,
@@ -91,6 +92,11 @@ pub struct Field {
     pub Flags: FieldAttributes,
     pub Name: id::StringId,
     pub Signature: id::BlobId,
+}
+
+pub struct FieldLayout {
+    pub Offset: u32,
+    pub Field: u32,
 }
 
 pub struct MethodDef {
@@ -214,6 +220,7 @@ impl Records {
         (1 << 0x0B) | // Constant
         (1 << 0x0C) | // CustomAttribute
         (1 << 0x0F) | // ClassLayout
+        (1 << 0x10) | // FieldLayout
         (1 << 0x1A) | // ModuleRef
         (1 << 0x1B) | // TypeSpec
         (1 << 0x1C) | // ImplMap
@@ -246,6 +253,7 @@ impl Records {
         buffer.write_u32(self.Constant.len().try_into().unwrap());
         buffer.write_u32(self.Attribute.len().try_into().unwrap());
         buffer.write_u32(self.ClassLayout.len().try_into().unwrap());
+        buffer.write_u32(self.FieldLayout.len().try_into().unwrap());
         buffer.write_u32(self.ModuleRef.len().try_into().unwrap());
         buffer.write_u32(self.TypeSpec.len().try_into().unwrap());
         buffer.write_u32(self.ImplMap.len().try_into().unwrap());
@@ -328,6 +336,11 @@ impl Records {
             buffer.write_u16(r.PackingSize);
             buffer.write_u32(r.ClassSize);
             buffer.write_index(r.Parent, self.TypeDef.len());
+        }
+
+        for r in &self.FieldLayout {
+            buffer.write_u32(r.Offset);
+            buffer.write_index(r.Field, self.Field.len());
         }
 
         for r in &self.ModuleRef {

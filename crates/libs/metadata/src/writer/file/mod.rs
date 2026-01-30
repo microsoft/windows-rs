@@ -317,6 +317,13 @@ impl File {
         })
     }
 
+    pub fn FieldLayout(&mut self, field: id::Field, offset: u32) {
+        self.records.FieldLayout.push(rec::FieldLayout {
+            Offset: offset,
+            Field: field.0,
+        })
+    }
+
     pub fn NestedClass(&mut self, inner: id::TypeDef, outer: id::TypeDef) {
         debug_assert!(inner.0 > outer.0);
 
