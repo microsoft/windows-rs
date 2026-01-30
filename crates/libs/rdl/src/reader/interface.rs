@@ -72,8 +72,6 @@ struct Param {
 }
 
 fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error> {
-    // TODO: read any attributes from param.attrs
-
     let syn::Pat::Ident(ref name) = *param.pat else {
         return encoder.err(param, "param name not found");
     };
