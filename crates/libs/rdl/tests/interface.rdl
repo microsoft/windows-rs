@@ -3,8 +3,9 @@ mod Test {
         fn AsString(&self) -> String;
         fn Close(&self);
         fn Add(&self, a:u8, b:u16) -> u32;
-        fn ConstRefWinRT(&self, index: &u32);
-        fn IndexOfWin32(&self, index: *mut u32);
-        fn IndexOfWinRT(&self, index: &mut u32); // [out] uint32& index
+        fn RefMut(&self, p: &mut u32);
+        fn RefConst(&self, p: &u32);
+        fn PtrMut(&self, p: *mut u32);
+        fn PtrConst(&self, p: *const u32);
     }
 }

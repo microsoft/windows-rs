@@ -83,7 +83,7 @@ fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error> {
     let ty = encode_type(encoder, &param.ty)?;
 
     let attributes = match ty {
-        metadata::Type::PtrMut(..) => metadata::ParamAttributes::Out,
+        metadata::Type::RefMut(..) | metadata::Type::PtrMut(..) => metadata::ParamAttributes::Out,
         _ => metadata::ParamAttributes::In,
     };
 

@@ -23,8 +23,9 @@ pub enum Type {
     Name(TypeName),
     Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
     ArrayRef(Box<Self>), // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY
-    ConstRef(Box<Self>), // ELEMENT_TYPE_CMOD_REQD (IsConst)
     Generic(u16),        // ELEMENT_TYPE_VAR
+    RefMut(Box<Self>),   // ELEMENT_TYPE_BYREF
+    RefConst(Box<Self>), // ELEMENT_TYPE_CMOD_REQD (IsConst)
 
     PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
     PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR

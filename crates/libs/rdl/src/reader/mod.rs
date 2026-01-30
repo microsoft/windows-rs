@@ -166,9 +166,9 @@ fn encode_type_reference(
     let ty = encode_type(encoder, &*ty.elem)?;
 
     let ty = if is_mut {
-        todo!("how to indicate mutable out parameter in WinRT e.g. like IndexOf")
+        metadata::Type::RefMut(Box::new(ty))
     } else {
-        metadata::Type::ConstRef(Box::new(ty))
+        metadata::Type::RefConst(Box::new(ty))
     };
 
     Ok(ty)
