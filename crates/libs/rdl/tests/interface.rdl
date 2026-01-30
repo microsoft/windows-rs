@@ -2,7 +2,7 @@ mod Test {
     interface IStringable {
         fn AsString(&self) -> String;
         fn Close(&self);
-        fn Add(&self, a:u8, b:u16) -> u32;
+        fn Add(&self, a: u8, b: u16) -> u32;
         fn RefMut(&self, p: &mut u32);
         fn RefConst(&self, p: &u32);
         fn PtrMut(&self, p: *mut u32);

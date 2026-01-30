@@ -218,6 +218,33 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         F64 => quote! { f64 },
         ISize => quote! { isize },
         USize => quote! { usize },
+        String => quote! { String },
+        RefMut(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { &mut #ty }
+        }
+        RefConst(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { & #ty }
+        }
+        PtrMut(ty, pointers) => {
+            let mut ty = write_type(namespace, ty);
+
+            for _ in 0..*pointers {
+                ty = quote! { *mut #ty };
+            }
+
+            ty
+        }
+        PtrConst(ty, pointers) => {
+            let mut ty = write_type(namespace, ty);
+
+            for _ in 0..*pointers {
+                ty = quote! { *const #ty };
+            }
+
+            ty
+        }
         Name(type_name) => {
             let name = format_ident!("{}", &type_name.name);
 
