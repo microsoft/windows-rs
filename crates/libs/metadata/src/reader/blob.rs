@@ -119,7 +119,6 @@ impl<'a> Blob<'a> {
 
         let ty = self.read_type_code(generics);
 
-        // TODO: why don't we just use IsConst to decide whether pointers are const?
         if pointers > 0 {
             if is_const {
                 Type::PtrConst(Box::new(ty), pointers)
