@@ -121,7 +121,11 @@ impl<'a> Blob<'a> {
 
         // TODO: why don't we just use IsConst to decide whether pointers are const?
         if pointers > 0 {
-            Type::PtrMut(Box::new(ty), pointers)
+            if is_const {
+                Type::PtrConst(Box::new(ty), pointers)
+            } else {
+                Type::PtrMut(Box::new(ty), pointers)
+            }
         } else if is_const {
             Type::RefConst(Box::new(ty))
         } else if is_array {
