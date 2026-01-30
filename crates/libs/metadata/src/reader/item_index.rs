@@ -1,5 +1,6 @@
 use super::*;
 
+#[derive(Debug)]
 pub enum Item<'a> {
     Type(TypeDef<'a>),
     Fn(MethodDef<'a>),

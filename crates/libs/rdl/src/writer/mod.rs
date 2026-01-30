@@ -144,7 +144,7 @@ fn rustfmt(tokens: &str) -> Option<String> {
 fn write(item: &metadata::reader::Item) -> TokenStream {
     match item {
         metadata::reader::Item::Type(ty) => write_type_def(ty),
-        _ => todo!(),
+        rest => todo!("{rest:?}"),
     }
 }
 
@@ -153,7 +153,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Struct => write_struct(item),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
-        _ => todo!(),
+        rest => todo!("{rest:?}"),
     }
 }
 
@@ -253,6 +253,6 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
                 quote! { #tokens #name }
             }
         }
-        _ => todo!(),
+        rest => todo!("{rest:?}"),
     }
 }

@@ -90,7 +90,7 @@ pub fn encode_enum(encoder: &mut Encoder, item: &syntax::Enum) -> Result<(), Err
                     .base10_parse::<i64>()
                     .map_err(|_| encoder.error(variant, "variant value not valid"))?,
             ),
-            _ => todo!(),
+            rest => todo!("{rest:?}"),
         };
 
         encoder
