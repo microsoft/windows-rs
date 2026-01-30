@@ -163,7 +163,7 @@ fn encode_type_reference(
     ty: &syn::TypeReference,
 ) -> Result<metadata::Type, Error> {
     let is_mut = ty.mutability.is_some();
-    let ty = encode_type(encoder, &*ty.elem)?;
+    let ty = encode_type(encoder, &ty.elem)?;
 
     let ty = if is_mut {
         metadata::Type::RefMut(Box::new(ty))
@@ -176,7 +176,7 @@ fn encode_type_reference(
 
 fn encode_type_ptr(encoder: &Encoder, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
     let is_mut = ty.mutability.is_some();
-    let ty = encode_type(encoder, &*ty.elem)?;
+    let ty = encode_type(encoder, &ty.elem)?;
 
     let ty = match ty {
         metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
