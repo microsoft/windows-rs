@@ -16,7 +16,7 @@ impl syn::parse::Parse for Module {
 
         let content;
         syn::braced!(content in input);
-        let mut items = Vec::new();
+        let mut items = vec![];
 
         while !content.is_empty() {
             items.push(content.parse()?);
