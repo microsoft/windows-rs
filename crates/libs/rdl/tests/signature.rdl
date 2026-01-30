@@ -1,6 +1,6 @@
 mod Test {
-    interface IStringable {
-        fn AsString(&self) -> String;
+    interface ITest {
+        fn ToString(&self) -> String;
         fn Close(&self);
         fn Add(&self, a: u8, b: u16) -> u32;
         fn RefMut(&self, p: &mut u32);
