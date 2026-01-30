@@ -1,0 +1,7 @@
+mod Test {
+    union Name {
+        a1: u8,
+        a2: u16,
+        a3: f32,
+    }
+}

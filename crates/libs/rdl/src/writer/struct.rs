@@ -5,9 +5,20 @@ pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
     let name = format_ident!("{}", item.name());
     let fields = item.fields().map(|field| write_field(namespace, &field));
 
-    quote! {
-        struct #name {
-            #(#fields)*
+    if item
+        .flags()
+        .contains(metadata::TypeAttributes::ExplicitLayout)
+    {
+        quote! {
+            union #name {
+                #(#fields)*
+            }
+        }
+    } else {
+        quote! {
+            struct #name {
+                #(#fields)*
+            }
         }
     }
 }
