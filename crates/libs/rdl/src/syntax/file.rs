@@ -9,7 +9,7 @@ impl syn::parse::Parse for File {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
         Ok(Self {
             items: {
-                let mut items = Vec::new();
+                let mut items = vec![];
                 while !input.is_empty() {
                     items.push(input.parse()?);
                 }

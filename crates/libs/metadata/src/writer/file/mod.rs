@@ -379,10 +379,16 @@ impl File {
                 self.Type(ty, buffer);
             }
 
-            Type::ConstRef(ty) => {
+            Type::RefMut(ty) => {
+                buffer.push(ELEMENT_TYPE_BYREF);
+                self.Type(ty, buffer);
+            }
+
+            Type::RefConst(ty) => {
                 buffer.write_compressed(ELEMENT_TYPE_CMOD_REQD as usize);
                 let pos = self.TypeRef("System.Runtime.CompilerServices", "IsConst");
                 buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
+                buffer.push(ELEMENT_TYPE_BYREF);
                 self.Type(ty, buffer);
             }
 
