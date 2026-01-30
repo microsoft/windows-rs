@@ -144,19 +144,56 @@ fn encode_item(
     };
 
     match item {
-        syntax::Item::Struct(item) => encode_struct(encoder, item),
-        syntax::Item::Enum(item) => encode_enum(encoder, item),
-        syntax::Item::Interface(item) => encode_interface(encoder, item),
-        syntax::Item::Union(item) => encode_union(encoder, item),
-        _ => todo!(),
+        syntax::Item::Struct(ty) => encode_struct(encoder, ty),
+        syntax::Item::Enum(ty) => encode_enum(encoder, ty),
+        syntax::Item::Interface(ty) => encode_interface(encoder, ty),
+        syntax::Item::Union(ty) => encode_union(encoder, ty),
+        rest => todo!("{rest:?}"),
     }
 }
 
 fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Error> {
     match ty {
-        syn::Type::Path(path) => encode_type_path(encoder, path),
-        _ => todo!(),
+        syn::Type::Path(ty) => encode_type_path(encoder, ty),
+        syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
+        syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
+        rest => todo!("{rest:?}"),
     }
+}
+
+fn encode_type_reference(
+    encoder: &Encoder,
+    ty: &syn::TypeReference,
+) -> Result<metadata::Type, Error> {
+    let is_mut = ty.mutability.is_some();
+    let ty = encode_type(encoder, &ty.elem)?;
+
+    let ty = if is_mut {
+        metadata::Type::RefMut(Box::new(ty))
+    } else {
+        metadata::Type::RefConst(Box::new(ty))
+    };
+
+    Ok(ty)
+}
+
+fn encode_type_ptr(encoder: &Encoder, ty: &syn::TypePtr) -> Result<metadata::Type, Error> {
+    let is_mut = ty.mutability.is_some();
+    let ty = encode_type(encoder, &ty.elem)?;
+
+    let ty = match ty {
+        metadata::Type::PtrMut(ty, pointers) => metadata::Type::PtrMut(ty, pointers + 1),
+        metadata::Type::PtrConst(ty, pointers) => metadata::Type::PtrConst(ty, pointers + 1),
+        _ => {
+            if is_mut {
+                metadata::Type::PtrMut(Box::new(ty), 1)
+            } else {
+                metadata::Type::PtrConst(Box::new(ty), 1)
+            }
+        }
+    };
+
+    Ok(ty)
 }
 
 fn encode_type_path(encoder: &Encoder, ty: &syn::TypePath) -> Result<metadata::Type, Error> {
@@ -188,6 +225,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         "f64" => return Ok(metadata::Type::F64),
         "isize" => return Ok(metadata::Type::ISize),
         "usize" => return Ok(metadata::Type::USize),
+        "String" => return Ok(metadata::Type::String),
         _ => {}
     }
 
@@ -212,4 +250,11 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
     }
 
     encoder.err(ty, "type not found")
+}
+
+fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
+    match ty {
+        syn::ReturnType::Type(_, ty) => encode_type(encoder, ty),
+        _ => Ok(metadata::Type::Void),
+    }
 }

@@ -19,7 +19,7 @@ impl syn::parse::Parse for Interface {
 
         let content;
         syn::braced!(content in input);
-        let mut methods = Vec::new();
+        let mut methods = vec![];
 
         while !content.is_empty() {
             methods.push(content.parse()?);

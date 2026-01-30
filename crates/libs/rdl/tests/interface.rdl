@@ -1,3 +1,0 @@
-mod Test {
-    interface IStringable {}
-}
