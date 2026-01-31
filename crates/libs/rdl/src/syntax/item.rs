@@ -9,6 +9,7 @@ pub enum Item {
     Enum(Enum),
     Interface(Interface),
     Struct(Struct),
+    Union(Union),
     // Win32 functions and constrants
     // Const(ItemConst),
     // Fn(ItemFn),
@@ -26,7 +27,8 @@ impl Item {
             Self::Enum(Enum { attrs, .. })
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
-            | Self::Struct(Struct { attrs, .. }) => std::mem::replace(attrs, new),
+            | Self::Struct(Struct { attrs, .. })
+            | Self::Union(Union { attrs, .. }) => std::mem::replace(attrs, new),
         }
     }
 }
@@ -38,6 +40,7 @@ impl std::fmt::Display for Item {
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
+            Self::Union(item) => item.name.fmt(f),
         }
     }
 }
@@ -55,6 +58,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Module)
         } else if lookahead.peek(interface) {
             input.parse().map(Item::Interface)
+        } else if lookahead.peek(syn::Token![union]) {
+            input.parse().map(Item::Union)
         } else {
             Err(lookahead.error())
         }?;

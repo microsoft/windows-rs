@@ -2,12 +2,14 @@ mod r#enum;
 mod index;
 mod interface;
 mod r#struct;
+mod union;
 
 use super::*;
 use index::*;
 use interface::*;
 use r#enum::*;
 use r#struct::*;
+use union::*;
 use windows_metadata as metadata;
 
 #[derive(Default)]
@@ -145,6 +147,7 @@ fn encode_item(
         syntax::Item::Struct(ty) => encode_struct(encoder, ty),
         syntax::Item::Enum(ty) => encode_enum(encoder, ty),
         syntax::Item::Interface(ty) => encode_interface(encoder, ty),
+        syntax::Item::Union(ty) => encode_union(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
