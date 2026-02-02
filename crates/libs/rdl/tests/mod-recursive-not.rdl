@@ -1,0 +1,5 @@
+mod Test {
+    mod C {
+        struct C {}
+    }
+}

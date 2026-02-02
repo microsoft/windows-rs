@@ -1,18 +1,15 @@
-#[winrt]
 mod Test {
     struct Test {}
-
-    #[winrt]
     mod A {
         struct A {}
     }
-
-    #[win32]
     mod B {
         struct B {}
     }
-
     mod C {
         struct C {}
+        mod D {
+            struct D {}
+        }
     }
 }
