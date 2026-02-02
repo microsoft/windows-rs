@@ -93,17 +93,15 @@ impl Writer {
                 let mut relative = current_namespace.split('.').peekable();
                 current_namespace = namespace;
                 let mut namespace = namespace.split('.').peekable();
-                let shares_root = relative.peek() == namespace.peek();
+                if relative.peek() == namespace.peek() {
+                    while relative.peek() == namespace.peek() {
+                        if relative.next().is_none() {
+                            break;
+                        }
 
-                while relative.peek() == namespace.peek() {
-                    if relative.next().is_none() {
-                        break;
+                        namespace.next();
                     }
 
-                    namespace.next();
-                }
-
-                if shares_root {
                     for _ in 0..relative.count() {
                         output.push('}')
                     }
@@ -124,24 +122,6 @@ impl Writer {
         for _ in current_namespace.split('.') {
             output.push('}')
         }
-
-        // let modules: Vec<&str> = self.namespace.split('.').collect();
-
-        //
-
-        // for module in &modules {
-        //     output.push_str("mod ");
-        //     output.push_str(module);
-        //     output.push('{')
-        // }
-
-        // for (_, item) in items.values().flatten() {
-        //     output.push_str(item);
-        // }
-
-        // for _ in 0..modules.len() {
-        //     output.push('}')
-        // }
 
         write_to_file(&self.output, format(&output));
 
