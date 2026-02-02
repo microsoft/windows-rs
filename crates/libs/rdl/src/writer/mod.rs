@@ -13,7 +13,7 @@ use windows_metadata as metadata;
 
 // TODO: the writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
-// generating rdl for backfilling definitions and testing.
+// generating rdl for backfilling definitions and for testing.
 
 #[derive(Default)]
 pub struct Writer {

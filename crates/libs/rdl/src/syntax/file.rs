@@ -11,7 +11,10 @@ impl syn::parse::Parse for File {
             items: {
                 let mut items = vec![];
                 while !input.is_empty() {
-                    items.push(input.parse()?);
+                    items.push(Item::Module(input.parse()?));
+
+                    // TODO: possibly support file-level items other than module for nested-file module declarations e.g. `mod Nested;`
+                    //items.push(input.parse()?);
                 }
                 items
             },
