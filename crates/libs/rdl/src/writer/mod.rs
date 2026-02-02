@@ -114,8 +114,6 @@ impl Writer {
                     output.push_str(namespace);
                     output.push('{')
                 }
-
-                
             }
 
             for (_arch, tokens) in items {
@@ -129,7 +127,7 @@ impl Writer {
 
         // let modules: Vec<&str> = self.namespace.split('.').collect();
 
-        // 
+        //
 
         // for module in &modules {
         //     output.push_str("mod ");

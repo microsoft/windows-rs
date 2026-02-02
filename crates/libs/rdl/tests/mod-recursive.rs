@@ -8,7 +8,7 @@ pub fn parse() {
         .write()
         .unwrap();
 
-            Writer::new()
+    Writer::new()
         .input(r#"tests/mod-recursive.winmd"#)
         .output("tests/mod-recursive-not.rdl")
         .namespace("Test.C")
