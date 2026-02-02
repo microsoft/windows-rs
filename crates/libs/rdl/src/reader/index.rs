@@ -2,12 +2,6 @@ use super::*;
 
 type Map<'a> = BTreeMap<String, BTreeMap<String, (&'a str, &'a syntax::Item)>>;
 
-pub struct Item<'a> {
-    pub name: &'a str,
-    pub item: &'a syntax::Item,
-    pub winrt: bool,
-}
-
 #[derive(Default)]
 pub struct Index<'a>(Map<'a>);
 
