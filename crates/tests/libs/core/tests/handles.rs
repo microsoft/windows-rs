@@ -4,6 +4,7 @@ use std::rc::Rc;
 use windows::core::Owned;
 use windows::core::Free;
 
+#[derive(Clone)]
 struct FreeCounter {
     pub count: Rc<Cell<u32>>,
 }
@@ -21,7 +22,7 @@ fn into_raw() {
 
     {
         let owned = unsafe { Owned::new(counter) };
-        let _counter = unsafe { Owned::into_raw(owned) };
+        let _counter = Owned::into_raw(owned);
         assert!(free_count.get() == 0);
     }
 

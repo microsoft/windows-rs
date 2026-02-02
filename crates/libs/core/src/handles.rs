@@ -2,7 +2,7 @@
 ///
 /// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows handles
 /// to be dropped depending on context.
-pub trait Free {
+pub trait Free : Clone {
     /// Calls the handle's free function.
     ///
     /// # Safety
@@ -26,18 +26,11 @@ impl<T: Free> Owned<T> {
     }
 
     /// Consumes the `Owned<T>` and relinquishes ownership of the handle.
-    /// 
-    /// # Safety
-    /// 
     /// The caller is now responsible for freeing the returned handle.
     #[must_use = "losing the handle will leak it"]
-    pub unsafe fn into_raw(o: Self) -> T {
+    pub fn into_raw(o: Self) -> T {
         let o = core::mem::ManuallyDrop::new(o);
-
-        // we want to move out the inner handle but Rust
-        // does not let us do partial moves if the drop trait
-        // is implemented. this is okay because we no longer drop o
-        core::ptr::read(&o.0)
+        o.0.clone()
     }
 }
 
