@@ -20,6 +20,7 @@ pub struct Writer {
     input: Vec<String>,
     output: String,
     namespace: String,
+    recursive: bool,
 }
 
 impl Writer {
@@ -44,6 +45,11 @@ impl Writer {
         self
     }
 
+    pub fn recursive(&mut self) -> &mut Self {
+        self.recursive = true;
+        self
+    }
+
     pub fn write(&self) -> Result<(), Error> {
         let mut input = vec![];
 
@@ -58,32 +64,83 @@ impl Writer {
         let index = metadata::reader::ItemIndex::new(&index);
 
         // TODO: key sorts the output by type name, value sorts multi-definitions by arch?
-        let mut items = BTreeMap::<&str, BTreeMap<i32, String>>::new();
+        let mut items = BTreeMap::<(&str, &str), BTreeMap<i32, String>>::new();
 
-        for (name, item) in index.namespace_items(&self.namespace) {
-            items
-                .entry(name)
-                .or_default()
-                .insert(item_arches(item), write(item).to_string());
+        for namespace in index.keys() {
+            if self.recursive {
+                if !namespace_starts_with(namespace, &self.namespace) {
+                    continue;
+                }
+            } else {
+                if *namespace != self.namespace {
+                    continue;
+                }
+            }
+
+            for (name, item) in index.namespace_items(&self.namespace) {
+                items
+                    .entry((&self.namespace, name))
+                    .or_default()
+                    .insert(item_arches(item), write(item).to_string());
+            }
         }
-
-        let modules: Vec<&str> = self.namespace.split('.').collect();
 
         let mut output = String::new();
+        let mut current_namespace = "";
 
-        for module in &modules {
-            output.push_str("mod ");
-            output.push_str(module);
-            output.push('{')
+        for ((namespace, _name), items) in items {
+            if current_namespace != namespace {
+                let mut relative = current_namespace.split('.').peekable();
+                current_namespace = namespace;
+                let mut namespace = namespace.split('.').peekable();
+
+                while relative.peek() == namespace.peek() {
+                    if relative.next().is_none() {
+                        break;
+                    }
+
+                    namespace.next();
+                }
+
+                // for _ in 0..relative.count() {
+                //     output.push('}')
+                // }
+
+                for namespace in namespace {
+                    output.push_str("mod ");
+                    output.push_str(namespace);
+                    output.push('{')
+                }
+
+                
+            }
+
+            for (_arch, tokens) in items {
+                output.push_str(&tokens);
+            }
         }
 
-        for (_, item) in items.values().flatten() {
-            output.push_str(item);
-        }
-
-        for _ in 0..modules.len() {
+        for _ in current_namespace.split('.') {
             output.push('}')
         }
+
+        // let modules: Vec<&str> = self.namespace.split('.').collect();
+
+        // 
+
+        // for module in &modules {
+        //     output.push_str("mod ");
+        //     output.push_str(module);
+        //     output.push('{')
+        // }
+
+        // for (_, item) in items.values().flatten() {
+        //     output.push_str(item);
+        // }
+
+        // for _ in 0..modules.len() {
+        //     output.push('}')
+        // }
 
         write_to_file(&self.output, format(&output));
 
@@ -102,6 +159,12 @@ fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
     if std::fs::write(path, contents).is_err() {
         panic!("failed to write file `{path}`");
     }
+}
+
+fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
+    namespace.starts_with(starts_with)
+        && (namespace.len() == starts_with.len()
+            || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
 }
 
 fn item_arches(item: &metadata::reader::Item) -> i32 {

@@ -11,6 +11,14 @@ type HashType<'a> = HashMap<&'a str, HashMap<&'a str, Vec<Item<'a>>>>;
 
 pub struct ItemIndex<'a>(HashType<'a>);
 
+impl<'a> core::ops::Deref for ItemIndex<'a> {
+    type Target = HashType<'a>;
+
+    fn deref(&self) -> &HashType<'a> {
+        &self.0
+    }
+}
+
 impl<'a> ItemIndex<'a> {
     pub fn new(index: &'a TypeIndex) -> Self {
         let mut members: HashType = HashMap::new();

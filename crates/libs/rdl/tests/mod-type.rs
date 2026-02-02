@@ -8,10 +8,11 @@ pub fn parse() {
         .write()
         .unwrap();
 
-    // Writer::new()
-    //     .input(r#"tests/mod-type.winmd"#)
-    //     .output("tests/mod-type.rdl")
-    //     .namespace("Test")
-    //     .write()
-    //     .unwrap();
+    Writer::new()
+        .input(r#"tests/mod-type.winmd"#)
+        .output("tests/mod-type.rdl")
+        .namespace("Test")
+        .recursive()
+        .write()
+        .unwrap();
 }

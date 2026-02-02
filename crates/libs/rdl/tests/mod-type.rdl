@@ -13,4 +13,6 @@ mod Test {
     mod C {
         struct C {}
     }
+
+    struct Test {}
 }
