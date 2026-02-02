@@ -77,9 +77,9 @@ impl Writer {
                 }
             }
 
-            for (name, item) in index.namespace_items(&self.namespace) {
+            for (name, item) in index.namespace_items(namespace) {
                 items
-                    .entry((&self.namespace, name))
+                    .entry((namespace, name))
                     .or_default()
                     .insert(item_arches(item), write(item).to_string());
             }
@@ -93,6 +93,7 @@ impl Writer {
                 let mut relative = current_namespace.split('.').peekable();
                 current_namespace = namespace;
                 let mut namespace = namespace.split('.').peekable();
+                let shares_root = relative.peek() == namespace.peek();
 
                 while relative.peek() == namespace.peek() {
                     if relative.next().is_none() {
@@ -102,9 +103,11 @@ impl Writer {
                     namespace.next();
                 }
 
-                // for _ in 0..relative.count() {
-                //     output.push('}')
-                // }
+                if shares_root {
+                    for _ in 0..relative.count() {
+                        output.push('}')
+                    }
+                }
 
                 for namespace in namespace {
                     output.push_str("mod ");
