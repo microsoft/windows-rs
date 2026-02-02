@@ -22,4 +22,12 @@ pub fn parse() {
         .recursive()
         .write()
         .unwrap();
+
+    Writer::new()
+        .input(r#"tests/mod-recursive.winmd"#)
+        .output("tests/mod-recursive-subset.rdl")
+        .namespace("Test.C")
+        .recursive()
+        .write()
+        .unwrap();
 }
