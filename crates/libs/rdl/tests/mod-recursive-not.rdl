@@ -1,4 +1,5 @@
 mod Test {
+    #[winrt]
     mod C {
         struct C {}
     }

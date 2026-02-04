@@ -4,6 +4,7 @@ pub struct Struct {
     pub token: syn::Token![struct],
     pub fields: Vec<syn::Field>,
     pub name: syn::Ident,
+    pub winrt: bool,
 }
 
 impl syn::parse::Parse for Struct {
@@ -25,6 +26,7 @@ impl syn::parse::Parse for Struct {
             token,
             name,
             fields,
+            winrt: false,
         })
     }
 }

@@ -9,6 +9,7 @@ pub struct Interface {
     pub name: syn::Ident,
     // pub requires: Vec<TypeParamBound>,
     pub methods: Vec<Method>,
+    pub winrt: bool,
 }
 
 impl syn::parse::Parse for Interface {
@@ -30,6 +31,7 @@ impl syn::parse::Parse for Interface {
             token,
             name,
             methods,
+            winrt: false,
         })
     }
 }

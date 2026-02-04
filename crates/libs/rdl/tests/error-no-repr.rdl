@@ -1,3 +1,4 @@
+#[winrt]
 mod Test {
     enum AsyncStatus {
         Canceled = 2,

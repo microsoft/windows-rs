@@ -4,6 +4,7 @@ pub struct Enum {
     pub token: syn::Token![enum],
     pub name: syn::Ident,
     pub variants: Vec<syn::Variant>,
+    pub winrt: bool,
 }
 
 impl syn::parse::Parse for Enum {
@@ -25,6 +26,7 @@ impl syn::parse::Parse for Enum {
             token,
             name,
             variants,
+            winrt: false,
         })
     }
 }

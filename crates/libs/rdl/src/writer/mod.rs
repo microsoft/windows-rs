@@ -1,9 +1,11 @@
 mod r#enum;
 mod interface;
+mod layout;
 mod r#struct;
 
 use super::*;
 use interface::*;
+use layout::*;
 use metadata::HasAttributes;
 use proc_macro2::*;
 use quote::*;
@@ -63,8 +65,8 @@ impl Writer {
         let index = metadata::reader::TypeIndex::new(input);
         let index = metadata::reader::ItemIndex::new(&index);
 
-        // TODO: key sorts the output by type name, value sorts multi-definitions by arch?
-        let mut items = BTreeMap::<(&str, &str), BTreeMap<i32, String>>::new();
+        // TODO: this is a mess - may need to build a proper tree struct so we can clearly partition winrt and non-winrt types and group them sensibly
+        let mut layout = Layout::new();
 
         for namespace in index.keys() {
             if self.recursive {
@@ -78,55 +80,64 @@ impl Writer {
             }
 
             for (name, item) in index.namespace_items(namespace) {
-                items
-                    .entry((namespace, name))
-                    .or_default()
-                    .insert(item_arches(item), write(item).to_string());
+                layout.insert(
+                    namespace,
+                    name,
+                    item_arches(item),
+                    item_winrt(item),
+                    write(item).to_string(),
+                );
             }
         }
 
-        let mut output = String::new();
-        let mut current_namespace = "";
+        let output = layout.to_string();
 
-        for ((namespace, _name), items) in items {
-            if current_namespace != namespace {
-                let mut relative = current_namespace.split('.').peekable();
-                current_namespace = namespace;
-                let mut namespace = namespace.split('.').peekable();
-                if relative.peek() == namespace.peek() {
-                    while relative.peek() == namespace.peek() {
-                        if relative.next().is_none() {
-                            break;
-                        }
+        // for ((namespace, _name), items) in items {
 
-                        namespace.next();
-                    }
+        //     if current_namespace != namespace {
+        //         let mut relative = current_namespace.split('.').peekable();
+        //         current_namespace = namespace;
+        //         let mut namespace = namespace.split('.').peekable();
+        //         if relative.peek() == namespace.peek() {
+        //             while relative.peek() == namespace.peek() {
+        //                 if relative.next().is_none() {
+        //                     break;
+        //                 }
 
-                    for _ in 0..relative.count() {
-                        output.push('}')
-                    }
-                }
+        //                 namespace.next();
+        //             }
 
-                for namespace in namespace {
-                    output.push_str("mod ");
-                    output.push_str(namespace);
-                    output.push('{')
-                }
-            }
+        //             for _ in 0..relative.count() {
+        //                 output.push('}')
+        //             }
+        //         }
 
-            for (_arch, tokens) in items {
-                output.push_str(&tokens);
-            }
-        }
+        //         for namespace in namespace {
+        //             output.push_str("mod ");
+        //             output.push_str(namespace);
+        //             output.push('{')
+        //         }
+        //     }
 
-        for _ in current_namespace.split('.') {
-            output.push('}')
-        }
+        //     for item in items {
+        //         output.push_str(&item.tokens);
+        //     }
+        // }
+
+        // for _ in current_namespace.split('.') {
+        //     output.push('}')
+        // }
 
         write_to_file(&self.output, format(&output));
 
         Ok(())
     }
+}
+
+#[derive(Ord, PartialOrd, Eq, PartialEq)]
+struct Item {
+    arches: i32,
+    tokens: String,
 }
 
 #[track_caller]
@@ -153,6 +164,15 @@ fn item_arches(item: &metadata::reader::Item) -> i32 {
         metadata::reader::Item::Type(ty) => ty.arches(),
         metadata::reader::Item::Fn(ty) => ty.arches(),
         metadata::reader::Item::Const(ty) => ty.arches(),
+    }
+}
+
+fn item_winrt(item: &metadata::reader::Item) -> bool {
+    match item {
+        metadata::reader::Item::Type(item) => item
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime),
+        _ => false,
     }
 }
 
@@ -198,6 +218,16 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         rest => todo!("{rest:?}"),
+    }
+}
+fn write_winrt(item: &metadata::reader::TypeDef) -> TokenStream {
+    if item
+        .flags()
+        .contains(metadata::TypeAttributes::WindowsRuntime)
+    {
+        quote! { #[winrt] }
+    } else {
+        quote! { #[win32] }
     }
 }
 

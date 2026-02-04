@@ -1,3 +1,4 @@
+#[winrt]
 mod Test {
     struct Name {
         a1: u8,

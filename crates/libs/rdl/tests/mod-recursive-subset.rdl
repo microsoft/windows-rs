@@ -1,8 +1,12 @@
 mod Test {
     mod C {
-        struct C {}
+        #[winrt]
         mod D {
             struct D {}
         }
+    }
+    #[winrt]
+    mod C {
+        struct C {}
     }
 }
