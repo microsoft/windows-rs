@@ -124,12 +124,11 @@ fn read_winrt_expected<S: syn::spanned::Spanned>(
     attrs: &[syn::Attribute],
     parent: Option<bool>,
 ) -> Result<bool, Error> {
-    let winrt = read_winrt(source_file, span, attrs, parent)?;
-
-    if let Some(winrt) = winrt {
+    if let Some(winrt) = read_winrt(source_file, span, attrs, parent)? {
         Ok(winrt)
     } else {
         let start = span.span().start();
+
         Err(Error::new(
             "`winrt` or `win32` attribute required",
             source_file,
@@ -156,9 +155,9 @@ fn read_winrt<S: syn::spanned::Spanned>(
         }
     }
 
-    let start = span.span().start();
-
     if winrt && win32 {
+        let start = span.span().start();
+
         return Err(Error::new(
             "`winrt` and `win32` attributes are mutually exclusive",
             source_file,
@@ -167,7 +166,11 @@ fn read_winrt<S: syn::spanned::Spanned>(
         ));
     } else if !winrt && !win32 {
         if let Some(parent) = parent {
-            winrt = parent;
+            if parent {
+                winrt = true;
+            } else {
+                win32 = true;
+            }
         }
     }
 
