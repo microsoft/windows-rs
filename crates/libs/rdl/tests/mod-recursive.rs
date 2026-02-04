@@ -9,14 +9,14 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/mod-recursive.winmd"#)
+        .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive-not.rdl")
         .namespace("Test.C")
         .write()
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/mod-recursive.winmd"#)
+        .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive.rdl")
         .namespace("Test")
         .recursive()
@@ -24,7 +24,7 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/mod-recursive.winmd"#)
+        .input("tests/mod-recursive.winmd")
         .output("tests/mod-recursive-subset.rdl")
         .namespace("Test.C")
         .recursive()

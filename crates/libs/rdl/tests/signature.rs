@@ -9,7 +9,7 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/signature.winmd"#)
+        .input("tests/signature.winmd")
         .output("tests/signature.rdl")
         .namespace("Test")
         .write()

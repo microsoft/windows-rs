@@ -9,7 +9,7 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/struct.winmd"#)
+        .input("tests/struct.winmd")
         .output("tests/struct.rdl")
         .namespace("Test")
         .write()
