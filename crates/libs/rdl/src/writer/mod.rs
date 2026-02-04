@@ -64,8 +64,6 @@ impl Writer {
 
         let index = metadata::reader::TypeIndex::new(input);
         let index = metadata::reader::ItemIndex::new(&index);
-
-        // TODO: this is a mess - may need to build a proper tree struct so we can clearly partition winrt and non-winrt types and group them sensibly
         let mut layout = Layout::new();
 
         for namespace in index.keys() {
@@ -91,53 +89,10 @@ impl Writer {
         }
 
         let output = layout.to_string();
-
-        // for ((namespace, _name), items) in items {
-
-        //     if current_namespace != namespace {
-        //         let mut relative = current_namespace.split('.').peekable();
-        //         current_namespace = namespace;
-        //         let mut namespace = namespace.split('.').peekable();
-        //         if relative.peek() == namespace.peek() {
-        //             while relative.peek() == namespace.peek() {
-        //                 if relative.next().is_none() {
-        //                     break;
-        //                 }
-
-        //                 namespace.next();
-        //             }
-
-        //             for _ in 0..relative.count() {
-        //                 output.push('}')
-        //             }
-        //         }
-
-        //         for namespace in namespace {
-        //             output.push_str("mod ");
-        //             output.push_str(namespace);
-        //             output.push('{')
-        //         }
-        //     }
-
-        //     for item in items {
-        //         output.push_str(&item.tokens);
-        //     }
-        // }
-
-        // for _ in current_namespace.split('.') {
-        //     output.push('}')
-        // }
-
         write_to_file(&self.output, format(&output));
 
         Ok(())
     }
-}
-
-#[derive(Ord, PartialOrd, Eq, PartialEq)]
-struct Item {
-    arches: i32,
-    tokens: String,
 }
 
 #[track_caller]
@@ -218,16 +173,6 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
         rest => todo!("{rest:?}"),
-    }
-}
-fn write_winrt(item: &metadata::reader::TypeDef) -> TokenStream {
-    if item
-        .flags()
-        .contains(metadata::TypeAttributes::WindowsRuntime)
-    {
-        quote! { #[winrt] }
-    } else {
-        quote! { #[win32] }
     }
 }
 
