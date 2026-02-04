@@ -1,0 +1,11 @@
+mod Test {
+    mod A {
+        mod B {
+            #[winrt]
+            struct C {}
+
+            #[win32]
+            struct D {}
+        }
+    }
+}

@@ -1,3 +1,4 @@
+#[winrt]
 mod ModForB {
     struct AlsoInB {
         a1: u8,

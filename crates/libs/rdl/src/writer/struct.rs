@@ -3,6 +3,7 @@ use super::*;
 pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = format_ident!("{}", item.name());
+
     let fields = item.fields().map(|field| write_field(namespace, &field));
 
     let keyword = if item

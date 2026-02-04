@@ -1,3 +1,4 @@
+#[winrt]
 mod Test {
     #[repr(i32)]
     enum AsyncStatus {

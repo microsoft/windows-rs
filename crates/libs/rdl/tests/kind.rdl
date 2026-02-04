@@ -1,0 +1,14 @@
+#[winrt]
+mod Test {
+    struct A {}
+    #[repr(i32)]
+    enum B {}
+    interface C {}
+}
+#[win32]
+mod Test {
+    struct D {}
+    #[repr(i32)]
+    enum E {}
+    interface F {}
+}

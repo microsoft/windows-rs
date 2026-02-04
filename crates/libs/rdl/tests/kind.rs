@@ -3,14 +3,14 @@ use windows_rdl::*;
 #[test]
 pub fn parse() {
     Reader::new()
-        .input("tests/struct.rdl")
-        .output("tests/struct.winmd")
+        .input("tests/kind.rdl")
+        .output("tests/kind.winmd")
         .write()
         .unwrap();
 
     Writer::new()
-        .input("tests/struct.winmd")
-        .output("tests/struct.rdl")
+        .input("tests/kind.winmd")
+        .output("tests/kind.rdl")
         .namespace("Test")
         .write()
         .unwrap();

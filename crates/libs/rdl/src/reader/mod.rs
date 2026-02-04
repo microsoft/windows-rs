@@ -51,10 +51,16 @@ impl Reader {
             let contents = std::fs::read_to_string(source_file)
                 .map_err(|error| Error::new(&error.to_string(), source_file, 0, 0))?;
 
-            input.push(syn::parse_str::<syntax::File>(&contents).map_err(|error| {
+            let mut file = syn::parse_str::<syntax::File>(&contents).map_err(|error| {
                 let start = error.span().start();
                 Error::new(&error.to_string(), source_file, start.line, start.column)
-            })?);
+            })?;
+
+            for item in &mut file.items {
+                resolve_winrt(item, source_file, None)?;
+            }
+
+            input.push(file);
         }
 
         let mut index = Index::new();
@@ -81,6 +87,99 @@ impl Reader {
 
         std::fs::write(&self.output, output)
             .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
+    }
+}
+
+fn resolve_winrt(
+    item: &mut syntax::Item,
+    source_file: &str,
+    parent: Option<bool>,
+) -> Result<(), Error> {
+    match item {
+        syntax::Item::Enum(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
+        syntax::Item::Interface(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
+        syntax::Item::Struct(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
+        syntax::Item::Module(item) => {
+            let parent = read_winrt(source_file, &item.token, &item.attrs, parent)?;
+
+            for child in &mut item.items {
+                resolve_winrt(child, source_file, parent)?;
+            }
+        }
+        syntax::Item::Union(..) => {}
+    }
+
+    Ok(())
+}
+
+fn read_winrt_expected<S: syn::spanned::Spanned>(
+    source_file: &str,
+    span: &S,
+    attrs: &[syn::Attribute],
+    parent: Option<bool>,
+) -> Result<bool, Error> {
+    if let Some(winrt) = read_winrt(source_file, span, attrs, parent)? {
+        Ok(winrt)
+    } else {
+        let start = span.span().start();
+
+        Err(Error::new(
+            "`winrt` or `win32` attribute required",
+            source_file,
+            start.line,
+            start.column,
+        ))
+    }
+}
+
+fn read_winrt<S: syn::spanned::Spanned>(
+    source_file: &str,
+    span: &S,
+    attrs: &[syn::Attribute],
+    parent: Option<bool>,
+) -> Result<Option<bool>, Error> {
+    let mut winrt = false;
+    let mut win32 = false;
+
+    for attr in attrs {
+        if attr.path().is_ident("winrt") {
+            winrt = true;
+        } else if attr.path().is_ident("win32") {
+            win32 = true;
+        }
+    }
+
+    if winrt && win32 {
+        let start = span.span().start();
+
+        return Err(Error::new(
+            "`winrt` and `win32` attributes are mutually exclusive",
+            source_file,
+            start.line,
+            start.column,
+        ));
+    } else if !winrt && !win32 {
+        if let Some(parent) = parent {
+            if parent {
+                winrt = true;
+            } else {
+                win32 = true;
+            }
+        }
+    }
+
+    if winrt {
+        Ok(Some(true))
+    } else if win32 {
+        Ok(Some(false))
+    } else {
+        Ok(None)
     }
 }
 

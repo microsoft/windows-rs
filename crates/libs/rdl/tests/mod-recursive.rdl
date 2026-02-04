@@ -1,0 +1,24 @@
+mod Test {
+    #[winrt]
+    mod A {
+        struct A {}
+    }
+    #[winrt]
+    mod B {
+        struct B {}
+    }
+    mod C {
+        #[winrt]
+        mod D {
+            struct D {}
+        }
+    }
+    #[winrt]
+    mod C {
+        struct C {}
+    }
+}
+#[winrt]
+mod Test {
+    struct Test {}
+}

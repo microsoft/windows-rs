@@ -3,6 +3,7 @@ use super::*;
 pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
     let name = format_ident!("{}", item.name());
+
     let generics: Vec<_> = item
         .generic_params()
         .map(|param| metadata::Type::Generic(param.sequence()))

@@ -9,7 +9,7 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/enum.winmd"#)
+        .input("tests/enum.winmd")
         .output("tests/enum.rdl")
         .namespace("Test")
         .write()

@@ -1,3 +1,4 @@
+#[winrt]
 mod ModForA {
     struct A {
         a1: u8,
@@ -5,6 +6,7 @@ mod ModForA {
     } 
 }
 
+#[winrt]
 mod ModForB {
     struct B {
         a: ModForA::A,

@@ -3,13 +3,17 @@ use super::*;
 pub fn encode_enum(encoder: &mut Encoder, item: &syntax::Enum) -> Result<(), Error> {
     let value_type = encoder.output.TypeRef("System", "Enum");
 
+    let mut flags = metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed;
+
+    if item.winrt {
+        flags |= metadata::TypeAttributes::WindowsRuntime;
+    }
+
     encoder.output.TypeDef(
         encoder.namespace,
         encoder.name,
         metadata::writer::TypeDefOrRef::TypeRef(value_type),
-        metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Sealed
-            | metadata::TypeAttributes::WindowsRuntime,
+        flags,
     );
 
     let Some(attribute) = item

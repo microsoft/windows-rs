@@ -10,7 +10,7 @@ pub fn parse() {
         .unwrap();
 
     Writer::new()
-        .input(r#"tests/path.winmd"#)
+        .input("tests/path.winmd")
         .output("tests/path-output.rdl")
         .namespace("ModForB")
         .write()

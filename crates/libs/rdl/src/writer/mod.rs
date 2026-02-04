@@ -1,9 +1,11 @@
 mod r#enum;
 mod interface;
+mod layout;
 mod r#struct;
 
 use super::*;
 use interface::*;
+use layout::*;
 use metadata::HasAttributes;
 use proc_macro2::*;
 use quote::*;
@@ -13,13 +15,14 @@ use windows_metadata as metadata;
 
 // TODO: the writer is primarily an internal tool as most developers will write their own
 // definitions or just accept whatever a component author provides. This is thus mostly for
-// generating rdl for backfilling definitions and testing.
+// generating rdl for backfilling definitions and for testing.
 
 #[derive(Default)]
 pub struct Writer {
     input: Vec<String>,
     output: String,
     namespace: String,
+    recursive: bool,
 }
 
 impl Writer {
@@ -44,6 +47,11 @@ impl Writer {
         self
     }
 
+    pub fn recursive(&mut self) -> &mut Self {
+        self.recursive = true;
+        self
+    }
+
     pub fn write(&self) -> Result<(), Error> {
         let mut input = vec![];
 
@@ -56,35 +64,31 @@ impl Writer {
 
         let index = metadata::reader::TypeIndex::new(input);
         let index = metadata::reader::ItemIndex::new(&index);
+        let mut layout = Layout::new();
 
-        // TODO: key sorts the output by type name, value sorts multi-definitions by arch?
-        let mut items = BTreeMap::<&str, BTreeMap<i32, String>>::new();
+        for namespace in index.keys() {
+            if self.recursive {
+                if !namespace_starts_with(namespace, &self.namespace) {
+                    continue;
+                }
+            } else {
+                if *namespace != self.namespace {
+                    continue;
+                }
+            }
 
-        for (name, item) in index.namespace_items(&self.namespace) {
-            items
-                .entry(name)
-                .or_default()
-                .insert(item_arches(item), write(item).to_string());
+            for (name, item) in index.namespace_items(namespace) {
+                layout.insert(
+                    namespace,
+                    name,
+                    item_arches(item),
+                    item_winrt(item),
+                    write(item).to_string(),
+                );
+            }
         }
 
-        let modules: Vec<&str> = self.namespace.split('.').collect();
-
-        let mut output = String::new();
-
-        for module in &modules {
-            output.push_str("mod ");
-            output.push_str(module);
-            output.push('{')
-        }
-
-        for (_, item) in items.values().flatten() {
-            output.push_str(item);
-        }
-
-        for _ in 0..modules.len() {
-            output.push('}')
-        }
-
+        let output = layout.to_string();
         write_to_file(&self.output, format(&output));
 
         Ok(())
@@ -104,11 +108,26 @@ fn write_to_file<C: AsRef<[u8]>>(path: &str, contents: C) {
     }
 }
 
+fn namespace_starts_with(namespace: &str, starts_with: &str) -> bool {
+    namespace.starts_with(starts_with)
+        && (namespace.len() == starts_with.len()
+            || namespace.as_bytes().get(starts_with.len()) == Some(&b'.'))
+}
+
 fn item_arches(item: &metadata::reader::Item) -> i32 {
     match item {
         metadata::reader::Item::Type(ty) => ty.arches(),
         metadata::reader::Item::Fn(ty) => ty.arches(),
         metadata::reader::Item::Const(ty) => ty.arches(),
+    }
+}
+
+fn item_winrt(item: &metadata::reader::Item) -> bool {
+    match item {
+        metadata::reader::Item::Type(item) => item
+            .flags()
+            .contains(metadata::TypeAttributes::WindowsRuntime),
+        _ => false,
     }
 }
 

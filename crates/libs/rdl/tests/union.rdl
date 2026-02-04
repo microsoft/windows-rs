@@ -1,3 +1,4 @@
+#[win32]
 mod Test {
     union Name {
         a1: u8,
