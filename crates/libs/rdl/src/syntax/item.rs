@@ -12,7 +12,7 @@ pub enum Item {
     Union(Union),
     // Win32 functions and constrants
     // Const(ItemConst),
-    // Fn(ItemFn),
+     Fn(Fn),
 
     // Nested namespace
     Module(Module),
@@ -25,6 +25,7 @@ impl Item {
     fn replace_attrs(&mut self, new: Vec<syn::Attribute>) -> Vec<syn::Attribute> {
         match self {
             Self::Enum(Enum { attrs, .. })
+            | Self::Fn(Fn { attrs, .. })
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
@@ -37,6 +38,7 @@ impl std::fmt::Display for Item {
     fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
         match self {
             Self::Enum(item) => item.name.fmt(f),
+            Self::Fn(item) => item.sig.ident.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
@@ -60,6 +62,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Interface)
         } else if lookahead.peek(syn::Token![union]) {
             input.parse().map(Item::Union)
+        } else if lookahead.peek(syn::Token![fn]) {
+            input.parse().map(Item::Fn)
         } else {
             Err(lookahead.error())
         }?;

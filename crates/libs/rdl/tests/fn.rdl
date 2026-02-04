@@ -1,0 +1,4 @@
+mod Test {
+    #[library(name = "kernel32.dll", abi = "system")]
+    fn GetTickCount() -> u32;
+}

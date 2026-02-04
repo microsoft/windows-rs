@@ -3,7 +3,9 @@ mod index;
 mod interface;
 mod r#struct;
 mod union;
+mod r#fn;
 
+use r#fn::*;
 use super::*;
 use index::*;
 use interface::*;
@@ -66,8 +68,8 @@ impl Reader {
         let mut index = Index::new();
 
         // TODO: should also be able to read nested source files via the `mod Nested;` syntax?
-        for (source_file, file) in self.input.iter().zip(input.iter()) {
-            for item in &file.items {
+        for (source_file, file) in self.input.iter().zip(input.iter_mut()) {
+            while let Some(item) = file.items.pop() {
                 index.insert(source_file, "", item);
             }
         }
@@ -83,7 +85,7 @@ impl Reader {
 
         let reference = metadata::reader::TypeIndex::new(reference);
 
-        let output = encode(&index, &reference)?;
+        let output = encode(index, &reference)?;
 
         std::fs::write(&self.output, output)
             .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
@@ -112,7 +114,8 @@ fn resolve_winrt(
                 resolve_winrt(child, source_file, parent)?;
             }
         }
-        syntax::Item::Union(..) => {}
+        // Remaining types are not ambiguous.
+        _ => {}
     }
 
     Ok(())
@@ -183,14 +186,14 @@ fn read_winrt<S: syn::spanned::Spanned>(
     }
 }
 
-fn encode(index: &Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
+fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
     let mut output = metadata::writer::File::new("");
 
     for (namespace, items) in index.iter() {
         for (name, (source_file, item)) in items {
             encode_item(
                 &mut output,
-                index,
+                &index,
                 reference,
                 source_file,
                 namespace,
@@ -247,6 +250,7 @@ fn encode_item(
         syntax::Item::Enum(ty) => encode_enum(encoder, ty),
         syntax::Item::Interface(ty) => encode_interface(encoder, ty),
         syntax::Item::Union(ty) => encode_union(encoder, ty),
+        syntax::Item::Fn(ty) => encode_fn(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }

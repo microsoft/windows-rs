@@ -1,6 +1,6 @@
 use super::*;
 
-type Map<'a> = BTreeMap<String, BTreeMap<String, (&'a str, &'a syntax::Item)>>;
+type Map<'a> = BTreeMap<String, BTreeMap<String, (&'a str, syntax::Item)>>;
 
 #[derive(Default)]
 pub struct Index<'a>(Map<'a>);
@@ -10,13 +10,14 @@ impl<'a> Index<'a> {
         Self(BTreeMap::new())
     }
 
-    pub fn insert(&mut self, source_file: &'a str, namespace: &str, item: &'a syntax::Item) {
+    pub fn insert(&mut self, source_file: &'a str, namespace: &str, item:  syntax::Item) {
         if let syntax::Item::Module(module) = item {
-            for item in &module.items {
+            let name = module.to_string();
+            for item in module.items {                
                 let namespace = if namespace.is_empty() {
-                    module.to_string()
+                    name.clone()
                 } else {
-                    format!("{namespace}.{}", module)
+                    format!("{namespace}.{}", &name)
                 };
                 self.insert(source_file, &namespace, item);
             }
