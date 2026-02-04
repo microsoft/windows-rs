@@ -1,14 +1,22 @@
 use super::*;
 
 pub fn encode_interface(encoder: &mut Encoder, item: &syntax::Interface) -> Result<(), Error> {
+        let flags = if item.winrt {
+        metadata::TypeAttributes::Public
+            | metadata::TypeAttributes::Abstract
+            | metadata::TypeAttributes::Interface
+            | metadata::TypeAttributes::WindowsRuntime
+    } else {
+        metadata::TypeAttributes::Public
+            | metadata::TypeAttributes::Abstract
+            | metadata::TypeAttributes::Interface
+    };
+
     encoder.output.TypeDef(
         encoder.namespace,
         encoder.name,
         metadata::writer::TypeDefOrRef::default(),
-        metadata::TypeAttributes::Public
-            | metadata::TypeAttributes::Abstract
-            | metadata::TypeAttributes::Interface
-            | metadata::TypeAttributes::WindowsRuntime,
+        flags
     );
 
     let flags = metadata::MethodAttributes::Public
