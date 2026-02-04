@@ -1,8 +1,8 @@
 use std::cell::Cell;
 use std::rc::Rc;
 
-use windows::core::Owned;
 use windows::core::Free;
+use windows::core::Owned;
 
 #[derive(Clone)]
 struct FreeCounter {
@@ -18,7 +18,9 @@ impl Free for FreeCounter {
 #[test]
 fn into_raw() {
     let free_count: Rc<Cell<u32>> = Rc::new(Cell::new(0));
-    let counter = FreeCounter { count: free_count.clone() };
+    let counter = FreeCounter {
+        count: free_count.clone(),
+    };
 
     {
         let owned = unsafe { Owned::new(counter) };
@@ -32,7 +34,9 @@ fn into_raw() {
 #[test]
 fn drop() {
     let free_count: Rc<Cell<u32>> = Rc::new(Cell::new(0));
-    let counter = FreeCounter { count: free_count.clone() };
+    let counter = FreeCounter {
+        count: free_count.clone(),
+    };
 
     {
         let _owned = unsafe { Owned::new(counter) };
