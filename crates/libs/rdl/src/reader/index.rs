@@ -35,18 +35,17 @@ impl<'a> Index<'a> {
             .and_then(|types| types.get(name))
             .is_some()
     }
-}
 
-impl<'a> core::ops::Deref for Index<'a> {
-    type Target = Map<'a>;
-
-    fn deref(&self) -> &Map<'a> {
-        &self.0
-    }
-}
-
-impl<'a> core::ops::DerefMut for Index<'a> {
-    fn deref_mut(&mut self) -> &mut Map<'a> {
-        &mut self.0
+    pub fn items(&self) -> impl Iterator<Item = (&str, &str, &str, &syntax::Item)> + '_ {
+        self.0
+            .iter()
+            .flat_map(|(namespace, items)| {
+                items
+                    .iter()
+                    .map(move |(name, items)| (namespace, name, items))
+            })
+            .map(|(namespace, name, (source_file, item))| {
+                 (namespace.as_str(), name.as_str(), *source_file, item)
+            })
     }
 }

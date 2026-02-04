@@ -189,8 +189,7 @@ fn read_winrt<S: syn::spanned::Spanned>(
 fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
     let mut output = metadata::writer::File::new("");
 
-    for (namespace, items) in index.iter() {
-        for (name, (source_file, item)) in items {
+    for (namespace, name, source_file, item) in index.items() {
             encode_item(
                 &mut output,
                 &index,
@@ -200,7 +199,6 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                 name,
                 item,
             )?;
-        }
     }
 
     Ok(output.into_stream())
