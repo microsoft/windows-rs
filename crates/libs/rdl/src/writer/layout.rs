@@ -44,16 +44,6 @@ impl Layout {
         }
     }
 
-    pub fn to_string(&self) -> String {
-        let mut output = String::new();
-
-        for (name, module) in &self.modules {
-            output.push_str(&module.to_module(name));
-        }
-
-        output
-    }
-
     fn to_module(&self, name: &str) -> String {
         let mut output = String::new();
 
@@ -94,5 +84,15 @@ impl Layout {
         }
 
         output
+    }
+}
+
+impl std::fmt::Display for Layout {
+    fn fmt(&self, fmt: &mut std::fmt::Formatter) -> std::fmt::Result {
+        for (name, module) in &self.modules {
+            write!(fmt, "{}", &module.to_module(name))?;
+        }
+
+        Ok(())
     }
 }
