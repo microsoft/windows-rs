@@ -2,7 +2,7 @@
 ///
 /// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows handles
 /// to be dropped depending on context.
-pub trait Free {
+pub trait Free : Clone {
     /// Calls the handle's free function.
     ///
     /// # Safety
@@ -23,6 +23,14 @@ impl<T: Free> Owned<T> {
     /// The handle must be owned by the caller and safe to free.
     pub unsafe fn new(x: T) -> Self {
         Self(x)
+    }
+
+    /// Consumes the `Owned<T>` and relinquishes ownership of the handle.
+    /// The caller is now responsible for freeing the returned handle.
+    #[must_use = "losing the handle will leak it"]
+    pub fn into_raw(o: Self) -> T {
+        let o = core::mem::ManuallyDrop::new(o);
+        o.0.clone()
     }
 }
 
