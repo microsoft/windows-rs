@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[library(name = "a.dll", abi = "system")]
+    fn A() -> u32;
+    #[library(name = "b.dll", abi = "C")]
+    fn B() -> u32;
+    struct C {}
+    struct D {}
+}

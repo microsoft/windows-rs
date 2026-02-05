@@ -1,7 +1,5 @@
 use super::*;
 
-// TODO: maybe call this Stage
-
 #[derive(Default)]
 pub struct Index<'a> {
     pub namespaces: BTreeMap<String, Namespace<'a>>,
