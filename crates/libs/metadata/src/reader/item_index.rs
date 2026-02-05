@@ -24,18 +24,22 @@ impl<'a> ItemIndex<'a> {
         let mut members: HashType = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
-            insert(&mut members, namespace, name, Item::Type(ty));
+            let apis = !ty.flags().contains(TypeAttributes::WindowsRuntime) && ty.category() == TypeCategory::Class && name == "Apis";
 
+            if apis {
+                for method in ty.methods() {
+                    insert(&mut members, namespace, method.name(), Item::Fn(method));
+                }
+                for field in ty.fields() {
+                    insert(&mut members, namespace, field.name(), Item::Const(field));
+                }
+            } else {
+                insert(&mut members, namespace, name, Item::Type(ty));
+            }
+
+            // TODO: get rid of unscoped enums and encode them simply as constants in the first place
             if !ty.flags().contains(TypeAttributes::WindowsRuntime) {
                 match ty.category() {
-                    TypeCategory::Class if name == "Apis" => {
-                        for method in ty.methods() {
-                            insert(&mut members, namespace, method.name(), Item::Fn(method));
-                        }
-                        for field in ty.fields() {
-                            insert(&mut members, namespace, field.name(), Item::Const(field));
-                        }
-                    }
                     TypeCategory::Enum if !ty.has_attribute("ScopedEnumAttribute") => {
                         for field in ty.fields() {
                             if field.flags().contains(FieldAttributes::Literal) {
