@@ -4,7 +4,9 @@ mod index;
 mod interface;
 mod r#struct;
 mod union;
+mod param;
 
+use param::*;
 use super::*;
 use index::*;
 use interface::*;
