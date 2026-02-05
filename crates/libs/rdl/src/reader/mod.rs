@@ -1,15 +1,15 @@
 mod r#enum;
+mod r#fn;
 mod index;
 mod interface;
 mod r#struct;
 mod union;
-mod r#fn;
 
-use r#fn::*;
 use super::*;
 use index::*;
 use interface::*;
 use r#enum::*;
+use r#fn::*;
 use r#struct::*;
 use union::*;
 use windows_metadata as metadata;
@@ -189,16 +189,53 @@ fn read_winrt<S: syn::spanned::Spanned>(
 fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u8>, Error> {
     let mut output = metadata::writer::File::new("");
 
-    for (namespace, name, source_file, item) in index.items() {
+    for (namespace, members) in &index.namespaces {
+        for (name, (source, item)) in &members.types {
             encode_item(
                 &mut output,
                 &index,
                 reference,
-                source_file,
-                namespace,
-                name,
-                item,
+                source,
+                &namespace,
+                &name,
+                &item,
             )?;
+        }
+
+        if !members.functions.is_empty() || !members.constants.is_empty() {
+            let class = metadata::writer::TypeDefOrRef::TypeRef(output.TypeRef("System", "Object"));
+
+            output.TypeDef(
+                namespace,
+                "Apis",
+                class,
+                metadata::TypeAttributes::Public | metadata::TypeAttributes::Sealed,
+            );
+
+            for (name, (source, item)) in &members.functions {
+                encode_item(
+                    &mut output,
+                    &index,
+                    reference,
+                    source,
+                    &namespace,
+                    &name,
+                    &item,
+                )?;
+            }
+
+            for (name, (source, item)) in &members.constants {
+                encode_item(
+                    &mut output,
+                    &index,
+                    reference,
+                    source,
+                    &namespace,
+                    &name,
+                    &item,
+                )?;
+            }
+        }
     }
 
     Ok(output.into_stream())

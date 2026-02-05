@@ -60,6 +60,7 @@ impl MethodAttributes {
     pub const HideBySig: Self = Self(0x80);
     pub const NewSlot: Self = Self(0x100);
     pub const Public: Self = Self(0x6);
+    pub const Static: Self = Self(0x10);
     pub const SpecialName: Self = Self(0x800);
     pub const Virtual: Self = Self(0x40);
 }

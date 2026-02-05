@@ -10,9 +10,9 @@ pub enum Item {
     Interface(Interface),
     Struct(Struct),
     Union(Union),
-    // Win32 functions and constrants
-    // Const(ItemConst),
-     Fn(Fn),
+    // Win32 functions and constants
+    Fn(Fn),
+    Const(Const),
 
     // Nested namespace
     Module(Module),
@@ -26,6 +26,7 @@ impl Item {
         match self {
             Self::Enum(Enum { attrs, .. })
             | Self::Fn(Fn { attrs, .. })
+            | Self::Const(Const { attrs, .. })
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
@@ -39,6 +40,7 @@ impl std::fmt::Display for Item {
         match self {
             Self::Enum(item) => item.name.fmt(f),
             Self::Fn(item) => item.sig.ident.fmt(f),
+            Self::Const(item) => item.name.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
