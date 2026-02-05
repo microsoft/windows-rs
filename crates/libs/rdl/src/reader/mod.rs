@@ -198,9 +198,9 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                 &index,
                 reference,
                 source,
-                &namespace,
-                &name,
-                &item,
+                namespace,
+                name,
+                item,
             )?;
         }
 
@@ -220,9 +220,9 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                     &index,
                     reference,
                     source,
-                    &namespace,
-                    &name,
-                    &item,
+                    namespace,
+                    name,
+                    item,
                 )?;
             }
 
@@ -232,9 +232,9 @@ fn encode(index: Index, reference: &metadata::reader::TypeIndex) -> Result<Vec<u
                     &index,
                     reference,
                     source,
-                    &namespace,
-                    &name,
-                    &item,
+                    namespace,
+                    name,
+                    item,
                 )?;
             }
         }

@@ -50,7 +50,7 @@ pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> 
     };
 
     let Ok((library, abi)) = library(attribute) else {
-        return encoder.err(&attribute, "`library` attribute missing name/abi arguments");
+        return encoder.err(attribute, "`library` attribute missing name/abi arguments");
     };
 
     let mut flags = metadata::PInvokeAttributes::NoMangle;
@@ -58,7 +58,7 @@ pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> 
     match abi.as_str() {
         "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
         "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
-        _ => return encoder.err(&attribute, "`library` abi not supported"),
+        _ => return encoder.err(attribute, "`library` abi not supported"),
     }
 
     encoder.output.ImplMap(method_def, flags, &name, &library);
