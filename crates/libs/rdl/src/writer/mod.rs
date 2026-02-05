@@ -187,7 +187,24 @@ fn write_method_def(namespace: &str, item: &metadata::reader::MethodDef) -> Toke
         quote! { #name: #ty, }
     });
 
+    let Some(impl_map) = item.impl_map() else {
+        todo!()
+    };
+
+    let scope = impl_map.import_scope();
+    let library = scope.name();
+    let flags = impl_map.flags();
+
+    let abi = if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
+        "system"
+    } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
+        "C"
+    } else {
+        todo!()
+    };
+
     quote! {
+        #[library(name = #library, abi = #abi)]
         fn #name(#(#params)*) #return_type;
     }
 }

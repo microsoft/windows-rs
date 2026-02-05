@@ -1,7 +1,7 @@
+#[win32]
 mod Test {
     #[library(name = "ticker.dll", abi = "system")]
     fn GetTickCount() -> u32;
-
     #[library(name = "version.dll", abi = "C")]
     fn GetVersion() -> u32;
 }
