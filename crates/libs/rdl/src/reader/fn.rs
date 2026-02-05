@@ -44,13 +44,13 @@ pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> 
     let Some(attribute) = item
         .attrs
         .iter()
-        .find(|attribute| attribute.path().is_ident("library"))
+        .find(|attribute| attribute.path().is_ident("link"))
     else {
-        return encoder.err(&item.sig, "`library` attribute not found");
+        return encoder.err(&item.sig, "`link` attribute not found");
     };
 
     let Ok((library, abi)) = library(attribute) else {
-        return encoder.err(attribute, "`library` attribute missing name/abi arguments");
+        return encoder.err(attribute, "`link` attribute missing name/abi arguments");
     };
 
     let mut flags = metadata::PInvokeAttributes::NoMangle;
@@ -58,7 +58,7 @@ pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> 
     match abi.as_str() {
         "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
         "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
-        _ => return encoder.err(attribute, "`library` abi not supported"),
+        _ => return encoder.err(attribute, "`link` abi not supported"),
     }
 
     encoder.output.ImplMap(method_def, flags, &name, &library);

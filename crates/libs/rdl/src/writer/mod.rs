@@ -204,7 +204,7 @@ fn write_method_def(namespace: &str, item: &metadata::reader::MethodDef) -> Toke
     };
 
     quote! {
-        #[library(name = #library, abi = #abi)]
+        #[link(name = #library, abi = #abi)]
         fn #name(#(#params)*) #return_type;
     }
 }
