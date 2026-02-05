@@ -24,7 +24,9 @@ impl<'a> ItemIndex<'a> {
         let mut members: HashType = HashMap::new();
 
         for (namespace, name, ty) in index.iter() {
-            let apis = !ty.flags().contains(TypeAttributes::WindowsRuntime) && ty.category() == TypeCategory::Class && name == "Apis";
+            let apis = !ty.flags().contains(TypeAttributes::WindowsRuntime)
+                && ty.category() == TypeCategory::Class
+                && name == "Apis";
 
             if apis {
                 for method in ty.methods() {

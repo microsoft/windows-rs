@@ -69,4 +69,3 @@ pub fn encode_interface(encoder: &mut Encoder, item: &syntax::Interface) -> Resu
 
     Ok(())
 }
-

@@ -2,14 +2,14 @@ mod r#enum;
 mod r#fn;
 mod index;
 mod interface;
+mod param;
 mod r#struct;
 mod union;
-mod param;
 
-use param::*;
 use super::*;
 use index::*;
 use interface::*;
+use param::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;

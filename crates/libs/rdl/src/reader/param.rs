@@ -1,9 +1,9 @@
 use super::*;
 
 pub struct Param {
-   pub name: String,
-   pub ty: metadata::Type,
-   pub attributes: metadata::ParamAttributes,
+    pub name: String,
+    pub ty: metadata::Type,
+    pub attributes: metadata::ParamAttributes,
 }
 
 pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error> {
