@@ -7,6 +7,8 @@ pub struct File {
 
 impl syn::parse::Parse for File {
     fn parse(input: syn::parse::ParseStream) -> syn::Result<Self> {
+        // TODO: avoid loop with parse_terminated?
+
         let mut items = vec![];
         while !input.is_empty() {
             items.push(Item::Module(input.parse()?));

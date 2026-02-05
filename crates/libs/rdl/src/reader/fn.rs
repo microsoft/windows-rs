@@ -41,12 +41,68 @@ pub fn encode_fn(encoder: &mut Encoder, item: &syntax::Fn) -> Result<(), Error> 
         );
     }
 
-    let flags =
-        metadata::PInvokeAttributes::CallConvPlatformapi | metadata::PInvokeAttributes::NoMangle;
+    let Some(attribute) = item
+        .attrs
+        .iter()
+        .find(|attribute| attribute.path().is_ident("library"))
+    else {
+        return encoder.err(&item.sig, "`library` attribute not found");
+    };
 
-    encoder
-        .output
-        .ImplMap(method_def, flags, &name, "kernel32.dll");
+    let Ok((library, abi)) = library(attribute) else {
+        return encoder.err(&attribute, "`library` attribute missing name/abi arguments");
+    };
+
+    let mut flags = metadata::PInvokeAttributes::NoMangle;
+
+    match abi.as_str() {
+        "system" => flags |= metadata::PInvokeAttributes::CallConvPlatformapi,
+        "C" => flags |= metadata::PInvokeAttributes::CallConvCdecl,
+        _ => return encoder.err(&attribute, "`library` abi not supported"),
+    }
+
+    encoder.output.ImplMap(method_def, flags, &name, &library);
 
     Ok(())
+}
+
+fn library(attr: &syn::Attribute) -> syn::Result<(String, String)> {
+    let pairs: syn::punctuated::Punctuated<syn::MetaNameValue, syn::Token![,]> =
+        attr.parse_args_with(syn::punctuated::Punctuated::parse_terminated)?;
+
+    let mut name = None;
+    let mut abi = None;
+
+    for pair in pairs {
+        let key = pair
+            .path
+            .get_ident()
+            .ok_or_else(|| syn::Error::new(pair.path.span(), "expected identifier"))?;
+
+        let lit = match pair.value {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Str(s),
+                ..
+            }) => s,
+            _ => {
+                return Err(syn::Error::new(
+                    pair.value.span(),
+                    "expected string literal",
+                ))
+            }
+        };
+
+        if key == "name" {
+            name = Some(lit.value());
+        } else if key == "abi" {
+            abi = Some(lit.value());
+        } else {
+            return Err(syn::Error::new(key.span(), "unknown argument"));
+        }
+    }
+
+    let name = name.ok_or_else(|| syn::Error::new(attr.span(), "missing name"))?;
+    let abi = abi.ok_or_else(|| syn::Error::new(attr.span(), "missing abi"))?;
+
+    Ok((name, abi))
 }
