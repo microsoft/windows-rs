@@ -1,0 +1,5 @@
+#[win32]
+mod Test {
+    #[link(name = "ole32.dll", abi = "system")]
+    fn CoCreateGuid(result: *mut GUID) -> HRESULT;
+}

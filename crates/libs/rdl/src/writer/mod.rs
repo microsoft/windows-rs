@@ -306,6 +306,8 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 
             ty
         }
+        Name(tn) if tn == ("System", "Guid") => quote! { GUID },
+        Name(tn) if tn == ("Windows.Metadata", "HRESULT") => quote! { HRESULT },
         Name(type_name) => {
             let name = format_ident!("{}", &type_name.name);
 
