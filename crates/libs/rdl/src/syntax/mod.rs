@@ -1,5 +1,7 @@
+mod r#const;
 mod r#enum;
 mod file;
+mod r#fn;
 mod interface;
 mod item;
 mod method;
@@ -12,6 +14,8 @@ pub use interface::*;
 pub use item::*;
 pub use method::*;
 pub use module::*;
+pub use r#const::*;
 pub use r#enum::*;
+pub use r#fn::*;
 pub use r#struct::*;
 pub use union::*;

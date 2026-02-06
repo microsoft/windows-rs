@@ -1,0 +1,7 @@
+#[win32]
+mod Test {
+    #[link(name = "ticker.dll", abi = "system")]
+    fn GetTickCount() -> u32;
+    #[link(name = "version.dll", abi = "C")]
+    fn GetVersion() -> u32;
+}

@@ -7,6 +7,7 @@ mod syntax;
 mod writer;
 
 use std::collections::BTreeMap;
+use syn::spanned::Spanned;
 
 pub use error::Error;
 pub use reader::Reader;

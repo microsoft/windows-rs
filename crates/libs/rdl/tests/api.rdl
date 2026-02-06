@@ -1,0 +1,9 @@
+#[win32]
+mod Test {
+    #[link(name = "a.dll", abi = "system")]
+    fn A() -> u32;
+    #[link(name = "b.dll", abi = "C")]
+    fn B() -> u32;
+    struct C {}
+    struct D {}
+}

@@ -60,8 +60,10 @@ impl MethodAttributes {
     pub const HideBySig: Self = Self(0x80);
     pub const NewSlot: Self = Self(0x100);
     pub const Public: Self = Self(0x6);
+    pub const Static: Self = Self(0x10);
     pub const SpecialName: Self = Self(0x800);
     pub const Virtual: Self = Self(0x40);
+    pub const PInvokeImpl: Self = Self(0x2000);
 }
 
 flags!(MethodImplAttributes, u16);
@@ -85,6 +87,7 @@ impl ParamAttributes {
 
 flags!(PInvokeAttributes, u16);
 impl PInvokeAttributes {
+    pub const NoMangle: Self = Self(0x01);
     pub const SupportsLastError: Self = Self(0x40);
     pub const CallConvPlatformapi: Self = Self(0x100);
     pub const CallConvCdecl: Self = Self(0x200);

@@ -83,7 +83,7 @@ impl Writer {
                     name,
                     item_arches(item),
                     item_winrt(item),
-                    write(item).to_string(),
+                    write(namespace, item).to_string(),
                 );
             }
         }
@@ -160,10 +160,52 @@ fn rustfmt(tokens: &str) -> Option<String> {
     String::from_utf8(output.stdout).ok()
 }
 
-fn write(item: &metadata::reader::Item) -> TokenStream {
+fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
     match item {
         metadata::reader::Item::Type(ty) => write_type_def(ty),
+        metadata::reader::Item::Fn(ty) => write_method_def(namespace, ty),
         rest => todo!("{rest:?}"),
+    }
+}
+
+fn write_method_def(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
+    let name = format_ident!("{}", item.name());
+    let signature = item.signature(&[]);
+
+    let return_type = if signature.return_type == metadata::Type::Void {
+        quote! {}
+    } else {
+        let ty = write_type(namespace, &signature.return_type);
+        quote! { -> #ty }
+    };
+
+    let params = item.params().filter(|param| param.sequence() != 0);
+
+    let params = params.zip(signature.types).map(|(param, ty)| {
+        let name = format_ident!("{}", param.name());
+        let ty = write_type(namespace, &ty);
+        quote! { #name: #ty, }
+    });
+
+    let Some(impl_map) = item.impl_map() else {
+        todo!()
+    };
+
+    let scope = impl_map.import_scope();
+    let library = scope.name();
+    let flags = impl_map.flags();
+
+    let abi = if flags.contains(metadata::PInvokeAttributes::CallConvPlatformapi) {
+        "system"
+    } else if flags.contains(metadata::PInvokeAttributes::CallConvCdecl) {
+        "C"
+    } else {
+        todo!()
+    };
+
+    quote! {
+        #[link(name = #library, abi = #abi)]
+        fn #name(#(#params)*) #return_type;
     }
 }
 
