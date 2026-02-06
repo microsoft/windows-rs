@@ -177,6 +177,35 @@ interface ISprocket {
 
 ---
 
+#### Functions
+
+Functions declare external function signatures provided by the system. The `#[link]` attribute specifies the library name and ABI.
+
+**Syntax:**
+```rust
+mod ModuleName {
+    #[link(name = "library.dll", abi = "system")]
+    fn FunctionName(Param: Type) -> ReturnType;
+}
+```
+
+**Attributes:**
+- `#[link(name = "...")]` - Specifies the library that provides the API
+- `#[link(abi = "...")]` - Specifies the ABI (`"system"` or `"C"`)
+
+**Example:**
+```rust
+mod Factory {
+    #[link(name = "sensors.dll", abi = "system")]
+    fn ReadSprocketSpeed(sprocket_id: u32) -> f32;
+
+    #[link(name = "control.dll", abi = "C")]
+    fn GetFactoryTicks() -> u64;
+}
+```
+
+---
+
 ### Built-in Types
 
 | RDL Type | Description             |
