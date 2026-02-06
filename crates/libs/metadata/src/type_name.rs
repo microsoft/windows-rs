@@ -16,3 +16,9 @@ impl TypeName {
         }
     }
 }
+
+impl PartialEq<(&str, &str)> for &TypeName {
+    fn eq(&self, other: &(&str, &str)) -> bool {
+        self.namespace == other.0 && self.name == other.1
+    }
+}

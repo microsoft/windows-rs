@@ -56,3 +56,9 @@ impl Type {
         }
     }
 }
+
+impl From<(&str, &str)> for Type {
+    fn from(value: (&str, &str)) -> Self {
+        Self::named(value.0, value.1)
+    }
+}
