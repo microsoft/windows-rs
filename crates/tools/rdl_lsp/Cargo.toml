@@ -1,0 +1,13 @@
+[package]
+name = "tool_rdl_lsp"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+windows-rdl = { path = "../../libs/rdl" }
+lsp-server = "0.7"
+lsp-types = "0.97"
+serde_json = { workspace = true }
+
+[lints]
+workspace = true

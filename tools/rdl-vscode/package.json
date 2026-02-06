@@ -1,0 +1,65 @@
+{
+  "name": "rdl-vscode",
+  "displayName": "Windows Metadata Language (RDL) Support",
+  "version": "0.1.0",
+  "description": "Provides language support for Windows Metadata Language (RDL) files in Visual Studio Code.",
+  "main": "extension.js",
+  "publisher": "Microsoft",
+  "keywords": [],
+  "author": "",
+  "license": "(MIT OR Apache-2.0)",
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "icon": "microsoft.png",
+  "repository": "https://github.com/microsoft/windows-rs",
+  "contributes": {
+    "configuration": {
+      "title": "RDL",
+      "properties": {
+        "windows-rs.rdl.lsp.debug": {
+          "type": "boolean",
+          "default": false,
+          "description": "Enable debug mode for the RDL language server."
+        }
+      }
+    },
+    "languages": [
+      {
+        "id": "windows-rdl",
+        "aliases": [
+          "Windows Metadata Language (RDL)",
+          "windows-rdl"
+        ],
+        "extensions": [
+          ".rdl"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "windows-rdl",
+        "scopeName": "source.rust",
+        "path": "./syntaxes/rust.tmLanguage.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build-lsp:release": "cargo build -p tool_rdl_lsp --release",
+    "build-lsp:debug": "cargo build -p tool_rdl_lsp",
+    "sync-lsp:release": "copy /y ..\\..\\target\\release\\tool_rdl_lsp.exe .",
+    "sync-lsp:debug": "copy /y ..\\..\\target\\debug\\tool_rdl_lsp.exe .",
+    "package:release": "npm run build-lsp:release && npm run sync-lsp:release && vsce package",
+    "package:debug": "npm run build-lsp:debug && npm run sync-lsp:debug && vsce package",
+    "package": "npm run package:release",
+    "vscode:prepublish": "npm run build-lsp:release && npm run sync-lsp:release"
+  },
+  "dependencies": {
+    "vscode-languageclient": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.100.0",
+    "vsce": "^2.24.0"
+  }
+}
