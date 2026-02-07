@@ -179,7 +179,7 @@ interface ISprocket {
 
 #### Functions
 
-Functions declare external function signatures provided by the system. The `#[link]` attribute specifies the library name and ABI.
+Functions declare external function signatures provided by another library. The `#[link]` attribute specifies the library name and ABI.
 
 **Syntax:**
 ```rust
