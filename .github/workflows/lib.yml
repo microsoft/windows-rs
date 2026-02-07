@@ -8,11 +8,13 @@ on:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
       - 'web/**'
   push:
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '.github/workflows/web.yml'
+      - 'crates/libs/rdl/rdl.md'
       - 'web/**'
     branches:
       - master
