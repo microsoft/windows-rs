@@ -324,20 +324,16 @@ fn encode_value(
     Ok(value)
 }
 
-fn encode_neg_lit_int<T>(encoder: &Encoder, value: &syn::Expr) -> Result<T, Error>
+fn encode_neg_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
 where
     T: std::str::FromStr + std::ops::Neg<Output = T>,
     T::Err: std::fmt::Display,
 {
-    match value {
+    let value = match expr {
         syn::Expr::Lit(syn::ExprLit {
             lit: syn::Lit::Int(int),
             ..
-        }) => {
-             Ok(int
-                .base10_parse()
-                .map_err(|_| encoder.error(value, "value not integer literal"))?)
-        }
+        }) => int.base10_parse().ok(),
         syn::Expr::Unary(syn::ExprUnary {
             op: syn::UnOp::Neg(_),
             expr,
@@ -346,35 +342,30 @@ where
             syn::Expr::Lit(syn::ExprLit {
                 lit: syn::Lit::Int(int),
                 ..
-            }) => {
-                let value: T = int
-                    .base10_parse()
-                    .map_err(|_| encoder.error(value, "value not integer literal"))?;
-                 Ok(-value)
-            }
-            _ => todo!(),
+            }) => int.base10_parse().ok().map(|value: T| -value),
+            _ => None,
         },
-        _ => encoder.err(value, "value not integer literal"),
-    }
+        _ => None,
+    };
+
+    value.ok_or_else(|| encoder.error(expr, "value not valid"))
 }
 
-fn encode_lit_int<T>(encoder: &Encoder, value: &syn::Expr) -> Result<T, Error>
+fn encode_lit_int<T>(encoder: &Encoder, expr: &syn::Expr) -> Result<T, Error>
 where
     T: std::str::FromStr,
     T::Err: std::fmt::Display,
 {
-    match value {
+    let value = match expr {
         syn::Expr::Lit(syn::ExprLit {
             lit: syn::Lit::Int(int),
             ..
-        }) => {
-             Ok(int
-                .base10_parse()
-                .map_err(|_| encoder.error(value, "value not integer literal"))?)
-        }
+        }) => int.base10_parse().ok(),
 
-        _ => encoder.err(value, "value not integer literal"),
-    }
+        _ => None,
+    };
+
+    value.ok_or_else(|| encoder.error(expr, "value not valid"))
 }
 
 fn encode_type_reference(
