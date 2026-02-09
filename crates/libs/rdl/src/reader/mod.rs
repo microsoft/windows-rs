@@ -1,3 +1,4 @@
+mod r#const;
 mod r#enum;
 mod r#fn;
 mod index;
@@ -10,6 +11,7 @@ use super::*;
 use index::*;
 use interface::*;
 use param::*;
+use r#const::*;
 use r#enum::*;
 use r#fn::*;
 use r#struct::*;
@@ -288,6 +290,7 @@ fn encode_item(
         syntax::Item::Interface(ty) => encode_interface(encoder, ty),
         syntax::Item::Union(ty) => encode_union(encoder, ty),
         syntax::Item::Fn(ty) => encode_fn(encoder, ty),
+        syntax::Item::Const(ty) => encode_const(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
@@ -298,6 +301,79 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
         syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
         syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
         rest => todo!("{rest:?}"),
+    }
+}
+
+fn encode_value(
+    encoder: &Encoder,
+    ty: &metadata::Type,
+    value: &syn::Expr,
+) -> Result<metadata::Value, Error> {
+    let value = match ty {
+        metadata::Type::I8 => metadata::Value::I8(encode_neg_lit_int::<i8>(encoder, value)?),
+        metadata::Type::U8 => metadata::Value::U8(encode_lit_int::<u8>(encoder, value)?),
+        metadata::Type::I16 => metadata::Value::I16(encode_neg_lit_int::<i16>(encoder, value)?),
+        metadata::Type::U16 => metadata::Value::U16(encode_lit_int::<u16>(encoder, value)?),
+        metadata::Type::I32 => metadata::Value::I32(encode_neg_lit_int::<i32>(encoder, value)?),
+        metadata::Type::U32 => metadata::Value::U32(encode_lit_int::<u32>(encoder, value)?),
+        metadata::Type::I64 => metadata::Value::I64(encode_neg_lit_int::<i64>(encoder, value)?),
+        metadata::Type::U64 => metadata::Value::U64(encode_lit_int::<u64>(encoder, value)?),
+        rest => todo!("{rest:?}"),
+    };
+
+    Ok(value)
+}
+
+fn encode_neg_lit_int<T>(encoder: &Encoder, value: &syn::Expr) -> Result<T, Error>
+where
+    T: std::str::FromStr + std::ops::Neg<Output = T>,
+    T::Err: std::fmt::Display,
+{
+    match value {
+        syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Int(int),
+            ..
+        }) => {
+             Ok(int
+                .base10_parse()
+                .map_err(|_| encoder.error(value, "value not integer literal"))?)
+        }
+        syn::Expr::Unary(syn::ExprUnary {
+            op: syn::UnOp::Neg(_),
+            expr,
+            ..
+        }) => match expr.as_ref() {
+            syn::Expr::Lit(syn::ExprLit {
+                lit: syn::Lit::Int(int),
+                ..
+            }) => {
+                let value: T = int
+                    .base10_parse()
+                    .map_err(|_| encoder.error(value, "value not integer literal"))?;
+                 Ok(-value)
+            }
+            _ => todo!(),
+        },
+        _ => encoder.err(value, "value not integer literal"),
+    }
+}
+
+fn encode_lit_int<T>(encoder: &Encoder, value: &syn::Expr) -> Result<T, Error>
+where
+    T: std::str::FromStr,
+    T::Err: std::fmt::Display,
+{
+    match value {
+        syn::Expr::Lit(syn::ExprLit {
+            lit: syn::Lit::Int(int),
+            ..
+        }) => {
+             Ok(int
+                .base10_parse()
+                .map_err(|_| encoder.error(value, "value not integer literal"))?)
+        }
+
+        _ => encoder.err(value, "value not integer literal"),
     }
 }
 

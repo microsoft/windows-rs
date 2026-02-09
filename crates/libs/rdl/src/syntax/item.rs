@@ -66,6 +66,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Union)
         } else if lookahead.peek(syn::Token![fn]) {
             input.parse().map(Item::Fn)
+        } else if lookahead.peek(syn::Token![const]) {
+            input.parse().map(Item::Const)
         } else {
             Err(lookahead.error())
         }?;

@@ -163,12 +163,20 @@ fn rustfmt(tokens: &str) -> Option<String> {
 fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
     match item {
         metadata::reader::Item::Type(ty) => write_type_def(ty),
-        metadata::reader::Item::Fn(ty) => write_method_def(namespace, ty),
-        rest => todo!("{rest:?}"),
+        metadata::reader::Item::Fn(ty) => write_fn(namespace, ty),
+        metadata::reader::Item::Const(ty) => write_const(namespace, ty),
     }
 }
 
-fn write_method_def(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
+fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+    let name = format_ident!("{}", item.name());
+    let constant = item.constant().expect("field missing constant");
+    let ty = write_type(namespace, &item.ty());
+    let value = write_value(&constant.value());
+    quote! { const #name: #ty = #value; }
+}
+
+fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
     let name = format_ident!("{}", item.name());
     let signature = item.signature(&[]);
 
