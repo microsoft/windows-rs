@@ -1,11 +1,20 @@
 use windows::{
     core::*,
     Win32::{
-        Foundation::*, Graphics::Direct2D::Common::*, Graphics::Direct2D::*, Graphics::Direct3D::*,
-        Graphics::Direct3D11::*, Graphics::DirectComposition::*, Graphics::DirectWrite::*,
-        Graphics::Dxgi::Common::*, Graphics::Dxgi::*, Graphics::Gdi::*, Graphics::Imaging::D2D::*,
-        Graphics::Imaging::*, System::Com::*, System::LibraryLoader::*, UI::Animation::*,
-        UI::HiDpi::*, UI::Shell::*, UI::WindowsAndMessaging::*,
+        Foundation::*,
+        Graphics::{
+            Direct2D::{Common::*, *},
+            Direct3D::*,
+            Direct3D11::*,
+            DirectComposition::*,
+            DirectWrite::*,
+            Dxgi::{Common::*, *},
+            Gdi::*,
+            Imaging::{D2D::*, *},
+        },
+        Security::Cryptography::{BCryptGenRandom, BCRYPT_USE_SYSTEM_PREFERRED_RNG},
+        System::{Com::*, LibraryLoader::*},
+        UI::{Animation::*, HiDpi::*, Shell::*, WindowsAndMessaging::*},
     },
 };
 
@@ -63,17 +72,24 @@ impl Window {
             let manager: IUIAnimationManager2 =
                 CoCreateInstance(&UIAnimationManager2, None, CLSCTX_INPROC_SERVER)?;
 
-            use rand::{seq::*, *};
-            let mut rng = rand::rng();
             let mut values = [b'?'; CARD_ROWS * CARD_COLUMNS];
+            let mut random_bytes = vec![0u8; values.len()];
+
+            BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
 
             for i in 0..values.len() / 2 {
-                let value = rng.random_range(b'A'..=b'Z');
+                let value = b'A' + (random_bytes[i] % 26);
                 values[i * 2] = value;
                 values[i * 2 + 1] = value + b'a' - b'A';
             }
 
-            values.shuffle(&mut rng);
+            BCryptGenRandom(None, &mut random_bytes, BCRYPT_USE_SYSTEM_PREFERRED_RNG).ok()?;
+
+            (0..values.len()).for_each(|i| {
+                let j = (random_bytes[i] as usize) % values.len();
+                values.swap(i, j);
+            });
+
             let mut cards = Vec::new();
 
             for value in values {
