@@ -5,7 +5,7 @@ edition = "2021"
 publish = false
 
 [dependencies]
-rand = "0.9"
+rand = "0.10"
 
 [dependencies.windows]
 workspace = true
