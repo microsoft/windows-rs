@@ -1,0 +1,4 @@
+#[win32]
+mod Test {
+    const U8: u8 = -1;
+}
