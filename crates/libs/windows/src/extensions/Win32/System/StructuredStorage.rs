@@ -29,9 +29,9 @@ impl Clone for PROPVARIANT {
     }
 }
 
-impl Drop for PROPVARIANT {
-    fn drop(&mut self) {
-        unsafe { _ = PropVariantClear(self) };
+impl Free for PROPVARIANT {
+    unsafe fn free(&mut self) {
+        _ = PropVariantClear(self);
     }
 }
 
