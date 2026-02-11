@@ -30,11 +30,12 @@ impl Clone for VARIANT {
     }
 }
 
-impl Drop for VARIANT {
-    fn drop(&mut self) {
-        unsafe { _ = VariantClear(self) };
+impl Free for VARIANT {
+    unsafe fn free(&mut self) {
+        _ = VariantClear(self);
     }
 }
+
 impl VARIANT {
     pub fn vt(&self) -> VARENUM {
         unsafe { self.Anonymous.Anonymous.vt }

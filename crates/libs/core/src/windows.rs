@@ -9,8 +9,8 @@ mod event;
 #[cfg(feature = "std")]
 pub use event::*;
 
-mod handles;
-pub use handles::*;
+mod resources;
+pub use resources::*;
 
 pub use windows_strings::*;
 

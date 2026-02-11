@@ -1,33 +1,33 @@
-/// Custom code to free a handle.
+/// Custom code to free a resource.
 ///
-/// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows handles
-/// to be dropped depending on context.
+/// This is similar to the [`Drop`] trait, and may be used to implement [`Drop`], but allows resources
+/// to be freed depending on context.
 pub trait Free : Clone {
-    /// Calls the handle's free function.
+    /// Calls the resource's free function.
     ///
     /// # Safety
-    /// The handle must be owned by the caller and safe to free.
+    /// The resource must be owned by the caller and safe to free.
     unsafe fn free(&mut self);
 }
 
-/// A wrapper to provide ownership for handles to automatically drop via the handle's [`Free`] trait.
+/// A wrapper to provide ownership for resources to automatically drop via the resource's [`Free`] trait.
 #[repr(transparent)]
 #[derive(PartialEq, Eq, Default, Debug)]
 pub struct Owned<T: Free>(T);
 
 impl<T: Free> Owned<T> {
-    /// Takes ownership of the handle.
+    /// Takes ownership of the resource.
     ///
     /// # Safety
     ///
-    /// The handle must be owned by the caller and safe to free.
+    /// The resource must be owned by the caller and safe to free.
     pub unsafe fn new(x: T) -> Self {
         Self(x)
     }
 
-    /// Consumes the `Owned<T>` and relinquishes ownership of the handle.
-    /// The caller is now responsible for freeing the returned handle.
-    #[must_use = "losing the handle will leak it"]
+    /// Consumes the `Owned<T>` and relinquishes ownership of the resource.
+    /// The caller is now responsible for freeing the returned resource.
+    #[must_use = "losing the resource will leak it"]
     pub fn into_raw(o: Self) -> T {
         let o = core::mem::ManuallyDrop::new(o);
         o.0.clone()
