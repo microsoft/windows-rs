@@ -65,37 +65,7 @@ pub fn encode_enum(encoder: &mut Encoder, item: &syntax::Enum) -> Result<(), Err
             return encoder.err(variant, "variant value not found");
         };
 
-        let syn::Expr::Lit(value) = value else {
-            return encoder.err(variant, "variant value not literal");
-        };
-
-        let syn::Lit::Int(value) = &value.lit else {
-            return encoder.err(variant, "variant value not integer");
-        };
-
-        let value = match ty {
-            metadata::Type::U32 => metadata::Value::U32(
-                value
-                    .base10_parse::<u32>()
-                    .map_err(|_| encoder.error(variant, "variant value not valid"))?,
-            ),
-            metadata::Type::U64 => metadata::Value::U64(
-                value
-                    .base10_parse::<u64>()
-                    .map_err(|_| encoder.error(variant, "variant value not valid"))?,
-            ),
-            metadata::Type::I32 => metadata::Value::I32(
-                value
-                    .base10_parse::<i32>()
-                    .map_err(|_| encoder.error(variant, "variant value not valid"))?,
-            ),
-            metadata::Type::I64 => metadata::Value::I64(
-                value
-                    .base10_parse::<i64>()
-                    .map_err(|_| encoder.error(variant, "variant value not valid"))?,
-            ),
-            rest => todo!("{rest:?}"),
-        };
+        let value = encode_value(encoder, &ty, value)?;
 
         encoder
             .output
