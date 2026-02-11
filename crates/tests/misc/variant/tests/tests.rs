@@ -1,7 +1,8 @@
+use std::rc::Rc;
 use windows::Foundation::Uri;
 use windows::Win32::Foundation::{E_INVALIDARG, TYPE_E_TYPEMISMATCH};
-use windows::Win32::System::Com;
 use windows::Win32::System::Com::StructuredStorage::PROPVARIANT;
+use windows::Win32::System::Com::{self, IAgileObject, IAgileObject_Impl};
 use windows::Win32::System::Variant::*;
 use windows_core::*;
 
@@ -263,5 +264,41 @@ fn test_propvariant() -> Result<()> {
     assert_eq!(v, PROPVARIANT::from(3.5f64));
     assert_ne!(v, PROPVARIANT::from(true));
 
+    Ok(())
+}
+
+#[implement(IAgileObject)]
+struct Canary {
+    _counter: Rc<()>,
+}
+impl IAgileObject_Impl for Canary_Impl {}
+
+#[test]
+fn test_owned_variant() -> Result<()> {
+    let counter = Rc::new(());
+    let unk: IUnknown = Canary {
+        _counter: counter.clone(),
+    }
+    .into();
+    assert_eq!(Rc::strong_count(&counter), 2);
+    {
+        let _owned = unsafe { Owned::new(VARIANT::from(unk)) };
+    }
+    assert_eq!(Rc::strong_count(&counter), 1);
+    Ok(())
+}
+
+#[test]
+fn test_owned_propvariant() -> Result<()> {
+    let counter = Rc::new(());
+    let unk: IUnknown = Canary {
+        _counter: counter.clone(),
+    }
+    .into();
+    assert_eq!(Rc::strong_count(&counter), 2);
+    {
+        let _owned = unsafe { Owned::new(PROPVARIANT::from(unk)) };
+    }
+    assert_eq!(Rc::strong_count(&counter), 1);
     Ok(())
 }
