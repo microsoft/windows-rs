@@ -36,4 +36,20 @@ mod Test {
     interface IDerived2 {
         
     }
+
+        interface IDerivedFactory {
+        
+    }
+
+            interface IDerivedFactory2 {
+        
+    }
+
+            interface IDerivedStatics {
+        
+    }
+
+    interface IDerivedStatics2 {
+        
+    }
 }

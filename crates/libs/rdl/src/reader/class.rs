@@ -58,7 +58,10 @@ fn encode_implement(
 
             let default_ctor = encoder.output.MemberRef(
                 ".ctor",
-                &metadata::Signature::default(),
+                &metadata::Signature {
+                    flags: metadata::MethodCallAttributes::HASTHIS,
+                    ..Default::default()
+                },
                 default_attribute,
             );
 
@@ -78,19 +81,55 @@ fn encode_factory(
     class: metadata::writer::TypeDef,
     interface: &syntax::ClassInterface,
 ) -> Result<(), Error> {
-   for attr in &interface.attrs {
-        for attr in &interface.attrs {
-            let path = attr.path();
+    for attr in &interface.attrs {
+        let path = attr.path();
+        let interface = encode_path(encoder, &interface.ty)?;
 
-            if path.is_ident("activatable") {
+        let interface = if let metadata::Type::Name(interface) = interface {
+            format!("{}.{}", interface.namespace, interface.name) // TODO: impl Display for TypeName
+        } else {
+            return encoder.err(attr, "invalid type name");
+        };
 
-            } else if path.is_ident("statics") {
+        let activatable = if path.is_ident("activatable") {
+            true
+        } else if path.is_ident("statics") {
+            false
+        } else {
+            return encoder.err(attr, "invalid class factory attribute");
+        };
 
-            } else {
-                return encoder.err(attr, "invalid class factory attribute");
-            }
-        }
-   }
+        let attribute = if activatable {
+            encoder
+                .output
+                .TypeRef("Windows.Foundation.Metadata", "ActivatableAttribute")
+        } else {
+            encoder
+                .output
+                .TypeRef("Windows.Foundation.Metadata", "StaticAttribute")
+        };
 
-   Ok(())
+        let signature = metadata::Signature {
+            flags: metadata::MethodCallAttributes::HASTHIS,
+            return_type: metadata::Type::Void,
+            types: vec![metadata::Type::named("System", "Type"), metadata::Type::U32],
+        };
+
+        let ctor = encoder.output.MemberRef(
+            ".ctor",
+            &signature,
+            metadata::writer::MemberRefParent::TypeRef(attribute),
+        );
+
+        encoder.output.Attribute(
+            metadata::writer::HasAttribute::TypeDef(class),
+            metadata::writer::AttributeType::MemberRef(ctor),
+            &[
+                (String::new(), metadata::Value::Utf8(interface)),
+                (String::new(), metadata::Value::U32(1)),
+            ],
+        );
+    }
+
+    Ok(())
 }
