@@ -1,9 +1,11 @@
+mod class;
 mod r#enum;
 mod interface;
 mod layout;
 mod r#struct;
 
 use super::*;
+use class::*;
 use interface::*;
 use layout::*;
 use metadata::HasAttributes;
@@ -222,6 +224,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Struct => write_struct(item),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
+        metadata::reader::TypeCategory::Class => write_class(item),
         rest => todo!("{rest:?}"),
     }
 }

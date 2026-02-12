@@ -1,3 +1,4 @@
+mod class;
 mod r#const;
 mod r#enum;
 mod r#fn;
@@ -8,6 +9,7 @@ mod r#struct;
 mod union;
 
 use super::*;
+use class::*;
 use index::*;
 use interface::*;
 use param::*;
@@ -291,6 +293,7 @@ fn encode_item(
         syntax::Item::Union(ty) => encode_union(encoder, ty),
         syntax::Item::Fn(ty) => encode_fn(encoder, ty),
         syntax::Item::Const(ty) => encode_const(encoder, ty),
+        syntax::Item::Class(ty) => encode_class(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
