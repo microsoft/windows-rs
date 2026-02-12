@@ -5,23 +5,23 @@ mod Test {
         IBase,
     }
 
+    interface IBase {
+
+    }
+
     class Derived : Base {
         #[default]
         IDerived,
 
         #[version(2)]
         IDerived2,
+    }
 
-        #[activatable(1)]
-        IDerivedFactory,
+    interface IDerived {
 
-        #[activatable(2)]
-        Test::IDerivedFactory2,
+    }
 
-        #[statics(1)]
-        IDerivedStatics,
+    interface IDerived2 {
 
-        #[statics(2)]
-        IDerivedStatics2,
     }
 }

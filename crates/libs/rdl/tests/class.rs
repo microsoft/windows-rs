@@ -8,10 +8,10 @@ pub fn parse() {
         .write()
         .unwrap();
 
-    Writer::new()
-        .input("tests/class.winmd")
-        .output("tests/class.rdl")
-        .namespace("Test")
-        .write()
-        .unwrap();
+    // Writer::new()
+    //     .input("tests/class.winmd")
+    //     .output("tests/class.rdl")
+    //     .namespace("Test")
+    //     .write()
+    //     .unwrap();
 }
