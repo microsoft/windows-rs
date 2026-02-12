@@ -78,5 +78,19 @@ fn encode_factory(
     class: metadata::writer::TypeDef,
     interface: &syntax::ClassInterface,
 ) -> Result<(), Error> {
-    todo!()
+   for attr in &interface.attrs {
+        for attr in &interface.attrs {
+            let path = attr.path();
+
+            if path.is_ident("activatable") {
+
+            } else if path.is_ident("statics") {
+
+            } else {
+                return encoder.err(attr, "invalid class factory attribute");
+            }
+        }
+   }
+
+   Ok(())
 }
