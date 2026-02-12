@@ -7,7 +7,7 @@ publish = false
 [dependencies]
 windows-link = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
-toml = "0.9"
+toml = "1.0"
 
 [lints]
 workspace = true
