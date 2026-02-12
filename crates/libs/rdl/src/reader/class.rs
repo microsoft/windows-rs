@@ -42,11 +42,33 @@ fn encode_implement(
     class: metadata::writer::TypeDef,
     interface: &syntax::ClassInterface,
 ) -> Result<(), Error> {
-    let interface = encode_path(encoder, &interface.ty)?;
+    let ty = encode_path(encoder, &interface.ty)?;
 
-    let implement = encoder.output.InterfaceImpl(class, &interface);
+    let interface_impl = encoder.output.InterfaceImpl(class, &ty);
 
-    // TODO: add attributes to implement
+    for attr in &interface.attrs {
+        let path = attr.path();
+
+        if path.is_ident("default") {
+            let default_attribute = metadata::writer::MemberRefParent::TypeRef(
+                encoder
+                    .output
+                    .TypeRef("Windows.Foundation.Metadata", "DefaultAttribute"),
+            );
+
+            let default_ctor = encoder.output.MemberRef(
+                ".ctor",
+                &metadata::Signature::default(),
+                default_attribute,
+            );
+
+            encoder.output.Attribute(
+                metadata::writer::HasAttribute::InterfaceImpl(interface_impl),
+                metadata::writer::AttributeType::MemberRef(default_ctor),
+                &[],
+            );
+        }
+    }
 
     Ok(())
 }

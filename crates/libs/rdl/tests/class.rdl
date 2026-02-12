@@ -15,6 +15,18 @@ mod Test {
 
         #[version(2)]
         IDerived2,
+
+        // #[activatable(1)]
+        // IDerivedFactory,
+
+        // #[activatable(2)]
+        // Test::IDerivedFactory2,
+
+        // #[statics(1)]
+        // IDerivedStatics,
+
+        // #[statics(2)]
+        // IDerivedStatics2,
     }
 
     interface IDerived {
@@ -22,6 +34,6 @@ mod Test {
     }
 
     interface IDerived2 {
-
+        
     }
 }
