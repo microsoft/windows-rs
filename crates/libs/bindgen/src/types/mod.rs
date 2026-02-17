@@ -308,11 +308,20 @@ impl Type {
                 .unwrap_or(&Self::Void)
                 .clone(),
             ELEMENT_TYPE_ARRAY => {
+                // ECMA-335 II.23.2.13 ArrayShape:
+                //   Rank NumSizes Size* NumLoBounds LoBound*
                 let kind = Self::from_blob(blob, enclosing, generics);
-                let _rank = blob.read_usize();
-                let _count = blob.read_usize();
-                let bounds = blob.read_usize();
-                Self::ArrayFixed(Box::new(kind), bounds)
+                let _rank = blob.read_usize(); // Rank (unused — always 1 for fixed arrays)
+                let num_sizes = blob.read_usize(); // NumSizes
+                let len = if num_sizes > 0 { blob.read_usize() } else { 0 }; // Size[0]
+                for _ in 1..num_sizes {
+                    blob.read_usize(); // drain remaining sizes (multi-rank not used)
+                }
+                let num_lo_bounds = blob.read_usize(); // NumLoBounds
+                for _ in 0..num_lo_bounds {
+                    blob.read_usize(); // drain lower bounds (always 0 for C arrays)
+                }
+                Self::ArrayFixed(Box::new(kind), len)
             }
             ELEMENT_TYPE_GENERICINST => {
                 let type_code = blob.read_u8();
