@@ -91,19 +91,76 @@ pub fn format(input: &str) -> String {
         }
 
         match token {
+            Token::Ampersand => {
+                output.push('&');
+            }
             Token::Arrow => {
                 output.push_str("-> ");
+            }
+            Token::Asterisk => {
+                output.push('*');
             }
             Token::Attribute(attr) => {
                 push_attribute(attr, &mut output);
                 output.push_str(newline);
             }
-            Token::Identifier(ident) => {
-                output.push_str(ident);
-                output.push(' ');
+            Token::CloseBrace => {
+                indent_level -= 1;
+                push_indent(&mut output, indent_level);
+                output.push('}');
+                output.push_str(newline);
+            }
+            Token::CloseParenthesis => {
+                if output.ends_with(", ") {
+                    output.truncate(output.len() - 2);
+                }
+                output.push_str(") ");
+                paren_depth -= 1;
+            }
+            Token::Colon => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push_str(": ");
+            }
+            Token::ColonColon => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push_str("::");
+            }
+            Token::Comma => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push(',');
+                if paren_depth > 0 {
+                    output.push(' ');
+                } else {
+                    output.push_str(newline);
+                }
+            }
+            Token::Const => {
+                output.push_str("const ");
+            }
+            Token::Enum => {
+                output.push_str("enum ");
+            }
+            Token::Equals => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push_str(" = ");
             }
             Token::Fn => {
                 output.push_str("fn ");
+            }
+            Token::Hyphen => {
+                output.push('-');
+            }
+            Token::Identifier(ident) => {
+                output.push_str(ident);
+                output.push(' ');
             }
             Token::Mod => {
                 output.push_str("mod ");
@@ -120,25 +177,12 @@ pub fn format(input: &str) -> String {
                     indent_level += 1;
                 }
             }
-            Token::CloseBrace => {
-                indent_level -= 1;
-                push_indent(&mut output, indent_level);
-                output.push('}');
-                output.push_str(newline);
-            }
             Token::OpenParenthesis => {
                 paren_depth += 1;
                 if output.ends_with(' ') {
                     output.pop();
                 }
                 output.push('(');
-            }
-            Token::CloseParenthesis => {
-                if output.ends_with(", ") {
-                    output.truncate(output.len() - 2);
-                }
-                output.push_str(") ");
-                paren_depth -= 1;
             }
             Token::Semicolon => {
                 if output.ends_with(' ') {
@@ -149,51 +193,6 @@ pub fn format(input: &str) -> String {
             }
             Token::Struct => {
                 output.push_str("struct ");
-            }
-            Token::Colon => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
-                output.push_str(": ");
-            }
-            Token::Equals => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
-                output.push_str(" = ");
-            }
-            Token::Hyphen => {
-                output.push('-');
-            }
-            Token::Const => {
-                output.push_str("const ");
-            }
-            Token::Comma => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
-                output.push(',');
-
-                if paren_depth > 0 {
-                    output.push(' ');
-                } else {
-                    output.push_str(newline);
-                }
-            }
-            Token::Enum => {
-                output.push_str("enum ");
-            }
-            Token::Ampersand => {
-                output.push('&');
-            }
-            Token::Asterisk => {
-                output.push('*');
-            }
-            Token::ColonColon => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
-                output.push_str("::");
             }
             Token::Whitespace => {}
         }
