@@ -23,6 +23,9 @@ enum Token<'a> {
     #[token(":")]
     Colon,
 
+    #[token("::")]
+    ColonColon,
+
     #[token("const")]
     Const,
 
@@ -180,6 +183,12 @@ pub fn format(input: &str) -> String {
             }
             Token::Asterisk => {
                 output.push('*');
+            }
+            Token::ColonColon => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push_str("::");
             }
             Token::Whitespace => {}
         }
