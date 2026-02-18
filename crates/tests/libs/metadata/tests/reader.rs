@@ -113,22 +113,3 @@ fn nested() {
     assert_eq!(fields[0].name(), "NumElements");
     assert_eq!(fields[1].name(), "ElementWidth");
 }
-
-#[test]
-fn typed_attribute() {
-    let index = reader::TypeIndex::read("../../../libs/bindgen/default/Windows.winmd").unwrap();
-
-    let index = reader::ItemIndex::new(&index);
-
-    let reader::Item::Type(ty) = index.expect("Windows.Foundation", "Uri") else {
-        panic!()
-    };
-
-    let attribute = ty.find_attribute("ActivatableAttribute").unwrap();
-
-    //let ctor = attribute.ctor().signature(&[]);
-    //panic!("{ctor:#?}");
-
-    let value = attribute.value();
-    panic!("{value:#?}");
-}

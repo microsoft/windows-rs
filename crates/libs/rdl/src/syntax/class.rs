@@ -1,5 +1,3 @@
-//use super::*;
-
 syn::custom_keyword!(class);
 
 #[derive(Debug)]
