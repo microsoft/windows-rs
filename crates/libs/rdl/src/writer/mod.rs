@@ -89,7 +89,7 @@ impl Writer {
         }
 
         let output = layout.to_string();
-        write_to_file(&self.output, format(&output));
+        write_to_file(&self.output, formatter::format(&output));
 
         Ok(())
     }
@@ -129,35 +129,6 @@ fn item_winrt(item: &metadata::reader::Item) -> bool {
             .contains(metadata::TypeAttributes::WindowsRuntime),
         _ => false,
     }
-}
-
-fn format(tokens: &str) -> String {
-    if let Some(result) = rustfmt(tokens) {
-        result.replace("trait ", "interface ")
-    } else {
-        tokens.to_string()
-    }
-}
-
-fn rustfmt(tokens: &str) -> Option<String> {
-    use std::io::Write;
-
-    let mut cmd = std::process::Command::new("rustfmt");
-    cmd.stdin(std::process::Stdio::piped());
-    cmd.stdout(std::process::Stdio::piped());
-    cmd.stderr(std::process::Stdio::null());
-
-    let mut child = cmd.spawn().ok()?;
-    let mut stdin = child.stdin.take()?;
-    stdin.write_all(tokens.as_bytes()).ok()?;
-    drop(stdin);
-    let output = child.wait_with_output().ok()?;
-
-    if !output.status.success() {
-        return None;
-    }
-
-    String::from_utf8(output.stdout).ok()
 }
 
 fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
