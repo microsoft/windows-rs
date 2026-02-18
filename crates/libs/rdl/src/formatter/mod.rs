@@ -86,7 +86,7 @@ pub fn format(input: &str) -> String {
             }
         };
 
-        if at_line_start(&output, &newline) && !matches!(token, Token::CloseBrace) {
+        if at_line_start(&output, newline) && !matches!(token, Token::CloseBrace) {
             push_indent(&mut output, indent_level);
         }
 
@@ -115,7 +115,7 @@ pub fn format(input: &str) -> String {
                     i += 2;
                     continue;
                 } else {
-                    output.push_str("{");
+                    output.push('{');
                     output.push_str(newline);
                     indent_level += 1;
                 }
@@ -123,7 +123,7 @@ pub fn format(input: &str) -> String {
             Token::CloseBrace => {
                 indent_level -= 1;
                 push_indent(&mut output, indent_level);
-                output.push_str("}");
+                output.push('}');
                 output.push_str(newline);
             }
             Token::OpenParenthesis => {
@@ -144,7 +144,7 @@ pub fn format(input: &str) -> String {
                 if output.ends_with(' ') {
                     output.pop();
                 }
-                output.push_str(";");
+                output.push(';');
                 output.push_str(newline);
             }
             Token::Struct => {

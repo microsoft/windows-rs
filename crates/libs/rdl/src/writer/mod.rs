@@ -71,10 +71,8 @@ impl Writer {
                 if !namespace_starts_with(namespace, &self.namespace) {
                     continue;
                 }
-            } else {
-                if *namespace != self.namespace {
-                    continue;
-                }
+            } else if *namespace != self.namespace {
+                continue;
             }
 
             for (name, item) in index.namespace_items(namespace) {
