@@ -9,6 +9,10 @@ impl std::fmt::Debug for Attribute<'_> {
 }
 
 impl<'a> Attribute<'a> {
+    pub fn name(&self) -> &'a str {
+        self.ctor().parent().name()
+    }
+
     pub fn parent(&self) -> HasAttribute<'a> {
         self.decode(0)
     }

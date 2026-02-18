@@ -272,6 +272,13 @@ fn write_value(value: &metadata::Value) -> TokenStream {
     }
 }
 
+fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> TokenStream {
+    write_type(
+        namespace,
+        &metadata::Type::named(item.namespace(), item.name()),
+    )
+}
+
 fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
     use metadata::Type::*;
     match item {

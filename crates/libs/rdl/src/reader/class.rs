@@ -23,6 +23,14 @@ pub fn encode_class(encoder: &mut Encoder, item: &syntax::Class) -> Result<(), E
         flags,
     );
 
+    if item
+        .attrs
+        .iter()
+        .any(|attribute| attribute.path().is_ident("activatable"))
+    {
+        encode_activatable(encoder, class)?;
+    }
+
     for interface in &item.interfaces {
         if interface.attrs.iter().any(|attr| {
             let path = attr.path();
@@ -130,6 +138,35 @@ fn encode_factory(
             ],
         );
     }
+
+    Ok(())
+}
+
+fn encode_activatable(
+    encoder: &mut Encoder,
+    class: metadata::writer::TypeDef,
+) -> Result<(), Error> {
+    let attribute = encoder
+        .output
+        .TypeRef("Windows.Foundation.Metadata", "ActivatableAttribute");
+
+    let signature = metadata::Signature {
+        flags: metadata::MethodCallAttributes::HASTHIS,
+        return_type: metadata::Type::Void,
+        types: vec![metadata::Type::U32],
+    };
+
+    let ctor = encoder.output.MemberRef(
+        ".ctor",
+        &signature,
+        metadata::writer::MemberRefParent::TypeRef(attribute),
+    );
+
+    encoder.output.Attribute(
+        metadata::writer::HasAttribute::TypeDef(class),
+        metadata::writer::AttributeType::MemberRef(ctor),
+        &[(String::new(), metadata::Value::U32(1))],
+    );
 
     Ok(())
 }

@@ -5,10 +5,9 @@ mod Test {
         IBase,
     }
 
-    interface IBase {
+    interface IBase {}
 
-    }
-
+    #[activatable(1)]
     class Derived : Base {
         #[default]
         IDerived,
@@ -29,27 +28,10 @@ mod Test {
         IDerivedStatics2,
     }
 
-    interface IDerived {
-
-    }
-
-    interface IDerived2 {
-        
-    }
-
-        interface IDerivedFactory {
-        
-    }
-
-            interface IDerivedFactory2 {
-        
-    }
-
-            interface IDerivedStatics {
-        
-    }
-
-    interface IDerivedStatics2 {
-        
-    }
+    interface IDerived {}
+    interface IDerived2 {}
+    interface IDerivedFactory {}
+    interface IDerivedFactory2 {}
+    interface IDerivedStatics {}
+    interface IDerivedStatics2 {}
 }
