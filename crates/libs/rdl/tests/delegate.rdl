@@ -1,0 +1,8 @@
+#[winrt]
+mod Test {
+    delegate fn Handler(arg: i32) -> u32;
+}
+#[win32]
+mod Test {
+    delegate fn Callback(arg: i64) -> u64;
+}
