@@ -10,19 +10,19 @@ mod Test {
         #[default]
         IDerived,
 
-        #[version(2)]
+        #[version(1)]
         IDerived2,
 
         #[activatable(1)]
         IDerivedFactory,
 
-        #[activatable(2)]
+        #[activatable(1)]
         Test::IDerivedFactory2,
 
         #[statics(1)]
         IDerivedStatics,
 
-        #[statics(2)]
+        #[statics(1)]
         IDerivedStatics2,
     }
 
