@@ -1,3 +1,5 @@
+#[cfg(feature = "System_Power_Thermal")]
+pub mod Thermal;
 pub struct BackgroundEnergyManager;
 impl BackgroundEnergyManager {
     pub fn LowUsageLevel() -> windows_core::Result<u32> {

@@ -1,3 +1,31 @@
+windows_core::imp::define_interface!(IPrintSupportAppInfo, IPrintSupportAppInfo_Vtbl, 0x913cd9e0_cb44_5ae4_b984_f6e80e872320);
+impl windows_core::RuntimeType for IPrintSupportAppInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintSupportAppInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "ApplicationModel")]
+    pub AppInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "ApplicationModel"))]
+    AppInfo: usize,
+    pub SupportedContracts: unsafe extern "system" fn(*mut core::ffi::c_void, *mut PrintSupportAppContracts) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IPrintSupportAppInfoStatics, IPrintSupportAppInfoStatics_Vtbl, 0x3246a41d_2757_544d_aafa_b38461896270);
+impl windows_core::RuntimeType for IPrintSupportAppInfoStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintSupportAppInfoStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub GetPrintJobShowsUI: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Graphics_Printing_PrintTicket"))]
+    GetPrintJobShowsUI: usize,
+    pub FromPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPrintSupportCommunicationErrorDetectedEventArgs, IPrintSupportCommunicationErrorDetectedEventArgs_Vtbl, 0x9c90151e_ad1b_5081_a491_4a2d94244f2d);
 impl windows_core::RuntimeType for IPrintSupportCommunicationErrorDetectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -231,6 +259,16 @@ pub struct IPrintSupportPrintTicketValidationRequestedEventArgs_Vtbl {
     pub SetPrintTicketValidationStatus: unsafe extern "system" fn(*mut core::ffi::c_void, WorkflowPrintTicketValidationStatus) -> windows_core::HRESULT,
     pub GetDeferral: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IPrintSupportPrintTicketValidationRequestedEventArgs2, IPrintSupportPrintTicketValidationRequestedEventArgs2_Vtbl, 0x39749075_d02d_5fd1_9c4b_46bb8db7316b);
+impl windows_core::RuntimeType for IPrintSupportPrintTicketValidationRequestedEventArgs2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPrintSupportPrintTicketValidationRequestedEventArgs2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub SetPrintJobShowsUI: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IPrintSupportPrinterSelectedEventArgs, IPrintSupportPrinterSelectedEventArgs_Vtbl, 0x7b1cb7d9_a8a4_5c09_adb2_66165f817977);
 impl windows_core::RuntimeType for IPrintSupportPrinterSelectedEventArgs {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -352,6 +390,110 @@ impl windows_core::TypeKind for IppPrinterCommunicationKind {
 impl windows_core::RuntimeType for IppPrinterCommunicationKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.IppPrinterCommunicationKind;i4)");
 }
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct PrintSupportAppContracts(pub u32);
+impl PrintSupportAppContracts {
+    pub const None: Self = Self(0u32);
+    pub const JobBackgroundSession: Self = Self(1u32);
+    pub const SettingsUI: Self = Self(2u32);
+    pub const Extension: Self = Self(4u32);
+    pub const JobUI: Self = Self(8u32);
+    pub const VirtualPrinterBackgroundSession: Self = Self(16u32);
+    pub const EnterpriseManagementUI: Self = Self(32u32);
+}
+impl windows_core::TypeKind for PrintSupportAppContracts {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for PrintSupportAppContracts {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Graphics.Printing.PrintSupport.PrintSupportAppContracts;u4)");
+}
+impl PrintSupportAppContracts {
+    pub const fn contains(&self, other: Self) -> bool {
+        self.0 & other.0 == other.0
+    }
+}
+impl core::ops::BitOr for PrintSupportAppContracts {
+    type Output = Self;
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
+}
+impl core::ops::BitAnd for PrintSupportAppContracts {
+    type Output = Self;
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
+}
+impl core::ops::BitOrAssign for PrintSupportAppContracts {
+    fn bitor_assign(&mut self, other: Self) {
+        self.0.bitor_assign(other.0)
+    }
+}
+impl core::ops::BitAndAssign for PrintSupportAppContracts {
+    fn bitand_assign(&mut self, other: Self) {
+        self.0.bitand_assign(other.0)
+    }
+}
+impl core::ops::Not for PrintSupportAppContracts {
+    type Output = Self;
+    fn not(self) -> Self {
+        Self(self.0.not())
+    }
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct PrintSupportAppInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(PrintSupportAppInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl PrintSupportAppInfo {
+    #[cfg(feature = "ApplicationModel")]
+    pub fn AppInfo(&self) -> windows_core::Result<super::super::super::ApplicationModel::AppInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SupportedContracts(&self) -> windows_core::Result<PrintSupportAppContracts> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SupportedContracts)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Graphics_Printing_PrintTicket")]
+    pub fn GetPrintJobShowsUI<P1>(printername: &windows_core::HSTRING, printticket: P1) -> windows_core::Result<super::super::super::Foundation::IReference<bool>>
+    where
+        P1: windows_core::Param<super::PrintTicket::WorkflowPrintTicket>,
+    {
+        Self::IPrintSupportAppInfoStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPrintJobShowsUI)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), printticket.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn FromPrinterName(printername: &windows_core::HSTRING) -> windows_core::Result<PrintSupportAppInfo> {
+        Self::IPrintSupportAppInfoStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FromPrinterName)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IPrintSupportAppInfoStatics<R, F: FnOnce(&IPrintSupportAppInfoStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<PrintSupportAppInfo, IPrintSupportAppInfoStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for PrintSupportAppInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IPrintSupportAppInfo>();
+}
+unsafe impl windows_core::Interface for PrintSupportAppInfo {
+    type Vtable = <IPrintSupportAppInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IPrintSupportAppInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for PrintSupportAppInfo {
+    const NAME: &'static str = "Windows.Graphics.Printing.PrintSupport.PrintSupportAppInfo";
+}
+unsafe impl Send for PrintSupportAppInfo {}
+unsafe impl Sync for PrintSupportAppInfo {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct PrintSupportCommunicationErrorDetectedEventArgs(windows_core::IUnknown);
@@ -923,6 +1065,10 @@ impl PrintSupportPrintTicketValidationRequestedEventArgs {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).GetDeferral)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         }
+    }
+    pub fn SetPrintJobShowsUI(&self, showsui: bool) -> windows_core::Result<()> {
+        let this = &windows_core::Interface::cast::<IPrintSupportPrintTicketValidationRequestedEventArgs2>(self)?;
+        unsafe { (windows_core::Interface::vtable(this).SetPrintJobShowsUI)(windows_core::Interface::as_raw(this), showsui).ok() }
     }
 }
 impl windows_core::RuntimeType for PrintSupportPrintTicketValidationRequestedEventArgs {

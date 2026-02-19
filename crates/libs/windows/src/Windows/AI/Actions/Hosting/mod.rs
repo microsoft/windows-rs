@@ -154,6 +154,17 @@ impl ActionDefinition {
             (windows_core::Interface::vtable(this).IsCurrentlyAvailable)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
         }
     }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn GetIconFullPath<P0>(&self, qualifiervalues: P0) -> windows_core::Result<windows_core::HSTRING>
+    where
+        P0: windows_core::Param<super::super::super::Foundation::Collections::PropertySet>,
+    {
+        let this = &windows_core::Interface::cast::<IActionDefinition5>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetIconFullPath)(windows_core::Interface::as_raw(this), qualifiervalues.param().abi(), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
     pub fn Close(&self) -> windows_core::Result<()> {
         let this = &windows_core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (windows_core::Interface::vtable(this).Close)(windows_core::Interface::as_raw(this)).ok() }
@@ -435,6 +446,19 @@ impl windows_core::RuntimeType for IActionDefinition4 {
 pub struct IActionDefinition4_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub IsCurrentlyAvailable: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IActionDefinition5, IActionDefinition5_Vtbl, 0x5bea33ef_d325_53a8_8db3_0d771f4d1e54);
+impl windows_core::RuntimeType for IActionDefinition5 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IActionDefinition5_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    #[cfg(feature = "Foundation_Collections")]
+    pub GetIconFullPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    GetIconFullPath: usize,
 }
 windows_core::imp::define_interface!(IActionEntityRegistrationInfo, IActionEntityRegistrationInfo_Vtbl, 0xc3b92bdb_03c3_5a9e_b049_002fa0405699);
 impl windows_core::RuntimeType for IActionEntityRegistrationInfo {

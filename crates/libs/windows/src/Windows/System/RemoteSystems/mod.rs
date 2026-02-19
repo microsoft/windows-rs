@@ -1172,6 +1172,7 @@ pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
     pub const SameUser: Self = Self(0i32);
     pub const Anonymous: Self = Self(1i32);
+    pub const SameFamily: Self = Self(2i32);
 }
 impl windows_core::TypeKind for RemoteSystemAuthorizationKind {
     type TypeKind = windows_core::CopyType;
