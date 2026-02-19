@@ -2,10 +2,7 @@ use super::*;
 use windows_metadata::AsRow;
 
 pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
-    if item
-        .flags()
-        .contains(metadata::TypeAttributes::NestedPublic)
-    {
+    if is_nested_type(item) {
         return quote! {};
     }
 
