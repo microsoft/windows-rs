@@ -71,7 +71,6 @@ pub fn format(input: &str) -> String {
     let mut indent_level = 0;
     let mut paren_depth = 0;
 
-    let newline = if input.contains("\r\n") { "\r\n" } else { "\n" };
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut i = 0;
 
@@ -86,7 +85,7 @@ pub fn format(input: &str) -> String {
             }
         };
 
-        if at_line_start(&output, newline) && !matches!(token, Token::CloseBrace) {
+        if at_line_start(&output) && !matches!(token, Token::CloseBrace) {
             push_indent(&mut output, indent_level);
         }
 
@@ -102,13 +101,13 @@ pub fn format(input: &str) -> String {
             }
             Token::Attribute(attr) => {
                 push_attribute(attr, &mut output);
-                output.push_str(newline);
+                output.push('\n');
             }
             Token::CloseBrace => {
                 indent_level -= 1;
                 push_indent(&mut output, indent_level);
                 output.push('}');
-                output.push_str(newline);
+                output.push('\n');
             }
             Token::CloseParenthesis => {
                 if output.ends_with(", ") {
@@ -137,7 +136,7 @@ pub fn format(input: &str) -> String {
                 if paren_depth > 0 {
                     output.push(' ');
                 } else {
-                    output.push_str(newline);
+                    output.push('\n');
                 }
             }
             Token::Const => {
@@ -168,12 +167,12 @@ pub fn format(input: &str) -> String {
             Token::OpenBrace => {
                 if matches!(tokens.get(i + 1), Some((Ok(Token::CloseBrace), _))) {
                     output.push_str("{}");
-                    output.push_str(newline);
+                    output.push('\n');
                     i += 2;
                     continue;
                 } else {
                     output.push('{');
-                    output.push_str(newline);
+                    output.push('\n');
                     indent_level += 1;
                 }
             }
@@ -189,7 +188,7 @@ pub fn format(input: &str) -> String {
                     output.pop();
                 }
                 output.push(';');
-                output.push_str(newline);
+                output.push('\n');
             }
             Token::Struct => {
                 output.push_str("struct ");
@@ -203,8 +202,8 @@ pub fn format(input: &str) -> String {
     output
 }
 
-fn at_line_start(output: &str, newline: &str) -> bool {
-    output.ends_with(newline) || output.is_empty()
+fn at_line_start(output: &str) -> bool {
+    output.ends_with('\n') || output.is_empty()
 }
 
 fn push_attribute(attr: &str, output: &mut String) {
