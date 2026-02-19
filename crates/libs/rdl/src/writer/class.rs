@@ -45,7 +45,7 @@ fn write_interface(namespace: &str, imp: &metadata::reader::InterfaceImpl) -> To
 
     quote! {
         #default
-        #interface
+        #interface,
     }
 }
 

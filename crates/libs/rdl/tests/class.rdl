@@ -6,7 +6,7 @@ mod Test {
     }
 
     #[activatable(1)]
-    class Derived : Base {
+    class Derived: Base {
         #[default]
         IDerived,
 
@@ -17,7 +17,7 @@ mod Test {
         IDerivedFactory,
 
         #[activatable(1)]
-        Test::IDerivedFactory2,
+        IDerivedFactory2,
 
         #[statics(1)]
         IDerivedStatics,
