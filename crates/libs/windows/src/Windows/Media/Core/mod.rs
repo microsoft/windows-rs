@@ -799,8 +799,18 @@ impl CodecSubtypes {
             (windows_core::Interface::vtable(this).AudioFormatWMAudioV9)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
         })
     }
+    pub fn VideoFormatAv1() -> windows_core::Result<windows_core::HSTRING> {
+        Self::ICodecSubtypesStatics2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).VideoFormatAv1)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        })
+    }
     fn ICodecSubtypesStatics<R, F: FnOnce(&ICodecSubtypesStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<CodecSubtypes, ICodecSubtypesStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn ICodecSubtypesStatics2<R, F: FnOnce(&ICodecSubtypesStatics2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<CodecSubtypes, ICodecSubtypesStatics2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1417,6 +1427,16 @@ pub struct ICodecSubtypesStatics_Vtbl {
     pub AudioFormatWMAudioLossless: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AudioFormatWMAudioV8: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub AudioFormatWMAudioV9: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(ICodecSubtypesStatics2, ICodecSubtypesStatics2_Vtbl, 0x363b0930_de26_582e_8014_f546d0753887);
+impl windows_core::RuntimeType for ICodecSubtypesStatics2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct ICodecSubtypesStatics2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub VideoFormatAv1: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IDataCue, IDataCue_Vtbl, 0x7c7f676d_1fbc_4e2d_9a87_ee38bd1dc637);
 impl windows_core::RuntimeType for IDataCue {

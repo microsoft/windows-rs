@@ -197,6 +197,29 @@ pub struct IIppPrintDevice5_Vtbl {
     GetDeviceProperties: usize,
     pub ReplaceDeviceProperties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IIppPrintDeviceInstallationResult, IIppPrintDeviceInstallationResult_Vtbl, 0xfb102fcc_87be_57ff_a086_92272148a256);
+impl windows_core::RuntimeType for IIppPrintDeviceInstallationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppPrintDeviceInstallationResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Status: unsafe extern "system" fn(*mut core::ffi::c_void, *mut IppPrintDeviceInstallationStatus) -> windows_core::HRESULT,
+    pub InstalledPrinterName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut windows_core::HRESULT) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IIppPrintDeviceManagerStatics, IIppPrintDeviceManagerStatics_Vtbl, 0x8f711a45_c1b9_51bb_80c8_38969c81f800);
+impl windows_core::RuntimeType for IIppPrintDeviceManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IIppPrintDeviceManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CanInstallIppPrintDevice: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub InstallIppPrintDeviceAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IIppPrintDeviceStatics, IIppPrintDeviceStatics_Vtbl, 0x7dc19f08_7f20_52ab_94a7_894b83b2a17e);
 impl windows_core::RuntimeType for IIppPrintDeviceStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -1230,6 +1253,60 @@ impl windows_core::RuntimeName for IppPrintDevice {
 unsafe impl Send for IppPrintDevice {}
 unsafe impl Sync for IppPrintDevice {}
 #[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct IppPrintDeviceInstallationResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(IppPrintDeviceInstallationResult, windows_core::IUnknown, windows_core::IInspectable);
+impl IppPrintDeviceInstallationResult {
+    pub fn Status(&self) -> windows_core::Result<IppPrintDeviceInstallationStatus> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Status)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn InstalledPrinterName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstalledPrinterName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<windows_core::HRESULT> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for IppPrintDeviceInstallationResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IIppPrintDeviceInstallationResult>();
+}
+unsafe impl windows_core::Interface for IppPrintDeviceInstallationResult {
+    type Vtable = <IIppPrintDeviceInstallationResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IIppPrintDeviceInstallationResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for IppPrintDeviceInstallationResult {
+    const NAME: &'static str = "Windows.Devices.Printers.IppPrintDeviceInstallationResult";
+}
+unsafe impl Send for IppPrintDeviceInstallationResult {}
+unsafe impl Sync for IppPrintDeviceInstallationResult {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct IppPrintDeviceInstallationStatus(pub i32);
+impl IppPrintDeviceInstallationStatus {
+    pub const InstallationSucceeded: Self = Self(0i32);
+    pub const PrinterAlreadyInstalled: Self = Self(1i32);
+    pub const CommunicationError: Self = Self(2i32);
+    pub const OtherFailure: Self = Self(3i32);
+}
+impl windows_core::TypeKind for IppPrintDeviceInstallationStatus {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for IppPrintDeviceInstallationStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceInstallationStatus;i4)");
+}
+#[repr(transparent)]
 #[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
 pub struct IppPrintDeviceKind(pub i32);
 impl IppPrintDeviceKind {
@@ -1242,6 +1319,31 @@ impl windows_core::TypeKind for IppPrintDeviceKind {
 }
 impl windows_core::RuntimeType for IppPrintDeviceKind {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Printers.IppPrintDeviceKind;i4)");
+}
+pub struct IppPrintDeviceManager;
+impl IppPrintDeviceManager {
+    pub fn CanInstallIppPrintDevice() -> windows_core::Result<bool> {
+        Self::IIppPrintDeviceManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CanInstallIppPrintDevice)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn InstallIppPrintDeviceAsync<P0>(printeruri: P0, printername: &windows_core::HSTRING) -> windows_core::Result<windows_future::IAsyncOperation<IppPrintDeviceInstallationResult>>
+    where
+        P0: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        Self::IIppPrintDeviceManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallIppPrintDeviceAsync)(windows_core::Interface::as_raw(this), printeruri.param().abi(), core::mem::transmute_copy(printername), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IIppPrintDeviceManagerStatics<R, F: FnOnce(&IIppPrintDeviceManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<IppPrintDeviceManager, IIppPrintDeviceManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeName for IppPrintDeviceManager {
+    const NAME: &'static str = "Windows.Devices.Printers.IppPrintDeviceManager";
 }
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
