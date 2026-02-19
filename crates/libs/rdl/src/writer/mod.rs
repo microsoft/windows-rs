@@ -1,9 +1,11 @@
+mod class;
 mod r#enum;
 mod interface;
 mod layout;
 mod r#struct;
 
 use super::*;
+use class::*;
 use interface::*;
 use layout::*;
 use metadata::HasAttributes;
@@ -191,6 +193,7 @@ fn write_type_def(item: &metadata::reader::TypeDef) -> TokenStream {
         metadata::reader::TypeCategory::Struct => write_struct(item),
         metadata::reader::TypeCategory::Enum => write_enum(item),
         metadata::reader::TypeCategory::Interface => write_interface(item),
+        metadata::reader::TypeCategory::Class => write_class(item),
         rest => todo!("{rest:?}"),
     }
 }
@@ -236,6 +239,13 @@ fn write_value(value: &metadata::Value) -> TokenStream {
         metadata::Value::Utf16(value) => quote! { #value },
         metadata::Value::AttributeEnum(..) => todo!(),
     }
+}
+
+fn write_type_ref(namespace: &str, item: &metadata::reader::TypeDefOrRef) -> TokenStream {
+    write_type(
+        namespace,
+        &metadata::Type::named(item.namespace(), item.name()),
+    )
 }
 
 fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {

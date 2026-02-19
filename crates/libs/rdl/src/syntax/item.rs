@@ -4,7 +4,7 @@ use super::*;
 pub enum Item {
     // WinRT/Win32 types
     // Attribute(ItemAttribute)
-    // Class(ItemClass),
+    Class(Class),
     // Delegate(ItemDelegate),
     Enum(Enum),
     Interface(Interface),
@@ -27,6 +27,7 @@ impl Item {
             Self::Enum(Enum { attrs, .. })
             | Self::Fn(Fn { attrs, .. })
             | Self::Const(Const { attrs, .. })
+            | Self::Class(Class { attrs, .. })
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
@@ -41,6 +42,7 @@ impl std::fmt::Display for Item {
             Self::Enum(item) => item.name.fmt(f),
             Self::Fn(item) => item.sig.ident.fmt(f),
             Self::Const(item) => item.name.fmt(f),
+            Self::Class(item) => item.name.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => item.name.fmt(f),
             Self::Module(item) => item.name.fmt(f),
@@ -68,6 +70,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Fn)
         } else if lookahead.peek(syn::Token![const]) {
             input.parse().map(Item::Const)
+        } else if lookahead.peek(class) {
+            input.parse().map(Item::Class)
         } else {
             Err(lookahead.error())
         }?;

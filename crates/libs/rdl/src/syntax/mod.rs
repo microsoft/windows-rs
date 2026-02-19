@@ -1,3 +1,4 @@
+mod class;
 mod r#const;
 mod r#enum;
 mod file;
@@ -9,6 +10,7 @@ mod module;
 mod r#struct;
 mod union;
 
+pub use class::*;
 pub use file::*;
 pub use interface::*;
 pub use item::*;

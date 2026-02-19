@@ -1,0 +1,28 @@
+#[winrt]
+mod Test {
+    class Base {
+        #[default]
+        IBase,
+    }
+    #[activatable(1)]
+    class Derived: Base {
+        #[default]
+        IDerived,
+        IDerived2,
+        #[activatable(1)]
+        IDerivedFactory,
+        #[activatable(1)]
+        IDerivedFactory2,
+        #[statics(1)]
+        IDerivedStatics,
+        #[statics(1)]
+        IDerivedStatics2,
+    }
+    interface IBase {}
+    interface IDerived {}
+    interface IDerived2 {}
+    interface IDerivedFactory {}
+    interface IDerivedFactory2 {}
+    interface IDerivedStatics {}
+    interface IDerivedStatics2 {}
+}

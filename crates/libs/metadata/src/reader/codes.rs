@@ -83,15 +83,15 @@ code! { MemberRefParent(3)
     (TypeRef, 1)
 }
 
-impl MemberRefParent<'_> {
-    pub fn namespace(&self) -> &str {
+impl<'a> MemberRefParent<'a> {
+    pub fn namespace(&self) -> &'a str {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
         }
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'a str {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),
@@ -132,6 +132,18 @@ impl TypeDefOrRef<'_> {
         }
 
         Type::named(self.namespace(), self.name())
+    }
+}
+
+impl PartialEq<(&str, &str)> for &TypeDefOrRef<'_> {
+    fn eq(&self, other: &(&str, &str)) -> bool {
+        *self == other
+    }
+}
+
+impl PartialEq<(&str, &str)> for TypeDefOrRef<'_> {
+    fn eq(&self, other: &(&str, &str)) -> bool {
+        self.namespace() == other.0 && self.name() == other.1
     }
 }
 
