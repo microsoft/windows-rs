@@ -64,4 +64,8 @@ impl<'a> TypeDef<'a> {
             TypeCategory::Interface
         }
     }
+
+    pub fn index(&self) -> &'a TypeIndex {
+        &self.0.index
+    }
 }

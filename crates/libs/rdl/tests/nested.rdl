@@ -1,0 +1,18 @@
+#[win32]
+mod Test {
+    struct Name {
+        a1: struct {
+            b1: u16,
+            b2: i32,
+        }
+       ,
+        a2: struct {
+            c1: struct {
+                d1: u8,
+            }
+           ,
+            c2: f64,
+        }
+       ,
+    }
+}

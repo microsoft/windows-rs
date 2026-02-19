@@ -44,7 +44,10 @@ impl std::fmt::Display for Item {
             Self::Const(item) => item.name.fmt(f),
             Self::Class(item) => item.name.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
-            Self::Struct(item) => item.name.fmt(f),
+            Self::Struct(item) => match &item.name {
+                Some(name) => name.fmt(f),
+                None => write!(f, "<unnamed struct>"),
+            },
             Self::Module(item) => item.name.fmt(f),
             Self::Union(item) => item.name.fmt(f),
         }

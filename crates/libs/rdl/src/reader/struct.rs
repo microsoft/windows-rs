@@ -1,32 +1,102 @@
 use super::*;
 
 pub fn encode_struct(encoder: &mut Encoder, item: &syntax::Struct) -> Result<(), Error> {
-    let value_type = encoder.output.TypeRef("System", "ValueType");
+    let mut depth = 0;
+    encode_struct_inner(encoder, item, None, encoder.name, &mut depth)
+}
 
-    let mut flags = metadata::TypeAttributes::Public
-        | metadata::TypeAttributes::SequentialLayout
-        | metadata::TypeAttributes::Sealed;
+fn encode_struct_inner<'a>(
+    encoder: &mut Encoder,
+    item: &'a syntax::Struct,
+    outer: Option<metadata::writer::TypeDef>,
+    name: &str,
+    depth: &mut usize,
+) -> Result<(), Error> {
+    let nested = nested(item, name, depth);
+
+    let value_type = encoder.output.TypeRef("System", "ValueType");
+    let mut flags = metadata::TypeAttributes::SequentialLayout | metadata::TypeAttributes::Sealed;
+
+    flags |= if outer.is_some() {
+        metadata::TypeAttributes::NestedPublic
+    } else {
+        metadata::TypeAttributes::Public
+    };
 
     if item.winrt {
         flags |= metadata::TypeAttributes::WindowsRuntime;
     }
 
-    encoder.output.TypeDef(
+    let ty = encoder.output.TypeDef(
         encoder.namespace,
-        encoder.name,
+        name,
         metadata::writer::TypeDefOrRef::TypeRef(value_type),
         flags,
     );
 
-    for field in &item.fields {
-        // Note: syntax parsing requires named fields so the following `unwrap` should not panic.
-        let name = field.ident.as_ref().unwrap().to_string();
-        let ty = encode_type(encoder, &field.ty)?;
+    fields(encoder, item, &nested)?;
 
-        encoder
-            .output
-            .Field(&name, &ty, metadata::FieldAttributes::Public);
+    if let Some(outer) = outer {
+        encoder.output.NestedClass(ty, outer);
+    }
+
+    for (_, (nested_type_name, def)) in &nested {
+        *depth = 0;
+        encode_struct_inner(encoder, def, Some(ty), nested_type_name, depth)?;
     }
 
     Ok(())
+}
+
+fn fields(
+    encoder: &mut Encoder,
+    item: &syntax::Struct,
+    nested: &BTreeMap<String, (String, &syntax::Struct)>,
+) -> Result<(), Error> {
+    for field in &item.fields {
+        match field {
+            syntax::StructField::Regular(f) => {
+                let name = f.ident.as_ref().unwrap().to_string();
+                let ty = encode_type(encoder, &f.ty)?;
+                encoder
+                    .output
+                    .Field(&name, &ty, metadata::FieldAttributes::Public);
+            }
+            syntax::StructField::Nested { name, .. } => {
+                let field_name = name.to_string();
+                let (nested_type_name, _) = &nested[&field_name];
+                let ty = metadata::Type::named(encoder.namespace, nested_type_name.as_str());
+                encoder
+                    .output
+                    .Field(&field_name, &ty, metadata::FieldAttributes::Public);
+            }
+        }
+    }
+
+    Ok(())
+}
+
+fn nested<'a>(
+    item: &'a syntax::Struct,
+    name: &str,
+    depth: &mut usize,
+) -> BTreeMap<String, (String, &'a syntax::Struct)> {
+    item.fields
+        .iter()
+        .filter_map(|field| {
+            if let syntax::StructField::Nested {
+                name: ident_name,
+                def,
+                ..
+            } = field
+            {
+                let field_name = ident_name.to_string();
+                let nested_name = format!("{}_{}", name, *depth);
+                *depth += 1;
+                Some((field_name, (nested_name, def)))
+            } else {
+                None
+            }
+        })
+        .collect()
 }
