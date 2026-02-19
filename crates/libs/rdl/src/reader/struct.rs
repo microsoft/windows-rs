@@ -5,9 +5,9 @@ pub fn encode_struct(encoder: &mut Encoder, item: &syntax::Struct) -> Result<(),
     encode_struct_inner(encoder, item, None, encoder.name, &mut depth)
 }
 
-fn encode_struct_inner<'a>(
+fn encode_struct_inner(
     encoder: &mut Encoder,
-    item: &'a syntax::Struct,
+    item: &syntax::Struct,
     outer: Option<metadata::writer::TypeDef>,
     name: &str,
     depth: &mut usize,
@@ -40,7 +40,7 @@ fn encode_struct_inner<'a>(
         encoder.output.NestedClass(ty, outer);
     }
 
-    for (_, (nested_type_name, def)) in &nested {
+    for (nested_type_name, def) in nested.values() {
         *depth = 0;
         encode_struct_inner(encoder, def, Some(ty), nested_type_name, depth)?;
     }

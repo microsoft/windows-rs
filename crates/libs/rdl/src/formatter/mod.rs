@@ -108,8 +108,7 @@ pub fn format(input: &str) -> String {
                 push_indent(&mut output, indent_level);
                 output.push('}');
                 if matches!(tokens.get(i + 1), Some((Ok(Token::Comma), _))) {
-                    output.push(',');
-                    output.push_str("\n");
+                    output.push_str(",\n");
                     i += 2;
                     continue;
                 } else {

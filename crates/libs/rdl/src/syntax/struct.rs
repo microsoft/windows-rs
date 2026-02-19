@@ -7,13 +7,11 @@ pub struct Struct {
     pub winrt: bool,
 }
 
+#[allow(clippy::large_enum_variant)]
 #[derive(Debug)]
 pub enum StructField {
     Regular(syn::Field),
-    Nested {
-        name: syn::Ident,
-        def: Struct,
-    },
+    Nested { name: syn::Ident, def: Struct },
 }
 
 impl syn::parse::Parse for Struct {
@@ -46,7 +44,10 @@ impl syn::parse::Parse for StructField {
         input.parse::<syn::Token![:]>()?;
 
         if input.peek(syn::Token![struct]) {
-            Ok(StructField::Nested { name, def: input.parse()? })
+            Ok(StructField::Nested {
+                name,
+                def: input.parse()?,
+            })
         } else {
             Ok(StructField::Regular(syn::Field {
                 attrs: vec![],
