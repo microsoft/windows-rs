@@ -7,9 +7,22 @@ mod Test {
         },
         a2: struct {
             c1: struct {
-                d1: u8,
+                d1: Windows::Foundation::IStringable,
             },
-            c2: f64,
+            c2: struct {
+                d1: struct {
+                    e1: struct {
+                        f1: struct {
+                            g1: struct {
+                                h1: bool,
+                            },
+                        },
+                    },
+                },
+            },
         },
+    }
+    struct Name2 {
+        a1: Name,
     }
 }

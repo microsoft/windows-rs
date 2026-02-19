@@ -35,19 +35,23 @@ fn write_field(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
 
     let ty = match item.ty() {
         metadata::Type::Name(ty_name) => {
-            let nested_ty = item
-                .index()
-                .get(&ty_name.namespace, &ty_name.name)
-                .next()
-                .unwrap();
-
-            let fields = nested_ty
-                .fields()
-                .map(|field| write_field(namespace, &field));
-            quote! {
-                struct {
-                    #(#fields)*
+            if let Some(resolved_type) = item.index().get(namespace, &ty_name.name).next() {
+                if is_nested_type(&resolved_type) {
+                    let fields = resolved_type
+                        .fields()
+                        .map(|field| write_field(namespace, &field));
+                    quote! { struct { #(#fields)* } }
+                } else {
+                    write_type(
+                        namespace,
+                        &metadata::Type::named(&ty_name.namespace, &ty_name.name),
+                    )
                 }
+            } else {
+                write_type(
+                    namespace,
+                    &metadata::Type::named(&ty_name.namespace, &ty_name.name),
+                )
             }
         }
         _ => write_type(namespace, &item.ty()),
@@ -56,4 +60,9 @@ fn write_field(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     quote! {
         #name: #ty,
     }
+}
+
+fn is_nested_type(item: &metadata::reader::TypeDef) -> bool {
+    item.flags()
+        .contains(metadata::TypeAttributes::NestedPublic)
 }
