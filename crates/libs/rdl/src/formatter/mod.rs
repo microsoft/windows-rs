@@ -107,7 +107,14 @@ pub fn format(input: &str) -> String {
                 indent_level -= 1;
                 push_indent(&mut output, indent_level);
                 output.push('}');
-                output.push('\n');
+                if matches!(tokens.get(i + 1), Some((Ok(Token::Comma), _))) {
+                    output.push(',');
+                    output.push_str("\n");
+                    i += 2;
+                    continue;
+                } else {
+                    output.push('\n');
+                }
             }
             Token::CloseParenthesis => {
                 if output.ends_with(", ") {
