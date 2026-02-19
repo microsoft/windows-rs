@@ -2,6 +2,7 @@
 #![allow(dead_code)]
 
 mod error;
+mod formatter;
 mod reader;
 mod syntax;
 mod writer;

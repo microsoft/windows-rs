@@ -13,7 +13,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
         .map(|method| write_method(namespace, &method, &generics));
 
     quote! {
-        trait #name {
+        interface #name {
             #(#methods)*
         }
     }
