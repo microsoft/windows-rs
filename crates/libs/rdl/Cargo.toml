@@ -13,8 +13,8 @@ readme = "readme.md"
 workspace = true
 
 [dependencies]
+logos = "0.16"
 windows-metadata = { workspace = true }
 syn = { workspace = true, features = ["full", "parsing", "clone-impls", "printing", "extra-traits"] }
 quote = { workspace = true }
 proc-macro2 = { workspace = true, features = ["span-locations"] }
-prettyplease = "0.2.37"
