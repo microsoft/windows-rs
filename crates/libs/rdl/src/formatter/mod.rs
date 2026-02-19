@@ -2,17 +2,17 @@ use logos::Logos;
 
 #[derive(Logos, Debug, PartialEq)]
 enum Token<'a> {
-    #[regex(r#"#\s*\[[^\]]*\]"#)]
-    Attribute(&'a str),
+    #[token("&")]
+    Ampersand,
 
     #[token("->")]
     Arrow,
 
-    #[token("&")]
-    Ampersand,
-
     #[token("*")]
     Asterisk,
+
+    #[regex(r#"#\s*\[[^\]]*\]"#)]
+    Attribute(&'a str),
 
     #[token("}")]
     CloseBrace,
@@ -23,26 +23,26 @@ enum Token<'a> {
     #[token(":")]
     Colon,
 
-    #[token("::")]
+    #[token("::", priority = 2)]
     ColonColon,
-
-    #[token("const")]
-    Const,
 
     #[token(",")]
     Comma,
 
-    #[token("=")]
-    Equals,
+    #[token("const")]
+    Const,
 
     #[token("enum")]
     Enum,
 
-    #[token("-")]
-    Hyphen,
+    #[token("=")]
+    Equals,
 
     #[token("fn")]
     Fn,
+
+    #[token("-")]
+    Hyphen,
 
     #[regex(r"\w+")]
     Identifier(&'a str),
