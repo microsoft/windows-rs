@@ -1,3 +1,62 @@
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct HapticDeviceType(pub i32);
+impl HapticDeviceType {
+    pub const None: Self = Self(0i32);
+    pub const Generic: Self = Self(1i32);
+    pub const Pen: Self = Self(2i32);
+    pub const Touchpad: Self = Self(3i32);
+    pub const Mouse: Self = Self(4i32);
+}
+impl windows_core::TypeKind for HapticDeviceType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HapticDeviceType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Devices.Haptics.HapticDeviceType;i4)");
+}
+#[repr(C)]
+#[derive(Clone, Copy, Debug, Default, PartialEq)]
+pub struct HapticsControllerOverrideToken {
+    pub Value: i64,
+}
+impl windows_core::TypeKind for HapticsControllerOverrideToken {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for HapticsControllerOverrideToken {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"struct(Windows.Devices.Haptics.HapticsControllerOverrideToken;i8)");
+}
+windows_core::imp::define_interface!(IInputHapticsManager, IInputHapticsManager_Vtbl, 0x040e91df_bb3a_507c_9e25_a2d2c685b2e5);
+impl windows_core::RuntimeType for IInputHapticsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInputHapticsManager_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub ThreadId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub CurrentHapticsControllerDeviceType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut HapticDeviceType) -> windows_core::HRESULT,
+    pub CurrentHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrySendHapticWaveform: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, *mut bool) -> windows_core::HRESULT,
+    pub TrySendHapticWaveformWithIntensity: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, *mut bool) -> windows_core::HRESULT,
+    pub TrySendHapticWaveformForDuration: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, super::super::Foundation::TimeSpan, *mut bool) -> windows_core::HRESULT,
+    pub TrySendHapticWaveformForPlayCount: unsafe extern "system" fn(*mut core::ffi::c_void, u16, u16, f64, i32, super::super::Foundation::TimeSpan, *mut bool) -> windows_core::HRESULT,
+    pub TryStopFeedback: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticDeviceType, *mut core::ffi::c_void, *mut HapticsControllerOverrideToken) -> windows_core::HRESULT,
+    pub ClearOverrideHapticsController: unsafe extern "system" fn(*mut core::ffi::c_void, HapticsControllerOverrideToken) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IInputHapticsManagerStatics, IInputHapticsManagerStatics_Vtbl, 0x7bb40f77_e187_5322_844e_aa58223c281a);
+impl windows_core::RuntimeType for IInputHapticsManagerStatics {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IInputHapticsManagerStatics_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsSupported: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub IsHapticDevicePresent: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub GetForCurrentThread: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TryGetForThread: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IKnownSimpleHapticsControllerWaveformsStatics, IKnownSimpleHapticsControllerWaveformsStatics_Vtbl, 0x3d577ef7_4cee_11e6_b535_001bdc06ab3b);
 impl windows_core::RuntimeType for IKnownSimpleHapticsControllerWaveformsStatics {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -87,6 +146,122 @@ pub struct IVibrationDeviceStatics_Vtbl {
     pub GetDefaultAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub FindAllAsync: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct InputHapticsManager(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(InputHapticsManager, windows_core::IUnknown, windows_core::IInspectable);
+impl InputHapticsManager {
+    pub fn ThreadId(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ThreadId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CurrentHapticsControllerDeviceType(&self) -> windows_core::Result<HapticDeviceType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentHapticsControllerDeviceType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CurrentHapticsController(&self) -> windows_core::Result<SimpleHapticsController> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentHapticsController)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TrySendHapticWaveform(&self, waveform: u16, waveformfallback: u16) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySendHapticWaveform)(windows_core::Interface::as_raw(this), waveform, waveformfallback, &mut result__).map(|| result__)
+        }
+    }
+    pub fn TrySendHapticWaveformWithIntensity(&self, waveform: u16, waveformfallback: u16, intensity: f64) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySendHapticWaveformWithIntensity)(windows_core::Interface::as_raw(this), waveform, waveformfallback, intensity, &mut result__).map(|| result__)
+        }
+    }
+    pub fn TrySendHapticWaveformForDuration(&self, waveform: u16, waveformfallback: u16, intensity: f64, playduration: super::super::Foundation::TimeSpan) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySendHapticWaveformForDuration)(windows_core::Interface::as_raw(this), waveform, waveformfallback, intensity, playduration, &mut result__).map(|| result__)
+        }
+    }
+    pub fn TrySendHapticWaveformForPlayCount(&self, waveform: u16, waveformfallback: u16, intensity: f64, playcount: i32, replaypauseinterval: super::super::Foundation::TimeSpan) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrySendHapticWaveformForPlayCount)(windows_core::Interface::as_raw(this), waveform, waveformfallback, intensity, playcount, replaypauseinterval, &mut result__).map(|| result__)
+        }
+    }
+    pub fn TryStopFeedback(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryStopFeedback)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetOverrideHapticsController<P1>(&self, devicetype: HapticDeviceType, controller: P1) -> windows_core::Result<HapticsControllerOverrideToken>
+    where
+        P1: windows_core::Param<SimpleHapticsController>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetOverrideHapticsController)(windows_core::Interface::as_raw(this), devicetype, controller.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ClearOverrideHapticsController(&self, token: HapticsControllerOverrideToken) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).ClearOverrideHapticsController)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn IsSupported() -> windows_core::Result<bool> {
+        Self::IInputHapticsManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsSupported)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn IsHapticDevicePresent() -> windows_core::Result<bool> {
+        Self::IInputHapticsManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsHapticDevicePresent)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        })
+    }
+    pub fn GetForCurrentThread() -> windows_core::Result<InputHapticsManager> {
+        Self::IInputHapticsManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetForCurrentThread)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn TryGetForThread(threadid: u32) -> windows_core::Result<InputHapticsManager> {
+        Self::IInputHapticsManagerStatics(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TryGetForThread)(windows_core::Interface::as_raw(this), threadid, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IInputHapticsManagerStatics<R, F: FnOnce(&IInputHapticsManagerStatics) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<InputHapticsManager, IInputHapticsManagerStatics> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for InputHapticsManager {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IInputHapticsManager>();
+}
+unsafe impl windows_core::Interface for InputHapticsManager {
+    type Vtable = <IInputHapticsManager as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IInputHapticsManager as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for InputHapticsManager {
+    const NAME: &'static str = "Windows.Devices.Haptics.InputHapticsManager";
+}
+unsafe impl Send for InputHapticsManager {}
+unsafe impl Sync for InputHapticsManager {}
 pub struct KnownSimpleHapticsControllerWaveforms;
 impl KnownSimpleHapticsControllerWaveforms {
     pub fn Click() -> windows_core::Result<u16> {

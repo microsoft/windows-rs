@@ -5,7 +5,7 @@ pub enum Item {
     // WinRT/Win32 types
     // Attribute(ItemAttribute)
     Class(Class),
-    // Delegate(ItemDelegate),
+    Delegate(Delegate),
     Enum(Enum),
     Interface(Interface),
     Struct(Struct),
@@ -31,6 +31,7 @@ impl Item {
             | Self::Interface(Interface { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
+            | Self::Delegate(Delegate { attrs, .. })
             | Self::Union(Union { attrs, .. }) => std::mem::replace(attrs, new),
         }
     }
@@ -43,6 +44,7 @@ impl std::fmt::Display for Item {
             Self::Fn(item) => item.sig.ident.fmt(f),
             Self::Const(item) => item.name.fmt(f),
             Self::Class(item) => item.name.fmt(f),
+            Self::Delegate(item) => item.sig.ident.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
             Self::Struct(item) => match &item.name {
                 Some(name) => name.fmt(f),
@@ -73,6 +75,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Fn)
         } else if lookahead.peek(syn::Token![const]) {
             input.parse().map(Item::Const)
+        } else if lookahead.peek(delegate) {
+            input.parse().map(Item::Delegate)
         } else if lookahead.peek(class) {
             input.parse().map(Item::Class)
         } else {

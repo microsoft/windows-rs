@@ -1,5 +1,6 @@
 mod class;
 mod r#const;
+mod delegate;
 mod r#enum;
 mod r#fn;
 mod index;
@@ -10,6 +11,7 @@ mod union;
 
 use super::*;
 use class::*;
+use delegate::*;
 use index::*;
 use interface::*;
 use param::*;
@@ -111,6 +113,9 @@ fn resolve_winrt(
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
         syntax::Item::Struct(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
+        syntax::Item::Delegate(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
         syntax::Item::Module(item) => {
@@ -294,6 +299,7 @@ fn encode_item(
         syntax::Item::Fn(ty) => encode_fn(encoder, ty),
         syntax::Item::Const(ty) => encode_const(encoder, ty),
         syntax::Item::Class(ty) => encode_class(encoder, ty),
+        syntax::Item::Delegate(ty) => encode_delegate(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }

@@ -1,3 +1,7 @@
+#[cfg(feature = "UI_Shell_CompanionWindows")]
+pub mod CompanionWindows;
+#[cfg(feature = "UI_Shell_Tasks")]
+pub mod Tasks;
 pub struct AdaptiveCardBuilder;
 impl AdaptiveCardBuilder {
     pub fn CreateAdaptiveCardFromJson(value: &windows_core::HSTRING) -> windows_core::Result<IAdaptiveCard> {

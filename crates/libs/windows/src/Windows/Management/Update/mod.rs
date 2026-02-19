@@ -35,6 +35,404 @@ pub struct IPreviewBuildsState_Vtbl {
     #[cfg(not(feature = "Foundation_Collections"))]
     Properties: usize,
 }
+windows_core::imp::define_interface!(IWindowsSoftwareUpdate, IWindowsSoftwareUpdate_Vtbl, 0xd8f19211_98fe_58dd_af0f_470532aa3341);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdate_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub InstallationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateInstallationType) -> windows_core::HRESULT,
+    pub ProviderId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub UpdateId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoreInfoUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DownloadSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub InstallSizeInBytes: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub SourceVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TargetVersion: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProductCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Approve: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApproveCurrentAction: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CurrentAction: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ActionResultInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApprovalInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ApprovedActions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AttentionRequiredInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ActionProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub RestartReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub AppPackageInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ExecutionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OptionalInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfo, IWindowsSoftwareUpdateActionInfo_Vtbl, 0x2f6723b5_f704_5362_b600_d18808f3973e);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateActionInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub FileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FileArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ActionType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateActionType) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionInfoFactory, IWindowsSoftwareUpdateActionInfoFactory_Vtbl, 0x5e83b58e_d982_5d93_a7cb_bf6c9b6ee5a6);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateActionInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateActionType, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionProgress, IWindowsSoftwareUpdateActionProgress_Vtbl, 0x17dc15fd_75f2_522b_b555_359da8de5581);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateActionProgress_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CurrentProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub TotalProgress: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateActionResultInfo, IWindowsSoftwareUpdateActionResultInfo_Vtbl, 0xbcf26fba_98c8_51cb_8b7e_1eedc3d82a69);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateActionResultInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateActionResultInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Timestamp: unsafe extern "system" fn(*mut core::ffi::c_void, *mut super::super::Foundation::DateTime) -> windows_core::HRESULT,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub Action: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfo, IWindowsSoftwareUpdateAppPackageInfo_Vtbl, 0xa5bd59f4_e624_5552_82f9_267a4574a203);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateAppPackageInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateAppPackageInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub PackageFamilyName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PackageArchitecture: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateArchitecture) -> windows_core::HRESULT,
+    pub InstallUri: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateAppPackageInfoFactory, IWindowsSoftwareUpdateAppPackageInfoFactory_Vtbl, 0xa8bda639_a4f6_5a4a_8a54_26c1c508cd0f);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateAppPackageInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateAppPackageInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateArchitecture, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfo, IWindowsSoftwareUpdateApprovalInfo_Vtbl, 0x691e6b9e_80af_5882_9404_25437ecb791b);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateApprovalInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateApprovalInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub UserInitiated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub AppClosure: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub MeteredNetwork: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub Seeker: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateApprovalInfoFactory, IWindowsSoftwareUpdateApprovalInfoFactory_Vtbl, 0xab291c7c_d29f_5ac5_b447_0bfcabdc2cc3);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateApprovalInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateApprovalInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, bool, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfo, IWindowsSoftwareUpdateExecutionInfo_Vtbl, 0x091aea19_9128_5f24_afc1_a62252df55c0);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateExecutionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateExecutionInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub DownloadInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub InstallInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub DeployInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub OptionalActionInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateExecutionInfoFactory, IWindowsSoftwareUpdateExecutionInfoFactory_Vtbl, 0x88596f7e_b9ef_5583_8135_94d62ed66ed4);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateExecutionInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateExecutionInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateFactory, IWindowsSoftwareUpdateFactory_Vtbl, 0x28e7e01b_4225_52c8_bb51_c68f0b071be5);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateInstallationType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, WindowsSoftwareUpdateInstallationType, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, u64, u64, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfo, IWindowsSoftwareUpdateLocalizationInfo_Vtbl, 0xadc2de4b_5966_5f9f_ae07_00d4a285d933);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateLocalizationInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateLocalizationInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LanguageId: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Title: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Description: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub MoreInfoUrl: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateLocalizationInfoFactory, IWindowsSoftwareUpdateLocalizationInfoFactory_Vtbl, 0x76979b24_f5bd_5c8c_bdb7_a46187374aff);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateLocalizationInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateLocalizationInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfo, IWindowsSoftwareUpdateOptionalActionInfo_Vtbl, 0x4ac035d0_e50e_5ccb_bfd8_a303562891d2);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalActionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateOptionalActionInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CloseAndDeployInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CloseAndInstallInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CloseAndRestartInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalActionInfoFactory, IWindowsSoftwareUpdateOptionalActionInfoFactory_Vtbl, 0x88d2fcc1_4791_51b6_b988_966ef93a180b);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalActionInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateOptionalActionInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfo, IWindowsSoftwareUpdateOptionalInfo_Vtbl, 0x78084a73_50c4_5c33_a751_7a121f5aae70);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateOptionalInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub LocalizationInfo: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ComplianceDeadlineInDays: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ComplianceGracePeriodInDays: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateOptionalInfoFactory, IWindowsSoftwareUpdateOptionalInfoFactory_Vtbl, 0xd837deed_a5f2_5c89_8beb_852d2897b2ef);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateOptionalInfoFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateOptionalInfoFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProvider, IWindowsSoftwareUpdateProvider_Vtbl, 0x20b67f4a_e28e_5d20_9c00_bf249922efbe);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProvider_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Register: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Unregister: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Validate: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Id: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Version: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FolderPath: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CatalogFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ScanFileName: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ScanFileArguments: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub Type: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateProviderType) -> windows_core::HRESULT,
+    pub PayloadFiles: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrustState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateProviderTrustState) -> windows_core::HRESULT,
+    pub RegistrationType: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateProviderRegistrationType) -> windows_core::HRESULT,
+    #[cfg(feature = "Foundation_Collections")]
+    pub Properties: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    #[cfg(not(feature = "Foundation_Collections"))]
+    Properties: usize,
+    pub GetPropertyValue: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResult, IWindowsSoftwareUpdateProviderActionResult_Vtbl, 0xafd92b50_6bb9_54de_bdda_9dfb6cc17c16);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderActionResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Result: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateActionResult) -> windows_core::HRESULT,
+    pub RestartReason: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateRestartReason) -> windows_core::HRESULT,
+    pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderActionResultFactory, IWindowsSoftwareUpdateProviderActionResultFactory_Vtbl, 0x0c002684_30c9_59e9_b53f_8846a85d2dc6);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderActionResultFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderActionResultFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, WindowsSoftwareUpdateActionResult, WindowsSoftwareUpdateRestartReason, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderFactory, IWindowsSoftwareUpdateProviderFactory_Vtbl, 0xfc0d5fc4_e15e_5116_b2ed_db0a64997ffa);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderPayloadFileInfo, IWindowsSoftwareUpdateProviderPayloadFileInfo_Vtbl, 0xf1da16da_1b01_5367_b4ae_20db8cae1e9b);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderPayloadFileInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderPayloadFileInfo_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Filename: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub FileHash: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CatalogFile: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub TrustState: unsafe extern "system" fn(*mut core::ffi::c_void, *mut WindowsSoftwareUpdateProviderTrustState) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatus, IWindowsSoftwareUpdateProviderStatus_Vtbl, 0x076741b8_7a8e_53b6_9fb7_e290b13c52e9);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderStatus_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CancelRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut i64) -> windows_core::HRESULT,
+    pub RemoveCancelRequested: unsafe extern "system" fn(*mut core::ffi::c_void, i64) -> windows_core::HRESULT,
+    pub SetScanResult: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetActionProgress: unsafe extern "system" fn(*mut core::ffi::c_void, u64, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub SetActionResult: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateProviderStatusFactory, IWindowsSoftwareUpdateProviderStatusFactory_Vtbl, 0xd1e1b416_7dfd_55ef_9e3c_18d1459e3123);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateProviderStatusFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateProviderStatusFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateResult, IWindowsSoftwareUpdateResult_Vtbl, 0xa6d7ed98_6212_5ad3_aa9d_15e83bb85ee4);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub CancelRequested: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateResultFactory, IWindowsSoftwareUpdateResultFactory_Vtbl, 0x512ce0bf_9977_5301_9b29_9e5042c8cf7d);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateResultFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateResultFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance3: unsafe extern "system" fn(*mut core::ffi::c_void, bool, bool, u32, u64, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResult, IWindowsSoftwareUpdateScanResult_Vtbl, 0x43ca6d96_3e6d_56da_a903_65d4ab729299);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateScanResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateScanResult_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Succeeded: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub ResultCode: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub ExtendedError: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u64) -> windows_core::HRESULT,
+    pub Updates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateScanResultFactory, IWindowsSoftwareUpdateScanResultFactory_Vtbl, 0x21148e4c_e7ce_574e_bfa7_69dc77457d21);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateScanResultFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateScanResultFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub CreateInstance2: unsafe extern "system" fn(*mut core::ffi::c_void, bool, u32, u64, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersion, IWindowsSoftwareUpdateVersion_Vtbl, 0x215e22e7_6d57_5305_9c79_4ecd4a4d7871);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateVersion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateVersion_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub Major: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub Minor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub RevisionMajor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+    pub RevisionMinor: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsSoftwareUpdateVersionFactory, IWindowsSoftwareUpdateVersionFactory_Vtbl, 0x650ed994_0858_5528_a1f2_f73ca64dabc9);
+impl windows_core::RuntimeType for IWindowsSoftwareUpdateVersionFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsSoftwareUpdateVersionFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, u32, u32, u32, u32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWindowsUpdate, IWindowsUpdate_Vtbl, 0xc3c88dd7_0ef3_52b2_a9ad_66bfc6bd9582);
 impl windows_core::RuntimeType for IWindowsUpdate {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -232,6 +630,19 @@ pub struct IWindowsUpdateManager_Vtbl {
     pub GetMostRecentCompletedUpdatesAsync: unsafe extern "system" fn(*mut core::ffi::c_void, i32, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
     pub StartScan: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
 }
+windows_core::imp::define_interface!(IWindowsUpdateManager2, IWindowsUpdateManager2_Vtbl, 0x564e7683_bd21_57a4_b17f_7bf6350f4c75);
+impl windows_core::RuntimeType for IWindowsUpdateManager2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsUpdateManager2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub GetProvider: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub ProviderIds: unsafe extern "system" fn(*mut core::ffi::c_void, *mut u32, *mut *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub GetApplicableSoftwareUpdates: unsafe extern "system" fn(*mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+    pub PerformScan: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
 windows_core::imp::define_interface!(IWindowsUpdateManagerFactory, IWindowsUpdateManagerFactory_Vtbl, 0x1b394df8_decb_5f44_b47c_6ccf3bcfdb37);
 impl windows_core::RuntimeType for IWindowsUpdateManagerFactory {
     const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
@@ -241,6 +652,41 @@ impl windows_core::RuntimeType for IWindowsUpdateManagerFactory {
 pub struct IWindowsUpdateManagerFactory_Vtbl {
     pub base__: windows_core::IInspectable_Vtbl,
     pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsUpdateManagerFactory2, IWindowsUpdateManagerFactory2_Vtbl, 0xba08d663_d160_59b9_9898_97a186ad52ea);
+impl windows_core::RuntimeType for IWindowsUpdateManagerFactory2 {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsUpdateManagerFactory2_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, *mut core::ffi::c_void, u32, *const windows_core::HSTRING, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsUpdateManagerScanOptions, IWindowsUpdateManagerScanOptions_Vtbl, 0xb7c30113_5e4b_59d8_99ad_f58d67b2aefc);
+impl windows_core::RuntimeType for IWindowsUpdateManagerScanOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsUpdateManagerScanOptions_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub IsUserInitiated: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetIsUserInitiated: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub AllowBypassThrottling: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetAllowBypassThrottling: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+    pub PerformUpdateActions: unsafe extern "system" fn(*mut core::ffi::c_void, *mut bool) -> windows_core::HRESULT,
+    pub SetPerformUpdateActions: unsafe extern "system" fn(*mut core::ffi::c_void, bool) -> windows_core::HRESULT,
+}
+windows_core::imp::define_interface!(IWindowsUpdateManagerScanOptionsFactory, IWindowsUpdateManagerScanOptionsFactory_Vtbl, 0x1a0f9198_f18d_5cfd_8cb9_08f3fb74da70);
+impl windows_core::RuntimeType for IWindowsUpdateManagerScanOptionsFactory {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_interface::<Self>();
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IWindowsUpdateManagerScanOptionsFactory_Vtbl {
+    pub base__: windows_core::IInspectable_Vtbl,
+    pub CreateInstance: unsafe extern "system" fn(*mut core::ffi::c_void, bool, *mut *mut core::ffi::c_void) -> windows_core::HRESULT,
 }
 windows_core::imp::define_interface!(IWindowsUpdateProgressChangedEventArgs, IWindowsUpdateProgressChangedEventArgs_Vtbl, 0xbbfbdeeb_94c8_5aa7_b0fb_66c67c233b0a);
 impl windows_core::RuntimeType for IWindowsUpdateProgressChangedEventArgs {
@@ -384,6 +830,1364 @@ impl windows_core::RuntimeName for PreviewBuildsState {
 }
 unsafe impl Send for PreviewBuildsState {}
 unsafe impl Sync for PreviewBuildsState {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdate(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdate, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdate {
+    pub fn InstallationType(&self) -> windows_core::Result<WindowsSoftwareUpdateInstallationType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ProviderId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProviderId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn UpdateId(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UpdateId)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn MoreInfoUrl(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoreInfoUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DownloadSizeInBytes(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DownloadSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn InstallSizeInBytes(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallSizeInBytes)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SourceVersion(&self) -> windows_core::Result<WindowsSoftwareUpdateVersion> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SourceVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TargetVersion(&self) -> windows_core::Result<WindowsSoftwareUpdateVersion> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TargetVersion)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProductCode(&self) -> windows_core::Result<super::super::Foundation::IReference<windows_core::GUID>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ProductCode)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Approve<P0>(&self, approvalinfo: P0) -> windows_core::Result<WindowsSoftwareUpdateResult>
+    where
+        P0: windows_core::Param<WindowsSoftwareUpdateApprovalInfo>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Approve)(windows_core::Interface::as_raw(this), approvalinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ApproveCurrentAction(&self, approve: bool) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApproveCurrentAction)(windows_core::Interface::as_raw(this), approve, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CurrentAction(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentAction)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ActionResultInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionResultInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActionResultInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ApprovalInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateApprovalInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApprovalInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ApprovedActions(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdateActionType>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ApprovedActions)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AttentionRequiredInfo(&self) -> windows_core::Result<WindowsUpdateAttentionRequiredInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AttentionRequiredInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ActionProgress(&self) -> windows_core::Result<WindowsSoftwareUpdateActionProgress> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActionProgress)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn RestartReason(&self) -> windows_core::Result<super::super::Foundation::IReference<WindowsSoftwareUpdateRestartReason>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RestartReason)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn AppPackageInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateAppPackageInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppPackageInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ExecutionInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateExecutionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExecutionInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OptionalInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OptionalInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P5, P8, P9, P10, P11, P12>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, sourceversion: P8, targetversion: P9, apppackageinfo: P10, executioninfo: P11, optionalinfo: P12) -> windows_core::Result<WindowsSoftwareUpdate>
+    where
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P8: windows_core::Param<WindowsSoftwareUpdateVersion>,
+        P9: windows_core::Param<WindowsSoftwareUpdateVersion>,
+        P10: windows_core::Param<WindowsSoftwareUpdateAppPackageInfo>,
+        P11: windows_core::Param<WindowsSoftwareUpdateExecutionInfo>,
+        P12: windows_core::Param<WindowsSoftwareUpdateOptionalInfo>,
+    {
+        Self::IWindowsSoftwareUpdateFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerid), installationtype, core::mem::transmute_copy(updateid), core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.param().abi(), downloadsizeinbytes, installsizeinbytes, sourceversion.param().abi(), targetversion.param().abi(), apppackageinfo.param().abi(), executioninfo.param().abi(), optionalinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance2<P5, P8, P10, P11, P12, P13, P14>(providerid: &windows_core::HSTRING, installationtype: WindowsSoftwareUpdateInstallationType, updateid: &windows_core::HSTRING, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P5, downloadsizeinbytes: u64, installsizeinbytes: u64, productcode: P8, packagefamilyname: &windows_core::HSTRING, sourceversion: P10, targetversion: P11, apppackageinfo: P12, executioninfo: P13, optionalinfo: P14) -> windows_core::Result<WindowsSoftwareUpdate>
+    where
+        P5: windows_core::Param<super::super::Foundation::Uri>,
+        P8: windows_core::Param<super::super::Foundation::IReference<windows_core::GUID>>,
+        P10: windows_core::Param<WindowsSoftwareUpdateVersion>,
+        P11: windows_core::Param<WindowsSoftwareUpdateVersion>,
+        P12: windows_core::Param<WindowsSoftwareUpdateAppPackageInfo>,
+        P13: windows_core::Param<WindowsSoftwareUpdateExecutionInfo>,
+        P14: windows_core::Param<WindowsSoftwareUpdateOptionalInfo>,
+    {
+        Self::IWindowsSoftwareUpdateFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance2)(
+                windows_core::Interface::as_raw(this),
+                core::mem::transmute_copy(providerid),
+                installationtype,
+                core::mem::transmute_copy(updateid),
+                core::mem::transmute_copy(title),
+                core::mem::transmute_copy(description),
+                moreinfourl.param().abi(),
+                downloadsizeinbytes,
+                installsizeinbytes,
+                productcode.param().abi(),
+                core::mem::transmute_copy(packagefamilyname),
+                sourceversion.param().abi(),
+                targetversion.param().abi(),
+                apppackageinfo.param().abi(),
+                executioninfo.param().abi(),
+                optionalinfo.param().abi(),
+                &mut result__,
+            )
+            .and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateFactory<R, F: FnOnce(&IWindowsSoftwareUpdateFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdate, IWindowsSoftwareUpdateFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdate {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdate>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdate {
+    type Vtable = <IWindowsSoftwareUpdate as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdate as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdate {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdate";
+}
+unsafe impl Send for WindowsSoftwareUpdate {}
+unsafe impl Sync for WindowsSoftwareUpdate {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateActionInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateActionInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateActionInfo {
+    pub fn FileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FileArguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FileArguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ActionType(&self) -> windows_core::Result<WindowsSoftwareUpdateActionType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ActionType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateInstance(filename: &windows_core::HSTRING, filearguments: &windows_core::HSTRING, actiontype: WindowsSoftwareUpdateActionType) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        Self::IWindowsSoftwareUpdateActionInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(filename), core::mem::transmute_copy(filearguments), actiontype, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateActionInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateActionInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateActionInfo, IWindowsSoftwareUpdateActionInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateActionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateActionInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionInfo {
+    type Vtable = <IWindowsSoftwareUpdateActionInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateActionInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateActionInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateActionInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateActionProgress(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateActionProgress, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateActionProgress {
+    pub fn Action(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CurrentProgress(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CurrentProgress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn TotalProgress(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TotalProgress)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateActionProgress {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateActionProgress>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionProgress {
+    type Vtable = <IWindowsSoftwareUpdateActionProgress as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionProgress as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateActionProgress {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionProgress";
+}
+unsafe impl Send for WindowsSoftwareUpdateActionProgress {}
+unsafe impl Sync for WindowsSoftwareUpdateActionProgress {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateActionResult(pub i32);
+impl WindowsSoftwareUpdateActionResult {
+    pub const Succeeded: Self = Self(0i32);
+    pub const Continue: Self = Self(1i32);
+    pub const Failed: Self = Self(2i32);
+    pub const Canceled: Self = Self(3i32);
+    pub const Removed: Self = Self(4i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateActionResult {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateActionResult;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateActionResultInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateActionResultInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateActionResultInfo {
+    pub fn Timestamp(&self) -> windows_core::Result<super::super::Foundation::DateTime> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Timestamp)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResultCode(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Action(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Action)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateActionResultInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateActionResultInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateActionResultInfo {
+    type Vtable = <IWindowsSoftwareUpdateActionResultInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateActionResultInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateActionResultInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateActionResultInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateActionResultInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateActionResultInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateActionType(pub i32);
+impl WindowsSoftwareUpdateActionType {
+    pub const Download: Self = Self(0i32);
+    pub const Install: Self = Self(1i32);
+    pub const Deploy: Self = Self(2i32);
+    pub const Reboot: Self = Self(3i32);
+    pub const AppRestart: Self = Self(4i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateActionType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateActionType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateActionType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateAppPackageInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateAppPackageInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateAppPackageInfo {
+    pub fn PackageFamilyName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PackageFamilyName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn PackageArchitecture(&self) -> windows_core::Result<WindowsSoftwareUpdateArchitecture> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PackageArchitecture)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn InstallUri(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallUri)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P2>(packagefamilyname: &windows_core::HSTRING, packagearchitecture: WindowsSoftwareUpdateArchitecture, installuri: P2) -> windows_core::Result<WindowsSoftwareUpdateAppPackageInfo>
+    where
+        P2: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        Self::IWindowsSoftwareUpdateAppPackageInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(packagefamilyname), packagearchitecture, installuri.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateAppPackageInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateAppPackageInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateAppPackageInfo, IWindowsSoftwareUpdateAppPackageInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateAppPackageInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateAppPackageInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateAppPackageInfo {
+    type Vtable = <IWindowsSoftwareUpdateAppPackageInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateAppPackageInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateAppPackageInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateAppPackageInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateAppPackageInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateAppPackageInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateApprovalInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateApprovalInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateApprovalInfo {
+    pub fn UserInitiated(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).UserInitiated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn AppClosure(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AppClosure)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn MeteredNetwork(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MeteredNetwork)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Seeker(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Seeker)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateInstance(userinitiated: bool, appclosure: bool, meterednetwork: bool, seeker: bool) -> windows_core::Result<WindowsSoftwareUpdateApprovalInfo> {
+        Self::IWindowsSoftwareUpdateApprovalInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), userinitiated, appclosure, meterednetwork, seeker, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateApprovalInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateApprovalInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateApprovalInfo, IWindowsSoftwareUpdateApprovalInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateApprovalInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateApprovalInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateApprovalInfo {
+    type Vtable = <IWindowsSoftwareUpdateApprovalInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateApprovalInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateApprovalInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateApprovalInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateApprovalInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateApprovalInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateArchitecture(pub i32);
+impl WindowsSoftwareUpdateArchitecture {
+    pub const Neutral: Self = Self(0i32);
+    pub const X86: Self = Self(1i32);
+    pub const X64: Self = Self(2i32);
+    pub const Arm: Self = Self(3i32);
+    pub const Arm64: Self = Self(4i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateArchitecture {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateArchitecture {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateArchitecture;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateExecutionInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateExecutionInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateExecutionInfo {
+    pub fn DownloadInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DownloadInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn InstallInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).InstallInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn DeployInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).DeployInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn OptionalActionInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateOptionalActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).OptionalActionInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P0, P1, P2>(downloadinfo: P0, installinfo: P1, actions: P2) -> windows_core::Result<WindowsSoftwareUpdateExecutionInfo>
+    where
+        P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+        P1: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+        P2: windows_core::Param<WindowsSoftwareUpdateOptionalActionInfo>,
+    {
+        Self::IWindowsSoftwareUpdateExecutionInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), downloadinfo.param().abi(), installinfo.param().abi(), actions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance2<P0, P1>(deployinfo: P0, actions: P1) -> windows_core::Result<WindowsSoftwareUpdateExecutionInfo>
+    where
+        P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+        P1: windows_core::Param<WindowsSoftwareUpdateOptionalActionInfo>,
+    {
+        Self::IWindowsSoftwareUpdateExecutionInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), deployinfo.param().abi(), actions.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateExecutionInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateExecutionInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateExecutionInfo, IWindowsSoftwareUpdateExecutionInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateExecutionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateExecutionInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateExecutionInfo {
+    type Vtable = <IWindowsSoftwareUpdateExecutionInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateExecutionInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateExecutionInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateExecutionInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateExecutionInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateExecutionInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateInstallationType(pub i32);
+impl WindowsSoftwareUpdateInstallationType {
+    pub const WindowsUpdate: Self = Self(0i32);
+    pub const AppPackage: Self = Self(1i32);
+    pub const Executable: Self = Self(2i32);
+    pub const Powershell: Self = Self(3i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateInstallationType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateInstallationType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateInstallationType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateLocalizationInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateLocalizationInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateLocalizationInfo {
+    pub fn LanguageId(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LanguageId)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Title(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Title)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Description(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Description)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn MoreInfoUrl(&self) -> windows_core::Result<super::super::Foundation::Uri> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).MoreInfoUrl)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P3>(languageid: u32, title: &windows_core::HSTRING, description: &windows_core::HSTRING, moreinfourl: P3) -> windows_core::Result<WindowsSoftwareUpdateLocalizationInfo>
+    where
+        P3: windows_core::Param<super::super::Foundation::Uri>,
+    {
+        Self::IWindowsSoftwareUpdateLocalizationInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), languageid, core::mem::transmute_copy(title), core::mem::transmute_copy(description), moreinfourl.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateLocalizationInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateLocalizationInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateLocalizationInfo, IWindowsSoftwareUpdateLocalizationInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateLocalizationInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateLocalizationInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateLocalizationInfo {
+    type Vtable = <IWindowsSoftwareUpdateLocalizationInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateLocalizationInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateLocalizationInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateLocalizationInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateLocalizationInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateLocalizationInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateOptionalActionInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateOptionalActionInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateOptionalActionInfo {
+    pub fn CloseAndDeployInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CloseAndDeployInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CloseAndInstallInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CloseAndInstallInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CloseAndRestartInfo(&self) -> windows_core::Result<WindowsSoftwareUpdateActionInfo> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CloseAndRestartInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P0, P1, P2>(closeanddeployinfo: P0, closeandinstallinfo: P1, closeandrestartinfo: P2) -> windows_core::Result<WindowsSoftwareUpdateOptionalActionInfo>
+    where
+        P0: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+        P1: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+        P2: windows_core::Param<WindowsSoftwareUpdateActionInfo>,
+    {
+        Self::IWindowsSoftwareUpdateOptionalActionInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), closeanddeployinfo.param().abi(), closeandinstallinfo.param().abi(), closeandrestartinfo.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateOptionalActionInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateOptionalActionInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateOptionalActionInfo, IWindowsSoftwareUpdateOptionalActionInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateOptionalActionInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateOptionalActionInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateOptionalActionInfo {
+    type Vtable = <IWindowsSoftwareUpdateOptionalActionInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateOptionalActionInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateOptionalActionInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateOptionalActionInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateOptionalActionInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateOptionalActionInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateOptionalInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateOptionalInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateOptionalInfo {
+    pub fn LocalizationInfo(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdateLocalizationInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).LocalizationInfo)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ComplianceDeadlineInDays(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ComplianceDeadlineInDays)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ComplianceGracePeriodInDays(&self) -> windows_core::Result<super::super::Foundation::IReference<i32>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ComplianceGracePeriodInDays)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P0, P1>(compliancedeadlineindays: P0, compliancegraceperiodindays: P1) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
+    where
+        P0: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P1: windows_core::Param<super::super::Foundation::IReference<i32>>,
+    {
+        Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), compliancedeadlineindays.param().abi(), compliancegraceperiodindays.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance2<P0, P1, P2>(localizationinfo: P0, compliancedeadlineindays: P1, compliancegraceperiodindays: P2) -> windows_core::Result<WindowsSoftwareUpdateOptionalInfo>
+    where
+        P0: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdateLocalizationInfo>>,
+        P1: windows_core::Param<super::super::Foundation::IReference<i32>>,
+        P2: windows_core::Param<super::super::Foundation::IReference<i32>>,
+    {
+        Self::IWindowsSoftwareUpdateOptionalInfoFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), localizationinfo.param().abi(), compliancedeadlineindays.param().abi(), compliancegraceperiodindays.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateOptionalInfoFactory<R, F: FnOnce(&IWindowsSoftwareUpdateOptionalInfoFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateOptionalInfo, IWindowsSoftwareUpdateOptionalInfoFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateOptionalInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateOptionalInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateOptionalInfo {
+    type Vtable = <IWindowsSoftwareUpdateOptionalInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateOptionalInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateOptionalInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateOptionalInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateOptionalInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateOptionalInfo {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProvider(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProvider, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateProvider {
+    pub fn Register(&self) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Register)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Unregister(&self) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Unregister)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Validate(&self) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Validate)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn Id(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Id)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Version(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Version)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FolderPath(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FolderPath)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CatalogFile(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CatalogFile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ScanFileName(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ScanFileName)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn ScanFileArguments(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ScanFileArguments)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn Type(&self) -> windows_core::Result<WindowsSoftwareUpdateProviderType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Type)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn PayloadFiles(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdateProviderPayloadFileInfo>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PayloadFiles)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn TrustState(&self) -> windows_core::Result<WindowsSoftwareUpdateProviderTrustState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrustState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RegistrationType(&self) -> windows_core::Result<WindowsSoftwareUpdateProviderRegistrationType> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RegistrationType)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    #[cfg(feature = "Foundation_Collections")]
+    pub fn Properties(&self) -> windows_core::Result<super::super::Foundation::Collections::PropertySet> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Properties)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn GetPropertyValue(&self, name: &windows_core::HSTRING) -> windows_core::Result<windows_core::IInspectable> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetPropertyValue)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(name), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance(folderpath: &windows_core::HSTRING) -> windows_core::Result<WindowsSoftwareUpdateProvider> {
+        Self::IWindowsSoftwareUpdateProviderFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(folderpath), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateProviderFactory<R, F: FnOnce(&IWindowsSoftwareUpdateProviderFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateProvider, IWindowsSoftwareUpdateProviderFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProvider {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateProvider>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateProvider {
+    type Vtable = <IWindowsSoftwareUpdateProvider as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateProvider as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateProvider {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProvider";
+}
+unsafe impl Send for WindowsSoftwareUpdateProvider {}
+unsafe impl Sync for WindowsSoftwareUpdateProvider {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderActionResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProviderActionResult, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateProviderActionResult {
+    pub fn Result(&self) -> windows_core::Result<WindowsSoftwareUpdateActionResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Result)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RestartReason(&self) -> windows_core::Result<WindowsSoftwareUpdateRestartReason> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RestartReason)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResultCode(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateInstance(actionresult: WindowsSoftwareUpdateActionResult, restartreason: WindowsSoftwareUpdateRestartReason, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateProviderActionResult> {
+        Self::IWindowsSoftwareUpdateProviderActionResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), actionresult, restartreason, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateProviderActionResultFactory<R, F: FnOnce(&IWindowsSoftwareUpdateProviderActionResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateProviderActionResult, IWindowsSoftwareUpdateProviderActionResultFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderActionResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateProviderActionResult>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderActionResult {
+    type Vtable = <IWindowsSoftwareUpdateProviderActionResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderActionResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderActionResult {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderActionResult";
+}
+unsafe impl Send for WindowsSoftwareUpdateProviderActionResult {}
+unsafe impl Sync for WindowsSoftwareUpdateProviderActionResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderPayloadFileInfo(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProviderPayloadFileInfo, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateProviderPayloadFileInfo {
+    pub fn Filename(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Filename)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn FileHash(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).FileHash)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn CatalogFile(&self) -> windows_core::Result<windows_core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CatalogFile)(windows_core::Interface::as_raw(this), &mut result__).map(|| core::mem::transmute(result__))
+        }
+    }
+    pub fn TrustState(&self) -> windows_core::Result<WindowsSoftwareUpdateProviderTrustState> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).TrustState)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderPayloadFileInfo {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateProviderPayloadFileInfo>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderPayloadFileInfo {
+    type Vtable = <IWindowsSoftwareUpdateProviderPayloadFileInfo as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderPayloadFileInfo as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderPayloadFileInfo {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderPayloadFileInfo";
+}
+unsafe impl Send for WindowsSoftwareUpdateProviderPayloadFileInfo {}
+unsafe impl Sync for WindowsSoftwareUpdateProviderPayloadFileInfo {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderRegistrationType(pub i32);
+impl WindowsSoftwareUpdateProviderRegistrationType {
+    pub const None: Self = Self(0i32);
+    pub const System: Self = Self(1i32);
+    pub const Windows: Self = Self(2i32);
+    pub const Pending: Self = Self(3i32);
+    pub const Registered: Self = Self(4i32);
+    pub const Unregistered: Self = Self(5i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateProviderRegistrationType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderRegistrationType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateProviderRegistrationType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderStatus(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateProviderStatus, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateProviderStatus {
+    pub fn CancelRequested<P0>(&self, handler: P0) -> windows_core::Result<i64>
+    where
+        P0: windows_core::Param<super::super::Foundation::TypedEventHandler<WindowsSoftwareUpdateProviderStatus, windows_core::IInspectable>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CancelRequested)(windows_core::Interface::as_raw(this), handler.param().abi(), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RemoveCancelRequested(&self, token: i64) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).RemoveCancelRequested)(windows_core::Interface::as_raw(this), token).ok() }
+    }
+    pub fn SetScanResult<P3>(&self, succeeded: bool, resultcode: u32, extendederror: u64, updates: P3) -> windows_core::Result<WindowsSoftwareUpdateResult>
+    where
+        P3: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdate>>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetScanResult)(windows_core::Interface::as_raw(this), succeeded, resultcode, extendederror, updates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetActionProgress(&self, current: u64, total: u64) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetActionProgress)(windows_core::Interface::as_raw(this), current, total, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn SetActionResult<P0>(&self, actionresult: P0) -> windows_core::Result<WindowsSoftwareUpdateResult>
+    where
+        P0: windows_core::Param<WindowsSoftwareUpdateProviderActionResult>,
+    {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).SetActionResult)(windows_core::Interface::as_raw(this), actionresult.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance(providerid: &windows_core::HSTRING) -> windows_core::Result<WindowsSoftwareUpdateProviderStatus> {
+        Self::IWindowsSoftwareUpdateProviderStatusFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(providerid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateProviderStatusFactory<R, F: FnOnce(&IWindowsSoftwareUpdateProviderStatusFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateProviderStatus, IWindowsSoftwareUpdateProviderStatusFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderStatus {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateProviderStatus>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateProviderStatus {
+    type Vtable = <IWindowsSoftwareUpdateProviderStatus as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateProviderStatus as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateProviderStatus {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateProviderStatus";
+}
+unsafe impl Send for WindowsSoftwareUpdateProviderStatus {}
+unsafe impl Sync for WindowsSoftwareUpdateProviderStatus {}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderTrustState(pub i32);
+impl WindowsSoftwareUpdateProviderTrustState {
+    pub const SignedTrusted: Self = Self(0i32);
+    pub const SignedUntrusted: Self = Self(1i32);
+    pub const Unsigned: Self = Self(2i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateProviderTrustState {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderTrustState {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateProviderTrustState;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateProviderType(pub i32);
+impl WindowsSoftwareUpdateProviderType {
+    pub const WindowsUpdate: Self = Self(0i32);
+    pub const Executable: Self = Self(1i32);
+    pub const Powershell: Self = Self(2i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateProviderType {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateProviderType {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateProviderType;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Copy, Debug, Default, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateRestartReason(pub i32);
+impl WindowsSoftwareUpdateRestartReason {
+    pub const None: Self = Self(0i32);
+    pub const System: Self = Self(1i32);
+    pub const AppClose: Self = Self(2i32);
+    pub const AppRestart: Self = Self(3i32);
+}
+impl windows_core::TypeKind for WindowsSoftwareUpdateRestartReason {
+    type TypeKind = windows_core::CopyType;
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateRestartReason {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::from_slice(b"enum(Windows.Management.Update.WindowsSoftwareUpdateRestartReason;i4)");
+}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateResult, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateResult {
+    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CancelRequested(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CancelRequested)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResultCode(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateInstance(succeeded: bool, resultcode: u32) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, resultcode, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance2(succeeded: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), succeeded, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance3(succeeded: bool, cancelrequested: bool, resultcode: u32, extendederror: u64) -> windows_core::Result<WindowsSoftwareUpdateResult> {
+        Self::IWindowsSoftwareUpdateResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance3)(windows_core::Interface::as_raw(this), succeeded, cancelrequested, resultcode, extendederror, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateResultFactory<R, F: FnOnce(&IWindowsSoftwareUpdateResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateResult, IWindowsSoftwareUpdateResultFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateResult>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateResult {
+    type Vtable = <IWindowsSoftwareUpdateResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateResult {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateResult";
+}
+unsafe impl Send for WindowsSoftwareUpdateResult {}
+unsafe impl Sync for WindowsSoftwareUpdateResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateScanResult(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateScanResult, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateScanResult {
+    pub fn Succeeded(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Succeeded)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ResultCode(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ResultCode)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn ExtendedError(&self) -> windows_core::Result<u64> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).ExtendedError)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Updates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdate>> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Updates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn CreateInstance<P2>(succeeded: bool, resultcode: u32, updates: P2) -> windows_core::Result<WindowsSoftwareUpdateScanResult>
+    where
+        P2: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdate>>,
+    {
+        Self::IWindowsSoftwareUpdateScanResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), succeeded, resultcode, updates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    pub fn CreateInstance2<P3>(succeeded: bool, resultcode: u32, extendederror: u64, updates: P3) -> windows_core::Result<WindowsSoftwareUpdateScanResult>
+    where
+        P3: windows_core::Param<windows_collections::IIterable<WindowsSoftwareUpdate>>,
+    {
+        Self::IWindowsSoftwareUpdateScanResultFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance2)(windows_core::Interface::as_raw(this), succeeded, resultcode, extendederror, updates.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateScanResultFactory<R, F: FnOnce(&IWindowsSoftwareUpdateScanResultFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateScanResult, IWindowsSoftwareUpdateScanResultFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateScanResult {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateScanResult>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateScanResult {
+    type Vtable = <IWindowsSoftwareUpdateScanResult as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateScanResult as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateScanResult {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateScanResult";
+}
+unsafe impl Send for WindowsSoftwareUpdateScanResult {}
+unsafe impl Sync for WindowsSoftwareUpdateScanResult {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsSoftwareUpdateVersion(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsSoftwareUpdateVersion, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsSoftwareUpdateVersion {
+    pub fn Major(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Major)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn Minor(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).Minor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RevisionMajor(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RevisionMajor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn RevisionMinor(&self) -> windows_core::Result<u32> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).RevisionMinor)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn CreateInstance(major: u32, minor: u32, revisionmajor: u32, revisionminor: u32) -> windows_core::Result<WindowsSoftwareUpdateVersion> {
+        Self::IWindowsSoftwareUpdateVersionFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), major, minor, revisionmajor, revisionminor, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsSoftwareUpdateVersionFactory<R, F: FnOnce(&IWindowsSoftwareUpdateVersionFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsSoftwareUpdateVersion, IWindowsSoftwareUpdateVersionFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsSoftwareUpdateVersion {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsSoftwareUpdateVersion>();
+}
+unsafe impl windows_core::Interface for WindowsSoftwareUpdateVersion {
+    type Vtable = <IWindowsSoftwareUpdateVersion as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsSoftwareUpdateVersion as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsSoftwareUpdateVersion {
+    const NAME: &'static str = "Windows.Management.Update.WindowsSoftwareUpdateVersion";
+}
+unsafe impl Send for WindowsSoftwareUpdateVersion {}
+unsafe impl Sync for WindowsSoftwareUpdateVersion {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowsUpdate(windows_core::IUnknown);
@@ -1005,6 +2809,9 @@ impl WindowsUpdateAttentionRequiredReason {
     pub const BlockedByOobe: Self = Self(30i32);
     pub const DeferredDuringOobe: Self = Self(31i32);
     pub const DeferredForSustainableTime: Self = Self(32i32);
+    pub const BlockedByAppClose: Self = Self(33i32);
+    pub const BlockedByAppRestart: Self = Self(34i32);
+    pub const OtherUpdateReverting: Self = Self(35i32);
 }
 impl windows_core::TypeKind for WindowsUpdateAttentionRequiredReason {
     type TypeKind = windows_core::CopyType;
@@ -1285,14 +3092,55 @@ impl WindowsUpdateManager {
         let this = self;
         unsafe { (windows_core::Interface::vtable(this).StartScan)(windows_core::Interface::as_raw(this), userinitiated).ok() }
     }
+    pub fn GetProvider(&self, id: &windows_core::HSTRING) -> windows_core::Result<WindowsSoftwareUpdateProvider> {
+        let this = &windows_core::Interface::cast::<IWindowsUpdateManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetProvider)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(id), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn ProviderIds(&self) -> windows_core::Result<windows_core::Array<windows_core::HSTRING>> {
+        let this = &windows_core::Interface::cast::<IWindowsUpdateManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::MaybeUninit::zeroed();
+            (windows_core::Interface::vtable(this).ProviderIds)(windows_core::Interface::as_raw(this), windows_core::Array::<windows_core::HSTRING>::set_abi_len(core::mem::transmute(&mut result__)), result__.as_mut_ptr() as *mut _ as _).map(|| result__.assume_init())
+        }
+    }
+    pub fn GetApplicableSoftwareUpdates(&self) -> windows_core::Result<windows_collections::IVectorView<WindowsSoftwareUpdate>> {
+        let this = &windows_core::Interface::cast::<IWindowsUpdateManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).GetApplicableSoftwareUpdates)(windows_core::Interface::as_raw(this), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
+    pub fn PerformScan<P0>(&self, options: P0) -> windows_core::Result<WindowsSoftwareUpdateScanResult>
+    where
+        P0: windows_core::Param<WindowsUpdateManagerScanOptions>,
+    {
+        let this = &windows_core::Interface::cast::<IWindowsUpdateManager2>(self)?;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PerformScan)(windows_core::Interface::as_raw(this), options.param().abi(), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        }
+    }
     pub fn CreateInstance(clientid: &windows_core::HSTRING) -> windows_core::Result<WindowsUpdateManager> {
         Self::IWindowsUpdateManagerFactory(|this| unsafe {
             let mut result__ = core::mem::zeroed();
             (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
         })
     }
+    pub fn CreateInstance2(clientid: &windows_core::HSTRING, provideridfilter: &[windows_core::HSTRING]) -> windows_core::Result<WindowsUpdateManager> {
+        Self::IWindowsUpdateManagerFactory2(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), core::mem::transmute_copy(clientid), provideridfilter.len().try_into().unwrap(), core::mem::transmute(provideridfilter.as_ptr()), &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
     fn IWindowsUpdateManagerFactory<R, F: FnOnce(&IWindowsUpdateManagerFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
         static SHARED: windows_core::imp::FactoryCache<WindowsUpdateManager, IWindowsUpdateManagerFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    fn IWindowsUpdateManagerFactory2<R, F: FnOnce(&IWindowsUpdateManagerFactory2) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsUpdateManager, IWindowsUpdateManagerFactory2> = windows_core::imp::FactoryCache::new();
         SHARED.call(callback)
     }
 }
@@ -1308,6 +3156,74 @@ impl windows_core::RuntimeName for WindowsUpdateManager {
 }
 unsafe impl Send for WindowsUpdateManager {}
 unsafe impl Sync for WindowsUpdateManager {}
+#[repr(transparent)]
+#[derive(Clone, Debug, Eq, PartialEq)]
+pub struct WindowsUpdateManagerScanOptions(windows_core::IUnknown);
+windows_core::imp::interface_hierarchy!(WindowsUpdateManagerScanOptions, windows_core::IUnknown, windows_core::IInspectable);
+impl WindowsUpdateManagerScanOptions {
+    pub fn new() -> windows_core::Result<Self> {
+        Self::IActivationFactory(|f| f.ActivateInstance::<Self>())
+    }
+    fn IActivationFactory<R, F: FnOnce(&windows_core::imp::IGenericFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsUpdateManagerScanOptions, windows_core::imp::IGenericFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+    pub fn IsUserInitiated(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).IsUserInitiated)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetIsUserInitiated(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetIsUserInitiated)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn AllowBypassThrottling(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).AllowBypassThrottling)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetAllowBypassThrottling(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetAllowBypassThrottling)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn PerformUpdateActions(&self) -> windows_core::Result<bool> {
+        let this = self;
+        unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).PerformUpdateActions)(windows_core::Interface::as_raw(this), &mut result__).map(|| result__)
+        }
+    }
+    pub fn SetPerformUpdateActions(&self, value: bool) -> windows_core::Result<()> {
+        let this = self;
+        unsafe { (windows_core::Interface::vtable(this).SetPerformUpdateActions)(windows_core::Interface::as_raw(this), value).ok() }
+    }
+    pub fn CreateInstance(isuserinitiated: bool) -> windows_core::Result<WindowsUpdateManagerScanOptions> {
+        Self::IWindowsUpdateManagerScanOptionsFactory(|this| unsafe {
+            let mut result__ = core::mem::zeroed();
+            (windows_core::Interface::vtable(this).CreateInstance)(windows_core::Interface::as_raw(this), isuserinitiated, &mut result__).and_then(|| windows_core::Type::from_abi(result__))
+        })
+    }
+    fn IWindowsUpdateManagerScanOptionsFactory<R, F: FnOnce(&IWindowsUpdateManagerScanOptionsFactory) -> windows_core::Result<R>>(callback: F) -> windows_core::Result<R> {
+        static SHARED: windows_core::imp::FactoryCache<WindowsUpdateManagerScanOptions, IWindowsUpdateManagerScanOptionsFactory> = windows_core::imp::FactoryCache::new();
+        SHARED.call(callback)
+    }
+}
+impl windows_core::RuntimeType for WindowsUpdateManagerScanOptions {
+    const SIGNATURE: windows_core::imp::ConstBuffer = windows_core::imp::ConstBuffer::for_class::<Self, IWindowsUpdateManagerScanOptions>();
+}
+unsafe impl windows_core::Interface for WindowsUpdateManagerScanOptions {
+    type Vtable = <IWindowsUpdateManagerScanOptions as windows_core::Interface>::Vtable;
+    const IID: windows_core::GUID = <IWindowsUpdateManagerScanOptions as windows_core::Interface>::IID;
+}
+impl windows_core::RuntimeName for WindowsUpdateManagerScanOptions {
+    const NAME: &'static str = "Windows.Management.Update.WindowsUpdateManagerScanOptions";
+}
+unsafe impl Send for WindowsUpdateManagerScanOptions {}
+unsafe impl Sync for WindowsUpdateManagerScanOptions {}
 #[repr(transparent)]
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct WindowsUpdateProgressChangedEventArgs(windows_core::IUnknown);
