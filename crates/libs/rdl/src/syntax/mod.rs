@@ -1,5 +1,6 @@
 mod class;
 mod r#const;
+mod delegate;
 mod r#enum;
 mod file;
 mod r#fn;
@@ -11,6 +12,7 @@ mod r#struct;
 mod union;
 
 pub use class::*;
+pub use delegate::*;
 pub use file::*;
 pub use interface::*;
 pub use item::*;
