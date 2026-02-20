@@ -96,6 +96,7 @@ impl PInvokeAttributes {
 flags!(TypeAttributes, u32);
 impl TypeAttributes {
     pub const Public: Self = Self(0x1);
+    pub const NestedPublic: Self = Self(0x2);
     pub const ExplicitLayout: Self = Self(0x10);
     pub const Abstract: Self = Self(0x80);
     pub const Sealed: Self = Self(0x100);
