@@ -72,10 +72,10 @@ pub fn format(input: &str) -> String {
     let mut paren_depth = 0;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
-    let mut i = 0;
+    let mut token_idx = 0;
 
-    while i < tokens.len() {
-        let (token, span) = &tokens[i];
+    while token_idx < tokens.len() {
+        let (token, span) = &tokens[token_idx];
 
         let token = match token {
             Ok(token) => token,
@@ -107,9 +107,9 @@ pub fn format(input: &str) -> String {
                 indent_level -= 1;
                 push_indent(&mut output, indent_level);
                 output.push('}');
-                if matches!(tokens.get(i + 1), Some((Ok(Token::Comma), _))) {
+                if matches!(tokens.get(token_idx + 1), Some((Ok(Token::Comma), _))) {
                     output.push_str(",\n");
-                    i += 2;
+                    token_idx += 2;
                     continue;
                 } else {
                     output.push('\n');
@@ -171,10 +171,10 @@ pub fn format(input: &str) -> String {
                 output.push_str("mod ");
             }
             Token::OpenBrace => {
-                if matches!(tokens.get(i + 1), Some((Ok(Token::CloseBrace), _))) {
+                if matches!(tokens.get(token_idx + 1), Some((Ok(Token::CloseBrace), _))) {
                     output.push_str("{}");
                     output.push('\n');
-                    i += 2;
+                    token_idx += 2;
                     continue;
                 } else {
                     output.push('{');
@@ -202,7 +202,7 @@ pub fn format(input: &str) -> String {
             Token::Whitespace => {}
         }
 
-        i += 1;
+        token_idx += 1;
     }
 
     output
