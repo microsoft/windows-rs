@@ -20,3 +20,5 @@ pub mod TabletPC;
 pub mod TextServices;
 #[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub mod WindowsAndMessaging;
+#[cfg(feature = "Win32_UI_Xaml")]
+pub mod Xaml;

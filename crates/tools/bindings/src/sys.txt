@@ -5,6 +5,7 @@
 --filter
     Windows.Wdk
     Windows.Win32
+    Windows.Win32.UI.Xaml.Diagnostics
     !Windows.AI
     !Windows.ApplicationModel
     !Windows.Data
