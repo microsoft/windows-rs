@@ -4,6 +4,7 @@
 
 --filter
     Windows
+    Windows.Win32.UI.Xaml.Diagnostics
 
 // windows-collections
     !Windows.Foundation.Collections.IIterable
