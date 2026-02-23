@@ -76,6 +76,7 @@ pub fn format(input: &str) -> String {
     let mut output = String::new();
     let mut indent_level = 0;
     let mut paren_depth = 0;
+    let mut angle_depth = 0;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -145,7 +146,7 @@ pub fn format(input: &str) -> String {
                     output.pop();
                 }
                 output.push(',');
-                if paren_depth > 0 {
+                if paren_depth > 0 || angle_depth > 0 {
                     output.push(' ');
                 } else {
                     output.push('\n');
@@ -169,12 +170,17 @@ pub fn format(input: &str) -> String {
             Token::Hyphen => {
                 output.push('-');
             }
-            // TODO: seems redundant - why not use token macro?
             Token::LessThan => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
                 output.push('<');
+                angle_depth += 1;
             }
             Token::GreaterThan => {
+                output.pop();
                 output.push('>');
+                angle_depth -= 1;
             }
             Token::Identifier(ident) => {
                 output.push_str(ident);
@@ -190,6 +196,9 @@ pub fn format(input: &str) -> String {
                     token_idx += 2;
                     continue;
                 } else {
+                    if !output.ends_with(' ') {
+                        output.push(' ');
+                    }
                     output.push('{');
                     output.push('\n');
                     indent_level += 1;
