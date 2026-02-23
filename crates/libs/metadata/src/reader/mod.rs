@@ -17,11 +17,3 @@ pub use row::*;
 pub use tables::*;
 pub use type_category::*;
 pub use type_index::*;
-
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
-    }
-}

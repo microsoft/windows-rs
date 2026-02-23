@@ -429,8 +429,8 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         name.push_str(&segment.ident.to_string());
     }
 
-    if let Some(generic) = encoder.generics.iter().position(|generic| *generic == name) {
-        return Ok(metadata::Type::Generic(generic.try_into().unwrap()));
+    if let Some(number) = encoder.generics.iter().position(|generic| *generic == name) {
+        return Ok(metadata::Type::Generic(name, number));
     }
 
     match name.as_str() {

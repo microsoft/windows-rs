@@ -59,6 +59,12 @@ enum Token<'a> {
     #[token(";")]
     Semicolon,
 
+    #[token("<")]
+    LessThan,
+
+    #[token(">")]
+    GreaterThan,
+
     #[token("struct")]
     Struct,
 
@@ -162,6 +168,13 @@ pub fn format(input: &str) -> String {
             }
             Token::Hyphen => {
                 output.push('-');
+            }
+            // TODO: seems redundant - why not use token macro?
+            Token::LessThan => {
+                output.push('<');
+            }
+            Token::GreaterThan => {
+                output.push('>');
             }
             Token::Identifier(ident) => {
                 output.push_str(ident);

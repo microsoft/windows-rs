@@ -2,18 +2,28 @@ use super::*;
 
 pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
-    let name = format_ident!("{}", item.name());
+    let name = format_ident!("{}", metadata::trim_tick(item.name()));
 
     let generics: Vec<_> = item
         .generic_params()
-        .map(|param| metadata::Type::Generic(param.sequence()))
+        .map(|param| metadata::Type::Generic(param.name().to_string(), param.sequence()))
         .collect();
+
     let methods = item
         .methods()
         .map(|method| write_method(namespace, &method, &generics));
 
+    let generics = if generics.is_empty() {
+        quote! {}
+    } else {
+        let generics = item
+            .generic_params()
+            .map(|param| format_ident!("{}", param.name()));
+        quote! { <#(#generics),*> }
+    };
+
     quote! {
-        interface #name {
+        interface #name #generics {
             #(#methods)*
         }
     }
