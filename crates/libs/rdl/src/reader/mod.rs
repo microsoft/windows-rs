@@ -430,7 +430,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
     }
 
     if let Some(number) = encoder.generics.iter().position(|generic| *generic == name) {
-        return Ok(metadata::Type::Generic(name, number));
+        return Ok(metadata::Type::Generic(name, number.try_into().unwrap()));
     }
 
     match name.as_str() {

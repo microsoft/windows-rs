@@ -7,8 +7,8 @@ impl std::fmt::Debug for GenericParam<'_> {
 }
 
 impl<'a> GenericParam<'a> {
-    pub fn sequence(&self) -> usize {
-        self.usize(0)
+    pub fn sequence(&self) -> u16 {
+        self.usize(0).try_into().unwrap()
     }
 
     pub fn flags(&self) -> GenericParamAttributes {

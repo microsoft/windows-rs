@@ -431,7 +431,7 @@ impl File {
 
             Type::Generic(_, number) => {
                 buffer.push(ELEMENT_TYPE_VAR);
-                buffer.write_compressed(*number);
+                buffer.write_compressed((*number).into());
             }
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),
