@@ -1,7 +1,5 @@
 use super::*;
 
-// TODO: impl Display to format as rdl?
-
 #[derive(Debug, PartialEq, Clone)]
 pub enum Type {
     Void,

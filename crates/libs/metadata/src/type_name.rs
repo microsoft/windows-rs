@@ -4,7 +4,7 @@ use super::*;
 pub struct TypeName {
     pub namespace: String,
     pub name: String,
-    pub generics: Vec<Type>, // TODO: needed?
+    pub generics: Vec<Type>,
 }
 
 impl TypeName {
