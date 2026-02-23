@@ -333,6 +333,10 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
                 quote! { #tokens #name }
             }
         }
+        Generic(name, _) => {
+            let name = format_ident!("{}", name);
+            quote! { #name }
+        }
         rest => todo!("{rest:?}"),
     }
 }

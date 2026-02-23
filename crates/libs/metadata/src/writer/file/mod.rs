@@ -429,9 +429,9 @@ impl File {
                 buffer.write_compressed(0); // num_lo_bounds
             }
 
-            Type::Generic(number) => {
+            Type::Generic(_, number) => {
                 buffer.push(ELEMENT_TYPE_VAR);
-                buffer.write_compressed((*number) as usize);
+                buffer.write_compressed((*number).into());
             }
 
             Type::Name(ty) => self.TypeName(&ty.namespace, &ty.name, &ty.generics, buffer),

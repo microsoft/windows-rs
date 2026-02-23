@@ -139,7 +139,7 @@ fn write_type(
 
     let generics: Vec<_> = def
         .generic_params()
-        .map(|param| Type::Generic(param.sequence()))
+        .map(|param| Type::Generic(param.name().to_string(), param.sequence()))
         .collect();
 
     write_attributes(writer, writer::HasAttribute::TypeDef(type_def), def);

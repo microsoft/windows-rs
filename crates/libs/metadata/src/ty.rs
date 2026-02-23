@@ -21,12 +21,11 @@ pub enum Type {
     Object,
     AttributeEnum, // 0x55 is an unnamed ELEMENT_TYPE used by attributes to specify an enum
     Name(TypeName),
-    Array(Box<Self>),    // ELEMENT_TYPE_SZARRAY
-    ArrayRef(Box<Self>), // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY
-    Generic(u16),        // ELEMENT_TYPE_VAR
-    RefMut(Box<Self>),   // ELEMENT_TYPE_BYREF
-    RefConst(Box<Self>), // ELEMENT_TYPE_CMOD_REQD (IsConst)
-
+    Array(Box<Self>),             // ELEMENT_TYPE_SZARRAY
+    ArrayRef(Box<Self>),          // ELEMENT_TYPE_BYREF, ELEMENT_TYPE_SZARRAY
+    Generic(String, u16),         // ELEMENT_TYPE_VAR
+    RefMut(Box<Self>),            // ELEMENT_TYPE_BYREF
+    RefConst(Box<Self>),          // ELEMENT_TYPE_CMOD_REQD (IsConst)
     PtrMut(Box<Self>, usize),     // ELEMENT_TYPE_PTR
     PtrConst(Box<Self>, usize),   // ELEMENT_TYPE_CMOD_REQD (IsConst), ELEMENT_TYPE_PTR
     ArrayFixed(Box<Self>, usize), // ELEMENT_TYPE_ARRAY
