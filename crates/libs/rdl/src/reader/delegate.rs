@@ -9,14 +9,41 @@ pub fn encode_delegate(encoder: &mut Encoder, item: &syntax::Delegate) -> Result
         flags |= metadata::TypeAttributes::WindowsRuntime;
     }
 
-    let name = item.sig.ident.to_string();
+    encoder.generics = item
+        .sig
+        .generics
+        .params
+        .iter()
+        .map(|generic| {
+            let syn::GenericParam::Type(generic) = generic else {
+                todo!("syntax parsing should not allow anything else");
+            };
 
-    encoder.output.TypeDef(
+            generic.ident.to_string()
+        })
+        .collect();
+
+    let mut name = encoder.name.to_string();
+
+    if !encoder.generics.is_empty() {
+        name = format!("{name}`{}", encoder.generics.len());
+    }
+
+    let delegate = encoder.output.TypeDef(
         encoder.namespace,
         &name,
         metadata::writer::TypeDefOrRef::TypeRef(extends),
         flags,
     );
+
+    for (number, name) in encoder.generics.iter().enumerate() {
+        encoder.output.GenericParam(
+            name,
+            metadata::writer::TypeOrMethodDef::TypeDef(delegate),
+            number.try_into().unwrap(),
+            metadata::GenericParamAttributes::None,
+        );
+    }
 
     let flags = metadata::MethodAttributes::Public
         | metadata::MethodAttributes::HideBySig

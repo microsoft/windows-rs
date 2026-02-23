@@ -111,4 +111,6 @@ impl TypeAttributes {
 }
 
 flags!(GenericParamAttributes, u16);
-impl GenericParamAttributes {}
+impl GenericParamAttributes {
+    pub const None: Self = Self(0);
+}

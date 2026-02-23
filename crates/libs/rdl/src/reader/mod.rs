@@ -259,6 +259,7 @@ struct Encoder<'a> {
     source_file: &'a str,
     namespace: &'a str,
     name: &'a str,
+    generics: Vec<String>,
 }
 
 impl Encoder<'_> {
@@ -289,6 +290,7 @@ fn encode_item(
         source_file,
         namespace,
         name,
+        generics: vec![],
     };
 
     match item {
@@ -425,6 +427,10 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         }
 
         name.push_str(&segment.ident.to_string());
+    }
+
+    if let Some(generic) = encoder.generics.iter().position(|generic| *generic == name) {
+        return Ok(metadata::Type::Generic(generic.try_into().unwrap()));
     }
 
     match name.as_str() {

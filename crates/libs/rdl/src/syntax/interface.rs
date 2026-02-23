@@ -7,6 +7,7 @@ pub struct Interface {
     pub attrs: Vec<syn::Attribute>,
     pub token: interface,
     pub name: syn::Ident,
+    pub generics: syn::Generics,
     // pub requires: Vec<TypeParamBound>,
     pub methods: Vec<Method>,
     pub winrt: bool,
@@ -17,6 +18,7 @@ impl syn::parse::Parse for Interface {
         let attrs = input.call(syn::Attribute::parse_outer)?;
         let token = input.parse()?;
         let name = input.parse()?;
+        let generics = input.parse()?;
 
         let content;
         syn::braced!(content in input);
@@ -30,6 +32,7 @@ impl syn::parse::Parse for Interface {
             attrs,
             token,
             name,
+            generics,
             methods,
             winrt: false,
         })

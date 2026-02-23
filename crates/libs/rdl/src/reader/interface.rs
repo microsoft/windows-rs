@@ -9,12 +9,40 @@ pub fn encode_interface(encoder: &mut Encoder, item: &syntax::Interface) -> Resu
         flags |= metadata::TypeAttributes::WindowsRuntime;
     }
 
-    encoder.output.TypeDef(
+    encoder.generics = item
+        .generics
+        .params
+        .iter()
+        .map(|generic| {
+            let syn::GenericParam::Type(generic) = generic else {
+                todo!("syntax parsing should not allow anything else");
+            };
+
+            generic.ident.to_string()
+        })
+        .collect();
+
+    let mut name = encoder.name.to_string();
+
+    if !encoder.generics.is_empty() {
+        name = format!("{name}`{}", encoder.generics.len());
+    }
+
+    let interface = encoder.output.TypeDef(
         encoder.namespace,
-        encoder.name,
+        &name,
         metadata::writer::TypeDefOrRef::default(),
         flags,
     );
+
+    for (number, name) in encoder.generics.iter().enumerate() {
+        encoder.output.GenericParam(
+            name,
+            metadata::writer::TypeOrMethodDef::TypeDef(interface),
+            number.try_into().unwrap(),
+            metadata::GenericParamAttributes::None,
+        );
+    }
 
     let flags = metadata::MethodAttributes::Public
         | metadata::MethodAttributes::HideBySig
