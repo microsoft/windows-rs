@@ -1,7 +1,6 @@
 #[winrt]
 mod Test {
     delegate fn Handler<Arg, Result>(arg: Arg) -> Result;
-
     interface IMap<K, V> {
         fn Lookup(&self, key: K) -> V;
     }
