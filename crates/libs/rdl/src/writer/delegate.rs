@@ -21,7 +21,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let params = params.zip(signature.types).map(|(param, ty)| {
         let name = write_ident(param.name());
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty, }
+        quote! { #name: #ty }
     });
 
     let generics = if generics.is_empty() {
@@ -32,6 +32,6 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     };
 
     quote! {
-        delegate fn #name #generics (#(#params)*) #return_type;
+        delegate fn #name #generics (#(#params),*) #return_type;
     }
 }

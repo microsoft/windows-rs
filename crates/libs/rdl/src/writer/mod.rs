@@ -173,7 +173,7 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
     let params = params.zip(signature.types).map(|(param, ty)| {
         let name = write_ident(param.name());
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty, }
+        quote! { #name: #ty }
     });
 
     let Some(impl_map) = item.impl_map() else {
@@ -194,7 +194,7 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 
     quote! {
         #[link(name = #library, abi = #abi)]
-        fn #name(#(#params)*) #return_type;
+        fn #name(#(#params),*) #return_type;
     }
 }
 

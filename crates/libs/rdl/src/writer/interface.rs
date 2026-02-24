@@ -38,13 +38,14 @@ fn write_method(
     let return_type = write_return_type(namespace, &signature);
     let params = item.params().filter(|param| param.sequence() != 0);
 
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = write_ident(param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty, }
-    });
+    let params =
+        std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
+            let name = write_ident(param.name());
+            let ty = write_type(namespace, &ty);
+            quote! { #name: #ty }
+        }));
 
     quote! {
-        fn #name(&self, #(#params)*) #return_type;
+        fn #name(#(#params),*) #return_type;
     }
 }
