@@ -179,7 +179,7 @@ pub fn format(input: &str) -> String {
                 angle_depth += 1;
             }
             Token::GreaterThan => {
-                output.pop();
+                output.trim_space();
                 output.push('>');
                 angle_depth -= 1;
             }
@@ -245,15 +245,11 @@ fn push_attribute(attr: &str, output: &mut String) {
                 out.push(c);
             }
             '[' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push('[');
             }
             '(' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push('(');
                 after_open_paren = true;
                 after_closing_paren = false;
@@ -264,9 +260,7 @@ fn push_attribute(attr: &str, output: &mut String) {
                 after_closing_paren = true;
             }
             ',' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push(',');
                 space_previously = false;
             }
