@@ -56,6 +56,12 @@ enum Token<'a> {
     #[token("(")]
     OpenParenthesis,
 
+    #[token("[")]
+    OpenBracket,
+
+    #[token("]")]
+    CloseBracket,
+
     #[token(";")]
     Semicolon,
 
@@ -169,6 +175,15 @@ pub fn format(input: &str) -> String {
             }
             Token::Hyphen => {
                 output.push('-');
+            }
+            Token::OpenBracket => {
+                output.push('[');
+            }
+            Token::CloseBracket => {
+                if output.ends_with(' ') {
+                    output.pop();
+                }
+                output.push(']');
             }
             Token::LessThan => {
                 if output.ends_with(' ') {

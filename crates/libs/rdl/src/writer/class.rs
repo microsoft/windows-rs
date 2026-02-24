@@ -2,7 +2,7 @@ use super::*;
 
 pub fn write_class(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
     let extends = item.extends().expect("class always extends");
 
     let extends = if extends == ("System", "Object") {
@@ -53,9 +53,9 @@ fn write_factory(namespace: &str, attribute: &metadata::reader::Attribute) -> Op
     let name = attribute.name();
 
     let name = if name == "ActivatableAttribute" {
-        format_ident!("activatable")
+        write_ident("activatable")
     } else if name == "StaticAttribute" {
-        format_ident!("statics")
+        write_ident("statics")
     } else {
         // TODO: need to handle any other attributes?
         return None;

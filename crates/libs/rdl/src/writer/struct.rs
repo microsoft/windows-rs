@@ -7,7 +7,7 @@ pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
     }
 
     let namespace = item.namespace();
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
 
     let fields = item.fields().map(|field| write_field(namespace, &field));
 
@@ -28,7 +28,7 @@ pub fn write_struct(item: &metadata::reader::TypeDef) -> TokenStream {
 }
 
 fn write_field(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
 
     let ty = match item.ty() {
         metadata::Type::Name(ty_name) => {

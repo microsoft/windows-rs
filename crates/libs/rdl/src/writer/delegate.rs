@@ -2,7 +2,7 @@ use super::*;
 
 pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
-    let name = format_ident!("{}", metadata::trim_tick(item.name()));
+    let name = write_ident(metadata::trim_tick(item.name()));
 
     let generics: Vec<_> = item
         .generic_params()
@@ -26,7 +26,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let params = method.params().filter(|param| param.sequence() != 0);
 
     let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = format_ident!("{}", param.name());
+        let name = write_ident(param.name());
         let ty = write_type(namespace, &ty);
         quote! { #name: #ty, }
     });
@@ -34,9 +34,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let generics = if generics.is_empty() {
         quote! {}
     } else {
-        let generics = item
-            .generic_params()
-            .map(|param| format_ident!("{}", param.name()));
+        let generics = item.generic_params().map(|param| write_ident(param.name()));
         quote! { <#(#generics),*> }
     };
 
