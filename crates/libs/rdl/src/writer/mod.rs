@@ -149,17 +149,25 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     quote! { const #name: #ty = #value; }
 }
 
+fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {
+    match &signature.return_type {
+        metadata::Type::Void => quote! {},
+        metadata::Type::Array(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { -> Array<#ty> }
+        }
+        ty => {
+            let ty = write_type(namespace, ty);
+            quote! { -> #ty }
+        }
+    }
+}
+
 fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
     let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
-    let return_type = if signature.return_type == metadata::Type::Void {
-        quote! {}
-    } else {
-        let ty = write_type(namespace, &signature.return_type);
-        quote! { -> #ty }
-    };
-
+    let return_type = write_return_type(namespace, &signature);
     let params = item.params().filter(|param| param.sequence() != 0);
 
     let params = params.zip(signature.types).map(|(param, ty)| {
@@ -274,6 +282,10 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         Array(ty) => {
             let ty = write_type(namespace, ty);
             quote! { [#ty] }
+        }
+        ArrayRef(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { &mut Array<#ty> }
         }
         RefMut(ty) => {
             let ty = write_type(namespace, ty);

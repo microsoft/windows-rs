@@ -15,14 +15,7 @@ pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
         .expect("delegates are expected to have this named method");
 
     let signature = method.signature(&generics);
-
-    let return_type = if signature.return_type == metadata::Type::Void {
-        quote! {}
-    } else {
-        let ty = write_type(namespace, &signature.return_type);
-        quote! { -> #ty }
-    };
-
+    let return_type = write_return_type(namespace, &signature);
     let params = method.params().filter(|param| param.sequence() != 0);
 
     let params = params.zip(signature.types).map(|(param, ty)| {
