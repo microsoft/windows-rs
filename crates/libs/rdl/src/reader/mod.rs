@@ -467,7 +467,6 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         "isize" => return Ok(metadata::Type::ISize),
         "usize" => return Ok(metadata::Type::USize),
         "String" => return Ok(metadata::Type::String),
-        "Array" => return Ok(metadata::Type::Array(Box::new(generics.pop().unwrap()))),
         "GUID" => return Ok(("System", "Guid").into()),
         "HRESULT" => return Ok(("Windows.Metadata", "HRESULT").into()),
         _ => {}

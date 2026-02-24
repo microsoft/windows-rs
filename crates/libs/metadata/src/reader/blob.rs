@@ -128,10 +128,12 @@ impl<'a> Blob<'a> {
         } else if is_const {
             Type::RefConst(Box::new(ty))
         } else if is_array {
+            let ty = Type::Array(Box::new(ty));
+
             if is_ref {
-                Type::ArrayRef(Box::new(ty))
+                Type::RefMut(Box::new(ty))
             } else {
-                Type::Array(Box::new(ty))
+                ty
             }
         } else if is_ref {
             Type::RefMut(Box::new(ty))

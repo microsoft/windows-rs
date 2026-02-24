@@ -152,10 +152,6 @@ fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
 fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {
     match &signature.return_type {
         metadata::Type::Void => quote! {},
-        metadata::Type::Array(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { -> Array<#ty> }
-        }
         ty => {
             let ty = write_type(namespace, ty);
             quote! { -> #ty }
@@ -282,10 +278,6 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         Array(ty) => {
             let ty = write_type(namespace, ty);
             quote! { [#ty] }
-        }
-        ArrayRef(ty) => {
-            let ty = write_type(namespace, ty);
-            quote! { &mut Array<#ty> }
         }
         RefMut(ty) => {
             let ty = write_type(namespace, ty);
