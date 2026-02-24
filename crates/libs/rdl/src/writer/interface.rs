@@ -2,7 +2,7 @@ use super::*;
 
 pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
-    let name = format_ident!("{}", metadata::trim_tick(item.name()));
+    let name = write_ident(metadata::trim_tick(item.name()));
 
     let generics: Vec<_> = item
         .generic_params()
@@ -16,9 +16,7 @@ pub fn write_interface(item: &metadata::reader::TypeDef) -> TokenStream {
     let generics = if generics.is_empty() {
         quote! {}
     } else {
-        let generics = item
-            .generic_params()
-            .map(|param| format_ident!("{}", param.name()));
+        let generics = item.generic_params().map(|param| write_ident(param.name()));
         quote! { <#(#generics),*> }
     };
 
@@ -34,25 +32,20 @@ fn write_method(
     item: &metadata::reader::MethodDef,
     generics: &[metadata::Type],
 ) -> TokenStream {
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
     let signature = item.signature(generics);
 
-    let return_type = if signature.return_type == metadata::Type::Void {
-        quote! {}
-    } else {
-        let ty = write_type(namespace, &signature.return_type);
-        quote! { -> #ty }
-    };
-
+    let return_type = write_return_type(namespace, &signature);
     let params = item.params().filter(|param| param.sequence() != 0);
 
-    let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = format_ident!("{}", param.name());
-        let ty = write_type(namespace, &ty);
-        quote! { #name: #ty, }
-    });
+    let params =
+        std::iter::once(quote! { &self }).chain(params.zip(signature.types).map(|(param, ty)| {
+            let name = write_ident(param.name());
+            let ty = write_type(namespace, &ty);
+            quote! { #name: #ty }
+        }));
 
     quote! {
-        fn #name(&self, #(#params)*) #return_type;
+        fn #name(#(#params),*) #return_type;
     }
 }

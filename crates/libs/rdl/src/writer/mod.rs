@@ -142,30 +142,38 @@ fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
     let constant = item.constant().expect("field missing constant");
     let ty = write_type(namespace, &item.ty());
     let value = write_value(&constant.value());
     quote! { const #name: #ty = #value; }
 }
 
+fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {
+    match &signature.return_type {
+        metadata::Type::Void => quote! {},
+        metadata::Type::Array(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { -> Array<#ty> }
+        }
+        ty => {
+            let ty = write_type(namespace, ty);
+            quote! { -> #ty }
+        }
+    }
+}
+
 fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream {
-    let name = format_ident!("{}", item.name());
+    let name = write_ident(item.name());
     let signature = item.signature(&[]);
 
-    let return_type = if signature.return_type == metadata::Type::Void {
-        quote! {}
-    } else {
-        let ty = write_type(namespace, &signature.return_type);
-        quote! { -> #ty }
-    };
-
+    let return_type = write_return_type(namespace, &signature);
     let params = item.params().filter(|param| param.sequence() != 0);
 
     let params = params.zip(signature.types).map(|(param, ty)| {
-        let name = format_ident!("{}", param.name());
+        let name = write_ident(param.name());
         let ty = write_type(namespace, &ty);
-        quote! { #name: #ty, }
+        quote! { #name: #ty }
     });
 
     let Some(impl_map) = item.impl_map() else {
@@ -186,7 +194,7 @@ fn write_fn(namespace: &str, item: &metadata::reader::MethodDef) -> TokenStream 
 
     quote! {
         #[link(name = #library, abi = #abi)]
-        fn #name(#(#params)*) #return_type;
+        fn #name(#(#params),*) #return_type;
     }
 }
 
@@ -270,6 +278,15 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         ISize => quote! { isize },
         USize => quote! { usize },
         String => quote! { String },
+        Object => quote! { Object },
+        Array(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { [#ty] }
+        }
+        ArrayRef(ty) => {
+            let ty = write_type(namespace, ty);
+            quote! { &mut Array<#ty> }
+        }
         RefMut(ty) => {
             let ty = write_type(namespace, ty);
             quote! { &mut #ty }
@@ -299,7 +316,7 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         Name(tn) if tn == ("System", "Guid") => quote! { GUID },
         Name(tn) if tn == ("Windows.Metadata", "HRESULT") => quote! { HRESULT },
         Name(type_name) => {
-            let name = format_ident!("{}", &type_name.name);
+            let name = write_ident(&type_name.name);
 
             // The empty namespace test is for nested types.
             if namespace == type_name.namespace || type_name.namespace.is_empty() {
@@ -326,7 +343,7 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
                 }
 
                 for namespace in namespace {
-                    let namespace = format_ident!("{}", namespace);
+                    let namespace = write_ident(namespace);
                     tokens = quote! { #tokens #namespace ::};
                 }
 
@@ -334,9 +351,14 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
             }
         }
         Generic(name, _) => {
-            let name = format_ident!("{}", name);
+            let name = write_ident(name);
             quote! { #name }
         }
         rest => todo!("{rest:?}"),
     }
+}
+
+fn write_ident(name: &str) -> TokenStream {
+    let name = format_ident!("{}", windows_metadata::trim_tick(name));
+    quote! { #name }
 }

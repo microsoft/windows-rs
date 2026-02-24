@@ -56,6 +56,12 @@ enum Token<'a> {
     #[token("(")]
     OpenParenthesis,
 
+    #[token("[")]
+    OpenBracket,
+
+    #[token("]")]
+    CloseBracket,
+
     #[token(";")]
     Semicolon,
 
@@ -93,7 +99,7 @@ pub fn format(input: &str) -> String {
         };
 
         if at_line_start(&output) && !matches!(token, Token::CloseBrace) {
-            push_indent(&mut output, indent_level);
+            output.push_indent(indent_level);
         }
 
         match token {
@@ -112,7 +118,7 @@ pub fn format(input: &str) -> String {
             }
             Token::CloseBrace => {
                 indent_level -= 1;
-                push_indent(&mut output, indent_level);
+                output.push_indent(indent_level);
                 output.push('}');
                 if matches!(tokens.get(token_idx + 1), Some((Ok(Token::Comma), _))) {
                     output.push_str(",\n");
@@ -123,28 +129,20 @@ pub fn format(input: &str) -> String {
                 }
             }
             Token::CloseParenthesis => {
-                if output.ends_with(", ") {
-                    output.truncate(output.len() - 2);
-                }
+                output.trim_space();
                 output.push_str(") ");
                 paren_depth -= 1;
             }
             Token::Colon => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push_str(": ");
             }
             Token::ColonColon => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push_str("::");
             }
             Token::Comma => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push(',');
                 if paren_depth > 0 || angle_depth > 0 {
                     output.push(' ');
@@ -159,9 +157,7 @@ pub fn format(input: &str) -> String {
                 output.push_str("enum ");
             }
             Token::Equals => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push_str(" = ");
             }
             Token::Fn => {
@@ -170,15 +166,20 @@ pub fn format(input: &str) -> String {
             Token::Hyphen => {
                 output.push('-');
             }
+            Token::OpenBracket => {
+                output.push('[');
+            }
+            Token::CloseBracket => {
+                output.trim_space();
+                output.push(']');
+            }
             Token::LessThan => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push('<');
                 angle_depth += 1;
             }
             Token::GreaterThan => {
-                output.pop();
+                output.trim_space();
                 output.push('>');
                 angle_depth -= 1;
             }
@@ -206,15 +207,11 @@ pub fn format(input: &str) -> String {
             }
             Token::OpenParenthesis => {
                 paren_depth += 1;
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push('(');
             }
             Token::Semicolon => {
-                if output.ends_with(' ') {
-                    output.pop();
-                }
+                output.trim_space();
                 output.push(';');
                 output.push('\n');
             }
@@ -248,15 +245,11 @@ fn push_attribute(attr: &str, output: &mut String) {
                 out.push(c);
             }
             '[' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push('[');
             }
             '(' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push('(');
                 after_open_paren = true;
                 after_closing_paren = false;
@@ -267,9 +260,7 @@ fn push_attribute(attr: &str, output: &mut String) {
                 after_closing_paren = true;
             }
             ',' => {
-                if out.ends_with(' ') {
-                    out.pop();
-                }
+                out.trim_space();
                 out.push(',');
                 space_previously = false;
             }
@@ -289,12 +280,6 @@ fn push_attribute(attr: &str, output: &mut String) {
     output.push_str(&out);
 }
 
-fn push_indent(output: &mut String, indent_level: i32) {
-    for _ in 0..indent_level {
-        output.push_str("    ");
-    }
-}
-
 fn emit_error(input: &str, pos: usize, msg: &str) {
     let start = input[..pos].rfind('\n').map_or(0, |i| i + 1);
     let end = input[pos..].find('\n').map_or(input.len(), |i| pos + i);
@@ -302,4 +287,23 @@ fn emit_error(input: &str, pos: usize, msg: &str) {
     let col = pos - start;
     eprintln!("{line}");
     eprintln!("{:>col$}^-- {msg}", "", col = col);
+}
+
+trait StringMethods {
+    fn push_indent(&mut self, indent_level: i32);
+    fn trim_space(&mut self);
+}
+
+impl StringMethods for String {
+    fn push_indent(&mut self, indent_level: i32) {
+        for _ in 0..indent_level {
+            self.push_str("    ");
+        }
+    }
+
+    fn trim_space(&mut self) {
+        if self.ends_with(' ') {
+            self.pop();
+        }
+    }
 }
