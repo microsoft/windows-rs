@@ -1,0 +1,7 @@
+#[winrt]
+mod Test {
+    interface ITest {
+        fn Return(&self, input: [i32]) -> [i32];
+        fn Out(&self, input: [i32], output: &mut [i32]);
+    }
+}

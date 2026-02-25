@@ -380,12 +380,6 @@ impl File {
                 self.Type(ty, buffer);
             }
 
-            Type::ArrayRef(ty) => {
-                buffer.push(ELEMENT_TYPE_BYREF);
-                buffer.push(ELEMENT_TYPE_SZARRAY);
-                self.Type(ty, buffer);
-            }
-
             Type::RefMut(ty) => {
                 buffer.push(ELEMENT_TYPE_BYREF);
                 self.Type(ty, buffer);

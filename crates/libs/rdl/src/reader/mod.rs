@@ -311,8 +311,15 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
         syn::Type::Path(ty) => encode_type_path(encoder, ty),
         syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
         syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
+        syn::Type::Slice(ty) => encode_type_slice(encoder, ty),
         rest => todo!("{rest:?}"),
     }
+}
+
+fn encode_type_slice(encoder: &Encoder, ty: &syn::TypeSlice) -> Result<metadata::Type, Error> {
+    Ok(metadata::Type::Array(Box::new(encode_type(
+        encoder, &ty.elem,
+    )?)))
 }
 
 fn encode_value(
@@ -429,6 +436,18 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         name.push_str(&segment.ident.to_string());
     }
 
+    let mut generics = vec![];
+
+    if let Some(last) = ty.segments.last() {
+        if let syn::PathArguments::AngleBracketed(arguments) = &last.arguments {
+            for argument in &arguments.args {
+                if let syn::GenericArgument::Type(ty) = argument {
+                    generics.push(encode_type(encoder, ty)?);
+                }
+            }
+        }
+    }
+
     if let Some(number) = encoder.generics.iter().position(|generic| *generic == name) {
         return Ok(metadata::Type::Generic(name, number.try_into().unwrap()));
     }
@@ -459,18 +478,20 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
 
     // TODO: resolve any "super::" path segments...
 
-    if encoder.index.contains(type_namespace, type_name) {
-        return Ok(metadata::Type::named(type_namespace, type_name));
+    if encoder.index.contains(type_namespace, type_name)
+        || encoder.reference.contains(type_namespace, type_name)
+    {
+        return Ok(metadata::Type::Name(metadata::TypeName {
+            namespace: type_namespace.to_string(),
+            name: type_name.to_string(),
+            generics,
+        }));
     }
 
     let nested_namespace = format!("{}.{}", encoder.namespace, type_namespace);
 
     if encoder.index.contains(&nested_namespace, type_name) {
         return Ok(metadata::Type::named(&nested_namespace, type_name));
-    }
-
-    if encoder.reference.contains(type_namespace, type_name) {
-        return Ok(metadata::Type::named(type_namespace, type_name));
     }
 
     encoder.err(ty, "type not found")
