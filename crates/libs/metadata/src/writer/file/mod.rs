@@ -176,8 +176,9 @@ impl File {
 
     pub fn TypeSpec(&mut self, namespace: &str, name: &str, generics: &[Type]) -> id::TypeSpec {
         debug_assert!(!generics.is_empty());
-
-        let type_ref = self.TypeRef(namespace, name);
+        // TODO: confirm this decoration is needed for InterfaceImpl
+        let name = format!("{name}`{}", generics.len());
+        let type_ref = self.TypeRef(namespace, &name);
 
         let mut buffer = vec![];
         buffer.push(ELEMENT_TYPE_GENERICINST);
@@ -341,11 +342,9 @@ impl File {
         let interface = if interface.generics.is_empty() {
             TypeDefOrRef::TypeRef(self.TypeRef(&interface.namespace, &interface.name))
         } else {
-            TypeDefOrRef::TypeSpec(self.TypeSpec(
-                &interface.namespace,
-                &interface.name,
-                &interface.generics,
-            ))
+            // TODO: confirm this decoration is needed for InterfaceImpl
+            let name = format!("{}`{}", interface.name, interface.generics.len());
+            TypeDefOrRef::TypeSpec(self.TypeSpec(&interface.namespace, &name, &interface.generics))
         };
 
         id::InterfaceImpl(self.records.InterfaceImpl.push_pos(rec::InterfaceImpl {
@@ -434,14 +433,17 @@ impl File {
     }
 
     fn TypeName(&mut self, namespace: &str, name: &str, generics: &[Type], buffer: &mut Vec<u8>) {
-        if !generics.is_empty() {
+        let pos = if !generics.is_empty() {
             buffer.push(ELEMENT_TYPE_GENERICINST);
-        }
+            let name = format!("{name}`{}", generics.len());
+            self.TypeRef(namespace, &name)
+        } else {
+            self.TypeRef(namespace, name)
+        };
 
-        let pos = self.TypeRef(namespace, name);
         // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
         // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
-        buffer.push(ELEMENT_TYPE_VALUETYPE);
+        buffer.push(ELEMENT_TYPE_CLASS);
         buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
 
         if !generics.is_empty() {
