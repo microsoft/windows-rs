@@ -74,6 +74,9 @@ enum Token<'a> {
     #[token("struct")]
     Struct,
 
+    #[token("r#")]
+    Raw,
+
     #[regex(r"[\s\t\r\n]+", logos::skip)]
     Whitespace,
 }
@@ -103,6 +106,9 @@ pub fn format(input: &str) -> String {
         }
 
         match token {
+            Token::Raw => {
+                output.push_str("r#");
+            }
             Token::Ampersand => {
                 output.push('&');
             }
