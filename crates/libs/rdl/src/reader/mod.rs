@@ -516,11 +516,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
 
     let namespace = format!("{}.{}", encoder.namespace, namespace);
 
-    if let Some(ty) = contains(&namespace) {
-        return Ok(ty);
-    }
-
-    encoder.err(ty, "type not found")
+    contains(&namespace).ok_or_else(|| encoder.error(ty, "type not found"))
 }
 
 fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {
