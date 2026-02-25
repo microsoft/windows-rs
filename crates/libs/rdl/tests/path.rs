@@ -12,7 +12,8 @@ pub fn parse() {
     Writer::new()
         .input("tests/path.winmd")
         .output("tests/path-output.rdl")
-        .namespace("ModForB")
+        .namespace("Test")
+        .recursive()
         .write()
         .unwrap();
 }

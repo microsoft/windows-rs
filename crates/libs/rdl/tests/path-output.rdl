@@ -1,12 +1,55 @@
-#[winrt]
-mod ModForB {
-    struct AlsoInB {
-        a1: u8,
+mod Test {
+    #[winrt]
+    mod ModForA {
+        struct A {
+            a1: u8,
+            a2: u32,
+        }
     }
-    struct B {
-        a: ModForA::A,
-        b: AlsoInB,
-        c: Windows::Foundation::IStringable,
-        d: NestedMod::D,
+    mod ModForB {
+        #[winrt]
+        mod NestedMod {
+            struct D {
+                a1: u8,
+            }
+        }
+    }
+    #[winrt]
+    mod ModForB {
+        struct AlsoInB {
+            a1: u8,
+        }
+        struct B {
+            a: super::ModForA::A,
+            b: AlsoInB,
+            c: Windows::Foundation::IStringable,
+            d: NestedMod::D,
+        }
+    }
+    mod N0 {
+        mod N1 {
+            mod N2 {
+                #[winrt]
+                mod N3 {
+                    struct S3 {
+                        a: super::super::super::S0,
+                        b: super::super::S1,
+                        c: super::S2,
+                    }
+                }
+            }
+            #[winrt]
+            mod N2 {
+                struct S2 {}
+            }
+        }
+        #[winrt]
+        mod N1 {
+            struct S1 {}
+        }
+    }
+    #[winrt]
+    mod N0 {
+        struct S0 {}
     }
 }
