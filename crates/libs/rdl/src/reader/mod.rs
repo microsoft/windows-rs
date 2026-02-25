@@ -499,8 +499,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
     };
 
     let contains = |namespace: &str| -> Option<metadata::Type> {
-        if encoder.index.contains(namespace, name) || encoder.reference.contains(namespace, name)
-        {
+        if encoder.index.contains(namespace, name) || encoder.reference.contains(namespace, name) {
             Some(metadata::Type::Name(metadata::TypeName {
                 namespace: namespace.to_string(),
                 name: name.to_string(),
