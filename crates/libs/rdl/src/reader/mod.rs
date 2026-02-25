@@ -427,9 +427,24 @@ fn encode_type_path(encoder: &Encoder, ty: &syn::TypePath) -> Result<metadata::T
 
 fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Error> {
     let mut name = String::new();
+    let mut supers = 0;
 
     for segment in &ty.segments {
-        if !name.is_empty() {
+        if segment.ident == "super" {
+            supers += 1;
+            continue;
+        }
+
+        if supers > 0 {
+            let relative: Vec<&str> = encoder.namespace.split('.').collect();
+
+            for segment in &relative[..relative.len() - supers] {
+                name.push_str(segment);
+                name.push('.');
+            }
+        }
+
+        if !name.is_empty() && !name.ends_with('.') {
             name.push('.');
         }
 
@@ -467,6 +482,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         "isize" => return Ok(metadata::Type::ISize),
         "usize" => return Ok(metadata::Type::USize),
         "String" => return Ok(metadata::Type::String),
+        "Object" => return Ok(metadata::Type::Object),
         "GUID" => return Ok(("System", "Guid").into()),
         "HRESULT" => return Ok(("Windows.Metadata", "HRESULT").into()),
         _ => {}
