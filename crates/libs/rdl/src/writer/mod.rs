@@ -310,9 +310,19 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
         Name(type_name) => {
             let name = write_ident(&type_name.name);
 
+            let name = if type_name.generics.is_empty() {
+                name
+            } else {
+                let generics = type_name
+                    .generics
+                    .iter()
+                    .map(|ty| write_type(namespace, ty));
+                quote! { #name <#(#generics),*> }
+            };
+
             // The empty namespace test is for nested types.
             if namespace == type_name.namespace || type_name.namespace.is_empty() {
-                quote! { #name }
+                name
             } else {
                 let mut relative = namespace.split('.').peekable();
                 let mut namespace = type_name.namespace.split('.').peekable();
