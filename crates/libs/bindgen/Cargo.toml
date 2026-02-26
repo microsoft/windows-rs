@@ -10,6 +10,7 @@ categories = ["os::windows-apis"]
 readme = "readme.md"
 
 [dependencies]
+windows-metadata = { workspace = true }
 windows-threading = { workspace = true }
 serde = { workspace = true, features = ["derive"] }
 serde_json = { workspace = true, features = ["std"] }

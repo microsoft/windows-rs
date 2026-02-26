@@ -479,7 +479,7 @@ impl File {
         Some(result)
     }
 
-    pub(crate) fn usize(&self, row: usize, table: usize, column: usize) -> usize {
+    pub fn usize(&self, row: usize, table: usize, column: usize) -> usize {
         let table = &self.tables[table];
         let column = &table.columns[column];
         let offset = table.offset + row * table.width + column.offset;
@@ -491,7 +491,7 @@ impl File {
         }
     }
 
-    pub(crate) fn str(&self, row: usize, table: usize, column: usize) -> &str {
+    pub fn str(&self, row: usize, table: usize, column: usize) -> &str {
         let offset = self.strings + self.usize(row, table, column);
         let bytes = &self.bytes[offset..];
         let nul_pos = bytes
@@ -501,7 +501,7 @@ impl File {
         std::str::from_utf8(&bytes[..nul_pos]).expect("expected valid utf-8 C-string")
     }
 
-    pub(crate) fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
+    pub fn blob(&self, row: usize, table: usize, column: usize) -> &[u8] {
         let offset = self.blobs + self.usize(row, table, column);
         let initial_byte = self.bytes[offset];
 
@@ -522,7 +522,7 @@ impl File {
         &self.bytes[offset..offset + blob_size]
     }
 
-    pub(crate) fn list(
+    pub fn list(
         &self,
         row: usize,
         table: usize,
@@ -539,7 +539,7 @@ impl File {
         first..last
     }
 
-    pub(crate) fn equal_range(
+    pub fn equal_range(
         &self,
         table: usize,
         column: usize,
@@ -578,7 +578,7 @@ impl File {
         first..last
     }
 
-    pub(crate) fn parent(&self, row: usize, table: usize, column: usize) -> usize {
+    pub fn parent(&self, row: usize, table: usize, column: usize) -> usize {
         self.upper_bound(table, 0, self.tables[table].len, column, row + 1) - 1
     }
 
@@ -626,11 +626,15 @@ impl File {
         first
     }
 
-    pub(crate) fn TypeDef(&self) -> std::ops::Range<usize> {
+    pub fn table_len(&self, table: usize) -> usize {
+        self.tables[table].len
+    }
+
+    pub fn TypeDef(&self) -> std::ops::Range<usize> {
         0..self.tables[TypeDef::TABLE].len
     }
 
-    pub(crate) fn NestedClass(&self) -> std::ops::Range<usize> {
+    pub fn NestedClass(&self) -> std::ops::Range<usize> {
         0..self.tables[NestedClass::TABLE].len
     }
 }
