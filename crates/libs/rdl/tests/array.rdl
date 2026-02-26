@@ -5,3 +5,15 @@ mod Test {
         fn Out(&self, input: [i32], output: &mut [i32]);
     }
 }
+#[win32]
+mod Test {
+    interface IFixed {
+        fn In(&self, input: [i32; 4]);
+        fn Out(&self, output: &mut [i32; 5]);
+    }
+    struct S {
+        a: [u8; 1],
+        b: [u16; 2],
+        c: [u32; 3],
+    }
+}

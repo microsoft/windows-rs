@@ -86,6 +86,7 @@ pub fn format(input: &str) -> String {
     let mut indent_level = 0;
     let mut paren_depth = 0;
     let mut angle_depth = 0;
+    let mut within_brackets = false;
 
     let tokens: Vec<_> = Token::lexer(input).spanned().collect();
     let mut token_idx = 0;
@@ -174,10 +175,12 @@ pub fn format(input: &str) -> String {
             }
             Token::OpenBracket => {
                 output.push('[');
+                within_brackets = true;
             }
             Token::CloseBracket => {
                 output.trim_space();
                 output.push(']');
+                within_brackets = false;
             }
             Token::LessThan => {
                 output.trim_space();
@@ -219,7 +222,12 @@ pub fn format(input: &str) -> String {
             Token::Semicolon => {
                 output.trim_space();
                 output.push(';');
-                output.push('\n');
+
+                if within_brackets {
+                    output.push(' ');
+                } else {
+                    output.push('\n');
+                }
             }
             Token::Struct => {
                 output.push_str("struct ");

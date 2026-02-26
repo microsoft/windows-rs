@@ -312,6 +312,7 @@ fn encode_type(encoder: &Encoder, ty: &syn::Type) -> Result<metadata::Type, Erro
         syn::Type::Ptr(ty) => encode_type_ptr(encoder, ty),
         syn::Type::Reference(ty) => encode_type_reference(encoder, ty),
         syn::Type::Slice(ty) => encode_type_slice(encoder, ty),
+        syn::Type::Array(ty) => encode_type_array(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
@@ -320,6 +321,13 @@ fn encode_type_slice(encoder: &Encoder, ty: &syn::TypeSlice) -> Result<metadata:
     Ok(metadata::Type::Array(Box::new(encode_type(
         encoder, &ty.elem,
     )?)))
+}
+
+fn encode_type_array(encoder: &Encoder, ty: &syn::TypeArray) -> Result<metadata::Type, Error> {
+    Ok(metadata::Type::ArrayFixed(
+        Box::new(encode_type(encoder, &ty.elem)?),
+        encode_lit_int::<usize>(encoder, &ty.len)?,
+    ))
 }
 
 fn encode_value(

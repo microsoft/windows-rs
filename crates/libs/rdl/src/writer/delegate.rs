@@ -2,7 +2,7 @@ use super::*;
 
 pub fn write_delegate(item: &metadata::reader::TypeDef) -> TokenStream {
     let namespace = item.namespace();
-    let name = write_ident(metadata::trim_tick(item.name()));
+    let name = write_ident(item.name());
 
     let generics: Vec<_> = item
         .generic_params()

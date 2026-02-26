@@ -281,6 +281,11 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
             let ty = write_type(namespace, ty);
             quote! { [#ty] }
         }
+        ArrayFixed(ty, len) => {
+            let ty = write_type(namespace, ty);
+            let len = Literal::usize_unsuffixed(*len);
+            quote! { [#ty; #len] }
+        }
         RefMut(ty) => {
             let ty = write_type(namespace, ty);
             quote! { &mut #ty }
