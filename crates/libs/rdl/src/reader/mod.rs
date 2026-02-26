@@ -426,29 +426,22 @@ fn encode_type_path(encoder: &Encoder, ty: &syn::TypePath) -> Result<metadata::T
 }
 
 fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Error> {
-    let mut name = String::new();
-    let mut supers = 0;
+    let mut path = vec![];
 
     for segment in &ty.segments {
         if segment.ident == "super" {
-            supers += 1;
-            continue;
-        }
-
-        if supers > 0 {
-            let relative: Vec<&str> = encoder.namespace.split('.').collect();
-
-            for segment in &relative[..relative.len() - supers] {
-                name.push_str(segment);
-                name.push('.');
+            if path.is_empty() {
+                for part in encoder.namespace.split('.') {
+                    path.push(part.to_string());
+                }
             }
-        }
 
-        if !name.is_empty() && !name.ends_with('.') {
-            name.push('.');
+            if path.pop().is_none() {
+                return encoder.err(ty, "too many leading `super` keywords");
+            }
+        } else {
+            path.push(segment.ident.to_string());
         }
-
-        name.push_str(&segment.ident.to_string());
     }
 
     let mut generics = vec![];
@@ -463,54 +456,67 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
         }
     }
 
-    if let Some(number) = encoder.generics.iter().position(|generic| *generic == name) {
-        return Ok(metadata::Type::Generic(name, number.try_into().unwrap()));
+    if path.len() == 1 {
+        if let Some(number) = encoder
+            .generics
+            .iter()
+            .position(|generic| *generic == path[0])
+        {
+            return Ok(metadata::Type::Generic(
+                path[0].clone(),
+                number.try_into().unwrap(),
+            ));
+        }
+
+        match path[0].as_str() {
+            "bool" => return Ok(metadata::Type::Bool),
+            "i8" => return Ok(metadata::Type::I8),
+            "u8" => return Ok(metadata::Type::U8),
+            "i16" => return Ok(metadata::Type::I16),
+            "u16" => return Ok(metadata::Type::U16),
+            "i32" => return Ok(metadata::Type::I32),
+            "u32" => return Ok(metadata::Type::U32),
+            "i64" => return Ok(metadata::Type::I64),
+            "u64" => return Ok(metadata::Type::U64),
+            "f32" => return Ok(metadata::Type::F32),
+            "f64" => return Ok(metadata::Type::F64),
+            "isize" => return Ok(metadata::Type::ISize),
+            "usize" => return Ok(metadata::Type::USize),
+            "String" => return Ok(metadata::Type::String),
+            "Object" => return Ok(metadata::Type::Object),
+            "GUID" => return Ok(("System", "Guid").into()),
+            "HRESULT" => return Ok(("Windows.Metadata", "HRESULT").into()),
+            _ => {}
+        }
     }
 
-    match name.as_str() {
-        "bool" => return Ok(metadata::Type::Bool),
-        "i8" => return Ok(metadata::Type::I8),
-        "u8" => return Ok(metadata::Type::U8),
-        "i16" => return Ok(metadata::Type::I16),
-        "u16" => return Ok(metadata::Type::U16),
-        "i32" => return Ok(metadata::Type::I32),
-        "u32" => return Ok(metadata::Type::U32),
-        "i64" => return Ok(metadata::Type::I64),
-        "u64" => return Ok(metadata::Type::U64),
-        "f32" => return Ok(metadata::Type::F32),
-        "f64" => return Ok(metadata::Type::F64),
-        "isize" => return Ok(metadata::Type::ISize),
-        "usize" => return Ok(metadata::Type::USize),
-        "String" => return Ok(metadata::Type::String),
-        "Object" => return Ok(metadata::Type::Object),
-        "GUID" => return Ok(("System", "Guid").into()),
-        "HRESULT" => return Ok(("Windows.Metadata", "HRESULT").into()),
-        _ => {}
+    let (name, namespace) = path.split_last().unwrap();
+
+    let namespace = if namespace.is_empty() {
+        encoder.namespace.to_string()
+    } else {
+        namespace.join(".")
+    };
+
+    let contains = |namespace: &str| -> Option<metadata::Type> {
+        if encoder.index.contains(namespace, name) || encoder.reference.contains(namespace, name) {
+            Some(metadata::Type::Name(metadata::TypeName {
+                namespace: namespace.to_string(),
+                name: name.to_string(),
+                generics: generics.clone(),
+            }))
+        } else {
+            None
+        }
+    };
+
+    if let Some(ty) = contains(&namespace) {
+        return Ok(ty);
     }
 
-    let (type_namespace, type_name) = name
-        .rsplit_once('.')
-        .unwrap_or_else(|| (encoder.namespace, &name));
+    let namespace = format!("{}.{}", encoder.namespace, namespace);
 
-    // TODO: resolve any "super::" path segments...
-
-    if encoder.index.contains(type_namespace, type_name)
-        || encoder.reference.contains(type_namespace, type_name)
-    {
-        return Ok(metadata::Type::Name(metadata::TypeName {
-            namespace: type_namespace.to_string(),
-            name: type_name.to_string(),
-            generics,
-        }));
-    }
-
-    let nested_namespace = format!("{}.{}", encoder.namespace, type_namespace);
-
-    if encoder.index.contains(&nested_namespace, type_name) {
-        return Ok(metadata::Type::named(&nested_namespace, type_name));
-    }
-
-    encoder.err(ty, "type not found")
+    contains(&namespace).ok_or_else(|| encoder.error(ty, "type not found"))
 }
 
 fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadata::Type, Error> {

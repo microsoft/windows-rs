@@ -363,6 +363,18 @@ fn write_type(namespace: &str, item: &metadata::Type) -> TokenStream {
 }
 
 fn write_ident(name: &str) -> TokenStream {
-    let name = format_ident!("{}", windows_metadata::trim_tick(name));
+    // keywords list based on https://doc.rust-lang.org/reference/keywords.html
+    let name = match name {
+        "abstract" | "as" | "become" | "box" | "break" | "const" | "continue" | "crate" | "do"
+        | "else" | "enum" | "extern" | "false" | "final" | "fn" | "for" | "if" | "impl" | "in"
+        | "let" | "loop" | "macro" | "match" | "mod" | "move" | "mut" | "override" | "priv"
+        | "pub" | "ref" | "return" | "static" | "struct" | "super" | "trait" | "true" | "type"
+        | "typeof" | "unsafe" | "unsized" | "use" | "virtual" | "where" | "while" | "yield"
+        | "try" | "async" | "await" | "dyn" => format_ident!("r#{name}"),
+        "Self" | "self" => format_ident!("{name}_"),
+        "_" => format_ident!("unused"),
+        _ => format_ident!("{}", windows_metadata::trim_tick(name)),
+    };
+
     quote! { #name }
 }
