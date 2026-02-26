@@ -3,6 +3,7 @@ use super::*;
 #[derive(Debug)]
 pub struct File {
     pub items: Vec<Item>,
+    pub source: String,
 }
 
 impl syn::parse::Parse for File {
@@ -15,6 +16,9 @@ impl syn::parse::Parse for File {
             //items.push(input.parse()?);
         }
 
-        Ok(Self { items })
+        Ok(Self {
+            items,
+            source: String::new(),
+        })
     }
 }

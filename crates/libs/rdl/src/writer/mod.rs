@@ -29,6 +29,7 @@ pub struct Writer {
     output: String,
     namespace: String,
     recursive: bool,
+    split: bool,
 }
 
 impl Writer {
@@ -58,6 +59,11 @@ impl Writer {
         self
     }
 
+    pub fn split(&mut self) -> &mut Self {
+        self.split = true;
+        self
+    }
+
     pub fn write(&self) -> Result<(), Error> {
         let mut input = vec![];
 
@@ -70,30 +76,59 @@ impl Writer {
 
         let index = metadata::reader::TypeIndex::new(input);
         let index = metadata::reader::ItemIndex::new(&index);
-        let mut layout = Layout::new();
 
-        for namespace in index.keys() {
-            if self.recursive {
+        if self.split {
+            for namespace in index.keys() {
                 if !namespace_starts_with(namespace, &self.namespace) {
                     continue;
                 }
-            } else if *namespace != self.namespace {
-                continue;
+
+                let mut layout = Layout::new();
+
+                for (name, item) in index.namespace_items(namespace) {
+                    layout.insert(
+                        namespace,
+                        name,
+                        item_arches(item),
+                        item_winrt(item),
+                        write(namespace, item).to_string(),
+                    );
+                }
+
+                let output = layout.to_string();
+
+                let mut path = std::path::PathBuf::new();
+                path.push(&self.output);
+                path.push(format!("{namespace}.rdl"));
+
+                write_to_file(path.to_str().unwrap(), formatter::format(&output));
+            }
+        } else {
+            let mut layout = Layout::new();
+
+            for namespace in index.keys() {
+                if self.recursive {
+                    if !namespace_starts_with(namespace, &self.namespace) {
+                        continue;
+                    }
+                } else if *namespace != self.namespace {
+                    continue;
+                }
+
+                for (name, item) in index.namespace_items(namespace) {
+                    layout.insert(
+                        namespace,
+                        name,
+                        item_arches(item),
+                        item_winrt(item),
+                        write(namespace, item).to_string(),
+                    );
+                }
             }
 
-            for (name, item) in index.namespace_items(namespace) {
-                layout.insert(
-                    namespace,
-                    name,
-                    item_arches(item),
-                    item_winrt(item),
-                    write(namespace, item).to_string(),
-                );
-            }
+            let output = layout.to_string();
+            write_to_file(&self.output, formatter::format(&output));
         }
-
-        let output = layout.to_string();
-        write_to_file(&self.output, formatter::format(&output));
 
         Ok(())
     }

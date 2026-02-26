@@ -1,0 +1,8 @@
+mod Test {
+    #[winrt]
+    mod B {
+        struct BS {
+            base: super::Base,
+        }
+    }
+}
