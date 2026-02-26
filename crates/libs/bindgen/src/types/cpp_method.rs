@@ -184,11 +184,7 @@ impl CppMethod {
                         }
                     }
                 }
-                Type::BOOL => {
-                    if last_error {
-                        return_hint = ReturnHint::ResultVoid
-                    }
-                }
+                Type::BOOL if last_error => return_hint = ReturnHint::ResultVoid,
                 Type::GUID => return_hint = ReturnHint::ReturnStruct,
                 Type::CppStruct(ty) if !ty.is_handle() => return_hint = ReturnHint::ReturnStruct,
                 _ => {}
@@ -508,10 +504,10 @@ impl CppMethod {
 
         for (position, param) in self.signature.params.iter().enumerate() {
             match self.return_hint {
-                ReturnHint::Query(object, guid) | ReturnHint::QueryOptional(object, guid) => {
-                    if object == position || guid == position {
-                        continue;
-                    }
+                ReturnHint::Query(object, guid) | ReturnHint::QueryOptional(object, guid)
+                    if (object == position || guid == position) =>
+                {
+                    continue;
                 }
                 ReturnHint::ReturnValue | ReturnHint::ResultValue
                     if self.signature.params.len() - 1 == position =>
