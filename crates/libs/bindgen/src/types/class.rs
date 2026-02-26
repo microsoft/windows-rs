@@ -256,13 +256,13 @@ impl Class {
         loop {
             let extends = def.extends().unwrap();
 
-            if extends == TypeName::Object {
+            if extends == ("System", "Object") {
                 break;
             }
 
             let Type::Class(base) = reader.unwrap_full_name(extends.namespace(), extends.name())
             else {
-                panic!("type not found: {extends}");
+                panic!("type not found: {}.{}", extends.namespace(), extends.name());
             };
 
             def = base.def;

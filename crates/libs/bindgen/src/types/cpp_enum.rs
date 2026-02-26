@@ -51,7 +51,7 @@ impl CppEnum {
                 .filter(|field| field.flags().contains(FieldAttributes::Literal))
                 .map(|field| {
                     let name = to_ident(field.name());
-                    let value = field.constant().unwrap().value().write();
+                    let value = field.constant().unwrap().constant_value().write();
 
                     quote! {
                         pub const #name: Self = Self(#value);

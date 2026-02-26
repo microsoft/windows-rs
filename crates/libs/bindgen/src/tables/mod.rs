@@ -16,46 +16,32 @@ mod type_def;
 mod type_ref;
 mod type_spec;
 
-macro_rules! tables {
-    ($(($name:ident, $table:literal))+) => {
-        $(
-        #[derive(Copy, Clone, Hash, PartialEq, Eq, Ord, PartialOrd)]
-        pub struct $name(pub Row);
-        impl AsRow for $name {
-            const TABLE: usize = $table;
-            fn to_row(&self) -> Row {
-                self.0
-            }
-            fn from_row(row: Row) -> Self {
-                $name(row)
-            }
-        }
-    )*
-    };
-}
+pub use attribute::*;
+pub use constant::*;
+pub use field::*;
+pub use impl_map::*;
+pub use interface_impl::*;
+pub use method_def::*;
+pub use type_def::*;
+pub use type_ref::*;
 
-tables! {
-    (Attribute, 1)
-    (ClassLayout, 16)
-    (Constant, 0)
-    (Field, 2)
-    (GenericParam, 3)
-    (ImplMap, 11)
-    (InterfaceImpl, 4)
-    (MemberRef, 5)
-    (MethodDef, 6)
-    (ModuleRef, 12)
-    (NestedClass, 13)
-    (MethodParam, 7)
-    (TypeDef, 8)
-    (TypeRef, 9)
-    (TypeSpec, 10)
-}
+pub type Attribute = windows_metadata::reader::Attribute<'static>;
+#[allow(dead_code)]
+pub type ClassLayout = windows_metadata::reader::ClassLayout<'static>;
+pub type Constant = windows_metadata::reader::Constant<'static>;
+pub type Field = windows_metadata::reader::Field<'static>;
+pub type GenericParam = windows_metadata::reader::GenericParam<'static>;
+pub type ImplMap = windows_metadata::reader::ImplMap<'static>;
+pub type InterfaceImpl = windows_metadata::reader::InterfaceImpl<'static>;
+#[allow(dead_code)]
+pub type MemberRef = windows_metadata::reader::MemberRef<'static>;
+pub type MethodDef = windows_metadata::reader::MethodDef<'static>;
+pub type MethodParam = windows_metadata::reader::MethodParam<'static>;
+pub type ModuleRef = windows_metadata::reader::ModuleRef<'static>;
+#[allow(dead_code)]
+pub type NestedClass = windows_metadata::reader::NestedClass<'static>;
+pub type TypeDef = windows_metadata::reader::TypeDef<'static>;
+pub type TypeRef = windows_metadata::reader::TypeRef<'static>;
+#[allow(dead_code)]
+pub type TypeSpec = windows_metadata::reader::TypeSpec<'static>;
 
-fn trim_tick(name: &str) -> &str {
-    if name.as_bytes().iter().rev().nth(1) == Some(&b'`') {
-        &name[..name.len() - 2]
-    } else {
-        name
-    }
-}

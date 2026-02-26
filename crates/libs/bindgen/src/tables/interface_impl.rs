@@ -1,13 +1,12 @@
 use super::*;
 
-impl std::fmt::Debug for InterfaceImpl {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("InterfaceImpl").field(&self.0).finish()
-    }
+pub trait InterfaceImplExt {
+    fn ty(&self, generics: &[Type]) -> Type;
 }
 
-impl InterfaceImpl {
-    pub fn ty(&self, generics: &[Type]) -> Type {
+impl InterfaceImplExt for InterfaceImpl {
+    fn ty(&self, generics: &[Type]) -> Type {
         Type::from_ref(self.decode(1), None, generics)
     }
 }
+

@@ -34,7 +34,7 @@ fn combine_libraries(
             if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
                 let arches = ty.method.arches();
                 let params = if (arches == 0) || (arches & 1 == 1) {
-                    ty.method.signature(ty.namespace, &[]).size()
+                    ty.method.bindgen_signature(ty.namespace, &[]).size()
                 } else {
                     0
                 };

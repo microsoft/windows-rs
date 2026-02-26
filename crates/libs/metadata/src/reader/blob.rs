@@ -1,8 +1,8 @@
 use super::*;
 
 pub struct Blob<'a> {
-    index: &'a TypeIndex,
-    file: usize,
+    pub index: &'a TypeIndex,
+    pub file: usize,
     slice: &'a [u8],
 }
 
@@ -220,6 +220,13 @@ impl<'a> Blob<'a> {
         let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
         self.offset(len);
         value.to_string()
+    }
+
+    pub fn read_str(&mut self) -> &'a str {
+        let len = self.read_compressed();
+        let value = unsafe { std::str::from_utf8_unchecked(&self.slice[..len]) };
+        self.offset(len);
+        value
     }
 
     pub fn read_utf16(&mut self) -> String {

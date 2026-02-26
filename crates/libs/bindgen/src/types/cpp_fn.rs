@@ -28,7 +28,7 @@ impl CppFn {
     }
 
     fn write_extern_signature(&self, config: &Config<'_>, underlying_types: bool) -> TokenStream {
-        let signature = self.method.signature(self.namespace, &[]);
+        let signature = self.method.bindgen_signature(self.namespace, &[]);
 
         let params = signature.params.iter().map(|param| {
             let name = param.write_ident();
@@ -95,7 +95,7 @@ impl CppFn {
 
     pub fn write(&self, config: &Config) -> TokenStream {
         let name = to_ident(self.method.name());
-        let signature = self.method.signature(self.namespace, &[]);
+        let signature = self.method.bindgen_signature(self.namespace, &[]);
 
         let link = self.write_link(config, false);
         let arches = write_arches(self.method);
@@ -291,7 +291,7 @@ impl CppFn {
 impl Dependencies for CppFn {
     fn combine(&self, dependencies: &mut TypeMap) {
         self.method
-            .signature(self.namespace, &[])
+            .bindgen_signature(self.namespace, &[])
             .combine(dependencies);
 
         let dependency = match self.method.name() {

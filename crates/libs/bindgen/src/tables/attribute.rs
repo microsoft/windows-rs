@@ -1,22 +1,15 @@
 use super::*;
 
-impl std::fmt::Debug for Attribute {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("Attribute").field(&self.name()).finish()
-    }
+pub trait AttributeExt {
+    fn args(&self) -> Vec<(&'static str, Value)>;
 }
 
-impl Attribute {
-    pub fn ty(&self) -> AttributeType {
-        self.decode(1)
-    }
-
-    pub fn name(&self) -> &'static str {
-        self.ty().parent().name()
-    }
-
-    pub fn args(&self) -> Vec<(&'static str, Value)> {
-        let mut sig = self.ty().signature();
+impl AttributeExt for Attribute {
+    fn args(&self) -> Vec<(&'static str, Value)> {
+        let mut sig = match self.ctor() {
+            AttributeType::MethodDef(row) => row.blob(4),
+            AttributeType::MemberRef(row) => row.blob(2),
+        };
         let mut values = self.blob(2);
         let prolog = values.read_u16();
         debug_assert_eq!(prolog, 1);
@@ -43,11 +36,11 @@ impl Attribute {
                 Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
                 Type::CppEnum(ty) => {
                     let underlying_type = ty.def.underlying_type();
-                    values.read_integer(underlying_type)
+                    values.read_integer(&underlying_type)
                 }
                 Type::Enum(ty) => {
                     let underlying_type = ty.def.underlying_type();
-                    values.read_integer(underlying_type)
+                    values.read_integer(&underlying_type)
                 }
                 rest => panic!("{rest:?}"),
             };
@@ -74,7 +67,7 @@ impl Attribute {
                     let def = reader.unwrap_full_name(tn.namespace(), tn.name());
                     name = values.read_str();
                     let underlying_type = def.underlying_type();
-                    values.read_integer(underlying_type)
+                    values.read_integer(&underlying_type)
                 }
                 rest => panic!("{rest:?}"),
             };
@@ -86,3 +79,4 @@ impl Attribute {
         args
     }
 }
+

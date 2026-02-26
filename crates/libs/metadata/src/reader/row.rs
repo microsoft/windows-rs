@@ -47,7 +47,7 @@ unsafe impl Send for Row<'_> {}
 unsafe impl Sync for Row<'_> {}
 
 impl<'a> Row<'a> {
-    pub(crate) fn new(index: &'a TypeIndex, file: usize, pos: usize) -> Self {
+    pub fn new(index: &'a TypeIndex, file: usize, pos: usize) -> Self {
         Self { index, file, pos }
     }
 }
@@ -136,7 +136,7 @@ pub struct RowIterator<'a, R: AsRow<'a>> {
 }
 
 impl<'a, R: AsRow<'a>> RowIterator<'a, R> {
-    pub(crate) fn new(index: &'a TypeIndex, file: usize, rows: std::ops::Range<usize>) -> Self {
+    pub fn new(index: &'a TypeIndex, file: usize, rows: std::ops::Range<usize>) -> Self {
         Self {
             index,
             file,

@@ -12,7 +12,7 @@ impl<'a> TypeDef<'a> {
     }
 
     pub fn name(&self) -> &'a str {
-        self.str(1)
+        trim_tick(self.str(1))
     }
 
     pub fn namespace(&self) -> &'a str {

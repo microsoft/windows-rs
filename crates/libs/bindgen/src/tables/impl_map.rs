@@ -1,21 +1,12 @@
 use super::*;
 
-impl std::fmt::Debug for ImplMap {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("ImplMap").field(&self.import_name()).finish()
+pub trait ImplMapExt {
+    fn scope(&self) -> ModuleRef;
+}
+
+impl ImplMapExt for ImplMap {
+    fn scope(&self) -> ModuleRef {
+        self.import_scope()
     }
 }
 
-impl ImplMap {
-    pub fn flags(&self) -> PInvokeAttributes {
-        PInvokeAttributes(self.usize(0))
-    }
-
-    pub fn scope(&self) -> ModuleRef {
-        ModuleRef(self.row(3))
-    }
-
-    pub fn import_name(&self) -> &'static str {
-        self.str(2)
-    }
-}

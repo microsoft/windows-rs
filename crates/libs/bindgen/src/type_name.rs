@@ -18,7 +18,6 @@ impl PartialOrd for TypeName {
 }
 
 impl TypeName {
-    pub const Object: Self = Self("System", "Object");
     pub const IsConst: Self = Self("System.Runtime.CompilerServices", "IsConst");
 
     pub const IAsyncAction: Self = Self("Windows.Foundation", "IAsyncAction");

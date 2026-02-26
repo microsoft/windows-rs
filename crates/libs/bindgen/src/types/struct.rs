@@ -20,7 +20,7 @@ impl Struct {
         let fields: Vec<_> = self
             .def
             .fields()
-            .map(|field| (field.name(), field.ty(None)))
+            .map(|field| (field.name(), field.field_ty(None)))
             .collect();
 
         let is_copyable = fields.iter().all(|(_, ty)| ty.is_copyable());
@@ -77,20 +77,20 @@ impl Struct {
         let mut signature = format!("struct({}", self.def.type_name());
         for field in self.def.fields() {
             signature.push(';');
-            signature.push_str(&field.ty(None).runtime_signature());
+            signature.push_str(&field.field_ty(None).runtime_signature());
         }
         signature.push(')');
         signature
     }
 
     pub fn is_copyable(&self) -> bool {
-        self.def.fields().all(|field| field.ty(None).is_copyable())
+        self.def.fields().all(|field| field.field_ty(None).is_copyable())
     }
 
     pub fn size(&self) -> usize {
         let mut sum = 0;
         for field in self.def.fields() {
-            let ty = field.ty(None);
+            let ty = field.field_ty(None);
             let size = ty.size();
             let align = ty.align();
             sum = (sum + (align - 1)) & !(align - 1);
@@ -102,7 +102,7 @@ impl Struct {
     pub fn align(&self) -> usize {
         self.def
             .fields()
-            .map(|field| field.ty(None).align())
+            .map(|field| field.field_ty(None).align())
             .max()
             .unwrap_or(1)
     }
@@ -111,7 +111,7 @@ impl Struct {
 impl Dependencies for Struct {
     fn combine(&self, dependencies: &mut TypeMap) {
         for field in self.def.fields() {
-            field.ty(None).combine(dependencies);
+            field.field_ty(None).combine(dependencies);
         }
     }
 }

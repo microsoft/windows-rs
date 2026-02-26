@@ -589,7 +589,7 @@ impl Dependencies for Interface {
 
         for method in self.def.methods() {
             for ty in method
-                .signature(self.def.namespace(), &self.generics)
+                .bindgen_signature(self.def.namespace(), &self.generics)
                 .types()
             {
                 if is_iterable || ty.is_core() {

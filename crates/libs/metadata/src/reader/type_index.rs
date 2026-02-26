@@ -48,7 +48,7 @@ impl TypeIndex {
         }
     }
 
-    pub(crate) fn files(&self, pos: usize) -> &File {
+    pub fn files(&self, pos: usize) -> &File {
         &self.files[pos]
     }
 

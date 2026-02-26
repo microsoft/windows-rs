@@ -1,21 +1,13 @@
 use super::*;
 
-impl std::fmt::Debug for MethodDef {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("MethodDef").field(&self.name()).finish()
-    }
+pub trait MethodDefExt {
+    fn import_name(&self) -> Option<&'static str>;
+    fn module_name(&self) -> String;
+    fn bindgen_signature(&self, namespace: &str, generics: &[Type]) -> Signature;
 }
 
-impl MethodDef {
-    pub fn flags(&self) -> MethodAttributes {
-        MethodAttributes(self.usize(2) as u16)
-    }
-
-    pub fn name(&self) -> &'static str {
-        self.str(3)
-    }
-
-    pub fn import_name(&self) -> Option<&'static str> {
+impl MethodDefExt for MethodDef {
+    fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
             let import_name = map.import_name();
             if self.name() != import_name {
@@ -26,21 +18,7 @@ impl MethodDef {
         })
     }
 
-    pub fn params(&self) -> RowIterator<MethodParam> {
-        self.list(5)
-    }
-
-    pub fn parent(&self) -> MemberRefParent {
-        MemberRefParent::TypeDef(self.file().parent(5, *self))
-    }
-
-    pub fn impl_map(&self) -> Option<ImplMap> {
-        self.file()
-            .equal_range(1, MemberForwarded::MethodDef(*self).encode())
-            .next()
-    }
-
-    pub fn module_name(&self) -> String {
+    fn module_name(&self) -> String {
         const combase_functions: [&str; 5] = [
             "CoCreateFreeThreadedMarshaler",
             "CoIncrementMTAUsage",
@@ -59,22 +37,8 @@ impl MethodDef {
         }
     }
 
-    pub fn calling_convention(&self) -> &'static str {
-        self.impl_map().map_or("", |map| {
-            let flags = map.flags();
-
-            if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-                "system"
-            } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-                "C"
-            } else {
-                ""
-            }
-        })
-    }
-
     #[track_caller]
-    pub fn signature(&self, namespace: &str, generics: &[Type]) -> Signature {
+    fn bindgen_signature(&self, namespace: &str, generics: &[Type]) -> Signature {
         let mut blob = self.blob(4);
         let call_flags = MethodCallAttributes(blob.read_usize() as u8);
         let _param_count = blob.read_usize();
@@ -119,3 +83,5 @@ impl MethodDef {
         }
     }
 }
+
+
