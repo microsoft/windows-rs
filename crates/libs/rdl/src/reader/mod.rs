@@ -55,30 +55,13 @@ impl Reader {
             return Err(Error::new("output is required", "", 0, 0));
         }
 
-        let mut input = vec![];
-
-        for source_file in &self.input {
-            let contents = std::fs::read_to_string(source_file)
-                .map_err(|error| Error::new(&error.to_string(), source_file, 0, 0))?;
-
-            let mut file = syn::parse_str::<syntax::File>(&contents).map_err(|error| {
-                let start = error.span().start();
-                Error::new(&error.to_string(), source_file, start.line, start.column)
-            })?;
-
-            for item in &mut file.items {
-                resolve_winrt(item, source_file, None)?;
-            }
-
-            input.push(file);
-        }
+        let mut input = expand_input(&self.input)?;
 
         let mut index = Index::new();
 
-        // TODO: should also be able to read nested source files via the `mod Nested;` syntax?
-        for (source_file, file) in self.input.iter().zip(input.iter_mut()) {
+        for file in input.iter_mut() {
             while let Some(item) = file.items.pop() {
-                index.insert(source_file, "", item);
+                index.insert(&file.source, "", item);
             }
         }
 
@@ -98,6 +81,74 @@ impl Reader {
         std::fs::write(&self.output, output)
             .map_err(|error| Error::new(&error.to_string(), &self.output, 0, 0))
     }
+}
+
+fn expand_input(input: &[String]) -> Result<Vec<syntax::File>, Error> {
+    #[track_caller]
+    fn expand_input(result: &mut Vec<String>, input: &str) -> Result<(), Error> {
+        let path = std::path::Path::new(input);
+
+        if path.is_dir() {
+            let prev_len = result.len();
+
+            for path in path
+                .read_dir()
+                .map_err(|_| Error::new("failed to read directory", input, 0, 0))?
+                .flatten()
+                .map(|entry| entry.path())
+            {
+                if path.is_file()
+                    && path
+                        .extension()
+                        .is_some_and(|extension| extension.eq_ignore_ascii_case("rdl"))
+                {
+                    result.push(path.to_string_lossy().replace('\\', "/"));
+                }
+            }
+
+            if result.len() == prev_len {
+                return Err(Error::new(
+                    "failed to find .rdl files in directory",
+                    input,
+                    0,
+                    0,
+                ));
+            }
+        } else {
+            result.push(input.to_string());
+        }
+
+        Ok(())
+    }
+
+    let mut paths = vec![];
+
+    for input in input {
+        expand_input(&mut paths, input)?;
+    }
+
+    let mut input = vec![];
+
+    for path in &paths {
+        let Ok(contents) = std::fs::read_to_string(path) else {
+            return Err(Error::new("failed to read binary file", path, 0, 0));
+        };
+
+        let mut file = syn::parse_str::<syntax::File>(&contents).map_err(|error| {
+            let start = error.span().start();
+            Error::new(&error.to_string(), path, start.line, start.column)
+        })?;
+
+        file.source = path.to_string();
+
+        for item in &mut file.items {
+            resolve_winrt(item, path, None)?;
+        }
+
+        input.push(file);
+    }
+
+    Ok(input)
 }
 
 fn resolve_winrt(
