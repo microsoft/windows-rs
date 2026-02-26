@@ -99,8 +99,7 @@ impl Writer {
 
                 let mut path = std::path::PathBuf::new();
                 path.push(&self.output);
-                path.push(namespace);
-                path.set_extension("rdl");
+                path.push(format!("{namespace}.rdl"));
 
                 write_to_file(path.to_str().unwrap(), formatter::format(&output));
             }

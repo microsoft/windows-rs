@@ -1,6 +1,6 @@
-#[winrt]
 mod Test {
     mod A {
+        #[winrt]
         mod AA {
             struct AAS {
                 base: super::super::Base,
