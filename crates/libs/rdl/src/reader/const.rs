@@ -43,15 +43,7 @@ fn encode_const_guid(
     item: &syntax::Const,
     name: &str,
 ) -> Result<(), Error> {
-    let syn::Expr::Lit(syn::ExprLit {
-        lit: syn::Lit::Int(lit),
-        ..
-    }) = &item.expr
-    else {
-        panic!("expected integer literal");
-    };
-
-    let value: u128 = lit.base10_parse().expect("invalid guid literal");
+    let value: u128 = encode_lit_int(encoder, &item.expr)?;
     let field = encoder.output.Field(
         name,
         ty,
