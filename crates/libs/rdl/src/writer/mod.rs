@@ -179,11 +179,49 @@ fn write(namespace: &str, item: &metadata::reader::Item) -> TokenStream {
 }
 
 fn write_const(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+    match item.ty() {
+        metadata::Type::Name(tn) if &tn == ("System", "Guid") => write_const_guid(namespace, item),
+        _ => write_const_value(namespace, item),
+    }
+}
+
+fn write_const_value(namespace: &str, item: &metadata::reader::Field) -> TokenStream {
     let name = write_ident(item.name());
     let constant = item.constant().expect("field missing constant");
     let ty = write_type(namespace, &item.ty());
     let value = write_value(&constant.value());
     quote! { const #name: #ty = #value; }
+}
+
+fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenStream {
+    let name = write_ident(item.name());
+    let attribute = item
+        .find_attribute("GuidAttribute")
+        .expect("missing guid attribute");
+
+    let value: u128 = attribute
+        .value()
+        .iter()
+        .fold(0u128, |acc, (_, val)| match val {
+            metadata::Value::U8(x) => (acc << 8) | *x as u128,
+            metadata::Value::U16(x) => (acc << 16) | *x as u128,
+            metadata::Value::U32(x) => (acc << 32) | *x as u128,
+            metadata::Value::U64(x) => (acc << 64) | *x as u128,
+            _ => panic!("unexpected guid attribute value"),
+        });
+
+    let value = format!(
+        "0x{:08x}_{:04x}_{:04x}_{:04x}_{:04x}_{:08x}",
+        (value >> 96) as u32,
+        (value >> 80) as u16,
+        (value >> 64) as u16,
+        (value >> 48) as u16,
+        (value >> 32) as u16,
+        value as u32,
+    );
+
+    let literal = syn::LitInt::new(&value, proc_macro2::Span::call_site());
+    quote! { const #name: GUID = #literal; }
 }
 
 fn write_return_type(namespace: &str, signature: &metadata::Signature) -> TokenStream {

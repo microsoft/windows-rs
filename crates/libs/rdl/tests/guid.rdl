@@ -1,0 +1,8 @@
+#[win32]
+mod Test {
+    const CLSID_Test: GUID = 0x8fa0d5a8_dedf_11d0_9a61_00c0_4fb68bf7;
+    struct Foo {
+        a1: i32,
+        a2: u32,
+    }
+}
