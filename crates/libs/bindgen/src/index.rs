@@ -121,7 +121,7 @@ pub fn write(types: &TypeMap, output: &str) {
 
         if let Some((methods, interface_name)) = methods {
             for method in methods {
-                let method_deps = method.signature(namespace, &[]).dependencies();
+                let method_deps = method.method_signature(namespace, &[]).dependencies();
                 let method_features: BTreeSet<String> = method_deps
                     .keys()
                     .filter(|tn| !EXCLUDED_NAMESPACES.contains(&tn.namespace()))

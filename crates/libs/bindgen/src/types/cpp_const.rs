@@ -42,16 +42,16 @@ impl CppConst {
             return config.write_cpp_const_guid(name, &guid);
         }
 
-        let field_ty = self.field.ty(None).to_const_type();
+        let field_ty = self.field.field_type(None).to_const_type();
         let cfg = self.write_cfg(config);
 
         if let Some(constant) = self.field.constant() {
-            let constant_ty = constant.ty();
+            let constant_ty = constant.constant_type();
 
             if field_ty == constant_ty {
                 if field_ty == Type::String {
                     let crate_name = config.write_strings();
-                    let value = constant.value().write();
+                    let value = constant.constant_value().write();
 
                     // TODO: if config.no_core then write these literals out as byte strings?
                     if is_ansi_encoding(self.field) {
@@ -67,7 +67,7 @@ impl CppConst {
                     }
                 } else {
                     let ty = field_ty.write_name(config);
-                    let value = constant.value().write();
+                    let value = constant.constant_value().write();
 
                     quote! {
                         #cfg
@@ -77,16 +77,16 @@ impl CppConst {
             } else {
                 let underlying_ty = field_ty.underlying_type();
                 let ty = field_ty.write_name(config);
-                let mut value = constant.value().write();
+                let mut value = constant.constant_value().write();
 
                 if underlying_ty == constant_ty {
                     if is_signed_error(&field_ty) {
-                        if let Value::I32(signed) = constant.value() {
+                        if let Value::I32(signed) = constant.constant_value() {
                             value = format!("0x{signed:X}_u32 as _").into();
                         }
                     }
                 } else if field_ty == Type::Bool {
-                    value = match constant.value() {
+                    value = match constant.constant_value() {
                         Value::U8(1) => quote! { true },
                         Value::U8(0) => quote! { false },
                         _ => panic!(),
@@ -139,7 +139,7 @@ impl CppConst {
 
 impl Dependencies for CppConst {
     fn combine(&self, dependencies: &mut TypeMap) {
-        self.field.ty(None).to_const_type().combine(dependencies);
+        self.field.field_type(None).to_const_type().combine(dependencies);
     }
 }
 

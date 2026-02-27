@@ -1,52 +1,41 @@
 use super::*;
 
-impl std::fmt::Debug for Attribute {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("Attribute").field(&self.name()).finish()
-    }
+pub trait AttributeExt {
+    fn args(&self) -> Vec<(&'static str, Value)>;
 }
 
-impl Attribute {
-    pub fn ty(&self) -> AttributeType {
-        self.decode(1)
-    }
+impl AttributeExt for Attribute {
+    fn args(&self) -> Vec<(&'static str, Value)> {
+        // Get the method signature to know parameter types.
+        let signature = self.ctor().signature(&[]);
 
-    pub fn name(&self) -> &'static str {
-        self.ty().parent().name()
-    }
-
-    pub fn args(&self) -> Vec<(&'static str, Value)> {
-        let mut sig = self.ty().signature();
         let mut values = self.blob(2);
         let prolog = values.read_u16();
         debug_assert_eq!(prolog, 1);
-        let flags = sig.read_u8();
-        debug_assert_eq!(flags, MethodCallAttributes::HASTHIS.0);
-        let fixed_arg_count = sig.read_usize();
-        let ret_type = sig.read_usize();
-        debug_assert_eq!(ret_type, 1);
-        let mut args = Vec::with_capacity(fixed_arg_count);
-        let reader = self.reader();
 
-        for _ in 0..fixed_arg_count {
-            let arg = match Type::from_blob(&mut sig, None, &[]) {
-                Type::Bool => Value::Bool(values.read_bool()),
-                Type::I8 => Value::I8(values.read_i8()),
-                Type::U8 => Value::U8(values.read_u8()),
-                Type::I16 => Value::I16(values.read_i16()),
-                Type::U16 => Value::U16(values.read_u16()),
-                Type::I32 => Value::I32(values.read_i32()),
-                Type::U32 => Value::U32(values.read_u32()),
-                Type::I64 => Value::I64(values.read_i64()),
-                Type::U64 => Value::U64(values.read_u64()),
-                Type::String => Value::Str(values.read_str()),
-                Type::Type => Value::TypeName(TypeName::parse(values.read_str())),
-                Type::CppEnum(ty) => {
-                    let underlying_type = ty.def.underlying_type();
-                    values.read_integer(underlying_type)
+        let mut args = Vec::with_capacity(signature.types.len());
+
+        for ty in &signature.types {
+            let arg = match ty {
+                windows_metadata::Type::Bool => Value::Bool(values.read_bool()),
+                windows_metadata::Type::I8 => Value::I8(values.read_i8()),
+                windows_metadata::Type::U8 => Value::U8(values.read_u8()),
+                windows_metadata::Type::I16 => Value::I16(values.read_i16()),
+                windows_metadata::Type::U16 => Value::U16(values.read_u16()),
+                windows_metadata::Type::I32 => Value::I32(values.read_i32()),
+                windows_metadata::Type::U32 => Value::U32(values.read_u32()),
+                windows_metadata::Type::I64 => Value::I64(values.read_i64()),
+                windows_metadata::Type::U64 => Value::U64(values.read_u64()),
+                windows_metadata::Type::String => Value::Str(values.read_str()),
+                windows_metadata::Type::Name(tn)
+                    if tn.namespace == "System" && tn.name == "Type" =>
+                {
+                    Value::TypeName(TypeName::parse(values.read_str()))
                 }
-                Type::Enum(ty) => {
-                    let underlying_type = ty.def.underlying_type();
+                windows_metadata::Type::Name(tn) => {
+                    // Enum type: look up underlying type then read the value.
+                    let def = current_reader().unwrap_full_name(&tn.namespace, &tn.name);
+                    let underlying_type = def.underlying_type();
                     values.read_integer(underlying_type)
                 }
                 rest => panic!("{rest:?}"),
@@ -71,7 +60,7 @@ impl Attribute {
                 0x50 => Value::TypeName(TypeName::parse(values.read_str())),
                 0x55 => {
                     let tn = TypeName::parse(name);
-                    let def = reader.unwrap_full_name(tn.namespace(), tn.name());
+                    let def = current_reader().unwrap_full_name(tn.namespace(), tn.name());
                     name = values.read_str();
                     let underlying_type = def.underlying_type();
                     values.read_integer(underlying_type)
@@ -81,7 +70,6 @@ impl Attribute {
             args.push((name, arg));
         }
 
-        debug_assert_eq!(sig.len(), 0);
         debug_assert_eq!(values.len(), 0);
         args
     }

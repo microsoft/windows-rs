@@ -75,7 +75,7 @@ impl ParamHint {
 
 impl CppMethod {
     pub fn new(def: MethodDef, namespace: &'static str) -> Self {
-        let signature = def.signature(namespace, &[]);
+        let signature = def.method_signature(namespace, &[]);
         let dependencies = signature.dependencies();
         let mut param_hints = vec![ParamHint::None; signature.params.len()];
 

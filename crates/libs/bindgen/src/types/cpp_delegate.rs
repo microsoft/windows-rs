@@ -45,7 +45,7 @@ impl CppDelegate {
         let type_name = self.def.type_name();
         let name = to_ident(type_name.name());
         let method = self.method();
-        let signature = method.signature(type_name.namespace(), &[]);
+        let signature = method.method_signature(type_name.namespace(), &[]);
 
         let mut params = quote! {};
 
@@ -68,7 +68,7 @@ impl CppDelegate {
 impl Dependencies for CppDelegate {
     fn combine(&self, dependencies: &mut TypeMap) {
         self.method()
-            .signature(self.def.namespace(), &[])
+            .method_signature(self.def.namespace(), &[])
             .combine(dependencies);
     }
 }

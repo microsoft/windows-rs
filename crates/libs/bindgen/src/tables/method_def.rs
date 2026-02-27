@@ -1,24 +1,20 @@
 use super::*;
 
-impl std::fmt::Debug for MethodDef {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("MethodDef").field(&self.name()).finish()
-    }
+pub trait MethodDefExt {
+    fn import_name(&self) -> Option<&'static str>;
+    fn module_name(&self) -> String;
+    fn method_signature(&self, namespace: &str, generics: &[Type]) -> Signature;
 }
 
-impl MethodDef {
-    pub fn flags(&self) -> MethodAttributes {
-        MethodAttributes(self.usize(2) as u16)
-    }
-
-    pub fn name(&self) -> &'static str {
-        self.str(3)
-    }
-
-    pub fn import_name(&self) -> Option<&'static str> {
+impl MethodDefExt for MethodDef {
+    fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
-            let import_name = map.import_name();
-            if self.name() != import_name {
+            // Use AsRow::str directly with column 2 (ImportName) to get &'static str.
+            // import_name() has implicit lifetime elision that ties to &self, but the
+            // actual string data lives in the 'static TypeIndex.
+            let import_name: &'static str = AsRow::str(&map, 2); // column 2 = ImportName
+            let self_name: &'static str = self.name();
+            if self_name != import_name {
                 Some(import_name)
             } else {
                 None
@@ -26,22 +22,8 @@ impl MethodDef {
         })
     }
 
-    pub fn params(&self) -> RowIterator<MethodParam> {
-        self.list(5)
-    }
-
-    pub fn parent(&self) -> MemberRefParent {
-        MemberRefParent::TypeDef(self.file().parent(5, *self))
-    }
-
-    pub fn impl_map(&self) -> Option<ImplMap> {
-        self.file()
-            .equal_range(1, MemberForwarded::MethodDef(*self).encode())
-            .next()
-    }
-
-    pub fn module_name(&self) -> String {
-        const combase_functions: [&str; 5] = [
+    fn module_name(&self) -> String {
+        const COMBASE_FUNCTIONS: [&str; 5] = [
             "CoCreateFreeThreadedMarshaler",
             "CoIncrementMTAUsage",
             "CoTaskMemAlloc",
@@ -50,33 +32,24 @@ impl MethodDef {
         ];
 
         // Workaround for https://github.com/microsoft/windows-rs/pull/3743
-        if combase_functions.contains(&self.name()) {
+        if COMBASE_FUNCTIONS.contains(&self.name()) {
             "combase.dll".to_string()
         } else {
             self.impl_map()
-                .map_or("", |map| map.scope().name())
+                .map_or("", |map| {
+                    let scope = map.import_scope();
+                    // AsRow::str with column 0 (Name) returns &'static str for ModuleRef<'static>
+                    let name: &'static str = AsRow::str(&scope, 0); // column 0 = Name
+                    name
+                })
                 .to_lowercase()
         }
     }
 
-    pub fn calling_convention(&self) -> &'static str {
-        self.impl_map().map_or("", |map| {
-            let flags = map.flags();
-
-            if flags.contains(PInvokeAttributes::CallConvPlatformapi) {
-                "system"
-            } else if flags.contains(PInvokeAttributes::CallConvCdecl) {
-                "C"
-            } else {
-                ""
-            }
-        })
-    }
-
     #[track_caller]
-    pub fn signature(&self, namespace: &str, generics: &[Type]) -> Signature {
+    fn method_signature(&self, namespace: &str, generics: &[Type]) -> Signature {
         let mut blob = self.blob(4);
-        let call_flags = MethodCallAttributes(blob.read_usize() as u8);
+        let call_flags = MethodCallAttributes(blob.read_u8());
         let _param_count = blob.read_usize();
         let mut return_type = Type::from_blob(&mut blob, None, generics);
 
@@ -101,7 +74,8 @@ impl MethodDef {
 
                     if let Some(attribute) = param.find_attribute("AssociatedEnumAttribute") {
                         if let Some((_, Value::Str(name))) = attribute.args().first() {
-                            let overload = param.reader().unwrap_full_name(namespace, name);
+                            let overload =
+                                current_reader().unwrap_full_name(namespace, name);
 
                             ty = Type::PrimitiveOrEnum(Box::new(ty), Box::new(overload));
                         }

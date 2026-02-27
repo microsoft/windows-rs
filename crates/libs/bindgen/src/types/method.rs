@@ -10,7 +10,7 @@ pub struct Method {
 
 impl Method {
     pub fn new(def: MethodDef, generics: &[Type]) -> Self {
-        let signature = def.signature("", generics);
+        let signature = def.method_signature("", generics);
         let dependencies = signature.dependencies();
 
         Self {

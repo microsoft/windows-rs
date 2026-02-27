@@ -1,21 +1,14 @@
 use super::*;
 
-impl std::fmt::Debug for TypeRef {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        write!(f, "TypeRef({})", self.type_name())
-    }
+pub trait TypeRefExt {
+    fn type_name(&self) -> TypeName;
 }
 
-impl TypeRef {
-    pub fn type_name(&self) -> TypeName {
-        TypeName(self.namespace(), self.name())
-    }
-
-    pub fn name(&self) -> &'static str {
-        trim_tick(self.str(1))
-    }
-
-    pub fn namespace(&self) -> &'static str {
-        self.str(2)
+impl TypeRefExt for TypeRef {
+    fn type_name(&self) -> TypeName {
+        // Safety: TypeRef<'static> references data in a 'static TypeIndex.
+        let ns: &'static str = unsafe { std::mem::transmute(self.namespace()) };
+        let name: &'static str = unsafe { std::mem::transmute(self.name()) };
+        TypeName(ns, trim_tick(name))
     }
 }

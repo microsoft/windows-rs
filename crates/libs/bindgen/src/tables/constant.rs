@@ -1,20 +1,20 @@
 use super::*;
 
-impl std::fmt::Debug for Constant {
-    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
-        f.debug_tuple("Constant").field(&self.value()).finish()
-    }
+pub trait ConstantExt {
+    fn constant_type(&self) -> Type;
+    fn constant_value(&self) -> Value;
 }
 
-impl Constant {
-    pub fn ty(&self) -> Type {
-        Type::from_element_type(self.usize(0)).unwrap()
+impl ConstantExt for Constant {
+    fn constant_type(&self) -> Type {
+        Type::from_element_type(self.ty().code() as usize)
+            .unwrap_or_else(|| panic!("unexpected constant element type: {}", self.ty().code()))
     }
 
-    pub fn value(&self) -> Value {
+    fn constant_value(&self) -> Value {
         let mut blob = self.blob(2);
 
-        match self.ty() {
+        match self.constant_type() {
             Type::I8 => Value::I8(blob.read_i8()),
             Type::U8 => Value::U8(blob.read_u8()),
             Type::I16 => Value::I16(blob.read_i16()),
