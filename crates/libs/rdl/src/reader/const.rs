@@ -52,7 +52,7 @@ fn encode_const_guid(
 
     let guid_typeref = encoder
         .output
-        .TypeRef("Windows.Win32.Foundation.Metadata", "GuidAttribute");
+        .TypeRef("Windows.Foundation.Metadata", "GuidAttribute");
 
     let signature = metadata::Signature {
         flags: metadata::MethodCallAttributes::HASTHIS,
