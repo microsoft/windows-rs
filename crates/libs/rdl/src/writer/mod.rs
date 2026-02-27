@@ -211,13 +211,12 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
         });
 
     let value = format!(
-        "0x{:08x}_{:04x}_{:04x}_{:04x}_{:04x}_{:08x}",
+        "0x{:08x}_{:04x}_{:04x}_{:04x}_{:012x}",
         (value >> 96) as u32,
         (value >> 80) as u16,
         (value >> 64) as u16,
         (value >> 48) as u16,
-        (value >> 32) as u16,
-        value as u32,
+        value as u64 & 0xffffffffffff,
     );
 
     let literal = syn::LitInt::new(&value, proc_macro2::Span::call_site());
