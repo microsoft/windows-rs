@@ -34,12 +34,11 @@ pub type RowIterator<R> = windows_metadata::reader::RowIterator<'static, R>;
 pub type Blob = windows_metadata::reader::Blob<'static>;
 pub type File = windows_metadata::reader::File;
 
-pub use windows_metadata::{
-    FieldAttributes, MethodAttributes, ParamAttributes, TypeAttributes,
-    PInvokeAttributes,
-};
-pub use windows_metadata::HasAttributes;
 pub use windows_metadata::reader::AsRow;
+pub use windows_metadata::HasAttributes;
+pub use windows_metadata::{
+    FieldAttributes, MethodAttributes, PInvokeAttributes, ParamAttributes, TypeAttributes,
+};
 
 // MethodCallAttributes: we define our own version with a public inner field so that
 // we can construct it from raw bytes read out of method signature blobs.
@@ -55,21 +54,31 @@ impl MethodCallAttributes {
 }
 impl std::ops::BitOr for MethodCallAttributes {
     type Output = Self;
-    fn bitor(self, other: Self) -> Self { Self(self.0 | other.0) }
+    fn bitor(self, other: Self) -> Self {
+        Self(self.0 | other.0)
+    }
 }
 impl std::ops::BitAnd for MethodCallAttributes {
     type Output = Self;
-    fn bitand(self, other: Self) -> Self { Self(self.0 & other.0) }
+    fn bitand(self, other: Self) -> Self {
+        Self(self.0 & other.0)
+    }
 }
 impl std::ops::BitOrAssign for MethodCallAttributes {
-    fn bitor_assign(&mut self, other: Self) { self.0 |= other.0; }
+    fn bitor_assign(&mut self, other: Self) {
+        self.0 |= other.0;
+    }
 }
 impl std::ops::BitAndAssign for MethodCallAttributes {
-    fn bitand_assign(&mut self, other: Self) { self.0 &= other.0; }
+    fn bitand_assign(&mut self, other: Self) {
+        self.0 &= other.0;
+    }
 }
 impl std::ops::Not for MethodCallAttributes {
     type Output = Self;
-    fn not(self) -> Self { Self(!self.0) }
+    fn not(self) -> Self {
+        Self(!self.0)
+    }
 }
 
 // ELEMENT_TYPE constants (matching the values in ECMA-335 / metadata spec).
@@ -125,9 +134,8 @@ impl BlobExt for Blob {
         let len = self.read_compressed();
         // Safety: Blob<'static> Deref gives &'static [u8] backed by the heap-pinned TypeIndex.
         let ptr = self.as_ptr();
-        let s: &'static str = unsafe {
-            std::str::from_utf8_unchecked(std::slice::from_raw_parts(ptr, len))
-        };
+        let s: &'static str =
+            unsafe { std::str::from_utf8_unchecked(std::slice::from_raw_parts(ptr, len)) };
         // Advance past the string bytes by consuming them one by one.
         for _ in 0..len {
             self.read_u8();

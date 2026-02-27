@@ -139,7 +139,10 @@ impl CppConst {
 
 impl Dependencies for CppConst {
     fn combine(&self, dependencies: &mut TypeMap) {
-        self.field.field_type(None).to_const_type().combine(dependencies);
+        self.field
+            .field_type(None)
+            .to_const_type()
+            .combine(dependencies);
     }
 }
 

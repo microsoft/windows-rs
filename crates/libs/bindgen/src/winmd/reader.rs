@@ -53,8 +53,7 @@ impl Reader {
 
         // Safety: TypeIndex is heap-allocated and never moved. We extend its lifetime to 'static
         // so that TypeDef<'static>, Field<'static>, etc. can be stored in the map.
-        let index_ref: &'static windows_metadata::reader::TypeIndex =
-            unsafe { &*index_ptr };
+        let index_ref: &'static windows_metadata::reader::TypeIndex = unsafe { &*index_ptr };
 
         let mut reader = Box::new(Self {
             map: HashMap::new(),
@@ -124,10 +123,7 @@ impl Reader {
                                 insert(
                                     types,
                                     method_name,
-                                    Type::CppFn(CppFn {
-                                        namespace,
-                                        method,
-                                    }),
+                                    Type::CppFn(CppFn { namespace, method }),
                                 );
                             }
 
@@ -136,10 +132,7 @@ impl Reader {
                                 insert(
                                     types,
                                     field_name,
-                                    Type::CppConst(CppConst {
-                                        namespace,
-                                        field,
-                                    }),
+                                    Type::CppConst(CppConst { namespace, field }),
                                 );
                             }
                         }
@@ -157,10 +150,7 @@ impl Reader {
                                     insert(
                                         types,
                                         field_name,
-                                        Type::CppConst(CppConst {
-                                            namespace,
-                                            field,
-                                        }),
+                                        Type::CppConst(CppConst { namespace, field }),
                                     );
                                 }
                             }

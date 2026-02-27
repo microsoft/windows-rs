@@ -84,7 +84,9 @@ impl Struct {
     }
 
     pub fn is_copyable(&self) -> bool {
-        self.def.fields().all(|field| field.field_type(None).is_copyable())
+        self.def
+            .fields()
+            .all(|field| field.field_type(None).is_copyable())
     }
 
     pub fn size(&self) -> usize {
