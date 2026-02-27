@@ -26,3 +26,15 @@ pub fn param(encoder: &mut Encoder, param: &syn::PatType) -> Result<Param, Error
         attributes,
     })
 }
+
+pub fn bare_param(encoder: &mut Encoder, param: &syn::BareFnArg) -> Result<Param, Error> {
+    let Some((ref name, _)) = param.name else {
+        return encoder.err(param, "param name not found");
+    };
+
+    Ok(Param {
+        name: name.unraw_to_string(),
+        ty: encode_type(encoder, &param.ty)?,
+        attributes: metadata::ParamAttributes::In,
+    })
+}

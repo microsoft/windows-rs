@@ -1,0 +1,16 @@
+#[winrt]
+mod Test {
+    attribute ActivatableAttribute {
+        fn(version: u32);
+        fn(version: u32, r#type: String);
+        fn(version: u32, platform: Platform);
+        fn(r#type: Type, version: u32);
+        fn(r#type: Type, version: u32, contractName: String);
+        fn(r#type: Type, version: u32, platform: Platform);
+    }
+    #[repr(i32)]
+    enum Platform {
+        Windows = 0,
+        WindowsPhone = 1,
+    }
+}
