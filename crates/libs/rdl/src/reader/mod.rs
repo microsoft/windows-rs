@@ -1,3 +1,4 @@
+mod attribute;
 mod class;
 mod r#const;
 mod delegate;
@@ -10,6 +11,7 @@ mod r#struct;
 mod union;
 
 use super::*;
+use attribute::*;
 use class::*;
 use delegate::*;
 use index::*;
@@ -353,6 +355,7 @@ fn encode_item(
         syntax::Item::Const(ty) => encode_const(encoder, ty),
         syntax::Item::Class(ty) => encode_class(encoder, ty),
         syntax::Item::Delegate(ty) => encode_delegate(encoder, ty),
+        syntax::Item::Attribute(ty) => encode_attribute(encoder, ty),
         rest => todo!("{rest:?}"),
     }
 }
@@ -542,6 +545,7 @@ fn encode_path(encoder: &Encoder, ty: &syn::Path) -> Result<metadata::Type, Erro
             "isize" => return Ok(metadata::Type::ISize),
             "usize" => return Ok(metadata::Type::USize),
             "String" => return Ok(metadata::Type::String),
+            "Type" => return Ok(metadata::Type::named("System", "Type")),
             "Object" => return Ok(metadata::Type::Object),
             "GUID" => return Ok(("System", "Guid").into()),
             "HRESULT" => return Ok(("Windows.Metadata", "HRESULT").into()),
@@ -582,5 +586,16 @@ fn encode_return_type(encoder: &Encoder, ty: &syn::ReturnType) -> Result<metadat
     match ty {
         syn::ReturnType::Type(_, ty) => encode_type(encoder, ty),
         _ => Ok(metadata::Type::Void),
+    }
+}
+
+trait IdentMethods {
+    fn unraw_to_string(&self) -> String;
+}
+
+impl IdentMethods for syn::Ident {
+    fn unraw_to_string(&self) -> String {
+        use syn::ext::IdentExt;
+        self.unraw().to_string()
     }
 }

@@ -2,19 +2,15 @@ use super::*;
 
 #[derive(Debug)]
 pub enum Item {
-    // WinRT/Win32 types
-    // Attribute(ItemAttribute)
+    Attribute(Attribute),
     Class(Class),
     Delegate(Delegate),
     Enum(Enum),
     Interface(Interface),
     Struct(Struct),
     Union(Union),
-    // Win32 functions and constants
     Fn(Fn),
     Const(Const),
-
-    // Nested namespace
     Module(Module),
     // For convenience but not expressed in metadata
     // Use(ItemUse),
@@ -29,6 +25,7 @@ impl Item {
             | Self::Const(Const { attrs, .. })
             | Self::Class(Class { attrs, .. })
             | Self::Interface(Interface { attrs, .. })
+            | Self::Attribute(Attribute { attrs, .. })
             | Self::Module(Module { attrs, .. })
             | Self::Struct(Struct { attrs, .. })
             | Self::Delegate(Delegate { attrs, .. })
@@ -46,6 +43,7 @@ impl std::fmt::Display for Item {
             Self::Class(item) => item.name.fmt(f),
             Self::Delegate(item) => item.sig.ident.fmt(f),
             Self::Interface(item) => item.name.fmt(f),
+            Self::Attribute(item) => item.name.fmt(f),
             Self::Struct(item) => match &item.name {
                 Some(name) => name.fmt(f),
                 None => write!(f, "<unnamed struct>"),
@@ -69,6 +67,8 @@ impl syn::parse::Parse for Item {
             input.parse().map(Item::Module)
         } else if lookahead.peek(interface) {
             input.parse().map(Item::Interface)
+        } else if lookahead.peek(attribute) {
+            input.parse().map(Item::Attribute)
         } else if lookahead.peek(syn::Token![union]) {
             input.parse().map(Item::Union)
         } else if lookahead.peek(syn::Token![fn]) {
