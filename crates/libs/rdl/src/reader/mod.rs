@@ -171,6 +171,9 @@ fn resolve_winrt(
         syntax::Item::Delegate(item) => {
             item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
         }
+        syntax::Item::Attribute(item) => {
+            item.winrt = read_winrt_expected(source_file, &item.token, &item.attrs, parent)?;
+        }
         syntax::Item::Module(item) => {
             let parent = read_winrt(source_file, &item.token, &item.attrs, parent)?;
 
