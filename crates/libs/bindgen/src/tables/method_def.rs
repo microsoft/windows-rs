@@ -9,8 +9,9 @@ pub trait MethodDefExt {
 impl MethodDefExt for MethodDef {
     fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
-            // ImplMap<'static>::import_name() returns &'static str since 'a = 'static.
-            let import_name = map.import_name();
+            // Safety: map is ImplMap<'static>. import_name() returns &str with lifetime
+            // elided to &self, but the string data lives in the heap-pinned 'static TypeIndex.
+            let import_name: &'static str = unsafe { std::mem::transmute(map.import_name()) };
             if self.name() != import_name {
                 Some(import_name)
             } else {
@@ -34,8 +35,10 @@ impl MethodDefExt for MethodDef {
         } else {
             self.impl_map()
                 .map_or("", |map| {
-                    // ModuleRef<'static>::name() returns &'static str since 'a = 'static.
-                    map.import_scope().name()
+                    // Safety: import_scope() returns ModuleRef<'static>. name() returns &str
+                    // with lifetime elided to &self (the temporary), but the string data
+                    // lives in the heap-pinned 'static TypeIndex.
+                    unsafe { std::mem::transmute::<&str, &'static str>(map.import_scope().name()) }
                 })
                 .to_lowercase()
         }
