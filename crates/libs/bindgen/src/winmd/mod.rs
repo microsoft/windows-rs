@@ -184,7 +184,11 @@ impl MemberRefParentExt for MemberRefParent {
     }
 }
 
-// Extension trait providing reader() access on all table row types.
+/// Extension trait providing `reader()` access on all table row types.
+///
+/// # Panics
+/// Panics if called before `Reader::new()` has completed or after the `Reader` is dropped,
+/// since this accesses the thread-local `CURRENT_READER` pointer.
 pub trait HasReader {
     fn reader(&self) -> &'static Reader {
         current_reader()

@@ -9,12 +9,9 @@ pub trait MethodDefExt {
 impl MethodDefExt for MethodDef {
     fn import_name(&self) -> Option<&'static str> {
         self.impl_map().and_then(|map| {
-            // Use AsRow::str directly with column 2 (ImportName) to get &'static str.
-            // import_name() has implicit lifetime elision that ties to &self, but the
-            // actual string data lives in the 'static TypeIndex.
-            let import_name: &'static str = AsRow::str(&map, 2); // column 2 = ImportName
-            let self_name: &'static str = self.name();
-            if self_name != import_name {
+            // ImplMap<'static>::import_name() returns &'static str since 'a = 'static.
+            let import_name = map.import_name();
+            if self.name() != import_name {
                 Some(import_name)
             } else {
                 None
@@ -37,10 +34,8 @@ impl MethodDefExt for MethodDef {
         } else {
             self.impl_map()
                 .map_or("", |map| {
-                    let scope = map.import_scope();
-                    // AsRow::str with column 0 (Name) returns &'static str for ModuleRef<'static>
-                    let name: &'static str = AsRow::str(&scope, 0); // column 0 = Name
-                    name
+                    // ModuleRef<'static>::name() returns &'static str since 'a = 'static.
+                    map.import_scope().name()
                 })
                 .to_lowercase()
         }

@@ -23,7 +23,9 @@ pub struct Reader {
     index: *mut windows_metadata::reader::TypeIndex,
 }
 
-// Safety: Reader is only used from a single thread at a time (thread-local pointer).
+// Safety: The `index` raw pointer is owned exclusively by this Reader (created via
+// Box::into_raw and freed in Drop). The `map` contains only 'static data derived from
+// the heap-pinned TypeIndex. There is no shared mutable state.
 unsafe impl Send for Reader {}
 unsafe impl Sync for Reader {}
 
