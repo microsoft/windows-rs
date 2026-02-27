@@ -219,7 +219,7 @@ fn write_const_guid(_namespace: &str, item: &metadata::reader::Field) -> TokenSt
         value as u64 & 0xffffffffffff,
     );
 
-    let literal = syn::LitInt::new(&value, proc_macro2::Span::call_site());
+    let literal = syn::LitInt::new(&value, Span::call_site());
     quote! { const #name: GUID = #literal; }
 }
 
