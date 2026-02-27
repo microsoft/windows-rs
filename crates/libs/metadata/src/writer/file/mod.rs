@@ -443,7 +443,12 @@ impl File {
 
         // Technically this should be ELEMENT_TYPE_CLASS if the type is not a value type but that requires more contextual information.
         // TODO: we could replace Type::Name with Type::Value and Type::Class to provide this context if needed.
-        buffer.push(ELEMENT_TYPE_CLASS);
+        let is_value_type = namespace == "System" && name == "Guid";
+        buffer.push(if is_value_type {
+            ELEMENT_TYPE_VALUETYPE
+        } else {
+            ELEMENT_TYPE_CLASS
+        });
         buffer.write_compressed(TypeDefOrRef::TypeRef(pos).encode() as usize);
 
         if !generics.is_empty() {
