@@ -109,8 +109,8 @@ code! { TypeOrMethodDef(1)
     (TypeDef, 0)
 }
 
-impl TypeDefOrRef<'_> {
-    pub fn namespace(&self) -> &str {
+impl<'a> TypeDefOrRef<'a> {
+    pub fn namespace(&self) -> &'a str {
         match self {
             Self::TypeDef(row) => row.namespace(),
             Self::TypeRef(row) => row.namespace(),
@@ -118,7 +118,7 @@ impl TypeDefOrRef<'_> {
         }
     }
 
-    pub fn name(&self) -> &str {
+    pub fn name(&self) -> &'a str {
         match self {
             Self::TypeDef(row) => row.name(),
             Self::TypeRef(row) => row.name(),

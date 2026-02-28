@@ -99,12 +99,7 @@ pub trait TypeDefOrRefExt {
 
 impl TypeDefOrRefExt for TypeDefOrRef {
     fn type_name(&self) -> TypeName {
-        // Safety: TypeDefOrRef<'static> references data in a 'static TypeIndex.
-        // The implicit lifetime elision in namespace()/name() ties to &self, but
-        // the actual string data lives as long as the TypeIndex (which is 'static).
-        let ns: &'static str = unsafe { std::mem::transmute(self.namespace()) };
-        let name: &'static str = unsafe { std::mem::transmute(self.name()) };
-        TypeName(ns, windows_metadata::trim_tick(name))
+        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
     }
 }
 
@@ -115,10 +110,7 @@ pub trait MemberRefParentExt {
 
 impl MemberRefParentExt for MemberRefParent {
     fn type_name(&self) -> TypeName {
-        // Safety: same reasoning as TypeDefOrRefExt::type_name.
-        let ns: &'static str = unsafe { std::mem::transmute(self.namespace()) };
-        let name: &'static str = unsafe { std::mem::transmute(self.name()) };
-        TypeName(ns, windows_metadata::trim_tick(name))
+        TypeName(self.namespace(), windows_metadata::trim_tick(self.name()))
     }
 }
 
